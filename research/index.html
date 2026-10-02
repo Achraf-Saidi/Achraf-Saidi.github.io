@@ -1,12 +1,16 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Research — Achraf Saidi</title><link rel="stylesheet" href="../assets/styles.css"></head><body>
-<nav class="nav"><div class="container nav-inner"><a class="brand" href="../index.html">ACHRAF SAIDI</a><div class="nav-links"><a aria-current="page" href="index.html">Research</a><a href="../projects/index.html">Projects</a><a href="../teaching/index.html">Teaching</a><a href="../writing/index.html">Writing</a><a href="../about/index.html">About</a></div></div></nav>
-<main><section class="page-head"><div class="container"><div class="eyebrow">Research</div><h1>Reliable prediction under change.</h1><p>My doctoral direction sits at the intersection of calibration, sequential inference, survival analysis and machine learning. The central question is how to monitor and maintain trustworthy predictive performance when data arrive over time and outcomes may be delayed or censored.</p></div></section>
-<section class="section"><div class="container prose">
-<h2>Core research problem</h2><p>Many predictive models are evaluated once on a fixed test set. Real deployments are different: populations change, clinical practice evolves, covariate distributions shift and outcomes can arrive late. A model that was well calibrated at deployment may therefore become unreliable.</p>
-<p>The research challenge becomes harder in time-to-event settings. With censoring, the true outcome at a fixed horizon may not yet be observed for every individual. Standard corrections such as inverse-probability-of-censoring weighting depend on a censoring model, and misspecification can itself distort the apparent calibration signal.</p>
-<h2>Research directions</h2>
-<div class="grid"><article class="card wide"><h3>Sequential calibration</h3><p>Methods that allow repeated monitoring of predictive calibration over time while controlling false alarms.</p></article><article class="card wide"><h3>Censoring-aware monitoring</h3><p>Valid monitoring procedures for survival outcomes, including uncertainty introduced by estimating the censoring mechanism.</p></article><article class="card wide"><h3>Adaptive nuisance estimation</h3><p>Studying how flexible statistical or machine-learning models for nuisance quantities can be integrated without invalidating sequential guarantees.</p></article><article class="card wide"><h3>Medical prediction</h3><p>Applications where reliable risk estimates matter operationally and where population shift, delayed outcomes and heterogeneous subgroups are realistic.</p></article></div>
-<h2>Methods I work with</h2><p>Sequential inference and e-processes, calibration diagnostics, survival analysis, IPCW, statistical learning, machine learning, deep learning, simulation studies, optimization and reproducible computational experiments.</p>
-<div class="note"><strong>Status:</strong> this page describes my current doctoral research direction. Specific paper titles and claims will be added only when the corresponding work is public.</div>
-</div></section></main>
-<footer class="footer"><div class="container footer-inner"><span>© <span data-year></span> Achraf Saidi</span><span><a href="https://github.com/Achraf-Saidi">GitHub</a></span></div></footer><script src="../assets/site.js"></script></body></html>
+<nav class="nav"><div class="container nav-inner"><a class="brand" href="../index.html">ACHRAF SAIDI</a><div class="nav-links"><a aria-current="page" href="index.html">Research</a><a href="../projects/index.html">Experience</a><a href="../teaching/index.html">Teaching</a><a href="../writing/index.html">Notes</a><a href="../about/index.html">About</a></div></div></nav>
+<main>
+<section class="page-head"><div class="container"><div class="eyebrow">Research</div><h1>Statistics and machine learning.</h1><p>I am a PhD researcher at UCLouvain, within ISBA and LIDAM. My main interests are calibration, survival analysis, statistical learning and machine learning.</p></div></section>
+
+<section class="section"><div class="container">
+  <div class="grid">
+    <article class="card wide"><h3>Calibration</h3><p>I am interested in the reliability of predictive models and in how their predictions can be evaluated in practice.</p></article>
+    <article class="card wide"><h3>Survival analysis</h3><p>Time-to-event data and the statistical questions that arise when outcomes are observed over time.</p></article>
+    <article class="card wide"><h3>Machine learning</h3><p>Statistical learning, modern machine-learning methods and their use on real problems.</p></article>
+    <article class="card wide"><h3>Applied statistics</h3><p>I enjoy the point where theory, computation and real data meet.</p></article>
+  </div>
+  <p class="quiet-note">I intentionally keep ongoing doctoral work at a high level on this site. More detailed descriptions will be added once the corresponding work is public.</p>
+</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>© <span data-year></span> Achraf Saidi</span><span>ISBA · LIDAM · UCLouvain</span></div></footer><script src="../assets/site.js"></script></body></html>
