@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CV Match Lab — Free Private ATS Match Checker</title>
+  <meta name="description" content="Compare your CV with a job description in seconds. Private, free, no signup: everything runs locally in your browser.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="CV Match Lab — Free Private ATS Match Checker">
+  <meta property="og:description" content="Paste your CV and a job description. Get a transparent match analysis without uploading your data.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://achraf-saidi.github.io/cv-match-lab/">
+  <link rel="canonical" href="https://achraf-saidi.github.io/cv-match-lab/">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"CV Match Lab",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Any",
+    "url":"https://achraf-saidi.github.io/cv-match-lab/",
+    "description":"A free, privacy-first heuristic CV-to-job-description match checker that runs locally in the browser.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="CV Match Lab home">
+      <span class="brand-mark">CM</span>
+      <span>CV Match Lab</span>
+    </a>
+    <div class="top-actions">
+      <button id="langBtn" class="ghost" type="button" aria-label="Switch language">FR</button>
+      <a id="supportTop" class="support-link hidden" href="#" target="_blank" rel="noopener noreferrer">Support this tool</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow" data-i18n="eyebrow">Free · Private · No signup</div>
+      <h1 data-i18n="heroTitle">See how well your CV matches a job description.</h1>
+      <p class="hero-copy" data-i18n="heroCopy">Paste both texts and get a transparent heuristic match score, missing keywords, strengths and concrete improvements. Your text never leaves your browser.</p>
+      <div class="privacy-pill">🔒 <span data-i18n="privacy">100% local processing — nothing is uploaded.</span></div>
+    </section>
+
+    <section class="workspace" aria-label="CV matcher">
+      <div class="input-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="step">1</span>
+              <h2 data-i18n="cvTitle">Your CV</h2>
+            </div>
+            <span id="cvCount" class="count">0 words</span>
+          </div>
+          <textarea id="cvText" spellcheck="false" data-i18n-placeholder="cvPlaceholder" placeholder="Paste your CV text here…"></textarea>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="step">2</span>
+              <h2 data-i18n="jobTitle">Job description</h2>
+            </div>
+            <span id="jobCount" class="count">0 words</span>
+          </div>
+          <textarea id="jobText" spellcheck="false" data-i18n-placeholder="jobPlaceholder" placeholder="Paste the job description here…"></textarea>
+        </article>
+      </div>
+
+      <div class="run-row">
+        <button id="sampleBtn" class="secondary" type="button" data-i18n="sample">Load example</button>
+        <button id="analyzeBtn" class="primary" type="button" data-i18n="analyze">Analyze match</button>
+        <button id="clearBtn" class="secondary" type="button" data-i18n="clear">Clear</button>
+      </div>
+    </section>
+
+    <section id="results" class="results hidden" aria-live="polite">
+      <div class="result-summary">
+        <article class="score-card">
+          <div class="score-ring" id="scoreRing" style="--score:0">
+            <div><strong id="scoreValue">0</strong><span>/100</span></div>
+          </div>
+          <div>
+            <div id="scoreLabel" class="score-label">—</div>
+            <p id="scoreExplanation" class="muted"></p>
+          </div>
+        </article>
+
+        <article class="metric-card">
+          <span data-i18n="keywordCoverage">Keyword coverage</span>
+          <strong id="coverageValue">0%</strong>
+          <small data-i18n="keywordCoverageDesc">Important terms from the job description found in your CV</small>
+        </article>
+
+        <article class="metric-card">
+          <span data-i18n="semanticOverlap">Text similarity</span>
+          <strong id="similarityValue">0%</strong>
+          <small data-i18n="semanticOverlapDesc">TF-IDF cosine similarity between both texts</small>
+        </article>
+
+        <article class="metric-card">
+          <span data-i18n="actionStrength">Action language</span>
+          <strong id="actionValue">0</strong>
+          <small data-i18n="actionStrengthDesc">Detected action verbs in your CV</small>
+        </article>
+      </div>
+
+      <div class="detail-grid">
+        <article class="panel result-panel">
+          <div class="panel-head compact">
+            <h2 data-i18n="missingTitle">Missing high-value terms</h2>
+            <span id="missingCount" class="count"></span>
+          </div>
+          <p class="muted" data-i18n="missingDesc">Only add terms that genuinely describe your experience.</p>
+          <div id="missingKeywords" class="chips"></div>
+        </article>
+
+        <article class="panel result-panel">
+          <div class="panel-head compact">
+            <h2 data-i18n="matchedTitle">Matched terms</h2>
+            <span id="matchedCount" class="count"></span>
+          </div>
+          <p class="muted" data-i18n="matchedDesc">These relevant terms already appear in your CV.</p>
+          <div id="matchedKeywords" class="chips good"></div>
+        </article>
+      </div>
+
+      <article class="panel suggestions">
+        <h2 data-i18n="suggestionsTitle">What to improve</h2>
+        <div id="suggestionsList" class="suggestion-list"></div>
+      </article>
+
+      <div class="share-row">
+        <button id="copyBtn" class="secondary" type="button" data-i18n="copyResult">Copy summary</button>
+        <button id="shareBtn" class="secondary" type="button" data-i18n="share">Share tool</button>
+        <a id="supportBottom" class="primary support-link hidden" href="#" target="_blank" rel="noopener noreferrer" data-i18n="support">Support this free tool</a>
+      </div>
+    </section>
+
+    <section class="how">
+      <div>
+        <div class="eyebrow" data-i18n="howEyebrow">How it works</div>
+        <h2 data-i18n="howTitle">Useful signal, not fake certainty.</h2>
+      </div>
+      <div class="how-grid">
+        <article>
+          <span>01</span>
+          <h3 data-i18n="how1Title">Extract relevant terms</h3>
+          <p data-i18n="how1Text">The tool removes common stopwords, weighs repeated job-specific terms and keeps the most informative keywords.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3 data-i18n="how2Title">Measure overlap</h3>
+          <p data-i18n="how2Text">It combines keyword coverage with TF-IDF cosine similarity and several CV quality signals.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3 data-i18n="how3Title">Explain the result</h3>
+          <p data-i18n="how3Text">Instead of pretending to reproduce a recruiter’s ATS, it shows exactly what was matched and what was missing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary data-i18n="faq1q">Is this an official ATS score?</summary>
+        <p data-i18n="faq1a">No. ATS products use different ranking rules. This is a transparent heuristic diagnostic designed to help you tailor a CV, not predict a recruiter’s exact score.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq2q">Do you store my CV?</summary>
+        <p data-i18n="faq2a">No. The analysis is performed locally in your browser. This site has no CV upload endpoint and no account system.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq3q">Should I copy every missing keyword?</summary>
+        <p data-i18n="faq3a">No. Only use terminology that truthfully reflects your skills and experience. Keyword stuffing can make a CV worse.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>CV Match Lab · <span data-i18n="footer">A small privacy-first project by Achraf Saidi.</span></p>
+    <a href="https://github.com/Achraf-Saidi" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
