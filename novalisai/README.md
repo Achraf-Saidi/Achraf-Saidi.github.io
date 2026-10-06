@@ -6,6 +6,7 @@ Vitrine claire et responsive en **français, anglais, néerlandais et allemand**
 
 - Site : https://achraf-saidi.github.io/novalisai/
 - Français : `fr/` — English : `en/` — Nederlands : `nl/` — Deutsch : `de/`
+- Aperçu de la vitrine : [qa/preview.jpg](qa/preview.jpg).
 - Revue des formats : `qa/responsive.html` (page de contrôle, non indexée et absente de la navigation publique).
 
 ## Modifier
