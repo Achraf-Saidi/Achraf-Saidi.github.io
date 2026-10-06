@@ -19,10 +19,10 @@
     "hero_label": "IA appliquée & logiciels sur mesure",
     "hero_location": "Wavre, Belgique",
     "hero_title": [
-      "Du temps retrouvé.",
-      "Des idées concrétisées."
+      "Votre savoir-faire.",
+      "Notre ingénierie."
     ],
-    "hero_copy": "Vos équipes connaissent leur métier. Nous construisons les outils qui leur permettent de l’exercer mieux : logiciels sur mesure, processus fluides et IA là où elle crée de la valeur.",
+    "hero_copy": "Des logiciels sur mesure et une IA utile, conçus autour de votre façon de travailler. Nous partons du terrain pour relier vos outils, alléger vos processus et donner forme à vos idées.",
     "hero_note": "Un premier échange pour comprendre. Pas besoin d’un cahier des charges.",
     "hero_caption": "Relier les idées. Donner forme aux solutions.",
     "strip": [
@@ -134,7 +134,7 @@
     "method_note": "Un investissement progressif. Chaque étape a un objectif et un périmètre convenus.",
     "work_label": "03 / Expérience & réalisations",
     "work_title": "Des sujets exigeants.\nDes solutions concrètes.",
-    "work_intro": "Une sélection de réalisations de Novalis AI et de travaux antérieurs d’Ashraf. Chaque projet précise son contexte ; les détails confidentiels restent protégés.",
+    "work_intro": "Une sélection de réalisations de Novalis AI et de travaux antérieurs d’Achraf. Chaque projet précise son contexte ; les détails confidentiels restent protégés.",
     "project_button": "Explorer le projet",
     "project_context": "Contexte",
     "project_approach": "Le travail réalisé",
@@ -145,7 +145,7 @@
         "sector": "Énergie & optimisation",
         "title": "Mieux piloter le stockage d’énergie",
         "summary": "Analyse et optimisation de batteries à grande échelle sur les marchés de l’électricité.",
-        "type": "Expérience d’Ashraf · mémoire de master",
+        "type": "Expérience d’Achraf · mémoire de master",
         "context": "Travail réalisé dans le secteur énergétique belge, au croisement des données de marché, des contraintes techniques et de la valeur économique.",
         "approach": "Modélisation de stratégies de dispatch, décisions sur les cycles de batteries et évaluation de leur performance.",
         "transfer": "Savoir formuler un problème économique, prendre en compte les contraintes et évaluer une décision avant de l’automatiser.",
@@ -160,7 +160,7 @@
         "sector": "Industrie & opérations",
         "title": "Structurer le suivi des projets",
         "summary": "Une application de gestion conçue autour des besoins d’un grand environnement industriel.",
-        "type": "Expérience professionnelle d’Ashraf",
+        "type": "Expérience professionnelle d’Achraf",
         "context": "Développement d’un système de gestion de projets pour un acteur industriel du secteur de l’énergie en Afrique.",
         "approach": "Analyse des workflows, conception des fonctionnalités de suivi et de reporting, puis développement de l’application.",
         "transfer": "Transformer un fonctionnement complexe en un outil métier cohérent, adapté aux personnes et aux processus existants.",
@@ -175,7 +175,7 @@
         "sector": "Santé & données",
         "title": "Rendre des données complexes lisibles",
         "summary": "METABRIC : exploration interactive de données cliniques et génomiques sur le cancer du sein.",
-        "type": "Projet académique & de recherche d’Ashraf",
+        "type": "Projet académique & de recherche d’Achraf",
         "context": "Un projet de recherche et de portfolio sur le jeu de données METABRIC, pas un outil de diagnostic clinique.",
         "approach": "Tableau de bord interactif, visualisations, sélection de variables, réduction de dimension et regroupement de profils.",
         "transfer": "Une pratique rigoureuse de l’analyse, de l’évaluation des modèles et de la restitution de données complexes.",
@@ -203,12 +203,12 @@
       }
     ],
     "work_foot": "Les contextes cités illustrent l’expérience des personnes impliquées ; ils n’impliquent pas un partenariat actuel avec leurs anciens employeurs ou institutions.",
-    "team_label": "04 / Les personnes derrière les outils",
+    "team_label": "05 / Les personnes derrière les outils",
     "team_title": "Un interlocuteur proche.\nLes bonnes expertises autour.",
-    "team_copy": "Ashraf Saidi, chercheur en intelligence artificielle et entrepreneur, conduit l’analyse de votre besoin et le cadrage de la solution. Autour de lui, une équipe de développement se compose selon le projet : logiciel, données, IA, intégration et design.",
+    "team_copy": "Achraf Saidi, chercheur en intelligence artificielle et entrepreneur, conduit l’analyse de votre besoin et le cadrage de la solution. Autour de lui, une équipe de développement se compose selon le projet : logiciel, données, IA, intégration et design.",
     "team_second": "L’expérience réunie couvre les environnements industriels, hospitaliers et les PME, en Belgique et à l’international. Des profils complémentaires, avec un pilotage clair et des échanges directs.",
     "team_links": [
-      "Le parcours d’Ashraf",
+      "Le parcours d’Achraf",
       "Notre équipe de développement"
     ],
     "team_principles": [
@@ -306,7 +306,51 @@
       "Cette vitrine est hébergée sur GitHub Pages. Les exemples présentent les activités de Novalis AI et des expériences antérieures de ses intervenants, avec leur contexte. Les propositions commerciales, délais et engagements sont définis dans un devis distinct.",
       "Le logo appartient à Novalis AI. Les textes et la conception du site sont réalisés pour Novalis AI. Les liens externes ouvrent des services indépendants."
     ],
-    "dialog_label": "Détails du projet"
+    "dialog_label": "Détails du projet",
+    "diagram_label": "Du besoin à la solution",
+    "diagram_title": "Votre activité, enfin reliée.",
+    "diagram_controls": "Comparer deux façons de travailler",
+    "diagram_before": "Aujourd’hui",
+    "diagram_after": "Avec Novalis",
+    "diagram_sources": [
+      "Documents",
+      "Logiciels",
+      "Équipes"
+    ],
+    "flow_tag": "Sur mesure + IA",
+    "flow_result_label": "À l’arrivée",
+    "diagram_note": "Schéma de principe · exemple d’un flux documentaire.",
+    "diagram_states": {
+      "before": {
+        "title": "Un travail dispersé",
+        "steps": [
+          "Retrouver les documents",
+          "Recopier entre les outils",
+          "Reconstituer le suivi"
+        ],
+        "human": "Votre équipe fait le lien à la main.",
+        "result": "Un dossier à rassembler"
+      },
+      "after": {
+        "title": "Un flux conçu pour vous",
+        "steps": [
+          "Comprendre la demande",
+          "Relier les informations",
+          "Préparer la prochaine action"
+        ],
+        "human": "Votre équipe garde la décision.",
+        "result": "Un dossier prêt à être validé"
+      }
+    },
+    "saas_label": "04 / Nos produits SaaS",
+    "saas_title": "Le sur-mesure aujourd’hui.\nLes produits de demain.",
+    "saas_copy": "Nous préparons aussi nos propres produits SaaS : des logiciels accessibles en ligne, pensés pour des besoins métier précis. Cet espace est en construction. Nos produits seront présentés ici lorsqu’ils seront prêts.",
+    "saas_service": "Vous avez une idée de SaaS ? Nous pouvons déjà vous accompagner pour concevoir et développer votre plateforme, du premier prototype au produit.",
+    "saas_cta": "Discuter de votre idée de SaaS",
+    "saas_status": "En construction",
+    "saas_teaser": "Des produits prennent forme.",
+    "saas_detail": "Notre futur espace produits. Chaque solution y sera présentée avec ses usages et ses fonctionnalités.",
+    "saas_stage": "À découvrir prochainement"
   },
   "en": {
     "title": "Novalis AI — Bespoke software & applied AI | Wavre, Belgium",
@@ -328,10 +372,10 @@
     "hero_label": "Applied AI & bespoke software",
     "hero_location": "Wavre, Belgium",
     "hero_title": [
-      "Time reclaimed.",
-      "Ideas brought to life."
+      "Your expertise.",
+      "Our engineering."
     ],
-    "hero_copy": "Your teams know their craft. We build the tools that help them do it better: bespoke software, smoother processes and AI where it creates real value.",
+    "hero_copy": "Bespoke software and useful AI, built around the way you work. We start with your daily operations to connect your tools, simplify your workflows and bring your ideas to life.",
     "hero_note": "A first conversation to understand. No technical brief needed.",
     "hero_caption": "Connecting ideas. Giving solutions their shape.",
     "strip": [
@@ -443,7 +487,7 @@
     "method_note": "A gradual investment. Each stage has an agreed objective and scope.",
     "work_label": "03 / Experience & selected work",
     "work_title": "Demanding problems.\nPractical solutions.",
-    "work_intro": "A selection of Novalis AI projects and Ashraf’s earlier work. Each project states its context; confidential details remain protected.",
+    "work_intro": "A selection of Novalis AI projects and Achraf’s earlier work. Each project states its context; confidential details remain protected.",
     "project_button": "Explore the project",
     "project_context": "Context",
     "project_approach": "The work",
@@ -454,7 +498,7 @@
         "sector": "Energy & optimisation",
         "title": "Better decisions for energy storage",
         "summary": "Analysis and optimisation of utility-scale batteries in electricity markets.",
-        "type": "Ashraf’s experience · master’s thesis",
+        "type": "Achraf’s experience · master’s thesis",
         "context": "Work in the Belgian energy sector, bringing together market data, technical constraints and economic value.",
         "approach": "Modelling dispatch strategies, battery-cycle decisions and performance evaluation.",
         "transfer": "Formulating an economic problem, accounting for constraints and evaluating a decision before automating it.",
@@ -469,7 +513,7 @@
         "sector": "Industry & operations",
         "title": "Making project tracking coherent",
         "summary": "A management application designed around the needs of a large industrial environment.",
-        "type": "Ashraf’s professional experience",
+        "type": "Achraf’s professional experience",
         "context": "Development of a project-management system for an industrial energy company in Africa.",
         "approach": "Workflow analysis, design of tracking and reporting features, and application development.",
         "transfer": "Turning complex operations into a coherent business tool that fits people and existing processes.",
@@ -484,7 +528,7 @@
         "sector": "Healthcare & data",
         "title": "Making complex data readable",
         "summary": "METABRIC: interactive exploration of clinical and genomic breast-cancer data.",
-        "type": "Ashraf’s academic & research project",
+        "type": "Achraf’s academic & research project",
         "context": "A research and portfolio project using the METABRIC dataset, rather than a clinical diagnostic tool.",
         "approach": "An interactive dashboard, visualisations, feature selection, dimensionality reduction and clustering.",
         "transfer": "A rigorous practice of analysis, model evaluation and communication of complex data.",
@@ -512,12 +556,12 @@
       }
     ],
     "work_foot": "These contexts illustrate the experience of the people involved; they do not imply a current partnership with former employers or institutions.",
-    "team_label": "04 / The people behind the tools",
+    "team_label": "05 / The people behind the tools",
     "team_title": "A close working relationship.\nThe right expertise around it.",
-    "team_copy": "Ashraf Saidi, an AI researcher and entrepreneur, leads the analysis of your needs and the scoping of your solution. Around him, a development team takes shape according to the project: software, data, AI, integration and design.",
+    "team_copy": "Achraf Saidi, an AI researcher and entrepreneur, leads the analysis of your needs and the scoping of your solution. Around him, a development team takes shape according to the project: software, data, AI, integration and design.",
     "team_second": "The combined experience spans industrial environments, hospitals and SMEs, in Belgium and internationally. Complementary skills, clear project leadership and direct conversations.",
     "team_links": [
-      "Ashraf’s background",
+      "Achraf’s background",
       "Our development team"
     ],
     "team_principles": [
@@ -615,7 +659,51 @@
       "This website is hosted on GitHub Pages. Examples describe Novalis AI’s activities and earlier experience of its contributors, with their context. Commercial proposals, deadlines and commitments are set out in a separate quote.",
       "The logo belongs to Novalis AI. Copy and website design were created for Novalis AI. External links lead to independent services."
     ],
-    "dialog_label": "Project details"
+    "dialog_label": "Project details",
+    "diagram_label": "From need to solution",
+    "diagram_title": "Your business, connected.",
+    "diagram_controls": "Compare two ways of working",
+    "diagram_before": "Today",
+    "diagram_after": "With Novalis",
+    "diagram_sources": [
+      "Documents",
+      "Software",
+      "People"
+    ],
+    "flow_tag": "Bespoke + AI",
+    "flow_result_label": "The outcome",
+    "diagram_note": "Concept diagram · an example document workflow.",
+    "diagram_states": {
+      "before": {
+        "title": "Work spread across tools",
+        "steps": [
+          "Find the documents",
+          "Copy between applications",
+          "Piece together the status"
+        ],
+        "human": "Your team connects everything by hand.",
+        "result": "A file still to assemble"
+      },
+      "after": {
+        "title": "A workflow built for you",
+        "steps": [
+          "Understand the request",
+          "Connect the information",
+          "Prepare the next action"
+        ],
+        "human": "Your team makes the decision.",
+        "result": "A file ready for review"
+      }
+    },
+    "saas_label": "04 / Our SaaS products",
+    "saas_title": "Bespoke solutions today.\nProducts for tomorrow.",
+    "saas_copy": "We are also preparing our own SaaS products: online software designed for specific business needs. This space is under construction. Our products will be presented here when they are ready.",
+    "saas_service": "Have a SaaS idea? We can already help you design and develop your platform, from the first prototype to the product.",
+    "saas_cta": "Discuss your SaaS idea",
+    "saas_status": "Under construction",
+    "saas_teaser": "New products are taking shape.",
+    "saas_detail": "Our future product space. Each solution will be presented with its uses and features.",
+    "saas_stage": "More to discover soon"
   },
   "nl": {
     "title": "Novalis AI — Software op maat & toegepaste AI | Waver, België",
@@ -637,10 +725,10 @@
     "hero_label": "Toegepaste AI & software op maat",
     "hero_location": "Waver, België",
     "hero_title": [
-      "Tijd teruggewonnen.",
-      "Ideeën waargemaakt."
+      "Uw vakkennis.",
+      "Onze technologie."
     ],
-    "hero_copy": "Uw teams kennen hun vak. Wij bouwen de tools waarmee ze het beter kunnen uitoefenen: software op maat, soepelere processen en AI waar die waarde toevoegt.",
+    "hero_copy": "Software op maat en nuttige AI, afgestemd op uw manier van werken. We vertrekken vanuit uw dagelijkse praktijk om uw tools te verbinden, processen te vereenvoudigen en ideeën vorm te geven.",
     "hero_note": "Een eerste gesprek om uw situatie te begrijpen. Geen technisch bestek nodig.",
     "hero_caption": "Ideeën verbinden. Oplossingen vormgeven.",
     "strip": [
@@ -752,7 +840,7 @@
     "method_note": "Een stapsgewijze investering. Elke fase heeft een afgesproken doel en omvang.",
     "work_label": "03 / Ervaring & geselecteerd werk",
     "work_title": "Veeleisende vraagstukken.\nConcrete oplossingen.",
-    "work_intro": "Een selectie van projecten van Novalis AI en eerder werk van Ashraf. Elk project vermeldt zijn context; vertrouwelijke details blijven beschermd.",
+    "work_intro": "Een selectie van projecten van Novalis AI en eerder werk van Achraf. Elk project vermeldt zijn context; vertrouwelijke details blijven beschermd.",
     "project_button": "Bekijk het project",
     "project_context": "Context",
     "project_approach": "Het uitgevoerde werk",
@@ -763,7 +851,7 @@
         "sector": "Energie & optimalisatie",
         "title": "Energieopslag beter aansturen",
         "summary": "Analyse en optimalisatie van grootschalige batterijen op de elektriciteitsmarkten.",
-        "type": "Ervaring van Ashraf · masterproef",
+        "type": "Ervaring van Achraf · masterproef",
         "context": "Werk in de Belgische energiesector, op het snijvlak van marktgegevens, technische beperkingen en economische waarde.",
         "approach": "Modellering van inzetstrategieën, keuzes over batterijcycli en evaluatie van prestaties.",
         "transfer": "Een economisch probleem formuleren, rekening houden met beperkingen en een beslissing evalueren vóór ze wordt geautomatiseerd.",
@@ -778,7 +866,7 @@
         "sector": "Industrie & operaties",
         "title": "Projectopvolging structureren",
         "summary": "Een beheertoepassing ontworpen voor de behoeften van een grote industriële omgeving.",
-        "type": "Professionele ervaring van Ashraf",
+        "type": "Professionele ervaring van Achraf",
         "context": "Ontwikkeling van een projectbeheersysteem voor een industriële energieonderneming in Afrika.",
         "approach": "Analyse van processen, ontwerp van opvolging en rapportering, gevolgd door de ontwikkeling van de toepassing.",
         "transfer": "Complexe activiteiten vertalen naar een samenhangende tool die past bij mensen en bestaande processen.",
@@ -793,7 +881,7 @@
         "sector": "Gezondheid & data",
         "title": "Complexe gegevens leesbaar maken",
         "summary": "METABRIC: interactieve verkenning van klinische en genomische gegevens over borstkanker.",
-        "type": "Academisch & onderzoeksproject van Ashraf",
+        "type": "Academisch & onderzoeksproject van Achraf",
         "context": "Een onderzoeks- en portfolioproject met de METABRIC-dataset, geen klinisch diagnosehulpmiddel.",
         "approach": "Interactief dashboard, visualisaties, variabelenselectie, dimensiereductie en clustering.",
         "transfer": "Een zorgvuldige aanpak van analyse, modelevaluatie en presentatie van complexe gegevens.",
@@ -821,12 +909,12 @@
       }
     ],
     "work_foot": "Deze contexten tonen de ervaring van de betrokken personen; ze impliceren geen huidig partnerschap met vroegere werkgevers of instellingen.",
-    "team_label": "04 / De mensen achter de tools",
+    "team_label": "05 / De mensen achter de tools",
     "team_title": "Een betrokken aanspreekpunt.\nDe juiste expertise eromheen.",
-    "team_copy": "Ashraf Saidi, onderzoeker in artificiële intelligentie en ondernemer, leidt de analyse van uw behoeften en de afbakening van de oplossing. Rond hem wordt een ontwikkelingsteam samengesteld volgens het project: software, data, AI, integratie en design.",
+    "team_copy": "Achraf Saidi, onderzoeker in artificiële intelligentie en ondernemer, leidt de analyse van uw behoeften en de afbakening van de oplossing. Rond hem wordt een ontwikkelingsteam samengesteld volgens het project: software, data, AI, integratie en design.",
     "team_second": "De gezamenlijke ervaring omvat industriële omgevingen, ziekenhuizen en kmo’s, in België en internationaal. Aanvullende vaardigheden, heldere projectleiding en rechtstreeks overleg.",
     "team_links": [
-      "De achtergrond van Ashraf",
+      "De achtergrond van Achraf",
       "Ons ontwikkelingsteam"
     ],
     "team_principles": [
@@ -924,7 +1012,51 @@
       "Deze website wordt gehost op GitHub Pages. Voorbeelden beschrijven de activiteiten van Novalis AI en eerdere ervaring van de betrokken personen, met hun context. Commerciële voorstellen, termijnen en afspraken worden vastgelegd in een afzonderlijke offerte.",
       "Het logo is eigendom van Novalis AI. Teksten en websiteontwerp zijn voor Novalis AI gemaakt. Externe links verwijzen naar onafhankelijke diensten."
     ],
-    "dialog_label": "Projectdetails"
+    "dialog_label": "Projectdetails",
+    "diagram_label": "Van behoefte naar oplossing",
+    "diagram_title": "Uw bedrijf, verbonden.",
+    "diagram_controls": "Vergelijk twee manieren van werken",
+    "diagram_before": "Vandaag",
+    "diagram_after": "Met Novalis",
+    "diagram_sources": [
+      "Documenten",
+      "Software",
+      "Mensen"
+    ],
+    "flow_tag": "Maatwerk + AI",
+    "flow_result_label": "Het resultaat",
+    "diagram_note": "Principeschema · een voorbeeld van een documentproces.",
+    "diagram_states": {
+      "before": {
+        "title": "Werk verspreid over tools",
+        "steps": [
+          "Documenten terugvinden",
+          "Gegevens overtypen",
+          "De voortgang reconstrueren"
+        ],
+        "human": "Uw team legt de verbanden handmatig.",
+        "result": "Een dossier dat u nog moet samenstellen"
+      },
+      "after": {
+        "title": "Een proces op uw maat",
+        "steps": [
+          "De vraag begrijpen",
+          "Informatie verbinden",
+          "De volgende stap voorbereiden"
+        ],
+        "human": "Uw team neemt de beslissing.",
+        "result": "Een dossier klaar voor controle"
+      }
+    },
+    "saas_label": "04 / Onze SaaS-producten",
+    "saas_title": "Maatwerk vandaag.\nProducten voor morgen.",
+    "saas_copy": "We bereiden ook onze eigen SaaS-producten voor: online software voor concrete bedrijfsbehoeften. Deze ruimte is in opbouw. Onze producten worden hier voorgesteld zodra ze klaar zijn.",
+    "saas_service": "Hebt u een SaaS-idee? We kunnen u nu al helpen uw platform te ontwerpen en te ontwikkelen, van het eerste prototype tot het product.",
+    "saas_cta": "Uw SaaS-idee bespreken",
+    "saas_status": "In opbouw",
+    "saas_teaser": "Nieuwe producten krijgen vorm.",
+    "saas_detail": "Onze toekomstige productruimte. Elke oplossing wordt hier voorgesteld met haar toepassingen en functies.",
+    "saas_stage": "Binnenkort meer te ontdekken"
   },
   "de": {
     "title": "Novalis AI — Individuelle Software & angewandte KI | Wavre, Belgien",
@@ -946,10 +1078,10 @@
     "hero_label": "Angewandte KI & individuelle Software",
     "hero_location": "Wavre, Belgien",
     "hero_title": [
-      "Zeit zurückgewinnen.",
-      "Ideen verwirklichen."
+      "Ihr Know-how.",
+      "Unsere Technologie."
     ],
-    "hero_copy": "Ihre Teams verstehen ihr Handwerk. Wir entwickeln die Werkzeuge, mit denen sie es besser ausüben können: individuelle Software, flüssige Abläufe und KI dort, wo sie Nutzen schafft.",
+    "hero_copy": "Individuelle Software und sinnvolle KI, abgestimmt auf Ihre Arbeitsweise. Wir beginnen bei Ihrem Arbeitsalltag, verbinden Ihre Werkzeuge, vereinfachen Abläufe und setzen Ihre Ideen um.",
     "hero_note": "Ein erstes Gespräch zum Verstehen. Sie brauchen kein technisches Pflichtenheft.",
     "hero_caption": "Ideen verbinden. Lösungen Gestalt geben.",
     "strip": [
@@ -1061,7 +1193,7 @@
     "method_note": "Eine schrittweise Investition. Jede Phase hat ein vereinbartes Ziel und einen klaren Umfang.",
     "work_label": "03 / Erfahrung & ausgewählte Arbeiten",
     "work_title": "Anspruchsvolle Fragen.\nKonkrete Lösungen.",
-    "work_intro": "Eine Auswahl von Novalis-AI-Projekten und früheren Arbeiten von Ashraf. Jedes Projekt nennt seinen Kontext; vertrauliche Details bleiben geschützt.",
+    "work_intro": "Eine Auswahl von Novalis-AI-Projekten und früheren Arbeiten von Achraf. Jedes Projekt nennt seinen Kontext; vertrauliche Details bleiben geschützt.",
     "project_button": "Projekt ansehen",
     "project_context": "Kontext",
     "project_approach": "Die geleistete Arbeit",
@@ -1072,7 +1204,7 @@
         "sector": "Energie & Optimierung",
         "title": "Energiespeicher besser steuern",
         "summary": "Analyse und Optimierung großer Batteriespeicher auf den Strommärkten.",
-        "type": "Ashrafs Erfahrung · Masterarbeit",
+        "type": "Achrafs Erfahrung · Masterarbeit",
         "context": "Arbeit im belgischen Energiesektor an der Schnittstelle von Marktdaten, technischen Grenzen und wirtschaftlichem Wert.",
         "approach": "Modellierung von Einsatzstrategien, Entscheidungen zu Batteriezyklen und Leistungsbewertung.",
         "transfer": "Ein wirtschaftliches Problem formulieren, Einschränkungen berücksichtigen und eine Entscheidung vor ihrer Automatisierung bewerten.",
@@ -1087,7 +1219,7 @@
         "sector": "Industrie & Betrieb",
         "title": "Projektverfolgung strukturieren",
         "summary": "Eine Verwaltungsanwendung für die Anforderungen eines großen industriellen Umfelds.",
-        "type": "Ashrafs berufliche Erfahrung",
+        "type": "Achrafs berufliche Erfahrung",
         "context": "Entwicklung eines Projektmanagementsystems für ein industrielles Energieunternehmen in Afrika.",
         "approach": "Analyse der Abläufe, Gestaltung von Nachverfolgung und Berichten sowie Entwicklung der Anwendung.",
         "transfer": "Komplexe Abläufe in ein stimmiges Werkzeug übersetzen, das zu Menschen und bestehenden Prozessen passt.",
@@ -1102,7 +1234,7 @@
         "sector": "Gesundheit & Daten",
         "title": "Komplexe Daten verständlich machen",
         "summary": "METABRIC: interaktive Erkundung klinischer und genomischer Brustkrebsdaten.",
-        "type": "Ashrafs akademisches Forschungsprojekt",
+        "type": "Achrafs akademisches Forschungsprojekt",
         "context": "Ein Forschungs- und Portfolioprojekt mit dem METABRIC-Datensatz, kein klinisches Diagnosewerkzeug.",
         "approach": "Interaktives Dashboard, Visualisierung, Variablenauswahl, Dimensionsreduktion und Gruppierung von Profilen.",
         "transfer": "Eine sorgfältige Praxis der Analyse, Modellbewertung und Darstellung komplexer Daten.",
@@ -1130,12 +1262,12 @@
       }
     ],
     "work_foot": "Die genannten Kontexte zeigen die Erfahrung der beteiligten Personen; sie bedeuten keine aktuelle Partnerschaft mit früheren Arbeitgebern oder Einrichtungen.",
-    "team_label": "04 / Die Menschen hinter den Werkzeugen",
+    "team_label": "05 / Die Menschen hinter den Werkzeugen",
     "team_title": "Ein naher Ansprechpartner.\nDie passende Expertise im Team.",
-    "team_copy": "Ashraf Saidi, KI-Forscher und Unternehmer, führt die Bedarfsanalyse und grenzt Ihre Lösung ein. Um ihn herum wird das Entwicklungsteam je nach Projekt zusammengestellt: Software, Daten, KI, Integration und Design.",
+    "team_copy": "Achraf Saidi, KI-Forscher und Unternehmer, führt die Bedarfsanalyse und grenzt Ihre Lösung ein. Um ihn herum wird das Entwicklungsteam je nach Projekt zusammengestellt: Software, Daten, KI, Integration und Design.",
     "team_second": "Die gemeinsame Erfahrung umfasst Industrie, Krankenhäuser und KMU in Belgien und international. Ergänzende Kompetenzen, klare Projektleitung und direkte Gespräche.",
     "team_links": [
-      "Ashrafs Hintergrund",
+      "Achrafs Hintergrund",
       "Unser Entwicklungsteam"
     ],
     "team_principles": [
@@ -1233,6 +1365,50 @@
       "Diese Website wird auf GitHub Pages gehostet. Beispiele beschreiben die Aktivitäten von Novalis AI und frühere Erfahrungen der Beteiligten mit ihrem Kontext. Angebote, Fristen und Verpflichtungen werden in einem gesonderten Angebot definiert.",
       "Das Logo gehört Novalis AI. Texte und Webdesign wurden für Novalis AI erstellt. Externe Links führen zu unabhängigen Diensten."
     ],
-    "dialog_label": "Projektdetails"
+    "dialog_label": "Projektdetails",
+    "diagram_label": "Vom Bedarf zur Lösung",
+    "diagram_title": "Ihr Unternehmen, vernetzt.",
+    "diagram_controls": "Zwei Arbeitsweisen vergleichen",
+    "diagram_before": "Heute",
+    "diagram_after": "Mit Novalis",
+    "diagram_sources": [
+      "Dokumente",
+      "Software",
+      "Menschen"
+    ],
+    "flow_tag": "Individuell + KI",
+    "flow_result_label": "Das Ergebnis",
+    "diagram_note": "Prinzipskizze · Beispiel eines Dokumentenprozesses.",
+    "diagram_states": {
+      "before": {
+        "title": "Arbeit verteilt auf viele Tools",
+        "steps": [
+          "Dokumente suchen",
+          "Daten zwischen Tools kopieren",
+          "Den Bearbeitungsstand klären"
+        ],
+        "human": "Ihr Team verknüpft alles von Hand.",
+        "result": "Unterlagen noch zusammenstellen"
+      },
+      "after": {
+        "title": "Ein Ablauf für Ihr Unternehmen",
+        "steps": [
+          "Die Anfrage verstehen",
+          "Informationen verknüpfen",
+          "Die nächste Aktion vorbereiten"
+        ],
+        "human": "Ihr Team trifft die Entscheidung.",
+        "result": "Unterlagen bereit zur Prüfung"
+      }
+    },
+    "saas_label": "04 / Unsere SaaS-Produkte",
+    "saas_title": "Individuelle Lösungen heute.\nProdukte für morgen.",
+    "saas_copy": "Wir bereiten auch eigene SaaS-Produkte vor: online verfügbare Software für konkrete betriebliche Anforderungen. Dieser Bereich ist im Aufbau. Unsere Produkte werden hier vorgestellt, sobald sie bereit sind.",
+    "saas_service": "Sie haben eine SaaS-Idee? Wir können Sie schon heute bei Konzeption und Entwicklung Ihrer Plattform begleiten, vom ersten Prototyp bis zum Produkt.",
+    "saas_cta": "Über Ihre SaaS-Idee sprechen",
+    "saas_status": "Im Aufbau",
+    "saas_teaser": "Neue Produkte nehmen Gestalt an.",
+    "saas_detail": "Unser künftiger Produktbereich. Jede Lösung wird mit ihren Anwendungen und Funktionen vorgestellt.",
+    "saas_stage": "Bald mehr entdecken"
   }
 }

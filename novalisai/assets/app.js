@@ -59,6 +59,21 @@
   });
   activateTab(0);
 
+  const workflow = document.getElementById('workflow-demo');
+  const flowButtons = [...document.querySelectorAll('[data-flow]')];
+  flowButtons.forEach(button => button.addEventListener('click', () => {
+    const mode = button.dataset.flow;
+    const state = data.diagram_states[mode];
+    if (!state) return;
+    workflow.dataset.mode = mode;
+    flowButtons.forEach(control => control.setAttribute('aria-pressed', String(control === button)));
+    document.getElementById('flow-engine-title').textContent = state.title;
+    document.querySelectorAll('[data-flow-step]').forEach((element, index) => { element.textContent = state.steps[index]; });
+    document.getElementById('flow-human').textContent = state.human;
+    document.getElementById('flow-result').textContent = state.result;
+    document.getElementById('flow-status').textContent = `${button.textContent} : ${state.result}. ${state.human}`;
+  }));
+
   const form = document.getElementById('contact-form');
   const preview = document.getElementById('email-preview');
   const emailBody = document.getElementById('email-body');

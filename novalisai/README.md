@@ -49,15 +49,17 @@ Les liens internes et les assets utilisent des chemins relatifs. La vitrine fonc
 
 - Audit des usages, proposition cadrée, développement puis accompagnement.
 - Équipe modulable et prix compétitifs expliqués par le périmètre et l’organisation, sans associer un pays à une main-d’œuvre « bon marché ».
-- Présentation sobre d’**Ashraf Saidi**, orthographe demandée pour cette vitrine ; GitHub et e-mail conservent leurs identifiants existants.
-- Les projets antérieurs d’Ashraf sont identifiés comme tels. METABRIC reste un projet académique et de recherche. Aucune promesse clinique, statistique de ROI, certification, citation de client ou recommandation d’institution n’est inventée.
+- Présentation sobre d’**Achraf Saidi**, chercheur en IA et entrepreneur, sans photo ; son nom renvoie vers son GitHub.
+- Les projets antérieurs d’Achraf sont identifiés comme tels. METABRIC reste un projet académique et de recherche. Aucune promesse clinique, statistique de ROI, certification, citation de client ou recommandation d’institution n’est inventée.
 - Les expériences sectorielles et le réseau de développement reprennent le contexte fourni par le propriétaire. Les détails confidentiels, noms de clients non autorisés et logos d’anciens employeurs ne sont pas exposés.
 
 ## Sources et assets
 
 - Logo original et favicon : https://www.novalisai.com/ — copies du logo existant, optimisation de taille uniquement. `logo.webp` est une version réduite du logo transparent. Le monogramme existant est conservé comme favicon.
 - Image de présentation sociale existante : `assets/novalis_og.png`, reprise du site d’origine, sans création de nouvelle carte.
-- Image principale `assets/flow.webp` : création originale pour cette vitrine. Illustration de marque abstraite, pas une photo d’une équipe ou d’un projet client.
+- Visuel d’accueil : diagramme HTML/SVG interactif d’un flux documentaire. Les deux états sont illustratifs, et ne constituent ni un produit disponible ni une promesse de résultat.
+- Palette claire : ivoire, champagne, cuivre et graphite chaud, accordée au logo original dont les couleurs sont préservées.
+- Espace SaaS : explicitement en construction, sans faux produit, prix, date de lancement ou inscription.
 - Manrope et Instrument Serif : Google Fonts, hébergées localement, licences SIL Open Font License conservées avec les fichiers.
 - Identité de l’entreprise, adresse et numéro : https://clusters.wallonie.be/tweed/home/membres/memberList/novalis-ai.html et https://rewan.be/en/profiles/novalis-ai/
 - Expérience : https://achraf-saidi.github.io/projects/

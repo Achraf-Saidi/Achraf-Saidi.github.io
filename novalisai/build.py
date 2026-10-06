@@ -17,7 +17,10 @@ ICONS = {
     "spark": '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/>',
     "chart": '<path d="M4 3v17h17 M8 15l4-5 4 2 4-7"/>',
     "check": '<path d="m5 12 4 4 10-10"/>',
-    "calendar": '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4 M8 3v4 M3 11h18 M8 15h3 M14 15h2"/>'
+    "calendar": '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4 M8 3v4 M3 11h18 M8 15h3 M14 15h2"/>',
+    "document": '<path d="M14 2H5v20h14V7Z M14 2v5h5 M8 11h8 M8 15h8 M8 18h5"/>',
+    "apps": '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    "people": '<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3 M17 4a3 3 0 0 1 0 6 M21 21v-3a6 6 0 0 0-3-5.2"/>'
 }
 MAPS = {
     "fr": [["Données", "Simulation", "Décision"], ["Processus", "Application", "Suivi"], ["Données", "Analyse", "Exploration"], ["Question", "Contexte", "Réponse"]],
@@ -49,7 +52,7 @@ def render(content, lang, site_url, root_page=False):
     prefix = "" if root_page else "../"
     canonical = f"{site_url}/{lang}/"
     out = {k: esc(v) for k, v in c.items() if isinstance(v, str)}
-    for key in ["services_title", "method_title", "work_title", "team_title", "contact_title", "footer_line"]:
+    for key in ["services_title", "method_title", "work_title", "team_title", "contact_title", "footer_line", "saas_title"]:
         out[key] = lines(c[key])
     out.update({"lang": lang, "locale": LOCALES[lang], "asset_path": asset_path,
                 "site_url": esc(site_url), "canonical": esc(canonical),
@@ -63,6 +66,10 @@ def render(content, lang, site_url, root_page=False):
     for i, value in enumerate(c["team_links"]):
         out[f"team_link_{i}"] = esc(value)
     out["strip"] = ''.join(f'<span>{icon("check")}{esc(v)}</span>' for v in c["strip"])
+    out["flow_sources"] = ''.join(f'<div class="source-card">{icon(name)}<span>{esc(label)}</span></div>' for name, label in zip(["document", "apps", "people"], c["diagram_sources"]))
+    out["flow_steps"] = ''.join(f'<li><span class="engine-step-number">0{i+1}</span><span data-flow-step="{i}">{esc(label)}</span>{icon("check")}</li>' for i, label in enumerate(c["diagram_states"]["after"]["steps"]))
+    out["check_icon"] = icon("check")
+    out.update({f"flow_{key}":esc(c["diagram_states"]["after"][key]) for key in ["title", "human", "result"]})
     out["alternates"] = '\n  '.join(f'<link rel="alternate" hreflang="{l}" href="{site_url}/{l}/">' for l in LANGUAGES)
     out["alternates"] += f'\n  <link rel="alternate" hreflang="x-default" href="{site_url}/fr/">'
     out["language_options"] = ''.join(f'<option value="{l}" data-url="{prefix}{l}/" {"selected" if l == lang else ""}>{l.upper()}</option>' for l, label in LANGUAGES.items())
@@ -92,6 +99,7 @@ def render(content, lang, site_url, root_page=False):
     out["schema"] = json.dumps(schema, ensure_ascii=False).replace('<', '\\u003c')
     client = {k: c[k] for k in ["menu", "close", "mail_labels", "mail_subject", "mail_greeting", "copied", "copy_error"]}
     client["policies"] = {p: {"title": c[f"{p}_title"], "text": c[f"{p}_text"]} for p in ["privacy", "legal"]}
+    client["diagram_states"] = c["diagram_states"]
     out["client_data"] = json.dumps(client, ensure_ascii=False).replace('<', '\\u003c')
     template = (ROOT / 'template.html').read_text()
     result = re.sub(r'\{\{([a-z_0-9]+)\}\}', lambda m: out[m.group(1)], template)
