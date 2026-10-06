@@ -62,7 +62,7 @@ def render(content, lang, site_url, root_page=False):
     out["strip"] = ''.join(f'<span>{icon("check")}{esc(v)}</span>' for v in c["strip"])
     out["alternates"] = '\n  '.join(f'<link rel="alternate" hreflang="{l}" href="{site_url}/{l}/">' for l in LANGUAGES)
     out["alternates"] += f'\n  <link rel="alternate" hreflang="x-default" href="{site_url}/fr/">'
-    out["language_options"] = ''.join(f'<option value="{l}" data-url="{prefix}{l}/" {"selected" if l == lang else ""}>{l.upper()} · {label}</option>' for l, label in LANGUAGES.items())
+    out["language_options"] = ''.join(f'<option value="{l}" data-url="{prefix}{l}/" {"selected" if l == lang else ""}>{l.upper()}</option>' for l, label in LANGUAGES.items())
     out["language_links"] = ''.join(f'<a href="{prefix}{l}/" lang="{l}" hreflang="{l}" aria-label="{label}" {"aria-current=\"page\"" if l == lang else ""}>{l.upper()}</a>' for l, label in LANGUAGES.items())
     out["services"] = ''.join(
         f'<article class="service-card reveal"><div class="service-icon">{icon(s["icon"])}</div><h3>{esc(s["title"])}</h3><p>{esc(s["copy"])}</p>{tags(s["tags"])}</article>' for s in c["services"])
