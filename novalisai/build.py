@@ -127,6 +127,10 @@ def main():
     (ROOT / 'index.html').write_text(render(content, 'fr', site_url, root_page=True))
     urls = ''.join(f'<url><loc>{site_url}/{language}/</loc></url>' for language in LANGUAGES)
     (ROOT / 'sitemap.xml').write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
+    review = ROOT / 'qa/responsive.html'
+    if review.is_file():
+        revision = hashlib.sha256((ROOT / 'assets/styles.css').read_bytes() + (ROOT / 'assets/app.js').read_bytes()).hexdigest()[:10]
+        review.write_text(re.sub(r'data-review-version="[^"]*"', f'data-review-version="{revision}"', review.read_text()))
     print('Generated FR, EN, NL, DE and the French home page.')
 
 
