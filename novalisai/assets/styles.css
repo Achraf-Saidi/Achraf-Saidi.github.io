@@ -20,4 +20,4 @@
 @media print{.site-header,.hero-art,.use-tabs,.contact-form-card,.policy-links,dialog{display:none!important}.section{padding-block:1.5rem}.shell{width:100%}.project-card{break-inside:avoid}.motion .reveal{opacity:1;transform:none}a{text-decoration:underline}}
 .hero-grid>*,.intro>*,.section-heading>*,.service-grid>*,.service-card>*,.use-panel>*,.step-grid>*,.step>*,.team-grid>*,.team-principles>*,.faq>*,.contact-grid>*,.form-row>*,.footer-grid>*{min-width:0}
 h1,h2,h3,h4{overflow-wrap:break-word}.project-map span{min-width:0;overflow-wrap:anywhere}.use-tabs button{min-width:0;overflow-wrap:break-word}
-@media(max-width:600px){.service-card{grid-template-columns:44px minmax(0,1fr)}.step{grid-template-columns:48px minmax(0,1fr)}}
+@media(max-width:600px){.service-card{grid-template-columns:44px minmax(0,1fr)}.step{grid-template-columns:48px minmax(0,1fr)}.use-tabs button{flex:1 1 auto}}

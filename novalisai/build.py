@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate all four static language editions with Python's standard library."""
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -52,7 +53,9 @@ def render(content, lang, site_url, root_page=False):
         out[key] = lines(c[key])
     out.update({"lang": lang, "locale": LOCALES[lang], "asset_path": asset_path,
                 "site_url": esc(site_url), "canonical": esc(canonical),
-                "home_path": "./" if root_page else "../"})
+                "home_path": "./" if root_page else "../",
+                "style_version": hashlib.sha256((ROOT / 'assets/styles.css').read_bytes()).hexdigest()[:10],
+                "script_version": hashlib.sha256((ROOT / 'assets/app.js').read_bytes()).hexdigest()[:10]})
     for i, value in enumerate(c["nav"]):
         out[f"nav_{i}"] = esc(value)
     for i, value in enumerate(c["hero_title"]):
