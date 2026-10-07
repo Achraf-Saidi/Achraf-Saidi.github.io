@@ -57,10 +57,11 @@ Les liens internes et les assets utilisent des chemins relatifs. La vitrine fonc
 
 - Logo original et favicon : https://www.novalisai.com/ — copies du logo existant, optimisation de taille uniquement. `logo.webp` est une version réduite du logo transparent. Le monogramme existant est conservé comme favicon.
 - Image de présentation sociale existante : `assets/novalis_og.png`, reprise du site d’origine, sans création de nouvelle carte.
-- Visuel d’accueil : diagramme HTML/SVG interactif d’un flux documentaire. Les deux états sont illustratifs, et ne constituent ni un produit disponible ni une promesse de résultat.
-- Palette claire : ivoire, champagne, cuivre et graphite chaud, accordée au logo original dont les couleurs sont préservées.
+- Visuel d’accueil : une composition originale HTML/CSS/SVG autour du monogramme du logo, reliant documents, logiciels et équipes. Le logo original est simplement cadré dans la mise en page ; son fichier et ses couleurs sont préservés. Les deux états du flux sont illustratifs.
+- Palette claire : blanc chaud, abricot, cuivre et graphite. Une typographie Manrope affirmée, un en-tête flottant, des illustrations de projets, des cartes d’expertise et un parcours de méthode vertical donnent des compositions différentes à chaque section.
+- Les quatre illustrations de projets sont produites en SVG par `build.py`. Elles sont identifiées comme illustrations ; ce ne sont ni des captures d’applications livrées ni des résultats de clients. Elles ne chargent aucun service ou image distante.
 - Espace SaaS : explicitement en construction, sans faux produit, prix, date de lancement ou inscription.
-- Manrope et Instrument Serif : Google Fonts, hébergées localement, licences SIL Open Font License conservées avec les fichiers.
+- Manrope : Google Fonts, hébergée localement, licence SIL Open Font License conservée. L’ancienne police Instrument Serif et sa licence restent archivées parmi les assets, sans être chargées par la page.
 - Identité de l’entreprise, adresse et numéro : https://clusters.wallonie.be/tweed/home/membres/memberList/novalis-ai.html et https://rewan.be/en/profiles/novalis-ai/
 - Expérience : https://achraf-saidi.github.io/projects/
 - METABRIC : https://github.com/Achraf-Saidi/METABRIC-Dashboard
@@ -69,4 +70,4 @@ Les liens internes et les assets utilisent des chemins relatifs. La vitrine fonc
 
 ## Accessibilité et fonctionnement
 
-Navigation clavier, onglets avec touches fléchées, éléments `details` natifs, labels de formulaire, lien d’évitement et fenêtre de confidentialité native. Les animations de révélation respectent `prefers-reduced-motion`. Les contenus restent lisibles si les animations ou JavaScript sont absents. Aucun tracker publicitaire, outil d’analyse d’audience ou police distante ne se charge sur la page.
+Navigation clavier, onglets avec touches fléchées, éléments `details` natifs, labels de formulaire, lien d’évitement et fenêtre de confidentialité native. Les animations d’entrée se jouent une seule fois ; les effets au survol et les révélations respectent `prefers-reduced-motion`. Les contenus restent lisibles si les animations ou JavaScript sont absents. Aucun tracker publicitaire, outil d’analyse d’audience ou police distante ne se charge sur la page.

@@ -5,10 +5,10 @@
   <meta name="robots" content="noindex,nofollow"><title>Novalis AI — Revue responsive</title>
   <style>body{margin:0;padding:24px;font:16px/1.6 system-ui;background:#f1ede5;color:#292722}h1{font-size:22px;margin:0 0 8px}p{margin:0 0 16px}.controls{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:16px}.controls label{font-size:14px}.controls select{font:inherit;padding:6px;margin-left:8px;border:1px solid #d0bd9f;border-radius:6px;background:#faf8f4}.frames{display:flex;align-items:start;gap:24px;flex-wrap:wrap}.frame{flex:none}h2{font-size:14px;font-weight:600}iframe{border:1px solid #d0bd9f;border-radius:12px;background:#faf8f4;height:800px}a{text-decoration:underline;color:inherit}</style>
 </head>
-<body data-review-version="4ba8f35d52">
+<body data-review-version="932febd171">
   <h1>Novalis AI — Revue des formats</h1><p>Contrôle des pages réelles sur téléphone et tablette. <a href="../">Ouvrir la vitrine</a></p>
   <div class="controls">
-    <label for="review-width">Largeur du téléphone<select id="review-width"><option>320</option><option selected>360</option><option>390</option><option>414</option></select></label>
+    <label for="review-width">Largeur de la page<select id="review-width"><option>320</option><option selected>360</option><option>390</option><option>414</option><option>520</option><option>768</option><option>1000</option><option>1280</option></select></label>
     <label for="review-text">Taille du texte<select id="review-text"><option value="100" selected>100 %</option><option value="200">200 %</option></select></label>
     <label for="review-language">Langue<select id="review-language"><option value="fr">Français</option><option value="en">English</option><option value="nl">Nederlands</option><option value="de">Deutsch</option></select></label>
   </div>
@@ -20,7 +20,7 @@
     const language=document.getElementById('review-language');
     const version=document.body.dataset.reviewVersion;
     function update(){
-      phone.width=['320','360','390','414'].includes(width.value)?width.value:'360';
+      phone.width=['320','360','390','414','520','768','1000','1280'].includes(width.value)?width.value:'360';
       if(phone.contentDocument&&phone.contentDocument.documentElement)phone.contentDocument.documentElement.style.fontSize=text.value==='200'?'200%':'100%';
     }
     function loadLanguage(){

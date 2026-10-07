@@ -19,10 +19,10 @@
     "hero_label": "IA appliquée & logiciels sur mesure",
     "hero_location": "Wavre, Belgique",
     "hero_title": [
-      "Votre savoir-faire.",
-      "Notre ingénierie."
+      "Vos ambitions.",
+      "Prennent vie."
     ],
-    "hero_copy": "Des logiciels sur mesure et une IA utile, conçus autour de votre façon de travailler. Nous partons du terrain pour relier vos outils, alléger vos processus et donner forme à vos idées.",
+    "hero_copy": "Nous concevons les logiciels et les outils IA qui font avancer votre entreprise. De l’analyse de vos besoins à une solution utilisée au quotidien.",
     "hero_note": "Un premier échange pour comprendre. Pas besoin d’un cahier des charges.",
     "hero_caption": "Relier les idées. Donner forme aux solutions.",
     "strip": [
@@ -33,7 +33,7 @@
     "intro_label": "Notre point de départ",
     "intro_title": "Les meilleurs projets commencent par une bonne question.",
     "intro_copy": "Qu’est-ce qui ralentit votre activité aujourd’hui ? Les doubles saisies, les informations dispersées, un logiciel qui vous impose sa logique ? Nous prenons le temps d’observer votre travail avant de dessiner la solution.",
-    "intro_aside": "D’abord votre réalité. Ensuite la technologie.",
+    "intro_aside": "Le terrain, les bonnes questions, puis la solution.",
     "services_label": "01 / Nos expertises",
     "services_title": "Votre façon de travailler.\nLes bons outils autour.",
     "services_intro": "De la première analyse au produit utilisé chaque jour, nous réunissons les compétences dont votre projet a besoin.",
@@ -134,7 +134,7 @@
     "method_note": "Un investissement progressif. Chaque étape a un objectif et un périmètre convenus.",
     "work_label": "03 / Expérience & réalisations",
     "work_title": "Des sujets exigeants.\nDes solutions concrètes.",
-    "work_intro": "Une sélection de réalisations de Novalis AI et de travaux antérieurs d’Achraf. Chaque projet précise son contexte ; les détails confidentiels restent protégés.",
+    "work_intro": "Optimisation énergétique, applications métier, analyse de données : des projets qui montrent comment nous abordons des problèmes exigeants.",
     "project_button": "Explorer le projet",
     "project_context": "Contexte",
     "project_approach": "Le travail réalisé",
@@ -202,7 +202,7 @@
         "url": "https://www.novalisai.com/en/projects/capi"
       }
     ],
-    "work_foot": "Les contextes cités illustrent l’expérience des personnes impliquées ; ils n’impliquent pas un partenariat actuel avec leurs anciens employeurs ou institutions.",
+    "work_foot": "Sélection de réalisations de Novalis AI et de travaux antérieurs d’Achraf Saidi. Le contexte est précisé pour chaque projet.",
     "team_label": "05 / Les personnes derrière les outils",
     "team_title": "Un interlocuteur proche.\nLes bonnes expertises autour.",
     "team_copy": "Achraf Saidi, chercheur en intelligence artificielle et entrepreneur, conduit l’analyse de votre besoin et le cadrage de la solution. Autour de lui, une équipe de développement se compose selon le projet : logiciel, données, IA, intégration et design.",
@@ -350,7 +350,9 @@
     "saas_status": "En construction",
     "saas_teaser": "Des produits prennent forme.",
     "saas_detail": "Notre futur espace produits. Chaque solution y sera présentée avec ses usages et ses fonctionnalités.",
-    "saas_stage": "À découvrir prochainement"
+    "saas_stage": "À découvrir prochainement",
+    "hero_projects": "Explorer nos projets",
+    "project_illustration": "Illustration du projet"
   },
   "en": {
     "title": "Novalis AI — Bespoke software & applied AI | Wavre, Belgium",
@@ -372,10 +374,10 @@
     "hero_label": "Applied AI & bespoke software",
     "hero_location": "Wavre, Belgium",
     "hero_title": [
-      "Your expertise.",
-      "Our engineering."
+      "Your ambition.",
+      "Made real."
     ],
-    "hero_copy": "Bespoke software and useful AI, built around the way you work. We start with your daily operations to connect your tools, simplify your workflows and bring your ideas to life.",
+    "hero_copy": "We build custom software and AI tools around the way your business works. From understanding your needs to a solution your team uses every day.",
     "hero_note": "A first conversation to understand. No technical brief needed.",
     "hero_caption": "Connecting ideas. Giving solutions their shape.",
     "strip": [
@@ -386,7 +388,7 @@
     "intro_label": "Where we start",
     "intro_title": "The best projects begin with a good question.",
     "intro_copy": "What slows your business down today? Entering the same data twice, scattered information, software that dictates how you work? We take the time to understand your day before designing the solution.",
-    "intro_aside": "Your reality first. Technology follows.",
+    "intro_aside": "Understand the work. Ask the right questions. Build the solution.",
     "services_label": "01 / Our expertise",
     "services_title": "The way you work.\nThe right tools around it.",
     "services_intro": "From the first analysis to a product people use every day, we bring together the skills your project needs.",
@@ -487,7 +489,7 @@
     "method_note": "A gradual investment. Each stage has an agreed objective and scope.",
     "work_label": "03 / Experience & selected work",
     "work_title": "Demanding problems.\nPractical solutions.",
-    "work_intro": "A selection of Novalis AI projects and Achraf’s earlier work. Each project states its context; confidential details remain protected.",
+    "work_intro": "Energy optimisation, business applications and data analysis: projects that show how we approach demanding problems.",
     "project_button": "Explore the project",
     "project_context": "Context",
     "project_approach": "The work",
@@ -555,7 +557,7 @@
         "url": "https://www.novalisai.com/en/projects/capi"
       }
     ],
-    "work_foot": "These contexts illustrate the experience of the people involved; they do not imply a current partnership with former employers or institutions.",
+    "work_foot": "Selected Novalis AI projects and earlier work by Achraf Saidi. The context is stated for each project.",
     "team_label": "05 / The people behind the tools",
     "team_title": "A close working relationship.\nThe right expertise around it.",
     "team_copy": "Achraf Saidi, an AI researcher and entrepreneur, leads the analysis of your needs and the scoping of your solution. Around him, a development team takes shape according to the project: software, data, AI, integration and design.",
@@ -703,7 +705,9 @@
     "saas_status": "Under construction",
     "saas_teaser": "New products are taking shape.",
     "saas_detail": "Our future product space. Each solution will be presented with its uses and features.",
-    "saas_stage": "More to discover soon"
+    "saas_stage": "More to discover soon",
+    "hero_projects": "Explore our projects",
+    "project_illustration": "Project illustration"
   },
   "nl": {
     "title": "Novalis AI — Software op maat & toegepaste AI | Waver, België",
@@ -725,10 +729,10 @@
     "hero_label": "Toegepaste AI & software op maat",
     "hero_location": "Waver, België",
     "hero_title": [
-      "Uw vakkennis.",
-      "Onze technologie."
+      "Uw ambitie.",
+      "Krijgt vorm."
     ],
-    "hero_copy": "Software op maat en nuttige AI, afgestemd op uw manier van werken. We vertrekken vanuit uw dagelijkse praktijk om uw tools te verbinden, processen te vereenvoudigen en ideeën vorm te geven.",
+    "hero_copy": "We ontwikkelen software op maat en AI-tools die uw bedrijf vooruithelpen. Van het begrijpen van uw behoeften tot een oplossing die uw team dagelijks gebruikt.",
     "hero_note": "Een eerste gesprek om uw situatie te begrijpen. Geen technisch bestek nodig.",
     "hero_caption": "Ideeën verbinden. Oplossingen vormgeven.",
     "strip": [
@@ -739,7 +743,7 @@
     "intro_label": "Ons vertrekpunt",
     "intro_title": "De beste projecten beginnen met een goede vraag.",
     "intro_copy": "Wat vertraagt uw bedrijf vandaag? Dubbele invoer, verspreide informatie of software die haar werkwijze oplegt? We nemen de tijd om uw dagelijkse werk te begrijpen voordat we een oplossing ontwerpen.",
-    "intro_aside": "Eerst uw werkelijkheid. Dan de technologie.",
+    "intro_aside": "De praktijk begrijpen. De juiste vragen stellen. De oplossing bouwen.",
     "services_label": "01 / Onze expertise",
     "services_title": "Uw manier van werken.\nDe juiste tools eromheen.",
     "services_intro": "Van de eerste analyse tot een product dat dagelijks wordt gebruikt: we brengen de vaardigheden samen die uw project nodig heeft.",
@@ -840,7 +844,7 @@
     "method_note": "Een stapsgewijze investering. Elke fase heeft een afgesproken doel en omvang.",
     "work_label": "03 / Ervaring & geselecteerd werk",
     "work_title": "Veeleisende vraagstukken.\nConcrete oplossingen.",
-    "work_intro": "Een selectie van projecten van Novalis AI en eerder werk van Achraf. Elk project vermeldt zijn context; vertrouwelijke details blijven beschermd.",
+    "work_intro": "Energieoptimalisatie, bedrijfsapplicaties en data-analyse: projecten die tonen hoe we complexe problemen aanpakken.",
     "project_button": "Bekijk het project",
     "project_context": "Context",
     "project_approach": "Het uitgevoerde werk",
@@ -908,7 +912,7 @@
         "url": "https://www.novalisai.com/en/projects/capi"
       }
     ],
-    "work_foot": "Deze contexten tonen de ervaring van de betrokken personen; ze impliceren geen huidig partnerschap met vroegere werkgevers of instellingen.",
+    "work_foot": "Een selectie van projecten van Novalis AI en eerder werk van Achraf Saidi. De context wordt bij elk project vermeld.",
     "team_label": "05 / De mensen achter de tools",
     "team_title": "Een betrokken aanspreekpunt.\nDe juiste expertise eromheen.",
     "team_copy": "Achraf Saidi, onderzoeker in artificiële intelligentie en ondernemer, leidt de analyse van uw behoeften en de afbakening van de oplossing. Rond hem wordt een ontwikkelingsteam samengesteld volgens het project: software, data, AI, integratie en design.",
@@ -1056,7 +1060,9 @@
     "saas_status": "In opbouw",
     "saas_teaser": "Nieuwe producten krijgen vorm.",
     "saas_detail": "Onze toekomstige productruimte. Elke oplossing wordt hier voorgesteld met haar toepassingen en functies.",
-    "saas_stage": "Binnenkort meer te ontdekken"
+    "saas_stage": "Binnenkort meer te ontdekken",
+    "hero_projects": "Bekijk onze projecten",
+    "project_illustration": "Projectillustratie"
   },
   "de": {
     "title": "Novalis AI — Individuelle Software & angewandte KI | Wavre, Belgien",
@@ -1078,10 +1084,10 @@
     "hero_label": "Angewandte KI & individuelle Software",
     "hero_location": "Wavre, Belgien",
     "hero_title": [
-      "Ihr Know-how.",
-      "Unsere Technologie."
+      "Ihre Ideen.",
+      "Nehmen Gestalt an."
     ],
-    "hero_copy": "Individuelle Software und sinnvolle KI, abgestimmt auf Ihre Arbeitsweise. Wir beginnen bei Ihrem Arbeitsalltag, verbinden Ihre Werkzeuge, vereinfachen Abläufe und setzen Ihre Ideen um.",
+    "hero_copy": "Wir entwickeln individuelle Software und KI-Werkzeuge, die Ihr Unternehmen voranbringen. Vom Verständnis Ihrer Anforderungen bis zu einer Lösung für den täglichen Einsatz.",
     "hero_note": "Ein erstes Gespräch zum Verstehen. Sie brauchen kein technisches Pflichtenheft.",
     "hero_caption": "Ideen verbinden. Lösungen Gestalt geben.",
     "strip": [
@@ -1092,7 +1098,7 @@
     "intro_label": "Unser Ausgangspunkt",
     "intro_title": "Die besten Projekte beginnen mit einer guten Frage.",
     "intro_copy": "Was bremst Ihr Unternehmen heute? Doppelte Eingaben, verstreute Informationen oder Software, die Ihnen ihre Abläufe aufzwingt? Wir nehmen uns Zeit für Ihren Arbeitsalltag, bevor wir die Lösung entwerfen.",
-    "intro_aside": "Erst Ihre Realität. Dann die Technologie.",
+    "intro_aside": "Die Praxis verstehen. Die richtigen Fragen stellen. Die Lösung entwickeln.",
     "services_label": "01 / Unsere Kompetenzen",
     "services_title": "Ihre Arbeitsweise.\nDie passenden Werkzeuge.",
     "services_intro": "Von der ersten Analyse bis zum täglich genutzten Produkt bringen wir die Fähigkeiten zusammen, die Ihr Projekt braucht.",
@@ -1193,7 +1199,7 @@
     "method_note": "Eine schrittweise Investition. Jede Phase hat ein vereinbartes Ziel und einen klaren Umfang.",
     "work_label": "03 / Erfahrung & ausgewählte Arbeiten",
     "work_title": "Anspruchsvolle Fragen.\nKonkrete Lösungen.",
-    "work_intro": "Eine Auswahl von Novalis-AI-Projekten und früheren Arbeiten von Achraf. Jedes Projekt nennt seinen Kontext; vertrauliche Details bleiben geschützt.",
+    "work_intro": "Energieoptimierung, Geschäftsanwendungen und Datenanalyse: Projekte, die zeigen, wie wir anspruchsvolle Probleme angehen.",
     "project_button": "Projekt ansehen",
     "project_context": "Kontext",
     "project_approach": "Die geleistete Arbeit",
@@ -1261,7 +1267,7 @@
         "url": "https://www.novalisai.com/en/projects/capi"
       }
     ],
-    "work_foot": "Die genannten Kontexte zeigen die Erfahrung der beteiligten Personen; sie bedeuten keine aktuelle Partnerschaft mit früheren Arbeitgebern oder Einrichtungen.",
+    "work_foot": "Ausgewählte Projekte von Novalis AI und frühere Arbeiten von Achraf Saidi. Der Kontext wird bei jedem Projekt angegeben.",
     "team_label": "05 / Die Menschen hinter den Werkzeugen",
     "team_title": "Ein naher Ansprechpartner.\nDie passende Expertise im Team.",
     "team_copy": "Achraf Saidi, KI-Forscher und Unternehmer, führt die Bedarfsanalyse und grenzt Ihre Lösung ein. Um ihn herum wird das Entwicklungsteam je nach Projekt zusammengestellt: Software, Daten, KI, Integration und Design.",
@@ -1409,6 +1415,8 @@
     "saas_status": "Im Aufbau",
     "saas_teaser": "Neue Produkte nehmen Gestalt an.",
     "saas_detail": "Unser künftiger Produktbereich. Jede Lösung wird mit ihren Anwendungen und Funktionen vorgestellt.",
-    "saas_stage": "Bald mehr entdecken"
+    "saas_stage": "Bald mehr entdecken",
+    "hero_projects": "Unsere Projekte entdecken",
+    "project_illustration": "Projektillustration"
   }
 }
