@@ -1,12 +1,12 @@
 # NUMERIA
 
-**NUMERIA** is an online-first education project for Algeria focused on mathematics, BAC preparation, programming, data and artificial intelligence.
+**NUMERIA** is an online-first education school for Algeria focused on mathematics, BAC preparation, programming, data and artificial intelligence.
 
 The current website is deployed as a self-contained static project inside:
 
 `Achraf-Saidi/Achraf-Saidi.github.io/numeria/`
 
-It is intentionally not linked from the founder's personal homepage while the project is being developed.
+It is intentionally not linked from the founder's personal homepage while the website continues to evolve.
 
 ## Positioning
 
@@ -17,7 +17,7 @@ NUMERIA is designed around four ideas:
 3. **Small cohorts and feedback** — progress should be visible.
 4. **Scientific culture that stays current** — NUMERIA AI Pulse introduces recent AI and technology developments in an accessible way.
 
-## Launch tracks
+## Programs
 
 ### BAC & High School
 - BAC Maths · Excellence — 3,900 DA/month
@@ -34,7 +34,7 @@ NUMERIA is designed around four ideas:
 - Deep Learning & GenAI — 44,900 DA / 8 weeks
 - Generative AI for Work — 7,900 DA / 6-hour workshop
 
-These are **proposed launch prices**, not proof of market demand. They should be tested cohort by cohort.
+These are current reference prices for the website and can be adjusted by program, schedule and format.
 
 ## Pricing benchmark used
 
@@ -51,16 +51,16 @@ NUMERIA therefore sits intentionally **above low-cost content subscriptions** wh
 
 ## Delivery model
 
-Initial delivery is designed around:
+Delivery is designed around:
 
 - Google Meet for live classes
 - PDF / digital course material
 - exercises and corrections
 - replay when appropriate and consented
-- email-based pre-enrolment
+- email-based enrolment requests
 - later integration of CIB / Edahabia online payments
 
-Chargily Pay supports CIB and Edahabia payment links and API integration, making it a practical candidate for the commercial launch.
+Chargily Pay supports CIB and Edahabia payment links and API integration, making it a practical candidate for online payments.
 
 ## Languages
 
@@ -93,7 +93,7 @@ Teacher profiles should only be published once real agreements are in place.
 
 The website does **not** claim that NUMERIA is state-accredited or that its internal certificates are state diplomas.
 
-Private professional-training activity in Algeria is regulated. Before commercial launch under a regulated training-school status, the project should confirm the applicable legal structure, approval requirements and obligations with the competent Algerian authorities and professional counsel.
+Private professional-training activity in Algeria is regulated. For operation under a regulated training-school status, the project should confirm the applicable legal structure, approval requirements and obligations with the competent Algerian authorities and professional counsel.
 
 ## Current technical status
 
@@ -103,14 +103,14 @@ Private professional-training activity in Algeria is regulated. Before commercia
 - No payment processing
 - No database
 - No student accounts yet
-- Pre-enrolment form prepares an email to `achraf@novalisai.com`
+- Enrolment form prepares an email to `Achraf@numeria.dz`
 - No form data is stored by the site
 
 ## Next product steps
 
-1. Validate the first 2–3 programs before expanding the catalogue.
-2. Recruit and trial the first instructors.
-3. Create official course calendars and cohort capacity.
-4. Set up a dedicated NUMERIA domain and email.
-5. Add payment links / checkout after legal and merchant setup.
+1. Keep the catalogue focused and expand only when delivery quality can be maintained.
+2. Recruit and evaluate instructors against the NUMERIA faculty standard.
+3. Maintain official course calendars and group capacities.
+4. Use the dedicated NUMERIA domain and email for all school communication.
+5. Add payment links / checkout when legal and merchant setup is complete.
 6. Add a real student space only when the operating workflow is proven.
