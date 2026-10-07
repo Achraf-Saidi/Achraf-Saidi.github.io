@@ -154,3 +154,74 @@ h1{font-size:clamp(3.2rem,8vw,6.8rem);line-height:.92;letter-spacing:-.055em;mar
   .timeline-item{grid-template-columns:1fr;gap:7px}
   .actions .button{flex:1}
 }
+
+/* Contact */
+.contact-cta{background:var(--surface)}
+.contact-cta-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.4fr);
+  gap:64px;
+  align-items:end;
+  padding:36px 0
+}
+.contact-cta-inner h2{margin-bottom:16px}
+.contact-cta-inner p{margin:0;color:var(--muted);max-width:760px}
+.contact-cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.contact-cta-actions span{color:var(--muted);font-size:.76rem;max-width:240px}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px
+}
+.contact-card{
+  padding:34px;
+  border:1px solid var(--line);
+  background:var(--surface)
+}
+.contact-card.featured{border-top:3px solid var(--accent)}
+.contact-card h2{
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1;
+  letter-spacing:-.04em;
+  margin:0 0 18px
+}
+.contact-card>p:not(.eyebrow):not(.contact-note){color:var(--muted);margin:0}
+.contact-list{
+  margin:26px 0 30px;
+  padding:22px 0 0;
+  list-style:none;
+  border-top:1px solid var(--line)
+}
+.contact-list li{
+  padding:7px 0;
+  color:#4f586a;
+  font-size:.9rem
+}
+.contact-list li:before{content:"—";color:var(--accent);margin-right:9px}
+.contact-email{
+  display:inline-block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.92rem;
+  font-weight:700;
+  color:var(--accent);
+  border-bottom:1px solid currentColor;
+  padding-bottom:2px
+}
+.contact-note{margin:11px 0 0!important;color:var(--muted);font-size:.77rem}
+.contact-bottom{
+  display:grid;
+  grid-template-columns:minmax(0,.7fr) minmax(320px,.55fr);
+  gap:60px;
+  align-items:end
+}
+.contact-bottom p{margin:0;color:var(--muted)}
+.compact-section{padding-top:58px;padding-bottom:58px}
+
+@media(max-width:900px){
+  .contact-cta-inner,.contact-grid,.contact-bottom{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .contact-card{padding:24px}
+  .contact-email{font-size:.8rem;overflow-wrap:anywhere}
+}
