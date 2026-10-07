@@ -29,3 +29,7 @@ h1,h2,h3,h4{overflow-wrap:anywhere}.hero-content,.section-heading>*{min-width:0}
 @media(max-width:760px){.orbit-scene{min-height:max(255px,15.9375rem)}}
 @media(max-width:520px){.orbit-scene{min-height:max(220px,13.75rem)}.project-bottom{flex-direction:column;align-items:start}}
 @media(max-width:350px){.orbit-scene{min-height:max(190px,11.875rem)}}
+
+/* Keep intrinsic word widths from forcing grid and flex tracks beyond the screen. */
+main,section,article,header,nav,div{min-width:0}p,a,button,li,strong{overflow-wrap:anywhere}.service-tags li{max-width:100%}.use-tabs{max-width:100%}.engine-steps [data-flow-step]{min-width:0;flex:1;overflow-wrap:anywhere}
+.brand-plate{background:linear-gradient(140deg,#46504f 0,#29302f 50%,#202626 100%);border-color:#53625c;box-shadow:inset -5px -7px 0 #121b1c70,inset 2px 2px 0 #79867a55,12px 18px 26px #73422130}.brand-plate>span{color:#dbc2a2}.brand-glyph{filter:drop-shadow(0 7px 6px #111a1955)}.step-number{color:#8e5c32}
