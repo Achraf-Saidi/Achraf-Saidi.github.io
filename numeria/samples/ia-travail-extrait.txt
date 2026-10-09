@@ -1,0 +1,15 @@
+NUMERIA — extrait gratuit
+
+Une synthèse, avec un protocole de contrôle
+
+Un bon prompt ne remplace pas une vérification. Travaillez sur un document public et commencez par définir le résultat attendu.
+
+Demandez cinq points clés avec référence à la page source. Contrôlez ensuite chaque point et notez ce que le modèle a omis ou inventé.
+
+OBJECTIF  : résumer un document public
+FORMAT    : 5 points, source pour chaque point
+CONTRAINTE: signaler les informations absentes
+CONTRÔLE  : vérifier chaque citation dans le document
+DÉCISION  : corriger ou rejeter les points non fondés
+
+Un résultat exploitable doit être traçable. Comptez les affirmations vérifiées, identifiez les omissions et comparez le temps total, contrôle compris, avec votre méthode habituelle.
