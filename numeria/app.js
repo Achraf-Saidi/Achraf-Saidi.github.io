@@ -1,8 +1,8 @@
-import { byId, copy } from './catalog.js?v=606b626454';
-import { t, money } from './i18n.js?v=606b626454';
-import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=606b626454';
-import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=606b626454';
-import { courses, resources } from './catalog.js?v=606b626454';
+import { byId, copy } from './catalog.js?v=1a121964c98';
+import { t, money } from './i18n.js?v=1a121964c98';
+import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=1a121964c98';
+import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=1a121964c98';
+import { courses, resources } from './catalog.js?v=1a121964c98';
 
 const root = document.getElementById('app');
 const view = document.body.dataset.view || 'home';

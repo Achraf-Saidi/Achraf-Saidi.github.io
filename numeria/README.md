@@ -103,3 +103,5 @@ Les pages générées et les modules versionnés doivent être publiés ensemble
 ## Validation
 
 Les calculs de prix, les règles de crédit et les exemples Python sont exécutés. Les pages, programmes, libellés et téléchargements sont contrôlés dans les trois langues. Le rendu et le parcours d’achat sont ensuite vérifiés dans un navigateur sur le site publié, dont les fenêtres mobiles de 320 et 390 px.
+
+Le téléchargement principal de l’extrait Python est un notebook Jupyter `.ipynb`. Le script `.py` correspondant reste également disponible dans `samples/`.

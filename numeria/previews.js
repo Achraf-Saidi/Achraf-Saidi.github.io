@@ -1,4 +1,4 @@
-import { L } from './catalog.js?v=606b626454';
+import { L } from './catalog.js?v=1a121964c98';
 export const previews = {
   math: {
     title:L('Une fonction, trois façons de la lire','One function, three ways to read it','دالة وثلاث طرق لفهمها'), file:'maths-extrait.html', language:'Maths',
@@ -15,7 +15,7 @@ export const previews = {
     solution:L('L’accélération constante et la vitesse initiale nulle donnent z(t) = ½gt². On résout 20 = 5t² et on garde t = 2 s, car le temps est positif. La vitesse vaut 20 m/s vers le bas. Ce modèle suppose une chute libre sans frottement.','Constant acceleration and zero initial velocity give z(t) = ½gt². Solve 20 = 5t² and keep t = 2 s because time is positive. Speed is 20 m/s downward. This model assumes free fall without drag.','مع تسارع ثابت وسرعة أولية معدومة نحصل على z(t) = ½gt². نحل 20 = 5t² ونأخذ t = 2 s لأن الزمن موجب. السرعة 20 m/s نحو الأسفل. يفترض النموذج سقوطًا حرًا دون احتكاك.')
   },
   python: {
-    title:L('Une moyenne qui refuse les mauvaises données','An average that rejects bad data','متوسط يرفض البيانات غير الصالحة'),file:'python-extrait.py',language:'Python',
+    title:L('Une moyenne qui refuse les mauvaises données','An average that rejects bad data','متوسط يرفض البيانات غير الصالحة'),file:'python-extrait.ipynb',language:'Python',
     intro:L('Le premier réflexe n’est pas de demander à l’IA d’écrire la fonction. C’est de définir ce qu’elle doit accepter et refuser.','The first step is not asking AI to write the function. It is defining what it should accept and reject.','الخطوة الأولى ليست طلب كتابة الدالة من الذكاء الاصطناعي، بل تحديد ما تقبله وما ترفضه.'),
     task:L('Écrivez une fonction qui calcule la moyenne de notes entre 0 et 20. Elle doit refuser une liste vide, les booléens et une note hors intervalle.','Write a function averaging grades between 0 and 20. Reject an empty list, booleans and out-of-range grades.','اكتب دالة لحساب متوسط علامات من 0 إلى 20. ارفض القائمة الفارغة والقيم المنطقية والعلامات خارج المجال.'),
     code:'def moyenne(notes):\n    if not notes:\n        raise ValueError("Liste vide")\n    if any(type(n) not in (int, float)\n           or not 0 <= n <= 20 for n in notes):\n        raise ValueError("Note invalide")\n    return sum(notes) / len(notes)\n\nassert moyenne([12, 16, 14]) == 14',

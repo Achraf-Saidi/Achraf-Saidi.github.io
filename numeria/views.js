@@ -1,7 +1,7 @@
-import { courses, packs, resources, byId, copy, L } from './catalog.js?v=606b626454';
-import { t, money } from './i18n.js?v=606b626454';
-import { quote, resourceValue } from './commerce.js?v=606b626454';
-import { previews } from './previews.js?v=606b626454';
+import { courses, packs, resources, byId, copy, L } from './catalog.js?v=1a121964c98';
+import { t, money } from './i18n.js?v=1a121964c98';
+import { quote, resourceValue } from './commerce.js?v=1a121964c98';
+import { previews } from './previews.js?v=1a121964c98';
 
 export const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const paths = { home:'index.html', lycee:'lycee.html', tech:'formations.html', resources:'ressources.html' };

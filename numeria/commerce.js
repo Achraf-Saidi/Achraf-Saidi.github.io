@@ -1,4 +1,4 @@
-import { courses, packs, resources, byId } from './catalog.js?v=606b626454';
+import { courses, packs, resources, byId } from './catalog.js?v=1a121964c98';
 
 export const CREDIT_DAYS = 30;
 export const STORAGE_VERSION = 2;

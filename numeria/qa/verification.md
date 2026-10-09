@@ -32,3 +32,7 @@ Les reçus et articles créés pour ces essais ont été effacés du navigateur 
 Ce site est une vitrine et une boutique de démonstration. Les commandes, paiements, crédits et reçus locaux n’ont aucune valeur financière et ne créent ni inscription ni accès payant. Seuls les extraits gratuits sont distribués ; les collections complètes du catalogue restent prévues. Le formulaire ouvre la messagerie du visiteur, sans envoi serveur. Aucun compte élève ou paiement réel n’est opérationnel.
 
 Les enseignants, horaires, conditions, prix définitifs et prérequis sont confirmés avant une inscription réelle. Les niveaux universitaires décrivent les programmes, sans équivalence de diplôme ni partenariat institutionnel.
+
+### Téléchargement Python
+
+L’extrait et sa correction ont été ouverts sur téléphone. Le téléchargement natif du script Python a été annulé dans le navigateur de contrôle, puis la session de navigateur s’est déconnectée. Le lien principal propose désormais le notebook Jupyter déjà validé dans le dépôt ; le clic de téléchargement de ce nouveau format n’a pas été revalidé dans cette session. Le contenu reste consultable directement dans la fiche d’extrait.
