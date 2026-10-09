@@ -1,4 +1,4 @@
-import { L } from './catalog.js?v=6e7f347bc8';
+import { L } from './catalog.js?v=4be73b55fb';
 export const previews = {
   math: {
     title:L('Une fonction, trois façons de la lire','One function, three ways to read it','دالة وثلاث طرق لفهمها'), file:'maths-extrait.html', language:'Maths',

@@ -1,8 +1,8 @@
-import { byId, copy } from './catalog.js?v=6e7f347bc8';
-import { t, money } from './i18n.js?v=6e7f347bc8';
-import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=6e7f347bc8';
-import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=6e7f347bc8';
-import { courses, resources } from './catalog.js?v=6e7f347bc8';
+import { byId, copy } from './catalog.js?v=4be73b55fb';
+import { t, money } from './i18n.js?v=4be73b55fb';
+import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=4be73b55fb';
+import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=4be73b55fb';
+import { courses, resources } from './catalog.js?v=4be73b55fb';
 
 const root = document.getElementById('app');
 const view = document.body.dataset.view || 'home';
@@ -200,6 +200,7 @@ document.addEventListener('change',event=>{
     const needsGuardian=isSchool&&(!minor||minor.checked);
     form.querySelector('.guardian-field').hidden=!needsGuardian;
     form.elements.guardian.required=needsGuardian;
+    form.elements.guardian.disabled=!needsGuardian;
   }
 });
 

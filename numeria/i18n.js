@@ -1,4 +1,4 @@
-import { L, copy } from './catalog.js?v=6e7f347bc8';
+import { L, copy } from './catalog.js?v=4be73b55fb';
 export const messages = {
   tagline:L('Maths. Code. Esprit critique.','Maths. Code. Critical thinking.','رياضيات. برمجة. تفكير نقدي.'),
   home:L('Accueil','Home','الرئيسية'), lycee:L('Lycée & BAC','High school & BAC','الثانوي والبكالوريا'), tech:L('Code, Data & IA','Code, Data & AI','البرمجة والبيانات والذكاء الاصطناعي'), resources:L('Ressources','Resources','الموارد'), method:L('Notre méthode','Our method','منهجنا'), contact:L('Parlons de votre projet','Let’s discuss your goals','لنتحدث عن هدفك'), cart:L('Mon panier','My cart','سلتي'), menu:L('Ouvrir le menu','Open menu','فتح القائمة'), close:L('Fermer','Close','إغلاق'), language:L('Langue','Language','اللغة'), skip:L('Aller au contenu','Skip to content','انتقل إلى المحتوى'),

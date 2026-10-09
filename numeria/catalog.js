@@ -254,7 +254,7 @@ export const courses = [
     references: [['scikit-learn · guide', 'https://scikit-learn.org/stable/user_guide.html'], ['CS229 · supports ouverts', 'https://see.stanford.edu/Course/CS229']],
     modules: L([
       ['S1 · bases mathématiques', 'Vecteurs, matrices, gradients, objectifs et descente de gradient.'],
-      ['S2 · données & baselines', 'Splits, variables, valeurs manquantes, déséquilibre et risques de fuite.'],
+      ['S2 · données & baselines', 'Tableaux pandas, splits, variables, valeurs manquantes, déséquilibre et risques de fuite.'],
       ['S3 · modèles linéaires', 'Régression, classification logistique, régularisation et interprétation.'],
       ['S4 · voisins & noyaux', 'k-NN, SVM, mise à l’échelle et choix des hyperparamètres.'],
       ['S5 · arbres & ensembles', 'Arbres, random forests, boosting et compromis biais-variance.'],
@@ -265,7 +265,7 @@ export const courses = [
       ['S10 · soutenance', 'Benchmark complet, ablations simples et défense des choix méthodologiques.']
     ],[
       ['W1 · mathematical foundations', 'Vectors, matrices, gradients, objectives and gradient descent.'],
-      ['W2 · data & baselines', 'Splits, features, missing data, imbalance and leakage risks.'],
+      ['W2 · data & baselines', 'pandas tables, splits, features, missing data, imbalance and leakage risks.'],
       ['W3 · linear models', 'Regression, logistic classification, regularisation and interpretation.'],
       ['W4 · neighbours & kernels', 'k-NN, SVM, scaling and hyperparameter choices.'],
       ['W5 · trees & ensembles', 'Trees, random forests, boosting and bias–variance trade-offs.'],
@@ -276,7 +276,7 @@ export const courses = [
       ['W10 · defence', 'Complete benchmark, simple ablations and methodological justification.']
     ],[
       ['أ1 · أسس رياضية', 'المتجهات والمصفوفات والتدرجات ودوال الهدف والانحدار التدرجي.'],
-      ['أ2 · البيانات والنماذج المرجعية', 'التقسيم والمتغيرات والقيم المفقودة وعدم التوازن ومخاطر التسرب.'],
+      ['أ2 · البيانات والنماذج المرجعية', 'جداول pandas والتقسيم والمتغيرات والقيم المفقودة وعدم التوازن ومخاطر التسرب.'],
       ['أ3 · نماذج خطية', 'الانحدار والتصنيف اللوجستي والتنظيم والتفسير.'],
       ['أ4 · الجيران والنوى', 'k-NN وSVM والتقييس واختيار المعاملات.'],
       ['أ5 · الأشجار والتجميع', 'الأشجار والغابات العشوائية وboosting وموازنة التحيز والتباين.'],
