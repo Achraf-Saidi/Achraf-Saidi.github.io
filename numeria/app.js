@@ -1,8 +1,8 @@
-import { byId, copy } from './catalog.js?v=4be73b55fb';
-import { t, money } from './i18n.js?v=4be73b55fb';
-import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=4be73b55fb';
-import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=4be73b55fb';
-import { courses, resources } from './catalog.js?v=4be73b55fb';
+import { byId, copy } from './catalog.js?v=606b626454';
+import { t, money } from './i18n.js?v=606b626454';
+import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=606b626454';
+import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=606b626454';
+import { courses, resources } from './catalog.js?v=606b626454';
 
 const root = document.getElementById('app');
 const view = document.body.dataset.view || 'home';
@@ -66,7 +66,7 @@ function updateCartUI() {
   const q=quote(cart,history);
   const count=q.lines.length;
   root.querySelectorAll('[data-cart-count]').forEach(el=>{el.textContent=count||'0';});
-  root.querySelectorAll('[data-action="cart"]').forEach(el=>el.setAttribute('aria-label',`${t('cart',lang)} (${count})`));
+  root.querySelectorAll('.cart-toggle').forEach(el=>el.setAttribute('aria-label',`${t('cart',lang)} (${count})`));
   const dock=root.querySelector('[data-basket-dock]');
   dock.hidden=count===0||modal?.open;
   root.querySelector('[data-dock-count]').textContent=count;
