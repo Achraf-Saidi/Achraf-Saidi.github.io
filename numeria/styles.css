@@ -39,3 +39,4 @@ body.modal-open{overflow:hidden}.form-grid .minor-field>span{display:flex;align-
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.code-cursor{opacity:1}.profile-card:hover,.course-card:hover,.resource-card:hover,.button:hover{transform:none}}
 
 .book-stack{overflow:clip}.poster-stamp{max-width:115px;line-height:1.7}html[dir=rtl] .poster-top,html[dir=rtl] .poster-stamp{font-family:var(--sans)}
+

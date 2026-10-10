@@ -4,6 +4,62 @@
 
 **Site : https://achraf-saidi.github.io/numeria/**
 
+**Espace école : https://achraf-saidi.github.io/numeria/ecole.html**
+
+## Espace école : une démonstration complète, locale
+
+Six interfaces relient la vitrine et les workflows de l’école. Cet espace n’est **pas une application scolaire en production** : le mot de passe est public, les données sont fictives, les autorisations sont des règles de démonstration exécutées dans le navigateur. N’y saisissez aucun renseignement personnel ou document confidentiel.
+
+| Rôle | E-mail de test | Parcours |
+| --- | --- | --- |
+| Administration · Achraf Saidi | `admin@numeria.dz` | Indicateurs, comptes et inscriptions, catalogue, PDF, planning, échéances fictives, messages, textes de la vitrine, annonces, sauvegardes et journal |
+| Professeur | `professeur@numeria.dz` | Groupes attribués, création de devoirs, corrections sur 20, retours, présences, PDF, séances et messages locaux |
+| Étudiant | `etudiant@numeria.dz` | Modules, extraits réels, quiz, devoirs et retours, bibliothèque, agenda et échéances fictives |
+| Lycéen | `lyceen@numeria.dz` | Maths et physique, objectifs, exercices, devoirs, retours et suivi |
+| Jeune professionnel | `professionnel@numeria.dz` | Parcours techniques, projets, ressources et agenda |
+| Parent | `parent@numeria.dz` | Enfants liés, progression, notes et retours, bulletins HTML imprimables, présence, agenda et échéances fictives |
+
+**Mot de passe commun : `NumeriaDemo2026!`**. Un second enfant fictif est disponible avec `eleve2@numeria.dz`. Les nouveaux comptes créés dans l’administration utilisent également ce mot de passe de démonstration. Les boutons de profil préremplissent les identifiants ; le visiteur choisit ensuite d’entrer dans l’espace.
+
+### Ce qui fonctionne réellement
+
+- Données et PDF sauvegardés dans IndexedDB, ensemble dans une transaction lors d’un ajout ou d’une suppression. Si le navigateur interdit ce stockage, une alerte indique que les données restent temporaires.
+- Données partagées entre les rôles **dans un même navigateur et sur la même origine** ; une connexion par onglet conservée en sessionStorage. Les changements d’un autre onglet sont notifiés avec BroadcastChannel et un signal localStorage.
+- Dépôt d’un devoir texte, correction du professeur, retour visible chez l’apprenant et son parent lié. Un nouveau dépôt remet la copie en attente de correction.
+- Mini-quiz corrigé : au moins 2 réponses correctes sur 3 pour marquer un module parcouru en démo. Le même contrôle de bases est un exercice témoin, pas une certification de maîtrise du module.
+- Création de comptes fictifs @numeria.dz, activation, attribution de formations, liens parent-enfant et attribution d’un professeur par formation.
+- Ajout et modification des formations, statut brouillon/publié ; les formations publiées et les textes édités s’affichent sur la vitrine **de cet appareil**. Les traductions de titre et de présentation sont éditables. Les nouveaux objectifs des modules sont saisis en français.
+- PDF jusqu’à 5 Mo, signature `%PDF-` vérifiée, bibliothèque filtrée selon les parcours, possibilité d’afficher un support gratuit sur la vitrine locale. Les extraits gratuits déjà proposés restent téléchargeables.
+- Planning avec rejet des chevauchements pour le professeur attribué, export `.ics`, lien Google Meet existant facultatif. Aucun Meet ni invitation n’est créé automatiquement.
+- Paiement Edahabia/espèces entièrement simulé, aucune saisie de numéro de carte, CVV, PIN ou OTP ; récapitulatif clairement fictif, sans valeur comptable. Export CSV des seules échéances de démonstration, cellules protégées contre les formules.
+- Messagerie locale, destinataires limités aux relations pédagogiques. Aucun e-mail, SMS ni notification externe envoyé.
+- Sauvegarde JSON avec tous les PDF (20 Mo au total), validation avant restauration, réinitialisation volontaire des exemples locaux et journal des opérations.
+
+### Limites à connaître
+
+Les modifications administrateur **ne modifient pas le dépôt GitHub et ne deviennent pas visibles aux autres visiteurs**. GitHub Pages sert des fichiers statiques. Le catalogue de production reste celui du dépôt tant qu’une intégration serveur ou une publication des changements n’est pas mise en place. Les PDF ajoutés ne quittent pas le navigateur. Effacer son stockage peut supprimer l’espace ; exporter régulièrement permet de le restaurer ailleurs.
+
+Les indicateurs sont calculés à partir des exemples locaux, sans chiffres commerciaux inventés sur la vitrine. Les cours complets, vidéos et collections payantes restent à produire ; l’interface contient des objectifs, des extraits réels et des exercices témoins. Les interfaces de gestion sont en français ; la vitrine et les expériences publiques restent en français, anglais et arabe.
+
+Le panier public et ses reçus anonymes restent séparés de l’espace école. Une commande fictive du panier ne constitue aucune inscription réelle ni attribution de cours automatique.
+
+### Expériences publiques
+
+Mini-quiz avec explications et programme à explorer ; régression par moindres carrés recalculée en direct quand une observation change ; plan de travail personnel qui répartit le temps disponible entre compréhension, pratique et reprise des erreurs ; aperçu interactif des six rôles.
+
+### Développement et vérification
+
+```sh
+cd numeria
+npm install --ignore-scripts
+npm test
+npm run build
+```
+
+Le seul module de développement est `linkedom` pour vérifier les noms des contrôles et les labels. Aucun framework ni dépendance de production. Le build pré-rend les quatre pages publiques et la connexion, génère les extraits et applique une version commune aux imports JS et aux feuilles CSS.
+
+Voir [BACKEND.md](BACKEND.md) pour les exigences d’une mise en service partagée et sécurisée.
+
 ## Parcours
 
 | Espace | Contenu |
@@ -105,3 +161,4 @@ Les pages générées et les modules versionnés doivent être publiés ensemble
 Les calculs de prix, les règles de crédit et les exemples Python sont exécutés. Les pages, programmes, libellés et téléchargements sont contrôlés dans les trois langues. Le rendu et le parcours d’achat sont ensuite vérifiés dans un navigateur sur le site publié, dont les fenêtres mobiles de 320 et 390 px.
 
 Le téléchargement principal de l’extrait Python est un notebook Jupyter `.ipynb`. Le script `.py` correspondant reste également disponible dans `samples/`.
+

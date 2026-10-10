@@ -1,4 +1,4 @@
-import { L } from './catalog.js?v=1a121964c98';
+import { L } from './catalog.js?v=cf0edce1d5';
 export const previews = {
   math: {
     title:L('Une fonction, trois façons de la lire','One function, three ways to read it','دالة وثلاث طرق لفهمها'), file:'maths-extrait.html', language:'Maths',
@@ -64,3 +64,4 @@ export const previews = {
     solution:L('Un résultat exploitable doit être traçable. Comptez les affirmations vérifiées, identifiez les omissions et comparez le temps total, contrôle compris, avec votre méthode habituelle.','A usable result must be traceable. Count verified claims, identify omissions and compare total time, including checking, with your usual method.','يجب أن تكون النتيجة قابلة للتتبع. احسب الادعاءات المتحقق منها وحدد ما أُهمل وقارن الوقت الإجمالي، بما فيه التحقق، بطريقتك المعتادة.')
   }
 };
+

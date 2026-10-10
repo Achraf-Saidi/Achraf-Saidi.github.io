@@ -435,3 +435,4 @@ export const resources = [
 export const products = [...courses.map(c=>({...c,kind:'course'})), ...packs.map(p=>({...p,kind:'pack'})), ...resources.map(r=>({...r,kind:'resource'}))];
 export const byId = Object.assign(Object.create(null), Object.fromEntries(products.map(p=>[p.id,p])));
 export const copy = (value, lang='fr') => typeof value === 'object' && value !== null && !Array.isArray(value) ? (value[lang] ?? value.fr) : value;
+

@@ -1,8 +1,10 @@
-import { byId, copy } from './catalog.js?v=1a121964c98';
-import { t, money } from './i18n.js?v=1a121964c98';
-import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=1a121964c98';
-import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=1a121964c98';
-import { courses, resources } from './catalog.js?v=1a121964c98';
+import { initSchool, syncPublicCatalog, subscribeSchool } from './school-store.js?v=cf0edce1d5';
+import { initExperiences, renderLocalLibrary } from './experiences.js?v=cf0edce1d5';
+import { byId, copy } from './catalog.js?v=cf0edce1d5';
+import { t, money } from './i18n.js?v=cf0edce1d5';
+import { normalizeCart, addToCart, removeFromCart, quote, cleanHistory, createDemoReceipt } from './commerce.js?v=cf0edce1d5';
+import { pageHTML, courseCard, resourceCard, detailsHTML, previewHTML, cartHTML, checkoutHTML, successHTML, historyHTML, contactHTML, mailPreviewHTML, privacyHTML, icon } from './views.js?v=cf0edce1d5';
+import { courses, resources } from './catalog.js?v=cf0edce1d5';
 
 const root = document.getElementById('app');
 const view = document.body.dataset.view || 'home';
@@ -20,6 +22,9 @@ let dialogState = null;
 let lastReceipt;
 let toastTimer;
 let mailBody = '';
+let pendingSchoolRefresh = false;
+await initSchool();
+syncPublicCatalog();
 try {
   const saved = JSON.parse(localStorage.getItem('numeria.demo.v2') || '{}');
   cart = normalizeCart(saved.cart);
@@ -45,6 +50,7 @@ function render() {
     dialogState=null;
     updateCartUI();
     if(lastFocus?.isConnected) lastFocus.focus({preventScroll:true});
+    if(pendingSchoolRefresh){pendingSchoolRefresh=false;render();}
   });
   modal.addEventListener('click',event=>{
     if(event.target!==modal) return;
@@ -53,6 +59,7 @@ function render() {
   });
   updateCartUI();
   updateGraph(1.2);
+  renderLocalLibrary(root,lang);
 }
 
 function updateURL() {
@@ -236,5 +243,8 @@ window.addEventListener('storage',event=>{
   }catch{ /* Ignore a malformed local state. */ }
 });
 
+initExperiences({root,getLang:()=>lang,notify:showToast,open:html=>{if(!modal.open)lastFocus=document.activeElement;dialogState={type:'experience'};document.getElementById('dialog-body').innerHTML=html;if(!modal.open)modal.showModal();document.body.classList.add('modal-open');modal.scrollTop=0;const h=modal.querySelector('#dialog-title');h.setAttribute('tabindex','-1');h.focus({preventScroll:true});updateCartUI();}});
+subscribeSchool((_,external)=>{if(!external)return;syncPublicCatalog();if(modal?.open){pendingSchoolRefresh=true;return;}render();});
 render();
 if(!storageAvailable)showToast(t('offlineStorage',lang));
+

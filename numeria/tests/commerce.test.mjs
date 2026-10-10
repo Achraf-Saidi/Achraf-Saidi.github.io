@@ -104,3 +104,4 @@ test('published pricing is internally consistent',()=>{
   for(const pack of packs){assert.ok(pack.price<pack.courses.reduce((sum,id)=>sum+byId[id].price,0));assert.equal(pack.monthly,pack.courses.every(id=>byId[id].monthly));}
   for(const resource of resources){assert.equal(byId[resource.course].resource,resource.id);assert.ok(resource.price>0&&resource.price<byId[resource.course].price);}
 });
+

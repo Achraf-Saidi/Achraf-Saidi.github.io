@@ -1,4 +1,4 @@
-import { courses, packs, resources, byId } from './catalog.js?v=1a121964c98';
+import { courses, packs, resources, byId } from './catalog.js?v=cf0edce1d5';
 
 export const CREDIT_DAYS = 30;
 export const STORAGE_VERSION = 2;
@@ -126,3 +126,4 @@ export function resourceValue(product) {
   const ids = product.kind === 'pack' || product.courses ? product.courses : [product.id];
   return ids.reduce((sum, id) => sum + (byId[byId[id]?.resource]?.price || 0), 0);
 }
+

@@ -36,3 +36,4 @@ Les enseignants, horaires, conditions, prix définitifs et prérequis sont confi
 ### Téléchargement Python
 
 L’extrait et sa correction ont été ouverts sur téléphone. Le téléchargement natif du script Python a été annulé dans le navigateur de contrôle, puis la session de navigateur s’est déconnectée. Le lien principal propose désormais le notebook Jupyter déjà validé dans le dépôt ; le clic de téléchargement de ce nouveau format n’a pas été revalidé dans cette session. Le contenu reste consultable directement dans la fiche d’extrait.
+
