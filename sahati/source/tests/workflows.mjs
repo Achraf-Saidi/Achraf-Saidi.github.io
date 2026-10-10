@@ -59,6 +59,10 @@ await test('role and hospital filtering removes unauthorized clinical records',a
  assert.ok((await bootstrap('radiology')).records.filter(r=>r.kind==='orders').every(r=>r.category==='radiology'));
  assert.ok(!(await record('reception','p1')).allergies);assert.ok(!(await record('pharmacy','p1')).address);
 });
+await test('research account directories exclude patient identities and stock units are integral',async()=>{
+ for(const role of ['researcher','student'])assert.ok(!(await bootstrap(role)).accounts.some(a=>a.role==='patient'));
+ await create('pharmacy','stock',{title:'Test lot',unit:'boîtes',lot:'TEST-FRACTION',expiry:'2029-01-01',quantity:1.5,threshold:1,unitPrice:1},undefined,400);
+});
 await test('patient sees only own records and published results',async()=>{
  const p=await bootstrap('patient');assert.ok(p.records.every(r=>r.patientId==='p1'||r.id==='p1'||r.kind==='messages'&&r.recipientId==='patient'));
  assert.ok(!p.records.some(r=>r.id==='o1'||r.id==='m1'));assert.ok(p.records.some(r=>r.id==='rx1'));

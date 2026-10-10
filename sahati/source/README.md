@@ -4,11 +4,11 @@ Plateforme hospitalière algérienne **de démonstration**, conçue pour Achraf 
 
 **Application privée : https://sahati.ochrecreek8.chatgpt.site**
 
-La vitrine et l’application sont protégées côté serveur. Le mot de passe d’entrée choisi par le propriétaire est configuré comme secret d’hébergement ; il n’est ni dans ce dépôt ni dans le navigateur. Le code source GitHub est public. Les dossiers, établissements et avis éthiques de cette version sont entièrement fictifs.
+La vitrine et l’application sont protégées côté serveur. L’authentification repose exclusivement sur le verrou SAHATI et ses comptes métier. Le mot de passe d’entrée choisi par le propriétaire est configuré comme secret d’hébergement ; il n’est ni dans ce dépôt ni dans le navigateur. Le code source GitHub est public. Les dossiers, établissements et avis éthiques de cette version sont entièrement fictifs.
 
 ## Découvrir la plateforme
 
-1. Ouvrir l’application privée avec le compte ChatGPT propriétaire.
+1. Ouvrir l’application. Aucun compte externe n’est requis.
 2. Déverrouiller la vitrine avec le mot de passe d’entrée personnel.
 3. Choisir **Accéder à mon espace**, puis l’un des 14 profils.
 4. Les identifiants de démonstration sont proposés dans la page de connexion. Le mot de passe commun de ces comptes fictifs est `SahatiDemo2026!`.

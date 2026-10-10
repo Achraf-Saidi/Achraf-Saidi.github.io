@@ -2,7 +2,7 @@
 
 Un système clair, avec un fond ivoire, un jade médical, des accents corail et une typographie éditoriale chaleureuse. La signature est « le soin, relié ». Le logo évoque un S continu, un lien et une forme de cœur/feuille. Il accompagne une interface qui met le parcours du patient au premier plan.
 
-Les deux images ont été créées avec l’outil de génération d’images intégré à ChatGPT, puis inspectées. Elles ne représentent ni de vrais patients, ni un hôpital réel, ni une marque partenaire.
+Les deux visuels originaux ont été générés pour ce projet, puis inspectés. Elles ne représentent ni de vrais patients, ni un hôpital réel, ni une marque partenaire.
 
 | Fichier | Description du brief de génération |
 | --- | --- |

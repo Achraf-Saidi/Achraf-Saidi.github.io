@@ -1,7 +1,9 @@
 {
-  "source_commit": "fb26d85f9a654b6ab664bc5119e96327d097395d",
+  "source_commit": "b3a65bf19718b003db6f0c9196a397e3302c21c6",
   "application_url": "https://sahati.ochrecreek8.chatgpt.site",
   "source_directory": "source",
+  "auth": "sahati-gate-and-accounts",
+  "custom_domain": "pending_selection",
   "excluded_generated_files": [
     "tsconfig.tsbuildinfo"
   ]

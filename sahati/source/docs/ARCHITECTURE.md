@@ -2,7 +2,7 @@
 
 ## Chaîne de protection
 
-L’audience d’hébergement est privée au propriétaire. Le contrôle applicatif précède le rendu de chaque page et toute opération API. Le mot de passe de vitrine est vérifié par PBKDF2-SHA256 avec sel aléatoire et 100 000 itérations ; seul son vérificateur est présent dans un secret d’hébergement. Un deuxième accès identifie le compte métier. Les cookies `__Host-` sont Secure, HttpOnly, SameSite=Strict et ne contiennent que des jetons aléatoires dont la base conserve le SHA-256. La session de vitrine dure huit heures, la session métier une heure. Les tentatives sont limitées et les écritures vérifient l’origine. Une désactivation révoque les sessions du compte.
+L’hébergement accepte les visiteurs sans compte externe. L’accès aux pages et aux données reste protégé par les sessions SAHATI. Le contrôle applicatif précède le rendu de chaque page et toute opération API. Le mot de passe de vitrine est vérifié par PBKDF2-SHA256 avec sel aléatoire et 100 000 itérations ; seul son vérificateur est présent dans un secret d’hébergement. Un deuxième accès identifie le compte métier. Les cookies `__Host-` sont Secure, HttpOnly, SameSite=Strict et ne contiennent que des jetons aléatoires dont la base conserve le SHA-256. La session de vitrine dure huit heures, la session métier une heure. Les tentatives sont limitées et les écritures vérifient l’origine. Une désactivation révoque les sessions du compte.
 
 Les politiques `lib/policy.ts` sont appliquées par `lib/engine.ts`. Le filtrage de l’interface sert à présenter les actions disponibles ; il ne remplace pas les contrôles serveur. Les lectures, mutations, impressions, téléchargements et exports sont tracés. Les modifications utilisent une version optimiste pour refuser un état périmé.
 
