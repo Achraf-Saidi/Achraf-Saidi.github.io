@@ -35,6 +35,6 @@ Le moteur serveur, les API, les contrôles d'accès, les neuf tables et les migr
 
 ## Validation et limites
 
-23 scénarios métier passent sur SQLite natif et sur SQLite WASM. Sept scénarios complémentaires couvrent le coffre, le refus d'accès, les mutations/fichiers persistants, le verrouillage, les sauvegardes modifiées, la restauration et les routes GitHub. TypeScript et le build sont vérifiés. La recette visuelle complète en navigateur et la lecture de QR sur appareil physique restent à effectuer. L'interface prévoit téléphone, RTL, contraste et taille de texte ; la traduction métier arabe n'est pas encore complète.
+23 scénarios métier passent sur SQLite natif et sur SQLite WASM. Huit scénarios complémentaires couvrent le coffre, les restrictions d’en-têtes du navigateur, le refus d'accès, les mutations/fichiers persistants, le verrouillage, les sauvegardes modifiées, la restauration et les routes GitHub. TypeScript et le build sont vérifiés. La recette visuelle complète en navigateur et la lecture de QR sur appareil physique restent à effectuer. L'interface prévoit téléphone, RTL, contraste et taille de texte ; la traduction métier arabe n'est pas encore complète.
 
 Cette version ne revendique aucune certification clinique, FHIR, WCAG ni conformité juridique. Voir `docs/ROADMAP.md` pour les étapes de validation hospitalière.

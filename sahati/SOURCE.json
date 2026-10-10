@@ -1,6 +1,6 @@
 {
   "product": "SAHATI",
-  "version": "github-1",
+  "version": "github-1.1",
   "url": "https://achraf-saidi.github.io/sahati/",
   "hosting": "GitHub Pages",
   "source": "./source",
@@ -11,12 +11,13 @@
   "modules": 25,
   "validation": {
     "business_scenarios": 23,
-    "vault_scenarios": 7,
+    "vault_scenarios": 8,
     "sqlite_native": true,
     "sqlite_wasm": true,
     "typescript": true,
     "static_build": true,
     "standalone_server_build": true,
     "browser_visual_qa": false
-  }
+  },
+  "local_transport": "application-request-and-session-callback"
 }

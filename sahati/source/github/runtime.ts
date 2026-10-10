@@ -1,4 +1,4 @@
-import {handleAPI} from '../lib/engine';
+import {handleAPI,type ApplicationRequest} from '../lib/engine';
 import {sqliteDatabase} from './sqlite';
 import {base64,unbase64,deriveKey,seal,open,vaultStorage,type Envelope} from './vault';
 import {schema} from './schema';
@@ -39,13 +39,17 @@ export async function localResponse(path:string,method='GET',body?:any):Promise<
     const DB=sqliteDatabase(db) as unknown as D1Database;
     const BUCKET={async put(k:string,b:Uint8Array){files[k]=base64(b);},async delete(k:string){delete files[k];},async get(k:string){return files[k]?{body:unbase64(files[k])}:null;}} as unknown as R2Bucket;
     const url=new URL(base+'api/'+path,location.origin);
-    const request=new Request(url,{method,headers:{Origin:location.origin,Cookie:Object.entries(cookies).map(([k,v])=>k+'='+v).join('; '),...(body instanceof FormData?{}:body?{'Content-Type':'application/json'}:{})},...(body===undefined?{}:{body:body instanceof FormData?body:JSON.stringify(body)})});
+    // Origin and local sessions are application metadata. Keep them outside
+    // Fetch Request/Response headers, where browser guards would discard them.
+    const payload=new Request(url,{method,headers:body instanceof FormData?undefined:body?{'Content-Type':'application/json'}:undefined,...(body===undefined?{}:{body:body instanceof FormData?body:JSON.stringify(body)})});
+    const headers=new Headers(payload.headers);headers.set('Origin',url.origin);headers.set('Cookie',Object.entries(cookies).map(([k,v])=>k+'='+v).join('; '));
+    const request:ApplicationRequest={url:payload.url,method:payload.method,headers,text:()=>payload.text(),formData:()=>payload.formData()};
+    const sessionChanges:string[]=[];
     try {
-      const response=await handleAPI(request,url.pathname.slice((base+'api/').length).split('/'),{DB,BUCKET,SAHATI_GATE_HASH:gateHash});
+      const response=await handleAPI(request,url.pathname.slice((base+'api/').length).split('/'),{DB,BUCKET,SAHATI_GATE_HASH:gateHash,onSessionCookie:value=>sessionChanges.push(value)});
       const state={database:base64(db.export()),files};
       await storage.write(await seal(state,key,salt));vault=state;
-      const set=response.headers.get('set-cookie')||'';
-      for(const match of set.matchAll(/(?:^|,\s*)(__Host-sahati-(?:gate|account))=([^;]*)/g)) {if(match[2])cookies[match[1]]=match[2];else delete cookies[match[1]];}
+      for(const value of sessionChanges){const match=/^(__Host-sahati-(?:gate|account))=([^;]*)/.exec(value);if(match){if(match[2])cookies[match[1]]=match[2];else delete cookies[match[1]];}}
       if(route==='gate'&&response.ok)window.dispatchEvent(new Event('sahati-unlocked'));
       if(route==='lock'&&response.ok)clear();
       if(route==='status') {const state:any=await response.clone().json();if(!state.gate)clear();}

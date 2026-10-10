@@ -6,22 +6,26 @@ import {randomToken,sha,verifyPassword,hashPassword} from './crypto';
 import {UserError,validateFields,textField,positive,slotsFor,dateField} from './validation';
 import {qrSvg} from './qr';
 import {createRoles} from './modules';
-export interface Environment {DB?:D1Database;BUCKET?:R2Bucket;SAHATI_GATE_HASH?:string;}
+export interface Environment {DB?:D1Database;BUCKET?:R2Bucket;SAHATI_GATE_HASH?:string;onSessionCookie?:(value:string)=>void;}
+// The shared engine needs body readers and application headers, not a network
+// Request. Browsers forbid setting Origin/Cookie on network Request objects.
+export type ApplicationRequest=Pick<Request,'url'|'method'|'headers'|'text'|'formData'>;
 const gateCookie='__Host-sahati-gate',accountCookie='__Host-sahati-account';
 const headers={'Cache-Control':'no-store, max-age=0','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'};
 const ok=(data:any,status=200,extra:Record<string,string>={})=>Response.json(data,{status,headers:{...headers,...extra}});
 function cookie(name:string,value:string,seconds:number){return `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${seconds}`;}
-function readCookie(request:Request,name:string){const part=(request.headers.get('cookie')||'').split(';').map(s=>s.trim()).find(s=>s.startsWith(name+'='));return part?.slice(name.length+1)||'';}
+function sessionResponse(env:Environment,values:string[]){const response=ok({ok:true});for(const value of values){if(env.onSessionCookie)env.onSessionCookie(value);else response.headers.append('Set-Cookie',value);}return response;}
+function readCookie(request:ApplicationRequest,name:string){const part=(request.headers.get('cookie')||'').split(';').map(s=>s.trim()).find(s=>s.startsWith(name+'='));return part?.slice(name.length+1)||'';}
 function dbFor(env:Environment){if(!env.DB)throw new UserError('Le stockage serveur n’est pas disponible.',503);return env.DB;}
-export async function session(db:D1Database,req:Request,phase:'gate'|'account'){
+export async function session(db:D1Database,req:ApplicationRequest,phase:'gate'|'account'){
  const token=readCookie(req,phase==='gate'?gateCookie:accountCookie);if(!/^[a-f0-9]{64}$/.test(token))return null;
  const row=await db.prepare('SELECT * FROM sahati_sessions WHERE token_hash=? AND phase=? AND expires_at>?').bind(await sha(token),phase,Date.now()).first<any>();return row||null;
 }
-async function account(db:D1Database,req:Request):Promise<Account>{const s=await session(db,req,'account');if(!s)throw new UserError('Connectez-vous à votre espace.',401);const r=await db.prepare('SELECT * FROM sahati_accounts WHERE id=? AND active=1').bind(s.account_id).first<any>();if(!r)throw new UserError('Ce compte n’est plus actif.',401);return {id:r.id,name:r.name,email:r.email,role:r.role,hospitalId:r.hospital_id,patientId:r.patient_id||undefined,active:true};}
+async function account(db:D1Database,req:ApplicationRequest):Promise<Account>{const s=await session(db,req,'account');if(!s)throw new UserError('Connectez-vous à votre espace.',401);const r=await db.prepare('SELECT * FROM sahati_accounts WHERE id=? AND active=1').bind(s.account_id).first<any>();if(!r)throw new UserError('Ce compte n’est plus actif.',401);return {id:r.id,name:r.name,email:r.email,role:r.role,hospitalId:r.hospital_id,patientId:r.patient_id||undefined,active:true};}
 async function newSession(db:D1Database,phase:string,accountId?:string){const token=randomToken(),ttl=phase==='gate'?8*3600:3600;await db.prepare('INSERT INTO sahati_sessions(token_hash,phase,account_id,expires_at,created_at) VALUES(?,?,?,?,?)').bind(await sha(token),phase,accountId||null,Date.now()+ttl*1000,Date.now()).run();return cookie(phase==='gate'?gateCookie:accountCookie,token,ttl);}
 function auditStmt(db:D1Database,a:Account|undefined,action:string,target:string,detail='') {return db.prepare('INSERT INTO sahati_audit(id,actor_id,actor_name,action,target,detail,created_at) VALUES(?,?,?,?,?,?,?)').bind(randomToken(),a?.id||'private-owner',a?.name||'Propriétaire',action,target,detail,new Date().toISOString());}
 async function log(db:D1Database,a:Account|undefined,action:string,target:string,detail=''){await auditStmt(db,a,action,target,detail).run();}
-async function guardAttempts(db:D1Database,req:Request,scope:string){const id=await sha(`${scope}:${req.headers.get('cf-connecting-ip')||'visitor'}`);const now=Date.now();await db.prepare('INSERT INTO sahati_attempts(id,count,reset_at) VALUES(?,1,?) ON CONFLICT(id) DO UPDATE SET count=CASE WHEN reset_at<? THEN 1 ELSE count+1 END,reset_at=CASE WHEN reset_at<? THEN ? ELSE reset_at END').bind(id,now+900000,now,now,now+900000).run();const r=await db.prepare('SELECT count FROM sahati_attempts WHERE id=?').bind(id).first<any>();if(r.count>10)throw new UserError('Trop de tentatives. Réessayez dans 15 minutes.',429);return id;}
+async function guardAttempts(db:D1Database,req:ApplicationRequest,scope:string){const id=await sha(`${scope}:${req.headers.get('cf-connecting-ip')||'visitor'}`);const now=Date.now();await db.prepare('INSERT INTO sahati_attempts(id,count,reset_at) VALUES(?,1,?) ON CONFLICT(id) DO UPDATE SET count=CASE WHEN reset_at<? THEN 1 ELSE count+1 END,reset_at=CASE WHEN reset_at<? THEN ? ELSE reset_at END').bind(id,now+900000,now,now,now+900000).run();const r=await db.prepare('SELECT count FROM sahati_attempts WHERE id=?').bind(id).first<any>();if(r.count>10)throw new UserError('Trop de tentatives. Réessayez dans 15 minutes.',429);return id;}
 async function clearAttempt(db:D1Database,id:string){await db.prepare('DELETE FROM sahati_attempts WHERE id=?').bind(id).run();}
 async function allRecords(db:D1Database):Promise<Entity[]>{const r=await db.prepare('SELECT id,kind,hospital_id,patient_id,data,version,quantity FROM sahati_records ORDER BY updated_at DESC LIMIT 3000').all<any>();return r.results.map(r=>({...JSON.parse(r.data),id:r.id,kind:r.kind,hospitalId:r.hospital_id,patientId:r.patient_id||undefined,version:r.version,...(r.kind==='stock'?{quantity:r.quantity}:{})}));}
 async function getRecord(db:D1Database,id:string){const r=await db.prepare('SELECT * FROM sahati_records WHERE id=?').bind(id).first<any>();if(!r)throw new UserError('Élément introuvable.',404);return {...JSON.parse(r.data),id:r.id,kind:r.kind,hospitalId:r.hospital_id,patientId:r.patient_id||undefined,version:r.version,...(r.kind==='stock'?{quantity:r.quantity}:{})} as Entity;}
@@ -131,8 +135,8 @@ async function cohort(db:D1Database,a:Account,studyId:string,exporting=false){
  const patients=records.filter(e=>e.kind==='patients'&&e.hospitalId===a.hospitalId&&e.researchConsent&&e.service===study.specialty);const rows=await Promise.all(patients.map(async(p,i)=>({code:'COH-'+(await sha(studyId+':'+p.id)).slice(0,10).toUpperCase(),ageBand:age(p.birthDate)<18?'0–17':age(p.birthDate)<40?'18–39':age(p.birthDate)<65?'40–64':'65+',sex:p.sex,followUpDays:30+i*23,event:i%3===0?1:0})));
  await log(db,a,exporting?'Export recherche':'Lecture cohorte',studyId,`${rows.length} lignes fictives ; variables autorisées`);return rows;
 }
-async function jsonInput(request:Request){const raw=await request.text();if(new TextEncoder().encode(raw).length>128000)throw new UserError('Requête trop volumineuse.',413);const value=JSON.parse(raw);if(!value||typeof value!=='object'||Array.isArray(value))throw new UserError('Format de requête invalide.');return value;}
-export async function handleAPI(request:Request,path:string[],env:Environment):Promise<Response>{
+async function jsonInput(request:ApplicationRequest){const raw=await request.text();if(new TextEncoder().encode(raw).length>128000)throw new UserError('Requête trop volumineuse.',413);const value=JSON.parse(raw);if(!value||typeof value!=='object'||Array.isArray(value))throw new UserError('Format de requête invalide.');return value;}
+export async function handleAPI(request:ApplicationRequest,path:string[],env:Environment):Promise<Response>{
  try{
   const db=dbFor(env),route=path[0]||'',method=request.method;
   if(!['GET','POST','PATCH'].includes(method))return ok({error:'Méthode non autorisée.'},405);
@@ -143,16 +147,16 @@ export async function handleAPI(request:Request,path:string[],env:Environment):P
   if(route==='status'&&method==='GET'){const gate=await session(db,request,'gate');let a:Account|undefined;try{if(gate)a=await account(db,request);}catch{}return ok({gate:!!gate,account:a||null});}
   if(route==='gate'&&method==='POST'){
    if(!env.SAHATI_GATE_HASH)throw new UserError('L’accès privé doit être configuré par le propriétaire.',503);const rate=await guardAttempts(db,request,'gate');const input=await jsonInput(request) as any;if(!await verifyPassword(String(input.password||''),env.SAHATI_GATE_HASH))throw new UserError('Mot de passe incorrect.',401);
-   await clearAttempt(db,rate);await log(db,undefined,'Ouverture de l’accès privé','gate');return ok({ok:true},200,{'Set-Cookie':await newSession(db,'gate')});
+   await clearAttempt(db,rate);await log(db,undefined,'Ouverture de l’accès privé','gate');return sessionResponse(env,[await newSession(db,'gate')]);
   }
   if(!await session(db,request,'gate'))throw new UserError('L’accès privé est verrouillé.',401);
   if(route==='login'&&method==='POST'){
    const rate=await guardAttempts(db,request,'login'),input=await jsonInput(request) as any;await ensureSeed(db);const row=await db.prepare('SELECT * FROM sahati_accounts WHERE lower(email)=lower(?) AND active=1').bind(textField(input.email,'E-mail',200,true)).first<any>();
-   if(!row||!await verifyPassword(String(input.password||''),row.password_hash))throw new UserError('Identifiants incorrects ou compte inactif.',401);await clearAttempt(db,rate);const prev=await session(db,request,'account');if(prev)await db.prepare('DELETE FROM sahati_sessions WHERE token_hash=?').bind(prev.token_hash).run();await log(db,{id:row.id,name:row.name} as Account,'Connexion',row.role);return ok({ok:true},200,{'Set-Cookie':await newSession(db,'account',row.id)});
+   if(!row||!await verifyPassword(String(input.password||''),row.password_hash))throw new UserError('Identifiants incorrects ou compte inactif.',401);await clearAttempt(db,rate);const prev=await session(db,request,'account');if(prev)await db.prepare('DELETE FROM sahati_sessions WHERE token_hash=?').bind(prev.token_hash).run();await log(db,{id:row.id,name:row.name} as Account,'Connexion',row.role);return sessionResponse(env,[await newSession(db,'account',row.id)]);
   }
   if(['logout','lock'].includes(route)&&method==='POST'){
    for(const phase of (route==='lock'?['gate','account']:['account']) as ('gate'|'account')[]){const s=await session(db,request,phase);if(s)await db.prepare('DELETE FROM sahati_sessions WHERE token_hash=?').bind(s.token_hash).run();}
-   const r=ok({ok:true});r.headers.append('Set-Cookie',cookie(accountCookie,'',0));if(route==='lock')r.headers.append('Set-Cookie',cookie(gateCookie,'',0));return r;
+   return sessionResponse(env,[cookie(accountCookie,'',0),...(route==='lock'?[cookie(gateCookie,'',0)]:[])]);
   }
   const a=await account(db,request);
   if(route==='bootstrap'&&method==='GET'){
