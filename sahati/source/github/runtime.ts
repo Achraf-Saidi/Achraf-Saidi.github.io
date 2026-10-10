@@ -1,36 +1,59 @@
 import {handleAPI,type ApplicationRequest} from '../lib/engine';
 import {sqliteDatabase} from './sqlite';
-import {base64,unbase64,deriveKey,seal,open,vaultStorage,type Envelope} from './vault';
+import {base64,unbase64,deriveKey,seal,open,vaultStorage,accessPassword,type AccessConfig,type Envelope} from './vault';
 import {schema} from './schema';
 declare global {interface Window {initSqlJs:(options:any)=>Promise<any>;}}
 const base='/sahati/',storage=vaultStorage(),cookies:Record<string,string>={};
 let SQL:any,key:CryptoKey|undefined,salt='',gateHash='',chain:Promise<any>=Promise.resolve();
+let pending:{password:string;config:AccessConfig}|undefined,legacyKey:CryptoKey|undefined,legacySalt='';
 let vault:{database:string;files:Record<string,string>}|undefined;
 function exclusive<T>(fn:()=>Promise<T>):Promise<T> {
   const next:Promise<T>=chain.catch(()=>{}).then(async()=>navigator.locks?await navigator.locks.request('sahati-local-vault',async()=>await fn()):await fn());chain=next;return next;
 }
 export function navigate(path:string) {history.pushState(null,'',path);window.dispatchEvent(new Event('sahati-route'));window.scrollTo(0,0);}
-function clear() {key=undefined;gateHash='';vault=undefined;Object.keys(cookies).forEach(k=>delete cookies[k]);window.dispatchEvent(new Event('sahati-unlocked'));}
-async function unlock(password:string) {
+function clear() {pending=undefined;legacyKey=undefined;legacySalt='';key=undefined;gateHash='';vault=undefined;Object.keys(cookies).forEach(k=>delete cookies[k]);window.dispatchEvent(new Event('sahati-unlocked'));}
+async function beginAccess(password:string) {
+  pending=undefined;
   if(!crypto.subtle)throw new Error('Ouvrez SAHATI en HTTPS dans un navigateur récent.');
   const response=await fetch(base+'vault-bootstrap.json',{cache:'no-store'});
   if(!response.ok)throw new Error('Configuration SAHATI indisponible. Réessayez après le déploiement.');
   const bootstrap:Envelope=await response.json();
-  let candidate:CryptoKey,config:any;
-  try {candidate=await deriveKey(password,bootstrap.salt);config=await open(bootstrap,candidate);}catch {throw new Error('Mot de passe incorrect.');}
+  let config:AccessConfig;
+  try {config=await open(bootstrap,await deriveKey(password,bootstrap.salt));}catch {throw new Error('Premier code incorrect.');}
+  if(config.format!=='sahati-access-2'||!config.secondary||!config.vaultSalt||!config.legacySalt)throw new Error('La configuration à deux codes est indisponible. Actualisez SAHATI.');
+  // First verification unlocks only the second encrypted challenge, never the database.
+  pending={password,config};
+}
+async function confirmAccess(secondPassword:string) {
+  if(!pending)throw new Error('Validez d’abord le premier code.');
+  const {password,config}=pending;
+  let verified:{gateHash:string};
+  try {verified=await open(config.secondary,await deriveKey(secondPassword,config.secondary.salt));}catch {throw new Error('Code spécial incorrect.');}
+  const candidate=await deriveKey(accessPassword(password,secondPassword),config.vaultSalt);
+  const oldKey=await deriveKey(password,config.legacySalt);
   const persisted=await storage.read();
-  const data=persisted?await open(persisted,candidate):undefined;
+  let data:any;
+  if(persisted) {
+    if(persisted.salt===config.vaultSalt)data=await open(persisted,candidate);
+    else if(persisted.salt===config.legacySalt)data=await open(persisted,oldKey);
+    else throw new Error('Ce coffre utilise une configuration différente. Restaurez une sauvegarde compatible.');
+  }
   SQL||=await window.initSqlJs({locateFile:()=>base+'vendor/sql-wasm-browser.wasm'});
   const db=new SQL.Database(data?unbase64(data.database):undefined);
-  if(!data)db.run(schema);
-  // Sessions are tab-local; refresh always asks for the private password again.
-  key=candidate;salt=bootstrap.salt;gateHash=config.gateHash;
-  vault={database:base64(db.export()),files:data?.files||{}};db.close();
+  let state:{database:string;files:Record<string,string>};
+  try {if(!data)db.run(schema);state={database:base64(db.export()),files:data?.files||{}};}finally{db.close();}
+  // Preserve existing records, then re-encrypt them with a key requiring both codes.
+  await storage.write(await seal(state,candidate,config.vaultSalt));
+  key=candidate;salt=config.vaultSalt;gateHash=verified.gateHash;vault=state;
+  legacyKey=oldKey;legacySalt=config.legacySalt;pending=undefined;
+  return password;
 }
 export async function localResponse(path:string,method='GET',body?:any):Promise<Response> {
   return exclusive(async()=>{
-    const route=path.split('?')[0];
-    if(route==='gate'&&method==='POST'&&!key)await unlock(String(body?.password||''));
+    let route=path.split('?')[0];
+    if(route==='gate-reset'&&method==='POST'&&!key){pending=undefined;return Response.json({ok:true});}
+    if(route==='gate'&&method==='POST'&&!key){await beginAccess(String(body?.password||''));return Response.json({gate:false,requiresSecondCode:true});}
+    if(route==='gate-confirm'&&method==='POST'&&!key){body={password:await confirmAccess(String(body?.secondPassword||''))};route='gate';path='gate';}
     if(!key||!vault)return Response.json(route==='status'?{gate:false,account:null}:{error:'L’accès privé est verrouillé.'},{status:route==='status'?200:401});
     // Read the newest transaction when another tab has saved changes.
     const persisted=await storage.read();if(persisted)vault=await open(persisted,key);
@@ -62,7 +85,9 @@ export async function resource(path:string) {const r=await localResponse(path);i
 export async function backup() {return exclusive(async()=>{if(!key)throw new Error('Déverrouillez SAHATI.');const value=await storage.read();if(!value)throw new Error('Aucune donnée à sauvegarder.');return JSON.stringify(value);});}
 export async function restore(text:string) {return exclusive(async()=>{
   if(!key)throw new Error('Déverrouillez SAHATI.');
-  const envelope:Envelope=JSON.parse(text),value=await open(envelope,key);
+  const envelope:Envelope=JSON.parse(text),restoreKey=envelope.salt===salt?key:envelope.salt===legacySalt?legacyKey:undefined;
+  if(!restoreKey)throw new Error('Cette sauvegarde utilise une configuration différente.');
+  const value=await open(envelope,restoreKey);
   const db=new SQL.Database(unbase64(value.database));
   try {if(!db.exec('SELECT count(*) FROM sahati_metadata')[0])throw new Error('Base invalide.');db.run('DELETE FROM sahati_sessions');value.database=base64(db.export());}finally{db.close();}
   if(!value.files||typeof value.files!=='object')throw new Error('Sauvegarde invalide.');

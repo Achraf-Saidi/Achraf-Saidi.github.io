@@ -6,7 +6,7 @@ SAHATI rassemble 14 métiers et 25 espaces autour du parcours hospitalier : doss
 
 ## Version GitHub
 
-L'application publiée fonctionne entièrement sur GitHub Pages, sans redirection ni compte externe. Elle réutilise le moteur métier dans SQLite WebAssembly. Les données et pièces jointes fictives sont enregistrées dans IndexedDB, chiffrées par AES-256-GCM ; la clé non exportable est dérivée du mot de passe privé par PBKDF2-SHA256 avec 600 000 itérations. Le mot de passe n'est pas inclus dans le dépôt. L'enveloppe initiale contient seulement une configuration chiffrée. La clé et les sessions restent en mémoire ; une recharge complète demande le mot de passe à nouveau.
+L'application publiée fonctionne entièrement sur GitHub Pages, sans redirection ni compte externe. Elle réutilise le moteur métier dans SQLite WebAssembly. Les données et pièces jointes fictives sont enregistrées dans IndexedDB, chiffrées par AES-256-GCM ; la clé non exportable est dérivée des deux codes privés par PBKDF2-SHA256 avec 600 000 itérations. Les codes ne sont pas inclus en clair dans le dépôt. Une première enveloppe vérifie le code d’accès, puis une seconde enveloppe vérifie le code de la direction. La première étape ne donne accès ni à la base ni à une session. La clé du coffre combine les deux codes ; la clé et les sessions restent en mémoire, et une recharge complète demande les deux codes à nouveau. Les coffres existants sont migrés et rechiffrés après validation des deux étapes.
 
 Les permissions métier sont simulées localement. Elles ne constituent pas une frontière de sécurité contre le propriétaire du navigateur. Le code et les ressources de présentation sont publics. Cette version est destinée uniquement à des données fictives, pas à des dossiers médicaux réels. GitHub Pages ne fournit ni serveur applicatif ni synchronisation entre appareils. Un QR local est vérifiable sur le même appareil ou après restauration de sa sauvegarde.
 
@@ -14,7 +14,7 @@ Le bouton **Mes sauvegardes** exporte et restaure une copie chiffrée comprenant
 
 ## Connexion
 
-Le mot de passe privé est celui choisi par le propriétaire. Les 14 comptes fictifs ont le mot de passe de compte **SahatiDemo2026!**, distinct du verrou d'entrée. La connexion propose les rôles directement ; leurs adresses sont définies dans `lib/model.ts`.
+L’entrée demande successivement le premier code privé et le code spécial de la direction, choisis par le propriétaire. Les deux codes sont requis pour chaque nouvelle ouverture complète ; il s’agit de deux secrets partagés, pas d’une authentification multifacteur ni d’une preuve du rôle professionnel. Les 14 comptes fictifs ont le mot de passe de compte **SahatiDemo2026!**, distinct du verrou d'entrée. La connexion propose les rôles directement ; leurs adresses sont définies dans `lib/model.ts`.
 
 ## Construire et vérifier
 
@@ -35,6 +35,6 @@ Le moteur serveur, les API, les contrôles d'accès, les neuf tables et les migr
 
 ## Validation et limites
 
-23 scénarios métier passent sur SQLite natif et sur SQLite WASM. Huit scénarios complémentaires couvrent le coffre, les restrictions d’en-têtes du navigateur, le refus d'accès, les mutations/fichiers persistants, le verrouillage, les sauvegardes modifiées, la restauration et les routes GitHub. TypeScript et le build sont vérifiés. La recette visuelle complète en navigateur et la lecture de QR sur appareil physique restent à effectuer. L'interface prévoit téléphone, RTL, contraste et taille de texte ; la traduction métier arabe n'est pas encore complète.
+23 scénarios métier passent sur SQLite natif et sur SQLite WASM. Onze scénarios complémentaires couvrent le coffre, les restrictions d’en-têtes du navigateur, le refus d'accès à chaque étape, l’impossibilité de contourner le premier code, la migration des anciens coffres et sauvegardes, les mutations/fichiers persistants, le verrouillage, les sauvegardes modifiées, la restauration et les routes GitHub. TypeScript et le build sont vérifiés. La recette visuelle complète en navigateur et la lecture de QR sur appareil physique restent à effectuer. L'interface prévoit téléphone, RTL, contraste et taille de texte ; la traduction métier arabe n'est pas encore complète.
 
 Cette version ne revendique aucune certification clinique, FHIR, WCAG ni conformité juridique. Voir `docs/ROADMAP.md` pour les étapes de validation hospitalière.

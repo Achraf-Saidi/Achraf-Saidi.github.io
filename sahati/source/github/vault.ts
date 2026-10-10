@@ -1,4 +1,6 @@
 export type Envelope={format:'sahati-vault-1';salt:string;iv:string;ciphertext:string};
+export type AccessConfig={format:'sahati-access-2';secondary:Envelope;vaultSalt:string;legacySalt:string};
+export function accessPassword(first:string,second:string){return JSON.stringify(['sahati-access-2',first,second]);}
 export const iterations=600000;
 export function base64(bytes:Uint8Array) {let result='';for(let i=0;i<bytes.length;i+=24576)result+=String.fromCharCode(...bytes.subarray(i,i+24576));return btoa(result);}
 export function unbase64(text:string) {return Uint8Array.from(atob(text),c=>c.charCodeAt(0));}

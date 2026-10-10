@@ -28,3 +28,93 @@
 @media print{html{font-size:12pt}body{background:#fff!important;color:#000}.app-sidebar,.app-topbar,.workspace-main,.mobile-bottom-nav,.toast,.modal-header,.detail-meta,.patient-form-banner,.detail-section,.detail-action-bar,.detail-audit-note,.transition-form,.no-print{display:none!important}.app-body{margin:0!important;width:100%!important}.modal-backdrop{position:static!important;display:block!important;padding:0!important;background:white!important;backdrop-filter:none!important}.modal-panel{max-height:none!important;width:100%!important;border:0!important;box-shadow:none!important;overflow:visible!important;display:block!important}.modal-body{padding:0!important;overflow:visible!important}.modal-body>*{display:none!important}.modal-body>.print-document{display:block!important}.print-document{border:0!important;border-radius:0!important;margin:0!important;padding:0!important;box-shadow:none!important;color:#000!important}.prescription-paper footer{font-size:8pt}.rx-treatment{break-inside:avoid}.prescription-header,.prescription-patient{break-inside:avoid}.prescription-header small,.prescription-paper p,.rx-treatment dd{color:#333!important}.rx-qr{width:25mm;height:25mm}.record-content .record-definition-list{display:grid!important}.clinical-result{display:block!important}.record-content button{display:none!important}@page{size:A4;margin:18mm}}
 
 [data-contrast=true] .brand-light small,[data-contrast=true] .login-story small,[data-contrast=true] .landing-cta small,[data-contrast=true] .research-banner small{color:#edf7ef!important}
+
+/* Credits belong to the existing page footer, including the private entrance. */
+.creator-credit{display:block;max-width:100%;font-size:.7rem;line-height:1.7;font-weight:450;letter-spacing:.015em;color:var(--muted);text-wrap:balance;overflow-wrap:anywhere}
+.gate-main{flex:1;min-height:auto}
+.gate-footer{flex-direction:column;align-items:center;gap:14px;padding:18px max(5vw,24px) 22px}
+.gate-footer-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
+.gate-footer .creator-credit{font-size:.66rem}
+.site-footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px 24px;border-top:1px solid var(--line);padding-top:20px;margin-top:15px;color:var(--muted);font-size:.66rem}
+.site-nav .nav-account{display:none}
+/* Flexible tracks allow real content to reflow instead of widening the page. */
+.landing{overflow-x:clip}
+.landing-hero{grid-template-columns:repeat(2,minmax(0,1fr))}
+.platform-explorer{grid-template-columns:260px minmax(0,1fr)}
+.module-grid,.landing-role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1001px){.landing-role-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:761px) and (max-width:1000px){.landing-role-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.journey-detail{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.research-section{grid-template-columns:repeat(2,minmax(0,1fr))}
+.landing :where(.hero-copy,.hero-visual,.platform-content,.module-grid>article,.landing-role-grid>a,.journey-detail>div,.research-section>div,.site-footer>div){min-width:0}
+.landing :where(h2,h3,h4,p,.landing-role-grid strong,.landing-role-grid>a>span){overflow-wrap:anywhere;hyphens:auto}
+.hero-buttons{flex-wrap:wrap}
+.hero-bottom>div,.floating-care>div:last-child,.patient-preview>div,.mini-timeline-item>div{min-width:0}
+.mini-symbol,.care-mark,.mini-timeline-item>span{flex-shrink:0}
+.journey-steps{min-width:0;max-width:100%}
+@media(min-width:761px) and (max-width:1200px){.platform-explorer{grid-template-columns:225px minmax(0,1fr)}}
+@media(max-width:760px){
+ .landing-hero,.platform-explorer,.journey-detail,.research-section{grid-template-columns:minmax(0,1fr)}
+ .hero-copy h1{font-size:clamp(64px,20vw,90px)}
+ [dir=rtl] .landing .hero-copy h1{font-size:clamp(2.8rem,12vw,4.4rem)}
+ .hero-image{height:clamp(300px,105vw,430px)}
+ .floating-care{min-width:0;width:min(330px,calc(100% - 36px));inset-inline-start:18px;padding:18px;gap:12px}
+ .floating-care strong{font-size:1rem;overflow-wrap:anywhere}
+ .care-flow{flex-wrap:wrap}
+ .care-flow small{flex-basis:100%;margin-inline-start:0;margin-top:3px}
+ .visual-caption{position:static;display:block;text-align:end;margin-top:12px;line-height:1.6;overflow-wrap:anywhere}
+ .platform-tabs>button{min-width:0;flex-basis:0}
+ .patient-preview{flex-wrap:wrap}
+ .mini-timeline-item{padding:10px;gap:10px}
+ .research-art{overflow:clip;max-width:100%}
+ .research-label.l2{left:0}
+ .site-footer-bottom{flex-direction:column;align-items:flex-start;margin-top:0;gap:8px}
+ .role-selector{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .role-selector>button>span{min-width:0;overflow-wrap:anywhere}
+}
+@media(max-width:600px){
+ .landing .site-header,.gate-page .site-header{height:auto;min-height:78px;padding:12px 16px;gap:8px;flex-wrap:wrap}
+ .landing .site-header>.brand,.gate-page .site-header>.brand{gap:8px}
+ .landing .site-header .brand img,.gate-page .site-header .brand img{width:28px;height:38px}
+ .landing .site-header .brand>span,.gate-page .site-header .brand>span{font-size:1.3rem}
+ .landing .site-header .brand small,.gate-page .site-header .brand small{font-size:.52rem}
+ .landing .header-actions{gap:4px;margin-inline-start:auto}
+ .landing .header-account{display:none}
+ .landing .header-actions .icon-button,.gate-page .site-header .icon-button{min-width:44px;min-height:44px}
+ .landing .header-actions .language-btn,.gate-page .site-header .language-btn{min-width:44px;min-height:44px;padding:4px;font-size:.72rem}
+ .landing .header-actions .language-btn>svg,.gate-page .site-header .language-btn>svg{display:none}
+ .landing .site-nav{top:100%;padding:16px;gap:8px}
+ .landing .site-nav.open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .landing .site-nav a{min-width:0;padding:12px;font-size:.85rem;overflow-wrap:anywhere}
+ .landing .site-nav .nav-account{display:inline-flex;grid-column:1/-1;margin-top:4px}
+ .hero-buttons{align-items:stretch;flex-direction:column;gap:8px}
+ .hero-buttons .button,.landing .research-section .button,.landing-cta .button{white-space:normal;max-width:100%;text-align:center}
+ .hero-buttons .text-link{justify-content:center;text-align:center;white-space:normal}
+ .capability-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+ .capability-strip>div{min-width:0;flex-direction:column;align-items:flex-start;gap:5px;padding-inline-start:0;border:0}
+ .capability-strip strong{font-size:1.7rem}
+ .capability-strip span{max-width:none;font-size:.75rem}
+ .platform-tabs{padding:8px;gap:4px}
+ .platform-tabs>button{flex-direction:column;padding:12px 4px;gap:5px;font-size:.78rem;overflow-wrap:anywhere}
+ .platform-content{padding:24px 20px}
+ .journey-preview{padding:18px 14px}
+ .research-section{padding:35px 22px;gap:20px}
+ .research-section h2{font-size:2.5rem}
+ .landing-cta h2{font-size:clamp(2.1rem,8vw,2.9rem)}
+ .gate-footer-meta{flex-direction:column;gap:4px;text-align:center}
+ .gate-footer{gap:12px}
+ .gate-card h1{font-size:clamp(2.8rem,12vw,3.7rem)}
+ .gate-card .eyebrow{flex-wrap:wrap;justify-content:center;letter-spacing:.1em}
+ .gate-card .button{white-space:normal}
+ .mobile-bottom-nav>button{min-width:0;overflow-wrap:anywhere}
+}
+@media(max-width:480px){.module-grid{grid-template-columns:minmax(0,1fr)}.module-grid p{max-width:none}.landing-role-grid>a{padding:20px 16px}.section-heading h2{font-size:clamp(1.9rem,7vw,2.45rem)}}
+@media(max-width:360px){.landing-role-grid{grid-template-columns:minmax(0,1fr)}}
+.access-steps{display:flex;justify-content:center;align-items:center;gap:12px;margin:0 auto 25px;color:var(--muted);font-size:.74rem;max-width:100%}
+.access-steps>span{display:flex;align-items:center;gap:7px;min-width:0}
+.access-steps i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1px solid #cbd8d1;font-size:.68rem;font-style:normal;flex-shrink:0}
+.access-steps b{height:1px;width:26px;background:#ccd9d2;flex-shrink:0}
+.access-steps .current{color:var(--deep);font-weight:650}
+.access-steps .current i{background:var(--ink);border-color:var(--ink);color:#fff}
+.access-steps .complete i{color:var(--jade);background:#e8f2ec;border-color:#aacbbd}
+.gate-back{margin-top:13px;font-size:.76rem;font-weight:550;justify-content:center}

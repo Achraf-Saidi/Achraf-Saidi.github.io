@@ -1,17 +1,17 @@
 {
   "product": "SAHATI",
-  "version": "github-1.2",
+  "version": "github-1.3",
   "url": "https://achraf-saidi.github.io/sahati/",
   "hosting": "GitHub Pages",
   "source": "./source",
-  "authentication": "sahati-local-gate-and-accounts",
+  "authentication": "sahati-local-two-code-gate-and-accounts",
   "data_mode": "encrypted-local-demo",
   "synchronization": false,
   "roles": 14,
   "modules": 25,
   "validation": {
     "business_scenarios": 23,
-    "vault_scenarios": 8,
+    "vault_scenarios": 11,
     "sqlite_native": true,
     "sqlite_wasm": true,
     "typescript": true,
@@ -20,5 +20,13 @@
     "browser_visual_qa": false
   },
   "local_transport": "application-request-and-session-callback",
-  "credits": "By Achraf Saidi, Ryan Aouf & 21 others"
+  "credits": "By Achraf Saidi, Ryan Aouf & 21 others",
+  "access": {
+    "steps": 2,
+    "vault_key_requires_both_codes": true,
+    "legacy_vault_migration": true,
+    "shared_secrets": true,
+    "multi_factor_authentication": false
+  },
+  "responsive_update": "flexible-grids-compact-header-integrated-footer"
 }
