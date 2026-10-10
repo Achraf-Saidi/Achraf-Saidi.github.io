@@ -1,0 +1,8 @@
+{
+  "source_commit": "fb26d85f9a654b6ab664bc5119e96327d097395d",
+  "application_url": "https://sahati.ochrecreek8.chatgpt.site",
+  "source_directory": "source",
+  "excluded_generated_files": [
+    "tsconfig.tsbuildinfo"
+  ]
+}
