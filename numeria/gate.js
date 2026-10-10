@@ -11,7 +11,7 @@ const bytes = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));
 
 async function getWorker() {
   if (!isSecureContext || !crypto.subtle || !('serviceWorker' in navigator)) throw Error('unsupported');
-  const registration = await navigator.serviceWorker.register(`${BASE}secure-worker.js?v=protected-1`, {scope: BASE, updateViaCache: 'none'});
+  const registration = await navigator.serviceWorker.register(`${BASE}secure-worker.js?v=protected-2`, {scope: BASE, updateViaCache: 'none'});
   const active = registration.active || registration.installing || registration.waiting;
   if (!active) throw Error('unavailable');
   if (active.state !== 'activated') await new Promise((resolve, reject) => {
