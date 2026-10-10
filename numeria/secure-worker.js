@@ -3,6 +3,7 @@ const ROOT = new URL('./', self.location.href);
 const PRIVATE = `${ROOT.pathname}_private/`;
 const sessions = new Map();
 const pending = new Map();
+const revoked = new Set();
 const TOKEN = /^[a-f0-9]{48}$/;
 const decode = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));
 let envelopePromise = null;
@@ -30,6 +31,7 @@ async function unlock(event) {
   const {key, token} = event.data;
   const source = event.source;
   if (!TOKEN.test(token) || !source?.id || !source.url?.startsWith(ROOT.href) || source.url.includes(PRIVATE) || !(key instanceof CryptoKey) || key.type !== 'secret' || key.algorithm.name !== 'AES-GCM' || key.algorithm.length !== 256 || key.extractable || !key.usages.includes('decrypt')) return {ok: false};
+  if (revoked.has(`${source.id}:${token}`)) return {ok: false};
   try {
     const {meta, cipher} = await envelope();
     let plain;
@@ -37,6 +39,7 @@ async function unlock(event) {
     const data = JSON.parse(new TextDecoder().decode(plain));
     new Uint8Array(plain).fill(0);
     if (data.schema !== 1 || !data.files || !Object.hasOwn(data.files, 'index.html') || !Object.hasOwn(data.files, 'ecole.html')) throw Error('unavailable');
+    if (revoked.has(`${source.id}:${token}`)) return {ok: false};
     sessions.set(token, {owner: source.id, files: data.files, until: Date.now() + 8 * 60 * 60 * 1000});
     pending.get(token)?.resolve(true); pending.delete(token);
     return {ok: true};
@@ -47,7 +50,11 @@ self.addEventListener('message', event => {
   if (event.data?.type === 'numeria.unlock') event.waitUntil(unlock(event).then(result => event.ports[0]?.postMessage(result)));
   if (event.data?.type === 'numeria.lock' && TOKEN.test(event.data.token)) {
     const session = sessions.get(event.data.token);
-    if (!session || session.owner === event.source?.id) sessions.delete(event.data.token);
+    if (event.source?.id && event.source.url?.startsWith(ROOT.href) && !event.source.url.includes(PRIVATE) && (!session || session.owner === event.source.id)) {
+      revoked.add(`${event.source.id}:${event.data.token}`);
+      sessions.delete(event.data.token);
+      pending.get(event.data.token)?.resolve(false); pending.delete(event.data.token);
+    }
   }
 });
 

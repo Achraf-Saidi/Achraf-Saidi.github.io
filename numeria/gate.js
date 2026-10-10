@@ -20,6 +20,14 @@ async function getWorker() {
     active.addEventListener('statechange', changed);
     changed();
   });
+  if (!navigator.serviceWorker.controller?.scriptURL?.startsWith(`${location.origin}${BASE}secure-worker.js`)) await new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {navigator.serviceWorker.removeEventListener('controllerchange', changed); reject(Error('unavailable'));}, 20000);
+    const changed = () => {
+      if (navigator.serviceWorker.controller?.scriptURL?.startsWith(`${location.origin}${BASE}secure-worker.js`)) {clearTimeout(timer); navigator.serviceWorker.removeEventListener('controllerchange', changed); resolve();}
+    };
+    navigator.serviceWorker.addEventListener('controllerchange', changed);
+    changed();
+  });
   return registration.active || active;
 }
 
