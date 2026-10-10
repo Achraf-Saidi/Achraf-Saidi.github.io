@@ -29,6 +29,6 @@ function App() {
   else if(route.includes('/espace'))content=<Workspace/>;
   else if(route.includes('/verifier'))content=<Verification/>;
   else content=<Landing/>;
-  return <>{error&&<p className="form-error global-error" role="alert">{error}</p>}{loading?<p role="status">Ouverture de SAHATI…</p>:content}{gate&&<StorageTools/>}</>;
+  return <>{error&&<p className="form-error global-error" role="alert">{error}</p>}{loading?<p role="status">Ouverture de SAHATI…</p>:content}<footer className={`site-credit no-print ${gate&&route.includes('/espace')?'site-credit-workspace':''}`}><span dir="ltr">By Achraf Saidi, Ryan Aouf &amp; 21 others</span></footer>{gate&&<StorageTools/>}</>;
 }
 createRoot(document.getElementById('root')!).render(<PreferencesProvider><App/></PreferencesProvider>);

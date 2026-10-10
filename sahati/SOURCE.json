@@ -1,6 +1,6 @@
 {
   "product": "SAHATI",
-  "version": "github-1.1",
+  "version": "github-1.2",
   "url": "https://achraf-saidi.github.io/sahati/",
   "hosting": "GitHub Pages",
   "source": "./source",
@@ -19,5 +19,6 @@
     "standalone_server_build": true,
     "browser_visual_qa": false
   },
-  "local_transport": "application-request-and-session-callback"
+  "local_transport": "application-request-and-session-callback",
+  "credits": "By Achraf Saidi, Ryan Aouf & 21 others"
 }
