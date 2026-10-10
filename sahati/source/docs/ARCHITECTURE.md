@@ -1,5 +1,7 @@
 # Architecture et accès
 
+La version publiée sur GitHub est décrite dans `README.md` et `github/`. Les protections serveur ci-dessous concernent la variante serveur indépendante ; dans le navigateur, elles simulent les permissions sans isoler les données du propriétaire de l’appareil.
+
 ## Chaîne de protection
 
 L’hébergement accepte les visiteurs sans compte externe. L’accès aux pages et aux données reste protégé par les sessions SAHATI. Le contrôle applicatif précède le rendu de chaque page et toute opération API. Le mot de passe de vitrine est vérifié par PBKDF2-SHA256 avec sel aléatoire et 100 000 itérations ; seul son vérificateur est présent dans un secret d’hébergement. Un deuxième accès identifie le compte métier. Les cookies `__Host-` sont Secure, HttpOnly, SameSite=Strict et ne contiennent que des jetons aléatoires dont la base conserve le SHA-256. La session de vitrine dure huit heures, la session métier une heure. Les tentatives sont limitées et les écritures vérifient l’origine. Une désactivation révoque les sessions du compte.
@@ -37,4 +39,4 @@ Une cohorte nécessite un protocole approuvé, un permis personnel non expiré e
 
 ## Déploiement
 
-Les migrations de schéma sont livrées par le workflow Sites. La source exacte construite est poussée avant l’enregistrement de version. Le secret d’entrée est géré hors du dépôt. Les dossiers fictifs sont initialisés de manière idempotente à la première connexion, avec marqueur de fin ; les migrations ne contiennent pas de données patient.
+Les migrations de schéma accompagnent la source GitHub. Le serveur indépendant nécessite une configuration de stockage et de déploiement propre. Le secret d’entrée est géré hors du dépôt. Les dossiers fictifs sont initialisés de manière idempotente à la première connexion, avec marqueur de fin ; les migrations ne contiennent pas de données patient.

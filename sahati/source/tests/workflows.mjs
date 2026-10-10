@@ -8,10 +8,15 @@ const require=createRequire(import.meta.url);
 const esbuild=require(createRequire(require.resolve('drizzle-kit')).resolve('esbuild'));
 await mkdir('.sites-runtime/tests',{recursive:true});
 await esbuild.build({entryPoints:['lib/engine.ts','lib/crypto.ts','lib/model.ts'],outdir:'.sites-runtime/tests',bundle:true,format:'esm',platform:'node',target:'node24',logLevel:'silent'});
+await esbuild.build({entryPoints:['github/sqlite.ts'],outfile:'.sites-runtime/tests/sqlite.js',bundle:true,format:'esm',platform:'node',target:'node24',logLevel:'silent'});
 const {handleAPI}=await import(pathToFileURL(process.cwd()+'/.sites-runtime/tests/engine.js'));
 const {hashPassword}=await import(pathToFileURL(process.cwd()+'/.sites-runtime/tests/crypto.js'));
 const {today,roles:accountRoles}=await import(pathToFileURL(process.cwd()+'/.sites-runtime/tests/model.js'));
-const sqlite=new DatabaseSync(':memory:');
+let sqlite,wasmDatabase;
+if(process.env.SAHATI_TEST_SQLITE==='wasm') {
+ const initSqlJs=require('sql.js'),SQL=await initSqlJs();wasmDatabase=new SQL.Database();
+ sqlite={exec:sql=>wasmDatabase.run(sql),close:()=>wasmDatabase.close(),prepare(sql){return {get(...args){const s=wasmDatabase.prepare(sql);try{s.bind(args);return s.step()?s.getAsObject():undefined;}finally{s.free();}}};}};
+}else sqlite=new DatabaseSync(':memory:');
 for(const file of (await readdir('drizzle')).filter(n=>n.endsWith('.sql')).sort())sqlite.exec(await readFile('drizzle/'+file,'utf8'));
 class Statement {
  constructor(sql,args=[]){this.sql=sql;this.args=args;}
@@ -21,7 +26,8 @@ class Statement {
  execute(){const r=sqlite.prepare(this.sql).run(...this.args);return {success:true,meta:{changes:Number(r.changes),last_row_id:Number(r.lastInsertRowid)}};}
  async run(){return this.execute();}
 }
-const DB={prepare:sql=>new Statement(sql),async batch(statements){sqlite.exec('BEGIN IMMEDIATE');try{const r=statements.map(s=>s.execute());sqlite.exec('COMMIT');return r;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
+const {sqliteDatabase}=await import(pathToFileURL(process.cwd()+'/.sites-runtime/tests/sqlite.js'));
+const DB=wasmDatabase?sqliteDatabase(wasmDatabase):{prepare:sql=>new Statement(sql),async batch(statements){sqlite.exec('BEGIN IMMEDIATE');try{const r=statements.map(s=>s.execute());sqlite.exec('COMMIT');return r;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const objects=new Map();
 const BUCKET={async put(k,b){objects.set(k,b);},async delete(k){objects.delete(k);},async get(k){return objects.has(k)?{body:objects.get(k)}:null;}};
 const env={DB,BUCKET,SAHATI_GATE_HASH:await hashPassword('Synthetic-test-gate-only!')};

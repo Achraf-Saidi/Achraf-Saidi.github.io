@@ -1,54 +1,40 @@
-# SAHATI — le soin, relié
+# SAHATI — le soin, relié.
 
-Plateforme hospitalière algérienne **de démonstration**, conçue pour Achraf Saidi.
+**Application : https://achraf-saidi.github.io/sahati/**
 
-**Application privée : https://sahati.ochrecreek8.chatgpt.site**
+SAHATI rassemble 14 métiers et 25 espaces autour du parcours hospitalier : dossiers patients, rendez-vous, consultations, ordonnances avec QR, laboratoire, radiologie, pharmacie, admissions et lits, soins, urgences, bloc, stocks, facturation, équipes, équipements, qualité, documents, consentements, recherche et administration.
 
-La vitrine et l’application sont protégées côté serveur. L’authentification repose exclusivement sur le verrou SAHATI et ses comptes métier. Le mot de passe d’entrée choisi par le propriétaire est configuré comme secret d’hébergement ; il n’est ni dans ce dépôt ni dans le navigateur. Le code source GitHub est public. Les dossiers, établissements et avis éthiques de cette version sont entièrement fictifs.
+## Version GitHub
 
-## Découvrir la plateforme
+L'application publiée fonctionne entièrement sur GitHub Pages, sans redirection ni compte externe. Elle réutilise le moteur métier dans SQLite WebAssembly. Les données et pièces jointes fictives sont enregistrées dans IndexedDB, chiffrées par AES-256-GCM ; la clé non exportable est dérivée du mot de passe privé par PBKDF2-SHA256 avec 600 000 itérations. Le mot de passe n'est pas inclus dans le dépôt. L'enveloppe initiale contient seulement une configuration chiffrée. La clé et les sessions restent en mémoire ; une recharge complète demande le mot de passe à nouveau.
 
-1. Ouvrir l’application. Aucun compte externe n’est requis.
-2. Déverrouiller la vitrine avec le mot de passe d’entrée personnel.
-3. Choisir **Accéder à mon espace**, puis l’un des 14 profils.
-4. Les identifiants de démonstration sont proposés dans la page de connexion. Le mot de passe commun de ces comptes fictifs est `SahatiDemo2026!`.
-5. Le menu du compte permet de changer de profil ou de verrouiller entièrement le site.
+Les permissions métier sont simulées localement. Elles ne constituent pas une frontière de sécurité contre le propriétaire du navigateur. Le code et les ressources de présentation sont publics. Cette version est destinée uniquement à des données fictives, pas à des dossiers médicaux réels. GitHub Pages ne fournit ni serveur applicatif ni synchronisation entre appareils. Un QR local est vérifiable sur le même appareil ou après restauration de sa sauvegarde.
 
-| Domaine | Fonctions reliées et enregistrées |
-| --- | --- |
-| Identité & dossier | Accueil, contrôle de doublons, coordonnées, équipe autorisée, synthèse clinique, chronologie |
-| Rendez-vous | Demande patient, confirmation accueil, arrivée, fin, annulation, réservation des créneaux |
-| Consultations | Observations structurées, brouillon, revue du résident, validation médicale |
-| Ordonnances | Traitements saisis manuellement, validation senior, QR de vérification, impression/PDF, annulation motivée |
-| Pharmacie | Lots, péremption, réception, délivrance par lot, déduction transactionnelle des stocks |
-| Laboratoire & radiologie | Demande, prélèvement, compte rendu, résultat critique manuel, validation, publication, accusé de lecture |
-| Hospitalisation | Attribution atomique d’un lit, protection contre la double admission, synthèse de sortie, bionettoyage |
-| Soins & urgences | Transmissions, constantes saisies, tâches, priorités professionnelles et prise en charge |
-| Bloc opératoire | Réservation de salle, contrôles préopératoires, démarrage, comptage, fin |
-| Documents | Comptes rendus, pièces jointes PDF/PNG/JPEG, téléchargements authentifiés, impressions |
-| Gestion | Factures en DZD, règlements, affectations et horaires, équipements et maintenance, incidents |
-| Recherche | Protocoles, revue de direction, permis personnels limités dans le temps, consentement, cohortes fictives minimisées, export CSV tracé |
-| Patient | Rendez-vous, ordonnances, résultats publiés, documents, messages, choix de consentement, instructions vocales |
-| Réseau & administration | Établissements par wilaya, comptes, révocation des sessions, journal des actions |
-| Interface | Mise en page mobile/tablette/ordinateur, navigation français/arabe et RTL, texte agrandi, contraste renforcé, lecture simplifiée |
+Le bouton **Mes sauvegardes** exporte et restaure une copie chiffrée comprenant les pièces jointes. Une restauration remplace la base locale et révoque ses sessions. Effacer les données du navigateur supprime les données locales ; conserver une sauvegarde est donc nécessaire.
 
-La traduction arabe couvre la navigation et certains parcours ; les formulaires détaillés restent majoritairement en français. Les données sont limitées à 3 000 enregistrements par chargement dans cette version.
+## Connexion
 
-## Développement
+Le mot de passe privé est celui choisi par le propriétaire. Les 14 comptes fictifs ont le mot de passe de compte **SahatiDemo2026!**, distinct du verrou d'entrée. La connexion propose les rôles directement ; leurs adresses sont définies dans `lib/model.ts`.
 
-React 19, TypeScript, Vinext/Vite, Cloudflare Workers, SQLite D1 et pièces jointes R2. Les styles et composants métier sont dans `app/`, `components/` et `lib/`. Les migrations `drizzle/` créent uniquement le schéma. Les données fictives sont initialisées lors de la première connexion métier.
+## Construire et vérifier
 
-Node 24 et pnpm sont requis pour la suite de tests SQLite.
+Node 24 et pnpm sont requis.
 
 ```sh
-pnpm install
-pnpm exec tsc --noEmit
-pnpm test
+pnpm install --frozen-lockfile
 pnpm build
+pnpm test:github
+pnpm exec tsc --noEmit
 ```
 
-L’hébergement utilise les liaisons `DB` (D1), `BUCKET` (R2) et le secret `SAHATI_GATE_HASH`. Voir [architecture](docs/ARCHITECTURE.md), [validation](docs/VALIDATION.md), [identité](docs/BRAND.md) et [suite du produit](docs/ROADMAP.md).
+Le build produit `dist/github/` et les pages `connexion/`, `espace/`, `verifier/`, avec les ressources servies sous `/sahati/`. Le dossier `github/` contient le coffre, l'adaptateur SQLite et l'entrée autonome. Le script de construction adapte les composants communs et conserve le moteur métier.
 
-## Périmètre
+## Serveur pour un futur usage partagé
 
-Cette version est une base fonctionnelle d’ERP, avec stockage serveur et parcours reliés. Elle ne constitue pas un système hospitalier validé pour des patients réels. Les connexions PACS/DICOMweb, automates de laboratoire, annuaires, organismes payeurs et systèmes nationaux restent à réaliser. Le JSON exporté s’inspire de FHIR R5, sans certification de conformité. Le QR est une référence protégée, pas une signature électronique qualifiée.
+Le moteur serveur, les API, les contrôles d'accès, les neuf tables et les migrations restent inclus. La configuration indépendante utilise Vinext, Cloudflare Workers, D1 et R2. `pnpm build:server` prépare cette variante ; elle nécessite un hébergement configuré, un identifiant D1 réel, un bucket R2 et un secret `SAHATI_GATE_HASH`. Elle n'est pas exécutée par GitHub Pages. Les connexions PACS, laboratoire, organismes payeurs et systèmes nationaux restent à implémenter et à valider.
+
+## Validation et limites
+
+23 scénarios métier passent sur SQLite natif et sur SQLite WASM. Sept scénarios complémentaires couvrent le coffre, le refus d'accès, les mutations/fichiers persistants, le verrouillage, les sauvegardes modifiées, la restauration et les routes GitHub. TypeScript et le build sont vérifiés. La recette visuelle complète en navigateur et la lecture de QR sur appareil physique restent à effectuer. L'interface prévoit téléphone, RTL, contraste et taille de texte ; la traduction métier arabe n'est pas encore complète.
+
+Cette version ne revendique aucune certification clinique, FHIR, WCAG ni conformité juridique. Voir `docs/ROADMAP.md` pour les étapes de validation hospitalière.

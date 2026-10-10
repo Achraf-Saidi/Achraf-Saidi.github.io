@@ -1,10 +1,22 @@
 {
-  "source_commit": "b3a65bf19718b003db6f0c9196a397e3302c21c6",
-  "application_url": "https://sahati.ochrecreek8.chatgpt.site",
-  "source_directory": "source",
-  "auth": "sahati-gate-and-accounts",
-  "custom_domain": "pending_selection",
-  "excluded_generated_files": [
-    "tsconfig.tsbuildinfo"
-  ]
+  "product": "SAHATI",
+  "version": "github-1",
+  "url": "https://achraf-saidi.github.io/sahati/",
+  "hosting": "GitHub Pages",
+  "source": "./source",
+  "authentication": "sahati-local-gate-and-accounts",
+  "data_mode": "encrypted-local-demo",
+  "synchronization": false,
+  "roles": 14,
+  "modules": 25,
+  "validation": {
+    "business_scenarios": 23,
+    "vault_scenarios": 7,
+    "sqlite_native": true,
+    "sqlite_wasm": true,
+    "typescript": true,
+    "static_build": true,
+    "standalone_server_build": true,
+    "browser_visual_qa": false
+  }
 }
