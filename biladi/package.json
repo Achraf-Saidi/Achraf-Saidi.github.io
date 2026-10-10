@@ -1,0 +1,13 @@
+{
+  "name": "biladi-el-djazair",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "check:dom": "node scripts/check-dom.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}
