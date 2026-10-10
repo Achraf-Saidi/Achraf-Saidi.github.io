@@ -1,1 +1,40 @@
-<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NUMERIA · formulaire accessible</title><style>body{font:16px/1.8 system-ui;background:#f7f7f2;color:#242326;max-width:600px;margin:50px auto;padding:25px}form{display:grid;gap:15px}input,button{font:inherit;padding:12px;border:1px solid #aaa;border-radius:6px}button{background:#6840d8;color:#fff}h1{line-height:1.2}</style><h1>Un formulaire compréhensible.</h1><p>Extrait gratuit NUMERIA. Démonstration locale : aucune donnée n’est envoyée ou enregistrée.</p><form id="demo"><label for="email">Adresse e-mail</label><input id="email" type="email" required aria-describedby="hint"><p id="hint">Exemple : nom@domaine.dz. Le test valide uniquement la forme.</p><button type="submit">Tester le formulaire</button></form><p id="status" role="status"></p><script>document.getElementById('demo').addEventListener('submit',e=>{e.preventDefault();document.getElementById('status').textContent='Format accepté. Aucune donnée envoyée.'})</script></html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <title>NUMERIA · Accès réservé</title>
+  <link rel="icon" href="/numeria/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/numeria/gate.css?v=protected-1">
+  <script type="module" src="/numeria/gate.js?v=protected-1"></script>
+</head>
+<body>
+  <main id="access-screen" class="access-screen">
+    <a class="brand" href="/numeria/" aria-label="NUMERIA · Accès réservé"><img src="/numeria/favicon.svg" width="40" height="40" alt=""><span>NUMERIA</span></a>
+    <div class="access-card">
+      <div class="lock-art" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><rect x="18" y="35" width="44" height="32" rx="10"/><path d="M27 35V24a13 13 0 0 1 26 0v11"/><circle cx="40" cy="49" r="3"/><path d="M40 52v6"/></svg><span></span></div>
+      <p class="eyebrow">Accès privé</p>
+      <h1>Un espace réservé.</h1>
+      <p class="intro">Entrez le mot de passe pour accéder à Numeria.</p>
+      <form id="access-form">
+        <label for="access-password">Mot de passe</label>
+        <div class="password-field"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><input id="access-password" name="password" type="password" required autocomplete="current-password" aria-describedby="access-message" spellcheck="false" autocapitalize="none" maxlength="256"></div>
+        <button id="access-submit" type="submit"><span>Entrer dans Numeria</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p id="access-message" class="access-message" role="status" aria-live="polite"></p>
+      </form>
+      <noscript><p class="unsupported">Activez JavaScript pour ouvrir cet espace protégé.</p></noscript>
+      <p class="privacy-note"><span aria-hidden="true">●</span> Vitrine et espaces école protégés.</p>
+    </div>
+    <footer>Maths. Code. Esprit critique.</footer>
+  </main>
+  <section id="protected-session" class="protected-session" hidden aria-label="Numeria, session privée">
+    <div class="session-bar"><span><span class="session-dot" aria-hidden="true"></span>Accès protégé</span><button id="access-lock" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Verrouiller</button></div>
+    <div id="protected-content"></div>
+  </section>
+</body>
+</html>
