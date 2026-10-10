@@ -11,8 +11,9 @@ const bytes = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));
 
 async function getWorker() {
   if (!isSecureContext || !crypto.subtle || !('serviceWorker' in navigator)) throw Error('unsupported');
-  const registration = await navigator.serviceWorker.register(`${BASE}secure-worker.js?v=protected-2`, {scope: BASE, updateViaCache: 'none'});
-  const active = registration.active || registration.installing || registration.waiting;
+  const scriptURL = new URL(`${BASE}secure-worker.js?v=protected-3`, location.href).href;
+  const registration = await navigator.serviceWorker.register(scriptURL, {scope: BASE, updateViaCache: 'none'});
+  const active = registration.installing || registration.waiting || registration.active;
   if (!active) throw Error('unavailable');
   if (active.state !== 'activated') await new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(Error('unavailable')), 20000);
@@ -20,10 +21,10 @@ async function getWorker() {
     active.addEventListener('statechange', changed);
     changed();
   });
-  if (!navigator.serviceWorker.controller?.scriptURL?.startsWith(`${location.origin}${BASE}secure-worker.js`)) await new Promise((resolve, reject) => {
+  if (navigator.serviceWorker.controller?.scriptURL !== scriptURL) await new Promise((resolve, reject) => {
     const timer = setTimeout(() => {navigator.serviceWorker.removeEventListener('controllerchange', changed); reject(Error('unavailable'));}, 20000);
     const changed = () => {
-      if (navigator.serviceWorker.controller?.scriptURL?.startsWith(`${location.origin}${BASE}secure-worker.js`)) {clearTimeout(timer); navigator.serviceWorker.removeEventListener('controllerchange', changed); resolve();}
+      if (navigator.serviceWorker.controller?.scriptURL === scriptURL) {clearTimeout(timer); navigator.serviceWorker.removeEventListener('controllerchange', changed); resolve();}
     };
     navigator.serviceWorker.addEventListener('controllerchange', changed);
     changed();

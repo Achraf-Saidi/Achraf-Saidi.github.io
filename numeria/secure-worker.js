@@ -6,25 +6,24 @@ const pending = new Map();
 const revoked = new Set();
 const TOKEN = /^[a-f0-9]{48}$/;
 const decode = value => Uint8Array.from(atob(value), c => c.charCodeAt(0));
-let envelopePromise = null;
+let cachedEnvelope = null;
 
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
 
 async function envelope() {
-  if (!envelopePromise) envelopePromise = (async () => {
-    const metaResponse = await fetch(new URL('vault.json', ROOT), {cache: 'no-store'});
-    if (!metaResponse.ok) throw Error('unavailable');
-    const meta = await metaResponse.json();
-    if (meta.version !== 1 || meta.kdf !== 'PBKDF2-SHA256' || meta.iterations !== 600000 || !/^[a-f0-9]{64}$/.test(meta.digest)) throw Error('unavailable');
-    const response = await fetch(new URL(`vault.bin?v=${meta.digest}`, ROOT), {cache: 'no-store'});
-    if (!response.ok) throw Error('unavailable');
-    const cipher = await response.arrayBuffer();
-    const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', cipher)), b => b.toString(16).padStart(2, '0')).join('');
-    if (digest !== meta.digest) throw Error('unavailable');
-    return {meta, cipher};
-  })().catch(error => {envelopePromise = null; throw error;});
-  return envelopePromise;
+  const metaResponse = await fetch(new URL('vault.json', ROOT), {cache: 'no-store'});
+  if (!metaResponse.ok) throw Error('unavailable');
+  const meta = await metaResponse.json();
+  if (meta.version !== 1 || meta.kdf !== 'PBKDF2-SHA256' || meta.iterations !== 600000 || !/^[a-f0-9]{64}$/.test(meta.digest)) throw Error('unavailable');
+  if (cachedEnvelope?.meta.digest === meta.digest) return {meta, cipher: cachedEnvelope.cipher};
+  const response = await fetch(new URL(`vault.bin?v=${meta.digest}`, ROOT), {cache: 'no-store'});
+  if (!response.ok) throw Error('unavailable');
+  const cipher = await response.arrayBuffer();
+  const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', cipher)), b => b.toString(16).padStart(2, '0')).join('');
+  if (digest !== meta.digest) throw Error('unavailable');
+  cachedEnvelope = {meta, cipher};
+  return cachedEnvelope;
 }
 
 async function unlock(event) {
