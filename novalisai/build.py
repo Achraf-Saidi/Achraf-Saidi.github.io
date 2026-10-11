@@ -39,9 +39,13 @@ def top(c,title,sub,badge=True):
  return f'<div class="demo-top"><div><h3>{esc(title)}</h3><p>{esc(sub)}</p></div>'+ (f'<span class="demo-badge">{esc(c["demo_ui"][2])}</span>' if badge else '')+'</div>'
 def demo(c,i):
  u=c['demo_ui']
- if i==0:return top(c,u[0],u[1])+metrics(c)+'<div class="demo-bottom">'+chart(c)+tasks(c)+'</div>'
- if i==1:return top(c,u[16],u[17],False)+report(c)
- return top(c,u[23],u[24],False)+shop(c)
+ if i==0:
+  periods='<div class="period-controls" role="group" aria-label="'+esc(u[3])+'">'+''.join(f'<button type="button" data-period="{days}" aria-pressed="{str(days==30).lower()}">{esc(label)}</button>' for days,label in zip([7,30,90],c['demo_periods']))+'</div>'
+  return top(c,u[0],u[1])+periods+metrics(c)+'<div class="demo-bottom">'+chart(c)+tasks(c)+'</div>'
+ if i==1:return top(c,u[16],u[17],False)+report(c)+f'<button class="demo-action" id="report-toggle" type="button" aria-expanded="false" aria-controls="report-text">{esc(c["demo_report_button"])} ↗</button><div class="report-generated" id="report-text" hidden><p>{esc(c["demo_report_text"])}</p><span>{esc(c["demo_report_tag"])}</span></div>'
+ buttons='<div class="shop-buttons">'+''.join(f'<button type="button" class="demo-action" data-add="{i}" aria-label="{esc(c["demo_add"]+" "+u[25+i])}">{esc(c["demo_add"])} +</button>' for i in range(3))+'</div>'
+ basket=f'<div class="basket"><span>{esc(c["demo_cart"])}</span><strong id="basket-total" aria-live="polite">0 · 0 €</strong><button type="button" id="basket-clear">{esc(c["demo_clear"])}</button></div>'
+ return top(c,u[23],u[24],False)+shop(c)+buttons+basket
 def mini(c,i):
  u=c['demo_ui'];head='<div class="mini-app-top"><strong>novalis / '+['commerce','workspace','insight'][i]+'</strong><span>✳</span></div>'
  if i==0:body=f'<h4>{esc(u[28])}</h4>'+shop(c)
@@ -50,16 +54,27 @@ def mini(c,i):
  return '<div class="mini-app">'+head+body+'</div>'
 def render(content,lang,site_url,root_page=False):
  c=content[lang];prefix='' if root_page else '../';out={k:esc(v) for k,v in c.items() if isinstance(v,str)}
- for k in ['services_title','solutions_title','saas_title','ai_title','method_title','team_title','contact_title','team_map']:out[k]=lines(c[k])
+ for k in ['services_title','solutions_title','saas_title','ai_title','method_title','team_title','contact_title','team_map','studio_title']:out[k]=lines(c[k])
  out.update(lang=lang,locale=LOCALES[lang],asset_path=prefix+'assets/',home_path='./' if root_page else '../',site_url=esc(site_url),canonical=esc(site_url+'/' if root_page else f'{site_url}/{lang}/'))
  for kind,file in [('style','styles.css'),('script','app.js')]:out[kind+'_version']=hashlib.sha256((ROOT/'assets'/file).read_bytes()).hexdigest()[:10]
  for i,v in enumerate(c['nav']):out[f'nav_{i}']=esc(v)
  for i,v in enumerate(c['hero_title']):out[f'hero_title_{i}']=esc(v)
  for i,v in enumerate(c['ai_chips']):out[f'ai_chip_{i}']=esc(v)
+ out['check_icon']=icon('check')
  out['strip']=''.join(f'<span>{icon("check")}{esc(v)}</span>' for v in c['strip'])
  out['demo_tabs']=''.join(f'<button type="button" role="tab" id="demo-tab-{i}" aria-controls="demo-panel-{i}" aria-selected="{str(i==0).lower()}" tabindex="{0 if i==0 else -1}">{esc(t)}</button>' for i,t in enumerate(c['demo_tabs']))
  # All panels remain accessible without JavaScript. With JS they become keyboard-controlled tabs.
  out['demo_panels']=''.join(f'<div class="demo-panel" id="demo-panel-{i}" role="tabpanel" aria-labelledby="demo-tab-{i}" tabindex="0">{demo(c,i)}</div>' for i in range(3))
+ out['studio_tabs']=''.join(f'<button type="button" data-scenario="{i}" aria-pressed="{str(i==0).lower()}"><span>0{i+1}</span>{esc(t)}</button>' for i,t in enumerate(c['studio_tabs']))
+ scenario=c['studio_scenarios'][0]
+ out['studio_source']=esc(scenario['source'])
+ out['studio_input_title']=esc(scenario['title'])
+ out['studio_input_items']=''.join(f'<li>{esc(t)}</li>' for t in scenario['items'])
+ out['studio_result_title']=esc(scenario['before'])
+ out['studio_result_items']=''.join(f'<li><span aria-hidden="true">○</span><span>{esc(t)}</span></li>' for t in scenario['results'])
+ out['studio_engine_steps']=''.join(f'<li><span class="engine-number">0{i+1}</span><span>{esc(t)}</span><i aria-hidden="true"></i></li>' for i,t in enumerate(scenario['steps']))
+ out['studio_state']=esc(c['studio_states'][0])
+ out['studio_case_note']=esc(scenario['note'])
  out['alternates']='\n'.join(f'<link rel="alternate" hreflang="{l}" href="{site_url}/{l}/">' for l in LANGUAGES)+f'<link rel="alternate" hreflang="x-default" href="{site_url}/">'
  out['language_options']=''.join(f'<option value="{l}" data-url="{prefix}{l}/" {"selected" if l==lang else ""}>{l.upper()}</option>' for l in LANGUAGES)
  out['language_links']=''.join(f'<a href="{prefix}{l}/" lang="{l}" hreflang="{l}" aria-label="{label}" '+('aria-current="page"' if l==lang else '')+f'>{l.upper()}</a>' for l,label in LANGUAGES.items())
@@ -74,6 +89,7 @@ def render(content,lang,site_url,root_page=False):
  out['schema']=json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')
  client={k:c[k] for k in ['menu','close','mail_labels','mail_subject','mail_greeting','mail_extra','copied','copy_error']}
  client['policies']={k:{'title':c[k+'_title'],'text':c[k+'_text']} for k in ['privacy','legal']}
+ for k in ['studio_scenarios','studio_states','studio_play','studio_pause','studio_replay','demo_item','demo_items','demo_report_button','demo_report_hide']:client[k]=c[k]
  out['client_data']=json.dumps(client,ensure_ascii=False).replace('<','\\u003c')
  result=re.sub(r'\{\{([a-z_0-9]+)\}\}',lambda m:out[m[1]],(ROOT/'template.html').read_text())
  if '{{' in result:raise ValueError('Unresolved template token')

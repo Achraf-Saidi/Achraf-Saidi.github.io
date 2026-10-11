@@ -336,7 +336,118 @@
       "Planning",
       "Rapports"
     ],
-    "service_cta": "Discuter de ce besoin"
+    "service_cta": "Discuter de ce besoin",
+    "studio_label": "Le studio interactif",
+    "studio_title": "Un clic.\nTout prend forme.",
+    "studio_copy": "Explorez trois usages. Faites avancer le flux, observez les étapes, puis gardez la main sur la décision. Voilà le type d’expérience que nous pouvons concevoir pour vos équipes.",
+    "studio_note": "Démonstration interactive · données fictives · aucune connexion à vos outils",
+    "studio_tabs": [
+      "Devis & factures",
+      "Équipes & congés",
+      "Documents & rapports"
+    ],
+    "studio_input": "Au départ",
+    "studio_engine": "Le traitement",
+    "studio_output": "À l’arrivée",
+    "studio_play": "Animer le flux",
+    "studio_pause": "Mettre en pause",
+    "studio_replay": "Rejouer l’exemple",
+    "studio_scrub": "Faites glisser pour transformer",
+    "studio_hint": "Vous pouvez aussi utiliser les flèches du clavier.",
+    "studio_human": "Votre équipe garde la décision.",
+    "studio_steps": [
+      "Relier",
+      "Structurer",
+      "Préparer"
+    ],
+    "studio_states": [
+      "Informations dispersées",
+      "Sources reliées",
+      "Règles appliquées",
+      "Prêt à être vérifié"
+    ],
+    "studio_scenarios": [
+      {
+        "title": "Une facture à traiter",
+        "source": "FACTURE / 042",
+        "items": [
+          "Fournisseur : Atelier Delta",
+          "Montant : 1 240,00 €",
+          "Référence : BC-2026-018"
+        ],
+        "before": "Trois vérifications à faire à la main.",
+        "after": "Un dossier prêt à approuver.",
+        "results": [
+          "Informations extraites",
+          "Référence rapprochée",
+          "Validation à votre main"
+        ],
+        "steps": [
+          "Relier les pièces",
+          "Vérifier les champs",
+          "Préparer le dossier"
+        ],
+        "note": "L’envoi et l’écriture comptable restent soumis aux validations définies."
+      },
+      {
+        "title": "Une absence à organiser",
+        "source": "DEMANDE / 018",
+        "items": [
+          "Équipe : Service client",
+          "Période : 14–16 octobre",
+          "Demande : 3 jours"
+        ],
+        "before": "Demande, planning et validation séparés.",
+        "after": "Une demande prête à décider.",
+        "results": [
+          "Demande centralisée",
+          "Planning consultable",
+          "Décision du responsable"
+        ],
+        "steps": [
+          "Centraliser la demande",
+          "Appliquer les règles",
+          "Préparer la validation"
+        ],
+        "note": "Les règles de congés et la décision restent définies par votre organisation."
+      },
+      {
+        "title": "Un rapport à préparer",
+        "source": "DOCUMENTS / 003",
+        "items": [
+          "Activité trimestrielle.pdf",
+          "Suivi des opérations.xlsx",
+          "Compte rendu de réunion.pdf"
+        ],
+        "before": "Des documents à retrouver et à croiser.",
+        "after": "Un aperçu de rapport à relire.",
+        "results": [
+          "Sources rassemblées",
+          "Informations structurées",
+          "Synthèse à vérifier"
+        ],
+        "steps": [
+          "Relier les sources",
+          "Structurer les contenus",
+          "Préparer la synthèse"
+        ],
+        "note": "Les sources restent visibles ; la synthèse doit être vérifiée avant utilisation."
+      }
+    ],
+    "demo_periods": [
+      "7 jours",
+      "30 jours",
+      "90 jours"
+    ],
+    "demo_add": "Ajouter",
+    "demo_cart": "Panier de démonstration",
+    "demo_clear": "Vider",
+    "demo_item": "article",
+    "demo_items": "articles",
+    "demo_report_button": "Voir la synthèse",
+    "demo_report_hide": "Masquer la synthèse",
+    "demo_report_text": "Activité à suivre : les demandes en attente doivent être revues par l’équipe. Les trois documents sources restent accessibles pour vérifier les informations.",
+    "demo_report_tag": "Aperçu illustratif · à relire"
   },
   "en": {
     "title": "Novalis AI — Websites, custom software & practical AI | Belgium",
@@ -675,7 +786,118 @@
       "Schedule",
       "Reports"
     ],
-    "service_cta": "Discuss this need"
+    "service_cta": "Discuss this need",
+    "studio_label": "The interactive studio",
+    "studio_title": "One click.\nIt takes shape.",
+    "studio_copy": "Explore three use cases. Move the workflow forward, watch each step and keep control of the decision. This is the kind of experience we can design for your team.",
+    "studio_note": "Interactive demonstration · fictional data · no connection to your tools",
+    "studio_tabs": [
+      "Quotes & invoices",
+      "Teams & leave",
+      "Documents & reports"
+    ],
+    "studio_input": "The input",
+    "studio_engine": "The workflow",
+    "studio_output": "The result",
+    "studio_play": "Animate the workflow",
+    "studio_pause": "Pause",
+    "studio_replay": "Replay the example",
+    "studio_scrub": "Slide to transform",
+    "studio_hint": "You can also use the arrow keys.",
+    "studio_human": "Your team keeps the decision.",
+    "studio_steps": [
+      "Connect",
+      "Structure",
+      "Prepare"
+    ],
+    "studio_states": [
+      "Scattered information",
+      "Sources connected",
+      "Rules applied",
+      "Ready for review"
+    ],
+    "studio_scenarios": [
+      {
+        "title": "An invoice to process",
+        "source": "INVOICE / 042",
+        "items": [
+          "Supplier: Atelier Delta",
+          "Amount: €1,240.00",
+          "Reference: PO-2026-018"
+        ],
+        "before": "Three checks to complete manually.",
+        "after": "A file ready for approval.",
+        "results": [
+          "Information extracted",
+          "Reference matched",
+          "Approval in your hands"
+        ],
+        "steps": [
+          "Connect the documents",
+          "Check the fields",
+          "Prepare the file"
+        ],
+        "note": "Sending and accounting entries remain subject to the agreed approvals."
+      },
+      {
+        "title": "Leave to coordinate",
+        "source": "REQUEST / 018",
+        "items": [
+          "Team: Customer service",
+          "Period: 14–16 October",
+          "Request: 3 days"
+        ],
+        "before": "Request, schedule and approval are separate.",
+        "after": "A request ready for a decision.",
+        "results": [
+          "Request centralised",
+          "Schedule available",
+          "Manager’s decision"
+        ],
+        "steps": [
+          "Centralise the request",
+          "Apply the rules",
+          "Prepare approval"
+        ],
+        "note": "Leave rules and the final decision remain defined by your organisation."
+      },
+      {
+        "title": "A report to prepare",
+        "source": "DOCUMENTS / 003",
+        "items": [
+          "Quarterly activity.pdf",
+          "Operations tracking.xlsx",
+          "Meeting notes.pdf"
+        ],
+        "before": "Documents to find and cross-reference.",
+        "after": "A report preview to review.",
+        "results": [
+          "Sources gathered",
+          "Information structured",
+          "Summary to review"
+        ],
+        "steps": [
+          "Connect the sources",
+          "Structure content",
+          "Prepare a summary"
+        ],
+        "note": "Sources stay visible; the summary must be checked before use."
+      }
+    ],
+    "demo_periods": [
+      "7 days",
+      "30 days",
+      "90 days"
+    ],
+    "demo_add": "Add",
+    "demo_cart": "Demonstration basket",
+    "demo_clear": "Clear",
+    "demo_item": "item",
+    "demo_items": "items",
+    "demo_report_button": "View summary",
+    "demo_report_hide": "Hide summary",
+    "demo_report_text": "Activity to follow up: pending requests need to be reviewed by the team. The three source documents remain available to check the information.",
+    "demo_report_tag": "Illustrative preview · review required"
   },
   "nl": {
     "title": "Novalis AI — Websites, maatwerksoftware & praktische AI | België",
@@ -1014,7 +1236,118 @@
       "Planning",
       "Rapporten"
     ],
-    "service_cta": "Bespreek deze behoefte"
+    "service_cta": "Bespreek deze behoefte",
+    "studio_label": "De interactieve studio",
+    "studio_title": "Eén klik.\nHet krijgt vorm.",
+    "studio_copy": "Verken drie toepassingen. Laat het proces vooruitgaan, volg de stappen en houd de beslissing in handen. Zo kunnen we een ervaring voor uw team ontwerpen.",
+    "studio_note": "Interactieve demonstratie · fictieve gegevens · geen verbinding met uw tools",
+    "studio_tabs": [
+      "Offertes & facturen",
+      "Teams & verlof",
+      "Documenten & rapporten"
+    ],
+    "studio_input": "De invoer",
+    "studio_engine": "De verwerking",
+    "studio_output": "Het resultaat",
+    "studio_play": "Het proces animeren",
+    "studio_pause": "Pauzeren",
+    "studio_replay": "Voorbeeld herhalen",
+    "studio_scrub": "Schuif om te veranderen",
+    "studio_hint": "U kunt ook de pijltjestoetsen gebruiken.",
+    "studio_human": "Uw team houdt de beslissing in handen.",
+    "studio_steps": [
+      "Verbinden",
+      "Structureren",
+      "Voorbereiden"
+    ],
+    "studio_states": [
+      "Verspreide informatie",
+      "Bronnen verbonden",
+      "Regels toegepast",
+      "Klaar voor controle"
+    ],
+    "studio_scenarios": [
+      {
+        "title": "Een factuur verwerken",
+        "source": "FACTUUR / 042",
+        "items": [
+          "Leverancier: Atelier Delta",
+          "Bedrag: € 1.240,00",
+          "Referentie: BC-2026-018"
+        ],
+        "before": "Drie controles handmatig uitvoeren.",
+        "after": "Een dossier klaar voor goedkeuring.",
+        "results": [
+          "Informatie opgehaald",
+          "Referentie vergeleken",
+          "Goedkeuring door uw team"
+        ],
+        "steps": [
+          "Documenten verbinden",
+          "Velden controleren",
+          "Dossier voorbereiden"
+        ],
+        "note": "Verzending en boekingen blijven onderworpen aan de afgesproken goedkeuringen."
+      },
+      {
+        "title": "Verlof organiseren",
+        "source": "AANVRAAG / 018",
+        "items": [
+          "Team: Klantenservice",
+          "Periode: 14–16 oktober",
+          "Aanvraag: 3 dagen"
+        ],
+        "before": "Aanvraag, planning en goedkeuring staan los.",
+        "after": "Een aanvraag klaar voor een beslissing.",
+        "results": [
+          "Aanvraag gecentraliseerd",
+          "Planning beschikbaar",
+          "Beslissing van de manager"
+        ],
+        "steps": [
+          "Aanvraag centraliseren",
+          "Regels toepassen",
+          "Goedkeuring voorbereiden"
+        ],
+        "note": "Uw organisatie bepaalt de verlofregels en de uiteindelijke beslissing."
+      },
+      {
+        "title": "Een rapport voorbereiden",
+        "source": "DOCUMENTEN / 003",
+        "items": [
+          "Kwartaalactiviteit.pdf",
+          "Opvolging bedrijfsvoering.xlsx",
+          "Vergaderverslag.pdf"
+        ],
+        "before": "Documenten zoeken en vergelijken.",
+        "after": "Een rapportvoorbeeld om na te kijken.",
+        "results": [
+          "Bronnen verzameld",
+          "Informatie gestructureerd",
+          "Samenvatting te controleren"
+        ],
+        "steps": [
+          "Bronnen verbinden",
+          "Inhoud structureren",
+          "Samenvatting voorbereiden"
+        ],
+        "note": "Bronnen blijven zichtbaar; controleer de samenvatting vóór gebruik."
+      }
+    ],
+    "demo_periods": [
+      "7 dagen",
+      "30 dagen",
+      "90 dagen"
+    ],
+    "demo_add": "Toevoegen",
+    "demo_cart": "Demonstratiemandje",
+    "demo_clear": "Leegmaken",
+    "demo_item": "artikel",
+    "demo_items": "artikelen",
+    "demo_report_button": "Samenvatting bekijken",
+    "demo_report_hide": "Samenvatting verbergen",
+    "demo_report_text": "Op te volgen: openstaande verzoeken moeten door het team worden nagekeken. De drie brondocumenten blijven beschikbaar om de informatie te controleren.",
+    "demo_report_tag": "Illustratief voorbeeld · nakijken"
   },
   "de": {
     "title": "Novalis AI — Websites, individuelle Software & nützliche KI | Belgien",
@@ -1353,6 +1686,117 @@
       "Planung",
       "Berichte"
     ],
-    "service_cta": "Diesen Bedarf besprechen"
+    "service_cta": "Diesen Bedarf besprechen",
+    "studio_label": "Das interaktive Studio",
+    "studio_title": "Ein Klick.\nEs nimmt Form an.",
+    "studio_copy": "Erkunden Sie drei Anwendungen. Bewegen Sie den Ablauf vorwärts, verfolgen Sie die Schritte und behalten Sie die Entscheidung. So können wir eine Erfahrung für Ihr Team gestalten.",
+    "studio_note": "Interaktive Demonstration · fiktive Daten · keine Verbindung zu Ihren Werkzeugen",
+    "studio_tabs": [
+      "Angebote & Rechnungen",
+      "Teams & Urlaub",
+      "Dokumente & Berichte"
+    ],
+    "studio_input": "Die Eingabe",
+    "studio_engine": "Der Ablauf",
+    "studio_output": "Das Ergebnis",
+    "studio_play": "Den Ablauf animieren",
+    "studio_pause": "Pausieren",
+    "studio_replay": "Beispiel wiederholen",
+    "studio_scrub": "Schieben und verändern",
+    "studio_hint": "Sie können auch die Pfeiltasten verwenden.",
+    "studio_human": "Ihr Team behält die Entscheidung.",
+    "studio_steps": [
+      "Verbinden",
+      "Strukturieren",
+      "Vorbereiten"
+    ],
+    "studio_states": [
+      "Verteilte Informationen",
+      "Quellen verbunden",
+      "Regeln angewendet",
+      "Bereit zur Prüfung"
+    ],
+    "studio_scenarios": [
+      {
+        "title": "Eine Rechnung bearbeiten",
+        "source": "RECHNUNG / 042",
+        "items": [
+          "Lieferant: Atelier Delta",
+          "Betrag: 1.240,00 €",
+          "Referenz: BC-2026-018"
+        ],
+        "before": "Drei Prüfungen von Hand erledigen.",
+        "after": "Eine Akte bereit zur Freigabe.",
+        "results": [
+          "Informationen extrahiert",
+          "Referenz abgeglichen",
+          "Freigabe durch Ihr Team"
+        ],
+        "steps": [
+          "Dokumente verbinden",
+          "Felder prüfen",
+          "Akte vorbereiten"
+        ],
+        "note": "Versand und Buchung bleiben an die vereinbarten Freigaben gebunden."
+      },
+      {
+        "title": "Urlaub koordinieren",
+        "source": "ANFRAGE / 018",
+        "items": [
+          "Team: Kundenservice",
+          "Zeitraum: 14.–16. Oktober",
+          "Anfrage: 3 Tage"
+        ],
+        "before": "Anfrage, Planung und Freigabe sind getrennt.",
+        "after": "Eine Anfrage bereit zur Entscheidung.",
+        "results": [
+          "Anfrage zentralisiert",
+          "Planung verfügbar",
+          "Entscheidung der Führungskraft"
+        ],
+        "steps": [
+          "Anfrage zentralisieren",
+          "Regeln anwenden",
+          "Freigabe vorbereiten"
+        ],
+        "note": "Urlaubsregeln und Entscheidungen werden weiterhin von Ihrer Organisation festgelegt."
+      },
+      {
+        "title": "Einen Bericht vorbereiten",
+        "source": "DOKUMENTE / 003",
+        "items": [
+          "Quartalsaktivität.pdf",
+          "Betriebsübersicht.xlsx",
+          "Besprechungsprotokoll.pdf"
+        ],
+        "before": "Dokumente finden und abgleichen.",
+        "after": "Eine Berichtsvorschau zum Prüfen.",
+        "results": [
+          "Quellen gesammelt",
+          "Informationen strukturiert",
+          "Zusammenfassung prüfen"
+        ],
+        "steps": [
+          "Quellen verbinden",
+          "Inhalte strukturieren",
+          "Zusammenfassung vorbereiten"
+        ],
+        "note": "Quellen bleiben sichtbar; die Zusammenfassung ist vor der Nutzung zu prüfen."
+      }
+    ],
+    "demo_periods": [
+      "7 Tage",
+      "30 Tage",
+      "90 Tage"
+    ],
+    "demo_add": "Hinzufügen",
+    "demo_cart": "Demo-Warenkorb",
+    "demo_clear": "Leeren",
+    "demo_item": "Artikel",
+    "demo_items": "Artikel",
+    "demo_report_button": "Zusammenfassung ansehen",
+    "demo_report_hide": "Zusammenfassung ausblenden",
+    "demo_report_text": "Nachverfolgung: offene Anfragen müssen vom Team geprüft werden. Die drei Quelldokumente bleiben zur Überprüfung der Angaben verfügbar.",
+    "demo_report_tag": "Illustrative Vorschau · prüfen"
   }
 }

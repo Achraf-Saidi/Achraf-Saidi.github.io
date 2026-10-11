@@ -3,6 +3,9 @@
 - Génération réussie des pages FR, EN, NL, DE et de la page d’accueil française ; clés de traduction cohérentes et aucun jeton de modèle non résolu.
 - Syntaxe JavaScript vérifiée avec Node ; CSS analysée avec CSSOM, y compris les règles responsive et la réduction des animations.
 - Vérifications DOM dans les quatre langues : identifiants uniques, un seul titre principal, six offres, trois aperçus, liens d’ancre et ressources locales valides.
+- Studio : progression manuelle, lecture, interruption lors du changement de scénario, reprise jusqu’à la fin, annulation par le curseur et lecture sans animation avec la préférence de réduction des mouvements.
+- Aperçus : données et colonnes du tableau de bord actualisées selon la période, ouverture/fermeture de la synthèse, ajout de deux produits avec total exact de 134 €, panier vidé.
+- Palette : analyse des couleurs CSS, cuivre/or/ivoire sans bleu dominant ; contraste de la couleur principale calculé avec le blanc.
 - Navigation : menu mobile, fermeture avec Échap, sélection des onglets, flèches clavier, Home/End et état de focus.
 - Contact : refus d’un formulaire invalide, présélection du besoin, création d’un brouillon contenant les champs facultatifs, encodage exact du lien mailto, copie, retour au formulaire et conservation des valeurs.
 - Les valeurs saisies sont affichées avec textContent ; un nom contenant une balise script reste du texte et ne produit aucun élément script.

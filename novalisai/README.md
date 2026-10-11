@@ -14,8 +14,10 @@ Pour un futur transfert sur le domaine : `python3 build.py --site-url https://ww
 
 ## Direction et contenu
 
-- Fond clair, encre et bleu, identité cuivre conservée, grands titres Manrope et Instrument Serif. Polices locales et licences conservées.
-- Accueil avec composition orbitale en CSS et véritable HTML pour trois aperçus interactifs : gestion, rapports documentaires et commerce.
+- Fonds ivoire et champagne, bronze foncé, cuivre et or repris du logo, grands titres Manrope et Instrument Serif. Polices locales et licences conservées.
+- Accueil avec composition orbitale cuivre, léger relief au pointeur sur ordinateur et trois aperçus HTML : période de tableau de bord sélectionnable, synthèse ouvrable et panier de démonstration calculé localement.
+- Studio interactif : trois scénarios (facture, congé, rapport), curseur pour parcourir les étapes, lecture/pause/reprise et résultat à valider. Animation locale déterministe, données fictives, aucune requête IA ou API métier. Aucun gain de productivité n’est inventé.
+- Animations interrompues hors écran et à la mise en arrière-plan. Préférence de réduction des animations : transitions neutralisées et lecture terminée immédiatement. Les effets au pointeur sont limités au pointeur fin sur ordinateur ; les démonstrations fonctionnent avec boutons et curseur sur mobile et au clavier.
 - Six offres : sites/boutiques/restaurants, logiciels sur mesure, SaaS personnalisables, IA/automatisation, données/reporting, audit/intégration.
 - Trois aperçus de solutions illustratifs. Les données sont fictives. Aucun client, résultat financier, témoignage ou réalisation livrée n’est inventé. Aucun aperçu ne mène vers du code ou un projet privé.
 - Les bases existantes et prototypes sont des points de départ à évaluer et adapter. Leur présence n’affirme pas une mise en production commerciale préalable. La personnalisation, les intégrations et la validation sont cadrées dans la proposition.
