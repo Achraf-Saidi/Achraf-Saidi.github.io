@@ -76,7 +76,7 @@
  document.querySelectorAll('[data-year]').forEach(el=>{el.textContent=new Date().getFullYear();});
  if('IntersectionObserver' in window){
   const dock=document.querySelector('.mobile-contact');
-  const observer=new IntersectionObserver(entries=>{dock.classList.toggle('in-contact',entries[0].isIntersecting);},{threshold:0});
+  const observer=new IntersectionObserver(entries=>{const hidden=entries[0].isIntersecting;dock.classList.toggle('in-contact',hidden);dock.tabIndex=hidden?-1:0;dock.setAttribute('aria-hidden',String(hidden));},{threshold:0});
   observer.observe(document.getElementById('contact'));
  }
 })();
