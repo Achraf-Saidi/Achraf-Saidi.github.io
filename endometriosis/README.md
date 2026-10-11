@@ -45,3 +45,14 @@ The static website remains available at https://achraf-saidi.github.io/endometri
 Independent, adequately powered and well-annotated donor cohorts; cell-type/site-aware analysis; validated count/microarray modelling; biological specialist review; perturbation experiments; separate clinical validation for any therapeutic claim. The report defines the next experimentally informative question and makes no promise of efficacy.
 
 Original code copyright 2026 Achraf Saidi. Attribute the original GEO depositors and consult each source's terms. No patient identity or clinical recommendation is provided.
+
+## Pilote spatial : distinguer les compartiments
+
+[Rapport spatial détaillé](results/SPATIAL_REPORT_FR.md) — GSE263897 : 5 donneuses, 60 segments GeoMx, 18 676 cibles endogènes, 56 028 lignes cible × compartiment. Import officiel DCC/PKC, audit du bruit, normalisation exploratoire Q3/médiane et différences calculées après regroupement des segments par donneuse. **QC incomplet : aucune conclusion confirmatoire ni cible thérapeutique validée.** L’axe C3 illustré est déjà publié par les auteurs.
+
+```bash
+python endometriosis/research/spatial_pilot.py
+python endometriosis/research/report_spatial_pilot.py
+```
+
+[Atlas complet](results/spatial_compartment_atlas.csv.gz) · [Audit](results/spatial_segment_audit.csv) · [Graphe des preuves et hypothèses](results/spatial_evidence_graph.json) · [Plan](research/SPATIAL_PILOT_PLAN.md). Le graphe distingue ce qui est mesuré, proposé dans la littérature et non testé. Il ne prédit pas une guérison.

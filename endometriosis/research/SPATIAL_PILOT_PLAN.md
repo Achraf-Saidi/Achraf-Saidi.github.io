@@ -1,0 +1,18 @@
+# Plan du pilote spatial — GSE263897
+
+Plan interne écrit après inspection des formats et du résumé original, avant calcul des effets. Ce n’est pas un préenregistrement externe. L’axe C3 est déjà proposé par les auteurs : il ne constitue pas une découverte de ce projet.
+
+Objectif : passer des tissus entiers à des compartiments enrichis (épithélium, macrophages, stroma), sans confondre 60 segments avec 60 personnes. Les métadonnées originales indiquent cinq donneuses, deux tissus appariés et deux segments par compartiment/tissu/donneuse. Ce sont des segments GeoMx, pas du single-cell.
+
+1. Télécharger SOFT, archive DCC et configuration PKC officielles, conserver URL et SHA256.
+2. Apparier explicitement accession GSM, nom de fichier DCC, sampleID, tissu et compartiment. Vérifier exhaustivement les 30 groupes de deux segments, les codes de sondes et les valeurs finies/non négatives.
+3. Auditer les métriques disponibles : lectures brutes, trimming, stitching, alignement, Q30. Documenter séparément les informations absentes (surface, nombre de noyaux, saturation/dédoublonnage, NTC, qualité histologique, exclusions auteurs). Sans elles, statut QC incomplet et interdiction de conclusion confirmatoire.
+4. Le PKC contient une sonde par cible endogène et 139 sondes négatives. Calculer une limite descriptive de quantification par segment : max(2, moyenne géométrique des négatifs × écart-type géométrique au carré), en bornant les comptes à 1 pour les logarithmes. Indiquer le plancher observé des DCC, sans inventer les comptes avant export.
+5. Normalisation exploratoire Q3 sur toutes les cibles endogènes, facteur = Q3(segment)/moyenne géométrique des Q3. Puis log2(compte normalisé + 1). Sensibilité normalisation médiane, même pseudo-compte. Aucun filtre guidé par une différence entre tissus.
+6. Moyenne des deux segments sur l’échelle logarithmique par donneuse/tissu/compartiment, puis différence lésion − eutopique. L’unité indépendante est la donneuse (n=5), jamais le segment. Exporter effet moyen, cinq différences, cohérence de signe et sensibilité de normalisation pour toutes les cibles. Détection ≥ LOQ rapportée sans censure des comptes.
+7. Aucun test de significativité ni cible thérapeutique retenue tant que QC incomplet. Avec cinq paires, la résolution minimale d’un test bilatéral exact par retournement des signes est 2/32=0,0625. Cette contrainte ne justifie pas de remplacer les donneuses par des segments.
+8. Illustration descriptive de C3/C3AR1, sélectionnés sur publication antérieure, avec points par donneuse. Pas de preuve de sécrétion, activation du complément, interaction physique, causalité, bénéfice d’une inhibition ou innocuité.
+
+Sources : https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263897 ; https://doi.org/10.1016/j.isci.2025.111790 ; https://github.com/Nanostring-Biostats/GeomxTools/blob/master/specs.md ; https://www.bioconductor.org/packages/release/workflows/vignettes/GeoMxWorkflows/inst/doc/GeomxTools_RNA-NGS_Analysis.html
+
+Amendement de format avant calcul des effets : les DCC sont des tables creuses, avec sondes absentes. Le code officiel readNanoStringGeoMxSet.R utilise fill=0. Remplir donc à zéro les sondes PKC absentes, rejeter les sondes inconnues. Pour les deux normalisations exploratoires, borner les comptes à 1 avant calcul du quantile et normalisation, puis ajouter le pseudo-compte 1 au log. Détection calculée sur comptes zéro-remplis non bornés. Cette convention est explicite et ne remplace pas une reproduction de GeomxTools. Source : https://github.com/Nanostring-Biostats/GeomxTools/blob/master/R/readNanoStringGeoMxSet.R

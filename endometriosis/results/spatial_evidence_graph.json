@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "warning": "Directed hypothesis edges are not causal findings. No treatment efficacy inferred.",
+  "nodes": [
+    {
+      "id": "epithelium",
+      "label": "Segments épithéliaux"
+    },
+    {
+      "id": "C3_RNA",
+      "label": "ARN C3"
+    },
+    {
+      "id": "C3_protein",
+      "label": "C3 sécrété"
+    },
+    {
+      "id": "complement_activation",
+      "label": "Activation du complément"
+    },
+    {
+      "id": "macrophages",
+      "label": "Segments macrophagiques"
+    },
+    {
+      "id": "C3AR1_RNA",
+      "label": "ARN C3AR1"
+    },
+    {
+      "id": "macrophage_response",
+      "label": "Réponse macrophagique"
+    },
+    {
+      "id": "lesion_persistence",
+      "label": "Persistance lésionnelle"
+    }
+  ],
+  "edges": [
+    {
+      "source": "epithelium",
+      "target": "C3_RNA",
+      "status": "observed_descriptive_QC_incomplete",
+      "evidence": "4/5 donor increases in lesion vs eutopic; no significance claim"
+    },
+    {
+      "source": "macrophages",
+      "target": "C3AR1_RNA",
+      "status": "observed_descriptive_QC_incomplete",
+      "evidence": "10/20 macrophage segments above descriptive LOQ"
+    },
+    {
+      "source": "C3_RNA",
+      "target": "C3_protein",
+      "status": "unmeasured_in_this_pilot"
+    },
+    {
+      "source": "C3_protein",
+      "target": "complement_activation",
+      "status": "hypothesis_not_tested_in_this_pilot"
+    },
+    {
+      "source": "complement_activation",
+      "target": "macrophage_response",
+      "status": "hypothesis_not_tested_in_this_pilot"
+    },
+    {
+      "source": "C3AR1_RNA",
+      "target": "macrophage_response",
+      "status": "hypothesis_not_tested_in_this_pilot"
+    },
+    {
+      "source": "epithelium",
+      "target": "macrophages",
+      "status": "published_hypothesis_not_new_discovery",
+      "source_url": "https://doi.org/10.1016/j.isci.2025.111790"
+    },
+    {
+      "source": "macrophage_response",
+      "target": "lesion_persistence",
+      "status": "hypothesis_not_tested_in_this_pilot"
+    }
+  ]
+}
