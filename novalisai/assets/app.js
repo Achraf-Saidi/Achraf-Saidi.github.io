@@ -1,149 +1,82 @@
 (() => {
-  'use strict';
-  const root = document.documentElement;
-  const data = JSON.parse(document.getElementById('site-data').textContent);
-  root.classList.add('js');
-
-  const menu = document.querySelector('.menu-button');
-  const mobileNav = document.getElementById('mobile-nav');
-  const setMenu = (open) => {
-    menu.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-label', open ? data.close : data.menu);
-    mobileNav.classList.toggle('open', open);
-  };
-  menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
-  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
-      setMenu(false);
-      menu.focus();
-    }
+ 'use strict';
+ document.documentElement.classList.add('js');
+ const data=JSON.parse(document.getElementById('site-data').textContent);
+ const menu=document.querySelector('.menu-button');
+ const nav=document.getElementById('mobile-nav');
+ const setMenu=open=>{
+  menu.setAttribute('aria-expanded',String(open));
+  menu.setAttribute('aria-label',open?data.close:data.menu);
+  nav.classList.toggle('open',open);
+ };
+ menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){setMenu(false);menu.focus();}});
+ window.matchMedia('(min-width: 801px)').addEventListener('change',e=>{if(e.matches)setMenu(false);});
+ const language=document.getElementById('language');
+ language.addEventListener('change',()=>{
+  const option=language.selectedOptions[0];
+  if(option?.dataset.url)window.location.assign(option.dataset.url+window.location.hash);
+ });
+ document.querySelectorAll('.footer-languages a').forEach(a=>a.addEventListener('click',()=>{a.hash=window.location.hash;}));
+ const tabs=[...document.querySelectorAll('.demo-tabs [role=tab]')];
+ const panels=[...document.querySelectorAll('.demo-panel')];
+ const activate=(index,focus=false)=>{
+  tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(index===i));tab.tabIndex=index===i?0:-1;panels[i].hidden=index!==i;});
+  if(focus)tabs[index].focus();
+ };
+ tabs.forEach((tab,index)=>{
+  tab.addEventListener('click',()=>activate(index));
+  tab.addEventListener('keydown',e=>{
+   const next={ArrowRight:(index+1)%tabs.length,ArrowLeft:(index+tabs.length-1)%tabs.length,Home:0,End:tabs.length-1}[e.key];
+   if(next!==undefined){e.preventDefault();activate(next,true);}
   });
-  const header = document.querySelector('.site-header');
-  const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 12);
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
-
-  const language = document.getElementById('language');
-  language.addEventListener('change', () => {
-    const selected = language.selectedOptions[0];
-    if (selected && selected.dataset.url) window.location.assign(selected.dataset.url + window.location.hash);
-  });
-  document.querySelectorAll('.footer-languages a').forEach(link => {
-    link.addEventListener('click', () => { link.hash = window.location.hash; });
-  });
-
-  const tabs = [...document.querySelectorAll('[role="tab"]')];
-  const panels = [...document.querySelectorAll('[role="tabpanel"]')];
-  const activateTab = (index, focus = false) => {
-    tabs.forEach((tab, i) => {
-      tab.setAttribute('aria-selected', String(i === index));
-      tab.tabIndex = i === index ? 0 : -1;
-      panels[i].hidden = i !== index;
-    });
-    if (focus) tabs[index].focus();
-  };
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activateTab(index));
-    tab.addEventListener('keydown', event => {
-      let next;
-      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
-      if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = tabs.length - 1;
-      if (next !== undefined) {
-        event.preventDefault();
-        activateTab(next, true);
-      }
-    });
-  });
-  activateTab(0);
-
-  const workflow = document.getElementById('workflow-demo');
-  const flowButtons = [...document.querySelectorAll('[data-flow]')];
-  flowButtons.forEach(button => button.addEventListener('click', () => {
-    const mode = button.dataset.flow;
-    const state = data.diagram_states[mode];
-    if (!state) return;
-    workflow.dataset.mode = mode;
-    flowButtons.forEach(control => control.setAttribute('aria-pressed', String(control === button)));
-    document.getElementById('flow-engine-title').textContent = state.title;
-    document.querySelectorAll('[data-flow-step]').forEach((element, index) => { element.textContent = state.steps[index]; });
-    document.getElementById('flow-human').textContent = state.human;
-    document.getElementById('flow-result').textContent = state.result;
-    document.getElementById('flow-status').textContent = `${button.textContent} : ${state.result}. ${state.human}`;
-  }));
-
-  const form = document.getElementById('contact-form');
-  const preview = document.getElementById('email-preview');
-  const emailBody = document.getElementById('email-body');
-  const sendEmail = document.getElementById('send-email');
-  const copyStatus = document.getElementById('copy-status');
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const values = new FormData(form);
-    const labels = data.mail_labels;
-    const lines = [data.mail_greeting, '',
-      `${labels[0]} : ${String(values.get('name') || '').trim()}`,
-      `${labels[1]} : ${String(values.get('email') || '').trim()}`];
-    if (String(values.get('company') || '').trim()) lines.push(`${labels[2]} : ${String(values.get('company')).trim()}`);
-    lines.push(`${labels[3]} : ${values.get('need')}`, '', `${labels[4]} :`, String(values.get('message') || '').trim());
-    const body = lines.join('\n');
-    emailBody.textContent = body;
-    sendEmail.href = `mailto:achraf@novalisai.com?subject=${encodeURIComponent(data.mail_subject)}&body=${encodeURIComponent(body)}`;
-    copyStatus.textContent = '';
-    form.hidden = true;
-    preview.hidden = false;
-    preview.focus();
-  });
-  form.hidden = false;
-  document.getElementById('edit-email').addEventListener('click', () => {
-    preview.hidden = true;
-    form.hidden = false;
-    document.getElementById('contact-name').focus();
-  });
-  document.getElementById('copy-email').addEventListener('click', async () => {
-    try {
-      if (!navigator.clipboard) throw new Error('Clipboard unavailable');
-      await navigator.clipboard.writeText(emailBody.textContent);
-      copyStatus.textContent = data.copied;
-    } catch {
-      copyStatus.textContent = data.copy_error;
-    }
-  });
-
-  const dialog = document.getElementById('policy-dialog');
-  let dialogTrigger;
-  document.querySelectorAll('[data-policy]').forEach(button => {
-    button.addEventListener('click', () => {
-      const policy = data.policies[button.dataset.policy];
-      if (!policy) return;
-      document.getElementById('policy-title').textContent = policy.title;
-      const body = document.getElementById('policy-body');
-      body.replaceChildren(...policy.text.map(text => {
-        const paragraph = document.createElement('p');
-        paragraph.textContent = text;
-        return paragraph;
-      }));
-      dialogTrigger = button;
-      dialog.showModal();
-    });
-  });
-  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => { if (dialogTrigger) dialogTrigger.focus(); });
-
-  document.querySelectorAll('[data-year]').forEach(element => { element.textContent = new Date().getFullYear(); });
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    root.classList.add('motion');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px 20px 0px' });
-    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
-  }
+ });
+ activate(0);
+ const form=document.getElementById('contact-form');
+ const preview=document.getElementById('email-preview');
+ const emailBody=document.getElementById('email-body');
+ const send=document.getElementById('send-email');
+ const status=document.getElementById('copy-status');
+ document.querySelectorAll('[data-need]').forEach(a=>a.addEventListener('click',()=>{
+  const select=document.getElementById('contact-need');const option=select.options[Number(a.dataset.need)+1];
+  if(option)select.value=option.value;
+  preview.hidden=true;form.hidden=false;
+ }));
+ form.addEventListener('submit',e=>{
+  e.preventDefault();if(!form.reportValidity())return;
+  const values=new FormData(form);const get=k=>String(values.get(k)||'').trim();
+  const labels=data.mail_labels;
+  const parts=[data.mail_greeting,'',`${labels[0]} : ${get('name')}`,`${labels[1]} : ${get('email')}`];
+  if(get('company'))parts.push(`${labels[2]} : ${get('company')}`);
+  parts.push(`${labels[3]} : ${get('need')}`);
+  if(get('budget'))parts.push(`${data.mail_extra[0]} : ${get('budget')}`);
+  if(get('timing'))parts.push(`${data.mail_extra[1]} : ${get('timing')}`);
+  parts.push('',`${labels[4]} :`,get('message'));
+  const body=parts.join('\n');emailBody.textContent=body;
+  send.href=`mailto:achraf@novalisai.com?subject=${encodeURIComponent(data.mail_subject+' — '+get('need'))}&body=${encodeURIComponent(body)}`;
+  status.textContent='';form.hidden=true;preview.hidden=false;preview.focus();
+ });
+ form.hidden=false;
+ document.getElementById('edit-email').addEventListener('click',()=>{preview.hidden=true;form.hidden=false;document.getElementById('contact-name').focus();});
+ document.getElementById('copy-email').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(emailBody.textContent);status.textContent=data.copied;}
+  catch{status.textContent=data.copy_error;}
+ });
+ const dialog=document.getElementById('policy-dialog');let trigger;
+ document.querySelectorAll('[data-policy]').forEach(button=>button.addEventListener('click',()=>{
+  const policy=data.policies[button.dataset.policy];if(!policy)return;
+  document.getElementById('policy-title').textContent=policy.title;
+  document.getElementById('policy-body').replaceChildren(...policy.text.map(t=>{const p=document.createElement('p');p.textContent=t;return p;}));
+  trigger=button;dialog.showModal();
+ }));
+ dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+ dialog.addEventListener('close',()=>trigger?.focus());
+ document.querySelectorAll('[data-year]').forEach(el=>{el.textContent=new Date().getFullYear();});
+ if('IntersectionObserver' in window){
+  const dock=document.querySelector('.mobile-contact');
+  const observer=new IntersectionObserver(entries=>{dock.classList.toggle('in-contact',entries[0].isIntersecting);},{threshold:0});
+  observer.observe(document.getElementById('contact'));
+ }
 })();

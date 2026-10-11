@@ -1,113 +1,101 @@
 {
   "fr": {
-    "title": "Novalis AI — Logiciels sur mesure & intelligence artificielle | Wavre",
-    "description": "Novalis AI accompagne les entreprises depuis l’audit de leurs processus jusqu’au développement de logiciels sur mesure et à l’intégration utile de l’IA. Wavre, Belgique.",
+    "title": "Novalis AI — Sites, logiciels sur mesure & IA utile | Belgique",
+    "description": "Sites web, boutiques en ligne, logiciels métier et IA appliquée. Novalis AI accompagne votre transformation numérique, avec un interlocuteur en Belgique et un budget cadré.",
     "skip": "Aller au contenu",
     "menu": "Menu",
     "close": "Fermer",
     "language": "Langue du site",
     "nav": [
       "Expertises",
+      "Solutions",
       "Méthode",
-      "Expérience",
-      "L’équipe"
+      "Le collectif"
     ],
     "talk": "Parlons de votre projet",
-    "book": "Réserver un échange",
-    "book_short": "Échange de 30 minutes",
-    "discover": "Découvrir notre approche",
-    "hero_label": "IA appliquée & logiciels sur mesure",
+    "book": "Prendre rendez-vous",
+    "book_short": "Réserver 30 minutes",
+    "hero_label": "Logiciels sur mesure · Digitalisation · IA",
     "hero_location": "Wavre, Belgique",
     "hero_title": [
-      "Vos ambitions.",
-      "Prennent vie."
+      "Votre métier.",
+      "En mieux."
     ],
-    "hero_copy": "Nous concevons les logiciels et les outils IA qui font avancer votre entreprise. De l’analyse de vos besoins à une solution utilisée au quotidien.",
-    "hero_note": "Un premier échange pour comprendre. Pas besoin d’un cahier des charges.",
-    "hero_caption": "Relier les idées. Donner forme aux solutions.",
+    "hero_copy": "Un site qui donne envie. Un logiciel qui vous simplifie la vie. Une IA qui sert vraiment. Nous créons les outils numériques adaptés à votre entreprise.",
+    "hero_note": "30 minutes pour faire le point. Sans engagement.",
     "strip": [
       "Un interlocuteur en Belgique",
-      "Une équipe adaptée à votre projet",
-      "Un budget cadré, étape par étape"
+      "Du site web au logiciel métier",
+      "Un budget clair, par étapes"
     ],
-    "intro_label": "Notre point de départ",
-    "intro_title": "Les meilleurs projets commencent par une bonne question.",
-    "intro_copy": "Qu’est-ce qui ralentit votre activité aujourd’hui ? Les doubles saisies, les informations dispersées, un logiciel qui vous impose sa logique ? Nous prenons le temps d’observer votre travail avant de dessiner la solution.",
-    "intro_aside": "Le terrain, les bonnes questions, puis la solution.",
-    "services_label": "01 / Nos expertises",
-    "services_title": "Votre façon de travailler.\nLes bons outils autour.",
-    "services_intro": "De la première analyse au produit utilisé chaque jour, nous réunissons les compétences dont votre projet a besoin.",
+    "intro_label": "Le numérique, à votre mesure",
+    "intro_title": "Votre entreprise n’a pas à s’adapter à ses outils. Vos outils, si.",
+    "intro_copy": "Des fichiers Excel qui se multiplient, des demandes qui se perdent, un site qui ne reflète plus votre niveau. Nous partons de votre quotidien pour créer une solution simple à utiliser, agréable à regarder et cohérente avec votre budget.",
+    "services_label": "01 / Ce que nous construisons",
+    "services_title": "De la première impression\nau dernier détail.",
+    "services_intro": "Une présence en ligne, une plateforme complète ou des outils mieux connectés : nous réunissons le design, le développement et les données autour du même objectif.",
     "services": [
       {
-        "title": "Audit & stratégie",
-        "copy": "Nous observons vos processus, vos outils et vos contraintes. Vous repartez avec des priorités, un périmètre et une feuille de route chiffrée.",
+        "title": "Sites & boutiques en ligne",
+        "copy": "Une vitrine soignée, une boutique qui facilite l’achat, un site de restaurant avec menu et réservation. Une expérience pensée d’abord pour le téléphone.",
         "tags": [
-          "Analyse sur le terrain",
-          "Plan d’action"
+          "Sites vitrines",
+          "E-commerce",
+          "Restaurants"
         ],
-        "icon": "compass"
+        "icon": "layers"
       },
       {
         "title": "Logiciels sur mesure",
-        "copy": "Un portail client, un outil métier ou une plateforme complète : des interfaces pensées pour vos équipes, connectées à votre environnement.",
+        "copy": "ERP, CRM, portail client, gestion d’équipes ou de dossiers. Un outil conçu autour de vos processus, de vos utilisateurs et de vos règles métier.",
         "tags": [
           "Applications web",
-          "ERP & intégrations"
+          "Outils métier"
+        ],
+        "icon": "apps"
+      },
+      {
+        "title": "SaaS & bases personnalisables",
+        "copy": "Partir d’une base logicielle existante lorsqu’elle répond à votre besoin. Adapter les modules, votre identité et les parcours, puis préparer le déploiement.",
+        "tags": [
+          "Gestion commerciale",
+          "Espaces de travail"
         ],
         "icon": "layers"
       },
       {
         "title": "IA & automatisation",
-        "copy": "Lire des documents, retrouver une information, assister une équipe. Nous intégrons l’IA aux tâches utiles, avec des contrôles et une validation humaine.",
+        "copy": "Extraire les informations d’un document, retrouver une réponse sourcée, préparer un rapport. L’IA intervient là où son utilité peut être évaluée.",
         "tags": [
-          "Assistants & recherche",
-          "Flux documentaires"
+          "Documents",
+          "Assistants IA",
+          "Workflows"
         ],
         "icon": "spark"
       },
       {
-        "title": "Données & décision",
-        "copy": "Des données mieux organisées, des indicateurs lisibles et des modèles évalués. Pour décider avec une vue claire de votre activité.",
+        "title": "Données & tableaux de bord",
+        "copy": "Relier vos sources et suivre les indicateurs qui comptent. Des vues lisibles, des rapports exploitables et des prévisions évaluées sur vos données.",
         "tags": [
-          "Tableaux de bord",
-          "Prévision & optimisation"
+          "Reporting",
+          "Prévision",
+          "Optimisation"
         ],
         "icon": "chart"
-      }
-    ],
-    "use_label": "Une situation vous parle ?",
-    "use_heading": "Partons d’un problème concret.",
-    "use_tabs": [
-      "Administration",
-      "Connaissance",
-      "Pilotage"
-    ],
-    "uses": [
-      {
-        "before": "Une information recopiée dans trois outils.",
-        "after": "Un flux unique, des données qui circulent.",
-        "copy": "Connecter les applications, structurer les validations et automatiser les tâches répétitives. Une équipe garde la main sur les exceptions.",
-        "scope": "Intégrations · workflows · outil métier"
       },
       {
-        "before": "La bonne réponse se cache dans vos documents.",
-        "after": "Une recherche qui retrouve aussi ses sources.",
-        "copy": "Rassembler les connaissances et concevoir un assistant qui répond à partir de vos contenus, respecte les accès et sait signaler ses limites.",
-        "scope": "Recherche documentaire · assistant IA · accès"
-      },
-      {
-        "before": "Des chiffres disponibles, une vision fragmentée.",
-        "after": "Les indicateurs utiles, au même endroit.",
-        "copy": "Relier vos sources et construire un tableau de bord autour de vos décisions. Ajouter des prévisions quand les données permettent de les évaluer.",
-        "scope": "Données · tableaux de bord · prévision"
+        "title": "Audit & intégration",
+        "copy": "Identifier les tâches à simplifier, relier vos outils et établir vos priorités. CRM, comptabilité, flux Peppol ou outils internes : les connexions se cadrent ensemble.",
+        "tags": [
+          "Feuille de route",
+          "API & connecteurs"
+        ],
+        "icon": "compass"
       }
     ],
-    "before": "Aujourd’hui",
-    "after": "Ce que nous pouvons construire",
-    "use_note": "Exemples d’application, à adapter à vos outils et à vos contraintes.",
-    "method_label": "02 / Notre méthode",
-    "method_title": "Comprendre avec vous.\nConstruire pour vous.",
-    "method_intro": "Vous n’avez pas à traduire votre métier en langage technique. C’est notre travail.",
+    "method_label": "04 / Une méthode lisible",
+    "method_title": "Une bonne idée mérite\nune bonne exécution.",
+    "method_intro": "Vous connaissez votre métier. Nous traduisons vos besoins en un périmètre précis, puis en un outil que vos équipes savent utiliser.",
     "steps": [
       {
         "title": "Écouter & observer",
@@ -131,86 +119,10 @@
       }
     ],
     "deliverable_label": "Vous obtenez",
-    "method_note": "Un investissement progressif. Chaque étape a un objectif et un périmètre convenus.",
-    "work_label": "03 / Expérience & réalisations",
-    "work_title": "Des sujets exigeants.\nDes solutions concrètes.",
-    "work_intro": "Optimisation énergétique, applications métier, analyse de données : des projets qui montrent comment nous abordons des problèmes exigeants.",
-    "project_button": "Explorer le projet",
-    "project_context": "Contexte",
-    "project_approach": "Le travail réalisé",
-    "project_transfer": "Ce que cette expérience apporte",
-    "project_source": "Voir la présentation publique",
-    "projects": [
-      {
-        "sector": "Énergie & optimisation",
-        "title": "Mieux piloter le stockage d’énergie",
-        "summary": "Analyse et optimisation de batteries à grande échelle sur les marchés de l’électricité.",
-        "type": "Expérience d’Achraf · mémoire de master",
-        "context": "Travail réalisé dans le secteur énergétique belge, au croisement des données de marché, des contraintes techniques et de la valeur économique.",
-        "approach": "Modélisation de stratégies de dispatch, décisions sur les cycles de batteries et évaluation de leur performance.",
-        "transfer": "Savoir formuler un problème économique, prendre en compte les contraintes et évaluer une décision avant de l’automatiser.",
-        "tags": [
-          "Optimisation",
-          "Simulation"
-        ],
-        "visual": "energy",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Industrie & opérations",
-        "title": "Structurer le suivi des projets",
-        "summary": "Une application de gestion conçue autour des besoins d’un grand environnement industriel.",
-        "type": "Expérience professionnelle d’Achraf",
-        "context": "Développement d’un système de gestion de projets pour un acteur industriel du secteur de l’énergie en Afrique.",
-        "approach": "Analyse des workflows, conception des fonctionnalités de suivi et de reporting, puis développement de l’application.",
-        "transfer": "Transformer un fonctionnement complexe en un outil métier cohérent, adapté aux personnes et aux processus existants.",
-        "tags": [
-          "Outil métier",
-          "Reporting"
-        ],
-        "visual": "operations",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Santé & données",
-        "title": "Rendre des données complexes lisibles",
-        "summary": "METABRIC : exploration interactive de données cliniques et génomiques sur le cancer du sein.",
-        "type": "Projet académique & de recherche d’Achraf",
-        "context": "Un projet de recherche et de portfolio sur le jeu de données METABRIC, pas un outil de diagnostic clinique.",
-        "approach": "Tableau de bord interactif, visualisations, sélection de variables, réduction de dimension et regroupement de profils.",
-        "transfer": "Une pratique rigoureuse de l’analyse, de l’évaluation des modèles et de la restitution de données complexes.",
-        "tags": [
-          "Analyse de données",
-          "Visualisation"
-        ],
-        "visual": "data",
-        "url": "https://github.com/Achraf-Saidi/METABRIC-Dashboard"
-      },
-      {
-        "sector": "Intelligence conversationnelle",
-        "title": "Capi, une interface pour dialoguer",
-        "summary": "Une plateforme conversationnelle qui relie traitement du langage et développement web.",
-        "type": "Réalisation présentée par Novalis AI",
-        "context": "Un système conversationnel présenté dans le portfolio existant de Novalis AI.",
-        "approach": "Une architecture web modulaire et des services IA pour traiter les interactions et contextualiser les réponses.",
-        "transfer": "Relier une expérience utilisateur lisible à des services IA intégrés dans une application complète.",
-        "tags": [
-          "IA appliquée",
-          "Plateforme web"
-        ],
-        "visual": "conversation",
-        "url": "https://www.novalisai.com/en/projects/capi"
-      }
-    ],
-    "work_foot": "Sélection de réalisations de Novalis AI et de travaux antérieurs d’Achraf Saidi. Le contexte est précisé pour chaque projet.",
-    "team_label": "05 / Les personnes derrière les outils",
-    "team_title": "Un interlocuteur proche.\nLes bonnes expertises autour.",
-    "team_copy": "Achraf Saidi, chercheur en intelligence artificielle et entrepreneur, conduit l’analyse de votre besoin et le cadrage de la solution. Autour de lui, une équipe de développement se compose selon le projet : logiciel, données, IA, intégration et design.",
-    "team_second": "L’expérience réunie couvre les environnements industriels, hospitaliers et les PME, en Belgique et à l’international. Des profils complémentaires, avec un pilotage clair et des échanges directs.",
-    "team_links": [
-      "Le parcours d’Achraf",
-      "Notre équipe de développement"
-    ],
+    "team_label": "05 / La rigueur, avec le contact humain",
+    "team_title": "Un collectif technique.\nUn échange direct.",
+    "team_copy": "Achraf Saidi, chercheur en intelligence artificielle et en statistique à l’UCLouvain, apporte une approche analytique au cadrage des projets. Autour de lui, des développeurs et des spécialistes du design, des données et des intégrations interviennent selon le besoin.",
+    "team_second": "Un ancrage en Belgique et un réseau de développement en Europe et en Afrique, notamment avec JetThings / JetNext. L’expérience de nos intervenants comprend des projets industriels en Algérie : une pratique du terrain qui nourrit notre manière de construire.",
     "team_principles": [
       {
         "title": "La bonne équipe, à la bonne taille",
@@ -226,7 +138,7 @@
       }
     ],
     "faq_label": "Avant de commencer",
-    "faq_title": "Les questions que vous avez peut-être.",
+    "faq_title": "Avant de se lancer.",
     "faqs": [
       [
         "Faut-il déjà savoir ce que l’on veut construire ?",
@@ -249,10 +161,10 @@
         "La documentation et la prise en main font partie du plan. La maintenance, le support et les évolutions sont ensuite définis dans la proposition, avec des responsabilités et un périmètre explicites."
       ]
     ],
-    "contact_label": "Faisons le premier pas",
-    "contact_title": "Qu’aimeriez-vous\nsimplifier ?",
-    "contact_copy": "Un processus qui prend trop de temps, un outil à créer, une idée à explorer. Racontez-nous le point de départ.",
-    "contact_booking_note": "Choisissez un créneau dans notre calendrier. L’invitation et le lien vidéo sont gérés par Cal.eu.",
+    "contact_label": "Votre prochain projet commence ici",
+    "contact_title": "Et si on rendait\nça plus simple ?",
+    "contact_copy": "Un site à refaire, un logiciel à imaginer ou un processus à améliorer. Expliquez-nous ce qui vous manque : nous chercherons le bon point de départ.",
+    "contact_booking_note": "Le calendrier vous permet de choisir un créneau. Pas besoin de cahier des charges pour ce premier échange.",
     "name": "Votre nom",
     "email": "E-mail professionnel",
     "company": "Entreprise",
@@ -260,14 +172,16 @@
     "need": "Votre besoin",
     "need_placeholder": "Sélectionnez un sujet",
     "need_options": [
-      "Audit de mes processus",
+      "Site, boutique ou restaurant",
       "Logiciel sur mesure",
+      "SaaS à personnaliser ou à créer",
       "IA & automatisation",
       "Données & tableaux de bord",
+      "Audit & intégrations",
       "Je souhaite en discuter"
     ],
     "message": "Parlez-nous de votre situation",
-    "message_placeholder": "Aujourd’hui, nous… Nous aimerions…",
+    "message_placeholder": "Que faites-vous aujourd’hui ? Que souhaitez-vous améliorer ? Quels outils utilisez-vous déjà ?",
     "consent": "J’accepte que Novalis AI utilise ces informations pour répondre à ma demande.",
     "prepare": "Préparer mon e-mail",
     "form_note": "Votre message s’ouvre dans votre messagerie pour être envoyé à achraf@novalisai.com.",
@@ -289,10 +203,8 @@
     ],
     "privacy": "Confidentialité",
     "legal": "Mentions légales",
-    "rights": "Tous droits réservés.",
-    "footer_line": "Imaginer plus loin.\nConstruire au plus près.",
-    "footer_role": "Recherche en IA & entrepreneuriat",
-    "footer_team": "Développement · JetThings / JetNext",
+    "footer_line": "Du numérique qui fait avancer.",
+    "footer_role": "Recherche en IA & statistique · Entrepreneuriat",
     "country": "Belgique",
     "privacy_title": "Vos informations, simplement.",
     "privacy_text": [
@@ -303,166 +215,226 @@
     "legal_title": "Novalis AI",
     "legal_text": [
       "Éditeur : Novalis AI — numéro d’entreprise BE 0878.868.302. Siège : Rue Barrière Moye 18, 1300 Wavre, Belgique. Contact : achraf@novalisai.com.",
-      "Cette vitrine est hébergée sur GitHub Pages. Les exemples présentent les activités de Novalis AI et des expériences antérieures de ses intervenants, avec leur contexte. Les propositions commerciales, délais et engagements sont définis dans un devis distinct.",
+      "Cette vitrine est hébergée sur GitHub Pages. Les interfaces présentent des pistes de solutions avec des données fictives. Elles ne sont pas des références clients. Les bases logicielles et prototypes nécessitent un cadrage, des adaptations et une validation avant leur mise en production. Prix, délais et engagements sont définis dans un devis distinct.",
       "Le logo appartient à Novalis AI. Les textes et la conception du site sont réalisés pour Novalis AI. Les liens externes ouvrent des services indépendants."
     ],
-    "dialog_label": "Détails du projet",
-    "diagram_label": "Du besoin à la solution",
-    "diagram_title": "Votre activité, enfin reliée.",
-    "diagram_controls": "Comparer deux façons de travailler",
-    "diagram_before": "Aujourd’hui",
-    "diagram_after": "Avec Novalis",
-    "diagram_sources": [
-      "Documents",
-      "Logiciels",
-      "Équipes"
+    "saas_label": "Une autre façon de démarrer",
+    "saas_title": "Une base existante.\nVotre empreinte.",
+    "saas_copy": "Nos bases logicielles et prototypes permettent d’explorer plus vite une solution de gestion, de commerce ou de coordination. Nous vérifions ce qui peut être réutilisé et chiffrons la personnalisation, les intégrations et la mise en production. Vous pouvez aussi nous confier la création de votre propre SaaS.",
+    "saas_cta": "Trouver le bon point de départ",
+    "hero_projects": "Voir les solutions",
+    "stage_line": "De belles interfaces. De vrais usages.",
+    "demo_label": "Aperçus de solutions",
+    "demo_tabs": [
+      "Gestion",
+      "Rapports & IA",
+      "Commerce"
     ],
-    "flow_tag": "Sur mesure + IA",
-    "flow_result_label": "À l’arrivée",
-    "diagram_note": "Schéma de principe · exemple d’un flux documentaire.",
-    "diagram_states": {
-      "before": {
-        "title": "Un travail dispersé",
-        "steps": [
-          "Retrouver les documents",
-          "Recopier entre les outils",
-          "Reconstituer le suivi"
-        ],
-        "human": "Votre équipe fait le lien à la main.",
-        "result": "Un dossier à rassembler"
+    "demo_note": "Interfaces illustratives · données fictives",
+    "solutions_label": "02 / Des usages, pas des promesses",
+    "solutions_title": "Imaginez votre prochain\noutil de travail.",
+    "solutions_copy": "Quelques directions concrètes : vendre, coordonner une équipe, exploiter ses documents. Chaque solution se dessine autour de votre activité.",
+    "showcases": [
+      {
+        "sector": "Commerce & e-commerce",
+        "title": "La vente, bien orchestrée.",
+        "copy": "Catalogue, variantes, stocks et commandes dans le même espace. Une boutique en ligne reliée à la gestion, adaptée à votre marque.",
+        "cta": "Parlons de votre commerce",
+        "need": 0
       },
-      "after": {
-        "title": "Un flux conçu pour vous",
-        "steps": [
-          "Comprendre la demande",
-          "Relier les informations",
-          "Préparer la prochaine action"
-        ],
-        "human": "Votre équipe garde la décision.",
-        "result": "Un dossier prêt à être validé"
+      {
+        "sector": "Équipes & opérations",
+        "title": "Le travail, enfin coordonné.",
+        "copy": "Demandes, validations, planning et suivi des dossiers. Vos équipes disposent d’une vue claire et vos clients d’un portail simple.",
+        "cta": "Simplifions vos opérations",
+        "need": 1
+      },
+      {
+        "sector": "Rapports & connaissance",
+        "title": "Vos informations deviennent utiles.",
+        "copy": "Des documents retrouvés, des synthèses à vérifier et des rapports préparés à partir de vos sources. Une assistance qui laisse la décision à votre équipe.",
+        "cta": "Explorons vos documents",
+        "need": 3
       }
-    },
-    "saas_label": "04 / Nos produits SaaS",
-    "saas_title": "Le sur-mesure aujourd’hui.\nLes produits de demain.",
-    "saas_copy": "Nous préparons aussi nos propres produits SaaS : des logiciels accessibles en ligne, pensés pour des besoins métier précis. Cet espace est en construction. Nos produits seront présentés ici lorsqu’ils seront prêts.",
-    "saas_service": "Vous avez une idée de SaaS ? Nous pouvons déjà vous accompagner pour concevoir et développer votre plateforme, du premier prototype au produit.",
-    "saas_cta": "Discuter de votre idée de SaaS",
-    "saas_status": "En construction",
-    "saas_teaser": "Des produits prennent forme.",
-    "saas_detail": "Notre futur espace produits. Chaque solution y sera présentée avec ses usages et ses fonctionnalités.",
-    "saas_stage": "À découvrir prochainement",
-    "hero_projects": "Explorer nos projets",
-    "project_illustration": "Illustration du projet"
+    ],
+    "ai_label": "03 / Une IA qui a une raison d’être",
+    "ai_title": "Moins de tâches répétitives.\nPlus de travail utile.",
+    "ai_copy": "Nous examinons d’abord votre problème et vos données. Un traitement automatique, une intégration ou un modèle d’IA : nous choisissons la solution qui répond à l’usage, puis nous la testons avant d’élargir son rôle.",
+    "ai_chips": [
+      "Vos sources",
+      "Vos règles",
+      "Votre décision"
+    ],
+    "ai_points": [
+      "Des réponses reliées à leurs sources, quand l’usage le demande.",
+      "Des droits d’accès et un hébergement définis avec vous.",
+      "Une validation humaine pour les actions qui l’exigent."
+    ],
+    "ai_cta": "Identifier un usage pertinent",
+    "budget_title": "Des prix compétitifs. Des choix expliqués.",
+    "budget_copy": "Une équipe dimensionnée au projet, des composants réutilisés lorsque c’est pertinent et une livraison progressive. Le devis distingue réalisation, licences, hébergement et maintenance.",
+    "budget_cta": "Cadrer mon budget",
+    "team_map": "Belgique.\nEurope.\nAfrique.",
+    "contact_or": "Vous préférez nous écrire ?",
+    "form_title": "Parlez-nous de votre projet.",
+    "budget_label": "Budget envisagé · facultatif",
+    "budget_placeholder": "À définir ensemble",
+    "budget_options": [
+      "Moins de 2 500 €",
+      "2 500 à 5 000 €",
+      "5 000 à 15 000 €",
+      "Plus de 15 000 €"
+    ],
+    "timing_label": "Quand ? · facultatif",
+    "timing_placeholder": "À définir ensemble",
+    "timing_options": [
+      "Dès que possible",
+      "Dans 1 à 3 mois",
+      "Dans 3 à 6 mois",
+      "Je prépare le projet"
+    ],
+    "mail_to": "À : achraf@novalisai.com",
+    "mail_extra": [
+      "Budget envisagé",
+      "Calendrier"
+    ],
+    "demo_ui": [
+      "Vue d’ensemble",
+      "Exemple de tableau de bord",
+      "Activité",
+      "Ce mois-ci",
+      "Chiffre d’affaires",
+      "Commandes",
+      "À valider",
+      "Sur la période",
+      "En cours",
+      "Cette semaine",
+      "Ventes & activité",
+      "Derniers mois",
+      "À suivre",
+      "Devis à approuver",
+      "Stocks à vérifier",
+      "Rapport mensuel",
+      "Préparation de rapport",
+      "À vérifier par votre équipe",
+      "Synthèse d’activité",
+      "Un rapport construit à partir des documents sélectionnés.",
+      "Vos sources",
+      "Les points importants sont regroupés. Les informations manquantes restent signalées.",
+      "3 documents reliés",
+      "Votre boutique",
+      "Une identité, un catalogue, une expérience.",
+      "Vase Sable",
+      "Lampe Aurore",
+      "Fauteuil Alba",
+      "Commandes & inventaire",
+      "Un espace commun pour vos équipes",
+      "Dossier commercial",
+      "Demande de congé",
+      "Suivi de projet",
+      "Validation",
+      "Planning",
+      "Rapports"
+    ],
+    "service_cta": "Discuter de ce besoin"
   },
   "en": {
-    "title": "Novalis AI — Bespoke software & applied AI | Wavre, Belgium",
-    "description": "From workflow audits to bespoke software and useful AI integration, Novalis AI helps businesses build tools around the way they work. Based in Wavre, Belgium.",
+    "title": "Novalis AI — Websites, custom software & practical AI | Belgium",
+    "description": "Websites, online stores, business software and practical AI. Novalis AI supports your digital transformation with a contact in Belgium and a clearly scoped budget.",
     "skip": "Skip to content",
     "menu": "Menu",
     "close": "Close",
     "language": "Website language",
     "nav": [
       "Expertise",
-      "Approach",
-      "Experience",
-      "Our team"
+      "Solutions",
+      "Method",
+      "The collective"
     ],
     "talk": "Let’s discuss your project",
-    "book": "Book a conversation",
-    "book_short": "A 30-minute conversation",
-    "discover": "Discover our approach",
-    "hero_label": "Applied AI & bespoke software",
+    "book": "Book a meeting",
+    "book_short": "Book 30 minutes",
+    "hero_label": "Custom software · Digitalisation · AI",
     "hero_location": "Wavre, Belgium",
     "hero_title": [
-      "Your ambition.",
-      "Made real."
+      "Your business.",
+      "Made better."
     ],
-    "hero_copy": "We build custom software and AI tools around the way your business works. From understanding your needs to a solution your team uses every day.",
-    "hero_note": "A first conversation to understand. No technical brief needed.",
-    "hero_caption": "Connecting ideas. Giving solutions their shape.",
+    "hero_copy": "A website people want to explore. Software that makes work easier. AI with a clear purpose. We build digital tools around your business.",
+    "hero_note": "30 minutes to explore your needs. No commitment.",
     "strip": [
-      "A contact based in Belgium",
-      "A team shaped around your project",
+      "A contact in Belgium",
+      "From websites to business software",
       "A clear budget, step by step"
     ],
-    "intro_label": "Where we start",
-    "intro_title": "The best projects begin with a good question.",
-    "intro_copy": "What slows your business down today? Entering the same data twice, scattered information, software that dictates how you work? We take the time to understand your day before designing the solution.",
-    "intro_aside": "Understand the work. Ask the right questions. Build the solution.",
-    "services_label": "01 / Our expertise",
-    "services_title": "The way you work.\nThe right tools around it.",
-    "services_intro": "From the first analysis to a product people use every day, we bring together the skills your project needs.",
+    "intro_label": "Digital tools that fit",
+    "intro_title": "Your business should shape your tools. Your tools should support your business.",
+    "intro_copy": "Growing spreadsheets, misplaced requests, a website that no longer reflects your quality. We start with your everyday work to design something easy to use, carefully crafted and suited to your budget.",
+    "services_label": "01 / What we build",
+    "services_title": "From first impression\nto the smallest detail.",
+    "services_intro": "An online presence, a complete platform or better connected tools: design, development and data working towards the same goal.",
     "services": [
       {
-        "title": "Audit & strategy",
-        "copy": "We examine your processes, tools and constraints. You get clear priorities, a defined scope and a costed roadmap.",
+        "title": "Websites & online stores",
+        "copy": "A polished business website, a store that makes buying easy, a restaurant website with menus and reservations. An experience designed for mobile from the start.",
         "tags": [
-          "On-site analysis",
-          "Action plan"
+          "Business websites",
+          "E-commerce",
+          "Restaurants"
         ],
-        "icon": "compass"
+        "icon": "layers"
       },
       {
-        "title": "Bespoke software",
-        "copy": "A customer portal, an internal tool or a complete platform: interfaces designed for your teams and connected to your existing systems.",
+        "title": "Custom software",
+        "copy": "ERP, CRM, customer portals, team or case management. Software built around your workflows, users and business rules.",
         "tags": [
           "Web applications",
-          "ERP & integrations"
+          "Business tools"
+        ],
+        "icon": "apps"
+      },
+      {
+        "title": "SaaS & adaptable foundations",
+        "copy": "Start from an existing software foundation when it fits. Adapt modules, branding and journeys, then prepare deployment.",
+        "tags": [
+          "Commerce management",
+          "Workspaces"
         ],
         "icon": "layers"
       },
       {
         "title": "AI & automation",
-        "copy": "Reading documents, finding information, supporting a team. We integrate AI into useful tasks, with checks and human review.",
+        "copy": "Extract information from documents, find sourced answers, prepare reports. Apply AI where its usefulness can be evaluated.",
         "tags": [
-          "Assistants & search",
-          "Document workflows"
+          "Documents",
+          "AI assistants",
+          "Workflows"
         ],
         "icon": "spark"
       },
       {
-        "title": "Data & decisions",
-        "copy": "Better-organised data, readable indicators and evaluated models. A clearer view of your business to support your decisions.",
+        "title": "Data & dashboards",
+        "copy": "Connect your sources and track the indicators that matter. Clear views, actionable reports and forecasts evaluated on your data.",
         "tags": [
-          "Dashboards",
-          "Forecasting & optimisation"
+          "Reporting",
+          "Forecasting",
+          "Optimisation"
         ],
         "icon": "chart"
-      }
-    ],
-    "use_label": "Does this sound familiar?",
-    "use_heading": "Let’s start with a real problem.",
-    "use_tabs": [
-      "Administration",
-      "Knowledge",
-      "Management"
-    ],
-    "uses": [
-      {
-        "before": "The same information copied into three tools.",
-        "after": "One workflow, with data that moves.",
-        "copy": "Connect applications, structure approvals and automate repetitive tasks. Your team stays in charge of exceptions.",
-        "scope": "Integrations · workflows · business tools"
       },
       {
-        "before": "The right answer is buried in your documents.",
-        "after": "Search that brings its sources along.",
-        "copy": "Organise knowledge and build an assistant that answers from your content, respects access permissions and can acknowledge its limitations.",
-        "scope": "Document search · AI assistant · access"
-      },
-      {
-        "before": "Plenty of figures, a fragmented picture.",
-        "after": "The indicators that matter, in one place.",
-        "copy": "Connect your sources and build a dashboard around your decisions. Add forecasts when the data supports proper evaluation.",
-        "scope": "Data · dashboards · forecasting"
+        "title": "Audit & integration",
+        "copy": "Identify tasks to simplify, connect tools and set priorities. CRM, accounting, Peppol workflows and internal systems: integrations are scoped together.",
+        "tags": [
+          "Roadmap",
+          "APIs & connectors"
+        ],
+        "icon": "compass"
       }
     ],
-    "before": "Today",
-    "after": "What we can build",
-    "use_note": "Illustrative applications, tailored to your tools and constraints.",
-    "method_label": "02 / Our approach",
-    "method_title": "Understand with you.\nBuild for you.",
-    "method_intro": "You do not have to translate your business into technical language. That is our job.",
+    "method_label": "04 / A clear method",
+    "method_title": "A good idea deserves\ngood execution.",
+    "method_intro": "You know your business. We turn your needs into a precise scope, then into a tool your team knows how to use.",
     "steps": [
       {
         "title": "Listen & observe",
@@ -486,86 +458,10 @@
       }
     ],
     "deliverable_label": "You receive",
-    "method_note": "A gradual investment. Each stage has an agreed objective and scope.",
-    "work_label": "03 / Experience & selected work",
-    "work_title": "Demanding problems.\nPractical solutions.",
-    "work_intro": "Energy optimisation, business applications and data analysis: projects that show how we approach demanding problems.",
-    "project_button": "Explore the project",
-    "project_context": "Context",
-    "project_approach": "The work",
-    "project_transfer": "What this experience brings",
-    "project_source": "View the public presentation",
-    "projects": [
-      {
-        "sector": "Energy & optimisation",
-        "title": "Better decisions for energy storage",
-        "summary": "Analysis and optimisation of utility-scale batteries in electricity markets.",
-        "type": "Achraf’s experience · master’s thesis",
-        "context": "Work in the Belgian energy sector, bringing together market data, technical constraints and economic value.",
-        "approach": "Modelling dispatch strategies, battery-cycle decisions and performance evaluation.",
-        "transfer": "Formulating an economic problem, accounting for constraints and evaluating a decision before automating it.",
-        "tags": [
-          "Optimisation",
-          "Simulation"
-        ],
-        "visual": "energy",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Industry & operations",
-        "title": "Making project tracking coherent",
-        "summary": "A management application designed around the needs of a large industrial environment.",
-        "type": "Achraf’s professional experience",
-        "context": "Development of a project-management system for an industrial energy company in Africa.",
-        "approach": "Workflow analysis, design of tracking and reporting features, and application development.",
-        "transfer": "Turning complex operations into a coherent business tool that fits people and existing processes.",
-        "tags": [
-          "Business software",
-          "Reporting"
-        ],
-        "visual": "operations",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Healthcare & data",
-        "title": "Making complex data readable",
-        "summary": "METABRIC: interactive exploration of clinical and genomic breast-cancer data.",
-        "type": "Achraf’s academic & research project",
-        "context": "A research and portfolio project using the METABRIC dataset, rather than a clinical diagnostic tool.",
-        "approach": "An interactive dashboard, visualisations, feature selection, dimensionality reduction and clustering.",
-        "transfer": "A rigorous practice of analysis, model evaluation and communication of complex data.",
-        "tags": [
-          "Data analysis",
-          "Visualisation"
-        ],
-        "visual": "data",
-        "url": "https://github.com/Achraf-Saidi/METABRIC-Dashboard"
-      },
-      {
-        "sector": "Conversational intelligence",
-        "title": "Capi, an interface for conversation",
-        "summary": "A conversational platform connecting language processing and web development.",
-        "type": "Work presented by Novalis AI",
-        "context": "A conversational system featured in Novalis AI’s existing portfolio.",
-        "approach": "A modular web architecture and AI services to process interactions and contextualise responses.",
-        "transfer": "Connecting a clear user experience to AI services integrated into a complete application.",
-        "tags": [
-          "Applied AI",
-          "Web platform"
-        ],
-        "visual": "conversation",
-        "url": "https://www.novalisai.com/en/projects/capi"
-      }
-    ],
-    "work_foot": "Selected Novalis AI projects and earlier work by Achraf Saidi. The context is stated for each project.",
-    "team_label": "05 / The people behind the tools",
-    "team_title": "A close working relationship.\nThe right expertise around it.",
-    "team_copy": "Achraf Saidi, an AI researcher and entrepreneur, leads the analysis of your needs and the scoping of your solution. Around him, a development team takes shape according to the project: software, data, AI, integration and design.",
-    "team_second": "The combined experience spans industrial environments, hospitals and SMEs, in Belgium and internationally. Complementary skills, clear project leadership and direct conversations.",
-    "team_links": [
-      "Achraf’s background",
-      "Our development team"
-    ],
+    "team_label": "05 / Rigour with a personal connection",
+    "team_title": "Technical expertise.\nDirect conversations.",
+    "team_copy": "Achraf Saidi, an AI and statistics researcher at UCLouvain, brings an analytical approach to project scoping. Developers and specialists in design, data and integrations join according to the project’s needs.",
+    "team_second": "Based in Belgium, with a development network across Europe and Africa, including JetThings / JetNext. Our contributors’ experience includes industrial projects in Algeria, bringing practical insight to the way we build.",
     "team_principles": [
       {
         "title": "The right team, at the right size",
@@ -581,7 +477,7 @@
       }
     ],
     "faq_label": "Before we begin",
-    "faq_title": "Questions you may already have.",
+    "faq_title": "Before we begin.",
     "faqs": [
       [
         "Do we need to know exactly what to build?",
@@ -604,10 +500,10 @@
         "Documentation and onboarding are included in the plan. Maintenance, support and improvements are then defined in the proposal, with explicit responsibilities and scope."
       ]
     ],
-    "contact_label": "Let’s take the first step",
-    "contact_title": "What would you like\nto simplify?",
-    "contact_copy": "A time-consuming process, a tool to build, an idea to explore. Tell us where you want to start.",
-    "contact_booking_note": "Choose a time in our calendar. Invitations and video links are handled by Cal.eu.",
+    "contact_label": "Your next project starts here",
+    "contact_title": "Let’s make\nit simpler.",
+    "contact_copy": "A website to rethink, software to create or a workflow to improve. Tell us what is missing and we’ll find the right starting point.",
+    "contact_booking_note": "Choose a time in our calendar. You don’t need a specification for this first conversation.",
     "name": "Your name",
     "email": "Work email",
     "company": "Company",
@@ -615,14 +511,16 @@
     "need": "What you need",
     "need_placeholder": "Choose a topic",
     "need_options": [
-      "Workflow audit",
-      "Bespoke software",
+      "Website, store or restaurant",
+      "Custom software",
+      "SaaS customisation or development",
       "AI & automation",
       "Data & dashboards",
-      "I would like to discuss it"
+      "Audit & integrations",
+      "I’d like to discuss"
     ],
     "message": "Tell us about your situation",
-    "message_placeholder": "Today, we… We would like to…",
+    "message_placeholder": "What do you do today? What would you like to improve? Which tools do you already use?",
     "consent": "I agree that Novalis AI may use this information to respond to my enquiry.",
     "prepare": "Prepare my email",
     "form_note": "Your message opens in your email app for you to send it to achraf@novalisai.com.",
@@ -644,10 +542,8 @@
     ],
     "privacy": "Privacy",
     "legal": "Legal notice",
-    "rights": "All rights reserved.",
-    "footer_line": "Imagine further.\nBuild closer to reality.",
-    "footer_role": "AI research & entrepreneurship",
-    "footer_team": "Development · JetThings / JetNext",
+    "footer_line": "Digital tools that move you forward.",
+    "footer_role": "AI & statistics research · Entrepreneurship",
     "country": "Belgium",
     "privacy_title": "Your information, kept simple.",
     "privacy_text": [
@@ -658,166 +554,226 @@
     "legal_title": "Novalis AI",
     "legal_text": [
       "Publisher: Novalis AI — enterprise number BE 0878.868.302. Registered office: Rue Barrière Moye 18, 1300 Wavre, Belgium. Contact: achraf@novalisai.com.",
-      "This website is hosted on GitHub Pages. Examples describe Novalis AI’s activities and earlier experience of its contributors, with their context. Commercial proposals, deadlines and commitments are set out in a separate quote.",
+      "This website is hosted on GitHub Pages. Interface previews show solution concepts with fictional data, not customer references. Software foundations and prototypes require scoping, adaptation and validation before production deployment. Prices, timing and commitments are defined in a separate quote.",
       "The logo belongs to Novalis AI. Copy and website design were created for Novalis AI. External links lead to independent services."
     ],
-    "dialog_label": "Project details",
-    "diagram_label": "From need to solution",
-    "diagram_title": "Your business, connected.",
-    "diagram_controls": "Compare two ways of working",
-    "diagram_before": "Today",
-    "diagram_after": "With Novalis",
-    "diagram_sources": [
-      "Documents",
-      "Software",
-      "People"
+    "saas_label": "Another way to start",
+    "saas_title": "An existing foundation.\nYour identity.",
+    "saas_copy": "Our software foundations and prototypes let us explore management, commerce and coordination tools faster. We assess what can be reused and quote customisation, integrations and production deployment. We can also design and build your own SaaS.",
+    "saas_cta": "Find the right starting point",
+    "hero_projects": "Explore solutions",
+    "stage_line": "Beautiful interfaces. Useful by design.",
+    "demo_label": "Solution previews",
+    "demo_tabs": [
+      "Management",
+      "Reports & AI",
+      "Commerce"
     ],
-    "flow_tag": "Bespoke + AI",
-    "flow_result_label": "The outcome",
-    "diagram_note": "Concept diagram · an example document workflow.",
-    "diagram_states": {
-      "before": {
-        "title": "Work spread across tools",
-        "steps": [
-          "Find the documents",
-          "Copy between applications",
-          "Piece together the status"
-        ],
-        "human": "Your team connects everything by hand.",
-        "result": "A file still to assemble"
+    "demo_note": "Illustrative interfaces · fictional data",
+    "solutions_label": "02 / Practical possibilities",
+    "solutions_title": "Imagine your next\nworking tool.",
+    "solutions_copy": "Concrete starting points: sell, coordinate teams and make documents useful. Each solution is shaped around your work.",
+    "showcases": [
+      {
+        "sector": "Commerce & e-commerce",
+        "title": "Sales, well orchestrated.",
+        "copy": "Catalogue, variants, stock and orders in one workspace. An online store connected to management and tailored to your brand.",
+        "cta": "Discuss your business",
+        "need": 0
       },
-      "after": {
-        "title": "A workflow built for you",
-        "steps": [
-          "Understand the request",
-          "Connect the information",
-          "Prepare the next action"
-        ],
-        "human": "Your team makes the decision.",
-        "result": "A file ready for review"
+      {
+        "sector": "Teams & operations",
+        "title": "Work, finally coordinated.",
+        "copy": "Requests, approvals, scheduling and case tracking. A clear view for teams and a simple portal for customers.",
+        "cta": "Simplify your operations",
+        "need": 1
+      },
+      {
+        "sector": "Reports & knowledge",
+        "title": "Information becomes useful.",
+        "copy": "Find documents, review summaries and prepare reports from your sources. Assistance that keeps your team in control of decisions.",
+        "cta": "Explore your documents",
+        "need": 3
       }
-    },
-    "saas_label": "04 / Our SaaS products",
-    "saas_title": "Bespoke solutions today.\nProducts for tomorrow.",
-    "saas_copy": "We are also preparing our own SaaS products: online software designed for specific business needs. This space is under construction. Our products will be presented here when they are ready.",
-    "saas_service": "Have a SaaS idea? We can already help you design and develop your platform, from the first prototype to the product.",
-    "saas_cta": "Discuss your SaaS idea",
-    "saas_status": "Under construction",
-    "saas_teaser": "New products are taking shape.",
-    "saas_detail": "Our future product space. Each solution will be presented with its uses and features.",
-    "saas_stage": "More to discover soon",
-    "hero_projects": "Explore our projects",
-    "project_illustration": "Project illustration"
+    ],
+    "ai_label": "03 / AI with a clear purpose",
+    "ai_title": "Less repetitive work.\nMore useful work.",
+    "ai_copy": "We start with your problem and your data. Automation, integration or an AI model: we choose what fits the task, then test it before expanding its role.",
+    "ai_chips": [
+      "Your sources",
+      "Your rules",
+      "Your decision"
+    ],
+    "ai_points": [
+      "Answers linked to sources when the use case requires it.",
+      "Access permissions and hosting agreed with you.",
+      "Human review for actions that require it."
+    ],
+    "ai_cta": "Identify a worthwhile use case",
+    "budget_title": "Competitive pricing. Clear choices.",
+    "budget_copy": "A team sized for the project, reusable components where appropriate and delivery in stages. Your quote separates development, licences, hosting and maintenance.",
+    "budget_cta": "Scope my budget",
+    "team_map": "Belgium.\nEurope.\nAfrica.",
+    "contact_or": "Prefer to write?",
+    "form_title": "Tell us about your project.",
+    "budget_label": "Estimated budget · optional",
+    "budget_placeholder": "Let’s define it together",
+    "budget_options": [
+      "Under €2,500",
+      "€2,500 to €5,000",
+      "€5,000 to €15,000",
+      "Over €15,000"
+    ],
+    "timing_label": "When? · optional",
+    "timing_placeholder": "Let’s define it together",
+    "timing_options": [
+      "As soon as possible",
+      "In 1–3 months",
+      "In 3–6 months",
+      "Planning ahead"
+    ],
+    "mail_to": "To: achraf@novalisai.com",
+    "mail_extra": [
+      "Estimated budget",
+      "Timeline"
+    ],
+    "demo_ui": [
+      "Overview",
+      "Illustrative dashboard",
+      "Activity",
+      "This month",
+      "Revenue",
+      "Orders",
+      "Awaiting approval",
+      "Over the period",
+      "In progress",
+      "This week",
+      "Sales & activity",
+      "Recent months",
+      "To follow up",
+      "Quotes to approve",
+      "Stock to review",
+      "Monthly report",
+      "Report preparation",
+      "For your team to review",
+      "Activity summary",
+      "A report based on the selected documents.",
+      "Your sources",
+      "Key points are gathered. Missing information remains flagged.",
+      "3 linked documents",
+      "Your store",
+      "One identity, one catalogue, one experience.",
+      "Sand vase",
+      "Aurora lamp",
+      "Alba armchair",
+      "Orders & inventory",
+      "A shared workspace for your team",
+      "Sales file",
+      "Leave request",
+      "Project tracking",
+      "Approval",
+      "Schedule",
+      "Reports"
+    ],
+    "service_cta": "Discuss this need"
   },
   "nl": {
-    "title": "Novalis AI — Software op maat & toegepaste AI | Waver, België",
-    "description": "Novalis AI helpt bedrijven van procesanalyse tot software op maat en zinvolle AI-integratie. Tools die aansluiten bij uw manier van werken. Gevestigd in Waver, België.",
+    "title": "Novalis AI — Websites, maatwerksoftware & praktische AI | België",
+    "description": "Websites, webshops, bedrijfssoftware en praktische AI. Novalis AI ondersteunt uw digitalisering met een aanspreekpunt in België en een duidelijk budget.",
     "skip": "Naar de inhoud",
     "menu": "Menu",
     "close": "Sluiten",
     "language": "Taal van de website",
     "nav": [
       "Expertise",
+      "Oplossingen",
       "Aanpak",
-      "Ervaring",
-      "Ons team"
+      "Het collectief"
     ],
-    "talk": "Laten we uw project bespreken",
+    "talk": "Bespreek uw project",
     "book": "Plan een gesprek",
-    "book_short": "Een gesprek van 30 minuten",
-    "discover": "Ontdek onze aanpak",
-    "hero_label": "Toegepaste AI & software op maat",
+    "book_short": "Plan 30 minuten",
+    "hero_label": "Maatwerksoftware · Digitalisering · AI",
     "hero_location": "Waver, België",
     "hero_title": [
-      "Uw ambitie.",
-      "Krijgt vorm."
+      "Uw onderneming.",
+      "Nog beter."
     ],
-    "hero_copy": "We ontwikkelen software op maat en AI-tools die uw bedrijf vooruithelpen. Van het begrijpen van uw behoeften tot een oplossing die uw team dagelijks gebruikt.",
-    "hero_note": "Een eerste gesprek om uw situatie te begrijpen. Geen technisch bestek nodig.",
-    "hero_caption": "Ideeën verbinden. Oplossingen vormgeven.",
+    "hero_copy": "Een website die aanspreekt. Software die uw werk eenvoudiger maakt. AI met een duidelijk doel. Wij bouwen digitale tools rond uw onderneming.",
+    "hero_note": "30 minuten om uw behoeften te verkennen. Vrijblijvend.",
     "strip": [
       "Een aanspreekpunt in België",
-      "Een team op maat van uw project",
-      "Een duidelijk budget, stap voor stap"
+      "Van website tot bedrijfssoftware",
+      "Een helder budget, stap voor stap"
     ],
-    "intro_label": "Ons vertrekpunt",
-    "intro_title": "De beste projecten beginnen met een goede vraag.",
-    "intro_copy": "Wat vertraagt uw bedrijf vandaag? Dubbele invoer, verspreide informatie of software die haar werkwijze oplegt? We nemen de tijd om uw dagelijkse werk te begrijpen voordat we een oplossing ontwerpen.",
-    "intro_aside": "De praktijk begrijpen. De juiste vragen stellen. De oplossing bouwen.",
-    "services_label": "01 / Onze expertise",
-    "services_title": "Uw manier van werken.\nDe juiste tools eromheen.",
-    "services_intro": "Van de eerste analyse tot een product dat dagelijks wordt gebruikt: we brengen de vaardigheden samen die uw project nodig heeft.",
+    "intro_label": "Digitale tools op uw maat",
+    "intro_title": "Uw onderneming bepaalt hoe uw tools werken.",
+    "intro_copy": "Steeds meer spreadsheets, verzoeken die verloren gaan, een website die uw kwaliteit niet meer weerspiegelt. We vertrekken vanuit uw dagelijkse werk en bouwen een gebruiksvriendelijke oplossing die bij uw budget past.",
+    "services_label": "01 / Wat we bouwen",
+    "services_title": "Van de eerste indruk\ntot het kleinste detail.",
+    "services_intro": "Een online aanwezigheid, een volledig platform of beter verbonden tools: design, ontwikkeling en data werken samen aan hetzelfde doel.",
     "services": [
       {
-        "title": "Audit & strategie",
-        "copy": "We onderzoeken uw processen, tools en beperkingen. U krijgt duidelijke prioriteiten, een afgebakend project en een stappenplan met kostenraming.",
+        "title": "Websites & webshops",
+        "copy": "Een verzorgde bedrijfswebsite, een webshop die kopen eenvoudig maakt, een restaurantsite met menu en reservaties. Vanaf het begin ontworpen voor mobiel.",
         "tags": [
-          "Analyse ter plaatse",
-          "Actieplan"
+          "Bedrijfswebsites",
+          "E-commerce",
+          "Restaurants"
         ],
-        "icon": "compass"
+        "icon": "layers"
       },
       {
-        "title": "Software op maat",
-        "copy": "Een klantenportaal, een interne tool of een volledig platform: interfaces ontworpen voor uw teams en gekoppeld aan uw bestaande systemen.",
+        "title": "Maatwerksoftware",
+        "copy": "ERP, CRM, klantenportaal, teambeheer of dossierbeheer. Software rond uw processen, gebruikers en bedrijfsregels.",
         "tags": [
           "Webapplicaties",
-          "ERP & integraties"
+          "Bedrijfstools"
+        ],
+        "icon": "apps"
+      },
+      {
+        "title": "SaaS & aanpasbare basis",
+        "copy": "Beginnen met een bestaande softwarebasis wanneer die past. Modules, huisstijl en gebruikerservaring aanpassen en de uitrol voorbereiden.",
+        "tags": [
+          "Handelsbeheer",
+          "Werkruimtes"
         ],
         "icon": "layers"
       },
       {
         "title": "AI & automatisering",
-        "copy": "Documenten lezen, informatie vinden of een team ondersteunen. We zetten AI in voor nuttige taken, met controles en menselijke validatie.",
+        "copy": "Informatie uit documenten halen, antwoorden met bronnen vinden en rapporten voorbereiden. AI inzetten waar de meerwaarde toetsbaar is.",
         "tags": [
-          "Assistenten & zoekfuncties",
-          "Documentstromen"
+          "Documenten",
+          "AI-assistenten",
+          "Workflows"
         ],
         "icon": "spark"
       },
       {
-        "title": "Data & beslissingen",
-        "copy": "Beter georganiseerde gegevens, leesbare indicatoren en geëvalueerde modellen. Een helder beeld van uw activiteit om beslissingen te ondersteunen.",
+        "title": "Data & dashboards",
+        "copy": "Uw bronnen verbinden en relevante indicatoren volgen. Heldere overzichten, bruikbare rapporten en voorspellingen getoetst op uw data.",
         "tags": [
-          "Dashboards",
-          "Voorspelling & optimalisatie"
+          "Rapportage",
+          "Voorspelling",
+          "Optimalisatie"
         ],
         "icon": "chart"
-      }
-    ],
-    "use_label": "Komt dit u bekend voor?",
-    "use_heading": "Laten we beginnen met een concreet probleem.",
-    "use_tabs": [
-      "Administratie",
-      "Kennis",
-      "Bedrijfsvoering"
-    ],
-    "uses": [
-      {
-        "before": "Dezelfde informatie invoeren in drie tools.",
-        "after": "Eén proces waarin gegevens doorstromen.",
-        "copy": "Applicaties koppelen, goedkeuringen structureren en herhalende taken automatiseren. Uw team houdt de controle over uitzonderingen.",
-        "scope": "Integraties · processen · bedrijfssoftware"
       },
       {
-        "before": "Het juiste antwoord zit verstopt in uw documenten.",
-        "after": "Een zoekfunctie die ook de bronnen toont.",
-        "copy": "Kennis ordenen en een assistent bouwen die antwoordt op basis van uw inhoud, toegangsrechten respecteert en zijn beperkingen kan aangeven.",
-        "scope": "Documenten doorzoeken · AI-assistent · toegang"
-      },
-      {
-        "before": "Veel cijfers, een versnipperd beeld.",
-        "after": "De relevante indicatoren op één plek.",
-        "copy": "Uw bronnen koppelen en een dashboard bouwen rond uw beslissingen. Voorspellingen toevoegen wanneer de gegevens een zorgvuldige evaluatie mogelijk maken.",
-        "scope": "Data · dashboards · voorspelling"
+        "title": "Audit & integratie",
+        "copy": "Taken vereenvoudigen, tools verbinden en prioriteiten bepalen. CRM, boekhouding, Peppol en interne systemen: we bakenen de integraties samen af.",
+        "tags": [
+          "Stappenplan",
+          "API’s & koppelingen"
+        ],
+        "icon": "compass"
       }
     ],
-    "before": "Vandaag",
-    "after": "Wat we kunnen bouwen",
-    "use_note": "Voorbeelden van toepassingen, afgestemd op uw tools en beperkingen.",
-    "method_label": "02 / Onze aanpak",
-    "method_title": "Samen begrijpen.\nVoor u bouwen.",
-    "method_intro": "U hoeft uw bedrijf niet in technische taal te vertalen. Dat is ons werk.",
+    "method_label": "04 / Een heldere aanpak",
+    "method_title": "Een goed idee verdient\neen goede uitvoering.",
+    "method_intro": "U kent uw vak. Wij vertalen uw behoeften naar een precies afgebakend project en een tool waarmee uw team kan werken.",
     "steps": [
       {
         "title": "Luisteren & observeren",
@@ -841,86 +797,10 @@
       }
     ],
     "deliverable_label": "U krijgt",
-    "method_note": "Een stapsgewijze investering. Elke fase heeft een afgesproken doel en omvang.",
-    "work_label": "03 / Ervaring & geselecteerd werk",
-    "work_title": "Veeleisende vraagstukken.\nConcrete oplossingen.",
-    "work_intro": "Energieoptimalisatie, bedrijfsapplicaties en data-analyse: projecten die tonen hoe we complexe problemen aanpakken.",
-    "project_button": "Bekijk het project",
-    "project_context": "Context",
-    "project_approach": "Het uitgevoerde werk",
-    "project_transfer": "Wat deze ervaring bijdraagt",
-    "project_source": "Bekijk de publieke presentatie",
-    "projects": [
-      {
-        "sector": "Energie & optimalisatie",
-        "title": "Energieopslag beter aansturen",
-        "summary": "Analyse en optimalisatie van grootschalige batterijen op de elektriciteitsmarkten.",
-        "type": "Ervaring van Achraf · masterproef",
-        "context": "Werk in de Belgische energiesector, op het snijvlak van marktgegevens, technische beperkingen en economische waarde.",
-        "approach": "Modellering van inzetstrategieën, keuzes over batterijcycli en evaluatie van prestaties.",
-        "transfer": "Een economisch probleem formuleren, rekening houden met beperkingen en een beslissing evalueren vóór ze wordt geautomatiseerd.",
-        "tags": [
-          "Optimalisatie",
-          "Simulatie"
-        ],
-        "visual": "energy",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Industrie & operaties",
-        "title": "Projectopvolging structureren",
-        "summary": "Een beheertoepassing ontworpen voor de behoeften van een grote industriële omgeving.",
-        "type": "Professionele ervaring van Achraf",
-        "context": "Ontwikkeling van een projectbeheersysteem voor een industriële energieonderneming in Afrika.",
-        "approach": "Analyse van processen, ontwerp van opvolging en rapportering, gevolgd door de ontwikkeling van de toepassing.",
-        "transfer": "Complexe activiteiten vertalen naar een samenhangende tool die past bij mensen en bestaande processen.",
-        "tags": [
-          "Bedrijfssoftware",
-          "Rapportering"
-        ],
-        "visual": "operations",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Gezondheid & data",
-        "title": "Complexe gegevens leesbaar maken",
-        "summary": "METABRIC: interactieve verkenning van klinische en genomische gegevens over borstkanker.",
-        "type": "Academisch & onderzoeksproject van Achraf",
-        "context": "Een onderzoeks- en portfolioproject met de METABRIC-dataset, geen klinisch diagnosehulpmiddel.",
-        "approach": "Interactief dashboard, visualisaties, variabelenselectie, dimensiereductie en clustering.",
-        "transfer": "Een zorgvuldige aanpak van analyse, modelevaluatie en presentatie van complexe gegevens.",
-        "tags": [
-          "Data-analyse",
-          "Visualisatie"
-        ],
-        "visual": "data",
-        "url": "https://github.com/Achraf-Saidi/METABRIC-Dashboard"
-      },
-      {
-        "sector": "Conversationele intelligentie",
-        "title": "Capi, een interface voor gesprekken",
-        "summary": "Een gespreksplatform dat taalverwerking en webontwikkeling verbindt.",
-        "type": "Realisatie gepresenteerd door Novalis AI",
-        "context": "Een conversationeel systeem uit het bestaande portfolio van Novalis AI.",
-        "approach": "Een modulaire webarchitectuur en AI-diensten om interacties te verwerken en antwoorden van context te voorzien.",
-        "transfer": "Een duidelijke gebruikerservaring verbinden met AI-diensten binnen een volledige toepassing.",
-        "tags": [
-          "Toegepaste AI",
-          "Webplatform"
-        ],
-        "visual": "conversation",
-        "url": "https://www.novalisai.com/en/projects/capi"
-      }
-    ],
-    "work_foot": "Een selectie van projecten van Novalis AI en eerder werk van Achraf Saidi. De context wordt bij elk project vermeld.",
-    "team_label": "05 / De mensen achter de tools",
-    "team_title": "Een betrokken aanspreekpunt.\nDe juiste expertise eromheen.",
-    "team_copy": "Achraf Saidi, onderzoeker in artificiële intelligentie en ondernemer, leidt de analyse van uw behoeften en de afbakening van de oplossing. Rond hem wordt een ontwikkelingsteam samengesteld volgens het project: software, data, AI, integratie en design.",
-    "team_second": "De gezamenlijke ervaring omvat industriële omgevingen, ziekenhuizen en kmo’s, in België en internationaal. Aanvullende vaardigheden, heldere projectleiding en rechtstreeks overleg.",
-    "team_links": [
-      "De achtergrond van Achraf",
-      "Ons ontwikkelingsteam"
-    ],
+    "team_label": "05 / Grondig en persoonlijk",
+    "team_title": "Technische expertise.\nRechtstreeks contact.",
+    "team_copy": "Achraf Saidi, onderzoeker in AI en statistiek aan UCLouvain, brengt een analytische aanpak in de projectafbakening. Ontwikkelaars en specialisten in design, data en integraties sluiten aan volgens de behoeften.",
+    "team_second": "Verankerd in België, met een ontwikkelnetwerk in Europa en Afrika, onder meer JetThings / JetNext. Onze medewerkers hebben ervaring met industriële projecten in Algerije. Die praktijkervaring verrijkt onze aanpak.",
     "team_principles": [
       {
         "title": "Het juiste team, op de juiste schaal",
@@ -936,7 +816,7 @@
       }
     ],
     "faq_label": "Voor we beginnen",
-    "faq_title": "Vragen die u misschien al heeft.",
+    "faq_title": "Voor we beginnen.",
     "faqs": [
       [
         "Moeten we al precies weten wat we willen bouwen?",
@@ -959,10 +839,10 @@
         "Documentatie en kennismaking met de tools maken deel uit van het plan. Onderhoud, ondersteuning en verbeteringen worden in het voorstel vastgelegd, met duidelijke verantwoordelijkheden en grenzen."
       ]
     ],
-    "contact_label": "Laten we de eerste stap zetten",
-    "contact_title": "Wat kan er\neenvoudiger?",
-    "contact_copy": "Een tijdrovend proces, een nieuwe tool of een idee om te verkennen. Vertel ons waar u wilt beginnen.",
-    "contact_booking_note": "Kies een tijdstip in onze agenda. Cal.eu regelt de uitnodiging en de videolink.",
+    "contact_label": "Uw volgende project begint hier",
+    "contact_title": "Laten we het\neenvoudiger maken.",
+    "contact_copy": "Een website vernieuwen, software maken of een proces verbeteren. Vertel wat u mist: samen vinden we het juiste vertrekpunt.",
+    "contact_booking_note": "Kies een tijdstip in onze agenda. Een bestek is niet nodig voor dit eerste gesprek.",
     "name": "Uw naam",
     "email": "Professioneel e-mailadres",
     "company": "Bedrijf",
@@ -970,14 +850,16 @@
     "need": "Uw behoefte",
     "need_placeholder": "Kies een onderwerp",
     "need_options": [
-      "Audit van mijn processen",
-      "Software op maat",
+      "Website, webshop of restaurant",
+      "Maatwerksoftware",
+      "SaaS aanpassen of bouwen",
       "AI & automatisering",
       "Data & dashboards",
-      "Ik wil dit bespreken"
+      "Audit & integraties",
+      "Ik wil het bespreken"
     ],
     "message": "Vertel ons over uw situatie",
-    "message_placeholder": "Vandaag… We zouden graag…",
+    "message_placeholder": "Hoe werkt u vandaag? Wat wilt u verbeteren? Welke tools gebruikt u al?",
     "consent": "Ik ga ermee akkoord dat Novalis AI deze informatie gebruikt om mijn aanvraag te beantwoorden.",
     "prepare": "Mijn e-mail voorbereiden",
     "form_note": "Uw bericht opent in uw e-mailprogramma om het naar achraf@novalisai.com te versturen.",
@@ -999,10 +881,8 @@
     ],
     "privacy": "Privacy",
     "legal": "Juridische informatie",
-    "rights": "Alle rechten voorbehouden.",
-    "footer_line": "Verder denken.\nDicht bij de praktijk bouwen.",
-    "footer_role": "AI-onderzoek & ondernemerschap",
-    "footer_team": "Ontwikkeling · JetThings / JetNext",
+    "footer_line": "Digitale tools die u vooruithelpen.",
+    "footer_role": "Onderzoek in AI & statistiek · Ondernemerschap",
     "country": "België",
     "privacy_title": "Uw informatie, eenvoudig behandeld.",
     "privacy_text": [
@@ -1013,166 +893,226 @@
     "legal_title": "Novalis AI",
     "legal_text": [
       "Uitgever: Novalis AI — ondernemingsnummer BE 0878.868.302. Zetel: Rue Barrière Moye 18, 1300 Waver, België. Contact: achraf@novalisai.com.",
-      "Deze website wordt gehost op GitHub Pages. Voorbeelden beschrijven de activiteiten van Novalis AI en eerdere ervaring van de betrokken personen, met hun context. Commerciële voorstellen, termijnen en afspraken worden vastgelegd in een afzonderlijke offerte.",
+      "Deze website wordt gehost op GitHub Pages. De interfaces tonen oplossingsrichtingen met fictieve gegevens, geen klantreferenties. Softwarebasis en prototypes vereisen afbakening, aanpassing en validatie vóór productie-uitrol. Prijzen, termijnen en afspraken staan in een afzonderlijke offerte.",
       "Het logo is eigendom van Novalis AI. Teksten en websiteontwerp zijn voor Novalis AI gemaakt. Externe links verwijzen naar onafhankelijke diensten."
     ],
-    "dialog_label": "Projectdetails",
-    "diagram_label": "Van behoefte naar oplossing",
-    "diagram_title": "Uw bedrijf, verbonden.",
-    "diagram_controls": "Vergelijk twee manieren van werken",
-    "diagram_before": "Vandaag",
-    "diagram_after": "Met Novalis",
-    "diagram_sources": [
-      "Documenten",
-      "Software",
-      "Mensen"
+    "saas_label": "Een andere manier om te starten",
+    "saas_title": "Een bestaande basis.\nUw eigen karakter.",
+    "saas_copy": "Onze softwarebasis en prototypes helpen om sneller oplossingen voor beheer, handel en coördinatie te verkennen. We bekijken wat herbruikbaar is en begroten maatwerk, koppelingen en productie-uitrol. We kunnen ook uw eigen SaaS ontwerpen en bouwen.",
+    "saas_cta": "Vind het juiste vertrekpunt",
+    "hero_projects": "Bekijk oplossingen",
+    "stage_line": "Mooie interfaces. Praktisch in gebruik.",
+    "demo_label": "Voorbeelden van oplossingen",
+    "demo_tabs": [
+      "Beheer",
+      "Rapporten & AI",
+      "Handel"
     ],
-    "flow_tag": "Maatwerk + AI",
-    "flow_result_label": "Het resultaat",
-    "diagram_note": "Principeschema · een voorbeeld van een documentproces.",
-    "diagram_states": {
-      "before": {
-        "title": "Werk verspreid over tools",
-        "steps": [
-          "Documenten terugvinden",
-          "Gegevens overtypen",
-          "De voortgang reconstrueren"
-        ],
-        "human": "Uw team legt de verbanden handmatig.",
-        "result": "Een dossier dat u nog moet samenstellen"
+    "demo_note": "Illustratieve interfaces · fictieve gegevens",
+    "solutions_label": "02 / Concrete toepassingen",
+    "solutions_title": "Stel u uw volgende\nwerktool voor.",
+    "solutions_copy": "Verkopen, teams coördineren en documenten benutten: concrete vertrekpunten, aangepast aan uw activiteit.",
+    "showcases": [
+      {
+        "sector": "Handel & e-commerce",
+        "title": "Verkoop, goed geregeld.",
+        "copy": "Catalogus, varianten, voorraad en bestellingen in één omgeving. Een webshop gekoppeld aan uw beheer, op maat van uw merk.",
+        "cta": "Bespreek uw zaak",
+        "need": 0
       },
-      "after": {
-        "title": "Een proces op uw maat",
-        "steps": [
-          "De vraag begrijpen",
-          "Informatie verbinden",
-          "De volgende stap voorbereiden"
-        ],
-        "human": "Uw team neemt de beslissing.",
-        "result": "Een dossier klaar voor controle"
+      {
+        "sector": "Teams & bedrijfsvoering",
+        "title": "Werk, eindelijk afgestemd.",
+        "copy": "Verzoeken, goedkeuringen, planning en dossiers. Een helder overzicht voor teams en een eenvoudig portaal voor klanten.",
+        "cta": "Vereenvoudig uw processen",
+        "need": 1
+      },
+      {
+        "sector": "Rapporten & kennis",
+        "title": "Informatie wordt bruikbaar.",
+        "copy": "Documenten vinden, samenvattingen nakijken en rapporten voorbereiden vanuit uw bronnen. Uw team houdt de beslissingen in handen.",
+        "cta": "Verken uw documenten",
+        "need": 3
       }
-    },
-    "saas_label": "04 / Onze SaaS-producten",
-    "saas_title": "Maatwerk vandaag.\nProducten voor morgen.",
-    "saas_copy": "We bereiden ook onze eigen SaaS-producten voor: online software voor concrete bedrijfsbehoeften. Deze ruimte is in opbouw. Onze producten worden hier voorgesteld zodra ze klaar zijn.",
-    "saas_service": "Hebt u een SaaS-idee? We kunnen u nu al helpen uw platform te ontwerpen en te ontwikkelen, van het eerste prototype tot het product.",
-    "saas_cta": "Uw SaaS-idee bespreken",
-    "saas_status": "In opbouw",
-    "saas_teaser": "Nieuwe producten krijgen vorm.",
-    "saas_detail": "Onze toekomstige productruimte. Elke oplossing wordt hier voorgesteld met haar toepassingen en functies.",
-    "saas_stage": "Binnenkort meer te ontdekken",
-    "hero_projects": "Bekijk onze projecten",
-    "project_illustration": "Projectillustratie"
+    ],
+    "ai_label": "03 / AI met een duidelijk doel",
+    "ai_title": "Minder herhaling.\nMeer nuttig werk.",
+    "ai_copy": "Eerst uw probleem en uw data. Automatisering, integratie of een AI-model: we kiezen wat bij de taak past en testen de oplossing voordat we de rol uitbreiden.",
+    "ai_chips": [
+      "Uw bronnen",
+      "Uw regels",
+      "Uw beslissing"
+    ],
+    "ai_points": [
+      "Antwoorden met bronverwijzingen waar nodig.",
+      "Toegangsrechten en hosting in overleg met u.",
+      "Menselijke controle voor acties die dat vereisen."
+    ],
+    "ai_cta": "Vind een zinvolle toepassing",
+    "budget_title": "Concurrerende prijzen. Heldere keuzes.",
+    "budget_copy": "Een team op maat, herbruikbare componenten waar zinvol en levering in stappen. De offerte onderscheidt ontwikkeling, licenties, hosting en onderhoud.",
+    "budget_cta": "Mijn budget afbakenen",
+    "team_map": "België.\nEuropa.\nAfrika.",
+    "contact_or": "Liever schrijven?",
+    "form_title": "Vertel over uw project.",
+    "budget_label": "Verwacht budget · optioneel",
+    "budget_placeholder": "Samen te bepalen",
+    "budget_options": [
+      "Minder dan € 2.500",
+      "€ 2.500 tot € 5.000",
+      "€ 5.000 tot € 15.000",
+      "Meer dan € 15.000"
+    ],
+    "timing_label": "Wanneer? · optioneel",
+    "timing_placeholder": "Samen te bepalen",
+    "timing_options": [
+      "Zo snel mogelijk",
+      "Binnen 1–3 maanden",
+      "Binnen 3–6 maanden",
+      "Ik bereid het project voor"
+    ],
+    "mail_to": "Aan: achraf@novalisai.com",
+    "mail_extra": [
+      "Verwacht budget",
+      "Planning"
+    ],
+    "demo_ui": [
+      "Overzicht",
+      "Illustratief dashboard",
+      "Activiteit",
+      "Deze maand",
+      "Omzet",
+      "Bestellingen",
+      "Goed te keuren",
+      "In deze periode",
+      "In uitvoering",
+      "Deze week",
+      "Verkoop & activiteit",
+      "Laatste maanden",
+      "Op te volgen",
+      "Offertes goedkeuren",
+      "Voorraad nakijken",
+      "Maandrapport",
+      "Rapport voorbereiden",
+      "Na te kijken door uw team",
+      "Activiteitssamenvatting",
+      "Een rapport op basis van de geselecteerde documenten.",
+      "Uw bronnen",
+      "De belangrijkste punten verzameld. Ontbrekende informatie wordt gemarkeerd.",
+      "3 gekoppelde documenten",
+      "Uw webshop",
+      "Eén huisstijl, één catalogus, één ervaring.",
+      "Vaas Sable",
+      "Lamp Aurora",
+      "Fauteuil Alba",
+      "Bestellingen & voorraad",
+      "Een gedeelde werkruimte voor uw team",
+      "Verkoopdossier",
+      "Verlofaanvraag",
+      "Projectopvolging",
+      "Goedkeuring",
+      "Planning",
+      "Rapporten"
+    ],
+    "service_cta": "Bespreek deze behoefte"
   },
   "de": {
-    "title": "Novalis AI — Individuelle Software & angewandte KI | Wavre, Belgien",
-    "description": "Von der Prozessanalyse bis zur individuellen Software und sinnvollen KI-Integration: Novalis AI entwickelt Lösungen für die Arbeitsweise Ihres Unternehmens. Wavre, Belgien.",
+    "title": "Novalis AI — Websites, individuelle Software & nützliche KI | Belgien",
+    "description": "Websites, Onlineshops, Unternehmenssoftware und praktische KI. Novalis AI begleitet Ihre Digitalisierung mit einem Ansprechpartner in Belgien und klaren Budgets.",
     "skip": "Zum Inhalt",
     "menu": "Menü",
     "close": "Schließen",
     "language": "Sprache der Website",
     "nav": [
       "Kompetenzen",
+      "Lösungen",
       "Vorgehen",
-      "Erfahrung",
-      "Unser Team"
+      "Das Team"
     ],
-    "talk": "Sprechen wir über Ihr Projekt",
-    "book": "Gespräch vereinbaren",
-    "book_short": "Ein Gespräch von 30 Minuten",
-    "discover": "Unser Vorgehen kennenlernen",
-    "hero_label": "Angewandte KI & individuelle Software",
+    "talk": "Besprechen wir Ihr Projekt",
+    "book": "Termin vereinbaren",
+    "book_short": "30 Minuten vereinbaren",
+    "hero_label": "Individuelle Software · Digitalisierung · KI",
     "hero_location": "Wavre, Belgien",
     "hero_title": [
-      "Ihre Ideen.",
-      "Nehmen Gestalt an."
+      "Ihr Unternehmen.",
+      "Noch besser."
     ],
-    "hero_copy": "Wir entwickeln individuelle Software und KI-Werkzeuge, die Ihr Unternehmen voranbringen. Vom Verständnis Ihrer Anforderungen bis zu einer Lösung für den täglichen Einsatz.",
-    "hero_note": "Ein erstes Gespräch zum Verstehen. Sie brauchen kein technisches Pflichtenheft.",
-    "hero_caption": "Ideen verbinden. Lösungen Gestalt geben.",
+    "hero_copy": "Eine Website, die begeistert. Software, die Arbeit erleichtert. KI mit klarem Nutzen. Wir entwickeln digitale Werkzeuge für Ihr Unternehmen.",
+    "hero_note": "30 Minuten, um Ihre Bedürfnisse zu verstehen. Unverbindlich.",
     "strip": [
       "Ein Ansprechpartner in Belgien",
-      "Ein Team passend zu Ihrem Projekt",
+      "Von Websites bis Unternehmenssoftware",
       "Ein klares Budget, Schritt für Schritt"
     ],
-    "intro_label": "Unser Ausgangspunkt",
-    "intro_title": "Die besten Projekte beginnen mit einer guten Frage.",
-    "intro_copy": "Was bremst Ihr Unternehmen heute? Doppelte Eingaben, verstreute Informationen oder Software, die Ihnen ihre Abläufe aufzwingt? Wir nehmen uns Zeit für Ihren Arbeitsalltag, bevor wir die Lösung entwerfen.",
-    "intro_aside": "Die Praxis verstehen. Die richtigen Fragen stellen. Die Lösung entwickeln.",
-    "services_label": "01 / Unsere Kompetenzen",
-    "services_title": "Ihre Arbeitsweise.\nDie passenden Werkzeuge.",
-    "services_intro": "Von der ersten Analyse bis zum täglich genutzten Produkt bringen wir die Fähigkeiten zusammen, die Ihr Projekt braucht.",
+    "intro_label": "Digitale Werkzeuge nach Maß",
+    "intro_title": "Ihre Werkzeuge sollten sich Ihrem Unternehmen anpassen.",
+    "intro_copy": "Immer mehr Tabellen, verlorene Anfragen, eine Website, die Ihre Qualität nicht mehr zeigt. Wir beginnen bei Ihrem Arbeitsalltag und entwickeln eine benutzerfreundliche, sorgfältig gestaltete Lösung im Rahmen Ihres Budgets.",
+    "services_label": "01 / Was wir entwickeln",
+    "services_title": "Vom ersten Eindruck\nbis zum letzten Detail.",
+    "services_intro": "Eine Onlinepräsenz, eine komplette Plattform oder besser verbundene Werkzeuge: Design, Entwicklung und Daten verfolgen dasselbe Ziel.",
     "services": [
       {
-        "title": "Audit & Strategie",
-        "copy": "Wir untersuchen Ihre Prozesse, Werkzeuge und Rahmenbedingungen. Sie erhalten Prioritäten, einen klaren Umfang und einen Plan mit Kostenschätzung.",
+        "title": "Websites & Onlineshops",
+        "copy": "Eine hochwertige Unternehmenswebsite, ein Shop mit einfachem Kaufprozess, eine Restaurantseite mit Speisekarte und Reservierung. Von Anfang an für Mobilgeräte gestaltet.",
         "tags": [
-          "Analyse vor Ort",
-          "Maßnahmenplan"
+          "Unternehmensseiten",
+          "E-Commerce",
+          "Restaurants"
         ],
-        "icon": "compass"
+        "icon": "layers"
       },
       {
         "title": "Individuelle Software",
-        "copy": "Ein Kundenportal, ein internes Werkzeug oder eine ganze Plattform: Oberflächen für Ihre Teams, verbunden mit Ihrer bestehenden Umgebung.",
+        "copy": "ERP, CRM, Kundenportale, Team- oder Fallverwaltung. Software rund um Ihre Abläufe, Nutzer und Geschäftsregeln.",
         "tags": [
           "Webanwendungen",
-          "ERP & Integration"
+          "Geschäftswerkzeuge"
+        ],
+        "icon": "apps"
+      },
+      {
+        "title": "SaaS & anpassbare Grundlagen",
+        "copy": "Mit einer vorhandenen Softwarebasis starten, wenn sie passt. Module, Markenauftritt und Abläufe anpassen und den Einsatz vorbereiten.",
+        "tags": [
+          "Handelsverwaltung",
+          "Arbeitsbereiche"
         ],
         "icon": "layers"
       },
       {
         "title": "KI & Automatisierung",
-        "copy": "Dokumente lesen, Informationen finden, ein Team unterstützen. Wir integrieren KI in sinnvolle Aufgaben, mit Kontrollen und menschlicher Prüfung.",
+        "copy": "Dokumentinformationen extrahieren, Antworten mit Quellen finden und Berichte vorbereiten. KI einsetzen, wo sich ihr Nutzen prüfen lässt.",
         "tags": [
-          "Assistenten & Suche",
-          "Dokumentenprozesse"
+          "Dokumente",
+          "KI-Assistenten",
+          "Workflows"
         ],
         "icon": "spark"
       },
       {
-        "title": "Daten & Entscheidungen",
-        "copy": "Besser geordnete Daten, verständliche Kennzahlen und bewertete Modelle. Eine klare Sicht auf Ihr Geschäft als Grundlage für Entscheidungen.",
+        "title": "Daten & Dashboards",
+        "copy": "Ihre Quellen verbinden und relevante Kennzahlen verfolgen. Verständliche Ansichten, nutzbare Berichte und anhand Ihrer Daten geprüfte Prognosen.",
         "tags": [
-          "Dashboards",
-          "Prognose & Optimierung"
+          "Reporting",
+          "Prognosen",
+          "Optimierung"
         ],
         "icon": "chart"
-      }
-    ],
-    "use_label": "Kommt Ihnen das bekannt vor?",
-    "use_heading": "Beginnen wir mit einem konkreten Problem.",
-    "use_tabs": [
-      "Verwaltung",
-      "Wissen",
-      "Steuerung"
-    ],
-    "uses": [
-      {
-        "before": "Dieselbe Information in drei Werkzeugen eingeben.",
-        "after": "Ein Ablauf, in dem Daten weiterfließen.",
-        "copy": "Anwendungen verbinden, Freigaben strukturieren und wiederkehrende Aufgaben automatisieren. Ihr Team behält bei Ausnahmen die Kontrolle.",
-        "scope": "Integration · Abläufe · Fachanwendung"
       },
       {
-        "before": "Die richtige Antwort steckt in Ihren Dokumenten.",
-        "after": "Eine Suche, die auch ihre Quellen zeigt.",
-        "copy": "Wissen ordnen und einen Assistenten entwickeln, der aus Ihren Inhalten antwortet, Zugriffsrechte beachtet und seine Grenzen benennen kann.",
-        "scope": "Dokumentensuche · KI-Assistent · Zugriff"
-      },
-      {
-        "before": "Viele Zahlen, ein unvollständiges Gesamtbild.",
-        "after": "Die relevanten Kennzahlen an einem Ort.",
-        "copy": "Ihre Quellen verbinden und ein Dashboard um Ihre Entscheidungen herum aufbauen. Prognosen ergänzen, wenn die Daten eine belastbare Bewertung erlauben.",
-        "scope": "Daten · Dashboards · Prognosen"
+        "title": "Analyse & Integration",
+        "copy": "Aufgaben vereinfachen, Werkzeuge verbinden und Prioritäten setzen. CRM, Buchhaltung, Peppol und interne Systeme: Integrationen grenzen wir gemeinsam ab.",
+        "tags": [
+          "Fahrplan",
+          "APIs & Schnittstellen"
+        ],
+        "icon": "compass"
       }
     ],
-    "before": "Heute",
-    "after": "Was wir entwickeln können",
-    "use_note": "Anwendungsbeispiele, angepasst an Ihre Werkzeuge und Rahmenbedingungen.",
-    "method_label": "02 / Unser Vorgehen",
-    "method_title": "Mit Ihnen verstehen.\nFür Sie entwickeln.",
-    "method_intro": "Sie müssen Ihr Geschäft nicht in technische Sprache übersetzen. Das ist unsere Aufgabe.",
+    "method_label": "04 / Ein klares Vorgehen",
+    "method_title": "Eine gute Idee verdient\neine gute Umsetzung.",
+    "method_intro": "Sie kennen Ihr Geschäft. Wir übersetzen Ihren Bedarf in einen klaren Umfang und ein Werkzeug, das Ihr Team nutzen kann.",
     "steps": [
       {
         "title": "Zuhören & beobachten",
@@ -1196,86 +1136,10 @@
       }
     ],
     "deliverable_label": "Sie erhalten",
-    "method_note": "Eine schrittweise Investition. Jede Phase hat ein vereinbartes Ziel und einen klaren Umfang.",
-    "work_label": "03 / Erfahrung & ausgewählte Arbeiten",
-    "work_title": "Anspruchsvolle Fragen.\nKonkrete Lösungen.",
-    "work_intro": "Energieoptimierung, Geschäftsanwendungen und Datenanalyse: Projekte, die zeigen, wie wir anspruchsvolle Probleme angehen.",
-    "project_button": "Projekt ansehen",
-    "project_context": "Kontext",
-    "project_approach": "Die geleistete Arbeit",
-    "project_transfer": "Was diese Erfahrung mitbringt",
-    "project_source": "Öffentliche Darstellung ansehen",
-    "projects": [
-      {
-        "sector": "Energie & Optimierung",
-        "title": "Energiespeicher besser steuern",
-        "summary": "Analyse und Optimierung großer Batteriespeicher auf den Strommärkten.",
-        "type": "Achrafs Erfahrung · Masterarbeit",
-        "context": "Arbeit im belgischen Energiesektor an der Schnittstelle von Marktdaten, technischen Grenzen und wirtschaftlichem Wert.",
-        "approach": "Modellierung von Einsatzstrategien, Entscheidungen zu Batteriezyklen und Leistungsbewertung.",
-        "transfer": "Ein wirtschaftliches Problem formulieren, Einschränkungen berücksichtigen und eine Entscheidung vor ihrer Automatisierung bewerten.",
-        "tags": [
-          "Optimierung",
-          "Simulation"
-        ],
-        "visual": "energy",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Industrie & Betrieb",
-        "title": "Projektverfolgung strukturieren",
-        "summary": "Eine Verwaltungsanwendung für die Anforderungen eines großen industriellen Umfelds.",
-        "type": "Achrafs berufliche Erfahrung",
-        "context": "Entwicklung eines Projektmanagementsystems für ein industrielles Energieunternehmen in Afrika.",
-        "approach": "Analyse der Abläufe, Gestaltung von Nachverfolgung und Berichten sowie Entwicklung der Anwendung.",
-        "transfer": "Komplexe Abläufe in ein stimmiges Werkzeug übersetzen, das zu Menschen und bestehenden Prozessen passt.",
-        "tags": [
-          "Fachanwendung",
-          "Berichte"
-        ],
-        "visual": "operations",
-        "url": "https://achraf-saidi.github.io/projects/"
-      },
-      {
-        "sector": "Gesundheit & Daten",
-        "title": "Komplexe Daten verständlich machen",
-        "summary": "METABRIC: interaktive Erkundung klinischer und genomischer Brustkrebsdaten.",
-        "type": "Achrafs akademisches Forschungsprojekt",
-        "context": "Ein Forschungs- und Portfolioprojekt mit dem METABRIC-Datensatz, kein klinisches Diagnosewerkzeug.",
-        "approach": "Interaktives Dashboard, Visualisierung, Variablenauswahl, Dimensionsreduktion und Gruppierung von Profilen.",
-        "transfer": "Eine sorgfältige Praxis der Analyse, Modellbewertung und Darstellung komplexer Daten.",
-        "tags": [
-          "Datenanalyse",
-          "Visualisierung"
-        ],
-        "visual": "data",
-        "url": "https://github.com/Achraf-Saidi/METABRIC-Dashboard"
-      },
-      {
-        "sector": "Konversationelle KI",
-        "title": "Capi, eine Oberfläche für Gespräche",
-        "summary": "Eine Gesprächsplattform, die Sprachverarbeitung und Webentwicklung verbindet.",
-        "type": "Von Novalis AI vorgestellte Arbeit",
-        "context": "Ein Gesprächssystem aus dem bestehenden Portfolio von Novalis AI.",
-        "approach": "Eine modulare Webarchitektur und KI-Dienste zur Verarbeitung von Interaktionen und zur Kontextualisierung von Antworten.",
-        "transfer": "Eine verständliche Nutzererfahrung mit KI-Diensten in einer vollständigen Anwendung verbinden.",
-        "tags": [
-          "Angewandte KI",
-          "Webplattform"
-        ],
-        "visual": "conversation",
-        "url": "https://www.novalisai.com/en/projects/capi"
-      }
-    ],
-    "work_foot": "Ausgewählte Projekte von Novalis AI und frühere Arbeiten von Achraf Saidi. Der Kontext wird bei jedem Projekt angegeben.",
-    "team_label": "05 / Die Menschen hinter den Werkzeugen",
-    "team_title": "Ein naher Ansprechpartner.\nDie passende Expertise im Team.",
-    "team_copy": "Achraf Saidi, KI-Forscher und Unternehmer, führt die Bedarfsanalyse und grenzt Ihre Lösung ein. Um ihn herum wird das Entwicklungsteam je nach Projekt zusammengestellt: Software, Daten, KI, Integration und Design.",
-    "team_second": "Die gemeinsame Erfahrung umfasst Industrie, Krankenhäuser und KMU in Belgien und international. Ergänzende Kompetenzen, klare Projektleitung und direkte Gespräche.",
-    "team_links": [
-      "Achrafs Hintergrund",
-      "Unser Entwicklungsteam"
-    ],
+    "team_label": "05 / Sorgfalt und persönlicher Kontakt",
+    "team_title": "Technische Kompetenz.\nDirekter Austausch.",
+    "team_copy": "Achraf Saidi, Forscher für KI und Statistik an der UCLouvain, bringt einen analytischen Ansatz in die Projektplanung. Entwickler und Fachleute für Design, Daten und Integration ergänzen das Team nach Bedarf.",
+    "team_second": "In Belgien verankert, mit einem Entwicklungsnetzwerk in Europa und Afrika, darunter JetThings / JetNext. Unsere Mitwirkenden haben Erfahrung mit Industrieprojekten in Algerien. Diese Praxis prägt unsere Arbeit.",
     "team_principles": [
       {
         "title": "Das richtige Team in passender Größe",
@@ -1291,7 +1155,7 @@
       }
     ],
     "faq_label": "Bevor wir beginnen",
-    "faq_title": "Fragen, die Sie vielleicht schon haben.",
+    "faq_title": "Bevor wir beginnen.",
     "faqs": [
       [
         "Müssen wir schon genau wissen, was wir entwickeln wollen?",
@@ -1314,10 +1178,10 @@
         "Dokumentation und Einarbeitung sind Teil des Plans. Wartung, Betreuung und Weiterentwicklung werden im Angebot festgelegt, mit klaren Zuständigkeiten und einem definierten Umfang."
       ]
     ],
-    "contact_label": "Gehen wir den ersten Schritt",
-    "contact_title": "Was möchten Sie\nvereinfachen?",
-    "contact_copy": "Ein zeitaufwendiger Prozess, ein neues Werkzeug, eine Idee zum Erkunden. Erzählen Sie uns von Ihrem Ausgangspunkt.",
-    "contact_booking_note": "Wählen Sie einen Termin in unserem Kalender. Einladung und Videolink werden von Cal.eu verwaltet.",
+    "contact_label": "Ihr nächstes Projekt beginnt hier",
+    "contact_title": "Machen wir es\neinfacher.",
+    "contact_copy": "Eine Website erneuern, Software entwickeln oder einen Ablauf verbessern. Erzählen Sie, was fehlt: Wir finden den richtigen Ausgangspunkt.",
+    "contact_booking_note": "Wählen Sie einen Termin in unserem Kalender. Für das erste Gespräch brauchen Sie kein Lastenheft.",
     "name": "Ihr Name",
     "email": "Geschäftliche E-Mail",
     "company": "Unternehmen",
@@ -1325,14 +1189,16 @@
     "need": "Ihr Anliegen",
     "need_placeholder": "Thema auswählen",
     "need_options": [
-      "Prozessanalyse",
+      "Website, Shop oder Restaurant",
       "Individuelle Software",
+      "SaaS anpassen oder entwickeln",
       "KI & Automatisierung",
       "Daten & Dashboards",
-      "Ich möchte darüber sprechen"
+      "Analyse & Integrationen",
+      "Ich möchte es besprechen"
     ],
     "message": "Beschreiben Sie Ihre Situation",
-    "message_placeholder": "Heute… Wir möchten…",
+    "message_placeholder": "Wie arbeiten Sie heute? Was möchten Sie verbessern? Welche Werkzeuge nutzen Sie bereits?",
     "consent": "Ich stimme zu, dass Novalis AI diese Informationen zur Beantwortung meiner Anfrage verwendet.",
     "prepare": "Meine E-Mail vorbereiten",
     "form_note": "Ihre Nachricht öffnet sich in Ihrem E-Mail-Programm zum Versand an achraf@novalisai.com.",
@@ -1354,10 +1220,8 @@
     ],
     "privacy": "Datenschutz",
     "legal": "Impressum",
-    "rights": "Alle Rechte vorbehalten.",
-    "footer_line": "Weiter denken.\nNah an der Praxis entwickeln.",
-    "footer_role": "KI-Forschung & Unternehmertum",
-    "footer_team": "Entwicklung · JetThings / JetNext",
+    "footer_line": "Digitale Werkzeuge, die Sie weiterbringen.",
+    "footer_role": "KI- & Statistikforschung · Unternehmertum",
     "country": "Belgien",
     "privacy_title": "Ihre Informationen, einfach behandelt.",
     "privacy_text": [
@@ -1368,55 +1232,127 @@
     "legal_title": "Novalis AI",
     "legal_text": [
       "Herausgeber: Novalis AI — Unternehmensnummer BE 0878.868.302. Sitz: Rue Barrière Moye 18, 1300 Wavre, Belgien. Kontakt: achraf@novalisai.com.",
-      "Diese Website wird auf GitHub Pages gehostet. Beispiele beschreiben die Aktivitäten von Novalis AI und frühere Erfahrungen der Beteiligten mit ihrem Kontext. Angebote, Fristen und Verpflichtungen werden in einem gesonderten Angebot definiert.",
+      "Diese Website wird auf GitHub Pages gehostet. Die Oberflächen zeigen Lösungsideen mit fiktiven Daten, keine Kundenreferenzen. Softwaregrundlagen und Prototypen erfordern Planung, Anpassung und Prüfung vor dem Produktionseinsatz. Preise, Termine und Zusagen werden in einem separaten Angebot festgelegt.",
       "Das Logo gehört Novalis AI. Texte und Webdesign wurden für Novalis AI erstellt. Externe Links führen zu unabhängigen Diensten."
     ],
-    "dialog_label": "Projektdetails",
-    "diagram_label": "Vom Bedarf zur Lösung",
-    "diagram_title": "Ihr Unternehmen, vernetzt.",
-    "diagram_controls": "Zwei Arbeitsweisen vergleichen",
-    "diagram_before": "Heute",
-    "diagram_after": "Mit Novalis",
-    "diagram_sources": [
-      "Dokumente",
-      "Software",
-      "Menschen"
+    "saas_label": "Ein anderer Einstieg",
+    "saas_title": "Eine vorhandene Basis.\nIhre Handschrift.",
+    "saas_copy": "Unsere Softwaregrundlagen und Prototypen helfen, Verwaltungs-, Handels- und Koordinationslösungen schneller zu erkunden. Wir prüfen die Wiederverwendung und kalkulieren Anpassung, Integration und Produktionseinsatz. Auch Ihre eigene SaaS-Plattform können wir entwickeln.",
+    "saas_cta": "Den richtigen Ausgangspunkt finden",
+    "hero_projects": "Lösungen ansehen",
+    "stage_line": "Schöne Oberflächen. Sinnvolle Anwendungen.",
+    "demo_label": "Lösungsvorschauen",
+    "demo_tabs": [
+      "Verwaltung",
+      "Berichte & KI",
+      "Handel"
     ],
-    "flow_tag": "Individuell + KI",
-    "flow_result_label": "Das Ergebnis",
-    "diagram_note": "Prinzipskizze · Beispiel eines Dokumentenprozesses.",
-    "diagram_states": {
-      "before": {
-        "title": "Arbeit verteilt auf viele Tools",
-        "steps": [
-          "Dokumente suchen",
-          "Daten zwischen Tools kopieren",
-          "Den Bearbeitungsstand klären"
-        ],
-        "human": "Ihr Team verknüpft alles von Hand.",
-        "result": "Unterlagen noch zusammenstellen"
+    "demo_note": "Illustrative Oberflächen · fiktive Daten",
+    "solutions_label": "02 / Konkrete Anwendungen",
+    "solutions_title": "Ihr nächstes Werkzeug\nfür den Arbeitsalltag.",
+    "solutions_copy": "Verkaufen, Teams koordinieren und Dokumente nutzen: konkrete Ausgangspunkte, angepasst an Ihre Tätigkeit.",
+    "showcases": [
+      {
+        "sector": "Handel & E-Commerce",
+        "title": "Verkauf, gut organisiert.",
+        "copy": "Katalog, Varianten, Lager und Bestellungen in einem Bereich. Ein Onlineshop, verbunden mit der Verwaltung und auf Ihre Marke abgestimmt.",
+        "cta": "Ihr Geschäft besprechen",
+        "need": 0
       },
-      "after": {
-        "title": "Ein Ablauf für Ihr Unternehmen",
-        "steps": [
-          "Die Anfrage verstehen",
-          "Informationen verknüpfen",
-          "Die nächste Aktion vorbereiten"
-        ],
-        "human": "Ihr Team trifft die Entscheidung.",
-        "result": "Unterlagen bereit zur Prüfung"
+      {
+        "sector": "Teams & Abläufe",
+        "title": "Arbeit, endlich koordiniert.",
+        "copy": "Anfragen, Freigaben, Planung und Fallverfolgung. Ein klarer Überblick für Teams und ein einfaches Portal für Kunden.",
+        "cta": "Ihre Abläufe vereinfachen",
+        "need": 1
+      },
+      {
+        "sector": "Berichte & Wissen",
+        "title": "Information wird nutzbar.",
+        "copy": "Dokumente finden, Zusammenfassungen prüfen und Berichte aus Ihren Quellen vorbereiten. Ihr Team behält die Entscheidung in der Hand.",
+        "cta": "Ihre Dokumente erkunden",
+        "need": 3
       }
-    },
-    "saas_label": "04 / Unsere SaaS-Produkte",
-    "saas_title": "Individuelle Lösungen heute.\nProdukte für morgen.",
-    "saas_copy": "Wir bereiten auch eigene SaaS-Produkte vor: online verfügbare Software für konkrete betriebliche Anforderungen. Dieser Bereich ist im Aufbau. Unsere Produkte werden hier vorgestellt, sobald sie bereit sind.",
-    "saas_service": "Sie haben eine SaaS-Idee? Wir können Sie schon heute bei Konzeption und Entwicklung Ihrer Plattform begleiten, vom ersten Prototyp bis zum Produkt.",
-    "saas_cta": "Über Ihre SaaS-Idee sprechen",
-    "saas_status": "Im Aufbau",
-    "saas_teaser": "Neue Produkte nehmen Gestalt an.",
-    "saas_detail": "Unser künftiger Produktbereich. Jede Lösung wird mit ihren Anwendungen und Funktionen vorgestellt.",
-    "saas_stage": "Bald mehr entdecken",
-    "hero_projects": "Unsere Projekte entdecken",
-    "project_illustration": "Projektillustration"
+    ],
+    "ai_label": "03 / KI mit einem klaren Zweck",
+    "ai_title": "Weniger Wiederholung.\nMehr sinnvolle Arbeit.",
+    "ai_copy": "Zuerst betrachten wir Ihr Problem und Ihre Daten. Automatisierung, Integration oder KI-Modell: Wir wählen die passende Lösung und testen sie, bevor wir ihre Rolle erweitern.",
+    "ai_chips": [
+      "Ihre Quellen",
+      "Ihre Regeln",
+      "Ihre Entscheidung"
+    ],
+    "ai_points": [
+      "Antworten mit Quellen, wenn die Anwendung es erfordert.",
+      "Zugriffsrechte und Hosting gemeinsam festgelegt.",
+      "Menschliche Prüfung für relevante Aktionen."
+    ],
+    "ai_cta": "Eine sinnvolle Anwendung finden",
+    "budget_title": "Wettbewerbsfähige Preise. Klare Entscheidungen.",
+    "budget_copy": "Ein passend besetztes Team, wiederverwendbare Komponenten, wo sinnvoll, und schrittweise Lieferung. Das Angebot trennt Entwicklung, Lizenzen, Hosting und Wartung.",
+    "budget_cta": "Mein Budget abgrenzen",
+    "team_map": "Belgien.\nEuropa.\nAfrika.",
+    "contact_or": "Lieber schreiben?",
+    "form_title": "Erzählen Sie von Ihrem Projekt.",
+    "budget_label": "Geplantes Budget · optional",
+    "budget_placeholder": "Gemeinsam festlegen",
+    "budget_options": [
+      "Unter 2.500 €",
+      "2.500 bis 5.000 €",
+      "5.000 bis 15.000 €",
+      "Über 15.000 €"
+    ],
+    "timing_label": "Wann? · optional",
+    "timing_placeholder": "Gemeinsam festlegen",
+    "timing_options": [
+      "So bald wie möglich",
+      "In 1–3 Monaten",
+      "In 3–6 Monaten",
+      "Ich plane das Projekt"
+    ],
+    "mail_to": "An: achraf@novalisai.com",
+    "mail_extra": [
+      "Geplantes Budget",
+      "Zeitrahmen"
+    ],
+    "demo_ui": [
+      "Übersicht",
+      "Beispiel-Dashboard",
+      "Aktivität",
+      "Diesen Monat",
+      "Umsatz",
+      "Bestellungen",
+      "Zur Freigabe",
+      "Im Zeitraum",
+      "In Arbeit",
+      "Diese Woche",
+      "Verkauf & Aktivität",
+      "Letzte Monate",
+      "Nachverfolgen",
+      "Angebote freigeben",
+      "Bestand prüfen",
+      "Monatsbericht",
+      "Bericht vorbereiten",
+      "Von Ihrem Team zu prüfen",
+      "Aktivitätsübersicht",
+      "Ein Bericht aus den ausgewählten Dokumenten.",
+      "Ihre Quellen",
+      "Wichtige Punkte sind zusammengeführt. Fehlende Angaben bleiben markiert.",
+      "3 verknüpfte Dokumente",
+      "Ihr Shop",
+      "Ein Auftritt, ein Katalog, ein Erlebnis.",
+      "Vase Sable",
+      "Lampe Aurora",
+      "Sessel Alba",
+      "Bestellungen & Bestand",
+      "Ein gemeinsamer Bereich für Ihr Team",
+      "Verkaufsakte",
+      "Urlaubsantrag",
+      "Projektverfolgung",
+      "Freigabe",
+      "Planung",
+      "Berichte"
+    ],
+    "service_cta": "Diesen Bedarf besprechen"
   }
 }
