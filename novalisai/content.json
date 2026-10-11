@@ -218,10 +218,10 @@
       "Cette vitrine est hébergée sur GitHub Pages. Les interfaces présentent des pistes de solutions avec des données fictives. Elles ne sont pas des références clients. Les bases logicielles et prototypes nécessitent un cadrage, des adaptations et une validation avant leur mise en production. Prix, délais et engagements sont définis dans un devis distinct.",
       "Le logo appartient à Novalis AI. Les textes et la conception du site sont réalisés pour Novalis AI. Les liens externes ouvrent des services indépendants."
     ],
-    "saas_label": "Une autre façon de démarrer",
-    "saas_title": "Une base existante.\nVotre empreinte.",
-    "saas_copy": "Nos bases logicielles et prototypes permettent d’explorer plus vite une solution de gestion, de commerce ou de coordination. Nous vérifions ce qui peut être réutilisé et chiffrons la personnalisation, les intégrations et la mise en production. Vous pouvez aussi nous confier la création de votre propre SaaS.",
-    "saas_cta": "Trouver le bon point de départ",
+    "saas_label": "NOVALIS / PRODUCTS",
+    "saas_title": "Nos prochains SaaS.\nUn espace à part.",
+    "saas_copy": "Nous préparons ici la présentation des logiciels que nous construisons. Chaque SaaS aura son espace : son usage, ses fonctionnalités, ses visuels et les modalités pour le découvrir.",
+    "saas_cta": "Parler d’un besoin ou d’une idée",
     "hero_projects": "Voir les solutions",
     "stage_line": "De belles interfaces. De vrais usages.",
     "demo_label": "Aperçus de solutions",
@@ -337,117 +337,116 @@
       "Rapports"
     ],
     "service_cta": "Discuter de ce besoin",
-    "studio_label": "Le studio interactif",
-    "studio_title": "Un clic.\nTout prend forme.",
-    "studio_copy": "Explorez trois usages. Faites avancer le flux, observez les étapes, puis gardez la main sur la décision. Voilà le type d’expérience que nous pouvons concevoir pour vos équipes.",
-    "studio_note": "Démonstration interactive · données fictives · aucune connexion à vos outils",
-    "studio_tabs": [
-      "Devis & factures",
-      "Équipes & congés",
-      "Documents & rapports"
+    "art_label": "L’idée devient matière.",
+    "art_hint": "Au doigt, à la souris ou avec les flèches.",
+    "art_reset": "Recentrer",
+    "art_pause": "Pause",
+    "art_resume": "Animer",
+    "art_note": "NOVALIS / DIGITAL CRAFT",
+    "experience_label": "Une expérience, à composer",
+    "experience_title": "Votre métier.\nVotre interface.",
+    "experience_copy": "Choisissez un univers. Activez les fonctions. Essayez une demande. L’interface se transforme autour de vos choix.",
+    "experience_note": "Prototype interactif · données fictives · vos essais restent dans cette page",
+    "experience_scenarios": [
+      "Commerce",
+      "Équipes",
+      "Documents"
     ],
-    "studio_input": "Au départ",
-    "studio_engine": "Le traitement",
-    "studio_output": "À l’arrivée",
-    "studio_play": "Animer le flux",
-    "studio_pause": "Mettre en pause",
-    "studio_replay": "Rejouer l’exemple",
-    "studio_scrub": "Faites glisser pour transformer",
-    "studio_hint": "Vous pouvez aussi utiliser les flèches du clavier.",
-    "studio_human": "Votre équipe garde la décision.",
-    "studio_steps": [
-      "Relier",
-      "Structurer",
-      "Préparer"
+    "experience_modules": [
+      "Gestion & suivi",
+      "Automatisations",
+      "Assistant IA"
     ],
-    "studio_states": [
-      "Informations dispersées",
-      "Sources reliées",
-      "Règles appliquées",
-      "Prêt à être vérifié"
+    "experience_modules_copy": [
+      "Une vue structurée de l’activité.",
+      "Les prochaines actions, préparées.",
+      "Une aide liée aux éléments de la démo."
     ],
-    "studio_scenarios": [
+    "experience_actions": [
+      "Créer une demande",
+      "Approuver",
+      "Demande approuvée",
+      "Ajouter une demande pour commencer.",
+      "Aucune demande en attente. Vous pouvez en ajouter une pour poursuivre la démonstration."
+    ],
+    "experience_labels": [
+      "Fonctions actives",
+      "Vue d’ensemble",
+      "À traiter",
+      "Validées",
+      "Activité récente",
+      "Suggestions",
+      "Source : éléments de la démonstration",
+      "Étape suivante préparée",
+      "Gestion désactivée",
+      "Les fonctions se composent selon votre besoin."
+    ],
+    "experience_data": [
       {
-        "title": "Une facture à traiter",
-        "source": "FACTURE / 042",
+        "name": "Atelier / Commerce",
+        "category": "COMMANDES & CLIENTS",
+        "title": "La journée, sous contrôle.",
         "items": [
-          "Fournisseur : Atelier Delta",
-          "Montant : 1 240,00 €",
-          "Référence : BC-2026-018"
+          "Commande · Atelier Sable",
+          "Commande · Maison Alba"
         ],
-        "before": "Trois vérifications à faire à la main.",
-        "after": "Un dossier prêt à approuver.",
-        "results": [
-          "Informations extraites",
-          "Référence rapprochée",
-          "Validation à votre main"
-        ],
-        "steps": [
-          "Relier les pièces",
-          "Vérifier les champs",
-          "Préparer le dossier"
-        ],
-        "note": "L’envoi et l’écriture comptable restent soumis aux validations définies."
+        "new_item": "Nouvelle demande client",
+        "suggestion": "Vérifiez les commandes en attente avant de préparer les expéditions.",
+        "auto": "Préparer le suivi de commande"
       },
       {
-        "title": "Une absence à organiser",
-        "source": "DEMANDE / 018",
+        "name": "Collectif / Équipes",
+        "category": "DEMANDES & PLANNING",
+        "title": "Une équipe, une vue claire.",
         "items": [
-          "Équipe : Service client",
-          "Période : 14–16 octobre",
-          "Demande : 3 jours"
+          "Congé · Équipe support",
+          "Planning · Équipe projet"
         ],
-        "before": "Demande, planning et validation séparés.",
-        "after": "Une demande prête à décider.",
-        "results": [
-          "Demande centralisée",
-          "Planning consultable",
-          "Décision du responsable"
-        ],
-        "steps": [
-          "Centraliser la demande",
-          "Appliquer les règles",
-          "Préparer la validation"
-        ],
-        "note": "Les règles de congés et la décision restent définies par votre organisation."
+        "new_item": "Nouvelle demande d’équipe",
+        "suggestion": "Consultez les demandes et leur contexte avant de les valider.",
+        "auto": "Préparer la notification"
       },
       {
-        "title": "Un rapport à préparer",
-        "source": "DOCUMENTS / 003",
+        "name": "Insight / Documents",
+        "category": "DOSSIERS & CONNAISSANCE",
+        "title": "Les bonnes informations, réunies.",
         "items": [
-          "Activité trimestrielle.pdf",
-          "Suivi des opérations.xlsx",
-          "Compte rendu de réunion.pdf"
+          "Dossier · Rapport mensuel",
+          "Dossier · Synthèse activité"
         ],
-        "before": "Des documents à retrouver et à croiser.",
-        "after": "Un aperçu de rapport à relire.",
-        "results": [
-          "Sources rassemblées",
-          "Informations structurées",
-          "Synthèse à vérifier"
-        ],
-        "steps": [
-          "Relier les sources",
-          "Structurer les contenus",
-          "Préparer la synthèse"
-        ],
-        "note": "Les sources restent visibles ; la synthèse doit être vérifiée avant utilisation."
+        "new_item": "Nouveau dossier documentaire",
+        "suggestion": "Relisez les dossiers et leurs sources avant de partager une synthèse.",
+        "auto": "Préparer le dossier de partage"
       }
     ],
-    "demo_periods": [
-      "7 jours",
-      "30 jours",
-      "90 jours"
+    "saas_nav": "Nos SaaS",
+    "saas_status": "En construction",
+    "saas_empty_title": "Les produits prennent forme.",
+    "saas_empty_copy": "Le catalogue sera enrichi à mesure que les SaaS seront prêts à être présentés. Cet espace accueille leurs futures fiches, démonstrations et ouvertures d’accès.",
+    "saas_slots": [
+      "Votre prochain espace métier",
+      "Vos prochaines automatisations",
+      "Votre prochaine plateforme"
     ],
-    "demo_add": "Ajouter",
-    "demo_cart": "Panier de démonstration",
-    "demo_clear": "Vider",
-    "demo_item": "article",
-    "demo_items": "articles",
-    "demo_report_button": "Voir la synthèse",
-    "demo_report_hide": "Masquer la synthèse",
-    "demo_report_text": "Activité à suivre : les demandes en attente doivent être revues par l’équipe. Les trois documents sources restent accessibles pour vérifier les informations.",
-    "demo_report_tag": "Aperçu illustratif · à relire"
+    "saas_slot_label": "Emplacement réservé",
+    "saas_foot": "Les produits seront annoncés ici lorsque leur présentation sera prête.",
+    "saas_statuses": {
+      "planned": "En préparation",
+      "building": "En construction",
+      "beta": "Accès anticipé",
+      "live": "Disponible"
+    },
+    "saas_detail": "Découvrir le produit",
+    "saas_demo": "Voir la démonstration",
+    "saas_access": "Accéder au SaaS",
+    "saas_features": "Fonctionnalités",
+    "saas_filter": [
+      "Tous",
+      "En construction",
+      "Accès anticipé",
+      "Disponibles"
+    ],
+    "saas_no_match": "Aucun produit dans cette sélection pour le moment."
   },
   "en": {
     "title": "Novalis AI — Websites, custom software & practical AI | Belgium",
@@ -668,10 +667,10 @@
       "This website is hosted on GitHub Pages. Interface previews show solution concepts with fictional data, not customer references. Software foundations and prototypes require scoping, adaptation and validation before production deployment. Prices, timing and commitments are defined in a separate quote.",
       "The logo belongs to Novalis AI. Copy and website design were created for Novalis AI. External links lead to independent services."
     ],
-    "saas_label": "Another way to start",
-    "saas_title": "An existing foundation.\nYour identity.",
-    "saas_copy": "Our software foundations and prototypes let us explore management, commerce and coordination tools faster. We assess what can be reused and quote customisation, integrations and production deployment. We can also design and build your own SaaS.",
-    "saas_cta": "Find the right starting point",
+    "saas_label": "NOVALIS / PRODUCTS",
+    "saas_title": "Our next SaaS products.\nA space of their own.",
+    "saas_copy": "We are preparing a showcase for the software we build. Each SaaS will have its own space: its purpose, features, visuals and ways to explore it.",
+    "saas_cta": "Discuss a need or an idea",
     "hero_projects": "Explore solutions",
     "stage_line": "Beautiful interfaces. Useful by design.",
     "demo_label": "Solution previews",
@@ -787,117 +786,116 @@
       "Reports"
     ],
     "service_cta": "Discuss this need",
-    "studio_label": "The interactive studio",
-    "studio_title": "One click.\nIt takes shape.",
-    "studio_copy": "Explore three use cases. Move the workflow forward, watch each step and keep control of the decision. This is the kind of experience we can design for your team.",
-    "studio_note": "Interactive demonstration · fictional data · no connection to your tools",
-    "studio_tabs": [
-      "Quotes & invoices",
-      "Teams & leave",
-      "Documents & reports"
+    "art_label": "Ideas take shape.",
+    "art_hint": "Use your finger, mouse or arrow keys.",
+    "art_reset": "Reset view",
+    "art_pause": "Pause",
+    "art_resume": "Animate",
+    "art_note": "NOVALIS / DIGITAL CRAFT",
+    "experience_label": "An experience you compose",
+    "experience_title": "Your business.\nYour interface.",
+    "experience_copy": "Choose a setting. Enable features. Try a request. Watch the interface change around your choices.",
+    "experience_note": "Interactive prototype · fictional data · your trials stay on this page",
+    "experience_scenarios": [
+      "Commerce",
+      "Teams",
+      "Documents"
     ],
-    "studio_input": "The input",
-    "studio_engine": "The workflow",
-    "studio_output": "The result",
-    "studio_play": "Animate the workflow",
-    "studio_pause": "Pause",
-    "studio_replay": "Replay the example",
-    "studio_scrub": "Slide to transform",
-    "studio_hint": "You can also use the arrow keys.",
-    "studio_human": "Your team keeps the decision.",
-    "studio_steps": [
-      "Connect",
-      "Structure",
-      "Prepare"
+    "experience_modules": [
+      "Management",
+      "Automation",
+      "AI assistant"
     ],
-    "studio_states": [
-      "Scattered information",
-      "Sources connected",
-      "Rules applied",
-      "Ready for review"
+    "experience_modules_copy": [
+      "A structured view of activity.",
+      "Next actions, prepared.",
+      "Help linked to this demo’s content."
     ],
-    "studio_scenarios": [
+    "experience_actions": [
+      "Create a request",
+      "Approve",
+      "Request approved",
+      "Add a request to begin.",
+      "No pending requests. Add one to continue the demonstration."
+    ],
+    "experience_labels": [
+      "Enabled features",
+      "Overview",
+      "Pending",
+      "Approved",
+      "Recent activity",
+      "Suggestions",
+      "Source: demonstration content",
+      "Next step prepared",
+      "Management disabled",
+      "Features adapt to your needs."
+    ],
+    "experience_data": [
       {
-        "title": "An invoice to process",
-        "source": "INVOICE / 042",
+        "name": "Atelier / Commerce",
+        "category": "ORDERS & CUSTOMERS",
+        "title": "Your day, under control.",
         "items": [
-          "Supplier: Atelier Delta",
-          "Amount: €1,240.00",
-          "Reference: PO-2026-018"
+          "Order · Atelier Sable",
+          "Order · Maison Alba"
         ],
-        "before": "Three checks to complete manually.",
-        "after": "A file ready for approval.",
-        "results": [
-          "Information extracted",
-          "Reference matched",
-          "Approval in your hands"
-        ],
-        "steps": [
-          "Connect the documents",
-          "Check the fields",
-          "Prepare the file"
-        ],
-        "note": "Sending and accounting entries remain subject to the agreed approvals."
+        "new_item": "New customer request",
+        "suggestion": "Review pending orders before preparing shipments.",
+        "auto": "Prepare order follow-up"
       },
       {
-        "title": "Leave to coordinate",
-        "source": "REQUEST / 018",
+        "name": "Collective / Teams",
+        "category": "REQUESTS & SCHEDULES",
+        "title": "One team, one clear view.",
         "items": [
-          "Team: Customer service",
-          "Period: 14–16 October",
-          "Request: 3 days"
+          "Leave · Support team",
+          "Schedule · Project team"
         ],
-        "before": "Request, schedule and approval are separate.",
-        "after": "A request ready for a decision.",
-        "results": [
-          "Request centralised",
-          "Schedule available",
-          "Manager’s decision"
-        ],
-        "steps": [
-          "Centralise the request",
-          "Apply the rules",
-          "Prepare approval"
-        ],
-        "note": "Leave rules and the final decision remain defined by your organisation."
+        "new_item": "New team request",
+        "suggestion": "Review requests and their context before approving them.",
+        "auto": "Prepare the notification"
       },
       {
-        "title": "A report to prepare",
-        "source": "DOCUMENTS / 003",
+        "name": "Insight / Documents",
+        "category": "FILES & KNOWLEDGE",
+        "title": "Useful information, together.",
         "items": [
-          "Quarterly activity.pdf",
-          "Operations tracking.xlsx",
-          "Meeting notes.pdf"
+          "File · Monthly report",
+          "File · Activity summary"
         ],
-        "before": "Documents to find and cross-reference.",
-        "after": "A report preview to review.",
-        "results": [
-          "Sources gathered",
-          "Information structured",
-          "Summary to review"
-        ],
-        "steps": [
-          "Connect the sources",
-          "Structure content",
-          "Prepare a summary"
-        ],
-        "note": "Sources stay visible; the summary must be checked before use."
+        "new_item": "New document file",
+        "suggestion": "Review files and sources before sharing a summary.",
+        "auto": "Prepare the sharing file"
       }
     ],
-    "demo_periods": [
-      "7 days",
-      "30 days",
-      "90 days"
+    "saas_nav": "Our SaaS",
+    "saas_status": "Under construction",
+    "saas_empty_title": "Products are taking shape.",
+    "saas_empty_copy": "The catalogue will grow as our SaaS products are ready to be presented. This space is prepared for their pages, demonstrations and access openings.",
+    "saas_slots": [
+      "Your next business workspace",
+      "Your next automations",
+      "Your next platform"
     ],
-    "demo_add": "Add",
-    "demo_cart": "Demonstration basket",
-    "demo_clear": "Clear",
-    "demo_item": "item",
-    "demo_items": "items",
-    "demo_report_button": "View summary",
-    "demo_report_hide": "Hide summary",
-    "demo_report_text": "Activity to follow up: pending requests need to be reviewed by the team. The three source documents remain available to check the information.",
-    "demo_report_tag": "Illustrative preview · review required"
+    "saas_slot_label": "Reserved space",
+    "saas_foot": "Products will be announced here when their presentation is ready.",
+    "saas_statuses": {
+      "planned": "In preparation",
+      "building": "Under construction",
+      "beta": "Early access",
+      "live": "Available"
+    },
+    "saas_detail": "Explore the product",
+    "saas_demo": "View the demonstration",
+    "saas_access": "Open the SaaS",
+    "saas_features": "Features",
+    "saas_filter": [
+      "All",
+      "Under construction",
+      "Early access",
+      "Available"
+    ],
+    "saas_no_match": "No product in this selection yet."
   },
   "nl": {
     "title": "Novalis AI — Websites, maatwerksoftware & praktische AI | België",
@@ -1118,10 +1116,10 @@
       "Deze website wordt gehost op GitHub Pages. De interfaces tonen oplossingsrichtingen met fictieve gegevens, geen klantreferenties. Softwarebasis en prototypes vereisen afbakening, aanpassing en validatie vóór productie-uitrol. Prijzen, termijnen en afspraken staan in een afzonderlijke offerte.",
       "Het logo is eigendom van Novalis AI. Teksten en websiteontwerp zijn voor Novalis AI gemaakt. Externe links verwijzen naar onafhankelijke diensten."
     ],
-    "saas_label": "Een andere manier om te starten",
-    "saas_title": "Een bestaande basis.\nUw eigen karakter.",
-    "saas_copy": "Onze softwarebasis en prototypes helpen om sneller oplossingen voor beheer, handel en coördinatie te verkennen. We bekijken wat herbruikbaar is en begroten maatwerk, koppelingen en productie-uitrol. We kunnen ook uw eigen SaaS ontwerpen en bouwen.",
-    "saas_cta": "Vind het juiste vertrekpunt",
+    "saas_label": "NOVALIS / PRODUCTS",
+    "saas_title": "Onze volgende SaaS.\nEen eigen plek.",
+    "saas_copy": "Hier bereiden we de presentatie van onze software voor. Elke SaaS krijgt een eigen plek met toepassingen, functies, beelden en mogelijkheden om die te ontdekken.",
+    "saas_cta": "Een behoefte of idee bespreken",
     "hero_projects": "Bekijk oplossingen",
     "stage_line": "Mooie interfaces. Praktisch in gebruik.",
     "demo_label": "Voorbeelden van oplossingen",
@@ -1237,117 +1235,116 @@
       "Rapporten"
     ],
     "service_cta": "Bespreek deze behoefte",
-    "studio_label": "De interactieve studio",
-    "studio_title": "Eén klik.\nHet krijgt vorm.",
-    "studio_copy": "Verken drie toepassingen. Laat het proces vooruitgaan, volg de stappen en houd de beslissing in handen. Zo kunnen we een ervaring voor uw team ontwerpen.",
-    "studio_note": "Interactieve demonstratie · fictieve gegevens · geen verbinding met uw tools",
-    "studio_tabs": [
-      "Offertes & facturen",
-      "Teams & verlof",
-      "Documenten & rapporten"
+    "art_label": "Ideeën krijgen vorm.",
+    "art_hint": "Gebruik uw vinger, muis of pijltjestoetsen.",
+    "art_reset": "Hercentreren",
+    "art_pause": "Pauze",
+    "art_resume": "Animeren",
+    "art_note": "NOVALIS / DIGITAL CRAFT",
+    "experience_label": "Een ervaring die u samenstelt",
+    "experience_title": "Uw onderneming.\nUw interface.",
+    "experience_copy": "Kies een omgeving. Activeer functies. Probeer een aanvraag. De interface verandert met uw keuzes.",
+    "experience_note": "Interactief prototype · fictieve gegevens · uw tests blijven op deze pagina",
+    "experience_scenarios": [
+      "Handel",
+      "Teams",
+      "Documenten"
     ],
-    "studio_input": "De invoer",
-    "studio_engine": "De verwerking",
-    "studio_output": "Het resultaat",
-    "studio_play": "Het proces animeren",
-    "studio_pause": "Pauzeren",
-    "studio_replay": "Voorbeeld herhalen",
-    "studio_scrub": "Schuif om te veranderen",
-    "studio_hint": "U kunt ook de pijltjestoetsen gebruiken.",
-    "studio_human": "Uw team houdt de beslissing in handen.",
-    "studio_steps": [
-      "Verbinden",
-      "Structureren",
-      "Voorbereiden"
+    "experience_modules": [
+      "Beheer",
+      "Automatisering",
+      "AI-assistent"
     ],
-    "studio_states": [
-      "Verspreide informatie",
-      "Bronnen verbonden",
-      "Regels toegepast",
-      "Klaar voor controle"
+    "experience_modules_copy": [
+      "Een gestructureerd activiteitenoverzicht.",
+      "Vervolgacties voorbereid.",
+      "Hulp bij de inhoud van deze demo."
     ],
-    "studio_scenarios": [
+    "experience_actions": [
+      "Aanvraag maken",
+      "Goedkeuren",
+      "Aanvraag goedgekeurd",
+      "Voeg een aanvraag toe om te starten.",
+      "Geen openstaande aanvragen. Voeg er een toe om verder te testen."
+    ],
+    "experience_labels": [
+      "Actieve functies",
+      "Overzicht",
+      "Te behandelen",
+      "Goedgekeurd",
+      "Recente activiteit",
+      "Suggesties",
+      "Bron: inhoud van de demonstratie",
+      "Volgende stap voorbereid",
+      "Beheer uitgeschakeld",
+      "Functies aangepast aan uw behoeften."
+    ],
+    "experience_data": [
       {
-        "title": "Een factuur verwerken",
-        "source": "FACTUUR / 042",
+        "name": "Atelier / Handel",
+        "category": "BESTELLINGEN & KLANTEN",
+        "title": "Uw dag, onder controle.",
         "items": [
-          "Leverancier: Atelier Delta",
-          "Bedrag: € 1.240,00",
-          "Referentie: BC-2026-018"
+          "Bestelling · Atelier Sable",
+          "Bestelling · Maison Alba"
         ],
-        "before": "Drie controles handmatig uitvoeren.",
-        "after": "Een dossier klaar voor goedkeuring.",
-        "results": [
-          "Informatie opgehaald",
-          "Referentie vergeleken",
-          "Goedkeuring door uw team"
-        ],
-        "steps": [
-          "Documenten verbinden",
-          "Velden controleren",
-          "Dossier voorbereiden"
-        ],
-        "note": "Verzending en boekingen blijven onderworpen aan de afgesproken goedkeuringen."
+        "new_item": "Nieuwe klantaanvraag",
+        "suggestion": "Controleer openstaande bestellingen vóór u verzendingen voorbereidt.",
+        "auto": "Bestelling opvolgen"
       },
       {
-        "title": "Verlof organiseren",
-        "source": "AANVRAAG / 018",
+        "name": "Collectief / Teams",
+        "category": "AANVRAGEN & PLANNING",
+        "title": "Eén team, één helder overzicht.",
         "items": [
-          "Team: Klantenservice",
-          "Periode: 14–16 oktober",
-          "Aanvraag: 3 dagen"
+          "Verlof · Supportteam",
+          "Planning · Projectteam"
         ],
-        "before": "Aanvraag, planning en goedkeuring staan los.",
-        "after": "Een aanvraag klaar voor een beslissing.",
-        "results": [
-          "Aanvraag gecentraliseerd",
-          "Planning beschikbaar",
-          "Beslissing van de manager"
-        ],
-        "steps": [
-          "Aanvraag centraliseren",
-          "Regels toepassen",
-          "Goedkeuring voorbereiden"
-        ],
-        "note": "Uw organisatie bepaalt de verlofregels en de uiteindelijke beslissing."
+        "new_item": "Nieuwe teamaanvraag",
+        "suggestion": "Bekijk aanvragen en hun context vóór goedkeuring.",
+        "auto": "Melding voorbereiden"
       },
       {
-        "title": "Een rapport voorbereiden",
-        "source": "DOCUMENTEN / 003",
+        "name": "Insight / Documenten",
+        "category": "DOSSIERS & KENNIS",
+        "title": "Nuttige informatie, samen.",
         "items": [
-          "Kwartaalactiviteit.pdf",
-          "Opvolging bedrijfsvoering.xlsx",
-          "Vergaderverslag.pdf"
+          "Dossier · Maandrapport",
+          "Dossier · Activiteitssamenvatting"
         ],
-        "before": "Documenten zoeken en vergelijken.",
-        "after": "Een rapportvoorbeeld om na te kijken.",
-        "results": [
-          "Bronnen verzameld",
-          "Informatie gestructureerd",
-          "Samenvatting te controleren"
-        ],
-        "steps": [
-          "Bronnen verbinden",
-          "Inhoud structureren",
-          "Samenvatting voorbereiden"
-        ],
-        "note": "Bronnen blijven zichtbaar; controleer de samenvatting vóór gebruik."
+        "new_item": "Nieuw documentdossier",
+        "suggestion": "Controleer dossiers en bronnen vóór u een samenvatting deelt.",
+        "auto": "Dossier voor delen voorbereiden"
       }
     ],
-    "demo_periods": [
-      "7 dagen",
-      "30 dagen",
-      "90 dagen"
+    "saas_nav": "Onze SaaS",
+    "saas_status": "In ontwikkeling",
+    "saas_empty_title": "Producten krijgen vorm.",
+    "saas_empty_copy": "De catalogus groeit wanneer onze SaaS-producten klaar zijn om te worden voorgesteld. Deze plek is voorbereid voor hun pagina’s, demonstraties en toegang.",
+    "saas_slots": [
+      "Uw volgende werkruimte",
+      "Uw volgende automatiseringen",
+      "Uw volgende platform"
     ],
-    "demo_add": "Toevoegen",
-    "demo_cart": "Demonstratiemandje",
-    "demo_clear": "Leegmaken",
-    "demo_item": "artikel",
-    "demo_items": "artikelen",
-    "demo_report_button": "Samenvatting bekijken",
-    "demo_report_hide": "Samenvatting verbergen",
-    "demo_report_text": "Op te volgen: openstaande verzoeken moeten door het team worden nagekeken. De drie brondocumenten blijven beschikbaar om de informatie te controleren.",
-    "demo_report_tag": "Illustratief voorbeeld · nakijken"
+    "saas_slot_label": "Gereserveerde plek",
+    "saas_foot": "Producten worden hier aangekondigd zodra hun presentatie klaar is.",
+    "saas_statuses": {
+      "planned": "In voorbereiding",
+      "building": "In ontwikkeling",
+      "beta": "Vroege toegang",
+      "live": "Beschikbaar"
+    },
+    "saas_detail": "Product ontdekken",
+    "saas_demo": "Demonstratie bekijken",
+    "saas_access": "SaaS openen",
+    "saas_features": "Functies",
+    "saas_filter": [
+      "Alle",
+      "In ontwikkeling",
+      "Vroege toegang",
+      "Beschikbaar"
+    ],
+    "saas_no_match": "Nog geen product in deze selectie."
   },
   "de": {
     "title": "Novalis AI — Websites, individuelle Software & nützliche KI | Belgien",
@@ -1568,10 +1565,10 @@
       "Diese Website wird auf GitHub Pages gehostet. Die Oberflächen zeigen Lösungsideen mit fiktiven Daten, keine Kundenreferenzen. Softwaregrundlagen und Prototypen erfordern Planung, Anpassung und Prüfung vor dem Produktionseinsatz. Preise, Termine und Zusagen werden in einem separaten Angebot festgelegt.",
       "Das Logo gehört Novalis AI. Texte und Webdesign wurden für Novalis AI erstellt. Externe Links führen zu unabhängigen Diensten."
     ],
-    "saas_label": "Ein anderer Einstieg",
-    "saas_title": "Eine vorhandene Basis.\nIhre Handschrift.",
-    "saas_copy": "Unsere Softwaregrundlagen und Prototypen helfen, Verwaltungs-, Handels- und Koordinationslösungen schneller zu erkunden. Wir prüfen die Wiederverwendung und kalkulieren Anpassung, Integration und Produktionseinsatz. Auch Ihre eigene SaaS-Plattform können wir entwickeln.",
-    "saas_cta": "Den richtigen Ausgangspunkt finden",
+    "saas_label": "NOVALIS / PRODUCTS",
+    "saas_title": "Unsere nächsten SaaS.\nEin eigener Raum.",
+    "saas_copy": "Hier bereiten wir die Präsentation unserer Software vor. Jede SaaS erhält einen eigenen Bereich mit Anwendungen, Funktionen, Bildern und Möglichkeiten zum Entdecken.",
+    "saas_cta": "Einen Bedarf oder eine Idee besprechen",
     "hero_projects": "Lösungen ansehen",
     "stage_line": "Schöne Oberflächen. Sinnvolle Anwendungen.",
     "demo_label": "Lösungsvorschauen",
@@ -1687,116 +1684,115 @@
       "Berichte"
     ],
     "service_cta": "Diesen Bedarf besprechen",
-    "studio_label": "Das interaktive Studio",
-    "studio_title": "Ein Klick.\nEs nimmt Form an.",
-    "studio_copy": "Erkunden Sie drei Anwendungen. Bewegen Sie den Ablauf vorwärts, verfolgen Sie die Schritte und behalten Sie die Entscheidung. So können wir eine Erfahrung für Ihr Team gestalten.",
-    "studio_note": "Interaktive Demonstration · fiktive Daten · keine Verbindung zu Ihren Werkzeugen",
-    "studio_tabs": [
-      "Angebote & Rechnungen",
-      "Teams & Urlaub",
-      "Dokumente & Berichte"
+    "art_label": "Ideen nehmen Form an.",
+    "art_hint": "Mit Finger, Maus oder Pfeiltasten drehen.",
+    "art_reset": "Ansicht zurücksetzen",
+    "art_pause": "Pause",
+    "art_resume": "Animieren",
+    "art_note": "NOVALIS / DIGITAL CRAFT",
+    "experience_label": "Eine Erfahrung zum Gestalten",
+    "experience_title": "Ihr Unternehmen.\nIhre Oberfläche.",
+    "experience_copy": "Wählen Sie einen Bereich. Aktivieren Sie Funktionen. Probieren Sie eine Anfrage. Die Oberfläche verändert sich mit Ihren Entscheidungen.",
+    "experience_note": "Interaktiver Prototyp · fiktive Daten · Ihre Tests bleiben auf dieser Seite",
+    "experience_scenarios": [
+      "Handel",
+      "Teams",
+      "Dokumente"
     ],
-    "studio_input": "Die Eingabe",
-    "studio_engine": "Der Ablauf",
-    "studio_output": "Das Ergebnis",
-    "studio_play": "Den Ablauf animieren",
-    "studio_pause": "Pausieren",
-    "studio_replay": "Beispiel wiederholen",
-    "studio_scrub": "Schieben und verändern",
-    "studio_hint": "Sie können auch die Pfeiltasten verwenden.",
-    "studio_human": "Ihr Team behält die Entscheidung.",
-    "studio_steps": [
-      "Verbinden",
-      "Strukturieren",
-      "Vorbereiten"
+    "experience_modules": [
+      "Verwaltung",
+      "Automatisierung",
+      "KI-Assistent"
     ],
-    "studio_states": [
-      "Verteilte Informationen",
-      "Quellen verbunden",
-      "Regeln angewendet",
-      "Bereit zur Prüfung"
+    "experience_modules_copy": [
+      "Ein strukturierter Überblick.",
+      "Nächste Aktionen vorbereitet.",
+      "Hilfe zu den Inhalten dieser Demo."
     ],
-    "studio_scenarios": [
+    "experience_actions": [
+      "Anfrage erstellen",
+      "Freigeben",
+      "Anfrage freigegeben",
+      "Zum Start eine Anfrage hinzufügen.",
+      "Keine offenen Anfragen. Fügen Sie eine hinzu, um die Demo fortzusetzen."
+    ],
+    "experience_labels": [
+      "Aktive Funktionen",
+      "Übersicht",
+      "Offen",
+      "Freigegeben",
+      "Letzte Aktivität",
+      "Vorschläge",
+      "Quelle: Inhalte der Demonstration",
+      "Nächster Schritt vorbereitet",
+      "Verwaltung deaktiviert",
+      "Funktionen passen sich Ihrem Bedarf an."
+    ],
+    "experience_data": [
       {
-        "title": "Eine Rechnung bearbeiten",
-        "source": "RECHNUNG / 042",
+        "name": "Atelier / Handel",
+        "category": "BESTELLUNGEN & KUNDEN",
+        "title": "Ihr Tag, unter Kontrolle.",
         "items": [
-          "Lieferant: Atelier Delta",
-          "Betrag: 1.240,00 €",
-          "Referenz: BC-2026-018"
+          "Bestellung · Atelier Sable",
+          "Bestellung · Maison Alba"
         ],
-        "before": "Drei Prüfungen von Hand erledigen.",
-        "after": "Eine Akte bereit zur Freigabe.",
-        "results": [
-          "Informationen extrahiert",
-          "Referenz abgeglichen",
-          "Freigabe durch Ihr Team"
-        ],
-        "steps": [
-          "Dokumente verbinden",
-          "Felder prüfen",
-          "Akte vorbereiten"
-        ],
-        "note": "Versand und Buchung bleiben an die vereinbarten Freigaben gebunden."
+        "new_item": "Neue Kundenanfrage",
+        "suggestion": "Prüfen Sie offene Bestellungen, bevor Sie Sendungen vorbereiten.",
+        "auto": "Bestellung nachverfolgen"
       },
       {
-        "title": "Urlaub koordinieren",
-        "source": "ANFRAGE / 018",
+        "name": "Kollektiv / Teams",
+        "category": "ANFRAGEN & PLANUNG",
+        "title": "Ein Team, ein klarer Überblick.",
         "items": [
-          "Team: Kundenservice",
-          "Zeitraum: 14.–16. Oktober",
-          "Anfrage: 3 Tage"
+          "Urlaub · Supportteam",
+          "Planung · Projektteam"
         ],
-        "before": "Anfrage, Planung und Freigabe sind getrennt.",
-        "after": "Eine Anfrage bereit zur Entscheidung.",
-        "results": [
-          "Anfrage zentralisiert",
-          "Planung verfügbar",
-          "Entscheidung der Führungskraft"
-        ],
-        "steps": [
-          "Anfrage zentralisieren",
-          "Regeln anwenden",
-          "Freigabe vorbereiten"
-        ],
-        "note": "Urlaubsregeln und Entscheidungen werden weiterhin von Ihrer Organisation festgelegt."
+        "new_item": "Neue Teamanfrage",
+        "suggestion": "Prüfen Sie Anfragen und ihren Kontext vor der Freigabe.",
+        "auto": "Benachrichtigung vorbereiten"
       },
       {
-        "title": "Einen Bericht vorbereiten",
-        "source": "DOKUMENTE / 003",
+        "name": "Insight / Dokumente",
+        "category": "AKTEN & WISSEN",
+        "title": "Nützliche Informationen, vereint.",
         "items": [
-          "Quartalsaktivität.pdf",
-          "Betriebsübersicht.xlsx",
-          "Besprechungsprotokoll.pdf"
+          "Akte · Monatsbericht",
+          "Akte · Aktivitätsübersicht"
         ],
-        "before": "Dokumente finden und abgleichen.",
-        "after": "Eine Berichtsvorschau zum Prüfen.",
-        "results": [
-          "Quellen gesammelt",
-          "Informationen strukturiert",
-          "Zusammenfassung prüfen"
-        ],
-        "steps": [
-          "Quellen verbinden",
-          "Inhalte strukturieren",
-          "Zusammenfassung vorbereiten"
-        ],
-        "note": "Quellen bleiben sichtbar; die Zusammenfassung ist vor der Nutzung zu prüfen."
+        "new_item": "Neue Dokumentenakte",
+        "suggestion": "Prüfen Sie Akten und Quellen, bevor Sie eine Zusammenfassung teilen.",
+        "auto": "Freigabedatei vorbereiten"
       }
     ],
-    "demo_periods": [
-      "7 Tage",
-      "30 Tage",
-      "90 Tage"
+    "saas_nav": "Unsere SaaS",
+    "saas_status": "Im Aufbau",
+    "saas_empty_title": "Produkte nehmen Form an.",
+    "saas_empty_copy": "Der Katalog wächst, sobald unsere SaaS-Produkte vorgestellt werden können. Dieser Bereich ist für Produktseiten, Demonstrationen und Zugänge vorbereitet.",
+    "saas_slots": [
+      "Ihr nächster Arbeitsbereich",
+      "Ihre nächsten Automatisierungen",
+      "Ihre nächste Plattform"
     ],
-    "demo_add": "Hinzufügen",
-    "demo_cart": "Demo-Warenkorb",
-    "demo_clear": "Leeren",
-    "demo_item": "Artikel",
-    "demo_items": "Artikel",
-    "demo_report_button": "Zusammenfassung ansehen",
-    "demo_report_hide": "Zusammenfassung ausblenden",
-    "demo_report_text": "Nachverfolgung: offene Anfragen müssen vom Team geprüft werden. Die drei Quelldokumente bleiben zur Überprüfung der Angaben verfügbar.",
-    "demo_report_tag": "Illustrative Vorschau · prüfen"
+    "saas_slot_label": "Reservierter Platz",
+    "saas_foot": "Produkte werden hier angekündigt, sobald ihre Präsentation bereit ist.",
+    "saas_statuses": {
+      "planned": "In Vorbereitung",
+      "building": "Im Aufbau",
+      "beta": "Früher Zugang",
+      "live": "Verfügbar"
+    },
+    "saas_detail": "Produkt entdecken",
+    "saas_demo": "Demonstration ansehen",
+    "saas_access": "SaaS öffnen",
+    "saas_features": "Funktionen",
+    "saas_filter": [
+      "Alle",
+      "Im Aufbau",
+      "Früher Zugang",
+      "Verfügbar"
+    ],
+    "saas_no_match": "Noch kein Produkt in dieser Auswahl."
   }
 }

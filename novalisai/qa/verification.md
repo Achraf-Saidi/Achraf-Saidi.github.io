@@ -1,15 +1,10 @@
-# Vérification de la refonte
+# Vérification — sculpture, configurateur et espace SaaS
 
-- Génération réussie des pages FR, EN, NL, DE et de la page d’accueil française ; clés de traduction cohérentes et aucun jeton de modèle non résolu.
-- Syntaxe JavaScript vérifiée avec Node ; CSS analysée avec CSSOM, y compris les règles responsive et la réduction des animations.
-- Vérifications DOM dans les quatre langues : identifiants uniques, un seul titre principal, six offres, trois aperçus, liens d’ancre et ressources locales valides.
-- Studio : progression manuelle, lecture, interruption lors du changement de scénario, reprise jusqu’à la fin, annulation par le curseur et lecture sans animation avec la préférence de réduction des mouvements.
-- Aperçus : données et colonnes du tableau de bord actualisées selon la période, ouverture/fermeture de la synthèse, ajout de deux produits avec total exact de 134 €, panier vidé.
-- Palette : analyse des couleurs CSS, cuivre/or/ivoire sans bleu dominant ; contraste de la couleur principale calculé avec le blanc.
-- Navigation : menu mobile, fermeture avec Échap, sélection des onglets, flèches clavier, Home/End et état de focus.
-- Contact : refus d’un formulaire invalide, présélection du besoin, création d’un brouillon contenant les champs facultatifs, encodage exact du lien mailto, copie, retour au formulaire et conservation des valeurs.
-- Les valeurs saisies sont affichées avec textContent ; un nom contenant une balise script reste du texte et ne produit aucun élément script.
-- Ouverture/fermeture des mentions de confidentialité et retour du focus.
-- Aucun lien vers un dépôt dans les aperçus ou ailleurs dans la navigation de la vitrine.
+- Pages FR, EN, NL, DE et accueil français générées ; mêmes clés de traduction et aucun jeton restant.
+- Syntaxe des trois scripts vérifiée avec Node. Les deux stylesheets ont été analysées avec CSSOM.
+- Contrôles DOM dans les quatre langues : identifiants, ancres, assets, six offres, trois aperçus, menu mobile, formulaires, sécurité du brouillon e-mail, copie et mentions de confidentialité.
+- Configurateur : création et approbation de demandes, double approbation ignorée, états séparés entre univers, désactivation de la gestion, activation de l’assistance et des automatisations, compteurs cohérents.
+- Catalogue : état vide honnête avec trois emplacements réservés ; rendu de fiches dans les quatre langues avec données de test, échappement du titre, démonstration liée, accès limité au statut disponible et refus d’une URL non HTTPS.
+- Sculpture : maillage et projection contrôlés avec un contexte Canvas simulé, coordonnées finies contenues dans un format 390 × 350 ; pause, rotation clavier, recentrage et préférence de réduction des mouvements. Ce contrôle ne constitue pas une capture ni une recette visuelle.
 
-**Limite :** aucun contrôle de navigateur n’est disponible dans l’environnement de cette refonte. Pas de capture visuelle actuelle ni de mesure d’overflow sur appareil. Le CSS prévoit les dimensions téléphone, tablette et ordinateur, mais la recette visuelle réelle reste à faire. Le calendrier externe et la délivrabilité de la messagerie n’ont pas été testés ; aucun message ou rendez-vous de test n’a été envoyé.
+**Limite :** aucun navigateur de contrôle n’est disponible ici. L’apparence, la fluidité et les gestes sur appareils physiques restent à vérifier. Aucun message ou rendez-vous de test n’a été envoyé.

@@ -8,16 +8,17 @@ Site vitrine autonome en français, anglais, néerlandais et allemand, publié �
 python3 build.py
 ```
 
-`content.json` contient les textes des quatre langues. `template.html`, `assets/styles.css` et `assets/app.js` portent la structure, le design et les interactions. Le générateur utilise la bibliothèque standard de Python et publie des pages HTML indépendantes. Aucun framework ni serveur applicatif n’est nécessaire pour cette vitrine.
+`content.json` contient les textes des quatre langues. `template.html`, `assets/styles.css` et `assets/experience.css` portent le design ; `assets/app.js` gère la navigation et le contact, `assets/experience.js` le configurateur et les filtres produits, `assets/sculpture.js` le rendu cuivré. Le générateur utilise la bibliothèque standard de Python et publie des pages HTML indépendantes. Aucun framework ni serveur applicatif n’est nécessaire pour cette vitrine.
 
 Pour un futur transfert sur le domaine : `python3 build.py --site-url https://www.novalisai.com`. Cette édition ne modifie pas le domaine, le DNS ou la messagerie.
 
 ## Direction et contenu
 
 - Fonds ivoire et champagne, bronze foncé, cuivre et or repris du logo, grands titres Manrope et Instrument Serif. Polices locales et licences conservées.
-- Accueil avec composition orbitale cuivre, léger relief au pointeur sur ordinateur et trois aperçus HTML : période de tableau de bord sélectionnable, synthèse ouvrable et panier de démonstration calculé localement.
-- Studio interactif : trois scénarios (facture, congé, rapport), curseur pour parcourir les étapes, lecture/pause/reprise et résultat à valider. Animation locale déterministe, données fictives, aucune requête IA ou API métier. Aucun gain de productivité n’est inventé.
-- Animations interrompues hors écran et à la mise en arrière-plan. Préférence de réduction des animations : transitions neutralisées et lecture terminée immédiatement. Les effets au pointeur sont limités au pointeur fin sur ordinateur ; les démonstrations fonctionnent avec boutons et curseur sur mobile et au clavier.
+- Sculpture cuivrée originale : maillage de nœud torique projeté en Canvas 2D, lumière et reflets calculés, rotation au doigt/souris/clavier, pause et recentrage. Projection ajustée aux dimensions, densité limitée, arrêt hors écran/arrière-plan et mode statique pour la réduction des mouvements. Fallback visuel si Canvas est indisponible.
+- Configurateur de trois univers (commerce, équipes, documents) et trois modules. Création et approbation de demandes locales, états séparés par univers, activation/désactivation de modules et mise à jour des compteurs. Les suggestions sont écrites pour les données fictives de la démo ; aucune API IA n’est appelée.
+- Espace **Nos SaaS** indépendant et visible dans la navigation. Le catalogue `products.json` est volontairement vide. Les trois emplacements affichés sont réservés, pas des produits lancés.
+- Fiches SaaS préparées : quatre traductions, statut, catégorie, résumé, détails, fonctionnalités, image locale, démonstration et accès. Les accès ne sont affichés que pour un statut disponible ; les filtres apparaissent dès que le catalogue contient un produit.
 - Six offres : sites/boutiques/restaurants, logiciels sur mesure, SaaS personnalisables, IA/automatisation, données/reporting, audit/intégration.
 - Trois aperçus de solutions illustratifs. Les données sont fictives. Aucun client, résultat financier, témoignage ou réalisation livrée n’est inventé. Aucun aperçu ne mène vers du code ou un projet privé.
 - Les bases existantes et prototypes sont des points de départ à évaluer et adapter. Leur présence n’affirme pas une mise en production commerciale préalable. La personnalisation, les intégrations et la validation sont cadrées dans la proposition.
@@ -41,3 +42,25 @@ La revue `qa/responsive.html` affiche les pages actuelles dans plusieurs dimensi
 ## Sources
 
 Le raisonnement sur le marché et les sources officielles sont consignés dans `qa/market-notes.md`. Le site privilégie des offres concrètes plutôt que des statistiques d’adoption ou des engagements réglementaires généraux.
+
+## Ajouter un SaaS
+
+Ajouter un objet à `products.json` puis exécuter `python3 build.py`. Exemple de structure à remplacer par les informations réelles :
+
+```json
+{
+  "id": "identifiant-du-produit",
+  "status": "building",
+  "image": "",
+  "demo_url": "",
+  "access_url": "",
+  "content": {
+    "fr": {"title": "Nom réel", "category": "Secteur", "summary": "Usage réel", "detail": "Présentation", "features": []},
+    "en": {"title": "Actual name", "category": "Sector", "summary": "Actual use", "detail": "Description", "features": []},
+    "nl": {"title": "Werkelijke naam", "category": "Sector", "summary": "Werkelijk gebruik", "detail": "Beschrijving", "features": []},
+    "de": {"title": "Tatsächlicher Name", "category": "Bereich", "summary": "Tatsächliche Nutzung", "detail": "Beschreibung", "features": []}
+  }
+}
+```
+
+Statuts : `planned`, `building`, `beta`, `live`. L’image, si fournie, doit exister dans `assets/`. Les liens doivent être des pages HTTPS publiques. L’éditeur peut ajouter `image_alt` dans chaque traduction. Le générateur échappe les textes, vérifie les identifiants, les statuts, les ressources et les liens. Aucune interface d’administration ni compte client n’est requis pour gérer ce catalogue dans Git.
