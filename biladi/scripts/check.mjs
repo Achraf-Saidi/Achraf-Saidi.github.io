@@ -84,4 +84,13 @@ assert.equal((calendar.match(/BEGIN:VEVENT/g)||[]).length,20);
 assert.equal((calendar.match(/DTEND;VALUE=DATE:/g)||[]).length,20);
 for(const line of calendar.split('\r\n'))assert.ok(Buffer.byteLength(line,'utf8')<=75,'Calendar line exceeds RFC 5545 limit');
 assert.equal(new Set([...calendar.matchAll(/UID:(.+)/g)].map(x=>x[1])).size,20);
-console.log(JSON.stringify({status:'passed',journeyCases:cases,wilayas:wilayas.length,photos:photos.length,articles:articles.length,languages:langs.length,catalogEntries:catalogCount},null,2));
+const knowledge=await json('encyclopedia.json'),territories=await json('territories.json');
+const allKnowledge=[...articles,...editorial.culture_profiles,...knowledge.articles];ids(allKnowledge);
+const knownIDs=new Set(allKnowledge.map(a=>a.id));
+for(const a of knowledge.articles){assert.ok(a.deep&&a.lead&&a.sections.length>=3);assert.ok(a.simple.length>=3);assert.ok(a.available_languages.includes('fr'));assert.ok(a.sources.length);assert.ok(photos.some(p=>p.id===a.photo),'Unknown article image '+a.id);for(const c of a.wilayas)assert.ok(expectedCodes.includes(c));for(const sec of a.sections)for(const id of sec.source_ids)assert.ok(a.sources.some(s=>s.id===id));for(const id of a.gallery)assert.ok(photos.some(p=>p.id===id));}
+for(const e of knowledge.relations){assert.ok(knownIDs.has(e.from),'Unknown relation '+e.from);assert.ok(knownIDs.has(e.to),'Unknown relation '+e.to);assert.notEqual(e.from,e.to);}
+for(const p of knowledge.trails)for(const id of p.articles)assert.ok(knownIDs.has(id),'Unknown trail stop '+id);
+for(const e of knowledge.events)for(const id of e.articles)assert.ok(knownIDs.has(id),'Unknown chronology article '+id);
+for(const [c,v] of Object.entries(territories)){assert.ok(expectedCodes.includes(c));assert.ok(v.sections.length>=3);for(const id of v.gallery)assert.ok(photos.some(p=>p.id===id));for(const src of v.sources)new URL(src.url);}
+for(const module of ['encyclopedia','explorer']){const p=spawnSync(process.execPath,['--check',resolve(root,module+'.js')],{encoding:'utf8'});assert.equal(p.status,0,p.stderr);}
+console.log(JSON.stringify({status:'passed',journeyCases:cases,wilayas:wilayas.length,photos:photos.length,articles:articles.length+knowledge.articles.length,territorialDossiers:Object.keys(territories).length,knowledgeRelations:knowledge.relations.length,languages:langs.length,catalogEntries:catalogCount},null,2));

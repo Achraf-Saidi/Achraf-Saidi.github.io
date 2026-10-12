@@ -24,3 +24,9 @@ Run `npm run check` for syntax, translation completeness, source and asset integ
 The managed build session did not provide a supported browser-control capability; device layout and browser visuals were not verified. Responsive CSS is implemented for desktop, tablet and phone; release notes must preserve this verification limit.
 
 Sources and licenses appear in the site's Sources & credits view. The maps and OSM-derived data retain their attribution and ODbL terms. Photos retain their individual Wikimedia licenses. DM Sans and Fraunces use the SIL Open Font License, reproduced in `data/font-licenses.txt`.
+
+## Encyclopedia expansion — October 2026
+
+The retained site now includes a separate knowledge library at `#encyclopedia`, period-filtered chronology at `#timeline`, four ordered discovery trails at `#trail/<id>`, the full photographic collection at `#photos`, and an integrated open-inventory map at `#explore`. Individual article routes remain stable. New articles add a table of contents, full/simplified modes, explicit relations, section references and context-image identification. New French dossiers are explicitly identified as French when another interface language is selected.
+
+`encyclopedia.js` and `explorer.js` implement these views. `data/encyclopedia.json` is the structured corpus; `data/territories.json` holds fourteen authored local dossiers. Read `EDITORIAL_GUIDE.md` before expanding the corpus, and `AUDIT-2026-10.md` for the baseline findings and verification limits. The site remains entirely static on the existing GitHub Pages path, without new server or hosting requirements.

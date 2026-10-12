@@ -1,0 +1,2929 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-13",
+  "articles": [
+    {
+      "id": "larbi-ben-mhidi",
+      "title": "Larbi Ben M’hidi : organiser, convaincre, résister",
+      "domain": "people",
+      "category": "history",
+      "period": "1923–1957",
+      "sortYear": 1954,
+      "deep": true,
+      "photo": "ben-mhidi",
+      "photo_context": false,
+      "wilayas": [
+        "04",
+        "31",
+        "16"
+      ],
+      "lead": "Le sourire de Larbi Ben M’hidi sur les images de son arrestation a pris une place immense dans la mémoire algérienne. Il ne suffit pourtant pas à expliquer son parcours. Pour comprendre ce dirigeant, il faut suivre la formation d’un militant, les réseaux de l’indépendance, le congrès de la Soummam et la guerre urbaine. Sa biographie relie ainsi trois échelles : une vie, une organisation et un affrontement colonial.",
+      "body": "Le sourire de Larbi Ben M’hidi sur les images de son arrestation a pris une place immense dans la mémoire algérienne. Il ne suffit pourtant pas à expliquer son parcours. Pour comprendre ce dirigeant, il faut suivre la formation d’un militant, les réseaux de l’indépendance, le congrès de la Soummam et la guerre urbaine. Sa biographie relie ainsi trois échelles : une vie, une organisation et un affrontement colonial.",
+      "simple": [
+        "Ben M’hidi est l’un des six dirigeants associés au déclenchement du 1er novembre 1954. Il dirige d’abord l’action en Oranie.",
+        "Il participe à l’organisation du congrès de la Soummam en août 1956, puis à la direction de la Zone autonome d’Alger.",
+        "Arrêté en février 1957, il est assassiné par des militaires français. L’Élysée reconnaît officiellement cet assassinat en 2024. Cette reconnaissance ne constitue pas la première preuve historique du crime."
+      ],
+      "sections": [
+        {
+          "heading": "Un militant avant le FLN",
+          "body": "Né en 1923 dans le Constantinois, Ben M’hidi grandit dans une société coloniale où l’accès aux droits, aux ressources et à la représentation politique est profondément inégal. Son passage par les scouts musulmans et le nationalisme constitue une formation collective : apprendre à organiser, à communiquer et à mobiliser compte autant que l’initiative individuelle.\n\nCette trajectoire aide à comprendre le FLN naissant. Le mouvement ne surgit pas sans antécédents en novembre 1954. Il s’appuie sur des militants issus d’organisations, de sociabilités et de débats antérieurs, tout en rompant avec les stratégies jugées insuffisantes. La biographie devient alors une entrée dans l’histoire des réseaux plutôt qu’un récit de vocation miraculeuse.",
+          "source_ids": [
+            "benmhidi"
+          ]
+        },
+        {
+          "heading": "L’Oranie, la Soummam et Alger",
+          "body": "Ben M’hidi fait partie des six dirigeants du lancement de l’insurrection. Il est chargé de l’Oranie, puis joue un rôle important dans le congrès tenu dans la vallée de la Soummam le 20 août 1956. Le congrès cherche à donner à une lutte dispersée une architecture politique et militaire.\n\nÀ Alger, l’action change d’échelle et de terrain : réseaux clandestins, mobilisation, grève, attentats et répression s’inscrivent dans un espace urbain densément habité. L’organisation dépend de personnes qui hébergent, transmettent des messages et maintiennent les liaisons. Une histoire attentive doit rendre visibles ces acteurs et les civils exposés aux violences, au-delà des seuls chefs.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "Un assassinat et la fabrication d’une version officielle",
+          "body": "Arrêté en février 1957, Ben M’hidi est tué par des militaires français placés sous le commandement de Paul Aussaresses. La version officielle d’un suicide masque le meurtre. Les contestations, témoignages et aveux ultérieurs rendent possible la reconstitution des responsabilités. Le 1er novembre 2024, la présidence française reconnaît explicitement l’assassinat.\n\nIl faut distinguer la date du crime, celle de sa documentation et celle de sa reconnaissance par un État. Ces trois moments n’ont ni le même sens ni les mêmes acteurs. Une annonce officielle est une source sur la politique de mémoire ; elle ne remplace pas le travail historique qui l’a précédée.",
+          "source_ids": [
+            "benmhidi"
+          ]
+        },
+        {
+          "heading": "Lire un portrait devenu symbole",
+          "body": "Une photographie d’arrestation peut documenter un visage, une tenue et une situation. Elle ne permet pas, à elle seule, de connaître les pensées exactes du sujet. Les récits ultérieurs attribuent souvent à ces images une force exemplaire. Comprendre cette réception fait partie de l’histoire, mais il faut séparer le document de ses interprétations.\n\nPour approfondir, comparez une biographie, une histoire générale du FLN et une étude de la bataille d’Alger. Chaque genre répond à une question différente : qui est l’individu, comment fonctionne l’organisation et que vivent les habitants ?",
+          "source_ids": [
+            "crasc"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Reconnaissance de l’assassinat de Larbi Ben M’hidi, 1 novembre 2024",
+          "publisher": "Présidence de la République française",
+          "url": "https://www.elysee.fr/emmanuel-macron/2024/11/01/commemoration-du-1er-novembre-2024-70eme-anniversaire-du-declenchement-de-linsurrection-du-1er-novembre-1954",
+          "id": "benmhidi"
+        },
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        }
+      ],
+      "caution": "",
+      "question": "Que révèle une photographie d’arrestation, et que laisse-t-elle hors du cadre ?",
+      "bibliography": [
+        "Gilbert Meynier, Histoire intérieure du FLN, 1954–1962, Fayard, 2002.",
+        "Mohammed Harbi, Le FLN : mirage et réalité, Éditions Jeune Afrique, 1980."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [
+        "Larbi Ben Mhidi",
+        "Larbi Ben M Hidi"
+      ],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "ben-mhidi",
+        "ben-mhidi-jeune",
+        "soummam-dirigeants"
+      ]
+    },
+    {
+      "id": "didouche-mourad",
+      "title": "Didouche Mourad : les débuts d’une insurrection",
+      "domain": "people",
+      "category": "history",
+      "period": "1927–1955",
+      "sortYear": 1954,
+      "deep": true,
+      "photo": "didouche-mourad",
+      "photo_context": false,
+      "wilayas": [
+        "16",
+        "25"
+      ],
+      "lead": "La brièveté de la vie de Didouche Mourad contraste avec la place de son nom dans l’espace public. Une avenue n’explique pas un itinéraire. Son parcours éclaire surtout les origines du FLN et la fragilité militaire de ses premiers mois.",
+      "body": "La brièveté de la vie de Didouche Mourad contraste avec la place de son nom dans l’espace public. Une avenue n’explique pas un itinéraire. Son parcours éclaire surtout les origines du FLN et la fragilité militaire de ses premiers mois.",
+      "simple": [
+        "Didouche Mourad fait partie des six dirigeants du déclenchement de novembre 1954.",
+        "Il organise la zone du Nord-Constantinois. Il meurt au combat à Oued Boukerker le 18 janvier 1955.",
+        "Zighoud Youcef lui succède. Les zones de 1954 et les wilayas militaires organisées ensuite ne doivent pas être confondues avec les wilayas administratives actuelles."
+      ],
+      "sections": [
+        {
+          "heading": "Du nationalisme à la rupture de 1954",
+          "body": "Les débuts du FLN s’inscrivent dans la crise du nationalisme algérien. Les militants débattent de la direction du mouvement, des moyens d’action et de l’opportunité d’une insurrection. Didouche Mourad appartient aux organisateurs qui préparent la rupture armée de novembre 1954.\n\nLe mot « fondateur » mérite d’être expliqué : un mouvement résulte à la fois de décisions prises par quelques responsables et du travail d’un ensemble de réseaux. Retenir les noms des six dirigeants ne doit pas effacer les militants chargés des armes, des liaisons, des refuges et de la mobilisation.",
+          "source_ids": [
+            "didouche"
+          ]
+        },
+        {
+          "heading": "Le Nord-Constantinois, un terrain d’organisation",
+          "body": "La zone confiée à Didouche Mourad comprend des espaces urbains et ruraux aux conditions variées. Au commencement, la question n’est pas seulement de combattre, mais de maintenir une organisation clandestine avec des ressources limitées et sous surveillance. La géographie influe sur les déplacements, les contacts et les possibilités de repli.\n\nCette lecture régionale explique pourquoi la guerre ne suit pas partout le même calendrier. Une carte actuelle peut aider à situer les lieux, sans prétendre représenter exactement le découpage de l’insurrection.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "Oued Boukerker et la succession",
+          "body": "Didouche Mourad meurt au combat le 18 janvier 1955 à Oued Boukerker. Zighoud Youcef prend la direction du Nord-Constantinois. Cette succession intervient avant les offensives du 20 août 1955 et avant la réorganisation liée au congrès de la Soummam.\n\nDire qu’il dirige une « wilaya » dès 1954 est un raccourci fréquent dans les hommages. Pour une chronologie précise, BILADI distingue les premières zones d’organisation des wilayas historiques institutionnalisées pendant la guerre et des collectivités territoriales d’aujourd’hui.",
+          "source_ids": [
+            "didouche"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Didouche Mourad : commémoration du 18 janvier 2020",
+          "publisher": "Radio Algérienne / APS",
+          "url": "https://radioalgerie.dz/news/fr/article/20200118/188557.html",
+          "id": "didouche"
+        },
+        {
+          "title": "Les Martyrs de la Révolution",
+          "publisher": "Algérie Poste",
+          "url": "https://www.poste.dz/philately/s/1377",
+          "id": "martyrs"
+        },
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        }
+      ],
+      "caution": "Les hommages commémoratifs sont précieux pour étudier la mémoire, mais leur vocabulaire peut projeter rétrospectivement des institutions plus tardives.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "didouche-mourad"
+      ]
+    },
+    {
+      "id": "abane-ramdane",
+      "title": "Abane Ramdane : le politique au cœur de la révolution",
+      "domain": "people",
+      "category": "history",
+      "period": "1920–1957",
+      "sortYear": 1956,
+      "deep": true,
+      "photo": "abane-ramdane",
+      "photo_context": false,
+      "wilayas": [
+        "15",
+        "06",
+        "16"
+      ],
+      "lead": "Abane Ramdane est associé à une question qui traverse de nombreuses révolutions : qui doit décider, les responsables politiques ou les chefs militaires ? Le comprendre demande de lire la Soummam, les débats du FLN et les violences internes, ensemble.",
+      "body": "Abane Ramdane est associé à une question qui traverse de nombreuses révolutions : qui doit décider, les responsables politiques ou les chefs militaires ? Le comprendre demande de lire la Soummam, les débats du FLN et les violences internes, ensemble.",
+      "simple": [
+        "Abane Ramdane joue un rôle central dans l’organisation politique du FLN et le congrès de la Soummam de 1956.",
+        "Le congrès défend notamment la primauté du politique sur le militaire et de l’intérieur sur l’extérieur. Ces principes sont contestés dans le mouvement.",
+        "Il est assassiné au Maroc en décembre 1957 dans un conflit interne. Les récits divergent sur certains détails et responsabilités."
+      ],
+      "sections": [
+        {
+          "heading": "Organiser une révolution",
+          "body": "Le rôle d’Abane ne se réduit pas aux opérations armées. Il concerne l’articulation des réseaux militants, des organisations et de la représentation politique. Une insurrection qui dure doit produire des décisions, définir ses instances et présenter son projet au-delà de ses seuls combattants.\n\nCette dimension permet de comprendre la place des syndicats, des étudiants, des intellectuels et des relais urbains. La politique n’est pas un supplément ajouté après la victoire : elle façonne les objectifs et les moyens de la lutte.",
+          "source_ids": [
+            "abane"
+          ]
+        },
+        {
+          "heading": "La Soummam : un projet institutionnel",
+          "body": "Le congrès du 20 août 1956 cherche à structurer le FLN et l’ALN. Il établit des organismes de direction et formule des principes de hiérarchie entre politique et militaire, intérieur et extérieur. Abane et Ben M’hidi jouent un rôle essentiel dans cette préparation.\n\nL’importance d’un texte n’implique pas son application uniforme. L’absence de certains responsables et les rapports de force évolutifs alimentent des contestations. Pour comprendre un congrès, il faut donc lire à la fois sa plateforme, la composition des participants et la suite des décisions.",
+          "source_ids": [
+            "benmhidi"
+          ]
+        },
+        {
+          "heading": "Conflits internes et assassinat",
+          "body": "Abane est assassiné au Maroc en décembre 1957. Sa mort relève des conflits internes du mouvement indépendantiste. Les versions successives de l’événement, les témoignages et les reconstructions historiques ne concordent pas toujours sur tous les détails.\n\nPrésenter ce crime comme un simple décès au combat effacerait un élément majeur de l’histoire du FLN. À l’inverse, une explication psychologique unique fondée sur la jalousie d’un dirigeant ne suffit pas à établir les mécanismes politiques ni les responsabilités. Les travaux de référence doivent être confrontés aux témoignages et à leur contexte.",
+          "source_ids": [
+            "abane"
+          ]
+        },
+        {
+          "heading": "Une mémoire politique encore discutée",
+          "body": "La place d’Abane dans les hommages publics et les débats sur l’État indépendant montre que sa mémoire reste politique. Son nom peut exprimer une aspiration à la primauté des institutions civiles, mais cette réception actuelle doit être distinguée de ses positions documentées pendant la guerre.\n\nBILADI ne présente pas les révolutionnaires comme un groupe unanimement d’accord. Comprendre leur projet exige aussi de reconnaître leurs désaccords et la violence de certains arbitrages.",
+          "source_ids": [
+            "crasc"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Abane Ramdane : notice et bibliographie",
+          "publisher": "Wikipédia, source secondaire collective",
+          "url": "https://fr.wikipedia.org/wiki/Abane_Ramdane",
+          "id": "abane"
+        },
+        {
+          "title": "Reconnaissance de l’assassinat de Larbi Ben M’hidi, 1 novembre 2024",
+          "publisher": "Présidence de la République française",
+          "url": "https://www.elysee.fr/emmanuel-macron/2024/11/01/commemoration-du-1er-novembre-2024-70eme-anniversaire-du-declenchement-de-linsurrection-du-1er-novembre-1954",
+          "id": "benmhidi"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        }
+      ],
+      "caution": "Le mois de l’assassinat est retenu ici. Les dates précises et certaines responsabilités font l’objet de versions divergentes dans les publications.",
+      "question": "",
+      "bibliography": [
+        "Gilbert Meynier, Histoire intérieure du FLN, 1954–1962, 2002.",
+        "Mohammed Harbi, Le FLN : mirage et réalité, 1980."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "abane-ramdane"
+      ]
+    },
+    {
+      "id": "krim-belkacem",
+      "title": "Krim Belkacem : du maquis à la négociation",
+      "domain": "people",
+      "category": "history",
+      "period": "1922–1970",
+      "sortYear": 1962,
+      "deep": true,
+      "photo": "krim-belkacem",
+      "photo_context": false,
+      "wilayas": [
+        "15"
+      ],
+      "lead": "L’itinéraire de Krim Belkacem oblige à relier la guerre dans les montagnes et la diplomatie autour d’une table. Responsable historique de la lutte en Kabylie, il conduit la délégation algérienne dans les négociations d’Évian.",
+      "body": "L’itinéraire de Krim Belkacem oblige à relier la guerre dans les montagnes et la diplomatie autour d’une table. Responsable historique de la lutte en Kabylie, il conduit la délégation algérienne dans les négociations d’Évian.",
+      "simple": [
+        "Krim Belkacem est l’un des dirigeants historiques du FLN et un responsable de l’insurrection en Kabylie.",
+        "Il mène la délégation algérienne aux négociations qui aboutissent aux accords d’Évian du 18 mars 1962.",
+        "L’accord diplomatique, le cessez-le-feu et l’indépendance sont des étapes distinctes. Son parcours après 1962 et son assassinat en 1970 appartiennent aussi à son histoire."
+      ],
+      "sections": [
+        {
+          "heading": "La Kabylie et les réseaux du maquis",
+          "body": "Le maquis repose sur des connaissances du terrain, mais aussi sur les ressources des habitants. Hébergement, alimentation, soins et transmission d’informations permettent aux unités de durer. Le relief ne constitue donc pas une explication suffisante de la résistance.\n\nKrim Belkacem s’inscrit dans cette histoire d’organisation. Son rôle de dirigeant doit être mis en relation avec les autres responsables, les militants locaux et les transformations du FLN pendant le conflit.",
+          "source_ids": [
+            "krim"
+          ]
+        },
+        {
+          "heading": "Négocier à Évian",
+          "body": "Les pourparlers entre représentants français et algériens ne commencent pas le jour de l’accord. L’ECPAD documente les négociations ouvertes à Évian dès mai 1961 avec les délégations conduites par Louis Joxe et Krim Belkacem. Les discussions portent sur les conditions de la sortie du conflit et l’organisation de la transition.\n\nLes accords sont conclus le 18 mars 1962 ; le cessez-le-feu intervient le lendemain. Ces dates ne signifient pas que toutes les violences s’arrêtent immédiatement. Une négociation peut modifier le cadre politique sans supprimer sur-le-champ les risques vécus par les populations.",
+          "source_ids": [
+            "evian"
+          ]
+        },
+        {
+          "heading": "Après la guerre, un autre conflit politique",
+          "body": "La biographie de Krim ne s’achève pas au moment où il représente la délégation algérienne. Les rapports de force de l’indépendance, l’opposition au pouvoir et sa mort violente en 1970 prolongent son itinéraire.\n\nIl faut éviter une histoire construite uniquement à partir de la fonction la plus célèbre d’un individu. La comparaison entre le dirigeant de guerre, le négociateur et l’opposant permet de voir des transformations politiques, sans supposer une trajectoire forcément linéaire.",
+          "source_ids": [
+            "krim"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Krim Belkacem : notice et bibliographie",
+          "publisher": "Wikipédia, source secondaire collective",
+          "url": "https://fr.wikipedia.org/wiki/Krim_Belkacem",
+          "id": "krim"
+        },
+        {
+          "title": "Évian, le temps des négociations",
+          "publisher": "ECPAD",
+          "url": "https://www.ecpad.fr/nos-realisations/evian-le-temps-des-negociations/",
+          "id": "evian"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [
+        "Mohammed Harbi, Le FLN : mirage et réalité, 1980."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "krim-belkacem"
+      ]
+    },
+    {
+      "id": "hassiba-ben-bouali",
+      "title": "Hassiba Ben Bouali : une jeune femme dans la clandestinité",
+      "domain": "people",
+      "category": "history",
+      "period": "1938–1957",
+      "sortYear": 1957,
+      "deep": true,
+      "photo": "hassiba-ben-bouali",
+      "photo_context": false,
+      "wilayas": [
+        "02",
+        "16"
+      ],
+      "lead": "À travers Hassiba Ben Bouali, l’histoire de la bataille d’Alger devient aussi celle des jeunes femmes qui participent aux réseaux clandestins. Sa dernière lettre ouvre une autre perspective que celle d’un portrait commémoratif : celle des liens familiaux maintenus au milieu de la guerre.",
+      "body": "À travers Hassiba Ben Bouali, l’histoire de la bataille d’Alger devient aussi celle des jeunes femmes qui participent aux réseaux clandestins. Sa dernière lettre ouvre une autre perspective que celle d’un portrait commémoratif : celle des liens familiaux maintenus au milieu de la guerre.",
+      "simple": [
+        "Hassiba Ben Bouali participe aux réseaux indépendantistes d’Alger.",
+        "Elle meurt en octobre 1957 dans l’explosion de la cache de la Casbah où se trouvent aussi Ali la Pointe, Mahmoud Bouhamidi et le jeune Omar Yacef.",
+        "Sa correspondance aide à étudier son expérience. Les femmes de la guerre exercent des fonctions multiples ; elles ne forment pas un groupe uniforme."
+      ],
+      "sections": [
+        {
+          "heading": "Une histoire des femmes au pluriel",
+          "body": "L’engagement féminin prend des formes diverses : combat, transport, soins, hébergement, renseignement, mobilisation et ravitaillement. Certaines femmes sont reconnues après la guerre ; d’autres restent peu présentes dans les récits. L’icône d’une jeune militante ne doit pas remplacer cette diversité.\n\nLa clandestinité impose des risques et des contraintes qui touchent aussi les relations familiales. Étudier une biographie féminine consiste donc à suivre une personne précise et à interroger les conditions sociales de son action, sans lui attribuer l’expérience de toutes les Algériennes.",
+          "source_ids": [
+            "hassibaLetter"
+          ]
+        },
+        {
+          "heading": "Une lettre comme document",
+          "body": "Une lettre de septembre 1957 adressée à ses parents a été publiée et transcrite en braille, selon la dépêche rapportée par L’Expression. Ce document permet d’entrer dans une parole adressée à des proches, différente d’un communiqué ou d’une déclaration publique.\n\nPour analyser une correspondance, on cherche la date, le destinataire, le contexte et l’histoire de sa conservation. Il faut aussi vérifier si le texte consulté est l’original, une transcription ou une traduction. BILADI ne transforme pas une paraphrase en citation authentique.",
+          "source_ids": [
+            "hassibaLetter"
+          ]
+        },
+        {
+          "heading": "La Casbah en octobre 1957",
+          "body": "Hassiba se trouve dans une cache de la Casbah avec Ali la Pointe, Mahmoud Bouhamidi et Omar Yacef. La destruction de l’immeuble entraîne leur mort. Les dates précises de l’opération varient selon les récits ; le mois et l’année sont retenus ici.\n\nLa maison est un espace domestique devenu lieu de guerre. Ce croisement oblige à évoquer les habitants, le tissu urbain et les destructions, au lieu de réduire la scène à une confrontation abstraite entre deux camps.",
+          "source_ids": [
+            "aliPointe"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "La dernière lettre de Hassiba Ben Bouali à ses parents",
+          "publisher": "L’Expression, dépêche APS, 2014",
+          "url": "https://www.lexpression.dz/nationale/la-derniere-lettre-de-la-chahida-hassiba-ben-bouali-a-ses-parents-201633",
+          "id": "hassibaLetter"
+        },
+        {
+          "title": "Ali la Pointe : notice et références",
+          "publisher": "Wikipédia, source secondaire collective",
+          "url": "https://fr.wikipedia.org/wiki/Ali_la_Pointe",
+          "id": "aliPointe"
+        },
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        },
+        {
+          "id": "uhbc",
+          "publisher": "Université Hassiba Benbouali de Chlef",
+          "title": "Guide étudiant : biographie de Hassiba Benbouali",
+          "url": "https://www.univ-chlef.dz/uhbc/doc/guide-etudiant-fr.pdf"
+        }
+      ],
+      "caution": "Les publications donnent plusieurs dates d’octobre 1957 pour l’explosion. Cette notice évite une précision trompeuse tant que les documents n’ont pas été confrontés.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "hassiba-ben-bouali"
+      ]
+    },
+    {
+      "id": "zighoud-youcef",
+      "title": "Zighoud Youcef et le tournant du Nord-Constantinois",
+      "domain": "people",
+      "category": "history",
+      "period": "1921–1956",
+      "sortYear": 1955,
+      "deep": true,
+      "photo": "zighoud-youcef",
+      "photo_context": false,
+      "wilayas": [
+        "25",
+        "21"
+      ],
+      "lead": "Le nom de Zighoud Youcef renvoie aux offensives du 20 août 1955. Comprendre ce tournant exige de tenir ensemble stratégie insurrectionnelle, mobilisation locale, violences contre des civils et répression coloniale.",
+      "body": "Le nom de Zighoud Youcef renvoie aux offensives du 20 août 1955. Comprendre ce tournant exige de tenir ensemble stratégie insurrectionnelle, mobilisation locale, violences contre des civils et répression coloniale.",
+      "simple": [
+        "Zighoud Youcef succède à Didouche Mourad à la tête du Nord-Constantinois.",
+        "Il organise les offensives du 20 août 1955, qui constituent un tournant de la guerre.",
+        "Il participe au congrès de la Soummam et meurt en septembre 1956. Les victimes civiles et la répression font partie de l’analyse de 1955."
+      ],
+      "sections": [
+        {
+          "heading": "Une succession dans une insurrection fragile",
+          "body": "Après la mort de Didouche Mourad en janvier 1955, Zighoud Youcef prend la direction de la zone. Les premiers mois de l’insurrection sont marqués par l’insuffisance des moyens et la nécessité d’étendre la mobilisation.\n\nLa stratégie d’un responsable régional répond à une situation particulière. Les décisions locales s’inscrivent dans la dynamique du conflit national, mais ne peuvent être expliquées uniquement par un récit global du FLN.",
+          "source_ids": [
+            "martyrs"
+          ]
+        },
+        {
+          "heading": "Le 20 août 1955 : dépasser le récit d’un seul camp",
+          "body": "Les offensives du Nord-Constantinois cherchent à élargir l’insurrection. Des civils européens sont tués ; la répression française frappe massivement des Algériens. L’événement transforme la guerre et durcit les antagonismes.\n\nUn dossier historique doit distinguer les opérations, les violences visant des non-combattants et les représailles. Les décomptes exigent des sources et des périmètres explicites : lieu, période, catégorie de victimes. L’absence ici d’un total unique ne signifie pas l’effacement des morts, mais le refus d’additionner des évaluations incompatibles.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "De 1955 à la Soummam",
+          "body": "Zighoud Youcef participe au congrès de la Soummam en août 1956 et meurt le mois suivant. Entre les deux 20 août, l’insurrection passe d’un tournant régional à une tentative de structuration nationale.\n\nPour lire cette période, comparez les fonctions d’un congrès, d’une offensive et d’un hommage. Le premier fixe une organisation, la deuxième agit sur le rapport de force, le troisième construit une mémoire. Les trois ne fournissent pas le même type de preuve.",
+          "source_ids": [
+            "martyrs"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Les Martyrs de la Révolution",
+          "publisher": "Algérie Poste",
+          "url": "https://www.poste.dz/philately/s/1377",
+          "id": "martyrs"
+        },
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "zighoud-youcef"
+      ]
+    },
+    {
+      "id": "amirouche",
+      "title": "Amirouche : le maquis, ses épreuves et ses fractures",
+      "domain": "people",
+      "category": "history",
+      "period": "1926–1959",
+      "sortYear": 1959,
+      "deep": true,
+      "photo": "amirouche",
+      "photo_context": false,
+      "wilayas": [
+        "15",
+        "28",
+        "68"
+      ],
+      "lead": "Le colonel Amirouche occupe une place majeure dans la mémoire du maquis kabyle. Son histoire implique aussi les épreuves de l’ALN, la guerre du renseignement et les purges internes. Une biographie exigeante ne peut retenir seulement le courage au combat.",
+      "body": "Le colonel Amirouche occupe une place majeure dans la mémoire du maquis kabyle. Son histoire implique aussi les épreuves de l’ALN, la guerre du renseignement et les purges internes. Une biographie exigeante ne peut retenir seulement le courage au combat.",
+      "simple": [
+        "Amirouche Aït Hamouda est un chef de l’ALN dans la Wilaya III historique.",
+        "Il meurt au combat avec Si El Houès le 28 mars 1959.",
+        "L’étude de son commandement doit aussi aborder les purges et la suspicion au sein du maquis, avec des sources critiques et sans chiffres non vérifiés."
+      ],
+      "sections": [
+        {
+          "heading": "Commandement et vie du maquis",
+          "body": "Un chef de maquis doit assurer le fonctionnement de ses unités, leurs déplacements, leur ravitaillement et leurs relations avec la population. Le rôle d’Amirouche se comprend dans cet ensemble de responsabilités plutôt que dans la seule succession de combats.\n\nLes montagnes offrent des possibilités de refuge, mais elles n’isolent pas les combattants de la société. L’histoire du maquis est aussi celle des villages, des familles et des circulations entre ville, campagne et extérieur.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "La suspicion et les purges",
+          "body": "Les travaux historiques analysent les intoxications, les soupçons de trahison et les purges dans l’ALN. Gilbert Meynier étudie ces violences internes dans un article consacré aux années 1958–1961. Cet angle montre que la lutte contre un pouvoir colonial n’empêche pas des crimes au sein d’un mouvement de libération.\n\nIl est essentiel de distinguer les archives contemporaines, les témoignages après la guerre et les évaluations reconstruites. Les chiffres cités dans les publications ne doivent pas être utilisés sans examiner leur origine. BILADI renvoie au travail historique sans reproduire un bilan numérique insuffisamment contextualisé.",
+          "source_ids": [
+            "purges"
+          ]
+        },
+        {
+          "heading": "Une mort en 1959, une mémoire durable",
+          "body": "Amirouche et Si El Houès meurent au combat le 28 mars 1959. Les cérémonies organisées aujourd’hui documentent la place de leur mémoire dans les institutions et dans les régions. Elles constituent une source sur la commémoration, à distinguer d’un dossier militaire contemporain.\n\nUne biographie peut reconnaître le rôle dans la lutte indépendantiste et examiner les violences internes. Ces dimensions appartiennent à une même histoire ; les retrancher empêcherait de comprendre les dilemmes et les fractures du mouvement.",
+          "source_ids": [
+            "amirouche"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Commémoration des colonels Amirouche et Si El Houès, 28 mars 2026",
+          "publisher": "Algérie Presse Service",
+          "url": "https://www.aps.dz/fr/algerie/societe/mnanrw2x-commemoration-de-la-mort-en-martyrs-des-colonels-amirouche-et-si-el-houes",
+          "id": "amirouche"
+        },
+        {
+          "title": "Complots et purges dans l’armée de libération algérienne (1958–1961)",
+          "publisher": "Gilbert Meynier, Vingtième Siècle, 1998 / Persée",
+          "url": "https://www.persee.fr/doc/xxs_0294-1759_1998_num_59_1_3775",
+          "id": "purges"
+        },
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [
+        "Gilbert Meynier, « Complots et purges dans l’armée de libération algérienne (1958–1961) », Vingtième Siècle, no 59, 1998."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "amirouche"
+      ]
+    },
+    {
+      "id": "djamila-bouhired",
+      "title": "Djamila Bouhired : un procès, une mobilisation mondiale",
+      "domain": "people",
+      "category": "history",
+      "period": "Guerre d’indépendance",
+      "sortYear": 1957,
+      "deep": true,
+      "photo": "djamila-bouhired",
+      "photo_context": false,
+      "wilayas": [
+        "16"
+      ],
+      "lead": "Djamila Bouhired est devenue un visage international de la lutte algérienne. Son histoire fait comprendre comment un procès et les dénonciations de la torture peuvent dépasser les frontières et transformer un rapport de force politique.",
+      "body": "Djamila Bouhired est devenue un visage international de la lutte algérienne. Son histoire fait comprendre comment un procès et les dénonciations de la torture peuvent dépasser les frontières et transformer un rapport de force politique.",
+      "simple": [
+        "Djamila Bouhired participe à la lutte indépendantiste dans les réseaux d’Alger.",
+        "Son procès et la campagne contre sa condamnation prennent une dimension internationale.",
+        "Elle est une personne avec un parcours propre, pas un personnage interchangeable avec Djamila Boupacha. Les deux noms renvoient à des femmes différentes."
+      ],
+      "sections": [
+        {
+          "heading": "Le réseau urbain et l’arrestation",
+          "body": "La lutte à Alger nécessite des agents de liaison, des caches et des structures clandestines. Djamila Bouhired prend part à cet univers où le secret protège les réseaux mais expose les personnes arrêtées à une répression intense.\n\nSon histoire appartient aussi à celle des violences contre les civils. Documenter les actes de la lutte indépendantiste et la torture pratiquée par les forces françaises exige des catégories précises, sans justifier une violence par une autre.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "Un procès au-delà de la salle d’audience",
+          "body": "La condamnation de Bouhired et les dénonciations des traitements subis suscitent une campagne internationale. Les avocats, journalistes et comités de soutien contribuent à faire d’un dossier judiciaire une question diplomatique et morale.\n\nCette circulation montre comment se forme une opinion internationale : un récit est traduit, diffusé et repris dans différents pays. Pour l’historien, il faut distinguer les faits judiciaires, la stratégie de défense et la construction d’une icône politique.",
+          "source_ids": [
+            "crasc"
+          ]
+        },
+        {
+          "heading": "Une personne derrière le symbole",
+          "body": "Les archives et les témoignages ne doivent pas réduire Djamila Bouhired à un seul portrait. La mémoire publique de son engagement évolue après l’indépendance. Les rencontres et hommages contemporains attestent de cette place, sans fournir à eux seuls tous les détails de sa biographie.\n\nLa confusion fréquente avec Djamila Boupacha rappelle l’importance des identifiants et de la vérification : même époque, même prénom et dénonciation de la torture ne signifient pas même personne.",
+          "source_ids": [
+            "bouhired"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        },
+        {
+          "title": "Le président de la République reçoit Djamila Bouhired",
+          "publisher": "Algérie Presse Service",
+          "url": "https://www.aps.dz/fr/presidence-news/mgtg6ujr-le-president-de-la-republique-recoit-la-moudjahida-djamila-bouhired",
+          "id": "bouhired"
+        }
+      ],
+      "caution": "Les hommages contemporains cités ici documentent la mémoire de Bouhired ; les détails judiciaires doivent être approfondis par les dossiers du procès et les travaux historiques.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "djamila-bouhired"
+      ]
+    },
+    {
+      "id": "ali-la-pointe",
+      "title": "Ali la Pointe : une trajectoire dans la bataille d’Alger",
+      "domain": "people",
+      "category": "history",
+      "period": "1930–1957",
+      "sortYear": 1957,
+      "deep": true,
+      "photo": "ali-la-pointe",
+      "photo_context": false,
+      "wilayas": [
+        "42",
+        "16"
+      ],
+      "lead": "Ali la Pointe est indissociable, dans l’imaginaire collectif, de la Casbah et du film de Gillo Pontecorvo. Le cinéma a donné une puissance mondiale à cette histoire. Il faut néanmoins distinguer le personnage filmé de l’homme et de ses réseaux.",
+      "body": "Ali la Pointe est indissociable, dans l’imaginaire collectif, de la Casbah et du film de Gillo Pontecorvo. Le cinéma a donné une puissance mondiale à cette histoire. Il faut néanmoins distinguer le personnage filmé de l’homme et de ses réseaux.",
+      "simple": [
+        "Ali Ammar, dit Ali la Pointe, rejoint les réseaux du FLN à Alger.",
+        "Il meurt en octobre 1957 dans la destruction d’une cache de la Casbah, avec Hassiba Ben Bouali, Mahmoud Bouhamidi et Omar Yacef.",
+        "Le film La Bataille d’Alger est une œuvre de cinéma, pas un enregistrement des événements de 1957."
+      ],
+      "sections": [
+        {
+          "heading": "Une entrée dans l’histoire sociale d’Alger",
+          "body": "La trajectoire d’Ali Ammar invite à examiner les milieux populaires, la marginalisation et les changements d’engagement pendant la guerre. Les réseaux du FLN rassemblent des parcours différents ; aucun modèle unique ne résume la manière dont les individus rejoignent la clandestinité.\n\nUne biographie doit contextualiser ces parcours sans faire du passé social d’un individu une explication automatique de ses actes.",
+          "source_ids": [
+            "aliPointe"
+          ]
+        },
+        {
+          "heading": "La cache et ses occupants",
+          "body": "En octobre 1957, la destruction de la cache de la Casbah provoque la mort d’Ali la Pointe, de Hassiba Ben Bouali, de Mahmoud Bouhamidi et du jeune Omar Yacef. L’événement rappelle que les réseaux urbains s’installent au milieu d’espaces habités.\n\nLa lecture historique doit poser plusieurs questions : comment le lieu a-t-il été identifié, qui décide de l’opération et quels habitants sont exposés ? Nommer les personnes présentes restitue aussi une dimension collective souvent effacée par le seul nom du militant le plus connu.",
+          "source_ids": [
+            "aliPointe"
+          ]
+        },
+        {
+          "heading": "Le cinéma et la mémoire",
+          "body": "La Bataille d’Alger, réalisé par Gillo Pontecorvo, reconstruit le conflit urbain dans une forme visuelle qui peut donner l’impression d’images d’actualité. Cette esthétique explique une part de sa force, mais elle ne transforme pas les séquences en archives de 1957.\n\nComparer film et documents historiques est un exercice utile : repérer les personnages composites, les condensations de temps et les choix de point de vue aide à apprécier l’œuvre tout en maintenant la distinction entre récit artistique et preuve documentaire.",
+          "source_ids": [
+            "crasc"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Ali la Pointe : notice et références",
+          "publisher": "Wikipédia, source secondaire collective",
+          "url": "https://fr.wikipedia.org/wiki/Ali_la_Pointe",
+          "id": "aliPointe"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        },
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        }
+      ],
+      "caution": "Les photographies tirées d’un film doivent être identifiées comme telles. BILADI ne les présente pas comme des scènes authentiques de la guerre.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "ali-la-pointe"
+      ]
+    },
+    {
+      "id": "assia-djebar",
+      "title": "Assia Djebar : écouter les voix, écrire l’histoire",
+      "domain": "people",
+      "category": "history",
+      "period": "1936–2015",
+      "sortYear": 1985,
+      "deep": true,
+      "photo": "cherchell",
+      "photo_context": true,
+      "wilayas": [
+        "42"
+      ],
+      "lead": "Dans l’œuvre d’Assia Djebar, raconter l’Algérie implique d’écouter des voix que l’histoire dominante a souvent laissées hors du récit. Romans, essais et cinéma interrogent la langue française, les mémoires de la conquête et la présence des femmes dans l’espace public.",
+      "body": "Dans l’œuvre d’Assia Djebar, raconter l’Algérie implique d’écouter des voix que l’histoire dominante a souvent laissées hors du récit. Romans, essais et cinéma interrogent la langue française, les mémoires de la conquête et la présence des femmes dans l’espace public.",
+      "simple": [
+        "Assia Djebar est le nom d’écrivaine de Fatma-Zohra Imalayène. Son œuvre relie littérature, histoire et cinéma.",
+        "Femmes d’Alger dans leur appartement et L’Amour, la fantasia sont deux portes d’entrée majeures dans son travail.",
+        "Elle est élue à l’Académie française en 2005. Lire son œuvre demande de distinguer les archives citées, les voix racontées et la construction littéraire."
+      ],
+      "sections": [
+        {
+          "heading": "La langue comme expérience historique",
+          "body": "Écrire en français dans l’Algérie marquée par la colonisation engage une relation complexe à la langue. Une langue peut être acquise à l’école coloniale et devenir en même temps un espace de création, d’appropriation et de contestation. Chez Djebar, cette tension n’est pas un simple choix entre deux appartenances.\n\nSon écriture fait entendre la proximité de voix et de langues diverses. Il est plus fécond d’observer les passages, les silences et les traductions que d’assigner l’autrice à une identité linguistique unique. Le lecteur peut chercher ce qui est raconté dans une langue et ce qui demeure difficile à y transmettre.",
+          "source_ids": [
+            "djebar"
+          ]
+        },
+        {
+          "heading": "Entrer par deux livres",
+          "body": "Femmes d’Alger dans leur appartement propose une entrée dans l’univers féminin, l’enfermement, les conversations et la mémoire. Son titre dialogue avec une tradition picturale et avec les regards portés sur les femmes d’Alger. L’Amour, la fantasia rapproche histoire de la conquête, autobiographie et voix féminines.\n\nDans un premier parcours de lecture, repérez qui parle et depuis quelle époque. Le passage d’un document colonial à une voix de femme ne produit pas simplement une succession d’informations : il modifie la perspective du récit. Les blancs et les ruptures deviennent une manière d’interroger les limites de l’archive.",
+          "source_ids": [
+            "djebar"
+          ]
+        },
+        {
+          "heading": "Le cinéma, une autre manière d’écouter",
+          "body": "Djebar réalise notamment La Nouba des femmes du mont Chenoua. L’image, la voix et la musique permettent d’explorer autrement les mémoires des femmes et les paysages. Le cinéma ne doit pas être traité comme une parenthèse dans une carrière de romancière : il élargit les moyens de raconter.\n\nUn entretien filmé enregistre une parole située. Le montage la relie à d’autres voix et construit une œuvre. Observer cette différence aide à comprendre à la fois la valeur documentaire et les choix artistiques d’un film.",
+          "source_ids": [
+            "djebar"
+          ]
+        },
+        {
+          "heading": "Une reconnaissance qui ne résume pas l’œuvre",
+          "body": "L’élection à l’Académie française en 2005 constitue un moment de reconnaissance institutionnelle. Elle ne doit pas devenir la mesure unique de l’importance d’une écrivaine. Celle-ci se lit aussi dans les formes inventées, les questions posées et les lecteurs touchés.\n\nPour poursuivre, comparez la place de l’histoire chez Djebar, Kateb Yacine et Mohammed Dib. Il ne s’agit pas de rechercher une voix algérienne uniforme, mais de découvrir des manières différentes de faire exister un pays et ses mémoires dans la littérature.",
+          "source_ids": [
+            "djebar"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Assia Djebar",
+          "publisher": "Académie française",
+          "url": "https://www.academie-francaise.fr/les-immortels/assia-djebar",
+          "id": "djebar"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [
+        "Assia Djebar, Femmes d’Alger dans leur appartement, 1980.",
+        "Assia Djebar, L’Amour, la fantasia, 1985.",
+        "Assia Djebar, Ces voix qui m’assiègent, 1999."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "cherchell"
+      ]
+    },
+    {
+      "id": "kateb-yacine",
+      "title": "Kateb Yacine : une littérature qui déplace les frontières",
+      "domain": "people",
+      "category": "history",
+      "period": "1929–1989",
+      "sortYear": 1956,
+      "deep": true,
+      "photo": "wilaya-24",
+      "photo_context": true,
+      "wilayas": [
+        "24",
+        "25"
+      ],
+      "lead": "Avec Nedjma, Kateb Yacine transforme la manière de raconter une histoire. Le lecteur avance entre des voix, des retours et des fragments. Cette forme invite à penser les blessures de l’Algérie et la difficulté de construire un récit unique de son passé.",
+      "body": "Avec Nedjma, Kateb Yacine transforme la manière de raconter une histoire. Le lecteur avance entre des voix, des retours et des fragments. Cette forme invite à penser les blessures de l’Algérie et la difficulté de construire un récit unique de son passé.",
+      "simple": [
+        "Nedjma paraît en 1956. Le roman construit une narration fragmentée et plusieurs voix.",
+        "Kateb écrit aussi pour le théâtre, notamment Le Cercle des représailles et Mohamed, prends ta valise.",
+        "Ses œuvres relient création, histoire et engagement. Une œuvre littéraire n’est pas une chronique factuelle : sa forme participe à son sens."
+      ],
+      "sections": [
+        {
+          "heading": "Comment lire Nedjma sans se perdre",
+          "body": "Pour une première lecture, il peut être utile de noter les personnages et les changements de temps. Il n’est pas nécessaire de rétablir immédiatement une chronologie complète : les retours et les répétitions participent à l’expérience du roman.\n\nUne intrigue fragmentée fait sentir que la mémoire ne se transmet pas toujours sous forme de récit continu. Au lieu de demander seulement « que s’est-il passé ? », on peut demander « qui peut raconter, avec quels mots et depuis quelle position ? ». Cette question transforme la lecture en exploration.",
+          "source_ids": [
+            "kateb"
+          ]
+        },
+        {
+          "heading": "Le théâtre et les publics",
+          "body": "Le catalogue de la BnF documente les œuvres théâtrales de Kateb, dont Le Cercle des représailles, L’Homme aux sandales de caoutchouc et Mohamed, prends ta valise. Le théâtre introduit une autre relation au public : voix, corps, rythme et représentation deviennent des moyens de création.\n\nLe passage d’un livre à une scène permet de réfléchir à la circulation des œuvres. Qui peut lire le texte, qui assiste au spectacle, quelles langues sont entendues ? L’histoire culturelle d’un pays se joue aussi dans ces conditions d’accès.",
+          "source_ids": [
+            "kateb"
+          ]
+        },
+        {
+          "heading": "Un auteur, plusieurs histoires",
+          "body": "La littérature de Kateb ne se limite pas à illustrer des événements connus. Elle travaille la mémoire, les rapports de domination et la manière dont l’individu s’inscrit dans une histoire collective. Une approche féconde compare les formes plutôt que de réduire les textes à un message politique.\n\nLes rapprochements avec Djebar, Feraoun et Dib ouvrent une bibliothèque plurielle. Chacun permet de comprendre un angle différent : la construction du récit, l’écoute des voix, le quotidien villageois ou les transformations sociales.",
+          "source_ids": [
+            "kateb"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Catalogue des œuvres de Kateb Yacine",
+          "publisher": "Bibliothèque nationale de France",
+          "url": "https://catalogue.bnf.fr/rechercher.do?motRecherche=Kateb+Yacine",
+          "id": "kateb"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [
+        "Kateb Yacine, Nedjma, Seuil, 1956.",
+        "Kateb Yacine, Le Cercle des représailles, Seuil, 1959."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "wilaya-24"
+      ]
+    },
+    {
+      "id": "mouloud-feraoun",
+      "title": "Mouloud Feraoun : le quotidien comme histoire",
+      "domain": "people",
+      "category": "history",
+      "period": "1913–1962",
+      "sortYear": 1962,
+      "deep": true,
+      "photo": "wilaya-15",
+      "photo_context": true,
+      "wilayas": [
+        "15",
+        "16"
+      ],
+      "lead": "Mouloud Feraoun donne au quotidien une profondeur historique. L’école, le village, la pauvreté et les liens familiaux ne sont pas un décor : ils rendent visibles des vies que les récits politiques laissent souvent à l’arrière-plan.",
+      "body": "Mouloud Feraoun donne au quotidien une profondeur historique. L’école, le village, la pauvreté et les liens familiaux ne sont pas un décor : ils rendent visibles des vies que les récits politiques laissent souvent à l’arrière-plan.",
+      "simple": [
+        "Feraoun est un écrivain et un enseignant associé à la Kabylie.",
+        "Le Fils du pauvre et son Journal permettent d’entrer dans des expériences sociales et dans la guerre.",
+        "Il est assassiné par l’OAS le 15 mars 1962 avec cinq collègues des centres sociaux. Le cessez-le-feu intervient quatre jours plus tard."
+      ],
+      "sections": [
+        {
+          "heading": "Lire le village et l’école",
+          "body": "Dans Le Fils du pauvre, la découverte d’une vie passe par les conditions matérielles, les relations familiales et la scolarité. Lire ces détails permet d’approcher les inégalités sans les réduire à une statistique.\n\nLe roman n’est pas un recensement d’un village. Il construit des personnages et une perspective. Sa valeur pour comprendre une société repose sur une lecture attentive à la forme, et sur la comparaison avec d’autres sources lorsque l’on cherche à établir un fait général.",
+          "source_ids": [
+            "feraoun"
+          ]
+        },
+        {
+          "heading": "Un journal pendant la guerre",
+          "body": "Le Journal 1955–1962 est une porte d’entrée dans une expérience située du conflit. La proximité temporelle de l’écriture donne accès aux incertitudes vécues, à ce qui n’était pas encore décidé ni connu.\n\nPour l’utiliser, il faut distinguer ce que l’auteur observe, ce qu’il apprend d’autrui et ce qu’il interprète. Un journal révèle la conscience d’une personne dans un moment historique ; il ne donne pas un point de vue omniscient sur toute la guerre.",
+          "source_ids": [
+            "feraoun"
+          ]
+        },
+        {
+          "heading": "Les centres sociaux et le 15 mars 1962",
+          "body": "Feraoun et cinq de ses collègues sont assassinés par l’OAS à Alger le 15 mars 1962. Le travail des centres sociaux replace cet événement dans une histoire de l’éducation et des initiatives sociales, autant que dans celle de la fin de la guerre.\n\nLa date rappelle que l’approche d’une solution politique n’arrête pas mécaniquement les violences. Suivre les jours de mars 1962 permet de comprendre pourquoi la transition vers l’indépendance ne doit pas être racontée comme une simple bascule instantanée.",
+          "source_ids": [
+            "feraoun"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Mouloud Feraoun, écrivain kabyle assassiné par l’OAS",
+          "publisher": "INA",
+          "url": "https://www.ina.fr/ina-eclaire-actu/video/caf97037087/mouloud-feraoun-ecrivain-kabyle-assassine-par-l-oas",
+          "id": "feraoun"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [
+        "Mouloud Feraoun, Le Fils du pauvre, 1950.",
+        "Mouloud Feraoun, Journal 1955–1962, publié en 1962."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "wilaya-15"
+      ]
+    },
+    {
+      "id": "sahara-vivant",
+      "title": "Le Sahara : un paysage qui a une histoire",
+      "domain": "nature",
+      "category": "culture",
+      "period": "Holocène et présent",
+      "sortYear": -6000,
+      "deep": true,
+      "photo": "tadrart",
+      "photo_context": false,
+      "wilayas": [
+        "56",
+        "33",
+        "01",
+        "49"
+      ],
+      "lead": "Le Sahara d’aujourd’hui ne ressemble pas à celui de toutes les époques. Les traces de lacs, les dépôts sédimentaires et l’art rupestre invitent à imaginer des paysages plus humides. Cette histoire est scientifique : elle s’appuie sur des indices et des modèles, pas sur la nostalgie d’un désert qui aurait toujours été vert.",
+      "body": "Le Sahara d’aujourd’hui ne ressemble pas à celui de toutes les époques. Les traces de lacs, les dépôts sédimentaires et l’art rupestre invitent à imaginer des paysages plus humides. Cette histoire est scientifique : elle s’appuie sur des indices et des modèles, pas sur la nostalgie d’un désert qui aurait toujours été vert.",
+      "simple": [
+        "Le Sahara a connu des périodes plus humides, notamment au début et au milieu de l’Holocène. Leur chronologie varie selon les régions.",
+        "Les chercheurs croisent sédiments, pollens, traces de lacs et simulations climatiques. Une peinture d’animal ne suffit pas à reconstruire un climat précis.",
+        "Les ergs sont des ensembles sableux ; les regs des surfaces caillouteuses ; les hamadas des plateaux rocheux. Le désert n’est pas composé uniquement de dunes."
+      ],
+      "sections": [
+        {
+          "heading": "Le temps des paysages",
+          "body": "Une paroi rocheuse, un lit d’oued et une dune n’ont pas nécessairement le même âge. La roche peut être très ancienne tandis que l’organisation des sables et la circulation de l’eau ont changé plus récemment. Regarder un paysage consiste donc à distinguer plusieurs temporalités superposées.\n\nL’Holocène commence après la dernière période glaciaire. À certaines phases, une mousson renforcée et les interactions entre végétation, sols et eau contribuent à des conditions plus humides en Afrique du Nord. La NASA documente les simulations du Sahara vert et leurs écarts avec les données reconstituées.",
+          "source_ids": [
+            "greenSahara"
+          ]
+        },
+        {
+          "heading": "Comment connaît-on un climat disparu ?",
+          "body": "Les sédiments d’un ancien lac enregistrent des changements de milieu. Les pollens renseignent sur la végétation ; d’autres indicateurs peuvent renseigner sur les conditions hydrologiques. Chaque indice possède des limites de datation, de localisation et d’interprétation.\n\nLes modèles permettent de tester des mécanismes : modifier les conditions orbitales, la végétation ou les précipitations et comparer le résultat aux observations. Un modèle ne devient pas vrai parce qu’il produit une image convaincante. La convergence de plusieurs types de preuves renforce une reconstruction, et les désaccords indiquent ce qu’il reste à comprendre.",
+          "source_ids": [
+            "greenSahara"
+          ]
+        },
+        {
+          "heading": "Lire le sable, la pierre et l’eau",
+          "body": "Un erg est un ensemble de dunes ; un reg est une surface dominée par les cailloux ; une hamada est un plateau rocheux. Ces mots évitent de réduire le Sahara à un océan de sable. Les vallées, falaises et reliefs participent aussi à sa diversité.\n\nL’existence d’un lac ou d’une oasis en milieu aride ne signifie pas une pluie abondante sur place. L’eau peut être liée à des circulations souterraines et à une alimentation distante. Le dossier NASA consacré à un lac algérien montre comment une image satellite ouvre des questions sur l’origine et le renouvellement de l’eau.",
+          "source_ids": [
+            "waterLake"
+          ]
+        },
+        {
+          "heading": "Ce que l’art rupestre apporte — et ce qu’il ne dit pas",
+          "body": "Les représentations d’animaux et de scènes humaines témoignent de mondes sociaux et environnementaux différents. Elles ne constituent pas une photographie exhaustive de la faune ni une mesure de pluie. Leur chronologie doit être étudiée avec les méthodes de l’archéologie.\n\nCroiser les peintures avec les données géologiques évite deux erreurs : transformer une scène en preuve automatique d’un climat, ou lire le désert actuel comme un paysage immobile. Le Tassili devient ainsi un lieu où sciences de la Terre et histoire humaine dialoguent.",
+          "source_ids": [
+            "tassili"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Model Performance in Simulating the Mid-Holocene Green Sahara",
+          "publisher": "NASA Technical Reports Server",
+          "url": "https://ntrs.nasa.gov/citations/20220008711",
+          "id": "greenSahara"
+        },
+        {
+          "title": "Water for a Desert Lake in Algeria",
+          "publisher": "NASA Earth Observatory",
+          "url": "https://science.nasa.gov/earth/earth-observatory/water-for-a-desert-lake-in-algeria-153475/",
+          "id": "waterLake"
+        },
+        {
+          "title": "Tassili n’Ajjer",
+          "publisher": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/179",
+          "id": "tassili"
+        }
+      ],
+      "caution": "",
+      "question": "Sur une photographie du désert, quels éléments ont pu changer en mille ans, et lesquels demandent un temps beaucoup plus long ?",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "tadrart",
+        "djanet",
+        "hoggar",
+        "tassili-art"
+      ]
+    },
+    {
+      "id": "mzab-urbanisme",
+      "title": "Le M’Zab : habiter ensemble dans un milieu aride",
+      "domain": "culture",
+      "category": "culture",
+      "period": "Du XIe siècle à aujourd’hui",
+      "sortYear": 1050,
+      "deep": true,
+      "photo": "ghardaia",
+      "photo_context": false,
+      "wilayas": [
+        "47"
+      ],
+      "lead": "Au M’Zab, une ville ne se comprend pas seulement en regardant ses façades. Les ksour, les palmeraies, les usages de l’eau et les institutions communautaires forment un système. Le patrimoine est une manière d’organiser la vie autant qu’une forme architecturale.",
+      "body": "Au M’Zab, une ville ne se comprend pas seulement en regardant ses façades. Les ksour, les palmeraies, les usages de l’eau et les institutions communautaires forment un système. Le patrimoine est une manière d’organiser la vie autant qu’une forme architecturale.",
+      "simple": [
+        "Le bien inscrit à l’UNESCO comprend cinq ksour : El Atteuf, Bounoura, Beni Isguen, Melika et Ghardaïa.",
+        "L’urbanisme, les maisons et les palmeraies répondent à des contraintes environnementales et sociales.",
+        "Les ksour sont habités. Leur visite implique de respecter les usages et les demandes des habitants ; les conditions d’accès se vérifient localement."
+      ],
+      "sections": [
+        {
+          "heading": "Lire une ville depuis son organisation",
+          "body": "Le regard est souvent attiré par le minaret, les teintes des murs et les volumes compacts. Pour comprendre l’ensemble, observez les relations entre espaces publics, rues et maisons. La ville organise des circulations et des proximités ; elle ne se réduit pas à une collection de bâtiments isolés.\n\nL’UNESCO décrit un ensemble cohérent lié aux communautés ibadites. Le rapprochement entre forme urbaine et organisation sociale constitue une clé de lecture, mais ne signifie pas que toute maison ou tout usage soit resté identique à travers les siècles.",
+          "source_ids": [
+            "mzab"
+          ]
+        },
+        {
+          "heading": "La palmeraie, une partie du système",
+          "body": "Les palmeraies sont liées à l’installation humaine et à l’usage de l’eau. Elles ne sont pas de simples jardins décoratifs situés à côté de la ville. Leur entretien, les pratiques agricoles et les modalités de partage des ressources participent à l’histoire de l’oasis.\n\nPour comprendre ce lien, comparez une vue aérienne et une rue : la première montre des relations spatiales, la seconde des pratiques et des seuils. Aucune ne suffit seule à représenter la vie d’un territoire.",
+          "source_ids": [
+            "mzab"
+          ]
+        },
+        {
+          "heading": "Patrimoine vivant et changements",
+          "body": "Un ensemble inscrit au patrimoine mondial continue d’être habité et transformé. Les besoins contemporains, la pression urbaine et les enjeux environnementaux peuvent modifier les équilibres. La conservation consiste à négocier ces changements, pas à figer une société.\n\nLes règles de photographie et d’accès ne doivent pas être supposées uniformes entre les lieux. Demandez l’accord des personnes, vérifiez les possibilités de visite et évitez de présenter la vie quotidienne comme un spectacle disponible sans limite.",
+          "source_ids": [
+            "mzab"
+          ]
+        },
+        {
+          "heading": "Un regard à transmettre",
+          "body": "Un parcours utile peut rapprocher le M’Zab des foggaras du Touat et du Tidikelt. Les deux dossiers montrent des réponses différentes aux contraintes de l’eau. Il ne s’agit pas de les confondre, mais de comparer les manières d’articuler savoirs, infrastructures et institutions.\n\nCette comparaison donne une autre définition de l’architecture : construire signifie aussi organiser l’entretien, l’usage et le partage dans le temps.",
+          "source_ids": [
+            "foggara"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "M’Zab Valley",
+          "publisher": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/188",
+          "id": "mzab"
+        },
+        {
+          "title": "Les savoirs et savoir-faire des mesureurs d’eau des foggaras du Touat-Tidikelt",
+          "publisher": "UNESCO, patrimoine culturel immatériel",
+          "url": "https://ich.unesco.org/fr/USL/les-savoirs-et-savoir-faire-des-mesureurs-d-eau-des-foggaras-ou-aiguadiers-du-touat-tidikelt-01274",
+          "id": "foggara"
+        }
+      ],
+      "caution": "",
+      "question": "Que faut-il observer pour comprendre une ville : ses monuments, ses rues, son eau ou ses règles de vie ?",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "ghardaia"
+      ]
+    },
+    {
+      "id": "foggaras-eau",
+      "title": "Les foggaras : mesurer et partager l’eau",
+      "domain": "nature",
+      "category": "culture",
+      "period": "Patrimoine oasien",
+      "sortYear": 1100,
+      "deep": true,
+      "photo": "timimoun",
+      "photo_context": false,
+      "wilayas": [
+        "01",
+        "49",
+        "52"
+      ],
+      "lead": "Dans une oasis, l’eau ne vaut pas seulement par sa présence. Il faut la capter, la distribuer et maintenir un accord sur son partage. Les savoirs des mesureurs d’eau du Touat-Tidikelt font découvrir cette rencontre entre technique et organisation sociale.",
+      "body": "Dans une oasis, l’eau ne vaut pas seulement par sa présence. Il faut la capter, la distribuer et maintenir un accord sur son partage. Les savoirs des mesureurs d’eau du Touat-Tidikelt font découvrir cette rencontre entre technique et organisation sociale.",
+      "simple": [
+        "Une foggara mobilise un dispositif de captage et de circulation de l’eau par des galeries, entretenu par des communautés.",
+        "Les mesureurs d’eau possèdent des savoirs liés à la distribution et aux droits d’usage. L’UNESCO inscrit ces savoirs sur la Liste de sauvegarde urgente en 2018.",
+        "Protéger une infrastructure sans transmettre les connaissances nécessaires à son fonctionnement ne suffit pas."
+      ],
+      "sections": [
+        {
+          "heading": "De la galerie au partage",
+          "body": "Les foggaras permettent l’acheminement de l’eau dans un environnement aride. La pente et l’entretien du réseau comptent, mais la distribution pose aussi une question de droits et d’organisation. Qui reçoit quelle part, comment la mesure est-elle réalisée, qui entretient les dispositifs ?\n\nCes questions montrent que l’hydraulique n’est pas seulement une affaire de matériaux. La continuité du système dépend de personnes capables d’identifier les passages, de réparer et de transmettre des règles reconnues.",
+          "source_ids": [
+            "foggara"
+          ]
+        },
+        {
+          "heading": "Pourquoi mesurer est un savoir social",
+          "body": "Un volume ou un débit doit être interprété dans un cadre d’usage. Le mesureur ne produit pas simplement un nombre : son travail contribue à rendre la distribution intelligible et acceptable pour la communauté.\n\nComparer ce fonctionnement à un réseau d’eau moderne permet de voir ce que toute infrastructure exige : maintenance, connaissances, règles, arbitrage et confiance. Les techniques diffèrent, mais l’existence d’une conduite ne garantit jamais, à elle seule, un service durable.",
+          "source_ids": [
+            "foggara"
+          ]
+        },
+        {
+          "heading": "Transmettre plutôt que seulement conserver",
+          "body": "L’inscription à la Liste de sauvegarde urgente concerne les savoirs et savoir-faire des mesureurs d’eau. Le danger porte donc aussi sur la transmission : un dispositif matériel peut subsister tandis que les personnes capables de le faire fonctionner deviennent moins nombreuses.\n\nPour le visiteur, cela change le regard. Photographier une galerie ou un répartiteur ne suffit pas à comprendre le patrimoine. Rencontrer les détenteurs de savoirs, quand une médiation locale le permet, révèle le travail vivant derrière l’image.",
+          "source_ids": [
+            "foggara"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Les savoirs et savoir-faire des mesureurs d’eau des foggaras du Touat-Tidikelt",
+          "publisher": "UNESCO, patrimoine culturel immatériel",
+          "url": "https://ich.unesco.org/fr/USL/les-savoirs-et-savoir-faire-des-mesureurs-d-eau-des-foggaras-ou-aiguadiers-du-touat-tidikelt-01274",
+          "id": "foggara"
+        },
+        {
+          "title": "Water for a Desert Lake in Algeria",
+          "publisher": "NASA Earth Observatory",
+          "url": "https://science.nasa.gov/earth/earth-observatory/water-for-a-desert-lake-in-algeria-153475/",
+          "id": "waterLake"
+        }
+      ],
+      "caution": "Les techniques et les situations varient d’une oasis à l’autre. Ce dossier concerne principalement les savoirs du Touat-Tidikelt ; il ne décrit pas chaque système hydraulique algérien.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "timimoun"
+      ]
+    },
+    {
+      "id": "zones-humides",
+      "title": "L’Algérie des lacs, marais et oiseaux migrateurs",
+      "domain": "nature",
+      "category": "culture",
+      "period": "Milieux vivants",
+      "sortYear": 2026,
+      "deep": true,
+      "photo": "wilaya-36",
+      "photo_context": false,
+      "wilayas": [
+        "36",
+        "23",
+        "39"
+      ],
+      "lead": "L’image d’un pays largement désertique peut masquer les zones humides algériennes. Lacs, lagunes, marais et chotts offrent d’autres paysages, avec des régimes d’eau très différents. Leur richesse se découvre en observant les saisons autant que les lieux.",
+      "body": "L’image d’un pays largement désertique peut masquer les zones humides algériennes. Lacs, lagunes, marais et chotts offrent d’autres paysages, avec des régimes d’eau très différents. Leur richesse se découvre en observant les saisons autant que les lieux.",
+      "simple": [
+        "Une zone humide peut être permanente ou saisonnière, douce ou salée. Toutes ne ressemblent pas à un lac.",
+        "Le complexe d’El Kala comprend plusieurs milieux protégés, dont le lac Tonga.",
+        "L’inscription Ramsar reconnaît une importance internationale ; elle ne garantit pas l’absence de menaces ni des conditions de visite uniformes."
+      ],
+      "sections": [
+        {
+          "heading": "Un même mot, plusieurs milieux",
+          "body": "Un marais inondé, une lagune liée à la mer et une dépression salée n’ont pas le même fonctionnement. Pour les comparer, regardez d’où vient l’eau, combien de temps elle reste, comment varie sa salinité et quelles espèces peuvent y vivre.\n\nLa présence d’eau à une saison ne permet pas de conclure à sa disponibilité toute l’année. Une photographie peut masquer cette temporalité. Une visite répétée au même endroit rend visibles les variations et les transformations.",
+          "source_ids": [
+            "ramsar"
+          ]
+        },
+        {
+          "heading": "Le lac Tonga dans le complexe d’El Kala",
+          "body": "Le lac Tonga appartient au réseau de zones humides du nord-est algérien. La fiche Ramsar renseigne sur le site, son milieu et sa reconnaissance internationale. Les marais, boisements et étendues d’eau ne doivent pas être traités comme une surface uniforme.\n\nPour observer sans perturber, privilégiez la distance, évitez les zones de nidification et suivez les consignes locales. Le but d’une sortie naturaliste n’est pas de s’approcher à tout prix, mais de comprendre la relation entre les espèces et leur habitat.",
+          "source_ids": [
+            "ramsarTonga"
+          ]
+        },
+        {
+          "heading": "Protection, eau et usages humains",
+          "body": "Les zones humides peuvent être exposées à la pollution, à la modification des écoulements, aux prélèvements et à l’urbanisation. L’état d’un site ne se déduit pas seulement de son classement. Il doit être documenté dans le temps.\n\nLes inventaires internationaux constituent un point de départ ; les observations locales et les études de suivi apportent des informations complémentaires. Les chiffres de fréquentation ou les horaires d’accès ne sont pas proposés ici faute de source actualisée.",
+          "source_ids": [
+            "ramsar"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Algérie : fiche pays et sites",
+          "publisher": "Convention sur les zones humides",
+          "url": "https://www.ramsar.org/fr/country-profile/algerie",
+          "id": "ramsar"
+        },
+        {
+          "title": "Réserve intégrale du lac Tonga",
+          "publisher": "Ramsar Sites Information Service",
+          "url": "https://rsis.ramsar.org/ris/281",
+          "id": "ramsarTonga"
+        }
+      ],
+      "caution": "",
+      "question": "Un lac plus petit en été est-il forcément dégradé ? Quelles données faut-il pour distinguer cycle saisonnier et changement durable ?",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "wilaya-36"
+      ]
+    },
+    {
+      "id": "timgad-ville",
+      "title": "Timgad : lire une ville dans ses rues",
+      "domain": "history",
+      "category": "history",
+      "period": "Antiquité romaine",
+      "sortYear": 100,
+      "deep": true,
+      "photo": "timgad",
+      "photo_context": false,
+      "wilayas": [
+        "05"
+      ],
+      "lead": "À Timgad, le plan des rues constitue une porte d’entrée dans l’Antiquité. Mais une ville n’est pas uniquement un dessin régulier : elle est faite de circulations, de services, de pratiques et de transformations. Les ruines invitent à reconstituer ces relations.",
+      "body": "À Timgad, le plan des rues constitue une porte d’entrée dans l’Antiquité. Mais une ville n’est pas uniquement un dessin régulier : elle est faite de circulations, de services, de pratiques et de transformations. Les ruines invitent à reconstituer ces relations.",
+      "simple": [
+        "Timgad est fondée sous Trajan en l’an 100. Son plan rend particulièrement lisible l’organisation d’une colonie romaine.",
+        "Les rues et monuments permettent d’examiner la vie civique, les échanges et les pratiques urbaines.",
+        "Le plan initial ne résume pas toute l’histoire du site. Les transformations et les extensions font aussi partie de la ville."
+      ],
+      "sections": [
+        {
+          "heading": "Commencer par les rues",
+          "body": "Le croisement des grandes voies aide à se repérer. Suivez ensuite les relations entre les rues, les espaces de réunion et les monuments. L’intérêt d’un plan n’est pas seulement sa régularité : il rend possibles certains déplacements et rapproche des activités.\n\nLa fondation impériale situe Timgad dans un projet de pouvoir. La ville montre comment l’organisation urbaine participe à l’installation romaine dans la région. Une lecture du site doit toutefois laisser une place aux habitants et aux usages qui transforment un projet initial.",
+          "source_ids": [
+            "timgad"
+          ]
+        },
+        {
+          "heading": "Des bâtiments, des fonctions, des questions",
+          "body": "Un théâtre, des thermes ou un espace civique renseignent sur des pratiques collectives. Pour comprendre un monument, demandez qui pouvait y entrer, dans quel contexte et avec quelles ressources. Une forme monumentale ne dit pas automatiquement que tous les habitants vivaient de la même façon.\n\nLes inscriptions et les objets permettent d’enrichir le regard, mais ils demandent un contexte archéologique. La photographie d’une pierre déplacée ou la traduction isolée d’un texte peuvent donner une impression de certitude trompeuse.",
+          "source_ids": [
+            "timgad"
+          ]
+        },
+        {
+          "heading": "Comparer avec Djémila et Tipasa",
+          "body": "La comparaison entre trois sites est plus instructive qu’une recherche du monument le plus spectaculaire. Timgad rend le plan initial particulièrement lisible ; Djémila permet d’examiner les adaptations au relief ; Tipasa ouvre sur une histoire côtière et plusieurs couches d’occupation.\n\nChaque lieu pose ainsi une question différente. Une bonne visite consiste à suivre ces questions, à lire les éléments conservés et à reconnaître ceux qui nécessitent une reconstitution.",
+          "source_ids": [
+            "djemila"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Timgad",
+          "publisher": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/194",
+          "id": "timgad"
+        },
+        {
+          "title": "Djémila",
+          "publisher": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/191",
+          "id": "djemila"
+        },
+        {
+          "title": "Tipasa",
+          "publisher": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/193",
+          "id": "tipasa"
+        }
+      ],
+      "caution": "",
+      "question": "Une rue antique nous renseigne-t-elle davantage sur un projet impérial ou sur ceux qui l’ont parcourue ?",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "timgad"
+      ]
+    },
+    {
+      "id": "alger-1957",
+      "title": "Alger en 1957 : réseaux, civils et répression",
+      "domain": "history",
+      "category": "history",
+      "period": "Guerre d’indépendance",
+      "sortYear": 1957,
+      "deep": true,
+      "photo": "casbah",
+      "photo_context": true,
+      "wilayas": [
+        "16"
+      ],
+      "lead": "La « bataille d’Alger » est un nom connu, mais il peut faire imaginer une bataille classique. Le conflit urbain mêle attentats, clandestinité, grève, pouvoirs de police confiés à l’armée, arrestations et torture. Les habitants vivent au croisement de ces dispositifs.",
+      "body": "La « bataille d’Alger » est un nom connu, mais il peut faire imaginer une bataille classique. Le conflit urbain mêle attentats, clandestinité, grève, pouvoirs de police confiés à l’armée, arrestations et torture. Les habitants vivent au croisement de ces dispositifs.",
+      "simple": [
+        "La lutte urbaine à Alger implique des réseaux du FLN et une répression militaire française.",
+        "La torture, les disparitions et les exécutions extrajudiciaires doivent être étudiées comme des pratiques et des systèmes, pas seulement comme des excès isolés.",
+        "Les attentats contre des civils appartiennent aussi à l’histoire. La victoire opérationnelle contre un réseau ne résume pas l’issue politique de la guerre."
+      ],
+      "sections": [
+        {
+          "heading": "Une ville habitée devient un terrain de guerre",
+          "body": "Les rues, les immeubles et les relations de voisinage participent aux opérations clandestines. Un message circule, une personne est hébergée, un contrôle ferme un passage. L’espace urbain n’est pas un simple décor : il influe sur les réseaux et sur leur vulnérabilité.\n\nLes civils ne constituent pas une masse uniforme. Certains soutiennent la lutte, d’autres subissent des pressions, beaucoup cherchent à protéger leur famille. Les expériences varient selon les quartiers, les engagements et les violences rencontrées.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "Pouvoirs de police et violence d’État",
+          "body": "En 1957, la délégation de pouvoirs de police à l’armée facilite un dispositif de répression. Le communiqué présidentiel français de 2024 replace l’assassinat de Ben M’hidi dans ce contexte, en rapprochant la question des responsabilités de celle des droits.\n\nPour analyser une pratique comme la torture, il faut examiner les autorisations, les lieux, les chaînes de commandement et les mécanismes de dissimulation. L’existence de responsabilités individuelles ne dispense pas d’étudier le fonctionnement institutionnel.",
+          "source_ids": [
+            "benmhidi"
+          ]
+        },
+        {
+          "heading": "Attentats et victimes civiles",
+          "body": "Les attentats du FLN contre des lieux fréquentés par des civils sont une dimension du conflit. Les mentionner ne justifie pas la torture ni les exécutions ; étudier la violence d’État ne les efface pas. L’analyse historique demande de nommer les actes et leurs victimes sans assimiler des situations juridiquement et politiquement différentes.\n\nLes totaux doivent être contextualisés : une période, un territoire et une catégorie de victimes. Des nombres issus de périmètres différents ne doivent pas être additionnés pour produire un bilan apparemment précis.",
+          "source_ids": [
+            "war"
+          ]
+        },
+        {
+          "heading": "Pourquoi le cinéma ne suffit pas",
+          "body": "La Bataille d’Alger a joué un rôle important dans la connaissance internationale du conflit. Son langage visuel donne une impression documentaire, mais il repose sur une reconstruction artistique.\n\nUne lecture exigeante compare le film avec les archives, les témoignages et les recherches historiques. Elle distingue les scènes documentées, les condensations narratives et les choix de point de vue. Cette méthode permet de prendre au sérieux le cinéma sans en faire la seule source sur la guerre.",
+          "source_ids": [
+            "crasc"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "L’armée française et l’armée de libération nationale",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-armee-francaise-et-l-armee-de-liberation-nationale.html",
+          "id": "war"
+        },
+        {
+          "title": "Reconnaissance de l’assassinat de Larbi Ben M’hidi, 1 novembre 2024",
+          "publisher": "Présidence de la République française",
+          "url": "https://www.elysee.fr/emmanuel-macron/2024/11/01/commemoration-du-1er-novembre-2024-70eme-anniversaire-du-declenchement-de-linsurrection-du-1er-novembre-1954",
+          "id": "benmhidi"
+        },
+        {
+          "title": "Dictionnaire du passé de l’Algérie : liste des notices",
+          "publisher": "CRASC",
+          "url": "https://pnr.crasc.dz/pdfs/liste%20des%20notices.pdf",
+          "id": "crasc"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [
+        "Sylvie Thénault, Histoire de la guerre d’indépendance algérienne, Flammarion, 2005.",
+        "Raphaëlle Branche, La Torture et l’armée pendant la guerre d’Algérie, Gallimard, 2001."
+      ],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "casbah",
+        "ben-mhidi",
+        "didouche-mourad",
+        "soummam-dirigeants",
+        "hassiba-ben-bouali",
+        "ali-la-pointe"
+      ]
+    },
+    {
+      "id": "colonisation-societe",
+      "title": "La colonisation : comprendre les structures, pas seulement les dates",
+      "domain": "history",
+      "category": "history",
+      "period": "1830–1962",
+      "sortYear": 1830,
+      "deep": true,
+      "photo": "algiers",
+      "photo_context": true,
+      "wilayas": [
+        "16",
+        "25",
+        "31"
+      ],
+      "lead": "Une histoire de la colonisation ne peut se limiter à 1830, puis sauter directement à 1954. Entre les deux, la conquête, la terre, le droit, l’école et l’économie transforment la société. Les résistances changent elles aussi de formes et d’échelles.",
+      "body": "Une histoire de la colonisation ne peut se limiter à 1830, puis sauter directement à 1954. Entre les deux, la conquête, la terre, le droit, l’école et l’économie transforment la société. Les résistances changent elles aussi de formes et d’échelles.",
+      "simple": [
+        "L’invasion de 1830 ouvre une conquête qui se poursuit dans le temps et rencontre des résistances multiples.",
+        "Le régime colonial organise des inégalités politiques, juridiques et foncières. Il ne correspond pas seulement à une présence militaire.",
+        "Les Algériens ne sont pas passifs : résistances, associations, pratiques culturelles et mobilisations politiques se transforment au fil de la période."
+      ],
+      "sections": [
+        {
+          "heading": "Conquête et colonisation : deux notions liées",
+          "body": "La conquête désigne des opérations de prise de contrôle, avec des guerres et des résistances. La colonisation implique aussi des institutions, une installation de population, des transformations économiques et des rapports durables de domination. Les deux processus se chevauchent mais ne sont pas identiques.\n\nLire la résistance de l’émir Abd el-Kader, celle d’Ahmed Bey ou les insurrections du XIXe siècle demande de replacer chaque action dans son territoire et son moment. Une liste de héros ne permet pas, à elle seule, de comprendre les objectifs, les moyens et les alliances.",
+          "source_ids": [
+            "conquest"
+          ]
+        },
+        {
+          "heading": "La terre comme question centrale",
+          "body": "Le foncier touche l’agriculture, les ressources familiales et les possibilités de déplacement. Les changements de propriété et d’usage modifient les conditions de vie, les relations sociales et la capacité de résister. La dépossession ne doit donc pas être envisagée uniquement comme une carte modifiée.\n\nPour étudier une région, il faudrait comparer des données sur les terres, les productions et les populations, en tenant compte des catégories administratives de l’époque. Les chiffres coloniaux constituent des sources, mais leurs classifications et objectifs doivent être interrogés.",
+          "source_ids": [
+            "colonial"
+          ]
+        },
+        {
+          "heading": "Droits, école et inégalités",
+          "body": "Les statuts juridiques, l’accès à la citoyenneté et les institutions produisent des différenciations. Une infrastructure ou une école ne peut être évaluée seulement par sa présence : il faut demander qui y accède, dans quelles conditions et avec quels effets.\n\nCette méthode évite un inventaire qui compterait des réalisations matérielles tout en ignorant les rapports de pouvoir. Elle aide aussi à comprendre comment certains acteurs s’approprient les savoirs et les outils disponibles pour les retourner contre la domination.",
+          "source_ids": [
+            "colonial"
+          ]
+        },
+        {
+          "heading": "Des résistances à la mobilisation nationale",
+          "body": "Les formes d’action évoluent : insurrections, revendications, associations, presse et partis politiques ne suivent pas une trajectoire uniforme. Les guerres mondiales et les événements de mai 1945 contribuent à transformer les horizons et les mobilisations.\n\nLe FLN naît dans cette histoire, avec ses ruptures et ses héritages. Pour comprendre novembre 1954, il faut donc examiner les années qui le précèdent, les conflits du nationalisme et les expériences vécues dans des régions différentes.",
+          "source_ids": [
+            "worldWars"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "La conquête absolue de l’Algérie",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/la-conquete-absolue-de-l-algerie.html",
+          "id": "conquest"
+        },
+        {
+          "title": "La IIIe République consolide la colonisation et étend sa domination au Sahara",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/la-iiieme-republique-consolide-la-colonisation-et-etend-sa-domination-au-sahara.html",
+          "id": "colonial"
+        },
+        {
+          "title": "L’Algérie, les deux guerres mondiales et l’Indochine",
+          "publisher": "Musée de l’Armée",
+          "url": "https://www.musee-armee.fr/ExpositionAlgerie/l-algerie-les-deux-guerres-mondiales-et-l-indochine.html",
+          "id": "worldWars"
+        },
+        {
+          "title": "Abd el-Kader",
+          "publisher": "Mucem",
+          "url": "https://mucem.org/en/expositions/abd-el-kader/",
+          "id": "abdelkader"
+        }
+      ],
+      "caution": "",
+      "question": "Quelles sources permettraient de raconter l’histoire coloniale d’un village à partir des vies de ses habitants ?",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "algiers"
+      ]
+    },
+    {
+      "id": "algerie-statistiques",
+      "title": "Population et économie : apprendre à lire les chiffres",
+      "domain": "society",
+      "category": "culture",
+      "period": "Algérie contemporaine",
+      "sortYear": 2026,
+      "deep": true,
+      "photo": "algiers",
+      "photo_context": false,
+      "wilayas": [
+        "16"
+      ],
+      "lead": "Un chiffre sur l’Algérie n’a de sens qu’avec une date, une définition et une source. Population, emploi, croissance et urbanisation ne sont pas des mesures interchangeables. Ce dossier propose les outils pour les lire, sans afficher de totaux présentés à tort comme actuels.",
+      "body": "Un chiffre sur l’Algérie n’a de sens qu’avec une date, une définition et une source. Population, emploi, croissance et urbanisation ne sont pas des mesures interchangeables. Ce dossier propose les outils pour les lire, sans afficher de totaux présentés à tort comme actuels.",
+      "simple": [
+        "Distinguez l’année observée et la date de publication. Une donnée publiée aujourd’hui peut concerner une année antérieure.",
+        "Un recensement, une estimation et une projection de population sont trois objets différents.",
+        "Pour comparer des chiffres, vérifiez les unités, les définitions et le territoire. BILADI renvoie aux producteurs de données et ne présente pas de nombre non vérifié comme une valeur actuelle."
+      ],
+      "sections": [
+        {
+          "heading": "La population : compter ou estimer",
+          "body": "Un recensement vise une observation à une date donnée, selon un protocole et un territoire. Entre les recensements, des estimations utilisent des informations sur les naissances, les décès et les migrations. Une projection ajoute des hypothèses sur l’avenir.\n\nCes trois objets répondent à des questions différentes. Dire que « la population est » un nombre sans préciser son statut transforme une estimation en fait directement observé. Pour suivre l’Algérie, consultez l’Office national des statistiques et comparez les métadonnées avant les totaux.",
+          "source_ids": [
+            "population"
+          ]
+        },
+        {
+          "heading": "L’économie : les unités font partie du résultat",
+          "body": "Le produit intérieur brut peut être exprimé en monnaie nationale ou en dollars, à prix courants ou en volume. Une hausse en valeur peut refléter des prix ou un taux de change, pas seulement une production supplémentaire.\n\nDe même, un total national et une moyenne par habitant ne décrivent pas la même chose. Les séries de la Banque mondiale permettent la comparaison, mais il faut lire la définition de l’indicateur et l’année disponible. Une moyenne ne représente pas la situation de chaque ménage.",
+          "source_ids": [
+            "worldbank"
+          ]
+        },
+        {
+          "heading": "Changer de territoire change la comparaison",
+          "body": "Lorsqu’une wilaya est créée, une série peut ne plus porter sur le même périmètre. Comparer deux années sans tenir compte de cette modification peut attribuer à une évolution sociale ce qui provient d’un découpage administratif.\n\nUne comparaison rigoureuse conserve un périmètre constant ou décrit les limites de la série. Le nouveau découpage en 69 wilayas, adopté en 2026, rend cette vigilance particulièrement utile pour les données régionales.",
+          "source_ids": [
+            "jo25"
+          ]
+        },
+        {
+          "heading": "Une fiche de lecture pour tout indicateur",
+          "body": "Avant de retenir une statistique, notez six éléments : l’indicateur, l’unité, le territoire, l’année observée, la date de publication et le producteur. Ajoutez ensuite la méthode et les éventuelles révisions.\n\nCette discipline permet de reconnaître une donnée manquante sans la remplacer par une valeur plausible. Une encyclopédie gagne en fiabilité lorsqu’elle montre ce qu’elle sait et les conditions de cette connaissance.",
+          "source_ids": [
+            "worldbank"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Population et démographie",
+          "publisher": "Office national des statistiques, Algérie",
+          "url": "https://www.ons.dz/",
+          "id": "population"
+        },
+        {
+          "title": "Algeria : country data",
+          "publisher": "Banque mondiale",
+          "url": "https://data.worldbank.org/country/algeria",
+          "id": "worldbank"
+        },
+        {
+          "title": "Loi 26-06 du 4 avril 2026, JO 25, pages 4–9",
+          "publisher": "Journal officiel de la République algérienne",
+          "url": "https://www.joradp.dz/FTP/jo-francais/2026/F2026025.pdf",
+          "id": "jo25"
+        }
+      ],
+      "caution": "Ce dossier enseigne la lecture des données. Il ne prétend pas fournir un tableau économique actualisé ni une population courante vérifiée.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "algiers"
+      ]
+    },
+    {
+      "id": "algerie-recherche",
+      "title": "Chercher, mesurer, inventer : des parcours scientifiques algériens",
+      "domain": "society",
+      "category": "culture",
+      "period": "XXe–XXIe siècles",
+      "sortYear": 2000,
+      "deep": true,
+      "photo": "bejaia",
+      "photo_context": true,
+      "wilayas": [
+        "06",
+        "16"
+      ],
+      "lead": "L’histoire scientifique d’un pays ne se résume pas à ses monuments anciens ni à quelques noms célèbres. Elle comprend des institutions, des équipes et des trajectoires internationales. Trois parcours permettent d’ouvrir cette exploration sans confondre notoriété et preuve scientifique.",
+      "body": "L’histoire scientifique d’un pays ne se résume pas à ses monuments anciens ni à quelques noms célèbres. Elle comprend des institutions, des équipes et des trajectoires internationales. Trois parcours permettent d’ouvrir cette exploration sans confondre notoriété et preuve scientifique.",
+      "simple": [
+        "Elias Zerhouni, Noureddine Melikechi et Rachid Deriche illustrent des trajectoires distinctes : médecine et recherche, optique, traitement d’images.",
+        "Une découverte résulte souvent d’un travail collectif. L’origine d’un chercheur ne suffit pas à attribuer un résultat à tout un pays.",
+        "Vérifiez les publications, les institutions et les contributions précises plutôt que des listes de prix sans source."
+      ],
+      "sections": [
+        {
+          "heading": "Elias Zerhouni : médecine et politique scientifique",
+          "body": "Le parcours d’Elias Zerhouni relie médecine, recherche et direction institutionnelle. Sa notice aux National Institutes of Health permet de documenter des fonctions et des étapes. Elle ne doit pas être utilisée pour lui attribuer indistinctement tous les résultats d’une institution.\n\nUne fonction de direction peut influer sur les priorités, les moyens et les collaborations. Une contribution scientifique précise se vérifie, elle, à travers les travaux et leur réception. Ces deux formes d’action méritent d’être distinguées.",
+          "source_ids": [
+            "zerhouni"
+          ]
+        },
+        {
+          "heading": "Noureddine Melikechi : la physique et la mesure",
+          "body": "La présentation institutionnelle de Noureddine Melikechi offre une entrée dans son travail en physique et dans les techniques de mesure. L’optique montre comment un signal devient une information : interaction avec la matière, détection, traitement et interprétation sont plusieurs étapes.\n\nPour découvrir un domaine, il est utile de poser une question simple : qu’est-ce qui est observé directement et qu’est-ce qui est déduit ? Cette distinction traverse les instruments scientifiques, de l’analyse d’un matériau à l’étude d’un environnement lointain.",
+          "source_ids": [
+            "melikechi"
+          ]
+        },
+        {
+          "heading": "Rachid Deriche : les images comme objets mathématiques",
+          "body": "Les travaux et la présentation d’Inria situent Rachid Deriche dans la vision et le traitement d’images. Une image numérique peut être étudiée à travers des modèles, des filtres et des méthodes d’estimation.\n\nCes outils ne donnent pas une compréhension automatique de la scène. Ils transforment des données selon des hypothèses et des objectifs. Pour les applications sensibles, l’évaluation, l’incertitude et la qualité des données comptent autant que la sophistication d’un algorithme.",
+          "source_ids": [
+            "deriche"
+          ]
+        },
+        {
+          "heading": "Construire une histoire collective des sciences",
+          "body": "Ces trajectoires sont des portes d’entrée, pas un classement. Une encyclopédie scientifique doit ensuite documenter les laboratoires, les formations, les collaborations et les usages des résultats. Les chercheurs peu médiatisés, les ingénieurs et les techniciens participent aussi à cette histoire.\n\nBILADI privilégie les notices institutionnelles et les publications vérifiables. Les affirmations de records ou d’inventions extraordinaires sans référence ne doivent pas remplacer la description précise d’un travail.",
+          "source_ids": [
+            "dericheResearch"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Elias A. Zerhouni, M.D.",
+          "publisher": "National Institutes of Health",
+          "url": "https://www.nih.gov/about-nih/nih-almanac/elias-zerhouni-md",
+          "id": "zerhouni"
+        },
+        {
+          "title": "Noureddine Melikechi",
+          "publisher": "University of Massachusetts Lowell",
+          "url": "https://www.uml.edu/sciences/kcs-advisory-board/melikechi-noureddine.aspx",
+          "id": "melikechi"
+        },
+        {
+          "title": "Rachid Deriche, academic background",
+          "publisher": "Inria",
+          "url": "https://www-sop.inria.fr/members/Rachid.Deriche/background.html",
+          "id": "deriche"
+        },
+        {
+          "title": "Former 3IA Chairs, Rachid Deriche",
+          "publisher": "Inria",
+          "url": "https://3ia-demos.inria.fr/en/research-axes/former-3ia-chairs/",
+          "id": "dericheResearch"
+        }
+      ],
+      "caution": "",
+      "question": "Comment distinguer une fonction prestigieuse, une contribution technique et une découverte scientifique ?",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "bejaia"
+      ]
+    },
+    {
+      "id": "musique-patrimoine",
+      "title": "Les musiques d’Algérie : des pratiques, pas une seule bande-son",
+      "domain": "culture",
+      "category": "culture",
+      "period": "Patrimoine vivant",
+      "sortYear": 2022,
+      "deep": true,
+      "photo": "oran",
+      "photo_context": true,
+      "wilayas": [
+        "31",
+        "16",
+        "49",
+        "56",
+        "11"
+      ],
+      "lead": "Le raï, le chaâbi, les traditions andalouses, l’Ahellil et l’imzad n’occupent pas le même espace ni les mêmes occasions. Découvrir les musiques algériennes consiste à écouter des formes, mais aussi à comprendre qui les pratique, où et avec quels usages.",
+      "body": "Le raï, le chaâbi, les traditions andalouses, l’Ahellil et l’imzad n’occupent pas le même espace ni les mêmes occasions. Découvrir les musiques algériennes consiste à écouter des formes, mais aussi à comprendre qui les pratique, où et avec quels usages.",
+      "simple": [
+        "Les traditions musicales algériennes sont diverses et évoluent au contact de nouveaux publics et supports.",
+        "L’Ahellil, l’imzad et le raï sont documentés dans les listes du patrimoine culturel immatériel de l’UNESCO.",
+        "Une inscription reconnaît des pratiques et leur transmission ; elle ne donne pas une autorisation générale de réutiliser des enregistrements."
+      ],
+      "sections": [
+        {
+          "heading": "Le raï : circulation et transformations",
+          "body": "Le raï est associé à l’ouest algérien et à des circulations plus larges. Les voix, instruments, enregistrements et scènes transforment les façons de produire et de recevoir cette musique. La fiche UNESCO de 2022 documente le raï comme chant populaire algérien.\n\nIl faut éviter une définition figée qui ramènerait tous les artistes à une même période ou à une même esthétique. Pour découvrir, comparez des interprétations et repérez les changements de rythme, de timbre et de contexte, en utilisant des plateformes ou des archives autorisées.",
+          "source_ids": [
+            "rai"
+          ]
+        },
+        {
+          "heading": "L’Ahellil : écouter une pratique collective",
+          "body": "L’Ahellil du Gourara associe chant, poésie et pratique collective. Son intérêt ne réside pas seulement dans une mélodie détachée de son contexte. Les relations entre participants et les occasions de représentation contribuent à son sens.\n\nUne vidéo peut montrer une partie de la performance tout en laissant hors cadre les conditions de transmission. Le patrimoine immatériel demande donc une approche attentive aux détenteurs et à leur manière de définir la pratique.",
+          "source_ids": [
+            "ahellil"
+          ]
+        },
+        {
+          "heading": "L’imzad et les savoirs touaregs",
+          "body": "L’imzad relie instrument, musique et pratiques des communautés touarègues. La fiche UNESCO correspond à un patrimoine partagé entre plusieurs pays. Les frontières nationales actuelles n’épuisent pas les circulations culturelles sahariennes.\n\nDécouvrir cette pratique sans l’exotiser implique de considérer les personnes qui fabriquent, jouent et transmettent. L’objet sonore est lié à des gestes et à une histoire vivante.",
+          "source_ids": [
+            "imzad"
+          ]
+        },
+        {
+          "heading": "Écouter sans effacer les droits",
+          "body": "Un morceau disponible en ligne n’est pas nécessairement libre de droits. Le nom de l’interprète, la date, l’éditeur et la licence doivent accompagner toute réutilisation. BILADI ne télécharge pas des enregistrements commerciaux en les présentant comme du patrimoine libre.\n\nLa même exigence vaut pour une scène filmée : l’autorisation de consulter une archive n’est pas celle de l’intégrer ou de la redistribuer. Une bibliothèque musicale fiable peut commencer par des références et des liens autorisés, puis s’enrichir lorsque les droits sont établis.",
+          "source_ids": [
+            "raiDecision"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Raï, popular folk song of Algeria",
+          "publisher": "UNESCO Intangible Cultural Heritage",
+          "url": "https://ich.unesco.org/en/RL/ra-popular-folk-song-of-algeria-01894",
+          "id": "rai"
+        },
+        {
+          "title": "Ahellil of Gourara",
+          "publisher": "UNESCO Intangible Cultural Heritage",
+          "url": "https://ich.unesco.org/en/RL/ahellil-of-gourara-00121",
+          "id": "ahellil"
+        },
+        {
+          "title": "Practices and knowledge linked to the Imzad of the Tuareg communities of Algeria, Mali and Niger",
+          "publisher": "UNESCO Intangible Cultural Heritage",
+          "url": "https://ich.unesco.org/en/RL/music-of-the-imzad-of-the-tuareg-communities-00891",
+          "id": "imzad"
+        },
+        {
+          "title": "Decision 17.COM 7.b.38 — Raï, popular folk song of Algeria",
+          "publisher": "UNESCO Intangible Cultural Heritage",
+          "url": "https://ich.unesco.org/en/Decisions/17.COM/7.b.38",
+          "id": "raiDecision"
+        }
+      ],
+      "caution": "",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "oran",
+        "casbah",
+        "timimoun",
+        "hoggar"
+      ]
+    },
+    {
+      "id": "69-wilayas",
+      "title": "69 wilayas : lire le découpage de 2026",
+      "domain": "society",
+      "category": "culture",
+      "period": "Réforme administrative de 2026",
+      "sortYear": 2026,
+      "deep": true,
+      "photo": "algiers",
+      "photo_context": true,
+      "wilayas": [
+        "16",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69"
+      ],
+      "lead": "Une carte administrative porte une date. Le découpage légal adopté en avril 2026 comprend 69 wilayas et 1 541 communes. L’installation des nouvelles collectivités et le transfert de prérogatives constituent toutefois un processus distinct de l’adoption de la loi.",
+      "body": "Une carte administrative porte une date. Le découpage légal adopté en avril 2026 comprend 69 wilayas et 1 541 communes. L’installation des nouvelles collectivités et le transfert de prérogatives constituent toutefois un processus distinct de l’adoption de la loi.",
+      "simple": [
+        "La loi 26-06 du 4 avril 2026 fixe un découpage de 69 wilayas et 1 541 communes. Elle est publiée au JO 25 du 5 avril.",
+        "Le décret 26-206 complète les noms et chefs-lieux ; il est publié au JO 40 du 3 juin 2026.",
+        "La loi prévoit que les wilayas mères transfèrent progressivement les prérogatives aux nouvelles wilayas au plus tard le 31 décembre 2026. Une carte de 2026 doit montrer cette transition."
+      ],
+      "sections": [
+        {
+          "heading": "La loi et le territoire",
+          "body": "L’article 3 modifié de la loi relative au découpage territorial fixe le nombre de wilayas et de communes. D’autres articles énumèrent les communes appartenant aux territoires concernés. Le texte juridique est la référence pour la composition administrative ; une carte publiée par un tiers doit être confrontée à ce texte.\n\nUn nombre de wilayas trouvé dans un ancien guide peut être correct pour sa date et inadapté à l’état actuel. Une encyclopédie doit donc conserver la date de ses cartes au lieu de remplacer silencieusement tous les découpages historiques.",
+          "source_ids": [
+            "jo25"
+          ]
+        },
+        {
+          "heading": "Noms, numéros et chefs-lieux",
+          "body": "Le décret présidentiel publié en juin 2026 complète les noms et chefs-lieux des nouvelles wilayas. Il permet de vérifier les intitulés plutôt que de déduire ceux-ci d’un usage médiatique ou d’une carte non officielle.\n\nLes variantes orthographiques en français et en arabe sont utiles à la recherche, mais elles ne doivent pas produire des territoires en double. BILADI conserve des codes stables pour relier une page, une photographie et un point géographique.",
+          "source_ids": [
+            "jo40"
+          ]
+        },
+        {
+          "heading": "La transition des prérogatives",
+          "body": "L’article 54 prévoit que les autorités des wilayas mères continuent de gérer les intérêts et services concernés pendant l’installation des nouvelles structures. Le transfert progressif doit intervenir au plus tard le 31 décembre 2026. Les dispositions budgétaires de l’exercice 2026 sont également précisées.\n\nCette transition explique pourquoi une réforme adoptée ne signifie pas que tous les services et documents sont instantanément réorganisés. Le site affiche le découpage légal, tout en signalant la phase de mise en place.",
+          "source_ids": [
+            "jo25"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Loi 26-06 du 4 avril 2026, JO 25, pages 4–9",
+          "publisher": "Journal officiel de la République algérienne",
+          "url": "https://www.joradp.dz/FTP/jo-francais/2026/F2026025.pdf",
+          "id": "jo25"
+        },
+        {
+          "title": "Décret présidentiel 26-206 : noms et chefs-lieux des wilayas",
+          "publisher": "Journal officiel de la République algérienne",
+          "url": "https://www.joradp.dz/FTP/jo-francais/2026/F2026040.pdf",
+          "id": "jo40"
+        }
+      ],
+      "caution": "Les limites géographiques de BILADI proviennent d’une base ouverte et sont simplifiées. Elles aident à explorer ; elles ne remplacent pas les textes juridiques ni un bornage administratif.",
+      "question": "",
+      "bibliography": [],
+      "updated": "2026-10-13",
+      "aliases": [],
+      "available_languages": [
+        "fr"
+      ],
+      "gallery": [
+        "algiers"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "larbi-ben-mhidi",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "larbi-ben-mhidi",
+      "to": "soummam-1956",
+      "type": "theme"
+    },
+    {
+      "from": "larbi-ben-mhidi",
+      "to": "abane-ramdane",
+      "type": "theme"
+    },
+    {
+      "from": "larbi-ben-mhidi",
+      "to": "alger-1957",
+      "type": "theme"
+    },
+    {
+      "from": "larbi-ben-mhidi",
+      "to": "casbah-regence",
+      "type": "theme"
+    },
+    {
+      "from": "didouche-mourad",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "didouche-mourad",
+      "to": "zighoud-youcef",
+      "type": "theme"
+    },
+    {
+      "from": "didouche-mourad",
+      "to": "numidie-royaumes",
+      "type": "theme"
+    },
+    {
+      "from": "abane-ramdane",
+      "to": "soummam-1956",
+      "type": "theme"
+    },
+    {
+      "from": "abane-ramdane",
+      "to": "krim-belkacem",
+      "type": "theme"
+    },
+    {
+      "from": "abane-ramdane",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "abane-ramdane",
+      "to": "amirouche",
+      "type": "theme"
+    },
+    {
+      "from": "krim-belkacem",
+      "to": "1962-naissance-republique",
+      "type": "theme"
+    },
+    {
+      "from": "krim-belkacem",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "krim-belkacem",
+      "to": "alger-1957",
+      "type": "theme"
+    },
+    {
+      "from": "hassiba-ben-bouali",
+      "to": "ali-la-pointe",
+      "type": "theme"
+    },
+    {
+      "from": "hassiba-ben-bouali",
+      "to": "alger-1957",
+      "type": "theme"
+    },
+    {
+      "from": "hassiba-ben-bouali",
+      "to": "djamila-bouhired",
+      "type": "theme"
+    },
+    {
+      "from": "hassiba-ben-bouali",
+      "to": "assia-djebar",
+      "type": "theme"
+    },
+    {
+      "from": "zighoud-youcef",
+      "to": "setif-guelma-kherrata",
+      "type": "theme"
+    },
+    {
+      "from": "zighoud-youcef",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "zighoud-youcef",
+      "to": "soummam-1956",
+      "type": "theme"
+    },
+    {
+      "from": "amirouche",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "amirouche",
+      "to": "aures-chaoui",
+      "type": "theme"
+    },
+    {
+      "from": "djamila-bouhired",
+      "to": "alger-1957",
+      "type": "theme"
+    },
+    {
+      "from": "djamila-bouhired",
+      "to": "assia-djebar",
+      "type": "theme"
+    },
+    {
+      "from": "ali-la-pointe",
+      "to": "alger-1957",
+      "type": "theme"
+    },
+    {
+      "from": "ali-la-pointe",
+      "to": "casbah-regence",
+      "type": "theme"
+    },
+    {
+      "from": "assia-djebar",
+      "to": "kateb-yacine",
+      "type": "theme"
+    },
+    {
+      "from": "assia-djebar",
+      "to": "mouloud-feraoun",
+      "type": "theme"
+    },
+    {
+      "from": "assia-djebar",
+      "to": "cleopatra-juba-cherchell",
+      "type": "theme"
+    },
+    {
+      "from": "assia-djebar",
+      "to": "colonisation-societe",
+      "type": "theme"
+    },
+    {
+      "from": "kateb-yacine",
+      "to": "mouloud-feraoun",
+      "type": "theme"
+    },
+    {
+      "from": "kateb-yacine",
+      "to": "setif-guelma-kherrata",
+      "type": "theme"
+    },
+    {
+      "from": "mouloud-feraoun",
+      "to": "colonisation-societe",
+      "type": "theme"
+    },
+    {
+      "from": "mouloud-feraoun",
+      "to": "alger-1957",
+      "type": "theme"
+    },
+    {
+      "from": "mouloud-feraoun",
+      "to": "kabylie",
+      "type": "theme"
+    },
+    {
+      "from": "sahara-vivant",
+      "to": "tassili-archive-du-sahara",
+      "type": "theme"
+    },
+    {
+      "from": "sahara-vivant",
+      "to": "foggaras-eau",
+      "type": "theme"
+    },
+    {
+      "from": "sahara-vivant",
+      "to": "zones-humides",
+      "type": "theme"
+    },
+    {
+      "from": "sahara-vivant",
+      "to": "touareg",
+      "type": "theme"
+    },
+    {
+      "from": "mzab-urbanisme",
+      "to": "foggaras-eau",
+      "type": "theme"
+    },
+    {
+      "from": "mzab-urbanisme",
+      "to": "mzab-mozabite",
+      "type": "theme"
+    },
+    {
+      "from": "mzab-urbanisme",
+      "to": "dynasties-savantes",
+      "type": "theme"
+    },
+    {
+      "from": "foggaras-eau",
+      "to": "ahellil-gourara",
+      "type": "theme"
+    },
+    {
+      "from": "zones-humides",
+      "to": "algerie-statistiques",
+      "type": "theme"
+    },
+    {
+      "from": "timgad-ville",
+      "to": "rome-en-afrique",
+      "type": "theme"
+    },
+    {
+      "from": "timgad-ville",
+      "to": "djemila-mosaiques",
+      "type": "theme"
+    },
+    {
+      "from": "timgad-ville",
+      "to": "tipasa-punique",
+      "type": "theme"
+    },
+    {
+      "from": "timgad-ville",
+      "to": "numidie-royaumes",
+      "type": "theme"
+    },
+    {
+      "from": "alger-1957",
+      "to": "revolution-independance",
+      "type": "theme"
+    },
+    {
+      "from": "alger-1957",
+      "to": "colonisation-societe",
+      "type": "theme"
+    },
+    {
+      "from": "alger-1957",
+      "to": "1962-naissance-republique",
+      "type": "theme"
+    },
+    {
+      "from": "colonisation-societe",
+      "to": "colonisation-resistances",
+      "type": "theme"
+    },
+    {
+      "from": "colonisation-societe",
+      "to": "emir-humaniste",
+      "type": "theme"
+    },
+    {
+      "from": "colonisation-societe",
+      "to": "insurrection-1871",
+      "type": "theme"
+    },
+    {
+      "from": "colonisation-societe",
+      "to": "algeriens-guerres-mondiales",
+      "type": "theme"
+    },
+    {
+      "from": "colonisation-societe",
+      "to": "setif-guelma-kherrata",
+      "type": "theme"
+    },
+    {
+      "from": "algerie-statistiques",
+      "to": "69-wilayas",
+      "type": "theme"
+    },
+    {
+      "from": "algerie-statistiques",
+      "to": "algerie-recherche",
+      "type": "theme"
+    },
+    {
+      "from": "algerie-statistiques",
+      "to": "1962-naissance-republique",
+      "type": "theme"
+    },
+    {
+      "from": "algerie-recherche",
+      "to": "dynasties-savantes",
+      "type": "theme"
+    },
+    {
+      "from": "algerie-recherche",
+      "to": "algerie-plurielle",
+      "type": "theme"
+    },
+    {
+      "from": "musique-patrimoine",
+      "to": "rai-oran",
+      "type": "theme"
+    },
+    {
+      "from": "musique-patrimoine",
+      "to": "ahellil-gourara",
+      "type": "theme"
+    },
+    {
+      "from": "musique-patrimoine",
+      "to": "sebeiba-djanet",
+      "type": "theme"
+    },
+    {
+      "from": "musique-patrimoine",
+      "to": "chaabi-andalou",
+      "type": "theme"
+    },
+    {
+      "from": "musique-patrimoine",
+      "to": "oran-rai",
+      "type": "theme"
+    },
+    {
+      "from": "69-wilayas",
+      "to": "algerie-plurielle",
+      "type": "theme"
+    }
+  ],
+  "summaries": {
+    "tassili-archive-du-sahara": [
+      "Au Tassili n’Ajjer, les falaises deviennent des archives.",
+      "Au Tassili, les images appartiennent à des époques différentes : elles ne racontent pas une journée unique dans un désert immobile.",
+      "Des animaux dépendants de l’eau, notamment l’hippopotame, rappellent que certains paysages sahariens furent très différents de ceux que nous voyons aujourd’hui.",
+      "Le Tassili associe patrimoine culturel et patrimoine naturel.",
+      "L’UNESCO souligne la fragilité des œuvres et l’encadrement des visiteurs par des guides officiels.",
+      "Les datations précises et certaines interprétations des images restent discutées. Les figures ne constituent pas un relevé exhaustif de la faune.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "numidie-royaumes": [
+      "L’histoire antique de l’Algérie ne commence pas avec Rome.",
+      "Aux troisième et deuxième siècles avant notre ère, les royaumes numides participent aux rivalités qui opposent Carthage et Rome.",
+      "La guerre de Jugurtha contre Rome, de 111 à 105 avant notre ère, révèle des conflits de succession et des rapports de force régionaux.",
+      "Constantine permet de rapprocher ce récit des lieux : la ville actuelle prolonge l’histoire de l’antique Cirta.",
+      "La Numidie occupe une place importante dans la mémoire de l’Algérie et dans l’histoire amazighe de l’Afrique du Nord.",
+      "Les textes antiques viennent de points de vue situés ; les frontières des royaumes ne se confondent pas avec celles de l’Algérie actuelle.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "cleopatra-juba-cherchell": [
+      "La fille de Cléopâtre VII et de Marc Antoine a régné depuis l’actuelle Cherchell.",
+      "Après la défaite de Marc Antoine et de Cléopâtre VII en 30 avant notre ère, leur fille Cléopâtre Séléné est emmenée à Rome et élevée sous la responsabilité d’Octavie.",
+      "Juba II est un prince nord-africain élevé à Rome, devenu souverain avec l’appui d’Auguste.",
+      "Les monnaies sont des documents historiques, pas seulement des objets précieux.",
+      "À Cherchell, commencez par les collections antiques et leurs notices : un portrait attribué, une œuvre importée ou un objet découvert sur place ne racontent pas exactement la même chose.",
+      "Certains détails biographiques restent incertains. Les œuvres de fiction ne remplacent pas les preuves historiques.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "rome-en-afrique": [
+      "L’Algérie permet de parcourir plusieurs visages de l’Afrique romaine.",
+      "Fondée par Trajan en 100 de notre ère comme colonie militaire, Timgad rend particulièrement lisible un projet urbain romain.",
+      "L’antique Cuicul, aujourd’hui Djémila, est fondée sous Nerva, entre 96 et 98 de notre ère.",
+      "Tipasa possède une histoire antérieure à Rome : le comptoir punique appartient aux échanges qui relient Carthage aux communautés de la côte nord-africaine.",
+      "Timgad, Djémila et Tipasa se situent dans des régions différentes : prévoyez des étapes distinctes et des temps de transport réalistes.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "dynasties-savantes": [
+      "Le Moyen Âge algérien se raconte à travers plusieurs centres de pouvoir et de savoir.",
+      "Près de l’actuelle Tiaret, Tahert devient dans la seconde moitié du VIIIe siècle le centre de l’imamat rustamide.",
+      "Au nord-est de M’Sila, la Qalâa des Béni Hammad s’inscrit dans un paysage montagneux.",
+      "Tlemcen devient une capitale du Maghreb central sous les Zianides, dont la période s’étend de 1235 à 1555.",
+      "Tahert, la Qalâa et Tlemcen ne composent pas un royaume continu.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "casbah-regence": [
+      "La Casbah d’Alger est davantage qu’un décor de ruelles.",
+      "Sur la pente qui domine la baie d’Alger, la Casbah conserve une histoire plus ancienne que la Régence ottomane.",
+      "En 1518, Khayr ad-Din Barberousse place Alger sous la protection du sultan ottoman.",
+      "La richesse de la Casbah tient autant à son tissu urbain qu’à ses monuments.",
+      "Inscrite au patrimoine mondial en 1992, la Casbah reste un lieu de résidence, de travail et de sociabilité.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "colonisation-resistances": [
+      "La conquête française commence en 1830 ; elle se prolonge par une domination coloniale marquée par les violences, les confiscations et des droits inégaux.",
+      "Les troupes françaises débarquent à Sidi Fredj le 14 juin 1830 ; Alger capitule le 5 juillet, mettant fin au pouvoir du dey dans la ville.",
+      "À partir de 1832, l’émir Abd el-Kader construit une autorité politique et militaire dans l’ouest et le centre du pays.",
+      "En 1871, l’insurrection conduite par Mokrani, particulièrement importante en Kabylie, constitue une nouvelle opposition à la domination française.",
+      "Au XXe siècle, les résistances prennent aussi la forme de journaux, d’associations et de partis.",
+      "Les résistances et les transformations varient selon les lieux et les périodes. Un résumé ne remplace pas ces histoires régionales.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "revolution-independance": [
+      "Le 1er novembre 1954, les actions du Front de libération nationale ouvrent la guerre d’indépendance.",
+      "Le 1er novembre 1954, le Front de libération nationale déclenche une insurrection contre la domination française.",
+      "Le 20 août 1956, le congrès de la Soummam, réuni à Ifri dans la région d’Ouzellaguen, donne une organisation politique à la révolution.",
+      "La guerre se déroule autant dans les campagnes que dans les villes.",
+      "Les accords d’Évian du 18 mars 1962 conduisent au cessez-le-feu du lendemain.",
+      "Les violences contre les civils et les conflits internes font aussi partie de la guerre. Les bilans dépendent des sources et des périmètres.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "1962-naissance-republique": [
+      "Les accords d’Évian, signés le 18 mars 1962, ouvrent la voie à l’indépendance.",
+      "L’indépendance ouvre un chantier immense, traversé par les rivalités entre responsables du mouvement national.",
+      "Sonatrach est créée en 1963 ; Sonelgaz naît en 1969.",
+      "Les manifestations d’octobre 1988 précèdent la Constitution adoptée par référendum le 23 février 1989, dans un contexte d’ouverture politique.",
+      "L’Algérie contemporaine se comprend aussi à travers les demandes de participation, les créations culturelles et la diversité des langues.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "alger-palestine": [
+      "Le 15 novembre 1988, le Conseil national palestinien réuni à Alger proclame l’État de Palestine.",
+      "Le 15 novembre 1988, le Conseil national palestinien, réuni à Alger, proclame l’État de Palestine.",
+      "Dans une intervention d’Ahmed Attaf reproduite par le ministère algérien des Affaires étrangères, l’Algérie est présentée comme le premier pays à avoir officiellement reconnu l’État proclamé à Alger.",
+      "Le 15 décembre 1988, l’Assemblée générale des Nations unies adopte la résolution 43/177.",
+      "Le soutien algérien à la cause palestinienne s’inscrit dans une diplomatie qui met en avant l’autodétermination.",
+      "Une proclamation politique, la reconnaissance par des États et l’admission à l’ONU sont des procédures distinctes.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "algerie-plurielle": [
+      "Découvrir l’Algérie, c’est rencontrer des expressions culturelles qui ne se résument pas à une seule image.",
+      "Écouter l’Algérie, c’est entendre plusieurs registres et plusieurs héritages.",
+      "La Kabylie, l’Aurès chaoui, le M’Zab mozabite et les territoires touaregs de l’Ahaggar et du Tassili ouvrent des chemins culturels distincts.",
+      "L’Algérie se découvre aussi à l’oreille : écoles de musique andalouse à Tlemcen, Alger et Constantine, chaâbi, raï, poésie chantée du Gourara.",
+      "Les livres, les ateliers et les conversations complètent les paysages.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "cuisine-memoire": [
+      "La cuisine algérienne se découvre de région en région : rechta, chakhchoukha, trida, chorba, bourek, sardines ou karantika donnent plusieurs portes d’entrée.",
+      "Un marché permet de lire le paysage autrement.",
+      "En 2020, l’UNESCO a inscrit les savoirs et pratiques liés à la production et à la consommation du couscous, après une candidature commune de l’Algérie, de la Mauritanie, du Maroc et de la Tunisie.",
+      "La rechta propose de fines pâtes ; la chakhchoukha transforme des morceaux de galette en plat accompagné de sauce.",
+      "Une gargote, une boulangerie, un marché ou une table contemporaine peuvent chacun ouvrir une rencontre.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "tipasa-punique": [
+      "Tipasa fut d’abord un comptoir carthaginois.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "mausolee-royal": [
+      "Le grand monument circulaire associé au bien UNESCO de Tipasa croise traditions locales et influences méditerranéennes.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "djemila-mosaiques": [
+      "Cuicul, l’actuelle Djémila, est fondée sous Nerva à la fin du Ier siècle.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "augustin-afrique": [
+      "Né en 354 à Thagaste, dans la Numidie romaine, Augustin devient évêque d’Hippone.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "qala-hammadides": [
+      "Fondée en 1007, la Qalâa des Béni Hammad est la première capitale des émirs hammadides.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "tlemcen-zianides": [
+      "Sous les Zianides, du XIIIe au XVIe siècle, Tlemcen devient une capitale politique du Maghreb central.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "emir-humaniste": [
+      "Figure majeure de la résistance à la conquête française, Abd el-Kader est aussi un penseur et un acteur spirituel.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "insurrection-1871": [
+      "L’insurrection menée par Mokrani part de Kabylie et résonne dans d’autres régions.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "algeriens-guerres-mondiales": [
+      "Des soldats originaires d’Algérie combattent dans les deux guerres mondiales, en Europe et ailleurs.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "setif-guelma-kherrata": [
+      "En mai 1945, les mobilisations nationalistes et les violences sont suivies d’une répression française meurtrière dans le Nord Constantinois.",
+      "Les estimations du nombre de victimes divergent. Aucun total unique n’est retenu dans cette version simplifiée.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "soummam-1956": [
+      "Le 20 août 1956, le congrès de la Soummam structure les organes politiques de la Révolution.",
+      "Les principes du congrès sont discutés et leur application n’est pas uniforme.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "sebeiba-djanet": [
+      "À Djanet, les cérémonies de la Sebeïba sont un marqueur de l’identité touarègue.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "ahellil-gourara": [
+      "L’Ahellil associe poésie, chant et musique dans le Gourara.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ],
+    "rai-oran": [
+      "Le raï est inscrit en 2022 sur la Liste représentative du patrimoine culturel immatériel de l’UNESCO.",
+      "Pour les précisions, les limites et les références, consultez l’article complet."
+    ]
+  },
+  "trails": [
+    {
+      "id": "premiers-regards",
+      "title": {
+        "fr": "Découvrir l’Algérie en sept escales",
+        "en": "Discover Algeria in seven stops",
+        "ar": "اكتشف الجزائر في سبع محطات"
+      },
+      "description": {
+        "fr": "Un parcours d’introduction : paysages, villes, voix et histoires.",
+        "en": "An introductory journey through landscapes, cities, voices and histories.",
+        "ar": "رحلة تمهيدية عبر المناظر والمدن والأصوات والتاريخ."
+      },
+      "photo": "bejaia",
+      "articles": [
+        "sahara-vivant",
+        "tassili-archive-du-sahara",
+        "timgad-ville",
+        "mzab-urbanisme",
+        "casbah-regence",
+        "musique-patrimoine",
+        "algerie-recherche"
+      ]
+    },
+    {
+      "id": "guerre-independance",
+      "title": {
+        "fr": "Comprendre la guerre d’indépendance",
+        "en": "Understand the independence war",
+        "ar": "فهم حرب الاستقلال"
+      },
+      "description": {
+        "fr": "Du contexte colonial aux réseaux, aux débats politiques et à la négociation.",
+        "en": "From the colonial context to networks, political debates and negotiation.",
+        "ar": "من السياق الاستعماري إلى الشبكات والنقاشات السياسية والمفاوضات."
+      },
+      "photo": "casbah",
+      "articles": [
+        "colonisation-societe",
+        "setif-guelma-kherrata",
+        "revolution-independance",
+        "didouche-mourad",
+        "zighoud-youcef",
+        "soummam-1956",
+        "abane-ramdane",
+        "alger-1957",
+        "larbi-ben-mhidi",
+        "hassiba-ben-bouali",
+        "krim-belkacem",
+        "1962-naissance-republique"
+      ]
+    },
+    {
+      "id": "eau-paysages",
+      "title": {
+        "fr": "Les chemins de l’eau",
+        "en": "The paths of water",
+        "ar": "مسارات الماء"
+      },
+      "description": {
+        "fr": "Le Sahara ancien, les oasis et les zones humides se répondent.",
+        "en": "Ancient Sahara, oases and wetlands connect across this trail.",
+        "ar": "تترابط الصحراء القديمة والواحات والمناطق الرطبة في هذا المسار."
+      },
+      "photo": "timimoun",
+      "articles": [
+        "sahara-vivant",
+        "foggaras-eau",
+        "mzab-urbanisme",
+        "zones-humides"
+      ]
+    },
+    {
+      "id": "voix",
+      "title": {
+        "fr": "Les voix d’un pays",
+        "en": "The voices of a country",
+        "ar": "أصوات بلد"
+      },
+      "description": {
+        "fr": "Romans, mémoires et pratiques musicales : une bibliothèque plurielle.",
+        "en": "Novels, memories and musical practices: a plural library.",
+        "ar": "روايات وذكريات وممارسات موسيقية: مكتبة متعددة الأصوات."
+      },
+      "photo": "oran",
+      "articles": [
+        "mouloud-feraoun",
+        "kateb-yacine",
+        "assia-djebar",
+        "algerie-plurielle",
+        "musique-patrimoine"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "date": "≈ 6000 av. n. è.",
+      "year": -6000,
+      "era": "prehistory",
+      "title": {
+        "fr": "Des images dans un Sahara changeant",
+        "en": "Images in a changing Sahara",
+        "ar": "صور في صحراء متغيرة"
+      },
+      "description": {
+        "fr": "Repère approximatif : les ensembles rupestres appartiennent à des périodes différentes ; les datations restent discutées.",
+        "en": "Approximate marker: rock-art ensembles belong to different periods; their dating remains debated.",
+        "ar": "محطة تقريبية: تنتمي مجموعات الفن الصخري إلى فترات مختلفة، ولا يزال تأريخها محل نقاش."
+      },
+      "articles": [
+        "tassili-archive-du-sahara",
+        "sahara-vivant"
+      ]
+    },
+    {
+      "date": "202 av. n. è.",
+      "year": -202,
+      "era": "antiquity",
+      "title": {
+        "fr": "Massinissa et les royaumes numides",
+        "en": "Massinissa and Numidian kingdoms",
+        "ar": "ماسينيسا والممالك النوميدية"
+      },
+      "description": {
+        "fr": "La fin de la deuxième guerre punique modifie les rapports de force entre Rome, Carthage et les royaumes numides.",
+        "en": "The end of the Second Punic War reshapes relations between Rome, Carthage and the Numidian kingdoms.",
+        "ar": "تعيد نهاية الحرب البونيقية الثانية تشكيل العلاقات بين روما وقرطاج والممالك النوميدية."
+      },
+      "articles": [
+        "numidie-royaumes"
+      ]
+    },
+    {
+      "date": "Fin du Ier siècle av. n. è.",
+      "year": -25,
+      "era": "antiquity",
+      "title": {
+        "fr": "Juba II et Cléopâtre Séléné",
+        "en": "Juba II and Cleopatra Selene",
+        "ar": "يوبا الثاني وكليوباترا سيليني"
+      },
+      "description": {
+        "fr": "Cherchell permet de découvrir une cour royale au croisement des mondes méditerranéens.",
+        "en": "Cherchell reveals a royal court connected to several Mediterranean worlds.",
+        "ar": "تتيح شرشال اكتشاف بلاط ملكي مرتبط بعوالم المتوسط."
+      },
+      "articles": [
+        "cleopatra-juba-cherchell"
+      ]
+    },
+    {
+      "date": "100",
+      "year": 100,
+      "era": "antiquity",
+      "title": {
+        "fr": "La fondation de Timgad",
+        "en": "The foundation of Timgad",
+        "ar": "تأسيس تيمقاد"
+      },
+      "description": {
+        "fr": "La colonie fondée sous Trajan offre une entrée dans l’urbanisme antique.",
+        "en": "The colony founded under Trajan offers an introduction to ancient urban planning.",
+        "ar": "تفتح المستعمرة التي تأسست في عهد تراجان باب فهم التخطيط العمراني القديم."
+      },
+      "articles": [
+        "timgad-ville",
+        "rome-en-afrique"
+      ]
+    },
+    {
+      "date": "1007",
+      "year": 1007,
+      "era": "medieval",
+      "title": {
+        "fr": "La Qal’a des Hammadides",
+        "en": "The Hammadid Qal’a",
+        "ar": "قلعة بني حماد"
+      },
+      "description": {
+        "fr": "Une capitale médiévale ouvre sur l’histoire des pouvoirs et des échanges dans le Maghreb.",
+        "en": "A medieval capital opens a window onto power and exchanges in the Maghreb.",
+        "ar": "عاصمة من العصور الوسطى تكشف تاريخ السلطة والتبادل في المغرب الكبير."
+      },
+      "articles": [
+        "qala-hammadides",
+        "dynasties-savantes"
+      ]
+    },
+    {
+      "date": "XIe–XIVe siècles",
+      "year": 1050,
+      "era": "medieval",
+      "title": {
+        "fr": "Les ksour du M’Zab",
+        "en": "The ksour of the M’Zab",
+        "ar": "قصور مزاب"
+      },
+      "description": {
+        "fr": "Les fondations et l’urbanisme oasien se lisent à travers des siècles de vie communautaire.",
+        "en": "The foundations and oasis urbanism reflect centuries of community life.",
+        "ar": "تعكس القصور والتنظيم العمراني الواحي قروناً من الحياة الجماعية."
+      },
+      "articles": [
+        "mzab-urbanisme"
+      ]
+    },
+    {
+      "date": "XVIe–XVIIIe siècles",
+      "year": 1600,
+      "era": "regency",
+      "title": {
+        "fr": "Alger et la Méditerranée",
+        "en": "Algiers and the Mediterranean",
+        "ar": "الجزائر والبحر المتوسط"
+      },
+      "description": {
+        "fr": "La Casbah offre un point d’entrée dans les relations urbaines et maritimes de la Régence.",
+        "en": "The Casbah offers an entry into urban and maritime relations during the Regency.",
+        "ar": "تفتح القصبة باب فهم العلاقات الحضرية والبحرية في عهد الإيالة."
+      },
+      "articles": [
+        "casbah-regence"
+      ]
+    },
+    {
+      "date": "1830",
+      "year": 1830,
+      "era": "colonial",
+      "title": {
+        "fr": "L’invasion française",
+        "en": "The French invasion",
+        "ar": "الغزو الفرنسي"
+      },
+      "description": {
+        "fr": "La prise d’Alger ouvre une conquête prolongée et des transformations coloniales.",
+        "en": "The capture of Algiers opens a prolonged conquest and colonial transformations.",
+        "ar": "يبدأ احتلال الجزائر العاصمة غزواً مطولاً وتحولات استعمارية."
+      },
+      "articles": [
+        "colonisation-societe",
+        "colonisation-resistances"
+      ]
+    },
+    {
+      "date": "1871",
+      "year": 1871,
+      "era": "colonial",
+      "title": {
+        "fr": "Une insurrection et ses conséquences",
+        "en": "An uprising and its aftermath",
+        "ar": "انتفاضة ونتائجها"
+      },
+      "description": {
+        "fr": "La résistance et la répression doivent être étudiées avec leurs effets sociaux et fonciers.",
+        "en": "Resistance and repression must be studied alongside their social and land-related consequences.",
+        "ar": "تُدرس المقاومة والقمع مع نتائجهما الاجتماعية والعقارية."
+      },
+      "articles": [
+        "insurrection-1871"
+      ]
+    },
+    {
+      "date": "Mai 1945",
+      "year": 1945,
+      "era": "colonial",
+      "title": {
+        "fr": "Sétif, Guelma et Kherrata",
+        "en": "Sétif, Guelma and Kherrata",
+        "ar": "سطيف وقالمة وخراطة"
+      },
+      "description": {
+        "fr": "Les massacres et la répression constituent un tournant dans les mémoires et les mobilisations.",
+        "en": "Massacres and repression mark a turning point in memory and mobilisation.",
+        "ar": "تمثل المجازر والقمع منعطفاً في الذاكرة والتعبئة."
+      },
+      "articles": [
+        "setif-guelma-kherrata",
+        "kateb-yacine"
+      ]
+    },
+    {
+      "date": "1 novembre 1954",
+      "year": 1954,
+      "era": "war",
+      "title": {
+        "fr": "Le déclenchement de l’insurrection",
+        "en": "The launch of the uprising",
+        "ar": "اندلاع الثورة"
+      },
+      "description": {
+        "fr": "Les premières actions du FLN ouvrent la guerre d’indépendance.",
+        "en": "The first FLN actions open the war of independence.",
+        "ar": "تبدأ العمليات الأولى لجبهة التحرير حرب الاستقلال."
+      },
+      "articles": [
+        "revolution-independance",
+        "larbi-ben-mhidi",
+        "didouche-mourad"
+      ]
+    },
+    {
+      "date": "18 janvier 1955",
+      "year": 1955.05,
+      "era": "war",
+      "title": {
+        "fr": "La mort de Didouche Mourad",
+        "en": "The death of Didouche Mourad",
+        "ar": "استشهاد ديدوش مراد"
+      },
+      "description": {
+        "fr": "Zighoud Youcef prend ensuite la direction du Nord-Constantinois.",
+        "en": "Zighoud Youcef subsequently takes the leadership of the North Constantine region.",
+        "ar": "يتولى زيغود يوسف بعد ذلك قيادة الشمال القسنطيني."
+      },
+      "articles": [
+        "didouche-mourad",
+        "zighoud-youcef"
+      ]
+    },
+    {
+      "date": "20 août 1955",
+      "year": 1955.6,
+      "era": "war",
+      "title": {
+        "fr": "Les offensives du Nord-Constantinois",
+        "en": "The North Constantine offensives",
+        "ar": "هجومات الشمال القسنطيني"
+      },
+      "description": {
+        "fr": "Un tournant à étudier avec les violences contre les civils et la répression.",
+        "en": "A turning point to study together with attacks on civilians and repression.",
+        "ar": "منعطف يُدرس مع العنف ضد المدنيين والقمع."
+      },
+      "articles": [
+        "zighoud-youcef"
+      ]
+    },
+    {
+      "date": "20 août 1956",
+      "year": 1956.6,
+      "era": "war",
+      "title": {
+        "fr": "Le congrès de la Soummam",
+        "en": "The Soummam Congress",
+        "ar": "مؤتمر الصومام"
+      },
+      "description": {
+        "fr": "L’organisation politique et militaire du mouvement est redéfinie et débattue.",
+        "en": "The movement’s political and military organisation is redefined and debated.",
+        "ar": "إعادة تنظيم الحركة سياسياً وعسكرياً ومناقشة خياراتها."
+      },
+      "articles": [
+        "soummam-1956",
+        "abane-ramdane"
+      ]
+    },
+    {
+      "date": "1957",
+      "year": 1957,
+      "era": "war",
+      "title": {
+        "fr": "La bataille d’Alger",
+        "en": "The Battle of Algiers",
+        "ar": "معركة الجزائر"
+      },
+      "description": {
+        "fr": "Réseaux urbains, attentats, arrestations, torture et disparition de dirigeants.",
+        "en": "Urban networks, attacks, arrests, torture and the disappearance of leaders.",
+        "ar": "شبكات حضرية وهجمات واعتقالات وتعذيب واختفاء قادة."
+      },
+      "articles": [
+        "alger-1957",
+        "hassiba-ben-bouali",
+        "ali-la-pointe",
+        "djamila-bouhired"
+      ]
+    },
+    {
+      "date": "Décembre 1957",
+      "year": 1957.95,
+      "era": "war",
+      "title": {
+        "fr": "L’assassinat d’Abane Ramdane",
+        "en": "The assassination of Abane Ramdane",
+        "ar": "اغتيال عبان رمضان"
+      },
+      "description": {
+        "fr": "La violence interne au mouvement fait partie de l’histoire de la guerre.",
+        "en": "Violence within the movement forms part of the history of the war.",
+        "ar": "العنف داخل الحركة جزء من تاريخ الحرب."
+      },
+      "articles": [
+        "abane-ramdane"
+      ]
+    },
+    {
+      "date": "28 mars 1959",
+      "year": 1959.25,
+      "era": "war",
+      "title": {
+        "fr": "Amirouche et Si El Houès",
+        "en": "Amirouche and Si El Houès",
+        "ar": "عميروش وسي الحواس"
+      },
+      "description": {
+        "fr": "Les deux chefs meurent au combat ; la mémoire des maquis se transmet après la guerre.",
+        "en": "Both commanders die in combat; the memory of the maquis is transmitted after the war.",
+        "ar": "يسقط القائدان في القتال، وتنتقل ذاكرة المجاهدين بعد الحرب."
+      },
+      "articles": [
+        "amirouche"
+      ]
+    },
+    {
+      "date": "15 mars 1962",
+      "year": 1962.2,
+      "era": "war",
+      "title": {
+        "fr": "L’assassinat de Feraoun et de ses collègues",
+        "en": "The assassination of Feraoun and his colleagues",
+        "ar": "اغتيال فرعون ورفاقه"
+      },
+      "description": {
+        "fr": "L’OAS assassine six responsables des centres sociaux, quatre jours avant le cessez-le-feu.",
+        "en": "The OAS murders six social-centre officials, four days before the ceasefire.",
+        "ar": "تغتال منظمة الجيش السري ستة مسؤولي مراكز اجتماعية قبل وقف إطلاق النار بأربعة أيام."
+      },
+      "articles": [
+        "mouloud-feraoun"
+      ]
+    },
+    {
+      "date": "18–19 mars 1962",
+      "year": 1962.21,
+      "era": "war",
+      "title": {
+        "fr": "Évian et le cessez-le-feu",
+        "en": "Évian and the ceasefire",
+        "ar": "إيفيان ووقف إطلاق النار"
+      },
+      "description": {
+        "fr": "L’accord du 18 mars et le cessez-le-feu du 19 sont deux étapes distinctes.",
+        "en": "The agreement of 18 March and ceasefire of 19 March are distinct stages.",
+        "ar": "اتفاق 18 مارس ووقف إطلاق النار في 19 مارس مرحلتان مختلفتان."
+      },
+      "articles": [
+        "krim-belkacem",
+        "1962-naissance-republique"
+      ]
+    },
+    {
+      "date": "1962",
+      "year": 1962.5,
+      "era": "modern",
+      "title": {
+        "fr": "L’indépendance et ses défis",
+        "en": "Independence and its challenges",
+        "ar": "الاستقلال وتحدياته"
+      },
+      "description": {
+        "fr": "Reconstruire les institutions et la société ouvre une histoire nouvelle, avec des rapports de force.",
+        "en": "Rebuilding institutions and society opens a new history with its own power struggles.",
+        "ar": "إعادة بناء المؤسسات والمجتمع تفتح تاريخاً جديداً بصراعاته السياسية."
+      },
+      "articles": [
+        "1962-naissance-republique"
+      ]
+    },
+    {
+      "date": "1988",
+      "year": 1988,
+      "era": "modern",
+      "title": {
+        "fr": "Alger et la proclamation palestinienne",
+        "en": "Algiers and the Palestinian declaration",
+        "ar": "الجزائر وإعلان الدولة الفلسطينية"
+      },
+      "description": {
+        "fr": "La diplomatie relie l’Algérie aux transformations internationales.",
+        "en": "Diplomacy connects Algeria to international transformations.",
+        "ar": "تربط الدبلوماسية الجزائر بالتحولات الدولية."
+      },
+      "articles": [
+        "alger-palestine"
+      ]
+    },
+    {
+      "date": "2005",
+      "year": 2005,
+      "era": "modern",
+      "title": {
+        "fr": "Assia Djebar à l’Académie française",
+        "en": "Assia Djebar at the Académie française",
+        "ar": "آسيا جبار في الأكاديمية الفرنسية"
+      },
+      "description": {
+        "fr": "Une reconnaissance institutionnelle dans une trajectoire littéraire et cinématographique.",
+        "en": "Institutional recognition in a literary and cinematic career.",
+        "ar": "اعتراف مؤسسي ضمن مسار أدبي وسينمائي."
+      },
+      "articles": [
+        "assia-djebar"
+      ]
+    },
+    {
+      "date": "2022",
+      "year": 2022,
+      "era": "modern",
+      "title": {
+        "fr": "Le raï au patrimoine immatériel",
+        "en": "Raï on the intangible heritage list",
+        "ar": "الراي في التراث اللامادي"
+      },
+      "description": {
+        "fr": "La transmission d’un chant populaire algérien est reconnue par l’UNESCO.",
+        "en": "UNESCO recognises the transmission of an Algerian popular song tradition.",
+        "ar": "تعترف اليونسكو بنقل تقليد غنائي شعبي جزائري."
+      },
+      "articles": [
+        "musique-patrimoine",
+        "rai-oran"
+      ]
+    },
+    {
+      "date": "2026",
+      "year": 2026,
+      "era": "modern",
+      "title": {
+        "fr": "Le découpage en 69 wilayas",
+        "en": "The 69-wilaya division",
+        "ar": "التقسيم إلى 69 ولاية"
+      },
+      "description": {
+        "fr": "La loi et le décret doivent être distingués de la mise en place progressive des nouvelles structures.",
+        "en": "The law and decree must be distinguished from the gradual establishment of the new administrative structures.",
+        "ar": "ينبغي التمييز بين القانون والمرسوم وبين الإقامة التدريجية للمؤسسات الجديدة."
+      },
+      "articles": [
+        "69-wilayas"
+      ]
+    }
+  ],
+  "era_labels": {
+    "prehistory": {
+      "fr": "Préhistoire",
+      "en": "Prehistory",
+      "ar": "ما قبل التاريخ"
+    },
+    "antiquity": {
+      "fr": "Antiquité",
+      "en": "Antiquity",
+      "ar": "العصور القديمة"
+    },
+    "medieval": {
+      "fr": "Moyen Âge",
+      "en": "Middle Ages",
+      "ar": "العصور الوسطى"
+    },
+    "regency": {
+      "fr": "Régence",
+      "en": "Regency",
+      "ar": "العهد العثماني"
+    },
+    "colonial": {
+      "fr": "Colonisation",
+      "en": "Colonial period",
+      "ar": "الاستعمار"
+    },
+    "war": {
+      "fr": "1954–1962",
+      "en": "1954–1962",
+      "ar": "1954–1962"
+    },
+    "modern": {
+      "fr": "Après 1962",
+      "en": "After 1962",
+      "ar": "بعد 1962"
+    }
+  }
+}
