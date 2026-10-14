@@ -1,0 +1,17 @@
+**
+!novalis-os/
+!novalis-os/requirements.txt
+!novalis-os/novalis_os/
+!novalis-os/novalis_os/**
+!novalis-os/web/
+!novalis-os/web/**
+!novalisai/
+!novalisai/assets/
+!novalisai/assets/logo.webp
+!novalisai/assets/N_novalis.png
+!novalisai/assets/manrope-latin.woff2
+!novalisai/assets/instrument-serif-latin.woff2
+**/__pycache__/**
+**/*.pyc
+**/.env
+**/*.sqlite3*

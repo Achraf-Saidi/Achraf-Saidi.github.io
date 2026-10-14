@@ -1,0 +1,9 @@
+# Optional override: serve the qualified public release alongside the backend.
+# All three domain A/AAAA records must be reviewed before enabling this proxy.
+services:
+  proxy:
+    volumes:
+      - ./Caddyfile.public:/etc/caddy/Caddyfile:ro
+      - ${NOVALIS_PUBLIC_PATH:-/srv/novalis-ai/current}:/srv/novalis-public:ro
+      - proxy_data:/data
+      - proxy_config:/config

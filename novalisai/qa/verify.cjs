@@ -53,7 +53,7 @@ const experience=fs.readFileSync(path.join(root,'assets/experience.js'),'utf8');
   const preview=d.getElementById('email-preview');assert(!preview.hidden);assert(form.hidden);
   const body=d.getElementById('email-body').textContent;
   assert(body.includes('Atelier & Compagnie'));assert(body.includes(d.getElementById('contact-budget').value));assert(body.includes(d.getElementById('contact-timing').value));assert(body.includes('<script>'));assert.equal(d.getElementById('email-body').querySelector('script'),null);
-  const mail=new URL(d.getElementById('send-email').href);assert.equal(mail.protocol,'mailto:');assert.equal(mail.pathname,'achraf@novalisai.com');assert.equal(mail.searchParams.get('body'),body);
+  const mail=new URL(d.getElementById('send-email').href);assert.equal(mail.protocol,'mailto:');assert.equal(mail.pathname,'contact@novalisai.com');assert.equal(mail.searchParams.get('body'),body);
   d.getElementById('copy-email').click();await Promise.resolve();await Promise.resolve();assert.equal(copied,body);
   d.getElementById('edit-email').click();assert(!form.hidden);assert(preview.hidden);assert.equal(d.getElementById('contact-name').value,'Élodie <script>alert(1)</script>');
   d.querySelector('[data-policy=privacy]').click();assert(d.getElementById('policy-dialog').open);assert(d.getElementById('policy-title').textContent);

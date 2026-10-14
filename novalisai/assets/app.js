@@ -40,7 +40,7 @@
   if(get('timing'))parts.push(`${data.mail_extra[1]} : ${get('timing')}`);
   parts.push('',`${labels[4]} :`,get('message'));
   const body=parts.join('\n');emailBody.textContent=body;
-  send.href=`mailto:achraf@novalisai.com?subject=${encodeURIComponent(data.mail_subject+' — '+get('need'))}&body=${encodeURIComponent(body)}`;
+  send.href=`mailto:contact@novalisai.com?subject=${encodeURIComponent(data.mail_subject+' — '+get('need'))}&body=${encodeURIComponent(body)}`;
   status.textContent='';form.hidden=true;preview.hidden=false;preview.focus();
  });
  form.hidden=false;

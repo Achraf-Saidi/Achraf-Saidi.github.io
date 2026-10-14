@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build four independent static language editions. Standard library only."""
 import argparse, hashlib, html, json, re
+from extensions import enrich, write_pages
 from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parent
@@ -101,11 +102,12 @@ def render(content,lang,site_url,root_page=False):
  out['team_principles']=''.join(f'<article class="team-principle"><h3>{esc(s["title"])}</h3><p>{esc(s["copy"])}</p></article>' for s in c['team_principles'])
  out['faqs']=''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in c['faqs'])
  for name in ['need','budget','timing']:out[name+'_options']=''.join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in c[name+'_options'])
- schema={'@context':'https://schema.org','@type':'ProfessionalService','name':'Novalis AI','url':site_url,'logo':site_url+'/assets/logo.webp','email':'achraf@novalisai.com','identifier':'BE0878868302','address':{'@type':'PostalAddress','streetAddress':'Rue Barrière Moye 18','postalCode':'1300','addressLocality':'Wavre','addressCountry':'BE'},'availableLanguage':list(LANGUAGES),'description':c['description']}
+ schema={'@context':'https://schema.org','@type':'ProfessionalService','name':'Novalis AI','url':site_url,'logo':site_url+'/assets/logo.webp','email':'contact@novalisai.com','identifier':'BE0878868302','address':{'@type':'PostalAddress','streetAddress':'Rue Barrière Moye 18','postalCode':'1300','addressLocality':'Wavre','addressCountry':'BE'},'availableLanguage':list(LANGUAGES),'description':c['description']}
  out['schema']=json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')
  client={k:c[k] for k in ['menu','close','mail_labels','mail_subject','mail_greeting','mail_extra','copied','copy_error']}
  client['policies']={k:{'title':c[k+'_title'],'text':c[k+'_text']} for k in ['privacy','legal']}
  for k in ['experience_data','experience_labels','experience_actions','experience_modules','art_pause','art_resume']:client[k]=c[k]
+ enrich(lang,prefix,out,client)
  out['client_data']=json.dumps(client,ensure_ascii=False).replace('<','\\u003c')
  result=re.sub(r'\{\{([a-z_0-9]+)\}\}',lambda m:out[m[1]],(ROOT/'template.html').read_text())
  if '{{' in result:raise ValueError('Unresolved template token')
@@ -119,7 +121,8 @@ def main():
   if set(content[lang])!=keys:raise ValueError(f'Translation keys differ: {lang}')
   (ROOT/lang).mkdir(exist_ok=True);(ROOT/lang/'index.html').write_text(render(content,lang,url))
  (ROOT/'index.html').write_text(render(content,'fr',url,True))
- urls='<url><loc>'+url+'/</loc></url>'+''.join(f'<url><loc>{url}/{l}/</loc></url>' for l in LANGUAGES)
+ page_urls=write_pages(content,url)
+ urls='<url><loc>'+url+'/</loc></url>'+''.join(f'<url><loc>{url}/{l}/</loc></url>' for l in LANGUAGES)+''.join(f'<url><loc>{v}</loc></url>' for v in page_urls)
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls+'</urlset>\n')
  print('Generated FR, EN, NL, DE and French home page.')
 if __name__=='__main__':main()

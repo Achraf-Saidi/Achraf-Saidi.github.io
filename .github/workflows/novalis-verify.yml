@@ -1,0 +1,47 @@
+name: Novalis verification
+on:
+  push:
+    paths: ['novalisai/**', 'novalis-os/**', '.github/workflows/novalis-verify.yml']
+  pull_request:
+    paths: ['novalisai/**', 'novalis-os/**', '.github/workflows/novalis-verify.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install verified dependencies
+        run: |
+          python -m pip install -r novalis-os/requirements.txt
+          npm ci --prefix novalisai/qa
+      - name: Generate public website
+        run: |
+          python novalisai/build.py
+          git diff --exit-code -- novalisai/index.html novalisai/fr novalisai/en novalisai/nl novalisai/de novalisai/sitemap.xml
+      - name: Verify API business workflows
+        working-directory: novalis-os
+        run: python -m unittest discover -s tests -v
+      - name: Verify UI behaviour and public content
+        env:
+          NOVALIS_JSDOM_MODULE: ${{ github.workspace }}/novalisai/qa/node_modules/jsdom
+        run: |
+          node novalisai/qa/verify.cjs
+          node novalisai/qa/v2.cjs
+          node novalisai/qa/sculpture-check.cjs
+          node novalis-os/tests/ui.cjs
+      - name: Build production image
+        run: docker build -f novalis-os/deploy/Dockerfile -t novalis-os:ci .
+      - name: Prepare isolated Hostinger public release
+        run: python novalis-os/deploy/prepare-public.py --output /tmp/novalis-public-ci --site-url https://www.novalisai.com --api-origin https://app.novalisai.com --portal-url https://app.novalisai.com/os/

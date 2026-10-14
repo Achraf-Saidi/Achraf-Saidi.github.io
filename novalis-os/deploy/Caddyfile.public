@@ -1,0 +1,31 @@
+# Use only after the existing web/proxy configuration is backed up and qualified.
+novalisai.com {
+    redir https://www.novalisai.com{uri} permanent
+}
+
+www.novalisai.com {
+    encode zstd gzip
+    root * /srv/novalis-public
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        X-Frame-Options DENY
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://app.novalisai.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+        -Server
+    }
+    @private path /qa/* /docs/* /content.json /extension.json /build.py /template.html /.env*
+    respond @private 404
+    file_server
+}
+
+app.novalisai.com {
+    encode zstd gzip
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy same-origin
+        X-Robots-Tag "noindex, nofollow"
+        -Server
+    }
+    reverse_proxy app:8000
+}

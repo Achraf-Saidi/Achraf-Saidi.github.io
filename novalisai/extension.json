@@ -1,0 +1,1018 @@
+{
+  "fr": {
+    "explore": "Explorer notre savoir-faire",
+    "navigation": "Aller plus loin",
+    "home": "Accueil",
+    "read": "Découvrir l’approche",
+    "contact": "Parler de mon projet",
+    "client": "Espace client",
+    "back": "Retour à l’accueil",
+    "scope": "Ce que nous construisons",
+    "deliver": "Ce que vous recevez",
+    "principle": "Un projet cadré avant d’être développé.",
+    "principle_copy": "Nous précisons les objectifs, les utilisateurs, les priorités et les critères de réussite. Le devis distingue les premières fonctionnalités, les intégrations et les évolutions possibles. Vous gardez une vision claire du périmètre et des décisions.",
+    "consult_title": "Une heure pour poser les bonnes questions.",
+    "consult_copy": "Votre premier rendez-vous est offert. Nous parlons de votre activité, de vos contraintes et de ce que vous souhaitez améliorer. Vous repartez avec un point de départ, puis une première note de cadrage adaptée à votre besoin.",
+    "consult_steps": [
+      "Vos objectifs et votre contexte",
+      "Les priorités et les risques",
+      "Les prochaines étapes"
+    ],
+    "consult_note": "Sans engagement. Une étude détaillée, une architecture complète ou un cahier des charges approfondi fait l’objet d’un cadrage distinct.",
+    "lab_title": "Entrez dans le logiciel.",
+    "lab_copy": "Changez de rôle, suivez une validation, ajustez une hypothèse. Des interactions concrètes pour comprendre les systèmes que nous concevons.",
+    "lab_note": "Démonstrations interactives · données fictives · aucune action dans un projet réel",
+    "lab_tabs": [
+      "Les bons accès",
+      "Le calcul utile"
+    ],
+    "roles": [
+      "Direction",
+      "Responsable",
+      "Développeur",
+      "Client"
+    ],
+    "role_title": [
+      "Décider avec une vue d’ensemble",
+      "Coordonner et communiquer",
+      "Construire, puis soumettre en revue",
+      "Comprendre et valider"
+    ],
+    "role_copy": [
+      "Le pipeline, les projets et les finances servent à prioriser les décisions.",
+      "Un interlocuteur coordonne le travail et prépare les informations destinées au client.",
+      "Les tâches et les spécifications sont accessibles ; les données financières confidentielles restent réservées.",
+      "Les jalons et les échanges partagés sont visibles. Les conversations internes restent privées."
+    ],
+    "role_items": [
+      [
+        "Opportunités à qualifier",
+        "Projet : jalon en revue",
+        "Finances : suivi des règlements"
+      ],
+      [
+        "Demande client à analyser",
+        "Revue technique à organiser",
+        "Compte rendu à partager"
+      ],
+      [
+        "Module d’accès à développer",
+        "Tests d’autorisation à exécuter",
+        "Livrable à soumettre"
+      ],
+      [
+        "Roadmap de votre projet",
+        "Message de votre interlocuteur",
+        "Livrable à examiner"
+      ]
+    ],
+    "role_action": "Avancer la démonstration",
+    "role_done": "Étape enregistrée dans cette démonstration",
+    "volume": "Dossiers par semaine",
+    "manual": "Minutes par dossier",
+    "automation": "Part automatisable",
+    "result": "Heures libérables par semaine",
+    "math_note": "Volume × durée × part automatisable ÷ 60. Une estimation illustrative ; les erreurs, la qualité et le coût d’intégration se mesurent séparément.",
+    "team_poles": [
+      "Interfaces",
+      "Architecture",
+      "Données",
+      "Design"
+    ],
+    "team_details": [
+      "Frontend et mobile : une expérience lisible, rapide et adaptée aux usages.",
+      "Backend, API et déploiement : des règles métier cohérentes et des accès maîtrisés.",
+      "Statistiques, optimisation et IA : des hypothèses explicites et des résultats évalués.",
+      "UX et UI : des parcours compréhensibles et une identité visuelle cohérente."
+    ],
+    "pages": [
+      [
+        "expertise",
+        "Notre expertise",
+        "Du site web au système d’entreprise.",
+        "Nous réunissons les compétences nécessaires pour concevoir votre produit, connecter vos outils et faire évoluer vos opérations.",
+        [
+          "Sites et commerce",
+          "Applications et logiciels métier",
+          "Plateformes SaaS",
+          "Automatisation et données"
+        ]
+      ],
+      [
+        "sur-mesure",
+        "Développement sur mesure",
+        "Un logiciel construit autour de votre métier.",
+        "Site vitrine, boutique en ligne, application mobile, portail, ERP ou CRM : le point de départ est votre fonctionnement et les besoins de vos utilisateurs.",
+        [
+          "Parcours utilisateurs et interfaces",
+          "Règles métier et accès",
+          "API et intégrations",
+          "Livraison, prise en main et maintenance"
+        ]
+      ],
+      [
+        "saas",
+        "SaaS et produits",
+        "De l’idée à un produit utilisable.",
+        "Nous accompagnons la définition d’un produit, son premier périmètre et ses évolutions. Les fonctionnalités, les rôles et les opérations de service sont étudiés ensemble.",
+        [
+          "Cadrage du produit et priorités",
+          "Comptes, permissions et espaces clients",
+          "Intégrations et modèle de données",
+          "Lancement progressif et suivi"
+        ]
+      ],
+      [
+        "automatisation",
+        "Automatisation",
+        "Vos opérations, sans les ressaisies.",
+        "Nous identifions les tâches répétitives, les ruptures d’information et les validations nécessaires. Une règle fiable ou une API suffit souvent à transformer un processus.",
+        [
+          "Demandes et circuits de validation",
+          "Synchronisation entre outils",
+          "Documents et notifications",
+          "Traçabilité et traitement des erreurs"
+        ]
+      ],
+      [
+        "data-ia",
+        "Data et intelligence artificielle",
+        "La bonne méthode pour le bon problème.",
+        "Tableaux de bord, modèles statistiques, prévisions, optimisation et IA : chaque méthode doit répondre à un objectif observable et à des données adaptées.",
+        [
+          "Pipelines de données et analytics",
+          "Statistiques et prévision",
+          "Optimisation mathématique",
+          "ML, deep learning et IA générative pertinente"
+        ]
+      ],
+      [
+        "methode",
+        "Notre méthode",
+        "Des étapes lisibles. Des décisions partagées.",
+        "Découverte, cadrage, proposition, développement, tests, livraison et maintenance : votre projet avance avec un périmètre explicite et des points de validation.",
+        [
+          "Première heure offerte",
+          "Note de cadrage et proposition",
+          "Développement et démonstrations",
+          "Tests, déploiement et transmission"
+        ]
+      ],
+      [
+        "entreprise",
+        "L’entreprise",
+        "Une direction technique accessible.",
+        "Novalis AI associe une direction en Belgique à un réseau de compétences mobilisé selon les besoins. Un interlocuteur reste responsable du cadrage, de la coordination et de la qualité.",
+        [
+          "Achraf Saidi — cofondateur et CTO",
+          "Ingénierie, mathématiques et data science",
+          "JetThings / JetNext : réseau de collaboration",
+          "Disponibilité des spécialistes vérifiée par projet"
+        ]
+      ],
+      [
+        "realisations",
+        "Réalisations et recherche",
+        "Des statuts clairs. Des exemples concrets.",
+        "Découvrez des sites publics en évolution et nos démonstrations illustratives. Leur présentation ne constitue ni une référence client livrée ni une affirmation de résultats commerciaux.",
+        [
+          "BILADI : atlas et encyclopédie en développement",
+          "Code32 : site éducatif public",
+          "Numeria : plateforme éducative en développement",
+          "Novalis OS : noyau applicatif en cours de validation"
+        ]
+      ],
+      [
+        "contact",
+        "Contact et rendez-vous",
+        "Votre projet peut commencer par une conversation.",
+        "La première heure est offerte, sans engagement. Contactez l’équipe pour un site, une application, un produit ou un besoin de transformation de vos opérations.",
+        [
+          "contact@novalisai.com — demandes générales",
+          "achraf@novalisai.com — direction technique",
+          "Première note de cadrage après le rendez-vous",
+          "Budget et délais évalués selon le périmètre"
+        ]
+      ],
+      [
+        "espace-client",
+        "Espace client",
+        "Un suivi clair, avec votre interlocuteur.",
+        "Novalis OS est en préparation pour centraliser les projets, les échanges partagés, les livrables et les validations. Vous recevrez une invitation personnelle lorsque l’espace sera disponible.",
+        [
+          "Compte personnel et accès par projet",
+          "Communication avec votre responsable",
+          "Jalons et validation des livrables",
+          "Documents et suivi des règlements"
+        ]
+      ],
+      [
+        "mentions-legales",
+        "Mentions légales",
+        "Informations de l’éditeur.",
+        "Les informations ci-dessous proviennent de la version conservée du site. La forme juridique et l’adresse complète seront contrôlées sur un extrait BCE ou les statuts avant activation de la facturation.",
+        [
+          "Novalis AI — BE 0878.868.302",
+          "Rue Barrière Moye 18, 1300 Wavre, Belgique",
+          "contact@novalisai.com",
+          "Hébergement de cette édition : GitHub Pages"
+        ]
+      ],
+      [
+        "confidentialite",
+        "Confidentialité",
+        "Les données utiles, avec des accès maîtrisés.",
+        "La vitrine prépare un brouillon d’e-mail tant que le formulaire serveur n’est pas activé. Dans Novalis OS, les comptes et projets seront réservés aux utilisateurs autorisés.",
+        [
+          "Finalité : traiter votre demande",
+          "Droits : contact@novalisai.com",
+          "Documents internes séparés des échanges clients",
+          "Politique ERP à finaliser avant l’ouverture aux clients"
+        ]
+      ],
+      [
+        "cookies",
+        "Cookies",
+        "Une navigation sobre.",
+        "Cette édition publique n’utilise aucun cookie publicitaire ni outil d’analyse d’audience. Les polices et images sont servies avec le site.",
+        [
+          "Aucun suivi publicitaire",
+          "Aucune statistique de fréquentation ajoutée",
+          "Futurs cookies de session limités à l’espace connecté",
+          "Information mise à jour lors de toute nouvelle intégration"
+        ]
+      ]
+    ],
+    "api_labels": {
+      "received": "Votre demande est enregistrée. Nous vous contacterons pour la suite.",
+      "failed": "La demande n’a pas été enregistrée. Réessayez ou écrivez à contact@novalisai.com.",
+      "send": "Envoyer ma demande",
+      "sending": "Envoi en cours…",
+      "slots": "Choisir un créneau d’une heure",
+      "no_slots": "Aucun créneau n’est actuellement publié. Vous pouvez nous demander un rendez-vous par e-mail.",
+      "reserved": "Votre rendez-vous est réservé. L’horaire est indiqué ci-dessous ; l’e-mail de confirmation est en attente d’envoi."
+    }
+  },
+  "en": {
+    "explore": "Explore our expertise",
+    "navigation": "Explore Novalis",
+    "home": "Home",
+    "read": "Discover our approach",
+    "contact": "Discuss my project",
+    "client": "Client portal",
+    "back": "Back to home",
+    "scope": "What we build",
+    "deliver": "What you receive",
+    "principle": "A clear scope before development.",
+    "principle_copy": "We define objectives, users, priorities and acceptance criteria. The proposal distinguishes initial features, integrations and potential extensions. You keep a clear view of the scope and decisions.",
+    "consult_title": "An hour for the right questions.",
+    "consult_copy": "Your first meeting is complimentary. We discuss your work, constraints and what you want to improve. You leave with a starting point, followed by an initial scoping note tailored to your needs.",
+    "consult_steps": [
+      "Your goals and context",
+      "Priorities and risks",
+      "Next steps"
+    ],
+    "consult_note": "No obligation. A detailed study, full architecture or comprehensive specification is scoped separately.",
+    "lab_title": "Step inside the software.",
+    "lab_copy": "Change roles, follow an approval and adjust an assumption. Practical interactions to understand the systems we build.",
+    "lab_note": "Interactive demonstrations · fictional data · no action in a real project",
+    "lab_tabs": [
+      "The right access",
+      "Useful calculation"
+    ],
+    "roles": [
+      "Management",
+      "Coordinator",
+      "Developer",
+      "Client"
+    ],
+    "role_title": [
+      "Make informed decisions",
+      "Coordinate and communicate",
+      "Build, then request a review",
+      "Understand and approve"
+    ],
+    "role_copy": [
+      "Pipeline, projects and finances inform decisions.",
+      "One contact coordinates work and prepares client updates.",
+      "Tasks and specifications are available; confidential financial data stays restricted.",
+      "Shared milestones and updates are visible. Internal conversations remain private."
+    ],
+    "role_items": [
+      [
+        "Opportunity to qualify",
+        "Project milestone in review",
+        "Payment tracking"
+      ],
+      [
+        "Client request to assess",
+        "Technical review to organise",
+        "Update to share"
+      ],
+      [
+        "Access module to build",
+        "Permission tests to run",
+        "Deliverable to submit"
+      ],
+      [
+        "Your project roadmap",
+        "Message from your coordinator",
+        "Deliverable to review"
+      ]
+    ],
+    "role_action": "Advance the demonstration",
+    "role_done": "Step recorded in this demonstration",
+    "volume": "Cases per week",
+    "manual": "Minutes per case",
+    "automation": "Automatable share",
+    "result": "Hours potentially freed each week",
+    "math_note": "Volume × duration × automatable share ÷ 60. An illustrative estimate; errors, quality and integration costs must be evaluated separately.",
+    "team_poles": [
+      "Interfaces",
+      "Architecture",
+      "Data",
+      "Design"
+    ],
+    "team_details": [
+      "Frontend and mobile: clear, fast experiences suited to actual use.",
+      "Backend, APIs and deployment: consistent business rules and controlled access.",
+      "Statistics, optimisation and AI: explicit assumptions and evaluated results.",
+      "UX and UI: understandable journeys and a consistent identity."
+    ],
+    "pages": [
+      [
+        "expertise",
+        "Our expertise",
+        "From your website to your business systems.",
+        "We bring together the skills needed to build products, connect tools and evolve operations.",
+        [
+          "Websites and commerce",
+          "Applications and business software",
+          "SaaS platforms",
+          "Automation and data"
+        ]
+      ],
+      [
+        "sur-mesure",
+        "Custom development",
+        "Software designed around your work.",
+        "Website, online store, mobile app, portal, ERP or CRM: your operations and users come first.",
+        [
+          "User journeys and interfaces",
+          "Business rules and access",
+          "APIs and integrations",
+          "Delivery, training and maintenance"
+        ]
+      ],
+      [
+        "saas",
+        "SaaS and products",
+        "From idea to usable product.",
+        "We help define your product, its initial scope and its evolution. Features, roles and service operations are designed together.",
+        [
+          "Product scope and priorities",
+          "Accounts, permissions and client areas",
+          "Integrations and data model",
+          "Gradual launch and follow-up"
+        ]
+      ],
+      [
+        "automatisation",
+        "Automation",
+        "Operations without re-entering data.",
+        "We identify repetitive tasks, information gaps and necessary approvals. A dependable rule or API can often transform a process.",
+        [
+          "Requests and approval workflows",
+          "Tool synchronisation",
+          "Documents and notifications",
+          "Traceability and error handling"
+        ]
+      ],
+      [
+        "data-ia",
+        "Data and AI",
+        "The right method for the problem.",
+        "Dashboards, statistics, forecasting, optimisation and AI should serve an observable goal and suitable data.",
+        [
+          "Data pipelines and analytics",
+          "Statistics and forecasting",
+          "Mathematical optimisation",
+          "Relevant ML, deep learning and generative AI"
+        ]
+      ],
+      [
+        "methode",
+        "Our method",
+        "Clear steps. Shared decisions.",
+        "Discovery, scope, proposal, development, testing, delivery and maintenance: an explicit scope and approval points guide the project.",
+        [
+          "Complimentary first hour",
+          "Initial scoping note and proposal",
+          "Development and demonstrations",
+          "Testing, deployment and handover"
+        ]
+      ],
+      [
+        "entreprise",
+        "The company",
+        "Accessible technical leadership.",
+        "Novalis AI combines leadership in Belgium with a specialist network matched to each project. One contact remains responsible for scope, coordination and quality.",
+        [
+          "Achraf Saidi — cofounder and CTO",
+          "Engineering, mathematics and data science",
+          "JetThings / JetNext: collaboration network",
+          "Availability checked for each project"
+        ]
+      ],
+      [
+        "realisations",
+        "Work and research",
+        "Clear status. Concrete examples.",
+        "Explore evolving public websites and illustrative demonstrations. They are not presented as delivered client references or evidence of commercial outcomes.",
+        [
+          "BILADI: atlas and encyclopedia in development",
+          "Code32: public education website",
+          "Numeria: education platform in development",
+          "Novalis OS: application core undergoing validation"
+        ]
+      ],
+      [
+        "contact",
+        "Contact and meetings",
+        "Start with a conversation.",
+        "The first hour is free, with no obligation. Contact us about a website, an application, a product or an operational challenge.",
+        [
+          "contact@novalisai.com — general enquiries",
+          "achraf@novalisai.com — technical leadership",
+          "Initial scoping note after the meeting",
+          "Budget and timing assessed against scope"
+        ]
+      ],
+      [
+        "espace-client",
+        "Client portal",
+        "Clear follow-up with your coordinator.",
+        "Novalis OS is being prepared to centralise projects, shared conversations, deliverables and approvals. You will receive a personal invitation when the portal becomes available.",
+        [
+          "Personal account and project access",
+          "Communication with your coordinator",
+          "Milestones and deliverable approvals",
+          "Documents and payment tracking"
+        ]
+      ],
+      [
+        "mentions-legales",
+        "Legal notice",
+        "Publisher information.",
+        "These details come from the retained website. Legal form and the full address must be checked against company statutes or a Belgian registry extract before invoice activation.",
+        [
+          "Novalis AI — BE 0878.868.302",
+          "Rue Barrière Moye 18, 1300 Wavre, Belgium",
+          "contact@novalisai.com",
+          "This edition is hosted on GitHub Pages"
+        ]
+      ],
+      [
+        "confidentialite",
+        "Privacy",
+        "Relevant data and controlled access.",
+        "The public website prepares email drafts until server submission is enabled. Novalis OS accounts and projects will be restricted to authorised users.",
+        [
+          "Purpose: handle your enquiry",
+          "Your rights: contact@novalisai.com",
+          "Internal documents separate from client exchanges",
+          "ERP policy to be finalised before client access opens"
+        ]
+      ],
+      [
+        "cookies",
+        "Cookies",
+        "A focused browsing experience.",
+        "This public edition uses no advertising cookies or audience analytics. Fonts and images are served with the website.",
+        [
+          "No advertising tracking",
+          "No audience analytics added",
+          "Future session cookies limited to the authenticated portal",
+          "Information updated for new integrations"
+        ]
+      ]
+    ],
+    "api_labels": {
+      "received": "Your request was recorded. We will contact you about the next step.",
+      "failed": "Your request was not recorded. Try again or email contact@novalisai.com.",
+      "send": "Send my request",
+      "sending": "Sending…",
+      "slots": "Choose a one-hour slot",
+      "no_slots": "No appointment slots are currently published. You can request a meeting by email.",
+      "reserved": "Your meeting is reserved. Its time is shown below; the confirmation email is queued."
+    }
+  },
+  "nl": {
+    "explore": "Ontdek onze expertise",
+    "navigation": "Meer over Novalis",
+    "home": "Home",
+    "read": "Ontdek onze aanpak",
+    "contact": "Bespreek mijn project",
+    "client": "Klantenportaal",
+    "back": "Terug naar de homepage",
+    "scope": "Wat we bouwen",
+    "deliver": "Wat u ontvangt",
+    "principle": "Een heldere scope vóór de ontwikkeling.",
+    "principle_copy": "We bepalen doelen, gebruikers, prioriteiten en acceptatiecriteria. De offerte onderscheidt de eerste functies, integraties en uitbreidingen. U houdt zicht op de scope en de beslissingen.",
+    "consult_title": "Een uur voor de juiste vragen.",
+    "consult_copy": "Het eerste gesprek is gratis. We bespreken uw werk, beperkingen en verbeterpunten. U krijgt een vertrekpunt en daarna een eerste scopingnota op maat.",
+    "consult_steps": [
+      "Uw doelen en context",
+      "Prioriteiten en risico’s",
+      "Volgende stappen"
+    ],
+    "consult_note": "Vrijblijvend. Een uitgebreide studie, volledige architectuur of gedetailleerde specificatie wordt apart uitgewerkt.",
+    "lab_title": "Ontdek de software van binnenuit.",
+    "lab_copy": "Wissel van rol, volg een goedkeuring en pas een aanname aan. Concrete interacties tonen hoe onze systemen werken.",
+    "lab_note": "Interactieve demonstraties · fictieve gegevens · geen actie in een echt project",
+    "lab_tabs": [
+      "De juiste toegang",
+      "Zinvolle berekening"
+    ],
+    "roles": [
+      "Directie",
+      "Coördinator",
+      "Ontwikkelaar",
+      "Klant"
+    ],
+    "role_title": [
+      "Beslissen met overzicht",
+      "Coördineren en communiceren",
+      "Bouwen en ter controle voorleggen",
+      "Begrijpen en goedkeuren"
+    ],
+    "role_copy": [
+      "De pipeline, projecten en financiën ondersteunen beslissingen.",
+      "Eén contactpersoon coördineert het werk en bereidt updates voor de klant voor.",
+      "Taken en specificaties zijn beschikbaar; vertrouwelijke financiële gegevens blijven afgeschermd.",
+      "Gedeelde mijlpalen en updates zijn zichtbaar. Interne gesprekken blijven privé."
+    ],
+    "role_items": [
+      [
+        "Nieuwe kans beoordelen",
+        "Mijlpaal in controle",
+        "Betalingen opvolgen"
+      ],
+      [
+        "Klantverzoek onderzoeken",
+        "Technische controle organiseren",
+        "Update delen"
+      ],
+      [
+        "Toegangsmodule bouwen",
+        "Autorisatietests uitvoeren",
+        "Resultaat voorleggen"
+      ],
+      [
+        "Uw projectplanning",
+        "Bericht van uw contactpersoon",
+        "Resultaat beoordelen"
+      ]
+    ],
+    "role_action": "Demonstratie voortzetten",
+    "role_done": "Stap opgeslagen in deze demonstratie",
+    "volume": "Dossiers per week",
+    "manual": "Minuten per dossier",
+    "automation": "Automatiseerbaar aandeel",
+    "result": "Mogelijk vrijgemaakte uren per week",
+    "math_note": "Volume × duur × automatiseerbaar aandeel ÷ 60. Een illustratieve schatting; fouten, kwaliteit en integratiekosten worden apart beoordeeld.",
+    "team_poles": [
+      "Interfaces",
+      "Architectuur",
+      "Data",
+      "Design"
+    ],
+    "team_details": [
+      "Frontend en mobiel: heldere, snelle ervaringen voor het dagelijkse gebruik.",
+      "Backend, API’s en uitrol: consistente bedrijfsregels en beheerde toegang.",
+      "Statistiek, optimalisatie en AI: expliciete aannames en getoetste resultaten.",
+      "UX en UI: begrijpelijke gebruikersreizen en een samenhangende identiteit."
+    ],
+    "pages": [
+      [
+        "expertise",
+        "Onze expertise",
+        "Van uw website tot uw bedrijfssystemen.",
+        "We combineren de nodige vaardigheden om producten te bouwen, tools te verbinden en processen te verbeteren.",
+        [
+          "Websites en handel",
+          "Applicaties en bedrijfssoftware",
+          "SaaS-platformen",
+          "Automatisering en data"
+        ]
+      ],
+      [
+        "sur-mesure",
+        "Ontwikkeling op maat",
+        "Software rond uw werkwijze.",
+        "Website, webshop, mobiele app, portaal, ERP of CRM: uw werking en gebruikers staan centraal.",
+        [
+          "Gebruikersreizen en interfaces",
+          "Bedrijfsregels en toegang",
+          "API’s en integraties",
+          "Oplevering, opleiding en onderhoud"
+        ]
+      ],
+      [
+        "saas",
+        "SaaS en producten",
+        "Van idee tot bruikbaar product.",
+        "We helpen uw product, eerste scope en evolutie te bepalen. Functies, rollen en dienstverlening worden samen ontworpen.",
+        [
+          "Productscope en prioriteiten",
+          "Accounts en klantomgevingen",
+          "Integraties en datamodel",
+          "Geleidelijke lancering en opvolging"
+        ]
+      ],
+      [
+        "automatisation",
+        "Automatisering",
+        "Processen zonder dubbele invoer.",
+        "We onderzoeken herhalende taken, informatiebreuken en noodzakelijke goedkeuringen. Een betrouwbare regel of API kan vaak een proces verbeteren.",
+        [
+          "Aanvragen en goedkeuringen",
+          "Tools synchroniseren",
+          "Documenten en meldingen",
+          "Traceerbaarheid en foutafhandeling"
+        ]
+      ],
+      [
+        "data-ia",
+        "Data en AI",
+        "De juiste methode voor het probleem.",
+        "Dashboards, statistiek, voorspellingen, optimalisatie en AI moeten een waarneembaar doel dienen met geschikte data.",
+        [
+          "Datapipelines en analytics",
+          "Statistiek en voorspellingen",
+          "Wiskundige optimalisatie",
+          "Relevante ML, deep learning en generatieve AI"
+        ]
+      ],
+      [
+        "methode",
+        "Onze methode",
+        "Heldere stappen. Gedeelde beslissingen.",
+        "Verkenning, scope, offerte, ontwikkeling, tests, oplevering en onderhoud: een duidelijke scope en validatiemomenten sturen het project.",
+        [
+          "Gratis eerste uur",
+          "Scopingnota en voorstel",
+          "Ontwikkeling en demonstraties",
+          "Tests, uitrol en overdracht"
+        ]
+      ],
+      [
+        "entreprise",
+        "Het bedrijf",
+        "Toegankelijke technische leiding.",
+        "Novalis AI combineert leiding in België met een netwerk van specialisten. Eén contactpersoon bewaakt de scope, coördinatie en kwaliteit.",
+        [
+          "Achraf Saidi — medeoprichter en CTO",
+          "Software, wiskunde en data science",
+          "JetThings / JetNext: samenwerkingsnetwerk",
+          "Beschikbaarheid per project nagegaan"
+        ]
+      ],
+      [
+        "realisations",
+        "Werk en onderzoek",
+        "Heldere status. Concrete voorbeelden.",
+        "Ontdek publieke websites in ontwikkeling en illustratieve demonstraties. Ze worden niet voorgesteld als opgeleverde klantreferenties of commerciële resultaten.",
+        [
+          "BILADI: atlas en encyclopedie in ontwikkeling",
+          "Code32: publieke onderwijswebsite",
+          "Numeria: onderwijsplatform in ontwikkeling",
+          "Novalis OS: applicatiekern in validatie"
+        ]
+      ],
+      [
+        "contact",
+        "Contact en afspraken",
+        "Begin met een gesprek.",
+        "Het eerste uur is gratis en vrijblijvend. Neem contact op voor een website, applicatie, product of operationele uitdaging.",
+        [
+          "contact@novalisai.com — algemene vragen",
+          "achraf@novalisai.com — technische leiding",
+          "Eerste scopingnota na het gesprek",
+          "Budget en planning volgens de scope"
+        ]
+      ],
+      [
+        "espace-client",
+        "Klantenportaal",
+        "Heldere opvolging met uw contactpersoon.",
+        "Novalis OS wordt voorbereid voor projecten, gedeelde gesprekken, resultaten en goedkeuringen. U ontvangt een persoonlijke uitnodiging zodra het portaal beschikbaar is.",
+        [
+          "Persoonlijk account en projecttoegang",
+          "Communicatie met uw coördinator",
+          "Mijlpalen en goedkeuringen",
+          "Documenten en betalingsopvolging"
+        ]
+      ],
+      [
+        "mentions-legales",
+        "Juridische informatie",
+        "Gegevens van de uitgever.",
+        "Deze gegevens komen uit de behouden website. Rechtsvorm en volledig adres worden vóór facturatie gecontroleerd aan de hand van de statuten of een KBO-uittreksel.",
+        [
+          "Novalis AI — BE 0878.868.302",
+          "Rue Barrière Moye 18, 1300 Wavre, België",
+          "contact@novalisai.com",
+          "Deze editie: GitHub Pages"
+        ]
+      ],
+      [
+        "confidentialite",
+        "Privacy",
+        "Relevante gegevens en beheerde toegang.",
+        "De website maakt e-mailconcepten zolang serververzending niet actief is. Accounts en projecten van Novalis OS zijn voorbehouden aan bevoegde gebruikers.",
+        [
+          "Doel: uw aanvraag behandelen",
+          "Uw rechten: contact@novalisai.com",
+          "Interne documenten apart van klantgesprekken",
+          "ERP-beleid vóór klanttoegang afronden"
+        ]
+      ],
+      [
+        "cookies",
+        "Cookies",
+        "Een sobere browse-ervaring.",
+        "Deze publieke editie gebruikt geen advertentiecookies of bezoekersanalyse. Lettertypen en afbeeldingen staan bij de website.",
+        [
+          "Geen advertentietracking",
+          "Geen bezoekersanalyse toegevoegd",
+          "Toekomstige sessiecookies enkel in het portaal",
+          "Informatie bijgewerkt bij nieuwe integraties"
+        ]
+      ]
+    ],
+    "api_labels": {
+      "received": "Uw aanvraag is geregistreerd. We nemen contact op over de volgende stap.",
+      "failed": "Uw aanvraag is niet geregistreerd. Probeer opnieuw of mail contact@novalisai.com.",
+      "send": "Aanvraag versturen",
+      "sending": "Bezig met versturen…",
+      "slots": "Kies een tijdslot van een uur",
+      "no_slots": "Er zijn momenteel geen tijdsloten gepubliceerd. Vraag een afspraak aan via e-mail.",
+      "reserved": "Uw afspraak is gereserveerd. Het tijdstip staat hieronder; de bevestigingsmail wacht op verzending."
+    }
+  },
+  "de": {
+    "explore": "Unsere Kompetenzen entdecken",
+    "navigation": "Mehr über Novalis",
+    "home": "Startseite",
+    "read": "Unseren Ansatz entdecken",
+    "contact": "Mein Projekt besprechen",
+    "client": "Kundenportal",
+    "back": "Zur Startseite",
+    "scope": "Was wir entwickeln",
+    "deliver": "Was Sie erhalten",
+    "principle": "Ein klarer Umfang vor der Entwicklung.",
+    "principle_copy": "Wir bestimmen Ziele, Nutzer, Prioritäten und Abnahmekriterien. Das Angebot unterscheidet erste Funktionen, Integrationen und mögliche Erweiterungen. Sie behalten den Überblick über Umfang und Entscheidungen.",
+    "consult_title": "Eine Stunde für die richtigen Fragen.",
+    "consult_copy": "Das erste Gespräch ist kostenlos. Wir besprechen Ihre Arbeit, Rahmenbedingungen und Verbesserungswünsche. Sie erhalten einen Ausgangspunkt und anschließend eine erste Projektnotiz.",
+    "consult_steps": [
+      "Ihre Ziele und Ihr Kontext",
+      "Prioritäten und Risiken",
+      "Nächste Schritte"
+    ],
+    "consult_note": "Unverbindlich. Eine vertiefte Studie, vollständige Architektur oder umfassende Spezifikation wird gesondert vereinbart.",
+    "lab_title": "Erleben Sie die Software.",
+    "lab_copy": "Wechseln Sie die Rolle, verfolgen Sie eine Freigabe und verändern Sie eine Annahme. Konkrete Interaktionen erklären die Systeme, die wir entwickeln.",
+    "lab_note": "Interaktive Demonstrationen · fiktive Daten · keine Aktion in einem echten Projekt",
+    "lab_tabs": [
+      "Der passende Zugriff",
+      "Sinnvolle Berechnung"
+    ],
+    "roles": [
+      "Geschäftsleitung",
+      "Koordination",
+      "Entwicklung",
+      "Kunde"
+    ],
+    "role_title": [
+      "Mit Überblick entscheiden",
+      "Koordinieren und kommunizieren",
+      "Entwickeln und zur Prüfung einreichen",
+      "Verstehen und freigeben"
+    ],
+    "role_copy": [
+      "Pipeline, Projekte und Finanzen unterstützen Entscheidungen.",
+      "Ein Ansprechpartner koordiniert die Arbeit und bereitet Kundenupdates vor.",
+      "Aufgaben und Spezifikationen sind zugänglich; vertrauliche Finanzdaten bleiben geschützt.",
+      "Geteilte Meilensteine und Updates sind sichtbar. Interne Gespräche bleiben privat."
+    ],
+    "role_items": [
+      [
+        "Geschäftschance prüfen",
+        "Meilenstein in Prüfung",
+        "Zahlungen verfolgen"
+      ],
+      [
+        "Kundenanfrage prüfen",
+        "Technische Prüfung organisieren",
+        "Update teilen"
+      ],
+      [
+        "Zugangsmodul entwickeln",
+        "Berechtigungen testen",
+        "Ergebnis einreichen"
+      ],
+      [
+        "Ihr Projektplan",
+        "Nachricht Ihres Ansprechpartners",
+        "Ergebnis prüfen"
+      ]
+    ],
+    "role_action": "Demonstration fortsetzen",
+    "role_done": "Schritt in dieser Demonstration gespeichert",
+    "volume": "Vorgänge pro Woche",
+    "manual": "Minuten pro Vorgang",
+    "automation": "Automatisierbarer Anteil",
+    "result": "Potenziell frei werdende Stunden pro Woche",
+    "math_note": "Volumen × Dauer × automatisierbarer Anteil ÷ 60. Eine beispielhafte Schätzung; Fehler, Qualität und Integrationskosten werden gesondert bewertet.",
+    "team_poles": [
+      "Oberflächen",
+      "Architektur",
+      "Daten",
+      "Design"
+    ],
+    "team_details": [
+      "Frontend und Mobilgeräte: klare, schnelle Oberflächen für den Alltag.",
+      "Backend, APIs und Betrieb: konsistente Geschäftsregeln und kontrollierte Zugriffe.",
+      "Statistik, Optimierung und KI: klare Annahmen und geprüfte Ergebnisse.",
+      "UX und UI: verständliche Abläufe und eine einheitliche Gestaltung."
+    ],
+    "pages": [
+      [
+        "expertise",
+        "Unsere Kompetenzen",
+        "Von der Website zu Ihren Unternehmenssystemen.",
+        "Wir vereinen die Fähigkeiten für Produkte, verbundene Werkzeuge und bessere Abläufe.",
+        [
+          "Websites und Handel",
+          "Anwendungen und Geschäftssoftware",
+          "SaaS-Plattformen",
+          "Automatisierung und Daten"
+        ]
+      ],
+      [
+        "sur-mesure",
+        "Individuelle Entwicklung",
+        "Software für Ihre Arbeitsweise.",
+        "Website, Onlineshop, mobile App, Portal, ERP oder CRM: Ihre Abläufe und Nutzer stehen am Anfang.",
+        [
+          "Nutzerführung und Oberflächen",
+          "Geschäftsregeln und Zugriffe",
+          "APIs und Integrationen",
+          "Übergabe, Einführung und Wartung"
+        ]
+      ],
+      [
+        "saas",
+        "SaaS und Produkte",
+        "Von der Idee zum nutzbaren Produkt.",
+        "Wir begleiten Produktdefinition, ersten Umfang und Weiterentwicklung. Funktionen, Rollen und Serviceabläufe werden gemeinsam entworfen.",
+        [
+          "Produktumfang und Prioritäten",
+          "Konten und Kundenbereiche",
+          "Integrationen und Datenmodell",
+          "Schrittweiser Start und Begleitung"
+        ]
+      ],
+      [
+        "automatisation",
+        "Automatisierung",
+        "Abläufe ohne doppelte Eingabe.",
+        "Wir untersuchen wiederholte Aufgaben, Informationslücken und notwendige Freigaben. Eine zuverlässige Regel oder API kann oft einen Prozess verbessern.",
+        [
+          "Anfragen und Freigaben",
+          "Werkzeuge synchronisieren",
+          "Dokumente und Benachrichtigungen",
+          "Nachvollziehbarkeit und Fehlerbehandlung"
+        ]
+      ],
+      [
+        "data-ia",
+        "Daten und KI",
+        "Die passende Methode für das Problem.",
+        "Dashboards, Statistik, Prognosen, Optimierung und KI dienen einem beobachtbaren Ziel und benötigen passende Daten.",
+        [
+          "Datenpipelines und Analysen",
+          "Statistik und Prognosen",
+          "Mathematische Optimierung",
+          "Sinnvolles ML, Deep Learning und generative KI"
+        ]
+      ],
+      [
+        "methode",
+        "Unsere Methode",
+        "Klare Schritte. Gemeinsame Entscheidungen.",
+        "Analyse, Umfang, Angebot, Entwicklung, Tests, Übergabe und Wartung: Ein klarer Umfang und Freigaben begleiten das Projekt.",
+        [
+          "Kostenlose erste Stunde",
+          "Projektnotiz und Angebot",
+          "Entwicklung und Demonstrationen",
+          "Tests, Bereitstellung und Übergabe"
+        ]
+      ],
+      [
+        "entreprise",
+        "Das Unternehmen",
+        "Erreichbare technische Leitung.",
+        "Novalis AI verbindet Führung in Belgien mit einem passenden Expertennetzwerk. Ein Ansprechpartner verantwortet Umfang, Koordination und Qualität.",
+        [
+          "Achraf Saidi — Mitgründer und CTO",
+          "Entwicklung, Mathematik und Data Science",
+          "JetThings / JetNext: Zusammenarbeit",
+          "Verfügbarkeit für jedes Projekt geprüft"
+        ]
+      ],
+      [
+        "realisations",
+        "Projekte und Forschung",
+        "Klarer Status. Konkrete Beispiele.",
+        "Entdecken Sie öffentliche Websites in Entwicklung und beispielhafte Demonstrationen. Sie werden nicht als ausgelieferte Kundenreferenzen oder geschäftliche Erfolge dargestellt.",
+        [
+          "BILADI: Atlas und Enzyklopädie in Entwicklung",
+          "Code32: öffentliche Bildungswebsite",
+          "Numeria: Bildungsplattform in Entwicklung",
+          "Novalis OS: Anwendungskern in Validierung"
+        ]
+      ],
+      [
+        "contact",
+        "Kontakt und Termine",
+        "Beginnen Sie mit einem Gespräch.",
+        "Die erste Stunde ist kostenlos und unverbindlich. Kontaktieren Sie uns für eine Website, Anwendung, Produktidee oder betriebliche Herausforderung.",
+        [
+          "contact@novalisai.com — allgemeine Anfragen",
+          "achraf@novalisai.com — technische Leitung",
+          "Erste Projektnotiz nach dem Gespräch",
+          "Budget und Zeitplan nach Umfang"
+        ]
+      ],
+      [
+        "espace-client",
+        "Kundenportal",
+        "Klarer Überblick mit Ihrem Ansprechpartner.",
+        "Novalis OS wird für Projekte, geteilte Gespräche, Ergebnisse und Freigaben vorbereitet. Sie erhalten eine persönliche Einladung, sobald das Portal verfügbar ist.",
+        [
+          "Persönliches Konto und Projektzugriff",
+          "Kommunikation mit Ihrer Koordination",
+          "Meilensteine und Freigaben",
+          "Dokumente und Zahlungsübersicht"
+        ]
+      ],
+      [
+        "mentions-legales",
+        "Rechtliche Hinweise",
+        "Angaben zum Herausgeber.",
+        "Diese Angaben stammen aus der bisherigen Website. Rechtsform und vollständige Adresse werden vor der Rechnungsstellung anhand der Satzung oder eines Registerauszugs geprüft.",
+        [
+          "Novalis AI — BE 0878.868.302",
+          "Rue Barrière Moye 18, 1300 Wavre, Belgien",
+          "contact@novalisai.com",
+          "Diese Ausgabe: GitHub Pages"
+        ]
+      ],
+      [
+        "confidentialite",
+        "Datenschutz",
+        "Nützliche Daten und kontrollierter Zugriff.",
+        "Die Website erstellt E-Mail-Entwürfe, bis die Serverübermittlung aktiviert wird. Novalis-OS-Konten und Projekte sind autorisierten Nutzern vorbehalten.",
+        [
+          "Zweck: Ihre Anfrage bearbeiten",
+          "Ihre Rechte: contact@novalisai.com",
+          "Interne Dokumente getrennt von Kundengesprächen",
+          "ERP-Richtlinie vor Kundenzugang abschließen"
+        ]
+      ],
+      [
+        "cookies",
+        "Cookies",
+        "Eine sparsame Website.",
+        "Diese öffentliche Ausgabe verwendet keine Werbecookies oder Besucheranalyse. Schriften und Bilder werden mit der Website bereitgestellt.",
+        [
+          "Kein Werbetracking",
+          "Keine Besucheranalyse ergänzt",
+          "Künftige Sitzungscookies nur im Kundenportal",
+          "Aktualisierung bei neuen Integrationen"
+        ]
+      ]
+    ],
+    "api_labels": {
+      "received": "Ihre Anfrage wurde gespeichert. Wir melden uns zu den nächsten Schritten.",
+      "failed": "Ihre Anfrage wurde nicht gespeichert. Versuchen Sie es erneut oder schreiben Sie an contact@novalisai.com.",
+      "send": "Anfrage senden",
+      "sending": "Wird gesendet…",
+      "slots": "Einstündigen Termin wählen",
+      "no_slots": "Derzeit sind keine Termine veröffentlicht. Fragen Sie per E-Mail nach einem Gespräch.",
+      "reserved": "Ihr Termin ist reserviert. Die Uhrzeit steht unten; die Bestätigungs-E-Mail wartet auf den Versand."
+    }
+  }
+}
