@@ -2,8 +2,8 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "stage-isolated-novalis-ultimate-review",
-  "script": "novalis-os/deploy/remote-ultimate.py",
-  "timeout": 360,
+  "task": "verify-isolated-static-review-access",
+  "script": "novalis-os/deploy/remote-review-verify.py",
+  "timeout": 180,
   "response_public_key": "WFdAk8FyOXi21/k1Vqw+NbQRc8Ugrc38I1Eco4QagU8="
 }
