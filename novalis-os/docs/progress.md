@@ -1,12 +1,26 @@
 # Journal de livraison — 14 octobre 2026
 
+## Déploiement Hostinger effectué
+
+La vitrine de 57 pages est en ligne sur `https://www.novalisai.com/`. `https://novalisai.com/` redirige vers cette adresse. Le noyau ERP et son API sont en ligne sur `https://app.novalisai.com/os/` ; `/healthz` répond HTTP 200. Le compte de direction d'Achraf est créé sur invitation à usage unique : il choisit son mot de passe et configure ensuite sa MFA. Aucun mot de passe permanent n'a été généré ou publié.
+
+Le KVM existant, Debian 13, possède 1 CPU, 4 Go de RAM et 50 Go de disque. Le pointage utilise Nginx, Node/PM2 sur le port 8000 et PostgreSQL 17. Novalis a été installé dans des répertoires séparés, avec Python et systemd, derrière le Nginx existant : backend sur `127.0.0.1:18080`, mémoire maximale 512 Mo / CPU 50 %, worker 256 Mo / CPU 15 %. Docker n'a pas été installé et aucun service du pointage n'a été redémarré.
+
+L'instantané Hostinger `400597`, créé le 14 octobre à 04:34 UTC, expire le 15 octobre à 04:34 UTC. Une sauvegarde privée supplémentaire du proxy, des sources du pointage, de son état PM2 et de sa base est conservée dans `/var/backups/novalis-predeploy-20261014T045749Z`. La base PostgreSQL a été restaurée avec succès dans une base de test isolée, ensuite supprimée. Les processus principaux de Nginx, PM2 et PostgreSQL ainsi que la configuration et la page du pointage ont conservé leur état après installation et après activation HTTPS.
+
+Les enregistrements A de la racine et de `app` ont été dirigés vers le KVM. `www`, MX, SPF, DKIM, DMARC et autodiscover sont conservés. Le certificat couvre les trois noms Novalis, expire le 12 janvier 2027 et son renouvellement a été testé ; le timer Certbot est actif. Les quatre langues, l'ERP et l'API répondent HTTP 200 ; la racine redirige correctement, les API privées refusent un visiteur anonyme avec HTTP 401 et les sources Python sont refusées avec HTTP 404. Les 13 tests backend passent également sur le VPS.
+
+L'accès SSH a utilisé une identité temporaire générée dans GitHub Actions, autorisée via l'API Hostinger après vérification du KVM. Les résultats opérateur sont chiffrés avant leur présence dans les journaux GitHub, et les clés SSH de ces opérations sont révoquées à la fin. Aucune clé privée, variable de production, invitation ou donnée métier n'est publiée dans le dépôt.
+
+**Limites actuelles :** SMTP désactivé, Peppol, paiement en ligne, signature et calendriers tiers non raccordés. Il s'agit du noyau fonctionnel livré, avec les modules avancés restant listés ci-dessous. Les politiques ERP, les informations juridiques et la recette visuelle complète doivent encore être finalisées avant ouverture à de vrais clients. Les paragraphes suivants conservent le journal de préparation initial.
+
 ## Périmètre de cette session
 
 Source de départ : `Achraf-Saidi/Achraf-Saidi.github.io`, commit `882f054d418ed7d6a058a9f1e2b33373e88eb71c`, dossier `novalisai`. Branche de travail : `novalis-2-os-20261014`. L’ancienne version reste disponible dans l’historique Git.
 
 La cible confirmée par Achraf est Hostinger pour l’ensemble : vitrine sur `www.novalisai.com`, ERP et backend sur le KVM via `app.novalisai.com`. GitHub conserve le code et une version de revue ; il ne remplace pas cette cible de production. La vitrine GitHub est distincte de l’application Next.js observée sur `www.novalisai.com`. Aucune connexion d’exploitation de cette seconde application n’a été trouvée. Le domaine, ses DNS et sa messagerie n’ont pas été modifiés.
 
-## État précis
+## État du paquet avant la connexion Hostinger
 
 | Fonction | Réalisation et limite |
 |---|---|
@@ -46,7 +60,7 @@ La cible confirmée par Achraf est Hostinger pour l’ensemble : vitrine sur `ww
 5. Stockage de sauvegarde hors machine, surveillance et exercice de restauration.
 6. Recette visuelle et tests de charge ; passage contrôlé vers le domaine public après sauvegarde et plan de retour arrière.
 
-Hostinger restreint l’accès depuis le navigateur distant : le VPS n’a pas pu être inspecté ou modifié. Aucun compte, serveur, certificats, paramètres DNS ou moyens de paiement n’a été prétendu configuré.
+Pendant la préparation initiale, Hostinger restreignait l'accès depuis le navigateur distant. L'accès et le déploiement ont ensuite été effectués via le connecteur Hostinger et le relais SSH décrit plus haut. Aucun moyen de paiement ou abonnement n'a été modifié.
 
 La recherche de connexions disponibles le 14 octobre 2026 n'a trouvé que Hostinger Mail pour ce fournisseur, sans administration VPS ni terminal SSH. Aucun écran d'authentification Hostinger/KVM ne peut être déclenché avec les capacités disponibles. La suite nécessite l'adresse du KVM, le port/utilisateur SSH et une authentification sécurisée, sans mot de passe ou clé privée dans la conversation. L'autorisation d'effectuer le déploiement est déjà donnée ; c'est l'accès technique qui manque.
 

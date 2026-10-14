@@ -1,6 +1,22 @@
 # Déploiement, sauvegardes et maintenance
 
-**État : fichiers préparés ; aucune opération n’a été exécutée sur le VPS Hostinger.** Ne pas copier cette procédure sur une machine existante avant l’inventaire, la sauvegarde et la vérification des conflits.
+**État : Novalis est déployé sur le KVM Hostinger existant.** La procédure Docker ci-dessous reste une alternative pour une cible qualifiée ; la machine actuelle utilise l'installation native décrite ici.
+
+## Installation active
+
+- Vitrine : `https://www.novalisai.com/`, racine redirigée vers `www`.
+- ERP / API : `https://app.novalisai.com/os/`, backend lié uniquement à `127.0.0.1:18080`.
+- Source applicative installée : release `4bebb5f4bf6ca6dfb30efc526eb65a0886a7bba6`, répertoire `/opt/novalis-os/releases/`, lien actif `/opt/novalis-os/current`.
+- Services : `novalis-os.service` et `novalis-worker.service`. Ils utilisent un compte système dédié, un système de fichiers protégé et des plafonds de ressources ; le pointage reste géré par son propre PM2 et sa base PostgreSQL.
+- Données et sauvegardes ERP privées : `/srv/novalis-os/data`, `/srv/novalis-os/backups`. Configuration de production : `/etc/novalis-os/production.env`, accessible à root uniquement. Ne jamais copier ce fichier ou le lien d'invitation initial dans GitHub.
+- Configuration Novalis uniquement : `/etc/nginx/sites-available/zz-novalisai`. Le fichier du pointage reste intact. Valider avec `nginx -t` avant une recharge gracieuse.
+- Certificat Novalis : `/etc/letsencrypt/live/novalisai.com/`. Le renouvellement est assuré par le timer Certbot existant et recharge Nginx après validation de la configuration.
+
+Une vérification ponctuelle du renouvellement se lance avec `certbot renew --dry-run --cert-name novalisai.com --no-random-sleep-on-renew`. Le dernier test a réussi. Ne pas forcer de renouvellement réel sans raison.
+
+La sauvegarde pré-déploiement est dans `/var/backups/novalis-predeploy-20261014T045749Z`, avec manifestes et restauration PostgreSQL de contrôle réussie. L'instantané Hostinger est temporaire : ne pas l'utiliser comme politique de sauvegarde permanente. Les sauvegardes locales ERP ne remplacent pas un stockage chiffré hors machine avec rétention et surveillance.
+
+Pour un retour arrière Novalis, conserver ses données, désactiver uniquement ses deux services et son hôte Nginx, valider puis recharger Nginx. Reprendre les anciens enregistrements A de Novalis si nécessaire ; l'ancienne racine était `216.198.79.1`. Ne pas restaurer tout le VPS pour annuler une modification Novalis : cela reviendrait aussi sur les données du pointage.
 
 La CI GitHub a construit l’image de production avec succès sur le commit `62c94f2b9bdaa559baba338df37219f904166263`. Cela vérifie la construction de l’image, pas la capacité du KVM ni son démarrage en production.
 

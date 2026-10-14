@@ -198,7 +198,7 @@
         "espace-client",
         "Espace client",
         "Un suivi clair, avec votre interlocuteur.",
-        "Novalis OS est en préparation pour centraliser les projets, les échanges partagés, les livrables et les validations. Vous recevrez une invitation personnelle lorsque l’espace sera disponible.",
+        "Novalis OS centralise les projets, les échanges partagés, les livrables et les validations. Lorsque le portail est raccordé au serveur, son accès est réservé aux personnes invitées, avec un compte personnel et des autorisations par rôle et projet.",
         [
           "Compte personnel et accès par projet",
           "Communication avec votre responsable",
@@ -222,7 +222,7 @@
         "confidentialite",
         "Confidentialité",
         "Les données utiles, avec des accès maîtrisés.",
-        "La vitrine prépare un brouillon d’e-mail tant que le formulaire serveur n’est pas activé. Dans Novalis OS, les comptes et projets seront réservés aux utilisateurs autorisés.",
+        "Lorsque le formulaire est relié à Novalis OS, vos coordonnées et votre demande sont enregistrées pour organiser notre réponse ou votre rendez-vous. Sans ce raccordement, il prépare un brouillon dans votre messagerie. Les comptes et projets sont réservés aux personnes autorisées ; les e-mails restent en attente tant que le service d’envoi n’est pas activé.",
         [
           "Finalité : traiter votre demande",
           "Droits : contact@novalisai.com",
@@ -452,7 +452,7 @@
         "espace-client",
         "Client portal",
         "Clear follow-up with your coordinator.",
-        "Novalis OS is being prepared to centralise projects, shared conversations, deliverables and approvals. You will receive a personal invitation when the portal becomes available.",
+        "Novalis OS brings together projects, shared conversations, deliverables and approvals. When the portal is connected to the server, access is restricted to invited people with personal accounts and permissions by role and project.",
         [
           "Personal account and project access",
           "Communication with your coordinator",
@@ -476,7 +476,7 @@
         "confidentialite",
         "Privacy",
         "Relevant data and controlled access.",
-        "The public website prepares email drafts until server submission is enabled. Novalis OS accounts and projects will be restricted to authorised users.",
+        "When the form is connected to Novalis OS, your contact details and enquiry are stored to handle our response or your meeting. Without that connection, it prepares a draft in your email application. Accounts and projects are restricted to authorised people; emails remain queued until the sending service is enabled.",
         [
           "Purpose: handle your enquiry",
           "Your rights: contact@novalisai.com",
@@ -706,7 +706,7 @@
         "espace-client",
         "Klantenportaal",
         "Heldere opvolging met uw contactpersoon.",
-        "Novalis OS wordt voorbereid voor projecten, gedeelde gesprekken, resultaten en goedkeuringen. U ontvangt een persoonlijke uitnodiging zodra het portaal beschikbaar is.",
+        "Novalis OS brengt projecten, gedeelde gesprekken, resultaten en goedkeuringen samen. Zodra het portaal met de server is verbonden, hebben alleen uitgenodigde personen toegang, met een persoonlijk account en rechten per rol en project.",
         [
           "Persoonlijk account en projecttoegang",
           "Communicatie met uw coördinator",
@@ -730,7 +730,7 @@
         "confidentialite",
         "Privacy",
         "Relevante gegevens en beheerde toegang.",
-        "De website maakt e-mailconcepten zolang serververzending niet actief is. Accounts en projecten van Novalis OS zijn voorbehouden aan bevoegde gebruikers.",
+        "Wanneer het formulier met Novalis OS is verbonden, worden uw contactgegevens en aanvraag opgeslagen om ons antwoord of uw afspraak te organiseren. Zonder die verbinding maakt het een concept in uw e-mailprogramma. Accounts en projecten zijn voorbehouden aan bevoegde personen; e-mails blijven in de wachtrij totdat de verzenddienst actief is.",
         [
           "Doel: uw aanvraag behandelen",
           "Uw rechten: contact@novalisai.com",
@@ -960,7 +960,7 @@
         "espace-client",
         "Kundenportal",
         "Klarer Überblick mit Ihrem Ansprechpartner.",
-        "Novalis OS wird für Projekte, geteilte Gespräche, Ergebnisse und Freigaben vorbereitet. Sie erhalten eine persönliche Einladung, sobald das Portal verfügbar ist.",
+        "Novalis OS bündelt Projekte, geteilte Gespräche, Ergebnisse und Freigaben. Sobald das Portal mit dem Server verbunden ist, erhalten ausschließlich eingeladene Personen Zugriff, mit einem persönlichen Konto und Berechtigungen nach Rolle und Projekt.",
         [
           "Persönliches Konto und Projektzugriff",
           "Kommunikation mit Ihrer Koordination",
@@ -984,7 +984,7 @@
         "confidentialite",
         "Datenschutz",
         "Nützliche Daten und kontrollierter Zugriff.",
-        "Die Website erstellt E-Mail-Entwürfe, bis die Serverübermittlung aktiviert wird. Novalis-OS-Konten und Projekte sind autorisierten Nutzern vorbehalten.",
+        "Wenn das Formular mit Novalis OS verbunden ist, werden Ihre Kontaktdaten und Anfrage gespeichert, um unsere Antwort oder Ihren Termin zu organisieren. Ohne diese Verbindung erstellt es einen Entwurf in Ihrem E-Mail-Programm. Konten und Projekte sind autorisierten Personen vorbehalten; E-Mails bleiben bis zur Aktivierung des Versanddienstes in der Warteschlange.",
         [
           "Zweck: Ihre Anfrage bearbeiten",
           "Ihre Rechte: contact@novalisai.com",
