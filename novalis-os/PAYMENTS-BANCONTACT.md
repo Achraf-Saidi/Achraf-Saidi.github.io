@@ -39,7 +39,7 @@ Paiements ponctuels en EUR. Le minimum indiqué par Mollie est 0,02 €. La limi
 
 ## Exploitation et limites
 
-Le worker rapproche les tentatives et remboursements en attente. Une anomalie d’identité/montant/mode bloque toute écriture et demande une investigation. Un callback d’ID inconnu est ignoré avec 200 ; une panne de vérification d’un paiement connu renvoie 503 pour permettre au fournisseur de réessayer.
+Le worker rapproche les tentatives et remboursements en attente. Désactiver les nouvelles créations ne coupe pas la confirmation des paiements déjà créés, tant que la clé de leur mode reste disponible. Une anomalie d’identité/montant/mode bloque toute écriture et demande une investigation. Un callback d’ID inconnu est ignoré avec 200 ; une panne de vérification d’un paiement connu renvoie 503 pour permettre au fournisseur de réessayer.
 
 Le rapprochement automatique de création recherche au plus 500 paiements récents. Si le paiement ne peut pas être retrouvé, vérifier le tableau marchand avant toute nouvelle tentative. Les remboursements effectués directement dans le tableau Mollie, les contestations, le rapprochement détaillé des versements, les frais PSP et les avoirs ne constituent pas encore un module comptable automatisé. Traiter ces événements avec le comptable et le tableau du fournisseur. SMTP et l’émission Peppol restent des intégrations séparées.
 
