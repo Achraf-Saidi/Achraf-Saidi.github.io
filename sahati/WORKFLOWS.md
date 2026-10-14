@@ -42,7 +42,7 @@ Les cas couvrent identitovigilance, lecture de mesures et censure en biostatisti
 
 Protocole → soumission → revue indépendante → demande personnelle avec motif et référence éthique → approbation expirante → cohorte minimisée → analyse → export réautorisé.
 
-L’accès nécessite un protocole approuvé, l’appartenance à l’étude, une demande personnelle approuvée/non expirée et un consentement fictif du patient. La cohorte est limitée à l’établissement et à la spécialité. Les codes ne constituent pas une anonymisation garantie. Effectifs, événements, censures, suivi médian observé et Kaplan-Meier sont descriptifs. La petite cohorte synthétique ne produit aucune preuve clinique ou résultat de calibration.
+L’accès nécessite un protocole approuvé, l’appartenance à l’étude, une demande personnelle approuvée/non expirée et un consentement fictif du patient. La cohorte est limitée à l’établissement et à la spécialité. Les durées et événements synthétiques sont déterministes par étude/personne et restent stables quand l’ordre des dossiers change. Les codes ne constituent pas une anonymisation garantie. Effectifs, événements, censures, suivi médian observé et Kaplan-Meier sont descriptifs. La petite cohorte synthétique ne produit aucune preuve clinique ou résultat de calibration.
 
 ## G. Direction et présentation institutionnelle
 

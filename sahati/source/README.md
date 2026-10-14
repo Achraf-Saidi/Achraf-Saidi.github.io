@@ -17,7 +17,7 @@ Les 14 rôles et les modules existants sont conservés. Le scénario est enregis
 - [Parcours](../WORKFLOWS.md), [sécurité et conformité](../SECURITY_AND_COMPLIANCE.md)
 - [Roadmap](../ROADMAP.md), [guide](../DEMO_GUIDE.md), [validation](../VALIDATION.md)
 
-54 scénarios automatisés passent, avec build et typage. PDF rendus, QR décodé et fichier DICOM relu indépendamment. Le rendu de l’application sur un navigateur et des téléphones réels n’a pas pu être contrôlé dans l’environnement de livraison.
+55 scénarios automatisés passent, avec build et typage. PDF rendus, QR décodé et fichier DICOM relu indépendamment. Le rendu de l’application sur un navigateur et des téléphones réels n’a pas pu être contrôlé dans l’environnement de livraison.
 
 ## Sources et build
 

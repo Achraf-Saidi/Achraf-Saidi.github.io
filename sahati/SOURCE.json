@@ -12,9 +12,9 @@
   "validation": {
     "business_scenarios": 23,
     "vault_scenarios": 11,
-    "connected_scenarios": 12,
+    "connected_scenarios": 13,
     "dom_scenarios": 8,
-    "total_distinct_scenarios": 54,
+    "total_distinct_scenarios": 55,
     "sqlite_wasm": true,
     "typescript": true,
     "static_build": true,

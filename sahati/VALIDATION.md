@@ -6,7 +6,7 @@ Vérification du 14 octobre 2026. Exécution locale sur les sources de la versio
 |---|---|---|
 | Tests métier existants | 23 scénarios réussis | Rôles, établissement, validation, stock, lits, calendrier, recherche, fichiers, audit |
 | Coffre GitHub | 11 scénarios réussis | Deux codes, migrations, IndexedDB chiffré, sauvegardes, restauration, sessions |
-| Parcours reliés supplémentaires | 12 scénarios réussis | Patient jusqu’au document, labo, radiologie, lit, campus, recherche et exports |
+| Parcours reliés supplémentaires | 13 scénarios réussis | Patient jusqu’au document, labo, radiologie, lit, campus, recherche et exports |
 | Interactions React / DOM | 8 scénarios réussis | Accueil patient, dossier, explications, campus, RTL, réservation et prescription |
 | TypeScript GitHub | Réussi | Point d’entrée, domaine et composants utilisés |
 | Build statique | Réussi | Pages avec chemins `/sahati/`, SQLite WASM et PDF différé |
@@ -18,7 +18,7 @@ Vérification du 14 octobre 2026. Exécution locale sur les sources de la versio
 | Téléphone réel / clavier / débordement | Non effectué | Règles responsives examinées ; DOM sans moteur de mise en page |
 | Système serveur / PACS réel | Non effectué | Aucun système de production connecté |
 
-**54 scénarios automatisés distincts** passent. Ce nombre n’inclut pas les relectures PDF/QR/DICOM ni le typage/build. Il ne constitue pas un nombre de validations cliniques ou une certification.
+**55 scénarios automatisés distincts** passent. Ce nombre n’inclut pas les relectures PDF/QR/DICOM ni le typage/build. Il ne constitue pas un nombre de validations cliniques ou une certification.
 
 ## Commandes reproductibles
 

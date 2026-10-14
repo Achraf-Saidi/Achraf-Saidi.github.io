@@ -145,6 +145,11 @@ await test('research access is individually approved and analysis handles tied c
  const cohort=await call('cohort/study1?export=1',{jar:jars.researcher});assert.ok(cohort.rows.length>0);assert.ok(cohort.rows.every(r=>!('firstName'in r)&&!('patientId'in r)));
  const rows=[{followUpDays:30,event:1},{followUpDays:30,event:0},{followUpDays:60,event:1}],km=kaplanMeier(rows);assert.equal(km[0].atRisk,3);assert.ok(Math.abs(km[0].survival-2/3)<1e-12);assert.equal(km[1].survival,0);assert.equal(cohortSummary(rows).medianFollowUp,30);
 });
+await test('synthetic cohort follow-up and events remain stable when record order changes',async()=>{
+ const before=(await call('cohort/study1',{jar:jars.researcher})).rows;
+ const p=await record('doctor','p12');await patch('doctor',p,{action:'patient',reason:'Correction synthétique sans changement de suivi',data:{...p,problems:p.problems.join('\n')}});
+ const after=(await call('cohort/study1',{jar:jars.researcher})).rows;assert.deepEqual(after,before);
+});
 await test('CSV preserves accents and neutralizes spreadsheet formula injection',async()=>{
  const csv=csvFile([['Établissement','Valeur'],['=WEBSERVICE("x")',12.3],['Texte;avec séparateur',null]]);assert.ok(csv.startsWith('\uFEFF'));assert.ok(csv.includes("'="));assert.ok(csv.includes('12.3'));assert.ok(csv.includes('Texte;avec séparateur'));
 });
