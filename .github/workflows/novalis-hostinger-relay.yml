@@ -1,0 +1,33 @@
+name: Novalis Hostinger temporary SSH task
+on:
+  push:
+    branches: ['novalis-hostinger-ops-*']
+    paths: ['.github/workflows/novalis-hostinger-relay.yml', 'novalis-os/deploy/relay.py', 'novalis-os/deploy/relay-request.json', 'novalis-os/deploy/remote-*.py']
+permissions:
+  contents: read
+concurrency:
+  group: novalis-hostinger-vps-operation
+  cancel-in-progress: false
+jobs:
+  operation:
+    if: github.repository == 'Achraf-Saidi/Achraf-Saidi.github.io'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install encryption dependency
+        run: python -m pip install cryptography==50.0.2
+      - name: Generate temporary SSH identity
+        id: identity
+        run: |
+          umask 077
+          ssh-keygen -q -t ed25519 -f "$RUNNER_TEMP/novalis-relay-key" -N '' -C "novalis-relay-$GITHUB_RUN_ID"
+          public_key=$(cat "$RUNNER_TEMP/novalis-relay-key.pub")
+          printf 'public_key=%s\n' "$public_key" >> "$GITHUB_OUTPUT"
+      - name: 'Authorize temporary key: ${{ steps.identity.outputs.public_key }}'
+        run: python novalis-os/deploy/relay.py novalis-os/deploy/relay-request.json
