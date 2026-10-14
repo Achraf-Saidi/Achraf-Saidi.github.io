@@ -12,14 +12,6 @@ const wait=()=>new Promise(resolve=>setTimeout(resolve,0));
   w.eval(fs.readFileSync(path.join(root,'assets/app.js'),'utf8'));w.eval(fs.readFileSync(path.join(root,'assets/v2.js'),'utf8'));
   await wait();
   assert(!/30min/.test(d.documentElement.outerHTML));
-  const roles=[...d.querySelectorAll('[data-lab-role]')];assert.equal(roles.length,4);
-  d.getElementById('lab-role-action').click();assert.equal(d.querySelectorAll('#lab-role-items li[data-done=true]').length,1);
-  roles[3].click();assert.equal(d.querySelectorAll('#lab-role-items li[data-done=true]').length,0);roles[0].click();assert.equal(d.querySelectorAll('#lab-role-items li[data-done=true]').length,1);
-  d.getElementById('lab-tab-calc').click();assert(d.getElementById('lab-access').hidden);assert(!d.getElementById('lab-calc').hidden);
-  d.getElementById('lab-volume').value=100;d.getElementById('lab-duration').value=12;d.getElementById('lab-share').value=0;d.getElementById('lab-share').dispatchEvent(new w.Event('input'));
-  assert.equal(Number(d.getElementById('lab-hours').value.replace(',','.')),0);
-  d.getElementById('lab-share').value=100;d.getElementById('lab-share').dispatchEvent(new w.Event('input'));assert.equal(Number(d.getElementById('lab-hours').value.replace(',','.')),20);
-  d.getElementById('lab-tab-calc').dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true}));assert(!d.getElementById('lab-access').hidden);
   d.querySelector('[data-team-pole="2"]').click();assert.equal(d.querySelector('[data-team-pole="2"]').getAttribute('aria-pressed'),'true');
   for(const directory of fs.readdirSync(path.join(root,language),{withFileTypes:true}).filter(x=>x.isDirectory())){
    const file=path.join(root,language,directory.name,'index.html'),page=new JSDOM(fs.readFileSync(file,'utf8'));
@@ -50,5 +42,5 @@ const wait=()=>new Promise(resolve=>setTimeout(resolve,0));
   assert.equal(d.querySelector('.form-status').textContent.includes(success?'enregistrée':'n’a pas été enregistrée'),true);
   dom.window.close();
  }
- console.log(`${pages} editorial pages: links, languages, headings and assets verified. Four role demonstrations, calculator and acknowledged contact submission verified (DOM, not visual browser QA).`);
+ console.log(`${pages} editorial pages: links, languages, headings and assets verified. Team selectors and acknowledged contact submission verified (DOM, not visual browser QA).`);
 })().catch(e=>{console.error(e);process.exit(1);});

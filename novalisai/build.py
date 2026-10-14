@@ -2,6 +2,7 @@
 """Build four independent static language editions. Standard library only."""
 import argparse, hashlib, html, json, re
 from extensions import enrich, write_pages
+from studio import enrich_studio
 from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parent
@@ -108,6 +109,7 @@ def render(content,lang,site_url,root_page=False):
  client['policies']={k:{'title':c[k+'_title'],'text':c[k+'_text']} for k in ['privacy','legal']}
  for k in ['experience_data','experience_labels','experience_actions','experience_modules','art_pause','art_resume']:client[k]=c[k]
  enrich(lang,prefix,out,client)
+ enrich_studio(lang,out,client)
  out['client_data']=json.dumps(client,ensure_ascii=False).replace('<','\\u003c')
  result=re.sub(r'\{\{([a-z_0-9]+)\}\}',lambda m:out[m[1]],(ROOT/'template.html').read_text())
  if '{{' in result:raise ValueError('Unresolved template token')

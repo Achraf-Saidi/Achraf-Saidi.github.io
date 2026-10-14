@@ -1,0 +1,522 @@
+{
+  "fr": {
+    "hero": [
+      "Vos idées méritent",
+      "mieux qu’un site."
+    ],
+    "intro": "Un site qui convertit. Un logiciel qui simplifie. Des données qui éclairent vos décisions. Nous construisons le système qui relie les trois.",
+    "kicker": "STUDIO DIGITAL · BELGIQUE",
+    "start": "Dessiner ma solution",
+    "demo": "Tester un vrai parcours",
+    "canvas": "Un besoin. Un système.",
+    "choose": "Choisissez votre activité",
+    "profiles": [
+      "Commerce",
+      "Services & équipes",
+      "Documents & données"
+    ],
+    "pains": [
+      "Les commandes arrivent partout. Le suivi se perd.",
+      "Les demandes, les équipes et les clients se croisent.",
+      "Les fichiers s’accumulent. Les réponses prennent du temps."
+    ],
+    "flow": [
+      "Accueillir",
+      "Orchestrer",
+      "Décider"
+    ],
+    "flowitems": [
+      [
+        "Boutique & demandes",
+        "Commandes & stocks",
+        "Ventes & disponibilité"
+      ],
+      [
+        "Formulaires & portail",
+        "Dossiers & validations",
+        "Charge & jalons"
+      ],
+      [
+        "Documents & imports",
+        "Extraction & contrôle",
+        "Recherche & rapports"
+      ]
+    ],
+    "canvasnote": "Une architecture indicative, adaptée à votre choix. Aucun service externe n’est appelé.",
+    "explabel": "01 / VOTRE POINT DE DÉPART",
+    "exptitle": "Votre prochain outil,\nprenons le temps de le dessiner.",
+    "expcopy": "Sélectionnez vos besoins. Voyez ce qui se connecte, ce qui reste à vérifier, et repartez avec un brief prêt à discuter.",
+    "needs": "Ce que votre outil doit faire",
+    "modules": [
+      "Vendre en ligne",
+      "Suivre les clients",
+      "Coordonner le travail",
+      "Relier les outils",
+      "Exploiter les documents",
+      "Piloter les données"
+    ],
+    "modulecopy": [
+      "Catalogue, commande et parcours d’achat.",
+      "Demandes, historique et prochaines étapes.",
+      "Tâches, accès, jalons et validations.",
+      "Connexions à vos outils existants.",
+      "Recherche et extraction à évaluer sur vos fichiers.",
+      "Indicateurs, rapports et décisions."
+    ],
+    "architecture": "Votre système prend forme",
+    "foundation": "Socle commun : comptes, droits, sauvegardes et journal des actions.",
+    "empty": "Choisissez au moins un besoin pour commencer.",
+    "recommend": "La première étape utile",
+    "recommendations": [
+      "Commencer par le catalogue et le parcours de commande ; vérifier ensuite stocks et paiement.",
+      "Cartographier une demande du premier contact à sa validation, avec les personnes concernées.",
+      "Tester un petit échantillon de documents et définir les erreurs acceptables avant d’intégrer l’IA."
+    ],
+    "dependency": "À cadrer",
+    "dependencies": [
+      "Paiement, livraison et disponibilité des stocks.",
+      "Rôles, confidentialité et règles de validation.",
+      "Qualité des sources, droits d’accès et contrôle humain."
+    ],
+    "integrations": "Les connecteurs sont définis après vérification des API et des accès disponibles.",
+    "ai": "L’IA seulement si elle est utile.",
+    "aicopy": "Pour les documents, un essai sur vos données précède toute promesse de précision. Pour un processus stable, des règles simples peuvent suffire.",
+    "calc": "Un gain de temps à estimer, pas à promettre.",
+    "volume": "Opérations par semaine",
+    "manual": "Minutes par opération aujourd’hui",
+    "share": "Part de travail automatisable",
+    "review": "Minutes de contrôle par opération",
+    "hours": "heures nettes / semaine",
+    "zero": "Avec ces hypothèses, le contrôle absorbe le gain. Réduisez le périmètre ou revoyez le processus.",
+    "positive": "Temps théorique libéré après contrôle. Il reste à valider sur un essai réel.",
+    "formula": "Volume × (durée × part automatisable − contrôle) ÷ 60. Résultat borné à zéro. Hors mise en place et maintenance.",
+    "brief": "Votre brief de départ",
+    "download": "Télécharger le brief",
+    "transfer": "Ajouter au formulaire",
+    "reset": "Recommencer",
+    "saved": "Brief téléchargé. Rien n’a été envoyé.",
+    "transferred": "Votre brief est ajouté au formulaire. Complétez vos coordonnées pour l’envoyer.",
+    "briefnote": "Vos choix restent dans ce navigateur jusqu’à un envoi explicite du formulaire. Aucun prix ni délai n’est calculé automatiquement.",
+    "prooflabel": "02 / UN PARCOURS, DES RÈGLES",
+    "prooftitle": "Une commande qui avance.\nUne erreur qui ne passe pas.",
+    "proofcopy": "Modifiez les quantités, vérifiez le total, puis essayez de valider sans référence. Une interface utile rend les règles visibles.",
+    "order": "Commande de démonstration",
+    "reference": "Référence de commande",
+    "item": "Module A · exemple fictif",
+    "quantity": "Quantité",
+    "unit": "Prix unitaire HT (€)",
+    "tax": "TVA (%)",
+    "total": "Total TTC",
+    "check": "Vérifier la commande",
+    "approve": "Valider la commande",
+    "edit": "Modifier",
+    "stages": [
+      "Brouillon",
+      "Contrôle",
+      "Validée"
+    ],
+    "draft": "Le brouillon est modifiable. La validation exige une référence et des valeurs valides.",
+    "invalid": "Ajoutez une référence (3 à 40 caractères) et des valeurs valides : quantité entière de 1 à 100, prix de 0,01 à 10 000 €, TVA de 0 à 100 %.",
+    "reviewed": "Calcul vérifié. La validation reste une décision explicite.",
+    "approved": "Commande de démonstration validée. Les champs sont verrouillés ; « Modifier » permet de reprendre le contrôle.",
+    "edited": "Brouillon rouvert. Toute modification nécessite une nouvelle vérification.",
+    "proofnote": "Simulation locale avec données fictives. Aucun paiement, facture ou commande réelle n’est créé.",
+    "headnav": "Composer ma solution",
+    "briefhead": "NOVALIS AI — BRIEF DE CADRAGE",
+    "assumptions": "Hypothèses de gain de temps",
+    "scope": "Besoins sélectionnés",
+    "profile": "Activité",
+    "validation": "À vérifier ensemble",
+    "briefhours": "Gain net théorique (heures / semaine)"
+  },
+  "en": {
+    "hero": [
+      "Your ideas deserve",
+      "more than a website."
+    ],
+    "intro": "A website that converts. Software that simplifies. Data that informs your decisions. We build the system that connects all three.",
+    "kicker": "DIGITAL STUDIO · BELGIUM",
+    "start": "Design my solution",
+    "demo": "Try a real workflow",
+    "canvas": "One need. One system.",
+    "choose": "Choose your activity",
+    "profiles": [
+      "Commerce",
+      "Services & teams",
+      "Documents & data"
+    ],
+    "pains": [
+      "Orders arrive everywhere. Tracking gets lost.",
+      "Requests, teams and clients need a shared process.",
+      "Files accumulate. Finding answers takes time."
+    ],
+    "flow": [
+      "Welcome",
+      "Coordinate",
+      "Decide"
+    ],
+    "flowitems": [
+      [
+        "Store & requests",
+        "Orders & inventory",
+        "Sales & availability"
+      ],
+      [
+        "Forms & portal",
+        "Cases & approvals",
+        "Capacity & milestones"
+      ],
+      [
+        "Documents & imports",
+        "Extraction & review",
+        "Search & reports"
+      ]
+    ],
+    "canvasnote": "An indicative architecture based on your selection. No external service is called.",
+    "explabel": "01 / YOUR STARTING POINT",
+    "exptitle": "Your next tool,\nlet’s design it together.",
+    "expcopy": "Choose your needs. See what connects, what requires verification, and leave with a useful project brief.",
+    "needs": "What your tool should do",
+    "modules": [
+      "Sell online",
+      "Track clients",
+      "Coordinate work",
+      "Connect tools",
+      "Use documents",
+      "Understand data"
+    ],
+    "modulecopy": [
+      "Catalogue, orders and checkout journey.",
+      "Requests, history and next steps.",
+      "Tasks, access, milestones and approvals.",
+      "Connections to your existing tools.",
+      "Search and extraction evaluated on your files.",
+      "Indicators, reports and decisions."
+    ],
+    "architecture": "Your system takes shape",
+    "foundation": "Shared foundation: accounts, permissions, backups and an action log.",
+    "empty": "Choose at least one need to begin.",
+    "recommend": "A useful first step",
+    "recommendations": [
+      "Start with the catalogue and order journey; then verify inventory and payment.",
+      "Map one request from first contact to approval, with everyone involved.",
+      "Test a small document sample and define acceptable errors before integrating AI."
+    ],
+    "dependency": "To define together",
+    "dependencies": [
+      "Payment, delivery and stock availability.",
+      "Roles, confidentiality and approval rules.",
+      "Source quality, access rights and human review."
+    ],
+    "integrations": "Connectors are defined after checking the available APIs and access.",
+    "ai": "AI only where it earns its place.",
+    "aicopy": "For documents, a trial on your data precedes accuracy claims. Stable processes may only need simple rules.",
+    "calc": "Estimate time saved without promising it.",
+    "volume": "Operations per week",
+    "manual": "Minutes per operation today",
+    "share": "Share of work that can be automated",
+    "review": "Review minutes per operation",
+    "hours": "net hours / week",
+    "zero": "Under these assumptions, review absorbs the savings. Reduce scope or rethink the process.",
+    "positive": "Theoretical time released after review. Validate it in a real trial.",
+    "formula": "Volume × (duration × automatable share − review) ÷ 60. Bounded at zero. Excludes implementation and maintenance.",
+    "brief": "Your project brief",
+    "download": "Download the brief",
+    "transfer": "Add to the contact form",
+    "reset": "Start again",
+    "saved": "Brief downloaded. Nothing was sent.",
+    "transferred": "Your brief is in the form. Add your contact details to send it.",
+    "briefnote": "Choices stay in this browser until you explicitly submit the form. Prices and delivery dates are not automatically estimated.",
+    "prooflabel": "02 / A WORKFLOW WITH RULES",
+    "prooftitle": "An order moves forward.\nAn error does not.",
+    "proofcopy": "Change quantities, check the total and try approving without a reference. Useful interfaces make their rules visible.",
+    "order": "Demonstration order",
+    "reference": "Order reference",
+    "item": "Module A · fictional example",
+    "quantity": "Quantity",
+    "unit": "Unit price excluding VAT (€)",
+    "tax": "VAT (%)",
+    "total": "Total including VAT",
+    "check": "Check order",
+    "approve": "Approve order",
+    "edit": "Edit",
+    "stages": [
+      "Draft",
+      "Review",
+      "Approved"
+    ],
+    "draft": "The draft can be edited. Approval requires a reference and valid values.",
+    "invalid": "Add a reference (3–40 characters) and valid values: integer quantity 1–100, price €0.01–10,000, VAT 0–100%.",
+    "reviewed": "Calculation checked. Approval remains an explicit decision.",
+    "approved": "Demonstration order approved. Fields are locked; choose Edit to reopen it.",
+    "edited": "Draft reopened. Any change requires a new check.",
+    "proofnote": "Local simulation with fictional data. No real payment, invoice or order is created.",
+    "headnav": "Compose my solution",
+    "briefhead": "NOVALIS AI — PROJECT BRIEF",
+    "assumptions": "Time-saving assumptions",
+    "scope": "Selected needs",
+    "profile": "Activity",
+    "validation": "To verify together",
+    "briefhours": "Theoretical net savings (hours / week)"
+  },
+  "nl": {
+    "hero": [
+      "Uw ideeën verdienen",
+      "meer dan een website."
+    ],
+    "intro": "Een website die overtuigt. Software die vereenvoudigt. Data die beslissingen ondersteunt. Wij bouwen het systeem dat alles verbindt.",
+    "kicker": "DIGITALE STUDIO · BELGIË",
+    "start": "Mijn oplossing ontwerpen",
+    "demo": "Een werkproces testen",
+    "canvas": "Eén behoefte. Eén systeem.",
+    "choose": "Kies uw activiteit",
+    "profiles": [
+      "Handel",
+      "Diensten & teams",
+      "Documenten & data"
+    ],
+    "pains": [
+      "Bestellingen komen overal binnen. Het overzicht verdwijnt.",
+      "Aanvragen, teams en klanten hebben een gedeeld proces nodig.",
+      "Bestanden stapelen zich op. Antwoorden vinden kost tijd."
+    ],
+    "flow": [
+      "Ontvangen",
+      "Coördineren",
+      "Beslissen"
+    ],
+    "flowitems": [
+      [
+        "Webshop & aanvragen",
+        "Bestellingen & voorraad",
+        "Verkoop & beschikbaarheid"
+      ],
+      [
+        "Formulieren & portaal",
+        "Dossiers & goedkeuringen",
+        "Capaciteit & mijlpalen"
+      ],
+      [
+        "Documenten & import",
+        "Extractie & controle",
+        "Zoeken & rapporten"
+      ]
+    ],
+    "canvasnote": "Een indicatieve architectuur op basis van uw keuze. Er wordt geen externe dienst aangeroepen.",
+    "explabel": "01 / UW VERTREKPUNT",
+    "exptitle": "Uw volgende tool,\nlaten we die samen ontwerpen.",
+    "expcopy": "Kies uw behoeften. Bekijk de verbindingen en aandachtspunten en neem een bruikbare projectbrief mee.",
+    "needs": "Wat uw tool moet doen",
+    "modules": [
+      "Online verkopen",
+      "Klanten opvolgen",
+      "Werk coördineren",
+      "Tools verbinden",
+      "Documenten benutten",
+      "Data begrijpen"
+    ],
+    "modulecopy": [
+      "Catalogus, bestellingen en aankoopproces.",
+      "Aanvragen, historiek en volgende stappen.",
+      "Taken, toegang, mijlpalen en goedkeuringen.",
+      "Verbindingen met uw bestaande tools.",
+      "Zoeken en extractie getest op uw bestanden.",
+      "Indicatoren, rapporten en beslissingen."
+    ],
+    "architecture": "Uw systeem krijgt vorm",
+    "foundation": "Gemeenschappelijke basis: accounts, rechten, back-ups en een actielogboek.",
+    "empty": "Kies minstens één behoefte om te beginnen.",
+    "recommend": "Een nuttige eerste stap",
+    "recommendations": [
+      "Begin met de catalogus en het bestelproces; controleer vervolgens voorraad en betaling.",
+      "Breng één aanvraag van eerste contact tot goedkeuring in kaart, met alle betrokkenen.",
+      "Test een klein documentstaal en bepaal aanvaardbare fouten vóór AI-integratie."
+    ],
+    "dependency": "Samen af te bakenen",
+    "dependencies": [
+      "Betaling, levering en voorraadbeschikbaarheid.",
+      "Rollen, vertrouwelijkheid en goedkeuringsregels.",
+      "Bronkwaliteit, toegangsrechten en menselijke controle."
+    ],
+    "integrations": "Connectoren worden bepaald na controle van beschikbare API’s en toegang.",
+    "ai": "AI alleen als ze nuttig is.",
+    "aicopy": "Voor documenten testen we eerst uw data. Voor stabiele processen kunnen eenvoudige regels volstaan.",
+    "calc": "Tijdwinst inschatten, niet beloven.",
+    "volume": "Handelingen per week",
+    "manual": "Minuten per handeling vandaag",
+    "share": "Automatiseerbaar aandeel",
+    "review": "Controleminuten per handeling",
+    "hours": "netto uren / week",
+    "zero": "Met deze aannames neemt controle alle tijdwinst weg. Beperk de scope of herbekijk het proces.",
+    "positive": "Theoretisch vrijgekomen tijd na controle. Te toetsen in een echte proef.",
+    "formula": "Volume × (duur × automatiseerbaar aandeel − controle) ÷ 60. Minimaal nul. Exclusief implementatie en onderhoud.",
+    "brief": "Uw projectbrief",
+    "download": "Brief downloaden",
+    "transfer": "Aan contactformulier toevoegen",
+    "reset": "Opnieuw beginnen",
+    "saved": "Brief gedownload. Er is niets verstuurd.",
+    "transferred": "Uw brief staat in het formulier. Vul uw contactgegevens in om hem te versturen.",
+    "briefnote": "Keuzes blijven in deze browser tot u het formulier expliciet verstuurt. Geen automatische prijs- of termijnraming.",
+    "prooflabel": "02 / EEN PROCES MET REGELS",
+    "prooftitle": "Een bestelling gaat verder.\nEen fout niet.",
+    "proofcopy": "Wijzig aantallen, controleer het totaal en probeer goed te keuren zonder referentie. Een bruikbare interface toont de regels.",
+    "order": "Demonstratiebestelling",
+    "reference": "Bestelreferentie",
+    "item": "Module A · fictief voorbeeld",
+    "quantity": "Aantal",
+    "unit": "Eenheidsprijs exclusief btw (€)",
+    "tax": "Btw (%)",
+    "total": "Totaal inclusief btw",
+    "check": "Bestelling controleren",
+    "approve": "Bestelling goedkeuren",
+    "edit": "Wijzigen",
+    "stages": [
+      "Concept",
+      "Controle",
+      "Goedgekeurd"
+    ],
+    "draft": "Het concept is bewerkbaar. Goedkeuring vereist een referentie en geldige waarden.",
+    "invalid": "Voeg een referentie toe (3–40 tekens) en geldige waarden: geheel aantal 1–100, prijs €0,01–10.000, btw 0–100%.",
+    "reviewed": "Berekening gecontroleerd. Goedkeuren blijft een expliciete beslissing.",
+    "approved": "Demonstratiebestelling goedgekeurd. Velden zijn vergrendeld; kies Wijzigen om te heropenen.",
+    "edited": "Concept heropend. Elke wijziging vereist een nieuwe controle.",
+    "proofnote": "Lokale simulatie met fictieve data. Geen echte betaling, factuur of bestelling.",
+    "headnav": "Mijn oplossing samenstellen",
+    "briefhead": "NOVALIS AI — PROJECTBRIEF",
+    "assumptions": "Aannames voor tijdwinst",
+    "scope": "Geselecteerde behoeften",
+    "profile": "Activiteit",
+    "validation": "Samen te controleren",
+    "briefhours": "Theoretische netto tijdwinst (uren / week)"
+  },
+  "de": {
+    "hero": [
+      "Ihre Ideen verdienen",
+      "mehr als eine Website."
+    ],
+    "intro": "Eine Website, die überzeugt. Software, die vereinfacht. Daten, die Entscheidungen unterstützen. Wir bauen das System, das alles verbindet.",
+    "kicker": "DIGITALSTUDIO · BELGIEN",
+    "start": "Meine Lösung gestalten",
+    "demo": "Einen Ablauf testen",
+    "canvas": "Ein Bedarf. Ein System.",
+    "choose": "Wählen Sie Ihre Tätigkeit",
+    "profiles": [
+      "Handel",
+      "Dienstleistungen & Teams",
+      "Dokumente & Daten"
+    ],
+    "pains": [
+      "Bestellungen kommen überall an. Der Überblick geht verloren.",
+      "Anfragen, Teams und Kunden brauchen einen gemeinsamen Ablauf.",
+      "Dateien sammeln sich an. Antworten zu finden dauert."
+    ],
+    "flow": [
+      "Empfangen",
+      "Koordinieren",
+      "Entscheiden"
+    ],
+    "flowitems": [
+      [
+        "Shop & Anfragen",
+        "Bestellungen & Bestand",
+        "Umsatz & Verfügbarkeit"
+      ],
+      [
+        "Formulare & Portal",
+        "Vorgänge & Freigaben",
+        "Kapazität & Meilensteine"
+      ],
+      [
+        "Dokumente & Import",
+        "Extraktion & Prüfung",
+        "Suche & Berichte"
+      ]
+    ],
+    "canvasnote": "Eine beispielhafte Architektur auf Basis Ihrer Auswahl. Kein externer Dienst wird aufgerufen.",
+    "explabel": "01 / IHR AUSGANGSPUNKT",
+    "exptitle": "Ihr nächstes Werkzeug,\ngestalten wir es gemeinsam.",
+    "expcopy": "Wählen Sie Ihren Bedarf. Sehen Sie Verbindungen und offene Fragen und nehmen Sie einen brauchbaren Projektbrief mit.",
+    "needs": "Was Ihr Werkzeug leisten soll",
+    "modules": [
+      "Online verkaufen",
+      "Kunden betreuen",
+      "Arbeit koordinieren",
+      "Werkzeuge verbinden",
+      "Dokumente nutzen",
+      "Daten verstehen"
+    ],
+    "modulecopy": [
+      "Katalog, Bestellungen und Kaufprozess.",
+      "Anfragen, Historie und nächste Schritte.",
+      "Aufgaben, Zugänge, Meilensteine und Freigaben.",
+      "Verbindungen zu vorhandenen Werkzeugen.",
+      "Suche und Extraktion, an Ihren Dateien geprüft.",
+      "Kennzahlen, Berichte und Entscheidungen."
+    ],
+    "architecture": "Ihr System nimmt Form an",
+    "foundation": "Gemeinsame Basis: Konten, Rechte, Backups und Aktionsprotokoll.",
+    "empty": "Wählen Sie mindestens einen Bedarf aus.",
+    "recommend": "Ein sinnvoller erster Schritt",
+    "recommendations": [
+      "Mit Katalog und Bestellablauf beginnen; danach Bestand und Zahlung prüfen.",
+      "Eine Anfrage vom Erstkontakt bis zur Freigabe mit allen Beteiligten abbilden.",
+      "Ein kleines Dokumentenmuster testen und akzeptable Fehler vor einer KI-Integration definieren."
+    ],
+    "dependency": "Gemeinsam zu klären",
+    "dependencies": [
+      "Zahlung, Lieferung und Warenverfügbarkeit.",
+      "Rollen, Vertraulichkeit und Freigaberegeln.",
+      "Quellenqualität, Zugangsrechte und menschliche Prüfung."
+    ],
+    "integrations": "Konnektoren werden nach Prüfung der verfügbaren APIs und Zugänge festgelegt.",
+    "ai": "KI nur, wenn sie nützlich ist.",
+    "aicopy": "Für Dokumente kommt ein Test Ihrer Daten vor Genauigkeitsversprechen. Für stabile Abläufe können einfache Regeln genügen.",
+    "calc": "Zeitgewinn schätzen, nicht versprechen.",
+    "volume": "Vorgänge pro Woche",
+    "manual": "Minuten pro Vorgang heute",
+    "share": "Automatisierbarer Anteil",
+    "review": "Prüfminuten pro Vorgang",
+    "hours": "Netto-Stunden / Woche",
+    "zero": "Unter diesen Annahmen verbraucht die Prüfung den Zeitgewinn. Umfang reduzieren oder Prozess überdenken.",
+    "positive": "Theoretisch verfügbare Zeit nach Prüfung. In einem echten Test zu bestätigen.",
+    "formula": "Volumen × (Dauer × automatisierbarer Anteil − Prüfung) ÷ 60. Mindestens null. Ohne Einführung und Wartung.",
+    "brief": "Ihr Projektbrief",
+    "download": "Brief herunterladen",
+    "transfer": "Zum Kontaktformular hinzufügen",
+    "reset": "Neu beginnen",
+    "saved": "Brief heruntergeladen. Nichts wurde versendet.",
+    "transferred": "Ihr Brief steht im Formular. Ergänzen Sie Ihre Kontaktdaten, um ihn zu senden.",
+    "briefnote": "Die Auswahl bleibt in diesem Browser, bis Sie das Formular ausdrücklich senden. Keine automatische Preis- oder Terminberechnung.",
+    "prooflabel": "02 / EIN ABLAUF MIT REGELN",
+    "prooftitle": "Eine Bestellung kommt weiter.\nEin Fehler nicht.",
+    "proofcopy": "Ändern Sie Mengen, prüfen Sie die Summe und versuchen Sie eine Freigabe ohne Referenz. Gute Oberflächen zeigen ihre Regeln.",
+    "order": "Demonstrationsbestellung",
+    "reference": "Bestellreferenz",
+    "item": "Modul A · fiktives Beispiel",
+    "quantity": "Menge",
+    "unit": "Einzelpreis ohne MwSt. (€)",
+    "tax": "MwSt. (%)",
+    "total": "Gesamtbetrag mit MwSt.",
+    "check": "Bestellung prüfen",
+    "approve": "Bestellung freigeben",
+    "edit": "Bearbeiten",
+    "stages": [
+      "Entwurf",
+      "Prüfung",
+      "Freigegeben"
+    ],
+    "draft": "Der Entwurf ist bearbeitbar. Die Freigabe erfordert eine Referenz und gültige Werte.",
+    "invalid": "Referenz (3–40 Zeichen) und gültige Werte ergänzen: ganze Menge 1–100, Preis 0,01–10.000 €, MwSt. 0–100 %.",
+    "reviewed": "Berechnung geprüft. Die Freigabe bleibt eine ausdrückliche Entscheidung.",
+    "approved": "Demonstrationsbestellung freigegeben. Felder sind gesperrt; Bearbeiten öffnet den Entwurf erneut.",
+    "edited": "Entwurf wieder geöffnet. Jede Änderung erfordert eine neue Prüfung.",
+    "proofnote": "Lokale Simulation mit fiktiven Daten. Keine echte Zahlung, Rechnung oder Bestellung.",
+    "headnav": "Meine Lösung zusammenstellen",
+    "briefhead": "NOVALIS AI — PROJEKTBRIEF",
+    "assumptions": "Annahmen zum Zeitgewinn",
+    "scope": "Gewählter Bedarf",
+    "profile": "Tätigkeit",
+    "validation": "Gemeinsam zu prüfen",
+    "briefhours": "Theoretischer Netto-Zeitgewinn (Stunden / Woche)"
+  }
+}
