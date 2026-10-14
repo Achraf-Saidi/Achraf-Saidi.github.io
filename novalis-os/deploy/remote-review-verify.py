@@ -22,7 +22,7 @@ def preserved(before,public_unchanged):
  for field in ['pids','pointage_sha','pointage_config','core']:
   if after[field]!=before[field]:raise RuntimeError('Preservation mismatch: '+field)
  if public_unchanged and after['public']!=before['public']:raise RuntimeError('Public pointer moved during review staging')
- for p in ['/os/','/api/health']:
+ for p in ['/os/','/healthz']:
   status,_,_=https('app.novalisai.com',p)
   if status!=200:raise RuntimeError('Existing app health check failed')
  return after
