@@ -6,7 +6,7 @@ Connectez-vous avec votre compte personnel et activez la double authentification
 
 Dans **Commercial**, créez ou consultez un prospect, affectez son interlocuteur et rédigez la note de cadrage. Le bouton d’envoi prépare un message dans la file SMTP ; il n’indique pas une transmission réussie. Après accord commercial, passez par proposition/négociation puis **Créer le projet** : le client et le projet sont créés ensemble et restent liés au prospect.
 
-Dans **Équipe et accès**, invitez le responsable, le développeur ou le client. Pour un client, choisissez sa bonne organisation. L’invitation permet de choisir un mot de passe ; elle expire après 24 heures. Ne partagez pas un compte direction entre plusieurs personnes. La suspension révoque les sessions du compte concerné.
+Dans **Équipe et accès**, invitez le responsable, le développeur ou le client. Pour un client, choisissez sa bonne organisation. L’invitation permet de choisir un mot de passe ; elle expire après 24 heures. Après création, la fenêtre **Partager l’invitation** affiche un lien personnel à usage unique que vous pouvez copier et transmettre à la personne concernée. Si SMTP est désactivé, aucun e-mail n’est envoyé : utilisez ce lien. Les rôles Direction, Finances et Administration des accès nécessitent la double authentification. Le rôle Direction dispose des droits les plus complets et peut attribuer les six rôles. Ne partagez pas un compte direction entre plusieurs personnes. La suspension révoque les sessions du compte concerné.
 
 ## Responsable de compte
 
