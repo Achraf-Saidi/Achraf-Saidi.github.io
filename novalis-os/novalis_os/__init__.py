@@ -17,6 +17,10 @@ def create_app(overrides=None):
     data_dir = Path(os.environ.get('NOVALIS_DATA_DIR','/var/lib/novalis-os'))
     key = os.environ.get('NOVALIS_ENCRYPTION_KEY','')
     app.config.update(
+        PAYMENTS_MODE=os.environ.get('NOVALIS_PAYMENTS_MODE','disabled'),
+        MOLLIE_TEST_KEY=os.environ.get('NOVALIS_MOLLIE_TEST_KEY',''),
+        MOLLIE_LIVE_KEY=os.environ.get('NOVALIS_MOLLIE_LIVE_KEY',''),
+        PAYMENTS_LIVE_ENABLED=os.environ.get('NOVALIS_PAYMENTS_LIVE_ENABLED')=='true',
         MODE=mode, ORG_ID=os.environ.get('NOVALIS_ORG_ID','novalis'), DATABASE=str(data_dir/'novalis.sqlite3'),
         FILES_DIR=str(data_dir/'documents'), APP_ORIGIN=os.environ.get('NOVALIS_APP_ORIGIN','https://app.novalisai.com'),
         PUBLIC_ORIGINS=os.environ.get('NOVALIS_PUBLIC_ORIGINS','https://www.novalisai.com,https://novalisai.com,https://achraf-saidi.github.io').split(','),
@@ -46,9 +50,13 @@ def create_app(overrides=None):
 
     @app.before_request
     def protect():
-        load_session()
+        if request.method=='POST' and request.path=='/api/payments/mollie/webhook':
+            g.user=None;g.session=None
+        else:
+            load_session()
         check_request()
-        if request.path.startswith('/api/') and request.is_json and request.content_length and request.content_length>32768:
+        json_limit=131072 if request.endpoint=='finance.invoice_draft' else 32768
+        if request.path.startswith('/api/') and request.is_json and request.content_length and request.content_length>json_limit:
             abort(413,'La demande dépasse la taille autorisée.')
 
     @app.after_request
@@ -125,7 +133,7 @@ def create_app(overrides=None):
     @required('manager','sysadmin')
     def integrations():
         return jsonify(email='configured' if app.config['SMTP_HOST'] and app.config['MAIL_ENABLED'] else 'not_configured',
-                       calendar='internal',online_payment='not_configured',peppol='external_registration_only',
+                       calendar='internal',online_payment=payment_configuration()['state'],peppol='external_registration_only',
                        outbox=rows('SELECT id,subject,status,attempts,created_at,last_error FROM outbox WHERE org_id=? ORDER BY created_at DESC LIMIT 100',(g.user['org_id'],)))
 
     from .auth import auth
@@ -133,6 +141,8 @@ def create_app(overrides=None):
     from .projects import projects
     from .finance import finance
     from .documents import documents
-    for blueprint in [auth,crm,projects,finance,documents]:
+    from .payments import payments, payment_configuration
+    from .workspace import workspace
+    for blueprint in [auth,crm,projects,finance,documents,payments,workspace]:
         app.register_blueprint(blueprint)
     return app

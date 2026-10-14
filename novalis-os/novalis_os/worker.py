@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from . import create_app
 from .cli import maintenance, backup, verify_backup
 from .outbox import send_pending
+from .payments import reconcile_pending
 
 
 def main():
@@ -14,6 +15,7 @@ def main():
         with app.app_context():
             try:
                 maintenance()
+                reconcile_pending(5)
                 result=send_pending(10)
                 if result['sent']:
                     print(f"Outbox: {result['sent']} message(s) transmitted.",flush=True)

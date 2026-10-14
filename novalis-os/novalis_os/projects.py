@@ -209,7 +209,7 @@ def milestone_approve(milestone_id):
 def task_create(project_id):
     with transaction():
         project = project_access(project_id,staff=True)
-        if project['status'] != 'active':
+        if project['status'] not in {'active','maintenance'}:
             abort(409,'Ce projet n’est pas ouvert à la réalisation.')
         task_id = create_task(data(),project)
     return jsonify(id=task_id),201
@@ -223,7 +223,7 @@ def task_update(task_id):
         task,project = task_access(task_id,edit=True)
         status = choice(d,'status',['todo','in_progress','blocked','review','approved'])
         transitions = {'todo':{'in_progress','blocked'},'in_progress':{'blocked','review'},'blocked':{'in_progress','review'},'review':{'in_progress','approved'},'approved':set()}
-        if project['status']!='active' or status not in transitions[task['status']]:
+        if project['status'] not in {'active','maintenance'} or status not in transitions[task['status']]:
             abort(409,'Cette transition de tâche n’est pas autorisée.')
         if status=='approved' and g.user['role']=='developer':
             abort(403,'La validation revient au responsable du projet.')
@@ -334,7 +334,7 @@ def request_qualify(request_id):
         if not item:
             abort(404)
         project = project_access(item['project_id'],staff=True)
-        if item['task_id'] or project['status']!='active' or item['version']!=integer(d,'version',1):
+        if item['task_id'] or item['status'] not in {'received','analysing'} or project['status'] not in {'active','maintenance'} or item['version']!=integer(d,'version',1):
             abort(409,'Cette demande a déjà été planifiée ou le projet n’est pas actif.')
         if d.get('within_scope') is not True:
             abort(409,'Faites approuver une modification du périmètre avant de planifier ce travail.')
@@ -382,6 +382,8 @@ def archive(project_id):
         if project['status'] not in {'delivered','maintenance'}:
             abort(409,'La livraison doit être acceptée avant archivage.')
         status = choice(d,'status',['maintenance','archived'])
+        if status=='archived' and (row("SELECT id FROM tasks WHERE project_id=? AND status!='approved'",(project_id,)) or row("SELECT id FROM requests WHERE project_id=? AND status IN ('received','analysing','planned')",(project_id,))):
+            abort(409,'Clôturez les tâches et demandes ouvertes avant archivage.')
         if not db.execute('UPDATE projects SET status=?,version=version+1 WHERE id=? AND version=?',(status,project_id,integer(d,'version',1))).rowcount:
             abort(409,'Le projet a été modifié.')
         audit('project.archived',project_id,{'status':status})
@@ -414,4 +416,76 @@ def dashboard():
 @required()
 def read_notification(notification_id):
     get_db().execute('UPDATE notifications SET seen=1 WHERE id=? AND user_id=?',(notification_id,g.user['id']))
+    return jsonify(ok=True)
+
+@projects.patch('/api/projects/<project_id>')
+@required('manager','account')
+def project_edit(project_id):
+    d=data()
+    with transaction() as db:
+        p=project_access(project_id,staff=True)
+        if p['status']=='archived':abort(409,'Un projet archivé ne peut pas être modifié.')
+        account_id=text(d,'account_id',40,1,p['account_id'])
+        if account_id!=p['account_id'] and g.user['role']!='manager':abort(403,'Seule la direction réaffecte le responsable.')
+        if not row("SELECT id FROM users WHERE id=? AND org_id=? AND status='active' AND role IN ('manager','account')",(account_id,p['org_id'])):abort(400,'Responsable invalide.')
+        budget=integer(d,'budget_cents',0,100000000,p['budget_cents'])
+        if budget!=p['budget_cents'] and g.user['role']!='manager':abort(403,'Seule la direction modifie le budget contractuel.')
+        if not db.execute('UPDATE projects SET name=?,scope=?,account_id=?,due_date=?,budget_cents=?,version=version+1 WHERE id=? AND version=?',(text(d,'name'),text(d,'scope',10000),account_id,day(d,'due_date'),budget,project_id,integer(d,'version',1))).rowcount:abort(409,'Projet modifié : rechargez les données.')
+        audit('project.edited',project_id)
+    return jsonify(ok=True)
+
+@projects.delete('/api/projects/<project_id>/members/<user_id>')
+@required('manager','account')
+def member_remove(project_id,user_id):
+    with transaction() as db:
+        p=project_access(project_id,staff=True)
+        if user_id==p['account_id'] or row("SELECT id FROM tasks WHERE project_id=? AND assignee_id=? AND status!='approved'",(project_id,user_id)):abort(409,'Réaffectez le responsable et ses tâches ouvertes avant de retirer cet accès.')
+        if not db.execute('DELETE FROM project_members WHERE project_id=? AND user_id=?',(project_id,user_id)).rowcount:abort(404)
+        audit('project.member_removed',project_id,{'user_id':user_id})
+    return jsonify(ok=True)
+
+@projects.patch('/api/tasks/<task_id>/details')
+@required('manager','account')
+def task_edit(task_id):
+    d=data()
+    with transaction() as db:
+        task,p=task_access(task_id);project_access(p['id'],staff=True)
+        if p['status'] not in {'active','maintenance'} or task['status']=='approved':abort(409,'Réouvrez la tâche avant de modifier une réalisation validée.')
+        assignee=text(d,'assignee_id',40)
+        if not row("SELECT id FROM users WHERE id=? AND org_id=? AND status='active' AND role IN ('manager','account','developer')",(assignee,p['org_id'])) or (assignee!=p['account_id'] and not row('SELECT 1 FROM project_members WHERE project_id=? AND user_id=?',(p['id'],assignee))):abort(400,'Collaborateur non affecté au projet.')
+        milestone=d.get('milestone_id') or None
+        if milestone and not row("SELECT id FROM milestones WHERE id=? AND project_id=? AND status IN ('planned','rejected')",(milestone,p['id'])):abort(400,'Choisissez un jalon ouvert appartenant au projet.')
+        estimate=integer(d,'estimate_minutes',1,100000)
+        if not db.execute('UPDATE tasks SET name=?,description=?,assignee_id=?,milestone_id=?,due_date=?,estimate_minutes=?,remaining_minutes=?,priority=?,client_visible=?,version=version+1 WHERE id=? AND version=?',(text(d,'name'),text(d,'description',10000),assignee,milestone,day(d,'due_date'),estimate,integer(d,'remaining_minutes',0,100000,task['remaining_minutes']),choice(d,'priority',['low','normal','high'],'normal'),int(d.get('client_visible') is True),task_id,integer(d,'version',1))).rowcount:abort(409,'Tâche modifiée : rechargez les données.')
+        audit('task.edited',task_id);notify(assignee,'task_updated',task_id,'Une tâche a été mise à jour.')
+    return jsonify(ok=True)
+
+@projects.post('/api/tasks/<task_id>/reopen')
+@required('manager','account')
+def task_reopen(task_id):
+    d=data()
+    with transaction() as db:
+        task,p=task_access(task_id);project_access(p['id'],staff=True)
+        if p['status'] not in {'active','maintenance'}:abort(409,'La livraison en cours de validation ne peut pas être modifiée.')
+        reason=text(d,'reason',1000)
+        if not db.execute("UPDATE tasks SET status='in_progress',remaining_minutes=?,version=version+1 WHERE id=? AND version=? AND status='approved'",(integer(d,'remaining_minutes',1,100000),task_id,integer(d,'version',1))).rowcount:abort(409,'La tâche a changé ou n’est pas validée.')
+        if task['milestone_id']:db.execute("UPDATE milestones SET status='planned',version=version+1 WHERE id=?",(task['milestone_id'],))
+        db.execute("UPDATE requests SET status='planned',version=version+1 WHERE task_id=? AND status='resolved'",(task_id,))
+        audit('task.reopened',task_id,{'reason':reason});notify(task['assignee_id'],'task_reopened',task_id,'Une réalisation a été réouverte avec un motif.')
+    return jsonify(ok=True)
+
+@projects.patch('/api/requests/<request_id>')
+@required('manager','account')
+def request_decision(request_id):
+    d=data()
+    with transaction() as db:
+        item=row('SELECT * FROM requests WHERE id=?',(request_id,))
+        if not item:abort(404)
+        p=project_access(item['project_id'],staff=True);status=choice(d,'status',['analysing','resolved','declined']);reason=text(d,'reason',2000)
+        allowed={'received':{'analysing','declined'},'analysing':{'declined'},'planned':{'resolved'}}
+        if status not in allowed.get(item['status'],set()):abort(409,'Cette décision n’est pas autorisée dans l’état de la demande.')
+        if status=='resolved' and not row("SELECT id FROM tasks WHERE id=? AND status='approved'",(item['task_id'],)):abort(409,'Validez la tâche associée avant de résoudre la demande.')
+        if not db.execute('UPDATE requests SET status=?,version=version+1 WHERE id=? AND version=?',(status,request_id,integer(d,'version',1))).rowcount:abort(409,'Demande modifiée : rechargez les données.')
+        db.execute('INSERT INTO messages VALUES(?,?,?,?,?,?)',(uid(),p['id'],g.user['id'],'external',item['title']+' — '+status+'\n'+reason,now()))
+        notify(item['author_id'],'request_decision',request_id,'Votre demande a été examinée.');audit('request.decision',request_id,{'status':status,'reason':reason})
     return jsonify(ok=True)

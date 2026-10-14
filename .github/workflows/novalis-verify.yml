@@ -41,6 +41,7 @@ jobs:
           node novalisai/qa/v2.cjs
           node novalisai/qa/showcase.cjs
           node novalis-os/tests/ui.cjs
+          node novalis-os/tests/payments-ui.cjs
       - name: Build production image
         run: docker build -f novalis-os/deploy/Dockerfile -t novalis-os:ci .
       - name: Validate shared and dedicated VPS configuration

@@ -154,7 +154,7 @@ def reset():
 @auth.get('/api/users')
 @required('manager', 'sysadmin')
 def users():
-    return jsonify(items=rows('SELECT id,name,email,role,status,client_id FROM users WHERE org_id=? ORDER BY name', (g.user['org_id'],)))
+    return jsonify(items=rows("SELECT u.id,u.name,u.email,u.role,u.status,u.client_id,COALESCE(p.job_title,'') AS job_title,COALESCE(p.engagement,'employee') AS engagement FROM users u LEFT JOIN user_profiles p ON p.user_id=u.id WHERE u.org_id=? ORDER BY u.name", (g.user['org_id'],)))
 
 
 @auth.post('/api/users')
@@ -173,6 +173,7 @@ def invite():
             abort(409, 'Cette adresse possède déjà un compte.')
         db.execute('INSERT INTO users(id,org_id,client_id,name,email,role,created_at) VALUES(?,?,?,?,?,?,?)',
                    (user['id'], g.user['org_id'], client_id, user['name'], user['email'], role, now()))
+        db.execute('INSERT INTO user_profiles VALUES(?,?,?,?)',(user['id'],text(d,'job_title',120,0,''),choice(d,'engagement',['employee','independent','partner','client'],'client' if role=='client' else 'employee'),now()))
         activation_url = token_for(user, 'invite')
         audit('user.invited', user['id'], {'role': role})
     return jsonify(id=user['id'], invitation_status='queued', activation_url=activation_url, expires_in_hours=24,
@@ -196,3 +197,37 @@ def user_status(user_id):
         db.execute('DELETE FROM sessions WHERE user_id=?', (user_id,))
         audit('user.status', user_id, {'status': status})
     return jsonify(ok=True)
+
+@auth.patch('/api/users/<user_id>')
+@required('manager','sysadmin')
+def user_edit(user_id):
+    d=data()
+    with transaction() as db:
+        user=row('SELECT * FROM users WHERE id=? AND org_id=?',(user_id,g.user['org_id']))
+        if not user:abort(404)
+        role=choice(d,'role',['manager','account','developer','client','finance','sysadmin'],user['role'])
+        if user_id==g.user['id'] and role!=user['role']:abort(403,'Un autre membre de la direction doit modifier votre propre rôle.')
+        if g.user['role']=='sysadmin' and (role in SENSITIVE or user['role'] in SENSITIVE or role=='client' or user['role']=='client'):abort(403,'La direction gère ces autorisations sensibles.')
+        client_id=text(d,'client_id',40) if role=='client' else None
+        if client_id and not row('SELECT id FROM clients WHERE id=? AND org_id=?',(client_id,g.user['org_id'])):abort(400,'Organisation cliente invalide.')
+        if role!=user['role']:
+            if role not in {'account','manager'} and row("SELECT id FROM projects WHERE account_id=? AND status!='archived'",(user_id,)):abort(409,'Réaffectez les projets avant de modifier le rôle du responsable.')
+            if role not in {'manager','account','developer'} and row("SELECT id FROM tasks WHERE assignee_id=? AND status!='approved'",(user_id,)):abort(409,'Réaffectez les tâches ouvertes avant de modifier ce rôle.')
+            db.execute('DELETE FROM project_members WHERE user_id=?',(user_id,))
+        db.execute('UPDATE users SET name=?,role=?,client_id=? WHERE id=?',(text(d,'name'),role,client_id,user_id))
+        db.execute('INSERT INTO user_profiles VALUES(?,?,?,?) ON CONFLICT(user_id) DO UPDATE SET job_title=excluded.job_title,engagement=excluded.engagement,updated_at=excluded.updated_at',(user_id,text(d,'job_title',120,0,''),choice(d,'engagement',['employee','independent','partner','client'],'employee'),now()))
+        if role!=user['role'] or client_id!=user['client_id']:db.execute('DELETE FROM sessions WHERE user_id=?',(user_id,))
+        audit('user.profile_updated',user_id,{'from_role':user['role'],'role':role,'sessions_revoked':role!=user['role'] or client_id!=user['client_id']})
+    return jsonify(ok=True)
+
+@auth.post('/api/users/<user_id>/reinvite')
+@required('manager','sysadmin')
+def user_reinvite(user_id):
+    with transaction() as db:
+        user=row('SELECT * FROM users WHERE id=? AND org_id=?',(user_id,g.user['org_id']))
+        if not user:abort(404)
+        if user['status']!='invited':abort(409,'La réémission concerne uniquement une invitation non activée.')
+        if g.user['role']=='sysadmin' and user['role'] in SENSITIVE:abort(403,'Seule la direction réémet les accès sensibles.')
+        db.execute('UPDATE tokens SET consumed_at=? WHERE user_id=? AND consumed_at IS NULL',(now(),user_id))
+        link=token_for(user,'invite');audit('user.reinvited',user_id)
+    return jsonify(id=user_id,activation_url=link,expires_in_hours=24,email_enabled=bool(current_app.config['SMTP_HOST'] and current_app.config['MAIL_ENABLED']))

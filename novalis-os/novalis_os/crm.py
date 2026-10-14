@@ -141,12 +141,12 @@ def edit_lead(lead_id):
         if owner != lead['owner_id']:
             if g.user['role'] != 'manager':
                 abort(403)
-            if not row("SELECT id FROM users WHERE id=? AND org_id=? AND role IN ('manager','account') AND status='active'", (owner, g.user['org_id'])):
+            if owner is not None and not row("SELECT id FROM users WHERE id=? AND org_id=? AND role IN ('manager','account') AND status='active'", (owner, g.user['org_id'])):
                 abort(400, 'Responsable invalide.')
         version = integer(d, 'version', 1)
-        changed = db.execute('UPDATE leads SET status=?,scoping_note=?,loss_reason=?,owner_id=?,version=version+1 WHERE id=? AND version=?',
+        changed = db.execute('UPDATE leads SET status=?,scoping_note=?,loss_reason=?,owner_id=?,name=?,email=?,company=?,description=?,version=version+1 WHERE id=? AND version=?',
                              (stage, text(d, 'scoping_note', 10000, 0, lead['scoping_note']),
-                              text(d, 'loss_reason', 1000, 0, lead['loss_reason']), owner, lead_id, version)).rowcount
+                              text(d, 'loss_reason', 1000, 0, lead['loss_reason']), owner,text(d,'name',100,1,lead['name']),email({'email':d.get('email',lead['email'])}),text(d,'company',200,0,lead['company']),text(d,'description',4000,10,lead['description']),lead_id,version)).rowcount
         if not changed:
             abort(409, 'Cette fiche a été modifiée. Rechargez-la.')
         audit('lead.updated', lead_id, {'status': stage})
@@ -198,9 +198,12 @@ def convert(lead_id):
             abort(409, 'La proposition doit être acceptée et la fiche à jour avant conversion.')
         if d.get('accepted') is not True:
             abort(400, 'Confirmez l’accord commercial obtenu.')
-        client_id, project_id = uid(), uid()
-        db.execute('INSERT INTO clients VALUES(?,?,?,?,?,?)',
-                   (client_id, g.user['org_id'], lead['company'] or lead['name'], lead['email'], text(d, 'company_number', 40, 0, ''), now()))
+        client_id, project_id = d.get('client_id') or uid(), uid()
+        if d.get('client_id'):
+            if not row('SELECT id FROM clients WHERE id=? AND org_id=?',(client_id,g.user['org_id'])):abort(400,'Client existant invalide.')
+        else:
+            db.execute('INSERT INTO clients VALUES(?,?,?,?,?,?)',
+                       (client_id,g.user['org_id'],lead['company'] or lead['name'],lead['email'],text(d,'company_number',40,0,''),now()))
         account_id = text(d, 'account_id', 40)
         if not row("SELECT id FROM users WHERE id=? AND org_id=? AND role IN ('manager','account') AND status='active'", (account_id, g.user['org_id'])):
             abort(400, 'Responsable invalide.')
@@ -244,3 +247,14 @@ def slots():
         db.execute('INSERT INTO slots VALUES(?,?,?,?,?,1)', (slot_id, g.user['org_id'], owner, start, end))
         audit('slot.created', slot_id)
     return jsonify(id=slot_id), 201
+
+@crm.patch('/api/clients/<client_id>')
+@required('manager','account')
+def client_edit(client_id):
+    d=data()
+    with transaction() as db:
+        item=row('SELECT * FROM clients WHERE id=? AND org_id=?',(client_id,g.user['org_id']))
+        if not item or (g.user['role']=='account' and not row('SELECT id FROM projects WHERE client_id=? AND account_id=?',(client_id,g.user['id']))):abort(404)
+        db.execute('UPDATE clients SET name=?,email=?,company_number=? WHERE id=?',(text(d,'name'),email(d),text(d,'company_number',40,0,''),client_id))
+        audit('client.edited',client_id)
+    return jsonify(ok=True)

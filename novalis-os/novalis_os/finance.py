@@ -28,6 +28,8 @@ def invoice_access(invoice_id):
 def present_invoice(item):
     total = total_cents(item['id'])
     paid = row('SELECT COALESCE(SUM(amount_cents),0) AS paid FROM payments WHERE invoice_id=?',(item['id'],))['paid']
+    online = row('SELECT COALESCE(SUM(allocated_cents),0) AS paid FROM provider_receipts WHERE invoice_id=?',(item['id'],))['paid']
+    paid += online
     return {**item,'total_cents':total,'paid_cents':paid,'balance_cents':total-paid}
 
 
@@ -110,7 +112,7 @@ def payment(invoice_id):
 @required('manager','finance','client')
 def invoice_detail(invoice_id):
     item = invoice_access(invoice_id)
-    return jsonify(invoice=present_invoice(item),lines=rows('SELECT description,quantity,unit_cents,vat_basis_points FROM invoice_lines WHERE invoice_id=?',(invoice_id,)))
+    return jsonify(invoice=present_invoice(item),payments=rows('SELECT id,amount_cents,bank_reference,paid_at,created_at FROM payments WHERE invoice_id=? ORDER BY created_at DESC',(invoice_id,)),online_receipts=rows('SELECT provider_id,amount_cents,allocated_cents,excess_cents,paid_at FROM provider_receipts WHERE invoice_id=?',(invoice_id,)),lines=rows('SELECT description,quantity,unit_cents,vat_basis_points FROM invoice_lines WHERE invoice_id=?',(invoice_id,)))
 
 
 @finance.get('/api/finance')
@@ -157,7 +159,7 @@ def export():
 
 @finance.post('/api/projects/<project_id>/proposals')
 @required('manager','account')
-def proposal():
+def proposal(project_id):
     d = data()
     with transaction() as db:
         project_access(project_id,staff=True)
