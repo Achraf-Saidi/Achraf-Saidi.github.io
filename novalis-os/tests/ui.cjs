@@ -8,6 +8,7 @@ const script=fs.readFileSync(path.join(root,'web/app.js'),'utf8');
   const html=fs.readFileSync(path.join(root,'web/index.html'),'utf8');
   const dom=new JSDOM(html,{url:'https://app.novalis.test/os/',runScripts:'outside-only'}),w=dom.window,d=w.document;
   w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+  let copied='';Object.defineProperty(w.navigator,'clipboard',{value:{writeText:async text=>{copied=text;}}});
   const user={id:role,role,name:'Test <script>role</script>',email:'test@example.test'},calls=[];
   const p={id:'p1',name:'Test <img onerror="alert(1)">',scope:'Une specification',due_date:'2026-12-01',status:'active',account_id:'account',client_id:'c1',account_name:'Coordinateur',progress:0,version:1};
   const task={id:'t1',project_id:'p1',project_name:'Projet',name:'Module',description:'Specification',estimate_minutes:60,remaining_minutes:60,due_date:'2026-12-01',status:'in_progress',assignee_id:role,version:1};
@@ -23,6 +24,7 @@ const script=fs.readFileSync(path.join(root,'web/app.js'),'utf8');
     const body=JSON.parse(options.body);assert.equal(body.version,1);assert.equal(body.status,'review');assert.equal(options.headers['X-CSRF-Token'],'test-csrf');task.status='review';task.version++;value={ok:true};
    }
    else if(url==='/api/finance')value={totals:{invoiced_cents:0,paid_cents:0,receivable_cents:0,expenses_cents:0},invoices:[],expenses:[]};
+   else if(url==='/api/users'&&options.method==='POST'){const body=JSON.parse(options.body);assert.equal(body.role,'developer');assert.equal(options.headers['X-CSRF-Token'],'test-csrf');value={id:'new-user',activation_url:'https://app.novalis.test/os/#activate=one-time-test-token',email_enabled:false,expires_in_hours:24};}
    else if(url==='/api/users')value={items:[{...user,status:'active'}]};
    else if(url==='/api/integrations')value={email:'not_configured',outbox:[]};
    else if(url.endsWith('/invoices')||url.endsWith('/proposals')||url==='/api/time'||url==='/api/calendar'||url==='/api/audit'||url==='/api/leads'||url==='/api/clients')value={items:[],stages:[]};
@@ -45,6 +47,14 @@ const script=fs.readFileSync(path.join(root,'web/app.js'),'utf8');
     form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));await wait();await wait();await wait();
     assert.equal(task.status,'review');assert(!d.getElementById('dialog').open);
    }
+  }
+  if(role==='manager'){
+   d.querySelector('[data-view="users"]').click();await wait();await wait();
+   d.getElementById('view-actions').querySelector('button').click();await wait();await wait();
+   const form=d.getElementById('operation-form');form.elements.name.value='New colleague';form.elements.email.value='colleague@example.test';form.elements.role.value='developer';
+   form.dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));await wait();await wait();await wait();await wait();
+   assert(d.getElementById('dialog').open);assert(d.getElementById('invitation-url').readOnly);assert(d.getElementById('dialog-content').textContent.includes('désactivé'));
+   d.getElementById('copy-invitation').click();await wait();assert.equal(copied,'https://app.novalis.test/os/#activate=one-time-test-token');
   }
   d.getElementById('menu-toggle').click();assert.equal(d.getElementById('menu-toggle').getAttribute('aria-expanded'),'true');
   d.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape'}));assert.equal(d.getElementById('menu-toggle').getAttribute('aria-expanded'),'false');
