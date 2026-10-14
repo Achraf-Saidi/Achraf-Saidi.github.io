@@ -36,6 +36,7 @@ for(const lang of ['fr','en','nl','de']){
  d.querySelector('[data-method-phase="7"]').click();assert.equal($('method-deliverable').textContent,t.method_deliverables[7]);
  d.querySelector('[data-crew-stage="4"]').click();assert.equal($('crew-handoff').textContent,t.crew_handoffs[4]);
  d.querySelector('[data-graph-node="6"]').click();assert.equal($('graph-description').textContent,t.graph_descriptions[6]);
+ d.querySelector('[data-studio-profile="2"]').click();assert.equal(d.querySelector('[data-graph-label="2"]').textContent,t.graph_scenarios[2][2]);
  assert.equal(d.querySelectorAll('.crew-count')[0].textContent,'05');assert.equal(d.querySelectorAll('.crew-count')[1].textContent,'06');
  assert.equal(new Set([...d.querySelectorAll('[id]')].map(el=>el.id)).size,d.querySelectorAll('[id]').length);
  console.log(`${lang}: independent test-set metrics, add/undo/reset, keyboard tabs, exact optimizer, safe extraction, stale approval, method and crew checked.`);dom.window.close();

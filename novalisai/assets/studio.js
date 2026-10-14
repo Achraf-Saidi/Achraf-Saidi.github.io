@@ -22,6 +22,7 @@
   if(!chosen.length){const p=d.createElement('p');p.textContent=data.empty;fragments.push(p);}
   if(u&&chosen.length){u.base_modules.forEach(text=>{const el=d.createElement('div');el.className='architecture-module architecture-foundation';el.textContent=text;fragments.push(el);});const extras=[...(chosen.includes(0)?[0,1]:[]),...(chosen.includes(2)?[2]:[]),...(chosen.includes(3)?[3]:[])];extras.forEach(i=>{const el=d.createElement('div');el.className='architecture-module';el.textContent=u.extra_modules[i];fragments.push(el);});}
   $('studio-architecture').replaceChildren(...fragments);
+  if(u&&$('architecture-context')){const text=id=>$(id).selectedOptions[0].textContent,tools=$('context-tools').value.trim(),constraints=[...d.querySelectorAll('[data-context-constraint]:checked')].map(el=>u.constraints[Number(el.dataset.contextConstraint)]);$('architecture-context').textContent=[text('context-sector'),text('context-size'),text('context-priority'),tools?u.context_labels[2]+': '+tools:'',...constraints].filter(Boolean).join(' · ');}
   // Recommendations follow the actual selection rather than the original profile.
   const recommendation=chosen.includes(4)?2:chosen.includes(0)?0:1;
   $('studio-recommendation').textContent=chosen.length?data.recommendations[recommendation]:data.empty;
@@ -56,5 +57,6 @@
  $('order-check').addEventListener('click',()=>{if(!validOrder()){reviewed=false;$('order-approve').disabled=true;$('order-status').textContent=Number($('order-quantity').value)>12?u.stock_error:data.invalid;orderInputs.find(el=>!el.checkValidity()||!el.value.trim())?.focus();return;}reviewed=true;$('order-approve').disabled=false;$('order-status').textContent=data.reviewed;stage(1);total();});
  $('order-approve').addEventListener('click',()=>{if(!reviewed||!validOrder()||approved)return;approved=true;if($('order-stock')){$('order-stock').textContent=String(12-Number($('order-quantity').value));$('order-count').textContent='1';}orderInputs.forEach(el=>{el.disabled=true;});$('order-check').hidden=true;$('order-approve').disabled=true;$('order-edit').hidden=false;$('order-status').textContent=data.approved;stage(2);});
  $('order-edit').addEventListener('click',()=>{approved=false;reviewed=false;if($('order-stock')){$('order-stock').textContent='12';$('order-count').textContent='0';}orderInputs.forEach(el=>{el.disabled=false;});$('order-check').hidden=false;$('order-edit').hidden=true;$('order-approve').disabled=true;$('order-status').textContent=data.edited;stage(0);});
+ d.querySelectorAll('.discovery-context input,.discovery-context select').forEach(el=>el.addEventListener(el.tagName==='INPUT'&&el.type!=='checkbox'?'input':'change',draw));
  draw();estimate();total();
 })();
