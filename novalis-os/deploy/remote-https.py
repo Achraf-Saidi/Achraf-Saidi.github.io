@@ -6,6 +6,7 @@ import os
 import shutil
 import ssl
 import subprocess
+import time
 from pathlib import Path
 
 REPORT = {'stage': 'https'}
@@ -114,18 +115,29 @@ __TLS__
     enabled = Path('/etc/nginx/sites-enabled/zz-novalisai')
     http_link = Path('/etc/nginx/sites-enabled/novalisai')
     if available.exists() or enabled.exists():
-        raise RuntimeError('An active Novalis TLS configuration already exists; use the upgrade procedure.')
-    available.write_text(config)
-    available.chmod(0o644)
-    enabled.symlink_to(available)
-    http_link.unlink()
-    try:
-        run(['/usr/sbin/nginx', '-t'])
-        run(['systemctl', 'reload', 'nginx'])
-    except Exception:
-        enabled.unlink(missing_ok=True)
-        http_link.symlink_to('/etc/nginx/sites-available/novalisai')
-        raise
+        if not enabled.is_symlink() or enabled.resolve() != available or available.read_text() != config:
+            raise RuntimeError('Existing TLS configuration differs from this qualified release.')
+    else:
+        available.write_text(config)
+        available.chmod(0o644)
+        enabled.symlink_to(available)
+        http_link.unlink()
+        try:
+            run(['/usr/sbin/nginx', '-t'])
+            run(['systemctl', 'reload', 'nginx'])
+        except Exception:
+            enabled.unlink(missing_ok=True)
+            http_link.symlink_to('/etc/nginx/sites-available/novalisai')
+            raise
+    # systemctl returns after signalling Nginx; wait for the new TLS workers.
+    for attempt in range(20):
+        try:
+            local_https('novalisai.com')
+            break
+        except (ssl.SSLError, OSError):
+            if attempt == 19:
+                raise
+            time.sleep(1)
     checks = {
         'root': local_https('novalisai.com'),
         'public': local_https('www.novalisai.com'),
@@ -154,9 +166,13 @@ __TLS__
     contents = renewal.read_text()
     if '[renewalparams]' not in contents:
         raise RuntimeError('Unexpected certificate renewal configuration.')
+    contents = '\n'.join(line for line in contents.splitlines() if not line.startswith('renew_hook =')) + '\n'
     contents = contents.replace('[renewalparams]', '[renewalparams]\nrenew_hook = /usr/local/sbin/novalis-renew-nginx', 1)
     renewal.write_text(contents)
+    run([certbot, 'renew', '--dry-run', '--cert-name', 'novalisai.com', '--non-interactive'], timeout=240)
+    timer = run(['systemctl', 'is-active', 'certbot.timer']).strip()
     REPORT.update(https='active', checks=checks, pointage_unchanged=True, service_pids_unchanged=True,
+                  renewal_test='passed', certificate_timer=timer,
                   certificate=run(['openssl', 'x509', '-in', certificate + 'fullchain.pem', '-noout', '-enddate', '-ext', 'subjectAltName']))
     path = Path('/etc/novalis-os/deployment-https.json')
     path.write_text(json.dumps(REPORT, indent=2));path.chmod(0o600)
