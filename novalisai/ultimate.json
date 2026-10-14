@@ -1,0 +1,1506 @@
+{
+  "fr": {
+    "hero": [
+      "Votre métier est unique.",
+      "Votre logiciel aussi."
+    ],
+    "hero_copy": "Des logiciels sur mesure, des sites qui donnent envie et des systèmes intelligents. Nous relions vos utilisateurs, vos outils et vos données pour simplifier le travail qui compte.",
+    "hero_cta": "Parlons de votre projet",
+    "hero_second": "Jouer avec l’IA",
+    "graph_title": "Du problème au système.",
+    "graph_note": "Touchez un composant pour comprendre son rôle.",
+    "graph_nodes": [
+      "Utilisateurs",
+      "Application",
+      "Données",
+      "Processus",
+      "Intégrations",
+      "Pilotage",
+      "IA ciblée"
+    ],
+    "graph_descriptions": [
+      "Clients et équipe : chacun voit les informations et actions qui le concernent.",
+      "Une interface autour du métier : catalogue, portail ou espace de travail.",
+      "Une source cohérente pour les clients, commandes, dossiers et documents.",
+      "Les règles, les validations et les étapes qui rendent le travail fiable.",
+      "Vos outils existants, reliés quand leurs API et vos accès le permettent.",
+      "Des indicateurs construits à partir des événements réellement enregistrés.",
+      "Un usage à tester sur vos données, avec les sources et un contrôle humain."
+    ],
+    "graph_scenarios": [
+      [
+        "Clients & vendeurs",
+        "Boutique & commandes",
+        "Produits & stocks",
+        "Préparer & expédier",
+        "Paiement & livraison",
+        "Ventes & marges",
+        "Recherche catalogue"
+      ],
+      [
+        "Clients & équipes",
+        "Portail & dossiers",
+        "Clients & projets",
+        "Revue & validation",
+        "CRM & comptabilité",
+        "Charge & jalons",
+        "Assistant de dossier"
+      ],
+      [
+        "Lecteurs & analystes",
+        "Recherche & rapports",
+        "Corpus & provenance",
+        "Contrôle des sources",
+        "Fichiers & bases",
+        "Qualité & tendances",
+        "Extraction assistée"
+      ]
+    ],
+    "lab_title": "Une IA,\nà vous de jouer.",
+    "lab_intro": "Montrez-lui des exemples. Regardez ses décisions changer. Essayez de la rendre meilleure… ou découvrez comment elle se trompe.",
+    "lab_tabs": [
+      "L’IA par exemples",
+      "Le jeu des choix",
+      "Du document aux données"
+    ],
+    "lab_local": "Calculs dans votre navigateur · aucun appel à une IA payante",
+    "lab_badge": "IA PAR EXEMPLES",
+    "lab_help": "Choisissez une couleur, puis touchez la carte pour ajouter un exemple. « Observer » révèle les voisins qui expliquent une décision.",
+    "datasets": [
+      "Cercles",
+      "XOR",
+      "Lunes",
+      "Spirales"
+    ],
+    "dataset_label": "Terrain de jeu",
+    "tools": [
+      "Exemple A",
+      "Exemple B",
+      "Observer"
+    ],
+    "neighbors": "Voisins pris en compte",
+    "add_hint": "Donner un bon exemple",
+    "undo": "Annuler mon dernier point",
+    "reset": "Rejouer",
+    "reveal": "Voir la règle du jeu",
+    "export": "Garder ma carte",
+    "share": "Partager ce défi",
+    "score": "Score sur des points de test séparés",
+    "target": "Objectif du défi",
+    "examples": "exemples",
+    "correct": "bien classés",
+    "record": "Votre record sur cet appareil",
+    "explain": "Pourquoi cette décision ?",
+    "probe_help": "Touchez la carte avec « Observer » pour voir quels exemples influencent l’IA.",
+    "vote": "Vote pondéré des voisins",
+    "class_names": [
+      "A · cercle cuivre",
+      "B · losange turquoise"
+    ],
+    "lab_truth": "Chaque terrain possède une règle synthétique connue. Le score compare les décisions à cette règle sur des points indépendants des exemples.",
+    "lab_method": "Méthode : k plus proches voisins. Les exemples sont mémorisés ; la décision est calculée à partir de leurs distances. Il n’y a pas d’entraînement d’un réseau de neurones. Le vote n’est pas une probabilité de réussite calibrée.",
+    "keyboard": "Au clavier : flèches pour déplacer le curseur, Entrée pour placer ou observer.",
+    "place": "Placer à ces coordonnées",
+    "limit": "La carte contient déjà 160 exemples. Annulez un point ou recommencez.",
+    "shared": "Lien copié : il contient uniquement cette expérience fictive.",
+    "share_failed": "Copiez ce lien pour partager votre expérience.",
+    "goal_done": "Défi réussi ! Essayez un autre terrain, ou rendez celui-ci plus difficile.",
+    "goal_work": "Ajoutez des exemples aux endroits où la carte hésite. Le résultat peut s’améliorer ou se dégrader.",
+    "reveal_note": "La règle est affichée pour vous aider. Les décisions restent celles de l’algorithme.",
+    "canvas_label": "Carte interactive de classification : ajouter des exemples ou observer les voisins.",
+    "fallback": "La visualisation nécessite Canvas. Les coordonnées et les décisions textuelles restent utilisables.",
+    "opt_title": "Les bonnes idées ne rentrent pas toutes dans le planning.",
+    "opt_copy": "Vous disposez d’une capacité limitée. Changez la priorité et le nombre de jours : un calcul exhaustif choisit la combinaison qui apporte le plus de valeur dans ce scénario fictif.",
+    "capacity": "Jours disponibles",
+    "priority": "Votre priorité",
+    "priorities": [
+      "Équilibre",
+      "Vendre",
+      "Fiabiliser"
+    ],
+    "opt_items": [
+      "Catalogue",
+      "Paiement",
+      "Stock",
+      "Portail client",
+      "Rapports",
+      "Sauvegardes"
+    ],
+    "opt_value": "points de valeur fictive",
+    "opt_cost": "jours utilisés",
+    "opt_before": "Dans l’ordre de la liste",
+    "opt_after": "Meilleure combinaison",
+    "opt_note": "64 combinaisons examinées, contrainte de capacité respectée. Ces scores servent uniquement à la démonstration : ils ne sont pas des estimations de projet.",
+    "doc_title": "Un document devient exploitable quand ses erreurs restent visibles.",
+    "doc_copy": "Analysez ce document fictif, supprimez une valeur et observez le contrôle. L’extraction est exécutée par règles dans votre navigateur ; ce n’est ni un OCR ni une analyse par un modèle de langage.",
+    "doc_label": "Document de démonstration",
+    "doc_fields": [
+      "Référence",
+      "Fournisseur",
+      "Quantité",
+      "Prix unitaire",
+      "TVA"
+    ],
+    "doc_example": "Référence : DEMO-024\nFournisseur : Atelier Exemple\nQuantité : 3\nPrix unitaire : 90.00\nTVA : 21",
+    "doc_analyze": "Extraire et contrôler",
+    "doc_approve": "Valider les données",
+    "doc_missing": "Champ absent ou invalide",
+    "doc_ready": "Les champs sont cohérents. Une validation humaine reste nécessaire.",
+    "doc_validated": "Données de démonstration validées. Aucun document réel n’a été transmis.",
+    "doc_stale": "Le texte a changé : relancez l’analyse avant de valider.",
+    "doc_note": "Utilisez uniquement le texte fictif proposé. Aucune donnée n’est envoyée ni conservée sur un serveur.",
+    "context_title": "Le contexte avant les fonctionnalités.",
+    "context_labels": [
+      "Secteur",
+      "Taille de l’organisation",
+      "Outils déjà utilisés",
+      "Priorité",
+      "Contraintes",
+      "Budget envisagé, facultatif"
+    ],
+    "sectors": [
+      "Commerce",
+      "Services",
+      "Industrie",
+      "Éducation",
+      "Organisation",
+      "Autre"
+    ],
+    "sizes": [
+      "1–5 personnes",
+      "6–20 personnes",
+      "21–100 personnes",
+      "Plus de 100 personnes"
+    ],
+    "tools_placeholder": "Excel, e-mail, CRM, logiciel métier…",
+    "project_priorities": [
+      "Simplifier le travail",
+      "Développer les ventes",
+      "Mieux exploiter les données"
+    ],
+    "constraints": [
+      "Données confidentielles",
+      "Hébergement dans l’UE",
+      "Conserver les outils existants"
+    ],
+    "budget_options": [
+      "À définir ensemble",
+      "Moins de 5 000 €",
+      "5 000–15 000 €",
+      "15 000–50 000 €",
+      "Plus de 50 000 €"
+    ],
+    "plan_title": "Un premier chemin de réalisation",
+    "plan_steps": [
+      "Observer un processus réel et les utilisateurs concernés.",
+      "Valider un prototype et les règles d’accès.",
+      "Construire un premier lot, tester puis organiser la mise en service."
+    ],
+    "brief_labels": [
+      "Objectif",
+      "Utilisateurs",
+      "Existant",
+      "Périmètre fonctionnel",
+      "Contraintes",
+      "Risques et questions ouvertes",
+      "Prochaines étapes",
+      "Budget déclaré"
+    ],
+    "brief_risks": "Quelles données sont fiables ? Qui valide ? Quelles API sont disponibles ? Quels critères permettront d’accepter la première version ?",
+    "brief_disclaimer": "Pré-cadrage indicatif, à discuter. Ce document n’est ni un cahier des charges contractuel ni un devis.",
+    "base_modules": [
+      "Comptes & autorisations",
+      "Sauvegardes & journal"
+    ],
+    "extra_modules": [
+      "Stock & disponibilité",
+      "Références de factures",
+      "Portail client",
+      "Automatisations"
+    ],
+    "method_title": "Du premier échange\nà l’outil qui dure.",
+    "method_copy": "Huit étapes pour rendre les choix, les livrables et les validations compréhensibles. Le périmètre et les engagements sont définis dans la proposition de votre projet.",
+    "method_phases": [
+      "Découverte",
+      "Cahier des charges",
+      "Conception",
+      "Proposition",
+      "Développement",
+      "Recette",
+      "Déploiement",
+      "Évolution"
+    ],
+    "method_details": [
+      "Observer votre métier, vos utilisateurs et les difficultés qui coûtent du temps. Identifier les contraintes et les hypothèses à vérifier.",
+      "Formaliser les parcours, les règles métier, les accès, les intégrations et les critères d’acceptation. Prioriser un premier périmètre utile.",
+      "Dessiner les interfaces, structurer les données et les API, puis examiner les choix d’architecture et de sécurité.",
+      "Définir les lots, dépendances, responsabilités, jalons, budget et conditions de changement.",
+      "Construire des incréments testables, organiser les revues de code et faire des démonstrations avec vos utilisateurs.",
+      "Vérifier les règles métier, les intégrations, les accès, les performances et les parcours accessibles. Corriger les anomalies de la recette convenue.",
+      "Préparer l’infrastructure, les migrations, les sauvegardes, la documentation et la prise en main.",
+      "Organiser le support, la maintenance, les mises à jour et les évolutions selon le contrat retenu."
+    ],
+    "method_deliverables": [
+      "Synthèse de diagnostic",
+      "Cahier des charges adapté",
+      "Prototype et architecture",
+      "Proposition et planning",
+      "Incréments fonctionnels",
+      "Recette et corrections",
+      "Solution et documentation",
+      "Plan de support"
+    ],
+    "deliverable": "Ce que vous recevez",
+    "decision": "La décision à prendre ensemble",
+    "method_decisions": [
+      "Quel problème traiter en premier ?",
+      "Comment reconnaît-on un résultat acceptable ?",
+      "Le parcours proposé correspond-il au travail réel ?",
+      "Quel lot, quel budget et quels jalons retenir ?",
+      "Que faut-il ajuster après la démonstration ?",
+      "Les critères convenus sont-ils satisfaits ?",
+      "Qui accompagne la mise en service ?",
+      "Quelle évolution apporte le plus de valeur ?"
+    ],
+    "crew_title": "Les bonnes personnes.\nUn système cohérent.",
+    "crew_copy": "Une équipe à temps plein en frontend, backend, data et design, coordonnée autour de votre produit. JetThings apporte un réseau de collaboration ; des indépendants peuvent compléter l’équipe selon la tâche.",
+    "crew_full": "Développeurs à temps plein",
+    "crew_roles": [
+      "Frontend & interfaces",
+      "Backend & API",
+      "Data science & analyse",
+      "Design produit",
+      "Direction & architecture",
+      "Réseau mobilisable"
+    ],
+    "crew_descriptions": [
+      "Interfaces web, parcours mobiles, accessibilité et interactions.",
+      "Règles métier, bases de données, permissions et intégrations.",
+      "Statistiques, machine learning, optimisation et tableaux de bord.",
+      "Recherche utilisateur, conception des parcours et identité visuelle.",
+      "Achraf Saidi assure le cadrage technique et la cohérence entre logiciel, données et usages.",
+      "JetThings et spécialistes indépendants, sollicités en fonction du périmètre et de leur disponibilité."
+    ],
+    "crew_roles_label": "Qui intervient sur votre projet ?",
+    "crew_unknown": "Compétences à temps plein",
+    "crew_network": "Selon la mission",
+    "crew_source": "Effectifs frontend/backend confirmés par la direction le 14 octobre 2026. Aucun total global ni profil individuel supplémentaire n’est annoncé.",
+    "crew_stages": [
+      "Analyser",
+      "Concevoir",
+      "Construire",
+      "Vérifier",
+      "Accompagner"
+    ],
+    "crew_handoffs": [
+      "Direction, métier et data : comprendre le besoin avant de choisir une technique.",
+      "Design et frontend : faire essayer le parcours, puis fixer les critères d’acceptation.",
+      "Backend, frontend et data : développer les lots et relier les outils existants.",
+      "Revue croisée et utilisateurs : contrôler le résultat et les autorisations.",
+      "Direction et équipe projet : documenter, transmettre et organiser le suivi."
+    ],
+    "cases_title": "Des systèmes qui existent.\nDes projets qui évoluent.",
+    "cases_copy": "Trois projets internes pour examiner ce que nous construisons. Leurs statuts et leurs limites sont présentés sans résultats commerciaux inventés.",
+    "case_more": "Explorer le projet",
+    "case_labels": [
+      "Contexte",
+      "Problème et objectif",
+      "Utilisateurs",
+      "Fonctions observables",
+      "Architecture",
+      "État et limites"
+    ],
+    "case_titles": [
+      "Novalis OS",
+      "BILADI",
+      "Code32"
+    ],
+    "case_status": [
+      "Noyau interne déployé",
+      "Projet public en évolution",
+      "Projet éducatif en préparation"
+    ],
+    "case_summaries": [
+      "Relier le commercial, l’équipe et les décisions du client dans un même outil.",
+      "Explorer un territoire et passer de la découverte à un itinéraire.",
+      "Faire découvrir une approche pédagogique à travers des exercices interactifs."
+    ],
+    "case_context": [
+      "Le fonctionnement d’une activité de développement logiciel.",
+      "Un corpus territorial, historique et culturel consacré à l’Algérie.",
+      "Une offre de mathématiques, physique et programmation pour les élèves et étudiants."
+    ],
+    "case_goals": [
+      "Éviter la fragmentation du suivi entre prospects, projets, travail et échanges.",
+      "Rendre des informations riches navigables et utiles pour préparer une découverte.",
+      "Permettre aux visiteurs d’essayer l’approche et de préparer une demande de contact."
+    ],
+    "case_users": [
+      "Direction, relation client, développeurs, clients, finance et administration.",
+      "Curieux, lecteurs et voyageurs.",
+      "Élèves, étudiants et parents."
+    ],
+    "case_features": [
+      "CRM, projets, tâches et revue, temps, jalons, canaux séparés, documents privés, invitations et droits serveur.",
+      "Atlas SVG, recherche, contenus et photographies sourcés, préférences d’itinéraire, budget éditable et export calendrier.",
+      "Parcours par niveau, trois exercices à indices graduels, formules, FAQ et préparation d’un message."
+    ],
+    "case_arch": [
+      "Flask, Gunicorn, SQLite transactionnel, JavaScript et Nginx/systemd sur KVM Hostinger.",
+      "HTML/CSS, JavaScript ES modules, JSON, SVG et stockage navigateur ; publication statique.",
+      "HTML, CSS et JavaScript natifs ; publication statique, sans serveur applicatif."
+    ],
+    "case_limits": [
+      "Noyau interne accessible sur invitation. SMTP, Peppol, paiement en ligne et signature non raccordés ; modules avancés en cours.",
+      "Planificateur déterministe ; aucune réservation ou tarification en direct. Enrichissement éditorial en cours.",
+      "Projet en préparation. Aucun professeur IA, paiement ou calendrier de réservation automatique connecté."
+    ],
+    "case_demo": "Voir l’aperçu public",
+    "case_login": "Accès réservé aux personnes invitées",
+    "case_note": "Aucun de ces exemples n’est présenté comme une référence client payante.",
+    "lab_page": "Innovation Lab",
+    "lab_page_head": "Essayez. Observez. Comprenez.",
+    "book_external": "Ouvrir le calendrier externe",
+    "form_server_note": "Votre demande est enregistrée sur notre serveur après confirmation. L’e-mail de réponse n’est pas envoyé automatiquement tant que la messagerie n’est pas raccordée.",
+    "service_example_label": "Exemple de mission",
+    "service_example_note": "Scénario illustratif.",
+    "service_journey": "Parcours : diagnostic, prototype avec vos utilisateurs, tests et mise en service. La mesure des bénéfices se définit avec vous.",
+    "before_title": "Avant : des informations dispersées",
+    "before_copy": "E-mail : « 2 modules A, comme la dernière fois ».\nExcel : stock 12, référence oubliée.\nRapport : à recopier en fin de journée.",
+    "after_title": "Après : une commande reliée au stock",
+    "stock_label": "Stock disponible",
+    "orders_label": "Commandes validées",
+    "stock_error": "Stock insuffisant. Réduisez la quantité avant validation.",
+    "stock_note": "La validation réserve le stock et met à jour ce tableau. Revenir au brouillon libère la réservation.",
+    "calendar_cta": "Réserver un premier échange · 30 min",
+    "calendar_note": "Calendrier Cal.eu : les créneaux et le fuseau horaire sont affichés avant confirmation. L’heure de diagnostic offerte peut aussi être organisée sur demande."
+  },
+  "en": {
+    "hero": [
+      "Your business is unique.",
+      "Your software should be too."
+    ],
+    "hero_copy": "Custom software, websites worth exploring and intelligent systems. We connect people, tools and data to simplify the work that matters.",
+    "hero_cta": "Let’s discuss your project",
+    "hero_second": "Play with AI",
+    "graph_title": "From problem to system.",
+    "graph_note": "Select a component to understand its role.",
+    "graph_nodes": [
+      "People",
+      "Application",
+      "Data",
+      "Processes",
+      "Integrations",
+      "Insights",
+      "Focused AI"
+    ],
+    "graph_descriptions": [
+      "Clients and teams: each person sees the relevant information and actions.",
+      "An interface around the job: store, portal or workspace.",
+      "A consistent source for clients, orders, cases and documents.",
+      "Rules, approvals and steps that make work reliable.",
+      "Existing tools connected when their APIs and your access allow it.",
+      "Indicators built from events that were actually recorded.",
+      "A use case tested on your data, with sources and human review."
+    ],
+    "graph_scenarios": [
+      [
+        "Clients & sellers",
+        "Store & orders",
+        "Products & inventory",
+        "Prepare & deliver",
+        "Payment & delivery",
+        "Sales & margins",
+        "Catalogue search"
+      ],
+      [
+        "Clients & teams",
+        "Portal & cases",
+        "Clients & projects",
+        "Review & approval",
+        "CRM & accounting",
+        "Capacity & milestones",
+        "Case assistant"
+      ],
+      [
+        "Readers & analysts",
+        "Search & reports",
+        "Corpus & sources",
+        "Source review",
+        "Files & databases",
+        "Quality & trends",
+        "Assisted extraction"
+      ]
+    ],
+    "lab_title": "An AI.\nYour move.",
+    "lab_intro": "Give it examples. Watch its decisions change. Help it improve… or discover how it gets things wrong.",
+    "lab_tabs": [
+      "AI through examples",
+      "The choice game",
+      "Documents into data"
+    ],
+    "lab_local": "Calculated in your browser · no paid AI calls",
+    "lab_badge": "AI THROUGH EXAMPLES",
+    "lab_help": "Choose a colour, then tap the map to add an example. Observe reveals the neighbours behind a decision.",
+    "datasets": [
+      "Circles",
+      "XOR",
+      "Moons",
+      "Spirals"
+    ],
+    "dataset_label": "Playground",
+    "tools": [
+      "Example A",
+      "Example B",
+      "Observe"
+    ],
+    "neighbors": "Neighbours considered",
+    "add_hint": "Give a useful example",
+    "undo": "Undo my last point",
+    "reset": "Play again",
+    "reveal": "Show the game’s rule",
+    "export": "Keep my map",
+    "share": "Share this challenge",
+    "score": "Score on separate test points",
+    "target": "Challenge goal",
+    "examples": "examples",
+    "correct": "correctly classified",
+    "record": "Your best on this device",
+    "explain": "Why this decision?",
+    "probe_help": "Tap the map with Observe to see which examples influence the AI.",
+    "vote": "Weighted neighbour vote",
+    "class_names": [
+      "A · copper circle",
+      "B · turquoise diamond"
+    ],
+    "lab_truth": "Each playground has a known synthetic rule. The score compares decisions with that rule on points separate from the examples.",
+    "lab_method": "Method: k nearest neighbours. Examples are stored; decisions are calculated from their distances. No neural network is trained. The vote is not a calibrated probability of being correct.",
+    "keyboard": "Keyboard: arrows move the cursor, Enter places or observes.",
+    "place": "Place at these coordinates",
+    "limit": "The map already has 160 examples. Undo a point or start again.",
+    "shared": "Link copied: it contains only this fictional experiment.",
+    "share_failed": "Copy this link to share your experiment.",
+    "goal_done": "Challenge complete! Try a different playground or make this one harder.",
+    "goal_work": "Add examples where the map is uncertain. Results can improve or get worse.",
+    "reveal_note": "The rule is visible to help you. Predictions still come from the algorithm.",
+    "canvas_label": "Interactive classification map: add examples or inspect neighbours.",
+    "fallback": "Canvas is required for the map. Coordinates and text predictions remain available.",
+    "opt_title": "Not every good idea fits in the plan.",
+    "opt_copy": "Your capacity is limited. Change the priority and available days: an exhaustive calculation selects the most valuable combination for this fictional scenario.",
+    "capacity": "Available days",
+    "priority": "Your priority",
+    "priorities": [
+      "Balance",
+      "Sell",
+      "Reliability"
+    ],
+    "opt_items": [
+      "Catalogue",
+      "Payment",
+      "Inventory",
+      "Client portal",
+      "Reports",
+      "Backups"
+    ],
+    "opt_value": "fictional value points",
+    "opt_cost": "days used",
+    "opt_before": "In list order",
+    "opt_after": "Best combination",
+    "opt_note": "64 combinations checked, within the capacity constraint. These scores are demonstration values, not project estimates.",
+    "doc_title": "A document becomes useful when its errors stay visible.",
+    "doc_copy": "Analyse this fictional document, remove a value and watch the check. Rules extract the fields locally; this is neither OCR nor language-model analysis.",
+    "doc_label": "Demonstration document",
+    "doc_fields": [
+      "Reference",
+      "Supplier",
+      "Quantity",
+      "Unit price",
+      "VAT"
+    ],
+    "doc_example": "Reference : DEMO-024\nSupplier : Example Workshop\nQuantity : 3\nUnit price : 90.00\nVAT : 21",
+    "doc_analyze": "Extract and check",
+    "doc_approve": "Approve data",
+    "doc_missing": "Missing or invalid field",
+    "doc_ready": "The fields are consistent. Human approval is still required.",
+    "doc_validated": "Demonstration data approved. No real document was transmitted.",
+    "doc_stale": "The text changed: analyse it again before approving.",
+    "doc_note": "Use only the fictional text provided. Nothing is sent or stored on a server.",
+    "context_title": "Context before features.",
+    "context_labels": [
+      "Industry",
+      "Organisation size",
+      "Existing tools",
+      "Priority",
+      "Constraints",
+      "Indicative budget, optional"
+    ],
+    "sectors": [
+      "Commerce",
+      "Services",
+      "Industry",
+      "Education",
+      "Organisation",
+      "Other"
+    ],
+    "sizes": [
+      "1–5 people",
+      "6–20 people",
+      "21–100 people",
+      "More than 100 people"
+    ],
+    "tools_placeholder": "Spreadsheets, email, CRM, business software…",
+    "project_priorities": [
+      "Simplify work",
+      "Grow sales",
+      "Make better use of data"
+    ],
+    "constraints": [
+      "Confidential data",
+      "EU hosting",
+      "Keep existing tools"
+    ],
+    "budget_options": [
+      "Define together",
+      "Under €5,000",
+      "€5,000–15,000",
+      "€15,000–50,000",
+      "Over €50,000"
+    ],
+    "plan_title": "A first delivery path",
+    "plan_steps": [
+      "Observe a real workflow and the people involved.",
+      "Validate a prototype and access rules.",
+      "Build a first increment, test and organise the launch."
+    ],
+    "brief_labels": [
+      "Goal",
+      "Users",
+      "Existing tools",
+      "Functional scope",
+      "Constraints",
+      "Risks and open questions",
+      "Next steps",
+      "Stated budget"
+    ],
+    "brief_risks": "Which data can be trusted? Who approves? Which APIs are available? How will the first version be accepted?",
+    "brief_disclaimer": "Indicative discovery brief for discussion. Neither a contractual specification nor an automatic quotation.",
+    "base_modules": [
+      "Accounts & permissions",
+      "Backups & audit trail"
+    ],
+    "extra_modules": [
+      "Inventory & availability",
+      "Invoice references",
+      "Client portal",
+      "Automations"
+    ],
+    "method_title": "From the first conversation\nto a tool that lasts.",
+    "method_copy": "Eight stages make decisions, deliverables and approvals understandable. Scope and commitments are defined in your project proposal.",
+    "method_phases": [
+      "Discovery",
+      "Specification",
+      "Design",
+      "Proposal",
+      "Development",
+      "Acceptance",
+      "Deployment",
+      "Evolution"
+    ],
+    "method_details": [
+      "Understand the work, users and time-consuming difficulties. Identify constraints and assumptions to check.",
+      "Define journeys, business rules, access, integrations and acceptance criteria. Prioritise a useful initial scope.",
+      "Design interfaces, structure data and APIs, and examine architecture and security choices.",
+      "Define increments, dependencies, responsibilities, milestones, budget and change conditions.",
+      "Build testable increments, review code and demonstrate them with your users.",
+      "Check business rules, integrations, permissions, performance and accessible journeys. Resolve agreed acceptance issues.",
+      "Prepare infrastructure, migration, backups, documentation and user onboarding.",
+      "Organise support, maintenance, updates and improvements under the agreed contract."
+    ],
+    "method_deliverables": [
+      "Discovery summary",
+      "Appropriate specification",
+      "Prototype and architecture",
+      "Proposal and plan",
+      "Working increments",
+      "Acceptance and corrections",
+      "Solution and documentation",
+      "Support plan"
+    ],
+    "deliverable": "What you receive",
+    "decision": "The decision to make together",
+    "method_decisions": [
+      "Which problem comes first?",
+      "What does an acceptable result look like?",
+      "Does the journey match real work?",
+      "Which increment, budget and milestones?",
+      "What needs to change after the demonstration?",
+      "Have the agreed criteria been met?",
+      "Who supports the launch?",
+      "Which improvement adds the most value?"
+    ],
+    "crew_title": "The right people.\nOne coherent system.",
+    "crew_copy": "A full-time team across frontend, backend, data and design, coordinated around your product. JetThings extends the collaboration network; independent specialists can join for a particular task.",
+    "crew_full": "Full-time developers",
+    "crew_roles": [
+      "Frontend & interfaces",
+      "Backend & APIs",
+      "Data science & analysis",
+      "Product design",
+      "Direction & architecture",
+      "Specialist network"
+    ],
+    "crew_descriptions": [
+      "Web interfaces, mobile journeys, accessibility and interaction.",
+      "Business rules, databases, permissions and integrations.",
+      "Statistics, machine learning, optimisation and dashboards.",
+      "User research, journeys and visual identity.",
+      "Achraf Saidi coordinates technical scope and coherence across software, data and use.",
+      "JetThings and independent specialists, engaged for the scope and availability required."
+    ],
+    "crew_roles_label": "Who works on your project?",
+    "crew_unknown": "Full-time expertise",
+    "crew_network": "According to the project",
+    "crew_source": "Frontend/backend headcounts confirmed by management on 14 October 2026. No overall headcount or additional individual profile is claimed.",
+    "crew_stages": [
+      "Understand",
+      "Design",
+      "Build",
+      "Check",
+      "Support"
+    ],
+    "crew_handoffs": [
+      "Direction, users and data: understand the need before choosing a technique.",
+      "Design and frontend: test the journey and agree acceptance criteria.",
+      "Backend, frontend and data: develop increments and connect tools.",
+      "Cross-review and users: check results and permissions.",
+      "Direction and project team: document, hand over and organise support."
+    ],
+    "cases_title": "Systems that exist.\nProjects that evolve.",
+    "cases_copy": "Three internal projects to explore what we build. Their status and limits are stated without invented commercial results.",
+    "case_more": "Explore the project",
+    "case_labels": [
+      "Context",
+      "Problem and goal",
+      "Users",
+      "Observable features",
+      "Architecture",
+      "Status and limits"
+    ],
+    "case_titles": [
+      "Novalis OS",
+      "BILADI",
+      "Code32"
+    ],
+    "case_status": [
+      "Deployed internal core",
+      "Evolving public project",
+      "Education project in preparation"
+    ],
+    "case_summaries": [
+      "Connect commercial follow-up, team work and client decisions in one tool.",
+      "Explore a territory and turn discoveries into an itinerary.",
+      "Discover an educational approach through interactive exercises."
+    ],
+    "case_context": [
+      "The operations of a software development activity.",
+      "A territorial, historical and cultural collection about Algeria.",
+      "Mathematics, physics and programming for school and university students."
+    ],
+    "case_goals": [
+      "Reduce fragmentation between prospects, projects, work and conversations.",
+      "Make a rich collection navigable and useful for planning exploration.",
+      "Let visitors try the approach and prepare a contact request."
+    ],
+    "case_users": [
+      "Direction, client relations, developers, clients, finance and access administration.",
+      "Curious readers and travellers.",
+      "Students and parents."
+    ],
+    "case_features": [
+      "CRM, projects, tasks/review, time, milestones, separate channels, private documents, invitations and server permissions.",
+      "SVG atlas, search, sourced content/photos, itinerary preferences, editable budget and calendar export.",
+      "Level-based journeys, three exercises with progressive hints, options, FAQ and a prepared message."
+    ],
+    "case_arch": [
+      "Flask, Gunicorn, transactional SQLite, JavaScript and Nginx/systemd on a Hostinger KVM.",
+      "HTML/CSS, JavaScript ES modules, JSON, SVG and browser storage; static publication.",
+      "Native HTML, CSS and JavaScript; static publication without an application server."
+    ],
+    "case_limits": [
+      "Internal core accessible by invitation. SMTP, Peppol, payments and signatures are not connected; advanced modules remain in development.",
+      "Deterministic planner; no live bookings or prices. Editorial enrichment continues.",
+      "Project in preparation. No connected AI teacher, payment or automatic booking calendar."
+    ],
+    "case_demo": "View the public preview",
+    "case_login": "Access for invited people",
+    "case_note": "These examples are not presented as paid client references.",
+    "lab_page": "Innovation Lab",
+    "lab_page_head": "Try. Observe. Understand.",
+    "book_external": "Open the external calendar",
+    "form_server_note": "Your request is stored on our server after confirmation. Email replies are not sent automatically until mail is connected.",
+    "service_example_label": "Example engagement",
+    "service_example_note": "Illustrative scenario.",
+    "service_journey": "Journey: discovery, a prototype with your users, testing and launch. Benefit measurement is agreed with you.",
+    "before_title": "Before: scattered information",
+    "before_copy": "Email: “2 A modules, same as last time”.\nSpreadsheet: stock 12, missing reference.\nReport: copied again at the end of the day.",
+    "after_title": "After: an order linked to inventory",
+    "stock_label": "Available stock",
+    "orders_label": "Approved orders",
+    "stock_error": "Insufficient stock. Reduce quantity before approval.",
+    "stock_note": "Approval reserves inventory and updates this dashboard. Returning to draft releases the reservation.",
+    "calendar_cta": "Book an introductory call · 30 min",
+    "calendar_note": "Cal.eu shows availability and timezone before confirmation. The complimentary one-hour discovery session can also be arranged on request."
+  },
+  "nl": {
+    "hero": [
+      "Uw bedrijf is uniek.",
+      "Uw software ook."
+    ],
+    "hero_copy": "Maatwerksoftware, aantrekkelijke websites en intelligente systemen. We verbinden mensen, tools en data om het werk dat telt eenvoudiger te maken.",
+    "hero_cta": "Uw project bespreken",
+    "hero_second": "Met AI spelen",
+    "graph_title": "Van probleem naar systeem.",
+    "graph_note": "Selecteer een onderdeel om zijn rol te begrijpen.",
+    "graph_nodes": [
+      "Mensen",
+      "Applicatie",
+      "Data",
+      "Processen",
+      "Integraties",
+      "Inzicht",
+      "Gerichte AI"
+    ],
+    "graph_descriptions": [
+      "Klanten en teams zien de relevante informatie en acties.",
+      "Een interface rond de activiteit: webshop, portaal of werkruimte.",
+      "Eén samenhangende bron voor klanten, bestellingen, dossiers en documenten.",
+      "Regels, controles en stappen die het werk betrouwbaar maken.",
+      "Bestaande tools verbonden waar API’s en toegangsrechten dat toelaten.",
+      "Indicatoren uit werkelijk geregistreerde gebeurtenissen.",
+      "Een toepassing getest op uw data, met bronnen en menselijke controle."
+    ],
+    "graph_scenarios": [
+      [
+        "Klanten & verkopers",
+        "Webshop & orders",
+        "Producten & voorraad",
+        "Voorbereiden & leveren",
+        "Betaling & levering",
+        "Verkoop & marge",
+        "Catalogus zoeken"
+      ],
+      [
+        "Klanten & teams",
+        "Portaal & dossiers",
+        "Klanten & projecten",
+        "Controle & goedkeuring",
+        "CRM & boekhouding",
+        "Capaciteit & mijlpalen",
+        "Dossierassistent"
+      ],
+      [
+        "Lezers & analisten",
+        "Zoeken & rapporten",
+        "Corpus & bronnen",
+        "Bronnencontrole",
+        "Bestanden & databases",
+        "Kwaliteit & trends",
+        "Ondersteunde extractie"
+      ]
+    ],
+    "lab_title": "Een AI.\nNu bent u aan zet.",
+    "lab_intro": "Geef voorbeelden. Bekijk hoe beslissingen veranderen. Help de AI verbeteren… of ontdek hoe ze fouten maakt.",
+    "lab_tabs": [
+      "AI met voorbeelden",
+      "Het keuzespel",
+      "Documenten naar data"
+    ],
+    "lab_local": "Berekeningen in uw browser · geen betaalde AI-aanroepen",
+    "lab_badge": "AI MET VOORBEELDEN",
+    "lab_help": "Kies een kleur en tik op de kaart om een voorbeeld toe te voegen. Observeren toont de buren achter een beslissing.",
+    "datasets": [
+      "Cirkels",
+      "XOR",
+      "Manen",
+      "Spiralen"
+    ],
+    "dataset_label": "Speelveld",
+    "tools": [
+      "Voorbeeld A",
+      "Voorbeeld B",
+      "Observeren"
+    ],
+    "neighbors": "Aantal buren",
+    "add_hint": "Een nuttig voorbeeld geven",
+    "undo": "Laatste punt ongedaan maken",
+    "reset": "Opnieuw spelen",
+    "reveal": "De spelregel tonen",
+    "export": "Mijn kaart bewaren",
+    "share": "Uitdaging delen",
+    "score": "Score op afzonderlijke testpunten",
+    "target": "Doel",
+    "examples": "voorbeelden",
+    "correct": "goed ingedeeld",
+    "record": "Uw record op dit toestel",
+    "explain": "Waarom deze beslissing?",
+    "probe_help": "Tik op de kaart met Observeren om de invloedrijke voorbeelden te zien.",
+    "vote": "Gewogen stemmen van de buren",
+    "class_names": [
+      "A · koperen cirkel",
+      "B · turquoise ruit"
+    ],
+    "lab_truth": "Elk speelveld heeft een bekende synthetische regel. De score vergelijkt beslissingen met die regel op punten buiten de voorbeelden.",
+    "lab_method": "Methode: k naaste buren. Voorbeelden worden onthouden; afstanden bepalen de beslissing. Geen neuraal netwerk wordt getraind. De stem is geen gekalibreerde kans op een juist antwoord.",
+    "keyboard": "Toetsenbord: pijlen verplaatsen de cursor, Enter plaatst of observeert.",
+    "place": "Op deze coördinaten plaatsen",
+    "limit": "De kaart bevat al 160 voorbeelden. Maak een punt ongedaan of herbegin.",
+    "shared": "Link gekopieerd: alleen deze fictieve proef wordt gedeeld.",
+    "share_failed": "Kopieer deze link om uw proef te delen.",
+    "goal_done": "Doel bereikt! Probeer een ander speelveld of maak het moeilijker.",
+    "goal_work": "Voeg voorbeelden toe waar de kaart twijfelt. Resultaten kunnen verbeteren of verslechteren.",
+    "reveal_note": "De regel is zichtbaar als hulp. Voorspellingen blijven van het algoritme.",
+    "canvas_label": "Interactieve classificatiekaart: voorbeelden toevoegen of buren onderzoeken.",
+    "fallback": "Canvas is nodig voor de kaart. Coördinaten en tekstbeslissingen blijven beschikbaar.",
+    "opt_title": "Niet elk goed idee past in de planning.",
+    "opt_copy": "Uw capaciteit is beperkt. Wijzig de prioriteit en beschikbare dagen: een volledige berekening kiest de waardevolste combinatie in dit fictieve scenario.",
+    "capacity": "Beschikbare dagen",
+    "priority": "Uw prioriteit",
+    "priorities": [
+      "Evenwicht",
+      "Verkopen",
+      "Betrouwbaarheid"
+    ],
+    "opt_items": [
+      "Catalogus",
+      "Betaling",
+      "Voorraad",
+      "Klantenportaal",
+      "Rapporten",
+      "Back-ups"
+    ],
+    "opt_value": "fictieve waardepunten",
+    "opt_cost": "gebruikte dagen",
+    "opt_before": "In de volgorde van de lijst",
+    "opt_after": "Beste combinatie",
+    "opt_note": "64 combinaties gecontroleerd binnen de capaciteit. Deze waarden zijn geen projectramingen.",
+    "doc_title": "Een document wordt bruikbaar wanneer fouten zichtbaar blijven.",
+    "doc_copy": "Analyseer dit fictieve document, verwijder een waarde en bekijk de controle. Lokale regels lezen de velden; dit is geen OCR of taalmodel.",
+    "doc_label": "Demonstratiedocument",
+    "doc_fields": [
+      "Referentie",
+      "Leverancier",
+      "Aantal",
+      "Eenheidsprijs",
+      "Btw"
+    ],
+    "doc_example": "Referentie : DEMO-024\nLeverancier : Voorbeeld Atelier\nAantal : 3\nEenheidsprijs : 90.00\nBtw : 21",
+    "doc_analyze": "Uitlezen en controleren",
+    "doc_approve": "Gegevens goedkeuren",
+    "doc_missing": "Ontbrekend of ongeldig veld",
+    "doc_ready": "De velden zijn consistent. Menselijke goedkeuring blijft nodig.",
+    "doc_validated": "Demonstratiegegevens goedgekeurd. Geen echt document verstuurd.",
+    "doc_stale": "De tekst is gewijzigd: analyseer opnieuw vóór goedkeuring.",
+    "doc_note": "Gebruik alleen de fictieve tekst. Niets wordt verstuurd of op een server bewaard.",
+    "context_title": "Context vóór functies.",
+    "context_labels": [
+      "Sector",
+      "Omvang van de organisatie",
+      "Bestaande tools",
+      "Prioriteit",
+      "Beperkingen",
+      "Budget, facultatief"
+    ],
+    "sectors": [
+      "Handel",
+      "Diensten",
+      "Industrie",
+      "Onderwijs",
+      "Organisatie",
+      "Andere"
+    ],
+    "sizes": [
+      "1–5 personen",
+      "6–20 personen",
+      "21–100 personen",
+      "Meer dan 100 personen"
+    ],
+    "tools_placeholder": "Excel, e-mail, CRM, bedrijfssoftware…",
+    "project_priorities": [
+      "Werk vereenvoudigen",
+      "Verkoop ontwikkelen",
+      "Data beter benutten"
+    ],
+    "constraints": [
+      "Vertrouwelijke data",
+      "Hosting in de EU",
+      "Bestaande tools behouden"
+    ],
+    "budget_options": [
+      "Samen bepalen",
+      "Onder €5.000",
+      "€5.000–15.000",
+      "€15.000–50.000",
+      "Boven €50.000"
+    ],
+    "plan_title": "Een eerste realisatietraject",
+    "plan_steps": [
+      "Een echt proces en de betrokken gebruikers observeren.",
+      "Een prototype en toegangsregels valideren.",
+      "Een eerste onderdeel bouwen, testen en lanceren."
+    ],
+    "brief_labels": [
+      "Doel",
+      "Gebruikers",
+      "Bestaande tools",
+      "Functies",
+      "Beperkingen",
+      "Risico’s en open vragen",
+      "Volgende stappen",
+      "Opgegeven budget"
+    ],
+    "brief_risks": "Welke data zijn betrouwbaar? Wie keurt goed? Welke API’s bestaan? Hoe aanvaarden we de eerste versie?",
+    "brief_disclaimer": "Indicatief projectbrief voor overleg. Geen contractueel lastenboek of automatische offerte.",
+    "base_modules": [
+      "Accounts & rechten",
+      "Back-ups & actielogboek"
+    ],
+    "extra_modules": [
+      "Voorraad & beschikbaarheid",
+      "Factuurreferenties",
+      "Klantenportaal",
+      "Automatiseringen"
+    ],
+    "method_title": "Van het eerste gesprek\nnaar een tool die blijft.",
+    "method_copy": "Acht stappen maken keuzes, resultaten en goedkeuringen helder. De scope en afspraken staan in uw projectvoorstel.",
+    "method_phases": [
+      "Ontdekking",
+      "Specificatie",
+      "Ontwerp",
+      "Voorstel",
+      "Ontwikkeling",
+      "Acceptatie",
+      "Lancering",
+      "Evolutie"
+    ],
+    "method_details": [
+      "Uw werk, gebruikers en tijdrovende knelpunten begrijpen. Beperkingen en aannames bepalen.",
+      "Trajecten, bedrijfsregels, toegang, koppelingen en acceptatiecriteria vastleggen.",
+      "Interfaces, data en API’s ontwerpen en architectuur en veiligheid beoordelen.",
+      "Onderdelen, afhankelijkheden, verantwoordelijkheden, mijlpalen, budget en wijzigingen definiëren.",
+      "Testbare onderdelen bouwen, code beoordelen en met gebruikers demonstreren.",
+      "Regels, koppelingen, toegang, prestaties en toegankelijkheid controleren en fouten herstellen.",
+      "Infrastructuur, migratie, back-ups, documentatie en ingebruikname voorbereiden.",
+      "Ondersteuning, onderhoud, updates en verbeteringen volgens de overeenkomst organiseren."
+    ],
+    "method_deliverables": [
+      "Diagnosesynthese",
+      "Passend lastenboek",
+      "Prototype en architectuur",
+      "Voorstel en planning",
+      "Werkende onderdelen",
+      "Acceptatie en correcties",
+      "Oplossing en documentatie",
+      "Ondersteuningsplan"
+    ],
+    "deliverable": "Wat u ontvangt",
+    "decision": "De gezamenlijke beslissing",
+    "method_decisions": [
+      "Welk probleem pakken we eerst aan?",
+      "Hoe ziet een aanvaardbaar resultaat eruit?",
+      "Past het traject bij het echte werk?",
+      "Welk onderdeel, budget en welke mijlpalen?",
+      "Wat wijzigen we na de demonstratie?",
+      "Zijn de afspraken nagekomen?",
+      "Wie begeleidt de lancering?",
+      "Welke verbetering levert de meeste waarde?"
+    ],
+    "crew_title": "De juiste mensen.\nEén samenhangend systeem.",
+    "crew_copy": "Een voltijds team voor frontend, backend, data en design, rond uw product. JetThings breidt het samenwerkingsnetwerk uit; zelfstandige specialisten kunnen per taak bijdragen.",
+    "crew_full": "Voltijds ontwikkelaars",
+    "crew_roles": [
+      "Frontend & interfaces",
+      "Backend & API’s",
+      "Data science & analyse",
+      "Productdesign",
+      "Directie & architectuur",
+      "Specialistennetwerk"
+    ],
+    "crew_descriptions": [
+      "Webinterfaces, mobiele trajecten, toegankelijkheid en interactie.",
+      "Bedrijfsregels, databases, rechten en koppelingen.",
+      "Statistiek, machine learning, optimalisatie en dashboards.",
+      "Gebruikersonderzoek, trajecten en visuele identiteit.",
+      "Achraf Saidi bewaakt de technische scope en samenhang tussen software, data en gebruik.",
+      "JetThings en zelfstandige specialisten, naargelang scope en beschikbaarheid."
+    ],
+    "crew_roles_label": "Wie werkt aan uw project?",
+    "crew_unknown": "Voltijds expertise",
+    "crew_network": "Naargelang de opdracht",
+    "crew_source": "Frontend/backend-aantallen bevestigd door de directie op 14 oktober 2026. Geen globaal aantal of extra individuele profielen geclaimd.",
+    "crew_stages": [
+      "Begrijpen",
+      "Ontwerpen",
+      "Bouwen",
+      "Controleren",
+      "Begeleiden"
+    ],
+    "crew_handoffs": [
+      "Directie, gebruikers en data: behoefte begrijpen vóór de techniek.",
+      "Design en frontend: traject testen en acceptatiecriteria bepalen.",
+      "Backend, frontend en data: onderdelen ontwikkelen en tools verbinden.",
+      "Gezamenlijke controle en gebruikers: resultaat en rechten toetsen.",
+      "Directie en projectteam: documenteren, overdragen en opvolgen."
+    ],
+    "cases_title": "Systemen die bestaan.\nProjecten die groeien.",
+    "cases_copy": "Drie interne projecten om ons werk te verkennen. Status en grenzen zijn duidelijk, zonder verzonnen commerciële resultaten.",
+    "case_more": "Project verkennen",
+    "case_labels": [
+      "Context",
+      "Probleem en doel",
+      "Gebruikers",
+      "Zichtbare functies",
+      "Architectuur",
+      "Status en grenzen"
+    ],
+    "case_titles": [
+      "Novalis OS",
+      "BILADI",
+      "Code32"
+    ],
+    "case_status": [
+      "Intern systeem in gebruik",
+      "Publiek project in evolutie",
+      "Onderwijsproject in voorbereiding"
+    ],
+    "case_summaries": [
+      "Commerciële opvolging, teamwerk en klantbeslissingen verbinden.",
+      "Een gebied ontdekken en ontdekkingen omzetten in een route.",
+      "Een pedagogische aanpak verkennen met interactieve oefeningen."
+    ],
+    "case_context": [
+      "De werking van een softwareontwikkelingsactiviteit.",
+      "Een territoriale, historische en culturele verzameling over Algerije.",
+      "Wiskunde, fysica en programmeren voor leerlingen en studenten."
+    ],
+    "case_goals": [
+      "Versnippering tussen prospects, projecten, werk en gesprekken verminderen.",
+      "Een rijke verzameling vindbaar en bruikbaar maken voor ontdekking.",
+      "Bezoekers de aanpak laten proberen en contact laten voorbereiden."
+    ],
+    "case_users": [
+      "Directie, klantrelaties, ontwikkelaars, klanten, financiën en toegangsbeheer.",
+      "Nieuwsgierige lezers en reizigers.",
+      "Leerlingen, studenten en ouders."
+    ],
+    "case_features": [
+      "CRM, projecten, taken/review, tijd, mijlpalen, aparte kanalen, privébestanden, uitnodigingen en serverrechten.",
+      "SVG-atlas, zoeken, gesourcete inhoud/foto’s, routevoorkeuren, aanpasbaar budget en kalenderexport.",
+      "Niveautrajecten, drie oefeningen met geleidelijke hints, formules, FAQ en berichtvoorbereiding."
+    ],
+    "case_arch": [
+      "Flask, Gunicorn, transactionele SQLite, JavaScript en Nginx/systemd op Hostinger KVM.",
+      "HTML/CSS, JavaScript ES-modules, JSON, SVG en browseropslag; statische publicatie.",
+      "HTML, CSS en JavaScript; statische publicatie zonder applicatieserver."
+    ],
+    "case_limits": [
+      "Interne kern op uitnodiging. SMTP, Peppol, betalingen en ondertekening niet gekoppeld; uitbreiding loopt.",
+      "Deterministische planner; geen liveboekingen of -prijzen. Inhoudelijke uitbreiding loopt.",
+      "Project in voorbereiding. Geen AI-docent, betaling of automatische afsprakenkalender."
+    ],
+    "case_demo": "Publiek voorbeeld bekijken",
+    "case_login": "Toegang voor genodigden",
+    "case_note": "Deze voorbeelden zijn geen betalende klantreferenties.",
+    "lab_page": "Innovation Lab",
+    "lab_page_head": "Probeer. Observeer. Begrijp.",
+    "book_external": "Externe kalender openen",
+    "form_server_note": "Uw aanvraag wordt na bevestiging op onze server opgeslagen. E-mails worden niet automatisch verstuurd zolang mail niet gekoppeld is.",
+    "service_example_label": "Voorbeeldopdracht",
+    "service_example_note": "Illustratief scenario.",
+    "service_journey": "Traject: diagnose, prototype met uw gebruikers, tests en ingebruikname. Baten worden samen meetbaar gemaakt.",
+    "before_title": "Vooraf: verspreide informatie",
+    "before_copy": "E-mail: “2 modules A, zoals vorige keer”.\nSpreadsheet: voorraad 12, referentie ontbreekt.\nRapport: opnieuw overtypen aan het einde van de dag.",
+    "after_title": "Daarna: een order gekoppeld aan voorraad",
+    "stock_label": "Beschikbare voorraad",
+    "orders_label": "Goedgekeurde orders",
+    "stock_error": "Onvoldoende voorraad. Verminder het aantal voor goedkeuring.",
+    "stock_note": "Goedkeuring reserveert voorraad en actualiseert dit overzicht. Terug naar concept geeft de reservering vrij.",
+    "calendar_cta": "Een eerste gesprek boeken · 30 min",
+    "calendar_note": "Cal.eu toont beschikbaarheid en tijdzone voor bevestiging. Het gratis diagnosegesprek van een uur kan ook op aanvraag worden gepland."
+  },
+  "de": {
+    "hero": [
+      "Ihr Unternehmen ist einzigartig.",
+      "Ihre Software auch."
+    ],
+    "hero_copy": "Individuelle Software, attraktive Websites und intelligente Systeme. Wir verbinden Menschen, Werkzeuge und Daten, um wichtige Arbeit zu vereinfachen.",
+    "hero_cta": "Ihr Projekt besprechen",
+    "hero_second": "Mit KI spielen",
+    "graph_title": "Vom Problem zum System.",
+    "graph_note": "Wählen Sie eine Komponente, um ihre Aufgabe zu verstehen.",
+    "graph_nodes": [
+      "Menschen",
+      "Anwendung",
+      "Daten",
+      "Prozesse",
+      "Integrationen",
+      "Einblicke",
+      "Gezielte KI"
+    ],
+    "graph_descriptions": [
+      "Kunden und Teams sehen relevante Informationen und Aktionen.",
+      "Eine Oberfläche rund um die Arbeit: Shop, Portal oder Arbeitsbereich.",
+      "Eine konsistente Quelle für Kunden, Bestellungen, Vorgänge und Dokumente.",
+      "Regeln, Freigaben und Schritte für zuverlässige Arbeit.",
+      "Bestehende Werkzeuge verbinden, wo APIs und Zugänge es erlauben.",
+      "Kennzahlen aus tatsächlich aufgezeichneten Ereignissen.",
+      "Eine Anwendung an Ihren Daten testen, mit Quellen und menschlicher Prüfung."
+    ],
+    "graph_scenarios": [
+      [
+        "Kunden & Verkäufer",
+        "Shop & Bestellungen",
+        "Produkte & Bestand",
+        "Vorbereiten & liefern",
+        "Zahlung & Lieferung",
+        "Umsatz & Marge",
+        "Katalogsuche"
+      ],
+      [
+        "Kunden & Teams",
+        "Portal & Vorgänge",
+        "Kunden & Projekte",
+        "Prüfung & Freigabe",
+        "CRM & Buchhaltung",
+        "Kapazität & Meilensteine",
+        "Vorgangsassistent"
+      ],
+      [
+        "Leser & Analysten",
+        "Suche & Berichte",
+        "Corpus & Quellen",
+        "Quellenprüfung",
+        "Dateien & Datenbanken",
+        "Qualität & Trends",
+        "Unterstützte Extraktion"
+      ]
+    ],
+    "lab_title": "Eine KI.\nJetzt sind Sie dran.",
+    "lab_intro": "Geben Sie Beispiele. Beobachten Sie veränderte Entscheidungen. Helfen Sie der KI… oder entdecken Sie ihre Fehler.",
+    "lab_tabs": [
+      "KI mit Beispielen",
+      "Das Entscheidungsspiel",
+      "Dokumente zu Daten"
+    ],
+    "lab_local": "Berechnungen im Browser · keine kostenpflichtigen KI-Aufrufe",
+    "lab_badge": "KI MIT BEISPIELEN",
+    "lab_help": "Wählen Sie eine Farbe und tippen Sie auf die Karte. Beobachten zeigt die Nachbarn hinter einer Entscheidung.",
+    "datasets": [
+      "Kreise",
+      "XOR",
+      "Monde",
+      "Spiralen"
+    ],
+    "dataset_label": "Spielfeld",
+    "tools": [
+      "Beispiel A",
+      "Beispiel B",
+      "Beobachten"
+    ],
+    "neighbors": "Berücksichtigte Nachbarn",
+    "add_hint": "Ein gutes Beispiel geben",
+    "undo": "Letzten Punkt rückgängig",
+    "reset": "Erneut spielen",
+    "reveal": "Spielregel anzeigen",
+    "export": "Meine Karte speichern",
+    "share": "Herausforderung teilen",
+    "score": "Ergebnis auf separaten Testpunkten",
+    "target": "Spielziel",
+    "examples": "Beispiele",
+    "correct": "richtig eingeordnet",
+    "record": "Ihr Rekord auf diesem Gerät",
+    "explain": "Warum diese Entscheidung?",
+    "probe_help": "Tippen Sie mit Beobachten auf die Karte, um einflussreiche Beispiele zu sehen.",
+    "vote": "Gewichtete Nachbarstimmen",
+    "class_names": [
+      "A · kupferner Kreis",
+      "B · türkisfarbene Raute"
+    ],
+    "lab_truth": "Jedes Spielfeld hat eine bekannte synthetische Regel. Das Ergebnis vergleicht Entscheidungen mit dieser Regel auf separaten Punkten.",
+    "lab_method": "Methode: k nächste Nachbarn. Beispiele werden gespeichert, Entfernungen bestimmen die Entscheidung. Kein neuronales Netz wird trainiert. Die Stimme ist keine kalibrierte Wahrscheinlichkeit für eine richtige Antwort.",
+    "keyboard": "Tastatur: Pfeile bewegen den Cursor, Enter platziert oder beobachtet.",
+    "place": "An diesen Koordinaten platzieren",
+    "limit": "Die Karte enthält bereits 160 Beispiele. Einen Punkt zurücknehmen oder neu beginnen.",
+    "shared": "Link kopiert: Er enthält nur dieses fiktive Experiment.",
+    "share_failed": "Kopieren Sie den Link, um das Experiment zu teilen.",
+    "goal_done": "Ziel erreicht! Versuchen Sie ein anderes Spielfeld oder erhöhen Sie die Schwierigkeit.",
+    "goal_work": "Fügen Sie Beispiele hinzu, wo die Karte unsicher ist. Ergebnisse können besser oder schlechter werden.",
+    "reveal_note": "Die Regel ist als Hilfe sichtbar. Vorhersagen kommen weiter vom Algorithmus.",
+    "canvas_label": "Interaktive Klassifikationskarte: Beispiele hinzufügen oder Nachbarn untersuchen.",
+    "fallback": "Die Karte benötigt Canvas. Koordinaten und Textentscheidungen bleiben verfügbar.",
+    "opt_title": "Nicht jede gute Idee passt in den Plan.",
+    "opt_copy": "Ihre Kapazität ist begrenzt. Ändern Sie Priorität und verfügbare Tage: Eine vollständige Berechnung wählt die wertvollste Kombination dieses fiktiven Szenarios.",
+    "capacity": "Verfügbare Tage",
+    "priority": "Ihre Priorität",
+    "priorities": [
+      "Balance",
+      "Verkaufen",
+      "Zuverlässigkeit"
+    ],
+    "opt_items": [
+      "Katalog",
+      "Zahlung",
+      "Bestand",
+      "Kundenportal",
+      "Berichte",
+      "Backups"
+    ],
+    "opt_value": "fiktive Wertpunkte",
+    "opt_cost": "verwendete Tage",
+    "opt_before": "In Listenreihenfolge",
+    "opt_after": "Beste Kombination",
+    "opt_note": "64 Kombinationen unter der Kapazitätsgrenze geprüft. Die Werte sind keine Projektschätzungen.",
+    "doc_title": "Ein Dokument wird nützlich, wenn seine Fehler sichtbar bleiben.",
+    "doc_copy": "Analysieren Sie dieses fiktive Dokument, entfernen Sie einen Wert und beobachten Sie die Prüfung. Lokale Regeln lesen Felder aus; dies ist weder OCR noch ein Sprachmodell.",
+    "doc_label": "Demonstrationsdokument",
+    "doc_fields": [
+      "Referenz",
+      "Lieferant",
+      "Menge",
+      "Einzelpreis",
+      "MwSt"
+    ],
+    "doc_example": "Referenz : DEMO-024\nLieferant : Beispiel Atelier\nMenge : 3\nEinzelpreis : 90.00\nMwSt : 21",
+    "doc_analyze": "Auslesen und prüfen",
+    "doc_approve": "Daten freigeben",
+    "doc_missing": "Fehlendes oder ungültiges Feld",
+    "doc_ready": "Die Felder sind konsistent. Eine menschliche Freigabe bleibt nötig.",
+    "doc_validated": "Demonstrationsdaten freigegeben. Kein echtes Dokument wurde übertragen.",
+    "doc_stale": "Der Text wurde geändert: Vor Freigabe neu analysieren.",
+    "doc_note": "Nur den fiktiven Text verwenden. Nichts wird übertragen oder auf einem Server gespeichert.",
+    "context_title": "Kontext vor Funktionen.",
+    "context_labels": [
+      "Branche",
+      "Größe der Organisation",
+      "Bestehende Werkzeuge",
+      "Priorität",
+      "Anforderungen",
+      "Budget, optional"
+    ],
+    "sectors": [
+      "Handel",
+      "Dienstleistungen",
+      "Industrie",
+      "Bildung",
+      "Organisation",
+      "Andere"
+    ],
+    "sizes": [
+      "1–5 Personen",
+      "6–20 Personen",
+      "21–100 Personen",
+      "Über 100 Personen"
+    ],
+    "tools_placeholder": "Excel, E-Mail, CRM, Fachsoftware…",
+    "project_priorities": [
+      "Arbeit vereinfachen",
+      "Verkauf entwickeln",
+      "Daten besser nutzen"
+    ],
+    "constraints": [
+      "Vertrauliche Daten",
+      "Hosting in der EU",
+      "Bestehende Werkzeuge behalten"
+    ],
+    "budget_options": [
+      "Gemeinsam definieren",
+      "Unter 5.000 €",
+      "5.000–15.000 €",
+      "15.000–50.000 €",
+      "Über 50.000 €"
+    ],
+    "plan_title": "Ein erster Realisierungsweg",
+    "plan_steps": [
+      "Einen realen Prozess und seine Nutzer beobachten.",
+      "Prototyp und Zugangsregeln prüfen.",
+      "Ein erstes Modul bauen, testen und einführen."
+    ],
+    "brief_labels": [
+      "Ziel",
+      "Nutzer",
+      "Bestehende Werkzeuge",
+      "Funktionsumfang",
+      "Anforderungen",
+      "Risiken und offene Fragen",
+      "Nächste Schritte",
+      "Genanntes Budget"
+    ],
+    "brief_risks": "Welche Daten sind zuverlässig? Wer gibt frei? Welche APIs gibt es? Wie wird die erste Version abgenommen?",
+    "brief_disclaimer": "Unverbindlicher Projektbrief zur Besprechung. Keine vertragliche Spezifikation oder automatische Offerte.",
+    "base_modules": [
+      "Konten & Rechte",
+      "Backups & Aktionsprotokoll"
+    ],
+    "extra_modules": [
+      "Bestand & Verfügbarkeit",
+      "Rechnungsreferenzen",
+      "Kundenportal",
+      "Automatisierungen"
+    ],
+    "method_title": "Vom ersten Gespräch\nzum dauerhaften Werkzeug.",
+    "method_copy": "Acht Phasen machen Entscheidungen, Ergebnisse und Freigaben verständlich. Umfang und Zusagen stehen im Projektangebot.",
+    "method_phases": [
+      "Entdeckung",
+      "Spezifikation",
+      "Entwurf",
+      "Angebot",
+      "Entwicklung",
+      "Abnahme",
+      "Einführung",
+      "Weiterentwicklung"
+    ],
+    "method_details": [
+      "Arbeit, Nutzer und zeitaufwendige Schwierigkeiten verstehen. Anforderungen und Annahmen bestimmen.",
+      "Abläufe, Regeln, Zugänge, Integrationen und Abnahmekriterien festlegen.",
+      "Oberflächen, Daten und APIs entwerfen sowie Architektur und Sicherheit prüfen.",
+      "Module, Abhängigkeiten, Verantwortlichkeiten, Meilensteine, Budget und Änderungen definieren.",
+      "Testbare Module bauen, Code prüfen und mit Nutzern demonstrieren.",
+      "Regeln, Integrationen, Rechte, Leistung und Zugänglichkeit prüfen und Fehler beheben.",
+      "Infrastruktur, Migration, Backups, Dokumentation und Einarbeitung vorbereiten.",
+      "Support, Wartung, Updates und Verbesserungen nach Vertrag organisieren."
+    ],
+    "method_deliverables": [
+      "Diagnosesynthese",
+      "Passende Spezifikation",
+      "Prototyp und Architektur",
+      "Angebot und Planung",
+      "Funktionsfähige Module",
+      "Abnahme und Korrekturen",
+      "Lösung und Dokumentation",
+      "Supportplan"
+    ],
+    "deliverable": "Was Sie erhalten",
+    "decision": "Die gemeinsame Entscheidung",
+    "method_decisions": [
+      "Welches Problem zuerst?",
+      "Was ist ein akzeptables Ergebnis?",
+      "Passt der Ablauf zur realen Arbeit?",
+      "Welches Modul, Budget und welche Meilensteine?",
+      "Was ändern wir nach der Demonstration?",
+      "Sind die Kriterien erfüllt?",
+      "Wer begleitet die Einführung?",
+      "Welche Verbesserung bietet den größten Nutzen?"
+    ],
+    "crew_title": "Die richtigen Menschen.\nEin kohärentes System.",
+    "crew_copy": "Ein Vollzeitteam für Frontend, Backend, Daten und Design rund um Ihr Produkt. JetThings erweitert das Netzwerk; unabhängige Spezialisten können je Aufgabe beitragen.",
+    "crew_full": "Vollzeitentwickler",
+    "crew_roles": [
+      "Frontend & Oberflächen",
+      "Backend & APIs",
+      "Data Science & Analyse",
+      "Produktdesign",
+      "Leitung & Architektur",
+      "Spezialistennetzwerk"
+    ],
+    "crew_descriptions": [
+      "Weboberflächen, mobile Abläufe, Zugänglichkeit und Interaktion.",
+      "Geschäftsregeln, Datenbanken, Rechte und Integrationen.",
+      "Statistik, Machine Learning, Optimierung und Dashboards.",
+      "Nutzerforschung, Abläufe und visuelle Identität.",
+      "Achraf Saidi koordiniert technischen Umfang und Kohärenz zwischen Software, Daten und Nutzung.",
+      "JetThings und unabhängige Spezialisten nach Umfang und Verfügbarkeit."
+    ],
+    "crew_roles_label": "Wer arbeitet an Ihrem Projekt?",
+    "crew_unknown": "Vollzeitkompetenzen",
+    "crew_network": "Je nach Auftrag",
+    "crew_source": "Frontend/Backend-Zahlen von der Leitung am 14. Oktober 2026 bestätigt. Keine globale Mitarbeiterzahl oder zusätzliche Personenprofile behauptet.",
+    "crew_stages": [
+      "Verstehen",
+      "Entwerfen",
+      "Bauen",
+      "Prüfen",
+      "Begleiten"
+    ],
+    "crew_handoffs": [
+      "Leitung, Nutzer und Daten: Bedarf vor Technik verstehen.",
+      "Design und Frontend: Ablauf testen und Kriterien festlegen.",
+      "Backend, Frontend und Daten: Module entwickeln und Werkzeuge verbinden.",
+      "Gemeinsame Prüfung und Nutzer: Ergebnis und Rechte kontrollieren.",
+      "Leitung und Projektteam: dokumentieren, übergeben und begleiten."
+    ],
+    "cases_title": "Systeme, die existieren.\nProjekte, die wachsen.",
+    "cases_copy": "Drei interne Projekte zeigen unsere Arbeit. Status und Grenzen werden ohne erfundene Geschäftsergebnisse dargestellt.",
+    "case_more": "Projekt erkunden",
+    "case_labels": [
+      "Kontext",
+      "Problem und Ziel",
+      "Nutzer",
+      "Sichtbare Funktionen",
+      "Architektur",
+      "Status und Grenzen"
+    ],
+    "case_titles": [
+      "Novalis OS",
+      "BILADI",
+      "Code32"
+    ],
+    "case_status": [
+      "Interner Kern eingeführt",
+      "Öffentliches Projekt im Ausbau",
+      "Bildungsprojekt in Vorbereitung"
+    ],
+    "case_summaries": [
+      "Kundenbetreuung, Teamarbeit und Kundenentscheidungen verbinden.",
+      "Ein Gebiet erkunden und Entdeckungen in eine Route umwandeln.",
+      "Einen pädagogischen Ansatz mit interaktiven Aufgaben entdecken."
+    ],
+    "case_context": [
+      "Abläufe einer Softwareentwicklungsaktivität.",
+      "Eine territoriale, historische und kulturelle Sammlung zu Algerien.",
+      "Mathematik, Physik und Programmieren für Schüler und Studierende."
+    ],
+    "case_goals": [
+      "Zersplitterung zwischen Interessenten, Projekten, Arbeit und Gesprächen verringern.",
+      "Eine reichhaltige Sammlung auffindbar und für Erkundungen nutzbar machen.",
+      "Besucher den Ansatz ausprobieren und Kontakt vorbereiten lassen."
+    ],
+    "case_users": [
+      "Leitung, Kundenbetreuung, Entwickler, Kunden, Finanzen und Zugangsverwaltung.",
+      "Neugierige Leser und Reisende.",
+      "Schüler, Studierende und Eltern."
+    ],
+    "case_features": [
+      "CRM, Projekte, Aufgaben/Review, Zeit, Meilensteine, getrennte Kanäle, private Dateien, Einladungen und Serverrechte.",
+      "SVG-Atlas, Suche, belegte Inhalte/Fotos, Routenpräferenzen, anpassbares Budget und Kalenderexport.",
+      "Niveaubasierte Abläufe, drei Aufgaben mit gestuften Hinweisen, Angebote, FAQ und Nachrichtenvorbereitung."
+    ],
+    "case_arch": [
+      "Flask, Gunicorn, transaktionale SQLite, JavaScript und Nginx/systemd auf Hostinger KVM.",
+      "HTML/CSS, JavaScript-ES-Module, JSON, SVG und Browserspeicher; statische Veröffentlichung.",
+      "HTML, CSS und JavaScript; statische Veröffentlichung ohne Anwendungsserver."
+    ],
+    "case_limits": [
+      "Interner Kern auf Einladung. SMTP, Peppol, Zahlungen und Signaturen nicht verbunden; Erweiterung läuft.",
+      "Deterministischer Planer; keine Livebuchungen oder -preise. Redaktioneller Ausbau läuft.",
+      "Projekt in Vorbereitung. Kein KI-Lehrer, Zahlung oder automatischer Terminkalender verbunden."
+    ],
+    "case_demo": "Öffentliche Vorschau ansehen",
+    "case_login": "Zugang für eingeladene Personen",
+    "case_note": "Diese Beispiele sind keine bezahlten Kundenreferenzen.",
+    "lab_page": "Innovation Lab",
+    "lab_page_head": "Probieren. Beobachten. Verstehen.",
+    "book_external": "Externen Kalender öffnen",
+    "form_server_note": "Ihre Anfrage wird nach Bestätigung auf unserem Server gespeichert. E-Mails werden erst nach Einrichtung der Mailanbindung versandt.",
+    "service_example_label": "Beispielauftrag",
+    "service_example_note": "Illustratives Szenario.",
+    "service_journey": "Ablauf: Diagnose, Prototyp mit Ihren Nutzern, Tests und Inbetriebnahme. Der Nutzen wird gemeinsam messbar definiert.",
+    "before_title": "Vorher: verstreute Informationen",
+    "before_copy": "E-Mail: „2 Module A, wie letztes Mal“.\nTabelle: Bestand 12, Referenz fehlt.\nBericht: abends erneut übertragen.",
+    "after_title": "Nachher: Bestellung mit Bestand verbunden",
+    "stock_label": "Verfügbarer Bestand",
+    "orders_label": "Freigegebene Bestellungen",
+    "stock_error": "Bestand reicht nicht. Menge vor Freigabe reduzieren.",
+    "stock_note": "Die Freigabe reserviert Bestand und aktualisiert diese Übersicht. Zurück zum Entwurf gibt die Reservierung frei.",
+    "calendar_cta": "Erstgespräch buchen · 30 Min.",
+    "calendar_note": "Cal.eu zeigt Verfügbarkeit und Zeitzone vor der Bestätigung. Die kostenlose einstündige Diagnose kann auch auf Anfrage vereinbart werden."
+  }
+}

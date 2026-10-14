@@ -18,10 +18,10 @@
     "hero_label": "STUDIO DIGITAL · BELGIQUE",
     "hero_location": "Wavre, Belgique",
     "hero_title": [
-      "Vos idées méritent",
-      "mieux qu’un site."
+      "Votre métier est unique.",
+      "Votre logiciel aussi."
     ],
-    "hero_copy": "Un site qui convertit. Un logiciel qui simplifie. Des données qui éclairent vos décisions. Nous construisons le système qui relie les trois.",
+    "hero_copy": "Des logiciels sur mesure, des sites qui donnent envie et des systèmes intelligents. Nous relions vos utilisateurs, vos outils et vos données pour simplifier le travail qui compte.",
     "hero_note": "Une première heure offerte. Un besoin compris. Un point de départ clair.",
     "strip": [
       "Un interlocuteur en Belgique",
@@ -43,7 +43,9 @@
           "E-commerce",
           "Restaurants"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Votre site reçoit des visites, mais les demandes se perdent.",
+        "example": "Un restaurant : menu lisible sur téléphone, demandes de réservation et confirmation explicite."
       },
       {
         "title": "Logiciels sur mesure",
@@ -52,7 +54,9 @@
           "Applications web",
           "Outils métier"
         ],
-        "icon": "apps"
+        "icon": "apps",
+        "problem": "Vos commandes et dossiers circulent dans plusieurs fichiers.",
+        "example": "Un atelier : devis, commandes, stock et droits selon le poste dans un même outil."
       },
       {
         "title": "SaaS & bases personnalisables",
@@ -61,7 +65,9 @@
           "Gestion commerciale",
           "Espaces de travail"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Votre produit doit servir plusieurs organisations sans mélanger leurs données.",
+        "example": "Un portail par abonnement : espaces isolés, rôles et parcours de facturation à intégrer."
       },
       {
         "title": "IA & automatisation",
@@ -71,7 +77,9 @@
           "Assistants IA",
           "Workflows"
         ],
-        "icon": "spark"
+        "icon": "spark",
+        "problem": "Votre équipe recopie et recherche les mêmes informations.",
+        "example": "Une facture : extraction des champs, contrôle du total et validation humaine avant transfert."
       },
       {
         "title": "Données & tableaux de bord",
@@ -81,7 +89,9 @@
           "Prévision",
           "Optimisation"
         ],
-        "icon": "chart"
+        "icon": "chart",
+        "problem": "Vos rapports arrivent trop tard pour décider.",
+        "example": "Un planning : comparer des affectations en respectant la capacité et les priorités."
       },
       {
         "title": "Audit & intégration",
@@ -90,7 +100,9 @@
           "Feuille de route",
           "API & connecteurs"
         ],
-        "icon": "compass"
+        "icon": "compass",
+        "problem": "Vos outils ne partagent pas les bonnes informations.",
+        "example": "Un CRM : relier les contacts à la comptabilité après vérification des API."
       }
     ],
     "method_label": "04 / Une méthode lisible",
@@ -122,7 +134,7 @@
     "team_label": "05 / La rigueur, avec le contact humain",
     "team_title": "Un collectif technique.\nUn échange direct.",
     "team_copy": "Achraf Saidi, cofondateur et directeur technique (CTO), associe ingénierie logicielle, mathématiques et recherche en IA et statistique à l’UCLouvain. Son rôle : comprendre vos contraintes, cadrer les choix et garder une direction technique lisible tout au long du projet.",
-    "team_second": "Autour de la direction technique, un réseau de développeurs, designers et spécialistes des données, notamment avec JetThings / JetNext. Les compétences sont mobilisées selon le périmètre et leur disponibilité : un réseau de collaboration, sans effectif salarié annoncé artificiellement.",
+    "team_second": "Une équipe à temps plein en frontend, backend, data et design, coordonnée autour de votre produit. JetThings apporte un réseau de collaboration ; des indépendants peuvent compléter l’équipe selon la tâche.",
     "team_principles": [
       {
         "title": "La bonne équipe, à la bonne taille",
@@ -467,10 +479,10 @@
     "hero_label": "DIGITAL STUDIO · BELGIUM",
     "hero_location": "Wavre, Belgium",
     "hero_title": [
-      "Your ideas deserve",
-      "more than a website."
+      "Your business is unique.",
+      "Your software should be too."
     ],
-    "hero_copy": "A website that converts. Software that simplifies. Data that informs your decisions. We build the system that connects all three.",
+    "hero_copy": "Custom software, websites worth exploring and intelligent systems. We connect people, tools and data to simplify the work that matters.",
     "hero_note": "Your first hour is on us. A clear need. A sensible starting point.",
     "strip": [
       "A contact in Belgium",
@@ -492,7 +504,9 @@
           "E-commerce",
           "Restaurants"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Visitors arrive, but enquiries get lost.",
+        "example": "A restaurant: mobile-readable menus, reservation requests and explicit confirmation."
       },
       {
         "title": "Custom software",
@@ -501,7 +515,9 @@
           "Web applications",
           "Business tools"
         ],
-        "icon": "apps"
+        "icon": "apps",
+        "problem": "Orders and case files are scattered across spreadsheets.",
+        "example": "A workshop: quotes, orders, stock and role-based permissions in one tool."
       },
       {
         "title": "SaaS & adaptable foundations",
@@ -510,7 +526,9 @@
           "Commerce management",
           "Workspaces"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Your product must serve organisations without mixing their data.",
+        "example": "A subscription portal: isolated workspaces, roles and billing journeys to integrate."
       },
       {
         "title": "AI & automation",
@@ -520,7 +538,9 @@
           "AI assistants",
           "Workflows"
         ],
-        "icon": "spark"
+        "icon": "spark",
+        "problem": "Your team repeatedly copies and searches for information.",
+        "example": "An invoice: extract fields, check totals and require human approval before transfer."
       },
       {
         "title": "Data & dashboards",
@@ -530,7 +550,9 @@
           "Forecasting",
           "Optimisation"
         ],
-        "icon": "chart"
+        "icon": "chart",
+        "problem": "Your reports arrive too late to guide decisions.",
+        "example": "A schedule: compare allocations within capacity and priority constraints."
       },
       {
         "title": "Audit & integration",
@@ -539,7 +561,9 @@
           "Roadmap",
           "APIs & connectors"
         ],
-        "icon": "compass"
+        "icon": "compass",
+        "problem": "Your tools do not share the right information.",
+        "example": "A CRM: link contacts with accounting after checking available APIs."
       }
     ],
     "method_label": "04 / A clear method",
@@ -571,7 +595,7 @@
     "team_label": "05 / Rigour with a personal connection",
     "team_title": "Technical expertise.\nDirect conversations.",
     "team_copy": "Achraf Saidi, cofounder and Chief Technology Officer (CTO), brings together software engineering, mathematics and AI and statistics research at UCLouvain. His role is to understand your constraints, explain the decisions and maintain a clear technical direction throughout the project.",
-    "team_second": "A network of developers, designers and data specialists supports technical delivery, including collaboration with JetThings / JetNext. Specialists are engaged according to scope and availability; this network is not presented as a permanent employee headcount.",
+    "team_second": "A full-time team across frontend, backend, data and design, coordinated around your product. JetThings extends the collaboration network; independent specialists can join for a particular task.",
     "team_principles": [
       {
         "title": "The right team, at the right size",
@@ -916,10 +940,10 @@
     "hero_label": "DIGITALE STUDIO · BELGIË",
     "hero_location": "Waver, België",
     "hero_title": [
-      "Uw ideeën verdienen",
-      "meer dan een website."
+      "Uw bedrijf is uniek.",
+      "Uw software ook."
     ],
-    "hero_copy": "Een website die overtuigt. Software die vereenvoudigt. Data die beslissingen ondersteunt. Wij bouwen het systeem dat alles verbindt.",
+    "hero_copy": "Maatwerksoftware, aantrekkelijke websites en intelligente systemen. We verbinden mensen, tools en data om het werk dat telt eenvoudiger te maken.",
     "hero_note": "Het eerste uur is gratis. Een heldere behoefte. Een concreet vertrekpunt.",
     "strip": [
       "Een aanspreekpunt in België",
@@ -941,7 +965,9 @@
           "E-commerce",
           "Restaurants"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Bezoekers komen, maar aanvragen raken kwijt.",
+        "example": "Een restaurant: mobiel leesbaar menu, reservatieaanvragen en expliciete bevestiging."
       },
       {
         "title": "Maatwerksoftware",
@@ -950,7 +976,9 @@
           "Webapplicaties",
           "Bedrijfstools"
         ],
-        "icon": "apps"
+        "icon": "apps",
+        "problem": "Orders en dossiers staan in verspreide bestanden.",
+        "example": "Een atelier: offertes, orders, voorraad en rechten per functie in één tool."
       },
       {
         "title": "SaaS & aanpasbare basis",
@@ -959,7 +987,9 @@
           "Handelsbeheer",
           "Werkruimtes"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Uw product moet organisaties bedienen zonder hun data te vermengen.",
+        "example": "Een abonnementsportaal: gescheiden werkruimten, rollen en te integreren facturatie."
       },
       {
         "title": "AI & automatisering",
@@ -969,7 +999,9 @@
           "AI-assistenten",
           "Workflows"
         ],
-        "icon": "spark"
+        "icon": "spark",
+        "problem": "Uw team kopieert en zoekt steeds dezelfde informatie.",
+        "example": "Een factuur: velden extraheren, totalen controleren en menselijke goedkeuring voor overdracht."
       },
       {
         "title": "Data & dashboards",
@@ -979,7 +1011,9 @@
           "Voorspelling",
           "Optimalisatie"
         ],
-        "icon": "chart"
+        "icon": "chart",
+        "problem": "Rapporten komen te laat om beslissingen te ondersteunen.",
+        "example": "Een planning: toewijzingen vergelijken binnen capaciteit en prioriteiten."
       },
       {
         "title": "Audit & integratie",
@@ -988,7 +1022,9 @@
           "Stappenplan",
           "API’s & koppelingen"
         ],
-        "icon": "compass"
+        "icon": "compass",
+        "problem": "Uw tools delen niet de juiste informatie.",
+        "example": "Een CRM: contacten koppelen aan boekhouding na controle van beschikbare API’s."
       }
     ],
     "method_label": "04 / Een heldere aanpak",
@@ -1020,7 +1056,7 @@
     "team_label": "05 / Grondig en persoonlijk",
     "team_title": "Technische expertise.\nRechtstreeks contact.",
     "team_copy": "Achraf Saidi, medeoprichter en technisch directeur (CTO), combineert softwareontwikkeling, wiskunde en onderzoek naar AI en statistiek aan UCLouvain. Hij begrijpt uw beperkingen, licht de keuzes toe en bewaakt de technische richting van uw project.",
-    "team_second": "Een netwerk van ontwikkelaars, designers en dataspecialisten ondersteunt de uitvoering, onder meer met JetThings / JetNext. Specialisten worden ingezet op basis van het project en hun beschikbaarheid; dit netwerk wordt niet voorgesteld als een vast personeelsbestand.",
+    "team_second": "Een voltijds team voor frontend, backend, data en design, rond uw product. JetThings breidt het samenwerkingsnetwerk uit; zelfstandige specialisten kunnen per taak bijdragen.",
     "team_principles": [
       {
         "title": "Het juiste team, op de juiste schaal",
@@ -1365,10 +1401,10 @@
     "hero_label": "DIGITALSTUDIO · BELGIEN",
     "hero_location": "Wavre, Belgien",
     "hero_title": [
-      "Ihre Ideen verdienen",
-      "mehr als eine Website."
+      "Ihr Unternehmen ist einzigartig.",
+      "Ihre Software auch."
     ],
-    "hero_copy": "Eine Website, die überzeugt. Software, die vereinfacht. Daten, die Entscheidungen unterstützen. Wir bauen das System, das alles verbindet.",
+    "hero_copy": "Individuelle Software, attraktive Websites und intelligente Systeme. Wir verbinden Menschen, Werkzeuge und Daten, um wichtige Arbeit zu vereinfachen.",
     "hero_note": "Die erste Stunde ist kostenlos. Ein klarer Bedarf. Ein konkreter Ausgangspunkt.",
     "strip": [
       "Ein Ansprechpartner in Belgien",
@@ -1390,7 +1426,9 @@
           "E-Commerce",
           "Restaurants"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Besucher kommen, doch Anfragen gehen verloren.",
+        "example": "Ein Restaurant: mobil lesbare Speisekarte, Reservierungsanfragen und ausdrückliche Bestätigung."
       },
       {
         "title": "Individuelle Software",
@@ -1399,7 +1437,9 @@
           "Webanwendungen",
           "Geschäftswerkzeuge"
         ],
-        "icon": "apps"
+        "icon": "apps",
+        "problem": "Bestellungen und Akten verteilen sich auf mehrere Dateien.",
+        "example": "Eine Werkstatt: Angebote, Bestellungen, Bestand und Rollenrechte in einem Werkzeug."
       },
       {
         "title": "SaaS & anpassbare Grundlagen",
@@ -1408,7 +1448,9 @@
           "Handelsverwaltung",
           "Arbeitsbereiche"
         ],
-        "icon": "layers"
+        "icon": "layers",
+        "problem": "Ihr Produkt soll Organisationen bedienen, ohne ihre Daten zu vermischen.",
+        "example": "Ein Abonnementportal: getrennte Arbeitsbereiche, Rollen und zu integrierende Abrechnung."
       },
       {
         "title": "KI & Automatisierung",
@@ -1418,7 +1460,9 @@
           "KI-Assistenten",
           "Workflows"
         ],
-        "icon": "spark"
+        "icon": "spark",
+        "problem": "Ihr Team kopiert und sucht immer wieder dieselben Informationen.",
+        "example": "Eine Rechnung: Felder extrahieren, Summen prüfen und Freigabe vor der Übertragung."
       },
       {
         "title": "Daten & Dashboards",
@@ -1428,7 +1472,9 @@
           "Prognosen",
           "Optimierung"
         ],
-        "icon": "chart"
+        "icon": "chart",
+        "problem": "Berichte kommen zu spät für Entscheidungen.",
+        "example": "Eine Planung: Zuweisungen innerhalb von Kapazität und Prioritäten vergleichen."
       },
       {
         "title": "Analyse & Integration",
@@ -1437,7 +1483,9 @@
           "Fahrplan",
           "APIs & Schnittstellen"
         ],
-        "icon": "compass"
+        "icon": "compass",
+        "problem": "Ihre Werkzeuge teilen nicht die richtigen Informationen.",
+        "example": "Ein CRM: Kontakte nach API-Prüfung mit der Buchhaltung verbinden."
       }
     ],
     "method_label": "04 / Ein klares Vorgehen",
@@ -1469,7 +1517,7 @@
     "team_label": "05 / Sorgfalt und persönlicher Kontakt",
     "team_title": "Technische Kompetenz.\nDirekter Austausch.",
     "team_copy": "Achraf Saidi, Mitgründer und technischer Geschäftsführer (CTO), verbindet Softwareentwicklung, Mathematik und Forschung zu KI und Statistik an der UCLouvain. Er klärt Ihre Rahmenbedingungen, erläutert die Entscheidungen und begleitet die technische Umsetzung.",
-    "team_second": "Ein Netzwerk aus Entwicklern, Designern und Datenspezialisten unterstützt die Umsetzung, unter anderem mit JetThings / JetNext. Fachkräfte werden je nach Umfang und Verfügbarkeit eingebunden; dieses Netzwerk wird nicht als feste Mitarbeiterzahl dargestellt.",
+    "team_second": "Ein Vollzeitteam für Frontend, Backend, Daten und Design rund um Ihr Produkt. JetThings erweitert das Netzwerk; unabhängige Spezialisten können je Aufgabe beitragen.",
     "team_principles": [
       {
         "title": "Das richtige Team in passender Größe",

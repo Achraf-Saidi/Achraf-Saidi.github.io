@@ -55,7 +55,7 @@ def build(output,site_url,api_origin=None,portal_url=None):
         assets=output/'assets'
         assets.mkdir()
         for asset in (checkout/'assets').iterdir():
-            if asset.is_file() and asset.suffix in {'.css','.js','.webp','.png','.woff2','.svg','.txt'}:
+            if asset.is_file() and asset.suffix in {'.css','.js','.webp','.png','.woff2','.svg','.txt','.jpg'}:
                 shutil.copy2(asset,assets/asset.name)
         (output/'runtime-config.json').write_text(json.dumps({'api_origin':api_origin,'portal_url':portal_url},indent=2)+'\n')
         (output/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+site_url+'/sitemap.xml\n')

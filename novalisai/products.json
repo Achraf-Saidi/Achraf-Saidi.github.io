@@ -1,4 +1,55 @@
 {
   "schema_version": 1,
-  "products": []
+  "products": [
+    {
+      "id": "novalis-os",
+      "status": "building",
+      "content": {
+        "fr": {
+          "title": "NovalisOS",
+          "category": "Produit interne · développement en cours",
+          "summary": "Relier le commercial, l’équipe et les décisions du client dans un même outil.",
+          "detail": "Le socle est déployé pour un usage interne. La commercialisation et les intégrations avancées restent à préparer. Étude de cas et limites, pas de souscription publique.",
+          "features": [
+            "CRM, projets, tâches et revue, temps, jalons, canaux séparés, documents privés, invitations et droits serveur.",
+            "Noyau interne accessible sur invitation. SMTP, Peppol, paiement en ligne et signature non raccordés ; modules avancés en cours."
+          ],
+          "demo_url": "https://www.novalisai.com/fr/realisations/novalis-os/"
+        },
+        "en": {
+          "title": "NovalisOS",
+          "category": "Internal product · ongoing development",
+          "summary": "Connect commercial follow-up, team work and client decisions in one tool.",
+          "detail": "The core is deployed for internal use. Commercial availability and advanced integrations are still being prepared. Case study and limitations; no public subscription.",
+          "features": [
+            "CRM, projects, tasks/review, time, milestones, separate channels, private documents, invitations and server permissions.",
+            "Internal core accessible by invitation. SMTP, Peppol, payments and signatures are not connected; advanced modules remain in development."
+          ],
+          "demo_url": "https://www.novalisai.com/en/realisations/novalis-os/"
+        },
+        "nl": {
+          "title": "NovalisOS",
+          "category": "Intern product · in ontwikkeling",
+          "summary": "Commerciële opvolging, teamwerk en klantbeslissingen verbinden.",
+          "detail": "De kern is intern uitgerold. Commerciële beschikbaarheid en geavanceerde integraties worden nog voorbereid. Casestudy en beperkingen; geen publiek abonnement.",
+          "features": [
+            "CRM, projecten, taken/review, tijd, mijlpalen, aparte kanalen, privébestanden, uitnodigingen en serverrechten.",
+            "Interne kern op uitnodiging. SMTP, Peppol, betalingen en ondertekening niet gekoppeld; uitbreiding loopt."
+          ],
+          "demo_url": "https://www.novalisai.com/nl/realisations/novalis-os/"
+        },
+        "de": {
+          "title": "NovalisOS",
+          "category": "Internes Produkt · in Entwicklung",
+          "summary": "Kundenbetreuung, Teamarbeit und Kundenentscheidungen verbinden.",
+          "detail": "Der Kern ist intern bereitgestellt. Vermarktung und erweiterte Integrationen sind noch in Vorbereitung. Fallstudie und Grenzen; kein öffentliches Abonnement.",
+          "features": [
+            "CRM, Projekte, Aufgaben/Review, Zeit, Meilensteine, getrennte Kanäle, private Dateien, Einladungen und Serverrechte.",
+            "Interner Kern auf Einladung. SMTP, Peppol, Zahlungen und Signaturen nicht verbunden; Erweiterung läuft."
+          ],
+          "demo_url": "https://www.novalisai.com/de/realisations/novalis-os/"
+        }
+      }
+    }
+  ]
 }

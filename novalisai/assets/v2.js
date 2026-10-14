@@ -22,7 +22,7 @@
    d.items.forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=new Intl.DateTimeFormat(document.documentElement.lang,{dateStyle:'full',timeStyle:'short',timeZone:'Europe/Brussels'}).format(new Date(s.starts_at))+' · Europe/Brussels';select.append(o);});
   }).catch(()=>{slotField.hidden=true;});
   const status=document.createElement('p');status.className='form-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status);
-  const submit=form.querySelector('[type=submit]');submit.textContent=labels.send;form.dataset.server='ready';
+  const submit=form.querySelector('[type=submit]');submit.textContent=labels.send;form.dataset.server='ready';if(labels.server_note)form.querySelector('.form-note').textContent=labels.server_note;
   form.addEventListener('submit',async e=>{
    e.preventDefault();e.stopImmediatePropagation();if(!form.reportValidity()||submit.disabled)return;
    const f=new FormData(form);const get=k=>String(f.get(k)||'').trim();

@@ -3,6 +3,7 @@
 import argparse, hashlib, html, json, re
 from extensions import enrich, write_pages
 from studio import enrich_studio
+from ultimate import D, enrich_ultimate, write_ultimate_pages
 from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parent
@@ -66,7 +67,7 @@ def render_products(c,lang,prefix,registry=None):
   else:visual='<span class="product-seed" aria-hidden="true">✳</span>'
   links=[]
   for field,label in [('demo_url','saas_demo'),('access_url','saas_access')]:
-   url=product.get(field,'')
+   url=texts.get(field,product.get(field,''))
    if not url:continue
    parsed=urlparse(url)
    if parsed.scheme!='https' or not parsed.hostname or parsed.hostname.lower()=='github.com' or parsed.username or parsed.password:raise ValueError('Product links must be public HTTPS pages, not source repositories')
@@ -96,7 +97,7 @@ def render(content,lang,site_url,root_page=False):
  out['alternates']='\n'.join(f'<link rel="alternate" hreflang="{l}" href="{site_url}/{l}/">' for l in LANGUAGES)+f'<link rel="alternate" hreflang="x-default" href="{site_url}/">'
  out['language_options']=''.join(f'<option value="{l}" data-url="{prefix}{l}/" {"selected" if l==lang else ""}>{l.upper()}</option>' for l in LANGUAGES)
  out['language_links']=''.join(f'<a href="{prefix}{l}/" lang="{l}" hreflang="{l}" aria-label="{label}" '+('aria-current="page"' if l==lang else '')+f'>{l.upper()}</a>' for l,label in LANGUAGES.items())
- out['services']=''.join(f'<article class="service-card"><div class="service-top"><span class="service-number">0{i+1}</span><div class="service-icon">{icon(s["icon"])}</div></div><h3>{esc(s["title"])}</h3><p>{esc(s["copy"])}</p>{tags(s["tags"])}<a class="text-link" href="#contact" data-need="{i}">{esc(c["service_cta"])} ↗</a></article>' for i,s in enumerate(c['services']))
+ out['services']=''.join(f'<article class="service-card"><div class="service-top"><span class="service-number">0{i+1}</span><div class="service-icon">{icon(s["icon"])}</div></div><h3>{esc(s["title"])}</h3><p class="service-problem">{esc(s["problem"])}</p><p>{esc(s["copy"])}</p><details class="service-case"><summary>{esc(D[lang]["service_example_label"])}</summary><p>{esc(D[lang]["service_example_note"])} {esc(s["example"])}</p><p>{esc(D[lang]["service_journey"])}</p></details>{tags(s["tags"])}<a class="text-link" href="#contact" data-need="{i}">{esc(c["service_cta"])} ↗</a></article>' for i,s in enumerate(c['services']))
  out['showcases']=''.join(f'<article class="showcase-card"><div class="showcase-visual showcase-visual-{i}" aria-hidden="true">{mini(c,i)}</div><div class="showcase-content"><p class="eyebrow">{esc(s["sector"])}</p><h3>{esc(s["title"])}</h3><p>{esc(s["copy"])}</p><a class="text-link" href="#contact" data-need="{s["need"]}">{esc(s["cta"])} ↗</a></div></article>' for i,s in enumerate(c['showcases']))
  out['ai_points']=''.join(f'<li>{icon("check")}<span>{esc(v)}</span></li>' for v in c['ai_points'])
  out['steps']=''.join(f'<article class="step"><span class="step-number">0{i+1}</span><div class="step-body"><h3>{esc(s["title"])}</h3><p>{esc(s["copy"])}</p><div class="step-deliverable"><span>{esc(c["deliverable_label"])}</span><strong>{esc(s["deliverable"])}</strong></div></div></article>' for i,s in enumerate(c['steps']))
@@ -110,6 +111,7 @@ def render(content,lang,site_url,root_page=False):
  for k in ['experience_data','experience_labels','experience_actions','experience_modules','art_pause','art_resume']:client[k]=c[k]
  enrich(lang,prefix,out,client)
  enrich_studio(lang,out,client)
+ enrich_ultimate(lang,prefix,out,client)
  out['client_data']=json.dumps(client,ensure_ascii=False).replace('<','\\u003c')
  result=re.sub(r'\{\{([a-z_0-9]+)\}\}',lambda m:out[m[1]],(ROOT/'template.html').read_text())
  if '{{' in result:raise ValueError('Unresolved template token')
@@ -123,7 +125,7 @@ def main():
   if set(content[lang])!=keys:raise ValueError(f'Translation keys differ: {lang}')
   (ROOT/lang).mkdir(exist_ok=True);(ROOT/lang/'index.html').write_text(render(content,lang,url))
  (ROOT/'index.html').write_text(render(content,'fr',url,True))
- page_urls=write_pages(content,url)
+ page_urls=write_pages(content,url)+write_ultimate_pages(content,url)
  urls='<url><loc>'+url+'/</loc></url>'+''.join(f'<url><loc>{url}/{l}/</loc></url>' for l in LANGUAGES)+''.join(f'<url><loc>{v}</loc></url>' for v in page_urls)
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls+'</urlset>\n')
  print('Generated FR, EN, NL, DE and French home page.')
