@@ -2,7 +2,7 @@
 
 ## Direction
 
-Connectez-vous avec votre compte personnel et activez la double authentification. La vue d’ensemble liste les projets, les opportunités et les alertes calculées à partir des données réellement enregistrées.
+Connectez-vous avec votre compte personnel. La double authentification est demandée par défaut pour les rôles sensibles ; le compte Direction du propriétaire bénéficie actuellement d’une exception temporaire à sa demande. La vue d’ensemble liste les projets, les opportunités et les alertes calculées à partir des données réellement enregistrées.
 
 Dans **Commercial**, créez ou consultez un prospect, affectez son interlocuteur et rédigez la note de cadrage. Le bouton d’envoi prépare un message dans la file SMTP ; il n’indique pas une transmission réussie. Après accord commercial, passez par proposition/négociation puis **Créer le projet** : le client et le projet sont créés ensemble et restent liés au prospect.
 
