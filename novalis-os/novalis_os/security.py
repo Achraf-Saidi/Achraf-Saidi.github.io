@@ -112,6 +112,9 @@ def required(*roles, limited=False):
 
 
 def check_request():
+    if request.method=='POST' and request.path=='/api/payments/mollie/webhook':
+        # Callback payload is untrusted; payments.py fetches its resource from Mollie.
+        return
     if request.method not in {'POST', 'PUT', 'PATCH', 'DELETE'} or not request.path.startswith('/api/'):
         return
     origin = request.headers.get('Origin', '')

@@ -76,6 +76,7 @@ def main():
     parser=argparse.ArgumentParser(description='Novalis OS operator tools')
     sub=parser.add_subparsers(dest='command',required=True)
     sub.add_parser('migrate')
+    sub.add_parser('payment-check')
     bootstrap=sub.add_parser('bootstrap')
     bootstrap.add_argument('--email',required=True)
     bootstrap.add_argument('--name',default='Achraf Saidi')
@@ -91,6 +92,18 @@ def main():
         verify_backup(args.source);print('Backup database and document integrity verified.');return
     app=create_app()
     with app.app_context():
+        if args.command=='payment-check':
+            from .payments import payment_configuration
+            from .payment_provider import provider,ProviderError
+            config=payment_configuration()
+            print(json.dumps(config))
+            if config['enabled']:
+                try:
+                    methods=provider(config['mode']).methods(100)
+                    print(json.dumps({'methods_for_eur_1_00':[m['id'] for m in methods]}))
+                except ProviderError:
+                    raise SystemExit('Provider check failed; inspect merchant profile and credentials securely.')
+            return
         if args.command=='migrate':
             migrate(app.config['DATABASE']);print('Schema migrated.');return
         if args.command=='bootstrap':

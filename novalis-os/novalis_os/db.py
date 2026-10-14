@@ -45,8 +45,12 @@ def migrate(path):
     try:
         db.execute('PRAGMA journal_mode=WAL')
         schema = Path(__file__).with_name('schema.sql').read_text()
+        schema += '\n'+Path(__file__).with_name('payment-schema.sql').read_text()
+        schema += '\n'+Path(__file__).with_name('workspace-schema.sql').read_text()
         db.executescript('BEGIN IMMEDIATE;\n' + schema + '\nCOMMIT;')
         db.execute('INSERT OR IGNORE INTO migrations VALUES(1,?)', (now(),))
+        db.execute('INSERT OR IGNORE INTO migrations VALUES(2,?)', (now(),))
+        db.execute('INSERT OR IGNORE INTO migrations VALUES(3,?)', (now(),))
     finally:
         db.close()
 
