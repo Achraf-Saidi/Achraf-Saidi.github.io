@@ -40,6 +40,8 @@ services:
       NOVALIS_MODE: production
   proxy:
     image: caddy:2-alpine
+    # Opt in only after confirming that the VPS has no existing edge proxy.
+    profiles: [dedicated-edge]
     ports: ["80:80", "443:443", "443:443/udp"]
     environment:
       NOVALIS_APP_DOMAIN: ${NOVALIS_APP_DOMAIN:-app.novalisai.com}

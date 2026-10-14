@@ -6,7 +6,7 @@ La CI GitHub a construit l’image de production avec succès sur le commit `62c
 
 ## Qualification de la machine
 
-Le script `deploy/audit-vps.sh` est en lecture seule : OS, CPU, mémoire, disque, ports et services. Évaluer la charge existante, le stockage disponible, les certificats et le reverse proxy déjà utilisé. Les ports 80/443 du fichier Compose supposent une machine disponible pour Caddy ; si ces ports sont occupés, intégrer l’application au proxy existant au lieu de démarrer celui-ci.
+Le script `deploy/audit-vps.sh` est en lecture seule : OS, CPU, mémoire, disque, ports, services, charge et consommation des conteneurs existants. Il n'affiche ni variables d'environnement, ni secrets, ni données métier. Évaluer également les certificats et le reverse proxy déjà utilisé. Le service Caddy est placé dans le profil explicite `dedicated-edge` : un lancement ordinaire ne le démarre pas. Ses ports 80/443 supposent une machine disponible ; s'ils sont occupés, intégrer l'application au proxy existant.
 
 Prévoir un compte d’exploitation avec accès limité au répertoire de l’application, une préproduction avec sa propre base et son domaine, un stockage hors machine et un moyen de recevoir les alertes. Aucune capacité ou performance KVM n’est supposée dans cette livraison.
 
@@ -39,7 +39,7 @@ Le reverse proxy proposé ne dessert que `app.novalisai.com` ; l’application n
 Après recette sur préproduction, lancer les services :
 
 ```sh
-docker compose -f novalis-os/deploy/compose.yml up -d
+docker compose -f novalis-os/deploy/compose.yml --profile dedicated-edge up -d
 ```
 
 Vérifier HTTPS, `/healthz`, les cookies, une connexion MFA, les refus d’accès entre deux clients, le dépôt/téléchargement de fichiers, les réservations concurrentes et l’envoi SMTP. Les conteneurs sont prévus sans privilèges supplémentaires, avec système de fichiers en lecture seule et volumes dédiés. Le worker est unique : rappels, file SMTP et sauvegarde locale quotidienne. Il signale les erreurs, sans afficher les corps des messages ou les secrets.
@@ -74,6 +74,23 @@ docker compose -f novalis-os/deploy/compose.yml -f novalis-os/deploy/compose.pub
 ```
 
 La revue des enregistrements A/AAAA, du certificat et des services existants précède toute mise en service. Les enregistrements de messagerie ne sont pas modifiés. Le paquet a été généré ici ; aucun de ces domaines n’a été basculé.
+
+### Cohabitation avec `pointagevdc.cloud`
+
+Achraf indique qu'un site de pointage existe déjà sur le KVM. La lecture publique de `https://pointagevdc.cloud/` a répondu HTTP 200 avec un en-tête `Server: nginx` le 14 octobre 2026. Cela ne prouve ni l'architecture interne ni la capacité disponible. Aucun accès authentifié à ce serveur n'est établi.
+
+La cible de cohabitation conserve son proxy, ses services, ses bases et ses répertoires. Utiliser `compose.shared.yml` en complément de `compose.yml`, sans activer `dedicated-edge` et sans utiliser `compose.public.yml`. Ce mode démarre uniquement l'application et son worker, avec stockage Novalis séparé, limites CPU/mémoire, rotation des journaux et backend lié à `127.0.0.1:18080`. Le port et les plafonds proposés doivent être qualifiés après l'inventaire ; ce ne sont pas des mesures de capacité. Si le proxy existant est un conteneur, configurer un réseau Docker dédié après audit ; l'adresse loopback de l'hôte n'est pas celle de ce conteneur.
+
+```sh
+docker compose -f novalis-os/deploy/compose.yml -f novalis-os/deploy/compose.shared.yml config --quiet
+docker compose -f novalis-os/deploy/compose.yml -f novalis-os/deploy/compose.shared.yml up -d app worker
+```
+
+Ces commandes restent une préparation, à exécuter après initialisation de la base et du compte. Ne pas installer ou mettre à jour Docker à l'aveugle sur ce VPS : ses changements réseau peuvent affecter les applications existantes. Si Docker n'est pas déjà utilisable, qualifier une installation Python/systemd ou une autre méthode adaptée avant toute modification.
+
+Avant la bascule : vérifier l'état HTTP/HTTPS et le parcours de connexion du pointage, identifier précisément ses unités/conteneurs et sa base, sauvegarder le proxy et la configuration, puis produire une sauvegarde cohérente de sa base selon son moteur et vérifier la restauration dans une destination isolée. Ne pas copier simplement une base active en espérant une sauvegarde cohérente. La sauvegarde Novalis ne sauvegarde pas automatiquement le pointage.
+
+Ajouter ensuite seulement les hôtes `novalisai.com`, `www.novalisai.com` et `app.novalisai.com` au proxy existant. Valider toute la configuration avant une recharge gracieuse et conserver le fichier précédent. Ne pas remplacer la configuration du pointage, arrêter son service, modifier sa base ou changer ses DNS. Comparer son état avant/après, surveiller les ressources et revenir à la configuration précédente si la recette échoue. La configuration exacte du proxy et le choix des certificats attendent l'inventaire réel.
 
 ## SMTP et intégrations
 
