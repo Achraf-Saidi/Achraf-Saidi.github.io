@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: novalis-hostinger-vps-operation
+  group: novalis-hostinger-vps-operation-v2
   cancel-in-progress: false
 jobs:
   operation:
