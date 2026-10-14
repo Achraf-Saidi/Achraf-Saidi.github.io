@@ -43,5 +43,11 @@ jobs:
           node novalis-os/tests/ui.cjs
       - name: Build production image
         run: docker build -f novalis-os/deploy/Dockerfile -t novalis-os:ci .
+      - name: Validate shared and dedicated VPS configuration
+        run: |
+          cp novalis-os/deploy/.env.example novalis-os/deploy/.env
+          trap 'rm -f novalis-os/deploy/.env' EXIT
+          docker compose -f novalis-os/deploy/compose.yml -f novalis-os/deploy/compose.shared.yml config --quiet
+          docker compose -f novalis-os/deploy/compose.yml -f novalis-os/deploy/compose.public.yml --profile dedicated-edge config --quiet
       - name: Prepare isolated Hostinger public release
         run: python novalis-os/deploy/prepare-public.py --output /tmp/novalis-public-ci --site-url https://www.novalisai.com --api-origin https://app.novalisai.com --portal-url https://app.novalisai.com/os/
