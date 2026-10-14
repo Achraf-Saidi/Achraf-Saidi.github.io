@@ -2,7 +2,7 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "stage-business-showcase",
+  "task": "publish-reviewed-business-showcase",
   "script": "novalis-os/deploy/remote-business.py",
   "timeout": 480,
   "response_public_key": "zHdhkurF6+tkSkVBx7d0tyQCqP85G5J2Adm8mFWXNTs="
