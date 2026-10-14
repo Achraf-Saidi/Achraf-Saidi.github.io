@@ -1,0 +1,10 @@
+{
+  "host": "72.61.166.178",
+  "user": "root",
+  "port": 22,
+  "task": "update-public-portal-and-privacy",
+  "script": "novalis-os/deploy/remote-public-update.py",
+  "timeout": 180,
+  "revoke_public_keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZIhJ+4AFJNfbzTQSJmL1H3qk7x8dqeCQJSCSzzPHym novalis-relay-38511886361"],
+  "response_public_key": "DBiOnm5yK2ZavL3hQl7IJazu475unKRwD0ATewhxEBw="
+}
