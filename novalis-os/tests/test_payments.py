@@ -125,6 +125,10 @@ class Payments(unittest.TestCase):
             self.assertEqual(row('SELECT COUNT(*) AS n FROM invoices')['n'],1)
             with self.assertRaises(sqlite3.IntegrityError):get_db().execute('UPDATE provider_receipts SET amount_cents=1')
             self.assertIsNone(row('PRAGMA foreign_key_check'))
+    def test_disabling_new_payments_keeps_existing_reconciliation(self):
+        invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.app.config.update(PAYMENTS_MODE='disabled',PAYMENTS_LIVE_ENABLED=False)
+        self.assertFalse(self.call('finance','GET','/api/payments/config')['enabled']);self.paid(a)
+        self.assertEqual(self.call('finance','GET','/api/invoices/'+invoice)['invoice']['paid_cents'],12100)
     def test_transport_amount_and_redirect_validation(self):
         self.assertEqual(cents('12.34'),1234)
         for value in ['12.345','1e2','-1.00',1.5]:

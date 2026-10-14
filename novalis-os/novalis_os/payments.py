@@ -6,7 +6,7 @@ from .db import row,rows,uid,now,transaction,audit
 from .security import required,rate_limit
 from .validation import data,text,integer
 from .finance import invoice_access,present_invoice
-from .payment_provider import provider,configured,ProviderError,amount,cents,safe_checkout
+from .payment_provider import provider,configured,transport_configured,ProviderError,amount,cents,safe_checkout
 payments=Blueprint('payments',__name__)
 STATES={'open','pending','authorized','paid','failed','expired','canceled'}
 REFUND_STATES={'queued','pending','processing','refunded','failed','canceled'}
@@ -69,9 +69,13 @@ def apply_resource(identifier,r):
             if excess:db.execute('INSERT INTO payment_events(attempt_id,status,detail,created_at) VALUES(?,?,?,?)',(identifier,'overpayment','Trop-perçu à traiter : '+str(excess)+' centimes.',now()))
 
 def reconcile_attempt(identifier):
-    item=row('SELECT * FROM payment_attempts WHERE id=?',(identifier,));require_config(item['mode']);remote=provider(item['mode'])
+    item=row('SELECT * FROM payment_attempts WHERE id=?',(identifier,));
+    if not transport_configured(item['mode']):abort(503,'Conservez la clé fournisseur pour rapprocher les paiements déjà créés.')
+    remote=provider(item['mode'])
     r=remote.get(item['provider_id']) if item['provider_id'] else remote.find(identifier)
     if r:apply_resource(identifier,r)
+    else:
+        with transaction() as db:db.execute('UPDATE payment_attempts SET updated_at=? WHERE id=?',(now(),identifier))
     return r is not None
 
 @payments.get('/api/payments/config')
@@ -204,12 +208,12 @@ def refund_create(attempt_id):
 def reconcile_pending(limit=5):
     candidates=rows("SELECT id,mode FROM payment_attempts WHERE status IN ('creating','uncertain','open','pending','authorized') ORDER BY updated_at LIMIT ?",(limit,));result={'checked':0,'failed':0}
     for item in candidates:
-        if not configured(item['mode']):continue
+        if not transport_configured(item['mode']):continue
         try:reconcile_attempt(item['id']);reconcile_refunds(item['id']);result['checked']+=1
         except ProviderError:result['failed']+=1
     pending=rows("SELECT DISTINCT p.id,p.mode FROM payment_attempts p JOIN refund_attempts r ON r.attempt_id=p.id WHERE r.status IN ('creating','uncertain','queued','pending','processing') ORDER BY r.updated_at LIMIT ?",(limit,))
     for item in pending:
-        if not configured(item['mode']):continue
+        if not transport_configured(item['mode']):continue
         try:reconcile_refunds(item['id'])
         except ProviderError:result['failed']+=1
     return result

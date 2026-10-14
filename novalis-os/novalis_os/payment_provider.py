@@ -41,15 +41,20 @@ def safe_checkout(value):
     return value
 
 
+def transport_configured(mode):
+    key=current_app.config.get('MOLLIE_'+mode.upper()+'_KEY','')
+    return mode in {'test','live'} and key.startswith(mode+'_') and len(key)>12
+
+
 def configured(mode=None):
     mode=mode or current_app.config['PAYMENTS_MODE']
     key=current_app.config.get('MOLLIE_'+mode.upper()+'_KEY','')
-    return mode in {'test','live'} and key.startswith(mode+'_') and len(key)>12 and (mode!='live' or current_app.config['PAYMENTS_LIVE_ENABLED'])
+    return transport_configured(mode) and (mode!='live' or current_app.config['PAYMENTS_LIVE_ENABLED'])
 
 
 class Mollie:
     def __init__(self,mode):
-        if not configured(mode):
+        if not transport_configured(mode):
             raise ProviderError()
         self.mode=mode
 
