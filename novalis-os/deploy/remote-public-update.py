@@ -1,9 +1,12 @@
 """Publish the verified portal/privacy wording without restarting either app."""
 import hashlib
+import http.client
 import json
 import os
 import secrets
 import shutil
+import socket
+import ssl
 import subprocess
 import tempfile
 import urllib.request
@@ -26,7 +29,7 @@ def main():
     before = pointage()
     before_proxy = Path('/etc/nginx/sites-enabled/pointagevdc').read_bytes()
     temp = Path(tempfile.mkdtemp(prefix='novalis-public-build-'))
-    output = PUBLIC / 'releases' / CONTENT_RELEASE
+    output = PUBLIC / 'releases' / (CONTENT_RELEASE + '-' + secrets.token_hex(4))
     try:
         site = temp / 'novalisai'
         shutil.copytree(CORE / 'novalisai', site)
@@ -62,10 +65,15 @@ def main():
         REPORT.update(public_pages=57, pointage_unchanged=True)
         for language in ['fr', 'en', 'nl', 'de']:
             for page in ['espace-client', 'confidentialite']:
-                with urllib.request.urlopen(f'https://www.novalisai.com/{language}/{page}/', timeout=15) as response:
-                    body = response.read(200000)
-                    if response.status != 200 or hashlib.sha256(body).hexdigest() != hashlib.sha256((output / language / page / 'index.html').read_bytes()).hexdigest():
-                        raise RuntimeError('Published page does not match its release.')
+                context = ssl.create_default_context()
+                connection = http.client.HTTPSConnection('127.0.0.1', timeout=15, context=context)
+                connection.sock = context.wrap_socket(socket.create_connection(('127.0.0.1', 443), timeout=15), server_hostname='www.novalisai.com')
+                connection.request('GET', f'/{language}/{page}/', headers={'Host': 'www.novalisai.com'})
+                response = connection.getresponse()
+                body = response.read(200000)
+                connection.close()
+                if response.status != 200 or hashlib.sha256(body).hexdigest() != hashlib.sha256((output / language / page / 'index.html').read_bytes()).hexdigest():
+                    raise RuntimeError('Published page does not match its release.')
         path = Path('/etc/novalis-os/deployment-public.json')
         path.write_text(json.dumps(REPORT, indent=2));path.chmod(0o600)
         print(json.dumps(REPORT))
