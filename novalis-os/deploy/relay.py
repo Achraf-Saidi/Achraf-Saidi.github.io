@@ -64,7 +64,7 @@ def main():
         else:
             script = Path(request['script']).read_bytes()
             execution = subprocess.run(ssh + ['python3', '-'], input=script,
-                                       capture_output=True, timeout=180)
+                                       capture_output=True, timeout=min(int(request.get('timeout', 180)), 1200))
             result.update(returncode=execution.returncode,
                           stdout=execution.stdout[:250000].decode('utf-8', 'replace'),
                           stderr=execution.stderr[:25000].decode('utf-8', 'replace'))
@@ -77,11 +77,11 @@ def main():
             # Revoke this job's key only; preserve all other entries and permissions.
             cleanup = '''import os, pathlib, stat, tempfile
 p=pathlib.Path('/root/.ssh/authorized_keys')
-key=KEY_VALUE
+keys=KEY_VALUES
 if p.is_file():
     original=p.read_text()
     lines=original.splitlines(keepends=True)
-    kept=[line for line in lines if key not in line.split()]
+    kept=[line for line in lines if not any(key in line.split() for key in keys)]
     if len(kept)!=len(lines):
         info=p.stat()
         fd,name=tempfile.mkstemp(prefix='.novalis-key-',dir=p.parent)
@@ -91,7 +91,7 @@ if p.is_file():
             f.write(''.join(kept));f.flush();os.fsync(f.fileno())
         os.replace(name,p)
         print('revoked')
-'''.replace('KEY_VALUE', repr(pub.split()[1]))
+'''.replace('KEY_VALUES', repr([pub.split()[1]] + [k.split()[1] for k in request.get('revoke_public_keys', [])]))
             try:
                 revoked = subprocess.run(ssh + ['python3', '-'], input=cleanup.encode(),
                                          capture_output=True, timeout=30)

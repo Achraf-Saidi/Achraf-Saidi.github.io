@@ -7,12 +7,12 @@ permissions:
   contents: read
 concurrency:
   group: novalis-hostinger-vps-operation
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   operation:
     if: github.repository == 'Achraf-Saidi/Achraf-Saidi.github.io'
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v7
         with:
