@@ -6,6 +6,8 @@ import os
 import subprocess
 import sys
 import time
+import urllib.request
+import urllib.error
 from pathlib import Path
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey, X25519PublicKey
@@ -31,15 +33,34 @@ def main():
     deadline = time.monotonic() + 600
     result = {'target': host, 'task': request['task'], 'authenticated': False}
     try:
+        # The controller publishes this branch only after the VPS API confirms
+        # key installation. Do not make failed SSH logins while awaiting approval.
+        gate = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/git/ref/heads/novalis-ssh-ready-{os.environ['GITHUB_RUN_ID']}"
+        authorized = False
         while time.monotonic() < deadline:
-            ready = subprocess.run(ssh + ['true'], capture_output=True, timeout=20)
-            if ready.returncode == 0:
-                result['authenticated'] = True
+            query = urllib.request.Request(gate, headers={
+                'Accept': 'application/vnd.github+json',
+                'Authorization': 'Bearer ' + os.environ['GITHUB_TOKEN'],
+                'User-Agent': 'Novalis authorized VPS operation'})
+            try:
+                with urllib.request.urlopen(query, timeout=10) as response:
+                    authorized = json.load(response).get('object', {}).get('sha') == os.environ['GITHUB_SHA']
+            except urllib.error.HTTPError as error:
+                if error.code != 404:
+                    raise
+            if authorized:
                 break
             time.sleep(10)
+        if authorized:
+            time.sleep(15)
+            ready = subprocess.run(ssh + ['true'], capture_output=True, timeout=20)
+            result['authenticated'] = ready.returncode == 0
+            if not result['authenticated']:
+                result['ssh_returncode'] = ready.returncode
+                result['ssh_error'] = ready.stderr[:10000].decode('utf-8', 'replace')
         if not result['authenticated']:
             result['returncode'] = 1
-            result['error'] = 'SSH authorization did not become available within ten minutes.'
+            result['error'] = 'SSH did not authenticate after the authorized key was installed.' if authorized else 'Authorization gate timed out.'
         else:
             script = Path(request['script']).read_bytes()
             execution = subprocess.run(ssh + ['python3', '-'], input=script,

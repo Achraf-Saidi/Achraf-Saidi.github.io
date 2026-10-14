@@ -7,7 +7,7 @@ permissions:
   contents: read
 concurrency:
   group: novalis-hostinger-vps-operation
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   operation:
     if: github.repository == 'Achraf-Saidi/Achraf-Saidi.github.io'
@@ -30,4 +30,6 @@ jobs:
           public_key=$(cat "$RUNNER_TEMP/novalis-relay-key.pub")
           printf 'public_key=%s\n' "$public_key" >> "$GITHUB_OUTPUT"
       - name: 'Authorize temporary key: ${{ steps.identity.outputs.public_key }}'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python novalis-os/deploy/relay.py novalis-os/deploy/relay-request.json
