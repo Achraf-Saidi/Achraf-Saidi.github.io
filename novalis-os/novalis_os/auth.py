@@ -19,6 +19,7 @@ def token_for(user, purpose):
     queue_email(user['email'], 'Novalis OS — activez votre accès' if purpose == 'invite' else 'Novalis OS — réinitialisation',
                 f"Bonjour {user['name']},\n\nDéfinissez votre mot de passe personnel avec ce lien à usage unique :\n{link}\n\n"
                 'Si vous n’avez pas demandé cet accès, ignorez ce message.\nNovalis AI',org_id=user.get('org_id'))
+    return link
 
 
 @auth.post('/api/auth/login')
@@ -171,9 +172,10 @@ def invite():
             abort(409, 'Cette adresse possède déjà un compte.')
         db.execute('INSERT INTO users(id,org_id,client_id,name,email,role,created_at) VALUES(?,?,?,?,?,?,?)',
                    (user['id'], g.user['org_id'], client_id, user['name'], user['email'], role, now()))
-        token_for(user, 'invite')
+        activation_url = token_for(user, 'invite')
         audit('user.invited', user['id'], {'role': role})
-    return jsonify(id=user['id'], invitation_status='queued'), 201
+    return jsonify(id=user['id'], invitation_status='queued', activation_url=activation_url, expires_in_hours=24,
+                   email_enabled=bool(current_app.config['SMTP_HOST'] and current_app.config['MAIL_ENABLED'])), 201
 
 
 @auth.post('/api/users/<user_id>/status')

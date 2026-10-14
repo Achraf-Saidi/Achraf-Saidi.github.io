@@ -262,6 +262,22 @@ class Workflows(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 verify_backup(target)
 
+    def test_14_manual_invitation_is_authorized_and_one_time(self):
+        public=self.app.test_client()
+        body={'name':'Invité','email':'manual@example.test','role':'developer'}
+        self.assertEqual(public.post('/api/users',json=body,headers={'Origin':ORIGIN}).status_code,401)
+        self.call('developer','POST','/api/users',body,403)
+        self.call('sysadmin','POST','/api/users',dict(body,role='manager'),403)
+        invitation=self.call('manager','POST','/api/users',body,201)
+        self.assertEqual(invitation['expires_in_hours'],24)
+        self.assertFalse(invitation['email_enabled'])
+        self.assertTrue(invitation['activation_url'].startswith(ORIGIN+'/os/#activate='))
+        token=invitation['activation_url'].split('#activate=')[1]
+        self.assertNotIn('activation_url',str(self.call('manager','GET','/api/users')))
+        activated=public.post('/api/auth/activate',json={'token':token,'password':PASSWORD},headers={'Origin':ORIGIN})
+        self.assertEqual(activated.status_code,200)
+        self.assertEqual(public.post('/api/auth/activate',json={'token':token,'password':PASSWORD},headers={'Origin':ORIGIN}).status_code,400)
+
 
 if __name__=='__main__':
     unittest.main()

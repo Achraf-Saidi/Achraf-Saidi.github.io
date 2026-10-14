@@ -1,5 +1,14 @@
 # Journal de livraison — 14 octobre 2026
 
+## Compte Direction et invitations utilisables — 14 octobre 2026
+
+Le compte personnel demandé par le propriétaire a été créé avec le rôle `manager` (Direction), le plus complet, dans l’organisation Novalis. Il est en attente d’activation par un lien personnel à usage unique de 24 heures. Le propriétaire définit son mot de passe et sa MFA. Aucune adresse personnelle ni aucun jeton d’activation de cette opération n’est publié dans ce dépôt.
+
+L’interface **Équipe et accès** propose désormais un lien d’activation copiable après la création d’un utilisateur. Le serveur exige les droits existants et la MFA des administrateurs ; les liens ne sont jamais présents dans la liste des comptes. SMTP reste désactivé : l’administrateur peut transmettre personnellement le lien affiché.
+
+Version applicative : `fd2499a5495e3515c91259de3e4752145bac1a8b`, installée dans une version isolée avec une sauvegarde cohérente vérifiée avant la création du compte. Les 14 tests métier passent en local, dans la CI et sur le VPS, ainsi que les tests DOM des six rôles et du partage d’invitation. Seuls les deux services Novalis ont été redémarrés. Les processus et la configuration Pointage ainsi que la version publique de la vitrine sont inchangés. Le rapport et le lien d’activation sont conservés exclusivement dans les fichiers privés de `/etc/novalis-os/` ; la clé SSH temporaire a été révoquée.
+
+
 ## Refonte utile de la vitrine — 14 octobre 2026
 
 Déployée sur le KVM : version `bc78ee4e44342804e27d4635cfdc716a467e7892`. La sculpture rotative et les anciennes démonstrations répétitives ont été retirées de la page d’accueil. La vitrine propose désormais trois parcours métier, une composition de modules avec dépendances explicites, une estimation de temps net après contrôle humain, un brief téléchargeable ou transférable au formulaire et une commande de démonstration avec contrôle des valeurs, validation explicite et réouverture.

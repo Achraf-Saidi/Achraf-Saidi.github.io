@@ -295,7 +295,13 @@
   const roles=Object.entries(roleNames).filter(([key])=>state.user.role==='manager'||!['manager','finance','sysadmin','client'].includes(key));
   const fields=[{name:'name',label:'Nom complet'},{name:'email',label:'Adresse e-mail',type:'email'},{name:'role',label:'Rôle',type:'select',options:roles}];
   if(clients.items.length)fields.push({name:'client_id',label:'Organisation cliente (uniquement pour le rôle Client)',type:'select',required:false,options:[['','Sans organisation cliente'],...clients.items.map(c=>[c.id,c.name])]});
-  modal('Inviter un utilisateur',fields,async d=>{if(d.role!=='client')delete d.client_id;if(d.role==='client'&&!d.client_id)throw new Error('Sélectionnez l’organisation de ce client.');await api('/api/users','POST',d);await view('users');toast('Invitation préparée et placée en attente d’envoi.');});
+  modal('Inviter un utilisateur',fields,async d=>{if(d.role!=='client')delete d.client_id;if(d.role==='client'&&!d.client_id)throw new Error('Sélectionnez l’organisation de ce client.');const invitation=await api('/api/users','POST',d);await view('users');
+   if(!invitation.activation_url){toast('Invitation préparée et placée en attente d’envoi.');return;}
+   setTimeout(()=>{
+    openDialog('Partager l’invitation',`<p class="dialog-copy">${invitation.email_enabled?'Un e-mail est en attente d’envoi. Vous pouvez aussi transmettre ce lien personnel.':'L’envoi d’e-mails est désactivé. Transmettez ce lien personnel directement à la personne invitée.'} Ce lien est valable 24 heures et ne peut être utilisé qu’une fois.</p><label class="dialog-copy">Lien d’activation<input id="invitation-url" readonly value="${escape(invitation.activation_url)}"></label><button class="button" id="copy-invitation" type="button">Copier le lien</button><p id="invitation-copy-status" role="status"></p>`);
+    $('invitation-url').addEventListener('focus',e=>e.target.select());
+    $('copy-invitation').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(invitation.activation_url);$('invitation-copy-status').textContent='Lien copié. Transmettez-le uniquement à la personne invitée.';}catch{$('invitation-url').focus();$('invitation-url').select();$('invitation-copy-status').textContent='Sélectionnez et copiez le lien affiché.';}});
+   },0);});
  }
  async function journal(epoch){
   const d=await api('/api/audit');if(!current(epoch))return;title('Journal','Les décisions restent traçables.','Les opérations importantes sont conservées dans un journal qui refuse les modifications et suppressions applicatives.');
