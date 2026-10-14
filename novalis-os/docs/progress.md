@@ -1,5 +1,12 @@
 # Journal de livraison — 14 octobre 2026
 
+## Double authentification temporairement retirée du compte demandé
+
+Le propriétaire a explicitement demandé de retirer la double authentification de son compte Direction. Ce compte est actif ; la connexion par son mot de passe existant est maintenant permise avec ses droits Direction. Le mot de passe, le rôle, le statut et les invitations sont conservés. Les données TOTP et de récupération de ce seul compte ainsi que ses sessions ont été révoquées. Une exception nominative figure exclusivement dans la configuration privée du VPS ; aucun facteur ni adresse personnelle n’est publié ici.
+
+Version applicative `a13370afc9e19b1f6a778b2d768c34ba7795c3ca`. Quinze tests métier passent, y compris la portée nominative de l’exception et le refus d’un mot de passe incorrect. Configuration et données ont été sauvegardées avant modification. La vitrine et Pointage sont inchangés, et la clé SSH temporaire de l’opération a été révoquée. La procédure de rétablissement est documentée dans `security.md`.
+
+
 ## Compte Direction et invitations utilisables — 14 octobre 2026
 
 Le compte personnel demandé par le propriétaire a été créé avec le rôle `manager` (Direction), le plus complet, dans l’organisation Novalis. Il est en attente d’activation par un lien personnel à usage unique de 24 heures. Le propriétaire définit son mot de passe et sa MFA. Aucune adresse personnelle ni aucun jeton d’activation de cette opération n’est publié dans ce dépôt.

@@ -27,6 +27,7 @@ def create_app(overrides=None):
         SMTP_USER=os.environ.get('NOVALIS_SMTP_USER',''), SMTP_PASSWORD=os.environ.get('NOVALIS_SMTP_PASSWORD',''),
         MAIL_ENABLED=os.environ.get('NOVALIS_MAIL_ENABLED')=='true', JSON_SORT_KEYS=False,
         TRUST_PROXY=os.environ.get('NOVALIS_TRUST_PROXY')=='true',
+        MFA_EXEMPT_EMAILS={value.strip().lower() for value in os.environ.get('NOVALIS_MFA_EXEMPT_EMAILS','').split(',') if value.strip()},
     )
     if overrides:
         app.config.update(overrides)
