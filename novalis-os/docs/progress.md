@@ -1,5 +1,14 @@
 # Journal de livraison — 14 octobre 2026
 
+## Refonte utile de la vitrine — 14 octobre 2026
+
+Déployée sur le KVM : version `bc78ee4e44342804e27d4635cfdc716a467e7892`. La sculpture rotative et les anciennes démonstrations répétitives ont été retirées de la page d’accueil. La vitrine propose désormais trois parcours métier, une composition de modules avec dépendances explicites, une estimation de temps net après contrôle humain, un brief téléchargeable ou transférable au formulaire et une commande de démonstration avec contrôle des valeurs, validation explicite et réouverture.
+
+Le design conserve la marque et la palette ivoire/cuivre, avec un nouveau premier écran, une architecture visuelle et des styles adaptés aux petits écrans. Les quatre langues ont passé les tests DOM : valeurs limites du calcul, changement des besoins, téléchargement/transfert du brief, références et montants invalides, invalidation d’un contrôle après modification, validation et réouverture. Les 52 pages de détail et le formulaire réel ont également été vérifiés. Le pipeline GitHub complet passe. Le rendu visuel mobile et navigateur n’a pas été vérifié : ces contrôles fonctionnels ne prouvent pas la qualité visuelle.
+
+Le déploiement a vérifié dix fichiers sources par SHA-256, 57 pages publiques, les huit chemins principaux en HTTPS ainsi que les pages de portail/confidentialité. L’ERP reste sain ; les cinq processus principaux sont identiques et la page ainsi que la configuration Pointage sont inchangées. Rapport privé : `/etc/novalis-os/deployment-studio.json`. L’ancienne version publique est conservée pour retour arrière. Les intégrations SMTP, Peppol et paiement restent à configurer.
+
+
 ## Déploiement Hostinger effectué
 
 La vitrine de 57 pages est en ligne sur `https://www.novalisai.com/`. `https://novalisai.com/` redirige vers cette adresse. Le noyau ERP et son API sont en ligne sur `https://app.novalisai.com/os/` ; `/healthz` répond HTTP 200. Le compte de direction d'Achraf est créé sur invitation à usage unique : il choisit son mot de passe et configure ensuite sa MFA. Aucun mot de passe permanent n'a été généré ou publié.
