@@ -1,32 +1,6 @@
 (() => {
  'use strict';
  const data=JSON.parse(document.getElementById('site-data').textContent),v=data.v2;
- let role=0;const states=v.roles.map(()=>0);
- function drawRole(){
-  document.getElementById('lab-role-title').textContent=v.role_title[role];
-  document.getElementById('lab-role-copy').textContent=v.role_copy[role];
-  document.getElementById('lab-current-role').textContent=v.roles[role];
-  document.querySelectorAll('[data-lab-role]').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===role)));
-  document.getElementById('lab-role-items').replaceChildren(...v.role_items[role].map((text,i)=>{
-   const li=document.createElement('li'),span=document.createElement('span');span.setAttribute('aria-hidden','true');
-   span.textContent=i<states[role]?'✓':'↗';li.append(span,document.createTextNode(text));li.dataset.done=String(i<states[role]);return li;
-  }));
-  const button=document.getElementById('lab-role-action');button.disabled=states[role]>=3;
-  document.getElementById('lab-role-status').textContent=states[role]?v.role_done+' · '+states[role]+'/3':'';
- }
- document.querySelectorAll('[data-lab-role]').forEach((b,i)=>b.addEventListener('click',()=>{role=i;drawRole();}));
- document.getElementById('lab-role-action').addEventListener('click',()=>{states[role]=Math.min(3,states[role]+1);drawRole();});
- const tabs=[document.getElementById('lab-tab-access'),document.getElementById('lab-tab-calc')];
- function selectTab(index){tabs.forEach((b,i)=>{b.setAttribute('aria-selected',String(i===index));b.tabIndex=i===index?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=i!==index;});}
- tabs.forEach((b,i)=>{b.addEventListener('click',()=>selectTab(i));b.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const n=e.key==='Home'?0:e.key==='End'?1:1-i;selectTab(n);tabs[n].focus();}});});
- const sliders=['volume','duration','share'].map(k=>document.getElementById('lab-'+k));
- function calculate(){
-  const [volume,duration,share]=sliders.map(s=>Number(s.value));
-  sliders.forEach(s=>{document.getElementById(s.id+'-output').textContent=s.value+(s.id==='lab-share'?' %':'');});
-  document.getElementById('lab-hours').textContent=new Intl.NumberFormat(document.documentElement.lang,{maximumFractionDigits:1,minimumFractionDigits:1}).format(volume*duration*share/100/60);
-  document.getElementById('lab-gauge-value').setAttribute('width',String(220*share/100));
- }
- sliders.forEach(s=>s.addEventListener('input',calculate));calculate();
  document.querySelectorAll('[data-team-pole]').forEach((b,i)=>b.addEventListener('click',()=>{
   document.querySelectorAll('[data-team-pole]').forEach((button,n)=>button.setAttribute('aria-pressed',String(n===i)));
   document.getElementById('team-pole-detail').textContent=v.team_details[i];

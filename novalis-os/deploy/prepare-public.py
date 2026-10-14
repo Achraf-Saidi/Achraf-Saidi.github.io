@@ -32,6 +32,17 @@ def build(output,site_url,api_origin=None,portal_url=None):
     with tempfile.TemporaryDirectory(prefix='novalis-public-build-') as directory:
         checkout=Path(directory)/'website'
         shutil.copytree(source,checkout,ignore=shutil.ignore_patterns('__pycache__','node_modules','.git'))
+        if urlparse(site_url).hostname in {'www.novalisai.com','novalisai.com'}:
+            content_path=checkout/'content.json'
+            content=json.loads(content_path.read_text())
+            hosting={'fr': 'Cette vitrine est hébergée sur Hostinger.', 'en': 'This website is hosted on Hostinger.', 'nl': 'Deze website wordt gehost door Hostinger.', 'de': 'Diese Website wird auf Hostinger gehostet.'}
+            for language,text in hosting.items():
+                original=content[language]['legal_text'][1]
+                separator=original.find('. ')
+                if separator < 0:
+                    raise RuntimeError('Unexpected hosting notice structure')
+                content[language]['legal_text'][1]=text+original[separator+1:]
+            content_path.write_text(json.dumps(content,ensure_ascii=False,indent=2))
         subprocess.run([sys.executable,str(checkout/'build.py'),'--site-url',site_url],check=True)
         output.mkdir(parents=True)
         for name in ['index.html','sitemap.xml']:

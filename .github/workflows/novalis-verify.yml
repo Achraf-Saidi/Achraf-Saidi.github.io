@@ -39,7 +39,7 @@ jobs:
         run: |
           node novalisai/qa/verify.cjs
           node novalisai/qa/v2.cjs
-          node novalisai/qa/sculpture-check.cjs
+          node novalisai/qa/studio.cjs
           node novalis-os/tests/ui.cjs
       - name: Build production image
         run: docker build -f novalis-os/deploy/Dockerfile -t novalis-os:ci .
