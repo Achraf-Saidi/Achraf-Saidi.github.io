@@ -28,7 +28,7 @@ const experience=fs.readFileSync(path.join(root,'assets/experience.js'),'utf8');
   for(const a of d.querySelectorAll('a'))assert(!/github\.com/.test(a.href),'Repository links must not appear in portfolio');
   const menu=d.querySelector('.menu-button');menu.click();assert.equal(menu.getAttribute('aria-expanded'),'true');
   d.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));assert.equal(menu.getAttribute('aria-expanded'),'false');
-  assert.equal(d.querySelectorAll('.product-slot').length,3);assert.equal(d.querySelectorAll('.product-card').length,0);assert(d.getElementById('saas'));assert(d.querySelector('a[href="#saas"]'));
+  assert.equal(d.querySelectorAll('.product-slot').length,0);assert.equal(d.querySelectorAll('.product-card').length,1);assert(d.getElementById('saas'));assert(d.querySelector('a[href="#saas"]'));
   const form=d.getElementById('contact-form');assert(!form.hidden);
   form.dispatchEvent(new w.Event('submit',{cancelable:true,bubbles:true}));assert(d.getElementById('email-preview').hidden,'Invalid form must not create a message');
   d.querySelector('[data-need="3"]').click();assert.equal(d.getElementById('contact-need').selectedIndex,4);
@@ -51,7 +51,7 @@ const experience=fs.readFileSync(path.join(root,'assets/experience.js'),'utf8');
    const url=el.getAttribute(el.hasAttribute('src')?'src':'href');if(!url||/^(https?:|data:|#)/.test(url))continue;
    assert(fs.existsSync(path.resolve(root,lang,url.split('?')[0])),`Missing asset: ${url}`);
   }
-  console.log(`${lang.toUpperCase()}: empty SaaS catalogue, navigation, safe contact draft and local assets OK`);total++;dom.window.close();
+  console.log(`${lang.toUpperCase()}: internal SaaS catalogue, navigation, safe contact draft and local assets OK`);total++;dom.window.close();
  }
- console.log(`${total} language editions verified. Visual browser QA is not available in this environment.`);
+ console.log(`${total} language editions verified. DOM verification does not replace visual browser QA.`);
 })().catch(e=>{console.error(e);process.exit(1);});

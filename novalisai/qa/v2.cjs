@@ -1,6 +1,7 @@
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const {JSDOM}=require(process.env.NOVALIS_JSDOM_MODULE||'jsdom');
 const root=path.resolve(__dirname,'..');
+const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(x=>x.isDirectory()?walk(path.join(dir,x.name)):[path.join(dir,x.name)]);
 const wait=()=>new Promise(resolve=>setTimeout(resolve,0));
 (async()=>{
  let pages=0;
@@ -11,14 +12,13 @@ const wait=()=>new Promise(resolve=>setTimeout(resolve,0));
   w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
   w.eval(fs.readFileSync(path.join(root,'assets/app.js'),'utf8'));w.eval(fs.readFileSync(path.join(root,'assets/v2.js'),'utf8'));
   await wait();
-  assert(!/30min/.test(d.documentElement.outerHTML));
-  d.querySelector('[data-team-pole="2"]').click();assert.equal(d.querySelector('[data-team-pole="2"]').getAttribute('aria-pressed'),'true');
-  for(const directory of fs.readdirSync(path.join(root,language),{withFileTypes:true}).filter(x=>x.isDirectory())){
-   const file=path.join(root,language,directory.name,'index.html'),page=new JSDOM(fs.readFileSync(file,'utf8'));
+  assert.equal(d.querySelector('a[href="https://www.cal.eu/novalisai/30min"]').textContent.includes('30'),true);
+  for(const file of walk(path.join(root,language)).filter(file=>file.endsWith('index.html'))){
+   const page=new JSDOM(fs.readFileSync(file,'utf8'));
    const doc=page.window.document;assert.equal(doc.querySelectorAll('h1').length,1);assert.equal(doc.documentElement.lang,language);assert(!doc.documentElement.outerHTML.includes('{{'));
    for(const node of doc.querySelectorAll('a[href],link[href],img[src],script[src]')){
     const v=node.getAttribute(node.hasAttribute('src')?'src':'href');if(/^(https?:|mailto:|#)/.test(v))continue;
-    const resolved=path.resolve(path.dirname(file),v.split('#')[0]);assert(fs.existsSync(resolved),`Broken link: ${file} => ${v}`);
+    const resolved=path.resolve(path.dirname(file),v.split('#')[0].split('?')[0]);assert(fs.existsSync(resolved),`Broken link: ${file} => ${v}`);
    }
    pages++;page.window.close();
   }

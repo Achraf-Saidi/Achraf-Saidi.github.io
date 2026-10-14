@@ -165,7 +165,7 @@
         "Novalis AI associe une direction en Belgique à un réseau de compétences mobilisé selon les besoins. Un interlocuteur reste responsable du cadrage, de la coordination et de la qualité.",
         [
           "Achraf Saidi — cofondateur et CTO",
-          "Ingénierie, mathématiques et data science",
+          "Une équipe à temps plein en frontend, backend, data et design, coordonnée autour de votre produit. JetThings apporte un réseau de collaboration ; des indépendants peuvent compléter l’équipe selon la tâche.",
           "JetThings / JetNext : réseau de collaboration",
           "Disponibilité des spécialistes vérifiée par projet"
         ]
@@ -250,7 +250,8 @@
       "sending": "Envoi en cours…",
       "slots": "Choisir un créneau d’une heure",
       "no_slots": "Aucun créneau n’est actuellement publié. Vous pouvez nous demander un rendez-vous par e-mail.",
-      "reserved": "Votre rendez-vous est réservé. L’horaire est indiqué ci-dessous ; l’e-mail de confirmation est en attente d’envoi."
+      "reserved": "Votre rendez-vous est réservé. L’horaire est indiqué ci-dessous ; l’e-mail de confirmation est en attente d’envoi.",
+      "server_note": "Votre demande est enregistrée sur notre serveur après confirmation. L’e-mail de réponse n’est pas envoyé automatiquement tant que la messagerie n’est pas raccordée."
     }
   },
   "en": {
@@ -419,7 +420,7 @@
         "Novalis AI combines leadership in Belgium with a specialist network matched to each project. One contact remains responsible for scope, coordination and quality.",
         [
           "Achraf Saidi — cofounder and CTO",
-          "Engineering, mathematics and data science",
+          "A full-time team across frontend, backend, data and design, coordinated around your product. JetThings extends the collaboration network; independent specialists can join for a particular task.",
           "JetThings / JetNext: collaboration network",
           "Availability checked for each project"
         ]
@@ -504,7 +505,8 @@
       "sending": "Sending…",
       "slots": "Choose a one-hour slot",
       "no_slots": "No appointment slots are currently published. You can request a meeting by email.",
-      "reserved": "Your meeting is reserved. Its time is shown below; the confirmation email is queued."
+      "reserved": "Your meeting is reserved. Its time is shown below; the confirmation email is queued.",
+      "server_note": "Your request is stored on our server after confirmation. Email replies are not sent automatically until mail is connected."
     }
   },
   "nl": {
@@ -673,7 +675,7 @@
         "Novalis AI combineert leiding in België met een netwerk van specialisten. Eén contactpersoon bewaakt de scope, coördinatie en kwaliteit.",
         [
           "Achraf Saidi — medeoprichter en CTO",
-          "Software, wiskunde en data science",
+          "Een voltijds team voor frontend, backend, data en design, rond uw product. JetThings breidt het samenwerkingsnetwerk uit; zelfstandige specialisten kunnen per taak bijdragen.",
           "JetThings / JetNext: samenwerkingsnetwerk",
           "Beschikbaarheid per project nagegaan"
         ]
@@ -758,7 +760,8 @@
       "sending": "Bezig met versturen…",
       "slots": "Kies een tijdslot van een uur",
       "no_slots": "Er zijn momenteel geen tijdsloten gepubliceerd. Vraag een afspraak aan via e-mail.",
-      "reserved": "Uw afspraak is gereserveerd. Het tijdstip staat hieronder; de bevestigingsmail wacht op verzending."
+      "reserved": "Uw afspraak is gereserveerd. Het tijdstip staat hieronder; de bevestigingsmail wacht op verzending.",
+      "server_note": "Uw aanvraag wordt na bevestiging op onze server opgeslagen. E-mails worden niet automatisch verstuurd zolang mail niet gekoppeld is."
     }
   },
   "de": {
@@ -927,7 +930,7 @@
         "Novalis AI verbindet Führung in Belgien mit einem passenden Expertennetzwerk. Ein Ansprechpartner verantwortet Umfang, Koordination und Qualität.",
         [
           "Achraf Saidi — Mitgründer und CTO",
-          "Entwicklung, Mathematik und Data Science",
+          "Ein Vollzeitteam für Frontend, Backend, Daten und Design rund um Ihr Produkt. JetThings erweitert das Netzwerk; unabhängige Spezialisten können je Aufgabe beitragen.",
           "JetThings / JetNext: Zusammenarbeit",
           "Verfügbarkeit für jedes Projekt geprüft"
         ]
@@ -1012,7 +1015,8 @@
       "sending": "Wird gesendet…",
       "slots": "Einstündigen Termin wählen",
       "no_slots": "Derzeit sind keine Termine veröffentlicht. Fragen Sie per E-Mail nach einem Gespräch.",
-      "reserved": "Ihr Termin ist reserviert. Die Uhrzeit steht unten; die Bestätigungs-E-Mail wartet auf den Versand."
+      "reserved": "Ihr Termin ist reserviert. Die Uhrzeit steht unten; die Bestätigungs-E-Mail wartet auf den Versand.",
+      "server_note": "Ihre Anfrage wird nach Bestätigung auf unserem Server gespeichert. E-Mails werden erst nach Einrichtung der Mailanbindung versandt."
     }
   }
 }
