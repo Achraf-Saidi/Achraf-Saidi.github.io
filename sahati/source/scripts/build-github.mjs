@@ -1,14 +1,14 @@
 import {readFile,writeFile,mkdir,rm,cp,readdir} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import path from 'node:path';
-const require=createRequire(import.meta.url),esbuild=require(createRequire(require.resolve('drizzle-kit')).resolve('esbuild'));
+const require=createRequire(import.meta.url),esbuild=require('esbuild');
 const root=process.cwd(),temp=path.join(root,'.sites-runtime/github'),out=path.join(root,'dist/github');
 await rm(temp,{recursive:true,force:true});await rm(out,{recursive:true,force:true});await mkdir(temp,{recursive:true});await mkdir(out,{recursive:true});
 for(const file of ['main.tsx','runtime.ts','vault.ts','sqlite.ts']) {
  let text=await readFile(path.join(root,'github',file),'utf8');text=text.replaceAll("from '../components/","from './components/").replaceAll("from '../lib/","from './lib/");await writeFile(path.join(temp,file),text);
 }
 await cp('lib',temp+'/lib',{recursive:true});await cp('components',temp+'/components',{recursive:true});
-for(const file of ['gate','landing','login','workspace','sahati-ui','record-detail','views','record-form','patient-editor','verification']) {
+for(const file of (await readdir(temp+'/components')).filter(f=>f.endsWith('.tsx')).map(f=>f.slice(0,-4))) {
  const target=temp+'/components/'+file+'.tsx';let text=await readFile(target,'utf8');
  text=text.replace(/(["'])\/brand\//g,'$1/sahati/brand/').replace(/(["'])\/connexion/g,'$1/sahati/connexion/').replace(/(["'])\/espace/g,'$1/sahati/espace/').replace(/(["'])\/verifier/g,'$1/sahati/verifier/').replace(/href="\/"/g,'href="/sahati/"');
  text=text.replace("window.location.reload();","goTo(location.pathname+location.search);").replace("location.href='/sahati/espace/';","goTo('/sahati/espace/');").replace("location.href='/sahati/connexion/';","goTo('/sahati/connexion/');").replace("location.href=lock?'/':'/sahati/connexion/';","goTo(lock?'/sahati/':'/sahati/connexion/');");
@@ -38,9 +38,9 @@ let css=await readFile('app/globals.css','utf8');css=css.replaceAll('/fonts/','/
 css+='\n.local-storage-button{position:fixed;bottom:24px;right:24px;z-index:35;display:flex;align-items:center;gap:8px;padding:12px 16px;background:#174f43;color:white;border:1px solid #fff8;border-radius:999px;box-shadow:0 5px 20px #123b3520;font-size:12px;cursor:pointer}.global-error{padding:12px;text-align:center}@media(max-width:760px){.local-storage-button{bottom:83px;right:12px;padding:12px}.local-storage-button span{display:none}}@media print{.local-storage-button{display:none}}';
 css+='\n.site-credit{display:flex;justify-content:center;align-items:center;padding:18px 24px;border-top:1px solid var(--line);background:var(--ivory,#f9faf5);color:#4a665e;font-size:.72rem;line-height:1.6;text-align:center}.site-credit-workspace{margin-inline-start:250px;background:#f4f7f6}@media(max-width:1200px){.site-credit-workspace{margin-inline-start:230px}}@media(max-width:1000px){.site-credit-workspace{margin-inline-start:0}}@media(max-width:760px){.site-credit{padding-inline:18px;font-size:.69rem}.site-credit-workspace{padding-bottom:calc(88px + env(safe-area-inset-bottom))}}';
 await writeFile(temp+'/styles.css',css);
-await esbuild.build({entryPoints:[temp+'/main.tsx'],outdir:out+'/assets',entryNames:'sahati-[hash]',bundle:true,format:'esm',platform:'browser',target:['es2022'],jsx:'automatic',minify:true,external:['/sahati/*'],tsconfigRaw:{compilerOptions:{baseUrl:temp,paths:{'@/*':['./*']}}},metafile:true,logLevel:'info'});
-const assets=await readdir(out+'/assets'),js=assets.find(x=>x.endsWith('.js')),style=assets.find(x=>x.endsWith('.css'));
-await cp('public/brand',out+'/brand',{recursive:true});await cp('public/fonts',out+'/fonts',{recursive:true});await mkdir(out+'/vendor');
+await esbuild.build({entryPoints:[temp+'/main.tsx'],outdir:out+'/assets',entryNames:'sahati-[hash]',bundle:true,splitting:true,format:'esm',platform:'browser',target:['es2022'],jsx:'automatic',minify:true,external:['/sahati/*'],tsconfigRaw:{compilerOptions:{baseUrl:temp,paths:{'@/*':['./*']}}},metafile:true,logLevel:'info'});
+const assets=await readdir(out+'/assets'),js=assets.find(x=>x.startsWith('sahati-')&&x.endsWith('.js')),style=assets.find(x=>x.endsWith('.css'));
+await cp('public/imaging',out+'/imaging',{recursive:true});await cp('public/brand',out+'/brand',{recursive:true});await cp('public/fonts',out+'/fonts',{recursive:true});await mkdir(out+'/vendor');
 await cp('node_modules/sql.js/dist/sql-wasm-browser.js',out+'/vendor/sql-wasm-browser.js');await cp('node_modules/sql.js/dist/sql-wasm-browser.wasm',out+'/vendor/sql-wasm-browser.wasm');await cp('node_modules/sql.js/LICENSE',out+'/vendor/SQLJS-LICENSE.txt');
 await cp('github/vault-bootstrap.json',out+'/vault-bootstrap.json');
 const html=`<!doctype html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#174f43"><title>SAHATI — Le soin, relié.</title><meta name="description" content="SAHATI, plateforme hospitalière de démonstration. 14 métiers, une expérience reliée. Données fictives et stockage local chiffré."><link rel="icon" href="/sahati/brand/logo.png"><link rel="stylesheet" href="/sahati/assets/${style}"><script defer src="/sahati/vendor/sql-wasm-browser.js"></script><script type="module" src="/sahati/assets/${js}"></script></head><body><div id="root"><div class="workspace-loading"><img src="/sahati/brand/logo.png" width="64" alt="SAHATI"><h1>SAHATI</h1><p role="status">Ouverture de votre espace…</p></div></div><noscript>Activez JavaScript pour ouvrir votre espace SAHATI.</noscript></body></html>`;

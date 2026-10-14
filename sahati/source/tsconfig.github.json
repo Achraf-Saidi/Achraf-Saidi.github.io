@@ -1,0 +1,6 @@
+{
+ "extends":"./tsconfig.json",
+ "compilerOptions":{"incremental":false,"target":"ES2022","types":["node","@cloudflare/workers-types"]},
+ "include":["github/*.ts","github/main.tsx","lib/model.ts","lib/engine.ts","lib/clinical.ts","lib/education.ts","lib/reporting.ts","lib/document-export.ts","lib/dicom-demo.ts","components/*.tsx"],
+ "exclude":["node_modules","components/ui","components/gate-boundary.tsx","components/connector-error.tsx",".sites-runtime","dist"]
+}

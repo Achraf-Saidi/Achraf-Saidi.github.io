@@ -12,7 +12,7 @@ export const roles: {id:Role;label:string;ar:string;subtitle:string;icon:string;
  {id:'pharmacy',label:'Pharmacie',ar:'الصيدلية',subtitle:'Délivrances & lots',icon:'Pill',email:'pharmacie@sahati.demo'},
  {id:'patient',label:'Patient & famille',ar:'المريض والأسرة',subtitle:'Mon parcours de soins',icon:'UserRound',email:'patient@sahati.demo'},
  {id:'researcher',label:'Chercheur',ar:'باحث',subtitle:'Protocoles & cohortes',icon:'Microscope',email:'chercheur@sahati.demo'},
- {id:'student',label:'Étudiant',ar:'طالب',subtitle:'Recherche & ressources',icon:'BookOpen',email:'etudiant@sahati.demo'},
+ {id:'student',label:'Étudiant',ar:'طالب',subtitle:'Cas cliniques & progression',icon:'BookOpen',email:'etudiant@sahati.demo'},
  {id:'director',label:'Direction',ar:'الإدارة',subtitle:'Pilotage & qualité',icon:'ChartNoAxesCombined',email:'direction@sahati.demo'},
  {id:'finance',label:'Finances',ar:'المالية',subtitle:'Facturation en DZD',icon:'Wallet',email:'finance@sahati.demo'},
  {id:'logistics',label:'Logistique',ar:'الخدمات اللوجستية',subtitle:'Stocks & maintenance',icon:'Package',email:'logistique@sahati.demo'},
@@ -25,5 +25,5 @@ export const hospitals = [
 ];
 export const services=['Médecine interne','Pédiatrie','Gynécologie','Chirurgie','Cardiologie','Urgences','Radiologie','Laboratoire'];
 export const statuses:Record<string,string>={draft:'Brouillon',pending:'À valider',validated:'Validée',dispensed:'Délivrée',cancelled:'Annulée',scheduled:'Programmé',arrived:'Arrivé',done:'Terminé',requested:'Demandé',collected:'Prélevé',in_progress:'En cours',published:'Publié',occupied:'Occupé',available:'Disponible',cleaning:'Bionettoyage',maintenance:'Maintenance',admitted:'Hospitalisé',discharged:'Sorti',waiting:'En attente',active:'Actif',approved:'Approuvé',rejected:'Refusé',paid:'Payée',unpaid:'À régler',resolved:'Résolu',open:'Ouvert',submitted:'Soumis',acknowledged:'Lecture confirmée'};
-export const today=()=>new Date().toISOString().slice(0,10);
+export const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Algiers',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 export function age(birth:string){const d=new Date(birth);return Math.max(0,new Date().getFullYear()-d.getFullYear()-(new Date().getMonth()<d.getMonth()||(new Date().getMonth()===d.getMonth()&&new Date().getDate()<d.getDate())?1:0));}

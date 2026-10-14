@@ -4,6 +4,7 @@ export function textField(v:any,label:string,max=3000,required=false){if(typeof 
 export function positive(v:any,label:string,min=0,max=10000000){const n=Number(v);if(!Number.isFinite(n)||n<min||n>max)throw new UserError(`${label} : valeur invalide.`);return n;}
 export function dateField(v:any,label='Date'){const s=textField(v,label,10,true);if(!/^\d{4}-\d{2}-\d{2}$/.test(s)||!Number.isFinite(new Date(`${s}T00:00:00Z`).getTime())||new Date(`${s}T00:00:00Z`).toISOString().slice(0,10)!==s)throw new UserError(`${label} invalide.`);return s;}
 export function slotsFor(e:Entity){
+ if(e.kind==='orders'&&e.category==='radiology'&&e.imagingDate)return slotsFor({...e,kind:'surgeries',date:e.imagingDate,time:e.imagingTime,duration:e.imagingDuration,room:'radiology:'+e.modality});
  if(!['appointments','surgeries'].includes(e.kind))return [];
  dateField(e.date);if(!/^\d{2}:\d{2}$/.test(e.time))throw new UserError('Heure invalide.');
  const [h,m]=e.time.split(':').map(Number);const duration=positive(e.duration,'Durée',5,240);if(h>23||m>59||m%5||duration%5||h*60+m+duration>1440)throw new UserError('Les créneaux sont des multiples de 5 minutes, dans la même journée.');

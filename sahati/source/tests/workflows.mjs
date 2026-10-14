@@ -5,7 +5,7 @@ import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {pathToFileURL} from 'node:url';
 const require=createRequire(import.meta.url);
-const esbuild=require(createRequire(require.resolve('drizzle-kit')).resolve('esbuild'));
+const esbuild=require('esbuild');
 await mkdir('.sites-runtime/tests',{recursive:true});
 await esbuild.build({entryPoints:['lib/engine.ts','lib/crypto.ts','lib/model.ts'],outdir:'.sites-runtime/tests',bundle:true,format:'esm',platform:'node',target:'node24',logLevel:'silent'});
 await esbuild.build({entryPoints:['github/sqlite.ts'],outfile:'.sites-runtime/tests/sqlite.js',bundle:true,format:'esm',platform:'node',target:'node24',logLevel:'silent'});

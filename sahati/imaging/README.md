@@ -1,0 +1,1 @@
+Fantôme numérique synthétique généré par SAHATI. Aucun pixel médical ni donnée de personne réelle. DICOM Secondary Capture, Explicit VR Little Endian, 128 × 128, 8 bits. Un seul objet, aucune géométrie spatiale ou mesure anatomique. Auteur : SAHATI. Licence de ce jeu : CC0-1.0. Reconstruire avec node scripts/create-dicom-fixture.mjs.

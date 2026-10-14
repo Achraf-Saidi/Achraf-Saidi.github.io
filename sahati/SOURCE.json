@@ -1,6 +1,6 @@
 {
   "product": "SAHATI",
-  "version": "github-1.3",
+  "version": "github-2.0",
   "url": "https://achraf-saidi.github.io/sahati/",
   "hosting": "GitHub Pages",
   "source": "./source",
@@ -8,16 +8,21 @@
   "data_mode": "encrypted-local-demo",
   "synchronization": false,
   "roles": 14,
-  "modules": 25,
+  "modules": 28,
   "validation": {
     "business_scenarios": 23,
     "vault_scenarios": 11,
-    "sqlite_native": true,
+    "connected_scenarios": 12,
+    "dom_scenarios": 8,
+    "total_distinct_scenarios": 54,
     "sqlite_wasm": true,
     "typescript": true,
     "static_build": true,
-    "standalone_server_build": true,
-    "browser_visual_qa": false
+    "standalone_server_build": false,
+    "browser_visual_qa": false,
+    "pdf_visual_qa": true,
+    "qr_independent_decode": true,
+    "dicom_independent_read": true
   },
   "local_transport": "application-request-and-session-callback",
   "credits": "By Achraf Saidi, Ryan Aouf & 21 others",
@@ -28,5 +33,8 @@
     "shared_secrets": true,
     "multi_factor_authentication": false
   },
-  "responsive_update": "flexible-grids-compact-header-integrated-footer"
+  "responsive_update": "flexible-grids-compact-header-integrated-footer",
+  "clinical_use": false,
+  "documentation": "./DEMO_GUIDE.md",
+  "presentation": "./docs/SAHATI_Presentation.pdf"
 }

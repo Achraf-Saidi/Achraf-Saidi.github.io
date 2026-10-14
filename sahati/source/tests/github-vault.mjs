@@ -5,7 +5,7 @@ import {readFile} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {pathToFileURL} from 'node:url';
 import 'fake-indexeddb/auto';
-const require=createRequire(import.meta.url),esbuild=require(createRequire(require.resolve('drizzle-kit')).resolve('esbuild'));
+const require=createRequire(import.meta.url),esbuild=require('esbuild');
 // Node permits headers that browsers filter. Exercise the documented browser
 // request/response guards so the in-process transport cannot rely on them.
 const NativeRequest=globalThis.Request,NativeResponse=globalThis.Response;

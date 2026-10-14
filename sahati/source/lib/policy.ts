@@ -5,7 +5,7 @@ const reads:Record<Role,Kind[]>={
  nurse:['patients','appointments','prescriptions','orders','admissions','beds','care','emergencies','surgeries','documents','messages','incidents'],
  reception:['patients','appointments','admissions','beds','messages'],lab:['patients','orders','messages','incidents'],radiology:['patients','orders','messages','incidents'],
  pharmacy:['patients','prescriptions','stock','messages','incidents'],finance:['patients','invoices','messages'],logistics:['beds','stock','equipment','messages','incidents'],
- researcher:['studies','requests','messages'],student:['studies','requests','messages'],patient:['patients','appointments','prescriptions','orders','documents','messages','consents'],
+ researcher:['studies','requests','messages'],student:['studies','requests','messages'],patient:['patients','appointments','encounters','admissions','prescriptions','orders','documents','messages','consents'],
  director:['beds','stock','equipment','staff','studies','requests','incidents','messages'],admin:['beds','stock','equipment','staff','studies','requests','incidents','messages'],
 };
 const writes:Record<Role,Kind[]>={doctor:['patients','encounters','prescriptions','orders','admissions','care','emergencies','surgeries','documents','incidents','messages'],resident:['encounters','prescriptions','orders','care','messages'],nurse:['beds','care','incidents','messages'],reception:['patients','appointments','admissions','beds','messages'],lab:['orders','incidents','messages'],radiology:['orders','incidents','messages'],pharmacy:['prescriptions','stock','incidents','messages'],finance:['invoices','messages'],logistics:['beds','stock','equipment','incidents','messages'],researcher:['studies','requests','messages'],student:['requests','messages'],patient:['appointments','consents','messages'],director:['requests','studies','incidents','staff','messages'],admin:['beds','requests','studies','staff','incidents','equipment','messages']};
@@ -38,7 +38,7 @@ const flows:Partial<Record<Kind,Record<string,string[]>>>= {
  appointments:{scheduled:['arrived','cancelled'],requested:['scheduled','cancelled'],arrived:['done','cancelled']},
  encounters:{draft:['pending','validated'],pending:['validated','draft'],validated:[]},
  prescriptions:{draft:['pending','validated','cancelled'],pending:['validated','draft','cancelled'],validated:['dispensed','cancelled'],dispensed:[]},
- orders:{requested:['collected','in_progress','cancelled'],collected:['in_progress','cancelled'],in_progress:['validated'],validated:['published'],published:['acknowledged']},
+ orders:{requested:['collected','in_progress','cancelled'],scheduled:['in_progress','cancelled'],collected:['in_progress','cancelled'],in_progress:['validated'],validated:['published'],published:['acknowledged']},
  care:{pending:['done','cancelled']},emergencies:{waiting:['in_progress'],in_progress:['done']},
  surgeries:{scheduled:['in_progress','cancelled'],in_progress:['done']},admissions:{admitted:['discharged']},
  invoices:{unpaid:['paid']},requests:{pending:['approved','rejected']},studies:{draft:['submitted'],submitted:['approved','rejected']},
@@ -48,6 +48,9 @@ const flows:Partial<Record<Kind,Record<string,string[]>>>= {
 export function allowedTransition(a:Account,e:Entity,next:string){
  if(!canWrite(a,e.kind)||(flows[e.kind]?.[e.status]||[]).includes(next)===false)return false;
  if(['encounters','prescriptions'].includes(e.kind)&&next==='validated')return a.role==='doctor';
+ if(e.kind==='appointments'&&a.role==='patient')return next==='cancelled'&&['requested','scheduled'].includes(e.status);
+ if(e.kind==='orders'&&e.category==='lab'&&e.status==='requested'&&next==='in_progress')return false;
+ if(e.kind==='orders'&&e.category==='radiology'&&next==='collected')return false;
  if(e.kind==='prescriptions'&&a.role==='pharmacy')return next==='dispensed';
  if(e.kind==='prescriptions'&&next==='dispensed')return a.role==='pharmacy';
  if(e.kind==='prescriptions'&&next==='cancelled')return ['doctor','resident'].includes(a.role)&&(['doctor'].includes(a.role)||e.authorId===a.id);
@@ -60,5 +63,5 @@ export function allowedTransition(a:Account,e:Entity,next:string){
  if(e.kind==='encounters'&&a.role==='resident'&&next==='draft')return false;
  return true;
 }
-export function patientPublished(a:Account,e:Entity){return a.role!=='patient'||!['prescriptions','orders','documents'].includes(e.kind)||(e.kind==='prescriptions'?['validated','dispensed']:e.kind==='orders'?['published','acknowledged']:['published']).includes(e.status);}
+export function patientPublished(a:Account,e:Entity){return a.role!=='patient'||!['encounters','prescriptions','orders','documents'].includes(e.kind)||(e.kind==='encounters'?['validated']:e.kind==='prescriptions'?['validated','dispensed']:e.kind==='orders'?['published','acknowledged']:['published']).includes(e.status);}
 export function nextStatuses(a:Account,e:Entity){return (flows[e.kind]?.[e.status]||[]).filter(s=>allowedTransition(a,e,s));}

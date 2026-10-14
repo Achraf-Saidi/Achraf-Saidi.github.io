@@ -1,6 +1,6 @@
 {
   "name": "sahati",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "engines": {
     "node": ">=24.0.0"
@@ -11,7 +11,11 @@
     "build:server": "vite build",
     "test": "node tests/workflows.mjs",
     "test:github": "node scripts/build-github.mjs && SAHATI_TEST_SQLITE=wasm node tests/workflows.mjs && node tests/github-vault.mjs",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "test:connected": "node tests/connected-workflows.mjs",
+    "test:dom": "node tests/ui-dom.mjs",
+    "typecheck:github": "tsc --project tsconfig.github.json",
+    "test:all": "node scripts/build-github.mjs && SAHATI_TEST_SQLITE=wasm node tests/workflows.mjs && node tests/github-vault.mjs && SAHATI_TEST_SQLITE=wasm node tests/connected-workflows.mjs && node tests/ui-dom.mjs && tsc --project tsconfig.github.json"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -37,7 +41,8 @@
     "sonner": "^2.0.8",
     "tailwind-merge": "3.6.0",
     "vaul": "^1.1.2",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "jspdf": "4.2.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
@@ -61,7 +66,9 @@
     "typescript": "5.9.3",
     "vinext": "1.0.0-beta.5",
     "vite": "8.0.13",
-    "wrangler": "4.92.0"
+    "wrangler": "4.92.0",
+    "esbuild": "0.28.2",
+    "jsdom": "27.4.0"
   },
   "type": "module",
   "overrides": {

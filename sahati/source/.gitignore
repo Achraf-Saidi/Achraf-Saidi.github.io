@@ -4,3 +4,6 @@ dist/
 .wrangler/
 .env*
 tsconfig.tsbuildinfo
+
+# Exclude linked dependency directories as well as normal directories.
+node_modules

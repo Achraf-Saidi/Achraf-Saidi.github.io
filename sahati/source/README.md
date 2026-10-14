@@ -1,40 +1,28 @@
-# SAHATI — le soin, relié.
+# SAHATI 0.2 - Démonstration hospitalière reliée
 
-**Application : https://achraf-saidi.github.io/sahati/**
+[Ouvrir SAHATI](https://achraf-saidi.github.io/sahati/) · [Guide de démonstration](../DEMO_GUIDE.md) · [Présentation PDF](../docs/SAHATI_Presentation.pdf)
 
-SAHATI rassemble 14 métiers et 25 espaces autour du parcours hospitalier : dossiers patients, rendez-vous, consultations, ordonnances avec QR, laboratoire, radiologie, pharmacie, admissions et lits, soins, urgences, bloc, stocks, facturation, équipes, équipements, qualité, documents, consentements, recherche et administration.
+Identité SAHATI conservée. Démonstration autonome GitHub Pages, sans authentification par une plateforme tierce. Deux codes existants, puis comptes par métier. Tous les dossiers, établissements, mesures, cas et images sont synthétiques.
 
-## Version GitHub
+## Ce qui fonctionne
 
-L'application publiée fonctionne entièrement sur GitHub Pages, sans redirection ni compte externe. Elle réutilise le moteur métier dans SQLite WebAssembly. Les données et pièces jointes fictives sont enregistrées dans IndexedDB, chiffrées par AES-256-GCM ; la clé non exportable est dérivée des deux codes privés par PBKDF2-SHA256 avec 600 000 itérations. Les codes ne sont pas inclus en clair dans le dépôt. Une première enveloppe vérifie le code d’accès, puis une seconde enveloppe vérifie le code de la direction. La première étape ne donne accès ni à la base ni à une session. La clé du coffre combine les deux codes ; la clé et les sessions restent en mémoire, et une recharge complète demande les deux codes à nouveau. Les coffres existants sont migrés et rechiffrés après validation des deux étapes.
+Accueil et dossier patient, rendez-vous modifiables, consultation reliée, ordonnances structurées, téléchargement PDF, QR local, mesures et explications sourcées, circuit laboratoire, programmation radiologique et vrai DICOM synthétique, hospitalisation cohérente, campus avec progression, recherche autorisée et pilotage institutionnel.
 
-Les permissions métier sont simulées localement. Elles ne constituent pas une frontière de sécurité contre le propriétaire du navigateur. Le code et les ressources de présentation sont publics. Cette version est destinée uniquement à des données fictives, pas à des dossiers médicaux réels. GitHub Pages ne fournit ni serveur applicatif ni synchronisation entre appareils. Un QR local est vérifiable sur le même appareil ou après restauration de sa sauvegarde.
+Les 14 rôles et les modules existants sont conservés. Le scénario est enregistré dans un coffre local chiffré ; il ne se synchronise pas entre appareils. Le QR nécessite le même coffre et un compte autorisé. Aucune donnée réelle, signature qualifiée, base pharmacologique certifiée ou intégration nationale n’est présente.
 
-Le bouton **Mes sauvegardes** exporte et restaure une copie chiffrée comprenant les pièces jointes. Une restauration remplace la base locale et révoque ses sessions. Effacer les données du navigateur supprime les données locales ; conserver une sauvegarde est donc nécessaire.
+## Documentation
 
-## Connexion
+- [Audit](../AUDIT.md), [vision produit](../PRODUCT_VISION.md), [benchmark](../BENCHMARK.md)
+- [Architecture](../ARCHITECTURE.md), [fonctionnalités et rôles](../FEATURE_MATRIX.md)
+- [Parcours](../WORKFLOWS.md), [sécurité et conformité](../SECURITY_AND_COMPLIANCE.md)
+- [Roadmap](../ROADMAP.md), [guide](../DEMO_GUIDE.md), [validation](../VALIDATION.md)
 
-L’entrée demande successivement le premier code privé et le code spécial de la direction, choisis par le propriétaire. Les deux codes sont requis pour chaque nouvelle ouverture complète ; il s’agit de deux secrets partagés, pas d’une authentification multifacteur ni d’une preuve du rôle professionnel. Les 14 comptes fictifs ont le mot de passe de compte **SahatiDemo2026!**, distinct du verrou d'entrée. La connexion propose les rôles directement ; leurs adresses sont définies dans `lib/model.ts`.
+54 scénarios automatisés passent, avec build et typage. PDF rendus, QR décodé et fichier DICOM relu indépendamment. Le rendu de l’application sur un navigateur et des téléphones réels n’a pas pu être contrôlé dans l’environnement de livraison.
 
-## Construire et vérifier
+## Sources et build
 
-Node 24 et pnpm sont requis.
+Depuis `source/` : Node 24+, `pnpm install --frozen-lockfile`, puis `pnpm test:all`. `pnpm build` produit `dist/github/`. Pour publier, copier ses fichiers vers `sahati/` dans le même dépôt, conserver les sources et ne modifier aucun autre projet.
 
-```sh
-pnpm install --frozen-lockfile
-pnpm build
-pnpm test:github
-pnpm exec tsc --noEmit
-```
+Les composants, le domaine, les migrations et les tests sont versionnés. Le PDF est chargé à la demande ; ses fontes sont locales. L’ancien point d’entrée serveur est conservé mais n’est pas le serveur de Pages et n’a pas été revalidé dans cette livraison.
 
-Le build produit `dist/github/` et les pages `connexion/`, `espace/`, `verifier/`, avec les ressources servies sous `/sahati/`. Le dossier `github/` contient le coffre, l'adaptateur SQLite et l'entrée autonome. Le script de construction adapte les composants communs et conserve le moteur métier.
-
-## Serveur pour un futur usage partagé
-
-Le moteur serveur, les API, les contrôles d'accès, les neuf tables et les migrations restent inclus. La configuration indépendante utilise Vinext, Cloudflare Workers, D1 et R2. `pnpm build:server` prépare cette variante ; elle nécessite un hébergement configuré, un identifiant D1 réel, un bucket R2 et un secret `SAHATI_GATE_HASH`. Elle n'est pas exécutée par GitHub Pages. Les connexions PACS, laboratoire, organismes payeurs et systèmes nationaux restent à implémenter et à valider.
-
-## Validation et limites
-
-23 scénarios métier passent sur SQLite natif et sur SQLite WASM. Onze scénarios complémentaires couvrent le coffre, les restrictions d’en-têtes du navigateur, le refus d'accès à chaque étape, l’impossibilité de contourner le premier code, la migration des anciens coffres et sauvegardes, les mutations/fichiers persistants, le verrouillage, les sauvegardes modifiées, la restauration et les routes GitHub. TypeScript et le build sont vérifiés. La recette visuelle complète en navigateur et la lecture de QR sur appareil physique restent à effectuer. L'interface prévoit téléphone, RTL, contraste et taille de texte ; la traduction métier arabe n'est pas encore complète.
-
-Cette version ne revendique aucune certification clinique, FHIR, WCAG ni conformité juridique. Voir `docs/ROADMAP.md` pour les étapes de validation hospitalière.
+By Achraf Saidi, Ryan Aouf & 21 others
