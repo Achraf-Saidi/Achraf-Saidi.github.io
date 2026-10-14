@@ -297,6 +297,7 @@ class Workflows(unittest.TestCase):
         self.assertTrue(login.json['mfa_required'])
         self.assertEqual(required.get('/api/users').status_code,403)
         self.app.config['MFA_EXEMPT_EMAILS']=set()
+        optional=self.app.test_client()
         login=optional.post('/api/auth/login',json={'email':'optional-manager@example.test','password':PASSWORD},headers={'Origin':ORIGIN})
         self.assertTrue(login.json['mfa_required'])
 
