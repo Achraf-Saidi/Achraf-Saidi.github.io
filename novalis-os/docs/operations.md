@@ -2,6 +2,8 @@
 
 **État : fichiers préparés ; aucune opération n’a été exécutée sur le VPS Hostinger.** Ne pas copier cette procédure sur une machine existante avant l’inventaire, la sauvegarde et la vérification des conflits.
 
+La CI GitHub a construit l’image de production avec succès sur le commit `62c94f2b9bdaa559baba338df37219f904166263`. Cela vérifie la construction de l’image, pas la capacité du KVM ni son démarrage en production.
+
 ## Qualification de la machine
 
 Le script `deploy/audit-vps.sh` est en lecture seule : OS, CPU, mémoire, disque, ports et services. Évaluer la charge existante, le stockage disponible, les certificats et le reverse proxy déjà utilisé. Les ports 80/443 du fichier Compose supposent une machine disponible pour Caddy ; si ces ports sont occupés, intégrer l’application au proxy existant au lieu de démarrer celui-ci.
@@ -56,6 +58,22 @@ Ne modifier `novalisai/runtime-config.json` qu’après qualification du backend
 Tant que ces valeurs sont `null`, le formulaire prépare un e-mail et le portail explique que les accès ne sont pas ouverts. Le client ne reçoit une confirmation d’enregistrement qu’après la réponse positive de l’API. Les créneaux visibles viennent du calendrier serveur, sans masquer les collisions de réservation.
 
 Pour transférer la vitrine sur le domaine, construire une copie avec `python3 novalisai/build.py --site-url https://www.novalisai.com`. Sauvegarder d’abord l’ancienne application et le proxy. Cette commande ajuste les URL canoniques ; elle ne modifie pas les DNS. Ne pas toucher aux MX, SPF, DKIM et DMARC existants.
+
+### Vitrine et ERP ensemble sur le KVM
+
+La cible demandée est Hostinger pour les deux applications : vitrine sur `www.novalisai.com`, ERP et API sur `app.novalisai.com`, racine `novalisai.com` redirigée vers `www`. Le script suivant prépare le dossier public isolément, sans réécrire les pages GitHub ni inclure les sources Python, les configurations privées ou les données ERP :
+
+```sh
+python3 novalis-os/deploy/prepare-public.py --output /chemin/vers/nouvelle-version-publique --site-url https://www.novalisai.com --api-origin https://app.novalisai.com --portal-url https://app.novalisai.com/os/
+```
+
+Ne rendre cette version active qu’après recette du backend. `NOVALIS_PUBLIC_PATH` désigne la version publique active. Le fichier `compose.public.yml`, utilisé en complément de `compose.yml`, monte cette version en lecture seule et applique `Caddyfile.public` pour les trois domaines. Un reverse proxy existant doit recevoir une configuration équivalente plutôt qu’être remplacé sans audit. Conserver une référence vers l’ancienne version pour le retour arrière.
+
+```sh
+docker compose -f novalis-os/deploy/compose.yml -f novalis-os/deploy/compose.public.yml config
+```
+
+La revue des enregistrements A/AAAA, du certificat et des services existants précède toute mise en service. Les enregistrements de messagerie ne sont pas modifiés. Le paquet a été généré ici ; aucun de ces domaines n’a été basculé.
 
 ## SMTP et intégrations
 

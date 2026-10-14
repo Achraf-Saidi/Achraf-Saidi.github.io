@@ -43,3 +43,5 @@ jobs:
           node novalis-os/tests/ui.cjs
       - name: Build production image
         run: docker build -f novalis-os/deploy/Dockerfile -t novalis-os:ci .
+      - name: Prepare isolated Hostinger public release
+        run: python novalis-os/deploy/prepare-public.py --output /tmp/novalis-public-ci --site-url https://www.novalisai.com --api-origin https://app.novalisai.com --portal-url https://app.novalisai.com/os/

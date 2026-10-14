@@ -4,7 +4,7 @@
 
 Source de départ : `Achraf-Saidi/Achraf-Saidi.github.io`, commit `882f054d418ed7d6a058a9f1e2b33373e88eb71c`, dossier `novalisai`. Branche de travail : `novalis-2-os-20261014`. L’ancienne version reste disponible dans l’historique Git.
 
-La vitrine à cette adresse GitHub est distincte de l’application Next.js observée sur `www.novalisai.com`. Aucune connexion d’exploitation de cette seconde application n’a été trouvée. Le domaine, ses DNS et sa messagerie n’ont pas été modifiés.
+La cible confirmée par Achraf est Hostinger pour l’ensemble : vitrine sur `www.novalisai.com`, ERP et backend sur le KVM via `app.novalisai.com`. GitHub conserve le code et une version de revue ; il ne remplace pas cette cible de production. La vitrine GitHub est distincte de l’application Next.js observée sur `www.novalisai.com`. Aucune connexion d’exploitation de cette seconde application n’a été trouvée. Le domaine, ses DNS et sa messagerie n’ont pas été modifiés.
 
 ## État précis
 
@@ -24,7 +24,8 @@ La vitrine à cette adresse GitHub est distincte de l’application Next.js obse
 | Finances | Devis versionnés, brouillons internes, références de factures externes, confirmations bancaires, dépenses et CSV |
 | Envoi e-mail | File chiffrée et worker SMTP implémentés ; aucune transmission réelle effectuée ou testée ici |
 | Intégrations externes | Peppol, signature qualifiée, paiement en ligne et calendrier tiers non raccordés |
-| Infrastructure | Docker/Gunicorn/Caddy, worker, configuration d’environnement et procédure de déploiement préparés ; Docker et VPS non testés ici |
+| Infrastructure | Docker/Gunicorn/Caddy, worker et procédures préparés ; construction Docker réussie dans la CI GitHub ; KVM et démarrage de production non testés |
+| Paquet Hostinger | Construction publique isolée pour les trois domaines et configuration proxy complémentaire ; paquet généré, aucun déploiement Hostinger effectué |
 | Sauvegardes | Copie cohérente et vérification de la base/documents, restauration dans une nouvelle destination testée ; stockage hors VPS non configuré |
 | Recette mobile | CSS adapté et comportements DOM contrôlés. Pas de navigateur de recette aux largeurs 320/360/390/430 : aucune affirmation de perfection visuelle ou de score Lighthouse |
 
