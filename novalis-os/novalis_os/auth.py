@@ -37,7 +37,8 @@ def login():
         if user['totp_cipher'] and not verify_mfa(user, d.get('code', '')):
             abort(401, 'Identifiants ou code de vérification incorrects.')
         token, csrf = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
-        limited = user['role'] in SENSITIVE and not user['totp_cipher']
+        limited = (user['role'] in SENSITIVE and not user['totp_cipher']
+                   and user['email'].lower() not in current_app.config['MFA_EXEMPT_EMAILS'])
         db.execute('INSERT INTO sessions VALUES(?,?,?,?,?,?)',
                    (digest(token), user['id'], digest(csrf), int(limited), expires(8), now()))
         audit('auth.login', user['id'])

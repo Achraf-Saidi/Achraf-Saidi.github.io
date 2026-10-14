@@ -279,5 +279,27 @@ class Workflows(unittest.TestCase):
         self.assertEqual(public.post('/api/auth/activate',json={'token':token,'password':PASSWORD},headers={'Origin':ORIGIN}).status_code,400)
 
 
+    def test_15_mfa_exception_is_account_specific(self):
+        with self.app.app_context():
+            self.create_user('optional-manager','manager',mfa=False)
+            self.create_user('required-manager','manager',mfa=False)
+        self.app.config['MFA_EXEMPT_EMAILS']={'optional-manager@example.test'}
+        optional=self.app.test_client()
+        denied=optional.post('/api/auth/login',json={'email':'optional-manager@example.test','password':'wrong'},headers={'Origin':ORIGIN})
+        self.assertEqual(denied.status_code,401)
+        login=optional.post('/api/auth/login',json={'email':'optional-manager@example.test','password':PASSWORD},headers={'Origin':ORIGIN})
+        self.assertEqual(login.status_code,200)
+        self.assertFalse(login.json['mfa_required'])
+        self.assertEqual(optional.get('/api/users').status_code,200)
+        required=self.app.test_client()
+        login=required.post('/api/auth/login',json={'email':'required-manager@example.test','password':PASSWORD},headers={'Origin':ORIGIN})
+        self.assertEqual(login.status_code,200)
+        self.assertTrue(login.json['mfa_required'])
+        self.assertEqual(required.get('/api/users').status_code,403)
+        self.app.config['MFA_EXEMPT_EMAILS']=set()
+        login=optional.post('/api/auth/login',json={'email':'optional-manager@example.test','password':PASSWORD},headers={'Origin':ORIGIN})
+        self.assertTrue(login.json['mfa_required'])
+
+
 if __name__=='__main__':
     unittest.main()
