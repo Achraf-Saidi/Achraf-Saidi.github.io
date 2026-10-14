@@ -169,7 +169,7 @@ __TLS__
     contents = '\n'.join(line for line in contents.splitlines() if not line.startswith('renew_hook =')) + '\n'
     contents = contents.replace('[renewalparams]', '[renewalparams]\nrenew_hook = /usr/local/sbin/novalis-renew-nginx', 1)
     renewal.write_text(contents)
-    run([certbot, 'renew', '--dry-run', '--cert-name', 'novalisai.com', '--non-interactive'], timeout=240)
+    run([certbot, 'renew', '--dry-run', '--cert-name', 'novalisai.com', '--non-interactive', '--no-random-sleep-on-renew'], timeout=240)
     timer = run(['systemctl', 'is-active', 'certbot.timer']).strip()
     REPORT.update(https='active', checks=checks, pointage_unchanged=True, service_pids_unchanged=True,
                   renewal_test='passed', certificate_timer=timer,
