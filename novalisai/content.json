@@ -1,7 +1,7 @@
 {
   "fr": {
-    "title": "Novalis AI — Sites, logiciels sur mesure & IA utile | Belgique",
-    "description": "Sites web, boutiques en ligne, logiciels métier et IA appliquée. Novalis AI accompagne votre transformation numérique, avec un interlocuteur en Belgique et un budget cadré.",
+    "title": "Novalis AI — Du site web au logiciel d’entreprise",
+    "description": "Novalis AI conçoit des sites, applications, ERP, SaaS et solutions data sur mesure. Un interlocuteur en Belgique, une équipe adaptée et une première heure offerte.",
     "skip": "Aller au contenu",
     "menu": "Menu",
     "close": "Fermer",
@@ -12,25 +12,25 @@
       "Méthode",
       "Le collectif"
     ],
-    "talk": "Parlons de votre projet",
-    "book": "Prendre rendez-vous",
-    "book_short": "Réserver 30 minutes",
+    "talk": "Parler de mon projet — 1 h offerte",
+    "book": "Première heure offerte",
+    "book_short": "Demander mon heure offerte",
     "hero_label": "Logiciels sur mesure · Digitalisation · IA",
     "hero_location": "Wavre, Belgique",
     "hero_title": [
-      "Votre métier.",
-      "En mieux."
+      "Votre ambition.",
+      "Notre ingénierie."
     ],
-    "hero_copy": "Un site qui donne envie. Un logiciel qui vous simplifie la vie. Une IA qui sert vraiment. Nous créons les outils numériques adaptés à votre entreprise.",
-    "hero_note": "30 minutes pour faire le point. Sans engagement.",
+    "hero_copy": "Du premier site web au logiciel qui fait tourner votre entreprise. Nous concevons, développons et faisons évoluer les outils numériques qui répondent à votre réalité.",
+    "hero_note": "Une première heure offerte. Un besoin compris. Un point de départ clair.",
     "strip": [
       "Un interlocuteur en Belgique",
       "Du site web au logiciel métier",
       "Un budget clair, par étapes"
     ],
     "intro_label": "Le numérique, à votre mesure",
-    "intro_title": "Votre entreprise n’a pas à s’adapter à ses outils. Vos outils, si.",
-    "intro_copy": "Des fichiers Excel qui se multiplient, des demandes qui se perdent, un site qui ne reflète plus votre niveau. Nous partons de votre quotidien pour créer une solution simple à utiliser, agréable à regarder et cohérente avec votre budget.",
+    "intro_title": "Un problème concret. Une solution bien conçue.",
+    "intro_copy": "Un commerçant, une équipe, une startup ou une organisation complexe : chaque projet mérite le bon niveau d’ingénierie. Nous partons de votre besoin, choisissons les technologies utiles et construisons une solution que vous pourrez réellement utiliser.",
     "services_label": "01 / Ce que nous construisons",
     "services_title": "De la première impression\nau dernier détail.",
     "services_intro": "Une présence en ligne, une plateforme complète ou des outils mieux connectés : nous réunissons le design, le développement et les données autour du même objectif.",
@@ -121,8 +121,8 @@
     "deliverable_label": "Vous obtenez",
     "team_label": "05 / La rigueur, avec le contact humain",
     "team_title": "Un collectif technique.\nUn échange direct.",
-    "team_copy": "Achraf Saidi, chercheur en intelligence artificielle et en statistique à l’UCLouvain, apporte une approche analytique au cadrage des projets. Autour de lui, des développeurs et des spécialistes du design, des données et des intégrations interviennent selon le besoin.",
-    "team_second": "Un ancrage en Belgique et un réseau de développement en Europe et en Afrique, notamment avec JetThings / JetNext. L’expérience de nos intervenants comprend des projets industriels en Algérie : une pratique du terrain qui nourrit notre manière de construire.",
+    "team_copy": "Achraf Saidi, cofondateur et directeur technique (CTO), associe ingénierie logicielle, mathématiques et recherche en IA et statistique à l’UCLouvain. Son rôle : comprendre vos contraintes, cadrer les choix et garder une direction technique lisible tout au long du projet.",
+    "team_second": "Autour de la direction technique, un réseau de développeurs, designers et spécialistes des données, notamment avec JetThings / JetNext. Les compétences sont mobilisées selon le périmètre et leur disponibilité : un réseau de collaboration, sans effectif salarié annoncé artificiellement.",
     "team_principles": [
       {
         "title": "La bonne équipe, à la bonne taille",
@@ -163,8 +163,8 @@
     ],
     "contact_label": "Votre prochain projet commence ici",
     "contact_title": "Et si on rendait\nça plus simple ?",
-    "contact_copy": "Un site à refaire, un logiciel à imaginer ou un processus à améliorer. Expliquez-nous ce qui vous manque : nous chercherons le bon point de départ.",
-    "contact_booking_note": "Le calendrier vous permet de choisir un créneau. Pas besoin de cahier des charges pour ce premier échange.",
+    "contact_copy": "Une idée à lancer, un site à créer ou un fonctionnement à améliorer ? Le premier échange d’une heure est offert, sans engagement. Écrivez-nous pour organiser le rendez-vous et définir le bon point de départ.",
+    "contact_booking_note": "Après l’échange, nous préparons une première note de cadrage : objectifs, priorités, hypothèses et prochaines étapes. Une étude approfondie fait l’objet d’une proposition distincte.",
     "name": "Votre nom",
     "email": "E-mail professionnel",
     "company": "Entreprise",
@@ -204,17 +204,17 @@
     "privacy": "Confidentialité",
     "legal": "Mentions légales",
     "footer_line": "Du numérique qui fait avancer.",
-    "footer_role": "Recherche en IA & statistique · Entrepreneuriat",
+    "footer_role": "Cofondateur · Directeur technique (CTO)",
     "country": "Belgique",
     "privacy_title": "Vos informations, simplement.",
     "privacy_text": [
-      "Le formulaire prépare un e-mail dans votre navigateur. Il ne transmet aucune donnée à un service de formulaires et ne conserve pas votre demande sur ce site. L’envoi n’a lieu que lorsque vous l’effectuez dans votre messagerie.",
-      "Les informations envoyées à Novalis AI servent à étudier votre demande et à vous répondre, sur la base des démarches précontractuelles que vous sollicitez. Pour demander l’accès, la rectification ou la suppression de vos informations, écrivez à achraf@novalisai.com. La conservation est limitée au suivi de votre demande et aux obligations applicables aux échanges commerciaux.",
-      "Le site n’utilise ni traceur publicitaire, ni outil d’analyse d’audience. Ses images et polices sont hébergées avec la page. L’hébergeur peut traiter des données techniques nécessaires au fonctionnement et à la sécurité. Une réservation vous conduit sur Cal.eu, qui applique sa propre politique de confidentialité."
+      "Le formulaire prépare actuellement un brouillon d’e-mail dans votre navigateur. Votre demande est transmise seulement lorsque vous l’envoyez depuis votre messagerie. Lorsqu’un formulaire serveur est activé, la confirmation indique explicitement que la demande a été enregistrée.",
+      "Les informations que vous nous envoyez servent à étudier votre demande et à y répondre, sur la base des démarches précontractuelles sollicitées. Pour exercer vos droits d’accès, de rectification ou de suppression : contact@novalisai.com. Les durées de conservation de l’ERP seront définies avant son ouverture aux clients.",
+      "Cette vitrine n’utilise ni traceur publicitaire ni mesure d’audience. Ses images et polices sont locales. Les fournisseurs d’hébergement et de messagerie peuvent traiter les données techniques nécessaires à leurs services."
     ],
     "legal_title": "Novalis AI",
     "legal_text": [
-      "Éditeur : Novalis AI — numéro d’entreprise BE 0878.868.302. Siège : Rue Barrière Moye 18, 1300 Wavre, Belgique. Contact : achraf@novalisai.com.",
+      "Éditeur : Novalis AI — numéro d’entreprise BE 0878.868.302. Siège : Rue Barrière Moye 18, 1300 Wavre, Belgique. Contact : contact@novalisai.com.",
       "Cette vitrine est hébergée sur GitHub Pages. Les interfaces présentent des pistes de solutions avec des données fictives. Elles ne sont pas des références clients. Les bases logicielles et prototypes nécessitent un cadrage, des adaptations et une validation avant leur mise en production. Prix, délais et engagements sont définis dans un devis distinct.",
       "Le logo appartient à Novalis AI. Les textes et la conception du site sont réalisés pour Novalis AI. Les liens externes ouvrent des services indépendants."
     ],
@@ -258,8 +258,8 @@
       }
     ],
     "ai_label": "03 / Une IA qui a une raison d’être",
-    "ai_title": "Moins de tâches répétitives.\nPlus de travail utile.",
-    "ai_copy": "Nous examinons d’abord votre problème et vos données. Un traitement automatique, une intégration ou un modèle d’IA : nous choisissons la solution qui répond à l’usage, puis nous la testons avant d’élargir son rôle.",
+    "ai_title": "L’intelligence avant\nl’intelligence artificielle.",
+    "ai_copy": "La bonne technologie se choisit après avoir compris le problème. Règles métier, automatisation, statistiques, optimisation, machine learning ou IA générative : nous retenons ce qui apporte une valeur utile et mesurable, avec un contrôle humain adapté.",
     "ai_chips": [
       "Vos sources",
       "Vos règles",
@@ -274,7 +274,7 @@
     "budget_title": "Des prix compétitifs. Des choix expliqués.",
     "budget_copy": "Une équipe dimensionnée au projet, des composants réutilisés lorsque c’est pertinent et une livraison progressive. Le devis distingue réalisation, licences, hébergement et maintenance.",
     "budget_cta": "Cadrer mon budget",
-    "team_map": "Belgique.\nEurope.\nAfrique.",
+    "team_map": "Belgique.\nCompétences.\nCollectif.",
     "contact_or": "Vous préférez nous écrire ?",
     "form_title": "Parlez-nous de votre projet.",
     "budget_label": "Budget envisagé · facultatif",
@@ -449,8 +449,8 @@
     "saas_no_match": "Aucun produit dans cette sélection pour le moment."
   },
   "en": {
-    "title": "Novalis AI — Websites, custom software & practical AI | Belgium",
-    "description": "Websites, online stores, business software and practical AI. Novalis AI supports your digital transformation with a contact in Belgium and a clearly scoped budget.",
+    "title": "Novalis AI — From your website to your business software",
+    "description": "Custom websites, applications, ERP, SaaS and data solutions. A contact in Belgium, a team matched to your needs and a complimentary first hour.",
     "skip": "Skip to content",
     "menu": "Menu",
     "close": "Close",
@@ -461,25 +461,25 @@
       "Method",
       "The collective"
     ],
-    "talk": "Let’s discuss your project",
-    "book": "Book a meeting",
-    "book_short": "Book 30 minutes",
+    "talk": "Discuss my project — first hour free",
+    "book": "First hour free",
+    "book_short": "Request my complimentary hour",
     "hero_label": "Custom software · Digitalisation · AI",
     "hero_location": "Wavre, Belgium",
     "hero_title": [
-      "Your business.",
-      "Made better."
+      "Your ambition.",
+      "Our engineering."
     ],
-    "hero_copy": "A website people want to explore. Software that makes work easier. AI with a clear purpose. We build digital tools around your business.",
-    "hero_note": "30 minutes to explore your needs. No commitment.",
+    "hero_copy": "From your first website to the software that runs your business. We design, build and evolve digital tools around the way you actually work.",
+    "hero_note": "Your first hour is on us. A clear need. A sensible starting point.",
     "strip": [
       "A contact in Belgium",
       "From websites to business software",
       "A clear budget, step by step"
     ],
     "intro_label": "Digital tools that fit",
-    "intro_title": "Your business should shape your tools. Your tools should support your business.",
-    "intro_copy": "Growing spreadsheets, misplaced requests, a website that no longer reflects your quality. We start with your everyday work to design something easy to use, carefully crafted and suited to your budget.",
+    "intro_title": "A concrete problem. A considered solution.",
+    "intro_copy": "A shop owner, a team, a startup or a complex organisation: every project deserves the right level of engineering. We start with your needs, choose useful technology and build something you can put to work.",
     "services_label": "01 / What we build",
     "services_title": "From first impression\nto the smallest detail.",
     "services_intro": "An online presence, a complete platform or better connected tools: design, development and data working towards the same goal.",
@@ -570,8 +570,8 @@
     "deliverable_label": "You receive",
     "team_label": "05 / Rigour with a personal connection",
     "team_title": "Technical expertise.\nDirect conversations.",
-    "team_copy": "Achraf Saidi, an AI and statistics researcher at UCLouvain, brings an analytical approach to project scoping. Developers and specialists in design, data and integrations join according to the project’s needs.",
-    "team_second": "Based in Belgium, with a development network across Europe and Africa, including JetThings / JetNext. Our contributors’ experience includes industrial projects in Algeria, bringing practical insight to the way we build.",
+    "team_copy": "Achraf Saidi, cofounder and Chief Technology Officer (CTO), brings together software engineering, mathematics and AI and statistics research at UCLouvain. His role is to understand your constraints, explain the decisions and maintain a clear technical direction throughout the project.",
+    "team_second": "A network of developers, designers and data specialists supports technical delivery, including collaboration with JetThings / JetNext. Specialists are engaged according to scope and availability; this network is not presented as a permanent employee headcount.",
     "team_principles": [
       {
         "title": "The right team, at the right size",
@@ -612,8 +612,8 @@
     ],
     "contact_label": "Your next project starts here",
     "contact_title": "Let’s make\nit simpler.",
-    "contact_copy": "A website to rethink, software to create or a workflow to improve. Tell us what is missing and we’ll find the right starting point.",
-    "contact_booking_note": "Choose a time in our calendar. You don’t need a specification for this first conversation.",
+    "contact_copy": "An idea to launch, a website to build or a process to improve? The first hour is complimentary, with no obligation. Write to us to arrange the meeting and find a useful starting point.",
+    "contact_booking_note": "After our conversation, we prepare an initial scoping note: objectives, priorities, assumptions and next steps. In-depth analysis is covered by a separate proposal.",
     "name": "Your name",
     "email": "Work email",
     "company": "Company",
@@ -653,17 +653,17 @@
     "privacy": "Privacy",
     "legal": "Legal notice",
     "footer_line": "Digital tools that move you forward.",
-    "footer_role": "AI & statistics research · Entrepreneurship",
+    "footer_role": "Cofounder · Chief Technology Officer (CTO)",
     "country": "Belgium",
     "privacy_title": "Your information, kept simple.",
     "privacy_text": [
-      "The form prepares an email in your browser. It does not send data to a form service or store your enquiry on this website. Sending takes place only when you send the message from your email app.",
-      "Information sent to Novalis AI is used to assess your enquiry and reply, on the basis of the pre-contractual steps you request. To request access, correction or deletion, email achraf@novalisai.com. Retention is limited to following up your enquiry and applicable obligations relating to business communications.",
-      "The website uses no advertising trackers or audience analytics. Images and fonts are hosted with the page. The host may process technical data needed for operation and security. Booking takes you to Cal.eu, which applies its own privacy policy."
+      "The form currently prepares an email draft in your browser. Your request is transmitted only when you send it through your email application. When server submission is enabled, its confirmation explicitly states that the request was recorded.",
+      "Information you send is used to assess your request and respond as part of the precontractual steps you requested. For access, correction or deletion: contact@novalisai.com. ERP retention periods will be set before client access opens.",
+      "This website uses no advertising trackers or audience analytics. Images and fonts are local. Hosting and email providers may process technical information necessary to deliver their services."
     ],
     "legal_title": "Novalis AI",
     "legal_text": [
-      "Publisher: Novalis AI — enterprise number BE 0878.868.302. Registered office: Rue Barrière Moye 18, 1300 Wavre, Belgium. Contact: achraf@novalisai.com.",
+      "Publisher: Novalis AI — enterprise number BE 0878.868.302. Registered office: Rue Barrière Moye 18, 1300 Wavre, Belgium. Contact: contact@novalisai.com.",
       "This website is hosted on GitHub Pages. Interface previews show solution concepts with fictional data, not customer references. Software foundations and prototypes require scoping, adaptation and validation before production deployment. Prices, timing and commitments are defined in a separate quote.",
       "The logo belongs to Novalis AI. Copy and website design were created for Novalis AI. External links lead to independent services."
     ],
@@ -707,8 +707,8 @@
       }
     ],
     "ai_label": "03 / AI with a clear purpose",
-    "ai_title": "Less repetitive work.\nMore useful work.",
-    "ai_copy": "We start with your problem and your data. Automation, integration or an AI model: we choose what fits the task, then test it before expanding its role.",
+    "ai_title": "Intelligence before\nartificial intelligence.",
+    "ai_copy": "Technology follows understanding. Business rules, automation, statistics, optimisation, machine learning or generative AI: we choose what creates useful, measurable value, with appropriate human oversight.",
     "ai_chips": [
       "Your sources",
       "Your rules",
@@ -723,7 +723,7 @@
     "budget_title": "Competitive pricing. Clear choices.",
     "budget_copy": "A team sized for the project, reusable components where appropriate and delivery in stages. Your quote separates development, licences, hosting and maintenance.",
     "budget_cta": "Scope my budget",
-    "team_map": "Belgium.\nEurope.\nAfrica.",
+    "team_map": "Belgium.\nExpertise.\nCollective.",
     "contact_or": "Prefer to write?",
     "form_title": "Tell us about your project.",
     "budget_label": "Estimated budget · optional",
@@ -898,8 +898,8 @@
     "saas_no_match": "No product in this selection yet."
   },
   "nl": {
-    "title": "Novalis AI — Websites, maatwerksoftware & praktische AI | België",
-    "description": "Websites, webshops, bedrijfssoftware en praktische AI. Novalis AI ondersteunt uw digitalisering met een aanspreekpunt in België en een duidelijk budget.",
+    "title": "Novalis AI — Van uw website tot uw bedrijfssoftware",
+    "description": "Websites, applicaties, ERP, SaaS en dataoplossingen op maat. Een aanspreekpunt in België, een passend team en een gratis eerste uur.",
     "skip": "Naar de inhoud",
     "menu": "Menu",
     "close": "Sluiten",
@@ -910,25 +910,25 @@
       "Aanpak",
       "Het collectief"
     ],
-    "talk": "Bespreek uw project",
-    "book": "Plan een gesprek",
-    "book_short": "Plan 30 minuten",
+    "talk": "Bespreek mijn project — 1 uur gratis",
+    "book": "Eerste uur gratis",
+    "book_short": "Vraag mijn gratis uur aan",
     "hero_label": "Maatwerksoftware · Digitalisering · AI",
     "hero_location": "Waver, België",
     "hero_title": [
-      "Uw onderneming.",
-      "Nog beter."
+      "Uw ambitie.",
+      "Onze expertise."
     ],
-    "hero_copy": "Een website die aanspreekt. Software die uw werk eenvoudiger maakt. AI met een duidelijk doel. Wij bouwen digitale tools rond uw onderneming.",
-    "hero_note": "30 minuten om uw behoeften te verkennen. Vrijblijvend.",
+    "hero_copy": "Van uw eerste website tot de software die uw bedrijf ondersteunt. We ontwerpen, bouwen en verbeteren digitale tools die aansluiten op uw dagelijkse praktijk.",
+    "hero_note": "Het eerste uur is gratis. Een heldere behoefte. Een concreet vertrekpunt.",
     "strip": [
       "Een aanspreekpunt in België",
       "Van website tot bedrijfssoftware",
       "Een helder budget, stap voor stap"
     ],
     "intro_label": "Digitale tools op uw maat",
-    "intro_title": "Uw onderneming bepaalt hoe uw tools werken.",
-    "intro_copy": "Steeds meer spreadsheets, verzoeken die verloren gaan, een website die uw kwaliteit niet meer weerspiegelt. We vertrekken vanuit uw dagelijkse werk en bouwen een gebruiksvriendelijke oplossing die bij uw budget past.",
+    "intro_title": "Een concreet probleem. Een doordachte oplossing.",
+    "intro_copy": "Een winkelier, een team, een startup of een complexe organisatie: elk project verdient de juiste expertise. We vertrekken vanuit uw behoeften, kiezen zinvolle technologie en bouwen software die u kunt gebruiken.",
     "services_label": "01 / Wat we bouwen",
     "services_title": "Van de eerste indruk\ntot het kleinste detail.",
     "services_intro": "Een online aanwezigheid, een volledig platform of beter verbonden tools: design, ontwikkeling en data werken samen aan hetzelfde doel.",
@@ -1019,8 +1019,8 @@
     "deliverable_label": "U krijgt",
     "team_label": "05 / Grondig en persoonlijk",
     "team_title": "Technische expertise.\nRechtstreeks contact.",
-    "team_copy": "Achraf Saidi, onderzoeker in AI en statistiek aan UCLouvain, brengt een analytische aanpak in de projectafbakening. Ontwikkelaars en specialisten in design, data en integraties sluiten aan volgens de behoeften.",
-    "team_second": "Verankerd in België, met een ontwikkelnetwerk in Europa en Afrika, onder meer JetThings / JetNext. Onze medewerkers hebben ervaring met industriële projecten in Algerije. Die praktijkervaring verrijkt onze aanpak.",
+    "team_copy": "Achraf Saidi, medeoprichter en technisch directeur (CTO), combineert softwareontwikkeling, wiskunde en onderzoek naar AI en statistiek aan UCLouvain. Hij begrijpt uw beperkingen, licht de keuzes toe en bewaakt de technische richting van uw project.",
+    "team_second": "Een netwerk van ontwikkelaars, designers en dataspecialisten ondersteunt de uitvoering, onder meer met JetThings / JetNext. Specialisten worden ingezet op basis van het project en hun beschikbaarheid; dit netwerk wordt niet voorgesteld als een vast personeelsbestand.",
     "team_principles": [
       {
         "title": "Het juiste team, op de juiste schaal",
@@ -1061,8 +1061,8 @@
     ],
     "contact_label": "Uw volgende project begint hier",
     "contact_title": "Laten we het\neenvoudiger maken.",
-    "contact_copy": "Een website vernieuwen, software maken of een proces verbeteren. Vertel wat u mist: samen vinden we het juiste vertrekpunt.",
-    "contact_booking_note": "Kies een tijdstip in onze agenda. Een bestek is niet nodig voor dit eerste gesprek.",
+    "contact_copy": "Een idee lanceren, een website bouwen of uw werking verbeteren? Het eerste gesprek van een uur is gratis en vrijblijvend. Schrijf ons om de afspraak en een concreet vertrekpunt te bepalen.",
+    "contact_booking_note": "Na het gesprek maken we een eerste scopingnota met doelen, prioriteiten, aannames en volgende stappen. Een uitgebreide studie valt onder een aparte offerte.",
     "name": "Uw naam",
     "email": "Professioneel e-mailadres",
     "company": "Bedrijf",
@@ -1102,17 +1102,17 @@
     "privacy": "Privacy",
     "legal": "Juridische informatie",
     "footer_line": "Digitale tools die u vooruithelpen.",
-    "footer_role": "Onderzoek in AI & statistiek · Ondernemerschap",
+    "footer_role": "Medeoprichter · Technisch directeur (CTO)",
     "country": "België",
     "privacy_title": "Uw informatie, eenvoudig behandeld.",
     "privacy_text": [
-      "Het formulier stelt een e-mail op in uw browser. Het verstuurt geen gegevens naar een formulierenservice en bewaart uw aanvraag niet op deze website. Het bericht wordt pas verzonden wanneer u het zelf vanuit uw e-mailprogramma verstuurt.",
-      "Informatie die naar Novalis AI wordt gestuurd, dient om uw aanvraag te beoordelen en te beantwoorden, op basis van de precontractuele stappen die u vraagt. Voor inzage, correctie of verwijdering kunt u mailen naar achraf@novalisai.com. Bewaring blijft beperkt tot de opvolging van uw aanvraag en de toepasselijke verplichtingen voor zakelijke communicatie.",
-      "De website gebruikt geen advertentietrackers of bezoekersstatistieken. Afbeeldingen en lettertypen worden samen met de pagina gehost. De host kan technische gegevens verwerken voor werking en beveiliging. Reserveren leidt naar Cal.eu, met een eigen privacybeleid."
+      "Het formulier maakt momenteel een e-mailconcept in uw browser. Uw aanvraag wordt pas verzonden wanneer u dit in uw e-mailprogramma doet. Als serververzending actief is, vermeldt de bevestiging expliciet dat de aanvraag is geregistreerd.",
+      "Uw gegevens dienen om uw aanvraag te beoordelen en te beantwoorden in het kader van de gevraagde precontractuele stappen. Voor inzage, correctie of verwijdering: contact@novalisai.com. De bewaartermijnen van het ERP worden vóór de opening voor klanten vastgesteld.",
+      "Deze website gebruikt geen advertentietrackers of bezoekersstatistieken. Afbeeldingen en lettertypen staan lokaal. Hosting- en mailproviders kunnen technische gegevens verwerken die nodig zijn voor hun dienstverlening."
     ],
     "legal_title": "Novalis AI",
     "legal_text": [
-      "Uitgever: Novalis AI — ondernemingsnummer BE 0878.868.302. Zetel: Rue Barrière Moye 18, 1300 Waver, België. Contact: achraf@novalisai.com.",
+      "Uitgever: Novalis AI — ondernemingsnummer BE 0878.868.302. Zetel: Rue Barrière Moye 18, 1300 Waver, België. Contact: contact@novalisai.com.",
       "Deze website wordt gehost op GitHub Pages. De interfaces tonen oplossingsrichtingen met fictieve gegevens, geen klantreferenties. Softwarebasis en prototypes vereisen afbakening, aanpassing en validatie vóór productie-uitrol. Prijzen, termijnen en afspraken staan in een afzonderlijke offerte.",
       "Het logo is eigendom van Novalis AI. Teksten en websiteontwerp zijn voor Novalis AI gemaakt. Externe links verwijzen naar onafhankelijke diensten."
     ],
@@ -1156,8 +1156,8 @@
       }
     ],
     "ai_label": "03 / AI met een duidelijk doel",
-    "ai_title": "Minder herhaling.\nMeer nuttig werk.",
-    "ai_copy": "Eerst uw probleem en uw data. Automatisering, integratie of een AI-model: we kiezen wat bij de taak past en testen de oplossing voordat we de rol uitbreiden.",
+    "ai_title": "Eerst begrijpen.\nDan de juiste technologie.",
+    "ai_copy": "Technologie volgt op inzicht. Bedrijfsregels, automatisering, statistiek, optimalisatie, machine learning of generatieve AI: we kiezen wat aantoonbaar nuttige waarde oplevert, met passende menselijke controle.",
     "ai_chips": [
       "Uw bronnen",
       "Uw regels",
@@ -1172,7 +1172,7 @@
     "budget_title": "Concurrerende prijzen. Heldere keuzes.",
     "budget_copy": "Een team op maat, herbruikbare componenten waar zinvol en levering in stappen. De offerte onderscheidt ontwikkeling, licenties, hosting en onderhoud.",
     "budget_cta": "Mijn budget afbakenen",
-    "team_map": "België.\nEuropa.\nAfrika.",
+    "team_map": "België.\nExpertise.\nCollectief.",
     "contact_or": "Liever schrijven?",
     "form_title": "Vertel over uw project.",
     "budget_label": "Verwacht budget · optioneel",
@@ -1347,8 +1347,8 @@
     "saas_no_match": "Nog geen product in deze selectie."
   },
   "de": {
-    "title": "Novalis AI — Websites, individuelle Software & nützliche KI | Belgien",
-    "description": "Websites, Onlineshops, Unternehmenssoftware und praktische KI. Novalis AI begleitet Ihre Digitalisierung mit einem Ansprechpartner in Belgien und klaren Budgets.",
+    "title": "Novalis AI — Von Ihrer Website zur Unternehmenssoftware",
+    "description": "Websites, Anwendungen, ERP, SaaS und Datenlösungen nach Maß. Ein Ansprechpartner in Belgien, ein passendes Team und eine kostenlose erste Stunde.",
     "skip": "Zum Inhalt",
     "menu": "Menü",
     "close": "Schließen",
@@ -1359,25 +1359,25 @@
       "Vorgehen",
       "Das Team"
     ],
-    "talk": "Besprechen wir Ihr Projekt",
-    "book": "Termin vereinbaren",
-    "book_short": "30 Minuten vereinbaren",
+    "talk": "Mein Projekt besprechen — 1 Stunde kostenlos",
+    "book": "Erste Stunde kostenlos",
+    "book_short": "Kostenlose erste Stunde anfragen",
     "hero_label": "Individuelle Software · Digitalisierung · KI",
     "hero_location": "Wavre, Belgien",
     "hero_title": [
-      "Ihr Unternehmen.",
-      "Noch besser."
+      "Ihre Ziele.",
+      "Unsere Entwicklung."
     ],
-    "hero_copy": "Eine Website, die begeistert. Software, die Arbeit erleichtert. KI mit klarem Nutzen. Wir entwickeln digitale Werkzeuge für Ihr Unternehmen.",
-    "hero_note": "30 Minuten, um Ihre Bedürfnisse zu verstehen. Unverbindlich.",
+    "hero_copy": "Von Ihrer ersten Website bis zur Software für Ihren Geschäftsbetrieb. Wir entwickeln digitale Werkzeuge, die zu Ihrer tatsächlichen Arbeitsweise passen.",
+    "hero_note": "Die erste Stunde ist kostenlos. Ein klarer Bedarf. Ein konkreter Ausgangspunkt.",
     "strip": [
       "Ein Ansprechpartner in Belgien",
       "Von Websites bis Unternehmenssoftware",
       "Ein klares Budget, Schritt für Schritt"
     ],
     "intro_label": "Digitale Werkzeuge nach Maß",
-    "intro_title": "Ihre Werkzeuge sollten sich Ihrem Unternehmen anpassen.",
-    "intro_copy": "Immer mehr Tabellen, verlorene Anfragen, eine Website, die Ihre Qualität nicht mehr zeigt. Wir beginnen bei Ihrem Arbeitsalltag und entwickeln eine benutzerfreundliche, sorgfältig gestaltete Lösung im Rahmen Ihres Budgets.",
+    "intro_title": "Ein konkretes Problem. Eine durchdachte Lösung.",
+    "intro_copy": "Ein Geschäft, ein Team, ein Startup oder eine komplexe Organisation: Jedes Projekt verdient die passende technische Umsetzung. Wir beginnen mit Ihrem Bedarf und entwickeln eine Lösung für den Alltag.",
     "services_label": "01 / Was wir entwickeln",
     "services_title": "Vom ersten Eindruck\nbis zum letzten Detail.",
     "services_intro": "Eine Onlinepräsenz, eine komplette Plattform oder besser verbundene Werkzeuge: Design, Entwicklung und Daten verfolgen dasselbe Ziel.",
@@ -1468,8 +1468,8 @@
     "deliverable_label": "Sie erhalten",
     "team_label": "05 / Sorgfalt und persönlicher Kontakt",
     "team_title": "Technische Kompetenz.\nDirekter Austausch.",
-    "team_copy": "Achraf Saidi, Forscher für KI und Statistik an der UCLouvain, bringt einen analytischen Ansatz in die Projektplanung. Entwickler und Fachleute für Design, Daten und Integration ergänzen das Team nach Bedarf.",
-    "team_second": "In Belgien verankert, mit einem Entwicklungsnetzwerk in Europa und Afrika, darunter JetThings / JetNext. Unsere Mitwirkenden haben Erfahrung mit Industrieprojekten in Algerien. Diese Praxis prägt unsere Arbeit.",
+    "team_copy": "Achraf Saidi, Mitgründer und technischer Geschäftsführer (CTO), verbindet Softwareentwicklung, Mathematik und Forschung zu KI und Statistik an der UCLouvain. Er klärt Ihre Rahmenbedingungen, erläutert die Entscheidungen und begleitet die technische Umsetzung.",
+    "team_second": "Ein Netzwerk aus Entwicklern, Designern und Datenspezialisten unterstützt die Umsetzung, unter anderem mit JetThings / JetNext. Fachkräfte werden je nach Umfang und Verfügbarkeit eingebunden; dieses Netzwerk wird nicht als feste Mitarbeiterzahl dargestellt.",
     "team_principles": [
       {
         "title": "Das richtige Team in passender Größe",
@@ -1510,8 +1510,8 @@
     ],
     "contact_label": "Ihr nächstes Projekt beginnt hier",
     "contact_title": "Machen wir es\neinfacher.",
-    "contact_copy": "Eine Website erneuern, Software entwickeln oder einen Ablauf verbessern. Erzählen Sie, was fehlt: Wir finden den richtigen Ausgangspunkt.",
-    "contact_booking_note": "Wählen Sie einen Termin in unserem Kalender. Für das erste Gespräch brauchen Sie kein Lastenheft.",
+    "contact_copy": "Eine Idee starten, eine Website erstellen oder Abläufe verbessern? Das erste Gespräch von einer Stunde ist kostenlos und unverbindlich. Schreiben Sie uns, um den Termin und die nächsten Schritte zu vereinbaren.",
+    "contact_booking_note": "Nach dem Gespräch erstellen wir eine erste Projektnotiz mit Zielen, Prioritäten, Annahmen und nächsten Schritten. Eine vertiefte Studie wird gesondert angeboten.",
     "name": "Ihr Name",
     "email": "Geschäftliche E-Mail",
     "company": "Unternehmen",
@@ -1551,17 +1551,17 @@
     "privacy": "Datenschutz",
     "legal": "Impressum",
     "footer_line": "Digitale Werkzeuge, die Sie weiterbringen.",
-    "footer_role": "KI- & Statistikforschung · Unternehmertum",
+    "footer_role": "Mitgründer · Technischer Geschäftsführer (CTO)",
     "country": "Belgien",
     "privacy_title": "Ihre Informationen, einfach behandelt.",
     "privacy_text": [
-      "Das Formular bereitet eine E-Mail in Ihrem Browser vor. Es übermittelt keine Daten an einen Formulardienst und speichert Ihre Anfrage nicht auf dieser Website. Der Versand erfolgt erst, wenn Sie die Nachricht in Ihrem E-Mail-Programm senden.",
-      "An Novalis AI gesendete Informationen dienen der Prüfung und Beantwortung Ihrer Anfrage auf Grundlage der von Ihnen gewünschten vorvertraglichen Schritte. Für Auskunft, Berichtigung oder Löschung schreiben Sie an achraf@novalisai.com. Die Aufbewahrung beschränkt sich auf die Bearbeitung Ihrer Anfrage und die geltenden Pflichten für geschäftliche Kommunikation.",
-      "Die Website verwendet weder Werbetracker noch Besucheranalyse. Bilder und Schriftarten werden zusammen mit der Seite gehostet. Der Hostinganbieter kann technische Daten für Betrieb und Sicherheit verarbeiten. Die Terminbuchung führt zu Cal.eu mit eigenen Datenschutzregeln."
+      "Das Formular erstellt derzeit einen E-Mail-Entwurf in Ihrem Browser. Die Anfrage wird erst übermittelt, wenn Sie sie mit Ihrem E-Mail-Programm versenden. Bei aktivierter Serverübermittlung bestätigt die Meldung ausdrücklich die Speicherung Ihrer Anfrage.",
+      "Ihre Angaben dienen der Prüfung und Beantwortung Ihrer Anfrage im Rahmen der angefragten vorvertraglichen Schritte. Für Auskunft, Berichtigung oder Löschung: contact@novalisai.com. Die Aufbewahrungsfristen des ERP werden vor der Freigabe für Kunden festgelegt.",
+      "Diese Website verwendet keine Werbetracker oder Besucheranalyse. Bilder und Schriften werden lokal bereitgestellt. Hosting- und E-Mail-Anbieter können die für ihre Leistungen notwendigen technischen Daten verarbeiten."
     ],
     "legal_title": "Novalis AI",
     "legal_text": [
-      "Herausgeber: Novalis AI — Unternehmensnummer BE 0878.868.302. Sitz: Rue Barrière Moye 18, 1300 Wavre, Belgien. Kontakt: achraf@novalisai.com.",
+      "Herausgeber: Novalis AI — Unternehmensnummer BE 0878.868.302. Sitz: Rue Barrière Moye 18, 1300 Wavre, Belgien. Kontakt: contact@novalisai.com.",
       "Diese Website wird auf GitHub Pages gehostet. Die Oberflächen zeigen Lösungsideen mit fiktiven Daten, keine Kundenreferenzen. Softwaregrundlagen und Prototypen erfordern Planung, Anpassung und Prüfung vor dem Produktionseinsatz. Preise, Termine und Zusagen werden in einem separaten Angebot festgelegt.",
       "Das Logo gehört Novalis AI. Texte und Webdesign wurden für Novalis AI erstellt. Externe Links führen zu unabhängigen Diensten."
     ],
@@ -1605,8 +1605,8 @@
       }
     ],
     "ai_label": "03 / KI mit einem klaren Zweck",
-    "ai_title": "Weniger Wiederholung.\nMehr sinnvolle Arbeit.",
-    "ai_copy": "Zuerst betrachten wir Ihr Problem und Ihre Daten. Automatisierung, Integration oder KI-Modell: Wir wählen die passende Lösung und testen sie, bevor wir ihre Rolle erweitern.",
+    "ai_title": "Erst verstehen.\nDann die passende Technik.",
+    "ai_copy": "Technologie folgt dem Verständnis. Geschäftsregeln, Automatisierung, Statistik, Optimierung, maschinelles Lernen oder generative KI: Wir wählen, was nachweisbaren Nutzen bringt, mit angemessener menschlicher Kontrolle.",
     "ai_chips": [
       "Ihre Quellen",
       "Ihre Regeln",
@@ -1621,7 +1621,7 @@
     "budget_title": "Wettbewerbsfähige Preise. Klare Entscheidungen.",
     "budget_copy": "Ein passend besetztes Team, wiederverwendbare Komponenten, wo sinnvoll, und schrittweise Lieferung. Das Angebot trennt Entwicklung, Lizenzen, Hosting und Wartung.",
     "budget_cta": "Mein Budget abgrenzen",
-    "team_map": "Belgien.\nEuropa.\nAfrika.",
+    "team_map": "Belgien.\nFachwissen.\nZusammenarbeit.",
     "contact_or": "Lieber schreiben?",
     "form_title": "Erzählen Sie von Ihrem Projekt.",
     "budget_label": "Geplantes Budget · optional",

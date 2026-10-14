@@ -1,66 +1,46 @@
-# Novalis AI
+# Novalis AI — édition 2.0
 
-Site vitrine autonome en français, anglais, néerlandais et allemand, publié à https://achraf-saidi.github.io/novalisai/.
+Vitrine existante améliorée, publiée depuis ce dépôt sur `https://achraf-saidi.github.io/novalisai/`. Le logo, la palette cuivre/ivoire, les polices locales, la sculpture interactive et le configurateur sont conservés. L’application observée sur `www.novalisai.com` est distincte ; sa bascule n’a pas été effectuée.
 
-## Construire
+## Construire et modifier
 
 ```sh
 python3 build.py
 ```
 
-`content.json` contient les textes des quatre langues. `template.html`, `assets/styles.css` et `assets/experience.css` portent le design ; `assets/app.js` gère la navigation et le contact, `assets/experience.js` le configurateur et les filtres produits, `assets/sculpture.js` le rendu cuivré. Le générateur utilise la bibliothèque standard de Python et publie des pages HTML indépendantes. Aucun framework ni serveur applicatif n’est nécessaire pour cette vitrine.
+`content.json` porte les contenus de l’accueil ; `extension.json` les nouvelles pages et démonstrations ; `template.html` la composition. `extensions.py` génère 13 pages éditoriales dans FR, EN, NL et DE. Le sitemap inclut les pages construites. Aucun framework n’est nécessaire pour servir la vitrine.
 
-Pour un futur transfert sur le domaine : `python3 build.py --site-url https://www.novalisai.com`. Cette édition ne modifie pas le domaine, le DNS ou la messagerie.
+Pour préparer une copie destinée au domaine : `python3 build.py --site-url https://www.novalisai.com`. Cette commande ajuste les canoniques ; elle ne déploie pas, ne modifie pas les DNS et ne remplace pas la version du domaine.
 
-## Direction et contenu
+L’offre est harmonisée sur une première heure gratuite et sans engagement, suivie d’une première note de cadrage. Le bouton permet actuellement d’en faire la demande par e-mail. Un calendrier d’une heure est implémenté dans le backend, prêt à être raccordé après déploiement.
 
-- Fonds ivoire et champagne, bronze foncé, cuivre et or repris du logo, grands titres Manrope et Instrument Serif. Polices locales et licences conservées.
-- Sculpture cuivrée originale : maillage de nœud torique projeté en Canvas 2D, lumière et reflets calculés, rotation au doigt/souris/clavier, pause et recentrage. Projection ajustée aux dimensions, densité limitée, arrêt hors écran/arrière-plan et mode statique pour la réduction des mouvements. Fallback visuel si Canvas est indisponible.
-- Configurateur de trois univers (commerce, équipes, documents) et trois modules. Création et approbation de demandes locales, états séparés par univers, activation/désactivation de modules et mise à jour des compteurs. Les suggestions sont écrites pour les données fictives de la démo ; aucune API IA n’est appelée.
-- Espace **Nos SaaS** indépendant et visible dans la navigation. Le catalogue `products.json` est volontairement vide. Les trois emplacements affichés sont réservés, pas des produits lancés.
-- Fiches SaaS préparées : quatre traductions, statut, catégorie, résumé, détails, fonctionnalités, image locale, démonstration et accès. Les accès ne sont affichés que pour un statut disponible ; les filtres apparaissent dès que le catalogue contient un produit.
-- Six offres : sites/boutiques/restaurants, logiciels sur mesure, SaaS personnalisables, IA/automatisation, données/reporting, audit/intégration.
-- Trois aperçus de solutions illustratifs. Les données sont fictives. Aucun client, résultat financier, témoignage ou réalisation livrée n’est inventé. Aucun aperçu ne mène vers du code ou un projet privé.
-- Les bases existantes et prototypes sont des points de départ à évaluer et adapter. Leur présence n’affirme pas une mise en production commerciale préalable. La personnalisation, les intégrations et la validation sont cadrées dans la proposition.
-- La méthode explique audit, cadrage chiffré, développement, mise en service, prise en main et suivi. Les prix compétitifs sont expliqués par le dimensionnement de l’équipe et la réutilisation pertinente, sans tarifs commerciaux inventés.
-- Achraf Saidi : recherche en IA/statistique à UCLouvain et entrepreneuriat. Réseau Belgique/Europe/Afrique, JetThings/JetNext. L’expérience industrielle en Algérie est attribuée aux intervenants, sans inventer de clients Novalis.
+## Démonstrations et catalogue
 
-## Contact
+- Sculpture contrôlable, adaptée aux mouvements réduits, avec arrêt hors écran et densité limitée.
+- Configurateur existant : trois univers, modules, création et approbation de demandes avec état distinct par univers.
+- Exploration de quatre rôles : informations et décisions adaptées, actions limitées à la démonstration.
+- Calculateur d’automatisation : volume, durée et part automatisable ; formule affichée et résultats présentés comme hypothèses.
+- Réseau de compétences : pôles interactifs ; aucun total de salariés ou de profils disponibles inventé.
+- `products.json` reste le catalogue extensible des SaaS. Son état vide n’annonce pas de produit commercial lancé.
+- Portfolio : BILADI, Code32 et Numeria sont des exemples publics en évolution, pas des références clients livrées. Aucun dépôt privé ni résultat commercial confidentiel n’est publié.
 
-Les liens de rendez-vous réutilisent le calendrier existant https://www.cal.eu/novalisai/30min. Aucun rendez-vous de test n’a été envoyé. La disponibilité dépend de ce service externe ; elle n’a pas pu être revérifiée pendant cette refonte.
+## Contact, rendez-vous et portail
 
-Le formulaire prépare un e-mail à **achraf@novalisai.com** avec nom, adresse de réponse, entreprise éventuelle, besoin, situation, budget et calendrier éventuels. Le visiteur vérifie le brouillon puis l’envoie depuis sa messagerie. Il peut copier le texte et revenir au formulaire. Aucun service d’envoi ni nouvelle collecte serveur n’est ajouté. Les tranches de budget du formulaire sont des préférences de prospect, pas des tarifs de l’entreprise.
+Le contact institutionnel est `contact@novalisai.com` ; `achraf@novalisai.com` est réservé à la direction technique. Le formulaire prépare un brouillon d’e-mail tant que `runtime-config.json` contient des valeurs nulles. Il ne prétend pas enregistrer une demande dans le CRM.
 
-Les clics sur une offre présélectionnent le sujet dans le formulaire. Sur mobile, un bouton de rendez-vous reste accessible et disparaît à l’arrivée dans la zone contact lorsque l’observation du défilement est disponible.
+Après qualification de Novalis OS, définir `api_origin` et `portal_url`. Le formulaire enregistrera alors les demandes dans le CRM et permettra de choisir les créneaux publiés. Il affiche un succès uniquement après la réponse positive du serveur. Les erreurs conservent le formulaire rempli. Une réservation ne prétend pas qu’un e-mail en attente a déjà été transmis.
 
-## Vérifications
+Le backend et son interface figurent dans `../novalis-os`. Voir le [journal de livraison](../novalis-os/docs/progress.md) pour les limites exactes.
 
-`qa/verification.md` décrit les contrôles effectués et la limite visuelle. Le script facultatif `qa/verify.cjs` nécessite `jsdom` (`npm install --no-save jsdom`, puis `node qa/verify.cjs`). Ces dépendances ne sont pas nécessaires au site ou au générateur.
+## Contrôles
 
-La revue `qa/responsive.html` affiche les pages actuelles dans plusieurs dimensions pour une inspection manuelle. Elle n’est pas indexée et n’apparaît pas dans la navigation publique.
-
-## Sources
-
-Le raisonnement sur le marché et les sources officielles sont consignés dans `qa/market-notes.md`. Le site privilégie des offres concrètes plutôt que des statistiques d’adoption ou des engagements réglementaires généraux.
-
-## Ajouter un SaaS
-
-Ajouter un objet à `products.json` puis exécuter `python3 build.py`. Exemple de structure à remplacer par les informations réelles :
-
-```json
-{
-  "id": "identifiant-du-produit",
-  "status": "building",
-  "image": "",
-  "demo_url": "",
-  "access_url": "",
-  "content": {
-    "fr": {"title": "Nom réel", "category": "Secteur", "summary": "Usage réel", "detail": "Présentation", "features": []},
-    "en": {"title": "Actual name", "category": "Sector", "summary": "Actual use", "detail": "Description", "features": []},
-    "nl": {"title": "Werkelijke naam", "category": "Sector", "summary": "Werkelijk gebruik", "detail": "Beschrijving", "features": []},
-    "de": {"title": "Tatsächlicher Name", "category": "Bereich", "summary": "Tatsächliche Nutzung", "detail": "Beschreibung", "features": []}
-  }
-}
+```sh
+npm ci --prefix qa
+NOVALIS_JSDOM_MODULE="$(pwd)/qa/node_modules/jsdom" node qa/verify.cjs
+NOVALIS_JSDOM_MODULE="$(pwd)/qa/node_modules/jsdom" node qa/v2.cjs
+node qa/sculpture-check.cjs
 ```
 
-Statuts : `planned`, `building`, `beta`, `live`. L’image, si fournie, doit exister dans `assets/`. Les liens doivent être des pages HTTPS publiques. L’éditeur peut ajouter `image_alt` dans chaque traduction. Le générateur échappe les textes, vérifie les identifiants, les statuts, les ressources et les liens. Aucune interface d’administration ni compte client n’est requis pour gérer ce catalogue dans Git.
+Les tests couvrent les comportements DOM, l’échappement, les liens, les éditions, le calcul et l’accusé de réception serveur simulé. Ils ne constituent pas une recette visuelle ni un score Lighthouse. `qa/responsive.html` prépare la revue des largeurs 320, 360, 390 et 430 pixels ; aucun contrôle visuel de ces largeurs n’a été exécuté ici.
+
+Les informations institutionnelles du site conservé doivent être confrontées à un extrait BCE ou aux statuts avant activation des opérations réglementaires. Les chiffres de ressources annoncés n’ont pas été publiés faute de validation de leur disponibilité et de leur recouvrement.
