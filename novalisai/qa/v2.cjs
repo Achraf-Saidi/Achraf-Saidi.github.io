@@ -15,7 +15,7 @@ const wait=()=>new Promise(resolve=>setTimeout(resolve,0));
   assert.equal(d.querySelector('a[href="https://www.cal.eu/novalisai/30min"]').textContent.includes('30'),true);
   for(const file of walk(path.join(root,language)).filter(file=>file.endsWith('index.html'))){
    const page=new JSDOM(fs.readFileSync(file,'utf8'));
-   const doc=page.window.document;assert.equal(doc.querySelectorAll('h1').length,1);assert.equal(doc.documentElement.lang,language);assert(!doc.documentElement.outerHTML.includes('{{'));
+   const doc=page.window.document;if(doc.querySelector('meta[http-equiv="refresh"]')){page.window.close();continue;}assert.equal(doc.querySelectorAll('h1').length,1);assert.equal(doc.documentElement.lang,language);assert(!doc.documentElement.outerHTML.includes('{{'));
    for(const node of doc.querySelectorAll('a[href],link[href],img[src],script[src]')){
     const v=node.getAttribute(node.hasAttribute('src')?'src':'href');if(/^(https?:|mailto:|#)/.test(v))continue;
     const resolved=path.resolve(path.dirname(file),v.split('#')[0].split('?')[0]);assert(fs.existsSync(resolved),`Broken link: ${file} => ${v}`);

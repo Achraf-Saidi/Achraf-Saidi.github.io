@@ -1,0 +1,1030 @@
+{
+  "fr": {
+    "hero_kicker": "LOGICIELS MÉTIER · ERP · IA UTILE",
+    "hero_a": "Vos équipes avancent.",
+    "hero_b": "Vos outils doivent suivre.",
+    "hero_copy": "ERP sur mesure, gestion de stock, assistants IA et applications web : nous relions vos données, vos équipes et vos décisions dans des outils conçus pour votre fonctionnement.",
+    "hero_cta": "Parlons de votre fonctionnement",
+    "hero_second": "Voir les applications",
+    "hero_note": "Un premier échange pour comprendre votre besoin. Sans engagement.",
+    "nav": [
+      "Solutions",
+      "L’atelier",
+      "Méthode",
+      "Équipe"
+    ],
+    "hero_tabs": [
+      "Projets",
+      "Stock",
+      "Assistant",
+      "Décisions"
+    ],
+    "concept": "Concept d’interface",
+    "concept_note": "Interfaces illustratives générées avec l’IA · données fictives · projets à concevoir avec vous.",
+    "view_image": "Agrandir l’interface",
+    "close_image": "Fermer l’interface",
+    "zoom": "Zoom",
+    "solutions_title": "Imaginez vos opérations,\nautrement.",
+    "solutions_copy": "Un projet industriel, un entrepôt, des demandes internes ou un planning difficile : voici quatre directions possibles. Le logiciel final se dessine autour de vos règles métier.",
+    "product_more": "Voir le parcours proposé",
+    "product_titles": [
+      "Un ERP pour vos projets industriels.",
+      "Votre stock, du mouvement à la décision.",
+      "Un assistant qui fait avancer les dossiers.",
+      "Des scénarios pour décider avant d’agir."
+    ],
+    "product_sectors": [
+      "HYDROCARBURES · PROJETS · MAINTENANCE",
+      "NÉGOCE · LOGISTIQUE · STOCK",
+      "ÉQUIPES · DOCUMENTS · WORKFLOWS",
+      "DATA · OPTIMISATION · PILOTAGE"
+    ],
+    "product_problems": [
+      "Les jalons, achats, ressources et documents évoluent séparément. Une dépendance oubliée peut bloquer toute une intervention.",
+      "Le stock dans Excel, les réservations ailleurs et les réceptions par e-mail : la disponibilité réelle devient difficile à suivre.",
+      "Vos équipes cherchent une procédure, recopient des informations et attendent une validation pour continuer.",
+      "Vous devez répartir des ressources limitées entre des urgences, des délais et des priorités concurrentes."
+    ],
+    "product_outcomes": [
+      "Relier le planning, les pièces attendues et les validations au dossier projet.",
+      "Distinguer ce qui est disponible, réservé et attendu, avec un historique des mouvements.",
+      "Retrouver une réponse reliée à ses sources, préparer une action et laisser la décision au bon responsable.",
+      "Comparer des options et voir leurs contraintes avant d’engager l’équipe."
+    ],
+    "product_modules": [
+      [
+        "Projets & jalons",
+        "Ressources",
+        "Documents & validations",
+        "Achats & dépendances"
+      ],
+      [
+        "Réceptions & transferts",
+        "Disponible & réservé",
+        "Alertes de seuil",
+        "Historique des mouvements"
+      ],
+      [
+        "Recherche dans les sources",
+        "Permissions",
+        "Actions proposées",
+        "Validation humaine"
+      ],
+      [
+        "Capacité & priorités",
+        "Simulation de scénarios",
+        "Tableaux de bord",
+        "Contraintes explicites"
+      ]
+    ],
+    "product_questions": [
+      [
+        "Quelles règles de validation s’appliquent ?",
+        "Quelles données sont fiables et à jour ?",
+        "Quels outils de planning et d’achat faut-il relier ?"
+      ],
+      [
+        "Comment les quantités et unités sont-elles définies ?",
+        "Quand une réservation devient-elle une sortie ?",
+        "Quels entrepôts et outils faut-il synchroniser ?"
+      ],
+      [
+        "Quels documents l’assistant peut-il consulter ?",
+        "Quelles réponses doivent citer leurs sources ?",
+        "Quelles actions nécessitent une approbation ?"
+      ],
+      [
+        "Quelles contraintes ne peuvent pas être violées ?",
+        "Quel objectif faut-il privilégier ?",
+        "Comment comparer les décisions à la pratique actuelle ?"
+      ]
+    ],
+    "case_problem": "Le problème de départ",
+    "case_solution": "Ce que nous pouvons construire",
+    "case_questions": "Ce qu’il faut cadrer ensemble",
+    "case_next": "Parlons de ce parcours",
+    "case_flow": [
+      "Comprendre les opérations",
+      "Valider un prototype",
+      "Construire et tester un premier lot"
+    ],
+    "lab_title": "Mettez le système\nà l’épreuve.",
+    "lab_copy": "Un logiciel se juge aussi quand quelque chose se passe mal. Essayez de valider, corrigez le blocage et observez ce que la décision change.",
+    "lab_badge": "ATELIER DES OPÉRATIONS",
+    "lab_note": "Simulation locale sur données fictives. Règles prédéfinies, sans IA en direct ni action réelle.",
+    "lab_tabs": [
+      "Commande urgente",
+      "Jalon industriel",
+      "Assistant métier"
+    ],
+    "lab_names": [
+      "Commande DEMO-012",
+      "Intervention SITE-A",
+      "Demande interne DEMO-034"
+    ],
+    "lab_stories": [
+      "12 pièces demandées, 8 disponibles. Comment avancer sans promettre un stock inexistant ?",
+      "Le jalon attend une pièce justificative et l’accord du responsable. Peut-il passer directement en exécution ?",
+      "Une action est proposée à partir d’un document interne. La source doit être autorisée et la proposition relue."
+    ],
+    "lab_stages": [
+      "Dossier reçu",
+      "Contrôles métier",
+      "Décision validée"
+    ],
+    "lab_try": "Tenter la validation",
+    "lab_reset": "Rejouer le scénario",
+    "lab_ready": "À contrôler",
+    "lab_blocked": "Validation bloquée",
+    "lab_approved": "Décision validée",
+    "lab_unfixed": "Essayez de valider pour révéler les contrôles.",
+    "lab_issues": [
+      "La quantité du premier lot dépasse le stock disponible.",
+      "Le justificatif manque au dossier.",
+      "Le rôle actuel ne peut pas approuver ce jalon.",
+      "La source interne n’est pas autorisée dans ce scénario.",
+      "La proposition n’a pas encore été relue."
+    ],
+    "lab_fixes": [
+      "Livrer en deux lots",
+      "Joindre le justificatif",
+      "Demander la validation responsable",
+      "Autoriser la source fictive",
+      "Relire la proposition"
+    ],
+    "lab_metrics": [
+      "Demandé",
+      "Disponible",
+      "Premier lot",
+      "À prévoir ensuite",
+      "Réservé",
+      "Justificatif",
+      "Approbation",
+      "Source",
+      "Relecture"
+    ],
+    "lab_yes": "Prêt",
+    "lab_no": "À compléter",
+    "lab_log_title": "Journal de la décision",
+    "lab_logs": [
+      "Dossier fictif chargé.",
+      "Tentative de validation : contrôles exécutés.",
+      "Dossier corrigé, un nouveau contrôle est nécessaire.",
+      "Validation enregistrée dans cette simulation."
+    ],
+    "lab_results": [
+      "Le premier lot est réservé ; le solde reste à planifier après réapprovisionnement.",
+      "Le dossier et l’approbation sont présents. Le jalon peut passer à l’étape suivante.",
+      "La source et la relecture sont confirmées. La demande est préparée, aucun message réel n’est envoyé."
+    ],
+    "lab_rules": "Voir les règles du scénario",
+    "lab_rule_text": [
+      "Premier lot ≤ stock disponible. La validation réserve ce lot une seule fois. Le reste n’est pas promis.",
+      "Justificatif présent ET approbation responsable. Un simple clic ne contourne pas ces deux conditions.",
+      "Source autorisée ET relecture humaine. Cette démonstration utilise une proposition préparée, pas un modèle IA."
+    ],
+    "lab_cta": "Dessiner un parcours pour mon équipe",
+    "value_title": "Le temps gagné\nse mesure.",
+    "value_copy": "Une automatisation peut déplacer le travail vers le contrôle ou la maintenance. Comparez les deux situations avec vos propres hypothèses, puis vérifiez-les sur un essai.",
+    "value_open": "Comparer un processus, étape par étape",
+    "value_labels": [
+      "Opérations par semaine",
+      "Minutes par opération avant",
+      "Minutes techniques après, hors contrôle",
+      "Part des opérations automatisées (%)",
+      "Contrôle humain par opération automatisée (min)",
+      "Exploitation supplémentaire par semaine (min)"
+    ],
+    "value_table": [
+      "Situation actuelle",
+      "Opérations restantes manuelles",
+      "Traitement automatisé",
+      "Contrôle humain",
+      "Exploitation",
+      "Total après"
+    ],
+    "value_result": "Écart théorique par semaine",
+    "value_positive": "Temps potentiellement libéré, à confirmer sur un essai réel.",
+    "value_negative": "Cette hypothèse ajoute du travail. Il faut revoir le parcours.",
+    "value_zero": "Cette hypothèse ne libère pas de temps.",
+    "value_invalid": "Renseignez six valeurs valides pour comparer.",
+    "value_unit": "heures",
+    "value_formula": "Avant = volume × durée actuelle. Après = volume × [(1 − part) × durée actuelle + part × (traitement + contrôle)] + exploitation. Écart = (avant − après) ÷ 60.",
+    "value_note": "Exemple prérempli fictif. La part désigne les opérations réellement prises en charge, pas une confiance de l’IA. Le contrôle n’est pas inclus dans le traitement. Formation et mise en place restent hors de ce calcul hebdomadaire ; aucun prix ni retour financier n’est déduit.",
+    "value_cta": "Vérifier ces hypothèses ensemble",
+    "brief_title": "Un besoin à préciser ?\nCommençons par les bonnes questions.",
+    "brief_copy": "Choisissez un parcours, indiquez vos outils et vos contraintes. Nous préparons un point de départ pour la discussion — aucun tarif, délai ou devis automatique.",
+    "brief_labels": [
+      "Parcours envisagé",
+      "Outils déjà utilisés",
+      "Point de blocage principal",
+      "Contraintes importantes"
+    ],
+    "brief_placeholder": "Excel, ERP existant, outils internes…",
+    "brief_problem_placeholder": "Ce que votre équipe doit mieux faire…",
+    "brief_constraints": [
+      "Données confidentielles",
+      "Conserver les outils existants",
+      "Plusieurs rôles utilisateurs"
+    ],
+    "brief_download": "Télécharger mon brief",
+    "brief_transfer": "Ajouter au formulaire",
+    "brief_done": "Le brief est prêt. Il reste à le discuter avec vous.",
+    "brief_disclaimer": "Pré-cadrage indicatif : les besoins, dépendances, responsabilités et critères d’acceptation doivent être validés avant une proposition.",
+    "trust_title": "La bonne technologie.\nPour la bonne raison.",
+    "trust_items": [
+      [
+        "Partir de votre métier",
+        "Un processus observé, des utilisateurs identifiés, des règles explicites."
+      ],
+      [
+        "Relier l’existant",
+        "Les API et les accès sont vérifiés avant de promettre une intégration."
+      ],
+      [
+        "Garder la maîtrise",
+        "Droits, validations, sauvegardes et documentation sont cadrés dans le projet."
+      ]
+    ],
+    "saas_heading": "Nos produits prennent forme.",
+    "saas_copy": "NovalisOS est notre socle interne en développement. Ses fonctions disponibles et ses limites sont documentées ; l’accès commercial n’est pas encore ouvert.",
+    "saas_link": "Voir NovalisOS et son statut",
+    "contact_title": "Votre prochain outil\ncommence par un échange.",
+    "contact_copy": "Une opération qui se complique, un outil à relier ou une idée à construire ? Décrivez votre situation. Nous identifions ensemble une première étape utile.",
+    "contact_note": "Le périmètre, les intégrations et l’accompagnement se cadrent avant la proposition. Aucun tarif n’est calculé ici.",
+    "contact_cta": "Réserver un échange · 30 min",
+    "contact_form_note": "Votre demande est reçue après confirmation affichée ici. Nous vous répondrons personnellement pour organiser la suite.",
+    "footer_line": "Des outils pour faire avancer le métier."
+  },
+  "en": {
+    "hero_kicker": "BUSINESS SOFTWARE · ERP · USEFUL AI",
+    "hero_a": "Your teams move forward.",
+    "hero_b": "Your tools should too.",
+    "hero_copy": "Custom ERP, inventory management, AI assistants and web applications: we connect your data, teams and decisions in tools designed around the way you work.",
+    "hero_cta": "Let’s discuss how you work",
+    "hero_second": "Explore the applications",
+    "hero_note": "An introductory conversation to understand your needs. No obligation.",
+    "nav": [
+      "Solutions",
+      "The workshop",
+      "Method",
+      "Team"
+    ],
+    "hero_tabs": [
+      "Projects",
+      "Inventory",
+      "Assistant",
+      "Decisions"
+    ],
+    "concept": "Interface concept",
+    "concept_note": "AI-generated illustrative interfaces · fictional data · solutions to design with you.",
+    "view_image": "Enlarge the interface",
+    "close_image": "Close the interface",
+    "zoom": "Zoom",
+    "solutions_title": "Imagine your operations,\ndifferently.",
+    "solutions_copy": "An industrial project, a warehouse, internal requests or a difficult schedule: four possible directions. Your rules shape the final software.",
+    "product_more": "Explore this workflow",
+    "product_titles": [
+      "An ERP for industrial projects.",
+      "Inventory, from movement to decision.",
+      "An assistant that moves work forward.",
+      "Scenarios to decide before you act."
+    ],
+    "product_sectors": [
+      "HYDROCARBONS · PROJECTS · MAINTENANCE",
+      "TRADE · LOGISTICS · INVENTORY",
+      "TEAMS · DOCUMENTS · WORKFLOWS",
+      "DATA · OPTIMIZATION · OPERATIONS"
+    ],
+    "product_problems": [
+      "Milestones, purchasing, resources and documents change separately. A missed dependency can block an intervention.",
+      "Inventory in spreadsheets, reservations elsewhere and deliveries by email: actual availability becomes hard to follow.",
+      "Your teams search for procedures, copy information and wait for approval to continue.",
+      "You must allocate limited resources across urgent work, deadlines and competing priorities."
+    ],
+    "product_outcomes": [
+      "Connect the schedule, required parts and approvals with the project record.",
+      "Distinguish available, reserved and incoming stock with a movement history.",
+      "Find an answer linked to its sources, prepare an action and leave the decision to the right owner.",
+      "Compare options and their constraints before committing your team."
+    ],
+    "product_modules": [
+      [
+        "Projects & milestones",
+        "Resources",
+        "Documents & approvals",
+        "Purchasing & dependencies"
+      ],
+      [
+        "Receipts & transfers",
+        "Available & reserved",
+        "Threshold alerts",
+        "Movement history"
+      ],
+      [
+        "Source retrieval",
+        "Permissions",
+        "Proposed actions",
+        "Human approval"
+      ],
+      [
+        "Capacity & priorities",
+        "Scenario simulation",
+        "Dashboards",
+        "Explicit constraints"
+      ]
+    ],
+    "product_questions": [
+      [
+        "Which approval rules apply?",
+        "Which data is reliable and current?",
+        "Which planning and purchasing tools need linking?"
+      ],
+      [
+        "How are quantities and units defined?",
+        "When does a reservation become a dispatch?",
+        "Which warehouses and tools need synchronization?"
+      ],
+      [
+        "Which documents may the assistant consult?",
+        "Which answers need source citations?",
+        "Which actions require approval?"
+      ],
+      [
+        "Which constraints must never be violated?",
+        "Which objective should take priority?",
+        "How should we compare decisions with current practice?"
+      ]
+    ],
+    "case_problem": "The starting problem",
+    "case_solution": "What we can build",
+    "case_questions": "What we need to define together",
+    "case_next": "Let’s discuss this workflow",
+    "case_flow": [
+      "Understand the operations",
+      "Validate a prototype",
+      "Build and test a first increment"
+    ],
+    "lab_title": "Put the system\nto the test.",
+    "lab_copy": "Software also proves itself when something goes wrong. Try approving, resolve the blocker and see what your decision changes.",
+    "lab_badge": "OPERATIONS WORKSHOP",
+    "lab_note": "Local simulation with fictional data. Predefined rules, no live AI or real actions.",
+    "lab_tabs": [
+      "Urgent order",
+      "Industrial milestone",
+      "Business assistant"
+    ],
+    "lab_names": [
+      "Order DEMO-012",
+      "Intervention SITE-A",
+      "Internal request DEMO-034"
+    ],
+    "lab_stories": [
+      "12 parts requested, 8 available. How can work proceed without promising nonexistent stock?",
+      "The milestone needs a supporting document and manager approval. Can it move straight to execution?",
+      "An action is proposed using an internal document. The source must be authorized and the proposal reviewed."
+    ],
+    "lab_stages": [
+      "Record received",
+      "Business checks",
+      "Decision approved"
+    ],
+    "lab_try": "Attempt approval",
+    "lab_reset": "Replay the scenario",
+    "lab_ready": "To review",
+    "lab_blocked": "Approval blocked",
+    "lab_approved": "Decision approved",
+    "lab_unfixed": "Try approving to reveal the checks.",
+    "lab_issues": [
+      "The first batch exceeds available inventory.",
+      "The supporting document is missing.",
+      "The current role cannot approve this milestone.",
+      "The internal source is not authorized in this scenario.",
+      "The proposal has not been reviewed."
+    ],
+    "lab_fixes": [
+      "Deliver in two batches",
+      "Attach the supporting document",
+      "Request manager approval",
+      "Authorize the fictional source",
+      "Review the proposal"
+    ],
+    "lab_metrics": [
+      "Requested",
+      "Available",
+      "First batch",
+      "Still to plan",
+      "Reserved",
+      "Document",
+      "Approval",
+      "Source",
+      "Review"
+    ],
+    "lab_yes": "Ready",
+    "lab_no": "Incomplete",
+    "lab_log_title": "Decision log",
+    "lab_logs": [
+      "Fictional record loaded.",
+      "Approval attempted: checks executed.",
+      "Record corrected; a new check is required.",
+      "Approval recorded in this simulation."
+    ],
+    "lab_results": [
+      "The first batch is reserved; the balance needs planning after replenishment.",
+      "The document and approval are present. The milestone may move to the next step.",
+      "The source and review are confirmed. The request is prepared; no real message is sent."
+    ],
+    "lab_rules": "Show the scenario rules",
+    "lab_rule_text": [
+      "First batch ≤ available inventory. Approval reserves that batch only once. The balance is not promised.",
+      "Supporting document AND manager approval. One click cannot bypass those conditions.",
+      "Authorized source AND human review. This demonstration uses a prepared proposal, not an AI model."
+    ],
+    "lab_cta": "Design a workflow for my team",
+    "value_title": "Time saved\nshould be measured.",
+    "value_copy": "Automation can move work into review or maintenance. Compare both situations using your own assumptions, then check them in a pilot.",
+    "value_open": "Compare a process, step by step",
+    "value_labels": [
+      "Operations per week",
+      "Minutes per operation today",
+      "Processing minutes after, excluding review",
+      "Share of operations automated (%)",
+      "Human review per automated operation (min)",
+      "Extra operating work per week (min)"
+    ],
+    "value_table": [
+      "Current situation",
+      "Remaining manual operations",
+      "Automated processing",
+      "Human review",
+      "Operating work",
+      "Total after"
+    ],
+    "value_result": "Theoretical weekly difference",
+    "value_positive": "Time potentially freed, to confirm in a real pilot.",
+    "value_negative": "This assumption adds work. The workflow needs rethinking.",
+    "value_zero": "This assumption frees no time.",
+    "value_invalid": "Enter six valid values to compare.",
+    "value_unit": "hours",
+    "value_formula": "Before = volume × current duration. After = volume × [(1 − share) × current duration + share × (processing + review)] + operating work. Difference = (before − after) ÷ 60.",
+    "value_note": "Fictional prefilled example. The share means operations actually handled, not AI confidence. Review is excluded from processing time. Training and setup are outside this weekly calculation; no price or financial return is derived.",
+    "value_cta": "Check these assumptions together",
+    "brief_title": "A need to clarify?\nStart with the right questions.",
+    "brief_copy": "Choose a workflow, list your tools and constraints. We prepare a starting point for discussion — no automatic price, timeline or quotation.",
+    "brief_labels": [
+      "Intended workflow",
+      "Current tools",
+      "Main bottleneck",
+      "Important constraints"
+    ],
+    "brief_placeholder": "Spreadsheets, existing ERP, internal tools…",
+    "brief_problem_placeholder": "What your team needs to do better…",
+    "brief_constraints": [
+      "Confidential data",
+      "Keep current tools",
+      "Multiple user roles"
+    ],
+    "brief_download": "Download my brief",
+    "brief_transfer": "Add to the form",
+    "brief_done": "Your brief is ready to discuss.",
+    "brief_disclaimer": "Indicative scoping: needs, dependencies, responsibilities and acceptance criteria must be validated before a proposal.",
+    "trust_title": "The right technology.\nFor the right reason.",
+    "trust_items": [
+      [
+        "Start with your work",
+        "An observed process, identified users and explicit rules."
+      ],
+      [
+        "Connect what exists",
+        "APIs and access are checked before promising integrations."
+      ],
+      [
+        "Keep control",
+        "Permissions, approvals, backups and documentation are scoped in the project."
+      ]
+    ],
+    "saas_heading": "Our products are taking shape.",
+    "saas_copy": "NovalisOS is our internal core in development. Available features and limitations are documented; commercial access is not open yet.",
+    "saas_link": "See NovalisOS and its status",
+    "contact_title": "Your next tool\nstarts with a conversation.",
+    "contact_copy": "An operation getting complicated, a tool to connect or an idea to build? Describe your situation. We identify a useful first step together.",
+    "contact_note": "Scope, integrations and support are defined before the proposal. No pricing is calculated here.",
+    "contact_cta": "Book a conversation · 30 min",
+    "contact_form_note": "Your request is received after the confirmation shown here. We will respond personally to arrange the next step.",
+    "footer_line": "Tools that move your work forward."
+  },
+  "nl": {
+    "hero_kicker": "BEDRIJFSSOFTWARE · ERP · NUTTIGE AI",
+    "hero_a": "Uw teams gaan vooruit.",
+    "hero_b": "Uw tools moeten volgen.",
+    "hero_copy": "ERP op maat, voorraadbeheer, AI-assistenten en webapplicaties: wij verbinden uw gegevens, teams en beslissingen in tools die bij uw werking passen.",
+    "hero_cta": "Laten we uw werking bespreken",
+    "hero_second": "Bekijk de toepassingen",
+    "hero_note": "Een eerste gesprek om uw behoefte te begrijpen. Vrijblijvend.",
+    "nav": [
+      "Oplossingen",
+      "Het atelier",
+      "Aanpak",
+      "Team"
+    ],
+    "hero_tabs": [
+      "Projecten",
+      "Voorraad",
+      "Assistent",
+      "Beslissingen"
+    ],
+    "concept": "Interfaceconcept",
+    "concept_note": "Illustratieve interfaces gegenereerd met AI · fictieve gegevens · samen te ontwerpen oplossingen.",
+    "view_image": "Interface vergroten",
+    "close_image": "Interface sluiten",
+    "zoom": "Zoom",
+    "solutions_title": "Bekijk uw werking\nmet nieuwe ogen.",
+    "solutions_copy": "Een industrieel project, een magazijn, interne aanvragen of een lastige planning: vier mogelijke richtingen. Uw bedrijfsregels bepalen de uiteindelijke software.",
+    "product_more": "Bekijk dit proces",
+    "product_titles": [
+      "Een ERP voor industriële projecten.",
+      "Voorraad, van beweging tot beslissing.",
+      "Een assistent die dossiers vooruithelpt.",
+      "Scenario’s om te beslissen vóór u handelt."
+    ],
+    "product_sectors": [
+      "KOOLWATERSTOFFEN · PROJECTEN · ONDERHOUD",
+      "HANDEL · LOGISTIEK · VOORRAAD",
+      "TEAMS · DOCUMENTEN · WORKFLOWS",
+      "DATA · OPTIMALISATIE · STURING"
+    ],
+    "product_problems": [
+      "Mijlpalen, aankopen, middelen en documenten veranderen los van elkaar. Een vergeten afhankelijkheid kan een interventie blokkeren.",
+      "Voorraad in spreadsheets, reserveringen elders en ontvangsten per e-mail: echte beschikbaarheid wordt moeilijk te volgen.",
+      "Uw teams zoeken procedures, kopiëren gegevens en wachten op goedkeuring om verder te werken.",
+      "U moet beperkte middelen verdelen over dringend werk, deadlines en concurrerende prioriteiten."
+    ],
+    "product_outcomes": [
+      "Koppel planning, vereiste onderdelen en goedkeuringen aan het projectdossier.",
+      "Onderscheid beschikbare, gereserveerde en verwachte voorraad met een bewegingshistoriek.",
+      "Vind een antwoord met bronnen, bereid een actie voor en laat de beslissing bij de juiste verantwoordelijke.",
+      "Vergelijk opties en beperkingen voordat u uw team inzet."
+    ],
+    "product_modules": [
+      [
+        "Projecten & mijlpalen",
+        "Middelen",
+        "Documenten & goedkeuringen",
+        "Aankopen & afhankelijkheden"
+      ],
+      [
+        "Ontvangsten & transfers",
+        "Beschikbaar & gereserveerd",
+        "Drempelmeldingen",
+        "Bewegingshistoriek"
+      ],
+      [
+        "Zoeken in bronnen",
+        "Rechten",
+        "Voorgestelde acties",
+        "Menselijke goedkeuring"
+      ],
+      [
+        "Capaciteit & prioriteiten",
+        "Scenariosimulatie",
+        "Dashboards",
+        "Expliciete beperkingen"
+      ]
+    ],
+    "product_questions": [
+      [
+        "Welke goedkeuringsregels gelden?",
+        "Welke gegevens zijn betrouwbaar en actueel?",
+        "Welke plannings- en aankooptools moeten worden gekoppeld?"
+      ],
+      [
+        "Hoe zijn hoeveelheden en eenheden gedefinieerd?",
+        "Wanneer wordt een reservering een uitgaande beweging?",
+        "Welke magazijnen en tools moeten worden gesynchroniseerd?"
+      ],
+      [
+        "Welke documenten mag de assistent raadplegen?",
+        "Welke antwoorden moeten bronnen vermelden?",
+        "Welke acties vereisen goedkeuring?"
+      ],
+      [
+        "Welke beperkingen mogen nooit worden geschonden?",
+        "Welk doel krijgt voorrang?",
+        "Hoe vergelijken we beslissingen met de huidige praktijk?"
+      ]
+    ],
+    "case_problem": "Het vertrekprobleem",
+    "case_solution": "Wat we kunnen bouwen",
+    "case_questions": "Wat we samen moeten afbakenen",
+    "case_next": "Laten we dit proces bespreken",
+    "case_flow": [
+      "De werking begrijpen",
+      "Een prototype valideren",
+      "Een eerste deel bouwen en testen"
+    ],
+    "lab_title": "Stel het systeem\nop de proef.",
+    "lab_copy": "Software bewijst zich ook wanneer iets misgaat. Probeer goed te keuren, los de blokkering op en bekijk het gevolg van uw beslissing.",
+    "lab_badge": "ATELIER VAN DE OPERATIES",
+    "lab_note": "Lokale simulatie met fictieve gegevens. Vooraf bepaalde regels, geen live AI of echte acties.",
+    "lab_tabs": [
+      "Dringende bestelling",
+      "Industriële mijlpaal",
+      "Bedrijfsassistent"
+    ],
+    "lab_names": [
+      "Bestelling DEMO-012",
+      "Interventie SITE-A",
+      "Interne aanvraag DEMO-034"
+    ],
+    "lab_stories": [
+      "12 onderdelen gevraagd, 8 beschikbaar. Hoe gaat het werk verder zonder onbestaande voorraad te beloven?",
+      "De mijlpaal vereist een document en goedkeuring door de verantwoordelijke. Kan hij meteen worden uitgevoerd?",
+      "Een actie wordt voorgesteld op basis van een intern document. De bron moet toegestaan zijn en het voorstel nagekeken."
+    ],
+    "lab_stages": [
+      "Dossier ontvangen",
+      "Bedrijfscontroles",
+      "Beslissing goedgekeurd"
+    ],
+    "lab_try": "Goedkeuring proberen",
+    "lab_reset": "Scenario opnieuw spelen",
+    "lab_ready": "Te controleren",
+    "lab_blocked": "Goedkeuring geblokkeerd",
+    "lab_approved": "Beslissing goedgekeurd",
+    "lab_unfixed": "Probeer goed te keuren om de controles te zien.",
+    "lab_issues": [
+      "De eerste levering overschrijdt de beschikbare voorraad.",
+      "Het bewijsdocument ontbreekt.",
+      "De huidige rol kan deze mijlpaal niet goedkeuren.",
+      "De interne bron is niet toegestaan in dit scenario.",
+      "Het voorstel is nog niet nagekeken."
+    ],
+    "lab_fixes": [
+      "In twee delen leveren",
+      "Bewijsdocument toevoegen",
+      "Goedkeuring verantwoordelijke vragen",
+      "Fictieve bron toestaan",
+      "Voorstel nakijken"
+    ],
+    "lab_metrics": [
+      "Gevraagd",
+      "Beschikbaar",
+      "Eerste levering",
+      "Later te plannen",
+      "Gereserveerd",
+      "Document",
+      "Goedkeuring",
+      "Bron",
+      "Controle"
+    ],
+    "lab_yes": "Klaar",
+    "lab_no": "Onvolledig",
+    "lab_log_title": "Beslissingslogboek",
+    "lab_logs": [
+      "Fictief dossier geladen.",
+      "Goedkeuring geprobeerd: controles uitgevoerd.",
+      "Dossier aangepast; een nieuwe controle is nodig.",
+      "Goedkeuring geregistreerd in deze simulatie."
+    ],
+    "lab_results": [
+      "Het eerste deel is gereserveerd; het saldo wordt gepland na aanvulling.",
+      "Document en goedkeuring zijn aanwezig. De mijlpaal kan naar de volgende stap.",
+      "Bron en controle zijn bevestigd. De aanvraag is voorbereid; er wordt geen echt bericht verzonden."
+    ],
+    "lab_rules": "Scenarioregels bekijken",
+    "lab_rule_text": [
+      "Eerste levering ≤ beschikbare voorraad. Goedkeuring reserveert één keer. Het saldo wordt niet beloofd.",
+      "Bewijsdocument EN goedkeuring verantwoordelijke. Eén klik kan deze voorwaarden niet omzeilen.",
+      "Toegestane bron EN menselijke controle. Deze demo gebruikt een voorbereid voorstel, geen AI-model."
+    ],
+    "lab_cta": "Een proces voor mijn team ontwerpen",
+    "value_title": "Tijdwinst\nwordt gemeten.",
+    "value_copy": "Automatisering kan werk naar controle of onderhoud verplaatsen. Vergelijk beide situaties met uw aannames en toets die in een proef.",
+    "value_open": "Een proces stap voor stap vergelijken",
+    "value_labels": [
+      "Handelingen per week",
+      "Minuten per handeling vandaag",
+      "Verwerkingstijd daarna, zonder controle",
+      "Aandeel geautomatiseerde handelingen (%)",
+      "Menselijke controle per geautomatiseerde handeling (min)",
+      "Extra beheer per week (min)"
+    ],
+    "value_table": [
+      "Huidige situatie",
+      "Resterende manuele handelingen",
+      "Automatische verwerking",
+      "Menselijke controle",
+      "Beheer",
+      "Totaal daarna"
+    ],
+    "value_result": "Theoretisch verschil per week",
+    "value_positive": "Mogelijk vrijgemaakte tijd, te bevestigen in een echte proef.",
+    "value_negative": "Deze aanname voegt werk toe. Het proces moet worden herbekeken.",
+    "value_zero": "Deze aanname maakt geen tijd vrij.",
+    "value_invalid": "Vul zes geldige waarden in om te vergelijken.",
+    "value_unit": "uur",
+    "value_formula": "Voor = volume × huidige duur. Na = volume × [(1 − aandeel) × huidige duur + aandeel × (verwerking + controle)] + beheer. Verschil = (voor − na) ÷ 60.",
+    "value_note": "Fictief ingevuld voorbeeld. Het aandeel betreft werkelijk verwerkte handelingen, geen AI-betrouwbaarheid. Controle zit niet in verwerkingstijd. Opleiding en opstart vallen buiten deze wekelijkse berekening; er volgt geen prijs of financieel rendement uit.",
+    "value_cta": "Deze aannames samen toetsen",
+    "brief_title": "Een behoefte verduidelijken?\nBegin met de juiste vragen.",
+    "brief_copy": "Kies een proces, vermeld uw tools en beperkingen. We bereiden een vertrekpunt voor — geen automatische prijs, termijn of offerte.",
+    "brief_labels": [
+      "Beoogd proces",
+      "Huidige tools",
+      "Belangrijkste knelpunt",
+      "Belangrijke beperkingen"
+    ],
+    "brief_placeholder": "Spreadsheets, bestaand ERP, interne tools…",
+    "brief_problem_placeholder": "Wat uw team beter moet kunnen doen…",
+    "brief_constraints": [
+      "Vertrouwelijke gegevens",
+      "Huidige tools behouden",
+      "Meerdere gebruikersrollen"
+    ],
+    "brief_download": "Mijn briefing downloaden",
+    "brief_transfer": "Toevoegen aan formulier",
+    "brief_done": "Uw briefing is klaar om te bespreken.",
+    "brief_disclaimer": "Indicatieve afbakening: behoeften, afhankelijkheden, verantwoordelijkheden en acceptatiecriteria worden vóór een voorstel gevalideerd.",
+    "trust_title": "De juiste technologie.\nOm de juiste reden.",
+    "trust_items": [
+      [
+        "Begin bij uw werk",
+        "Een geobserveerd proces, gekende gebruikers en expliciete regels."
+      ],
+      [
+        "Koppel wat bestaat",
+        "API’s en toegang worden gecontroleerd vóór integraties worden beloofd."
+      ],
+      [
+        "Behoud de regie",
+        "Rechten, goedkeuringen, back-ups en documentatie worden in het project afgebakend."
+      ]
+    ],
+    "saas_heading": "Onze producten krijgen vorm.",
+    "saas_copy": "NovalisOS is onze interne kern in ontwikkeling. Beschikbare functies en beperkingen zijn gedocumenteerd; commerciële toegang is nog niet open.",
+    "saas_link": "Bekijk NovalisOS en zijn status",
+    "contact_title": "Uw volgende tool\nbegint met een gesprek.",
+    "contact_copy": "Een ingewikkelde operatie, een te koppelen tool of een idee om te bouwen? Beschrijf uw situatie. We bepalen samen een nuttige eerste stap.",
+    "contact_note": "Scope, integraties en begeleiding worden vóór het voorstel bepaald. Hier wordt geen prijs berekend.",
+    "contact_cta": "Een gesprek boeken · 30 min",
+    "contact_form_note": "Uw aanvraag is ontvangen na de bevestiging die hier verschijnt. We antwoorden persoonlijk om de volgende stap te organiseren.",
+    "footer_line": "Tools die uw werking vooruithelpen."
+  },
+  "de": {
+    "hero_kicker": "GESCHÄFTSSOFTWARE · ERP · NÜTZLICHE KI",
+    "hero_a": "Ihre Teams kommen voran.",
+    "hero_b": "Ihre Werkzeuge sollten folgen.",
+    "hero_copy": "ERP nach Maß, Lagerverwaltung, KI-Assistenten und Webanwendungen: Wir verbinden Daten, Teams und Entscheidungen in Werkzeugen für Ihre Arbeitsweise.",
+    "hero_cta": "Lassen Sie uns Ihre Abläufe besprechen",
+    "hero_second": "Anwendungen ansehen",
+    "hero_note": "Ein erstes Gespräch, um Ihren Bedarf zu verstehen. Unverbindlich.",
+    "nav": [
+      "Lösungen",
+      "Die Werkstatt",
+      "Vorgehen",
+      "Team"
+    ],
+    "hero_tabs": [
+      "Projekte",
+      "Lager",
+      "Assistent",
+      "Entscheidungen"
+    ],
+    "concept": "Oberflächenkonzept",
+    "concept_note": "Mit KI erzeugte illustrative Oberflächen · fiktive Daten · gemeinsam zu entwickelnde Lösungen.",
+    "view_image": "Oberfläche vergrößern",
+    "close_image": "Oberfläche schließen",
+    "zoom": "Zoom",
+    "solutions_title": "Ihre Abläufe,\nneu gedacht.",
+    "solutions_copy": "Ein Industrieprojekt, ein Lager, interne Anfragen oder eine schwierige Planung: vier mögliche Richtungen. Ihre Geschäftsregeln bestimmen die spätere Software.",
+    "product_more": "Diesen Ablauf ansehen",
+    "product_titles": [
+      "Ein ERP für Industrieprojekte.",
+      "Lagerbestand, von Bewegung bis Entscheidung.",
+      "Ein Assistent, der Vorgänge voranbringt.",
+      "Szenarien für Entscheidungen vor dem Handeln."
+    ],
+    "product_sectors": [
+      "KOHLENWASSERSTOFFE · PROJEKTE · WARTUNG",
+      "HANDEL · LOGISTIK · LAGER",
+      "TEAMS · DOKUMENTE · WORKFLOWS",
+      "DATEN · OPTIMIERUNG · STEUERUNG"
+    ],
+    "product_problems": [
+      "Meilensteine, Einkauf, Ressourcen und Dokumente ändern sich getrennt. Eine übersehene Abhängigkeit kann einen Einsatz blockieren.",
+      "Bestand in Tabellen, Reservierungen anderswo und Wareneingang per E-Mail: Die tatsächliche Verfügbarkeit wird unübersichtlich.",
+      "Ihre Teams suchen Verfahren, übertragen Informationen und warten auf Freigaben.",
+      "Begrenzte Ressourcen müssen auf dringende Aufgaben, Fristen und konkurrierende Prioritäten verteilt werden."
+    ],
+    "product_outcomes": [
+      "Planung, benötigte Teile und Freigaben im Projektdossier verbinden.",
+      "Verfügbare, reservierte und erwartete Bestände mit Bewegungsverlauf unterscheiden.",
+      "Eine Antwort mit Quellen finden, eine Aktion vorbereiten und die Entscheidung beim zuständigen Menschen lassen.",
+      "Optionen und Einschränkungen vor dem Einsatz des Teams vergleichen."
+    ],
+    "product_modules": [
+      [
+        "Projekte & Meilensteine",
+        "Ressourcen",
+        "Dokumente & Freigaben",
+        "Einkauf & Abhängigkeiten"
+      ],
+      [
+        "Wareneingang & Transfers",
+        "Verfügbar & reserviert",
+        "Schwellenwarnungen",
+        "Bewegungsverlauf"
+      ],
+      [
+        "Quellensuche",
+        "Berechtigungen",
+        "Vorgeschlagene Aktionen",
+        "Menschliche Freigabe"
+      ],
+      [
+        "Kapazität & Prioritäten",
+        "Szenariosimulation",
+        "Dashboards",
+        "Explizite Einschränkungen"
+      ]
+    ],
+    "product_questions": [
+      [
+        "Welche Freigaberegeln gelten?",
+        "Welche Daten sind zuverlässig und aktuell?",
+        "Welche Planungs- und Einkaufswerkzeuge müssen verbunden werden?"
+      ],
+      [
+        "Wie sind Mengen und Einheiten definiert?",
+        "Wann wird eine Reservierung zum Ausgang?",
+        "Welche Lager und Werkzeuge müssen synchronisiert werden?"
+      ],
+      [
+        "Welche Dokumente darf der Assistent einsehen?",
+        "Welche Antworten müssen Quellen nennen?",
+        "Welche Aktionen benötigen eine Freigabe?"
+      ],
+      [
+        "Welche Einschränkungen dürfen niemals verletzt werden?",
+        "Welches Ziel hat Vorrang?",
+        "Wie vergleichen wir Entscheidungen mit der heutigen Praxis?"
+      ]
+    ],
+    "case_problem": "Das Ausgangsproblem",
+    "case_solution": "Was wir bauen können",
+    "case_questions": "Was wir gemeinsam klären müssen",
+    "case_next": "Diesen Ablauf gemeinsam besprechen",
+    "case_flow": [
+      "Abläufe verstehen",
+      "Einen Prototyp validieren",
+      "Einen ersten Teil bauen und testen"
+    ],
+    "lab_title": "Stellen Sie das System\nauf die Probe.",
+    "lab_copy": "Software bewährt sich auch dann, wenn etwas schiefgeht. Versuchen Sie eine Freigabe, beheben Sie das Hindernis und sehen Sie die Folgen Ihrer Entscheidung.",
+    "lab_badge": "WERKSTATT DER ABLÄUFE",
+    "lab_note": "Lokale Simulation mit fiktiven Daten. Vordefinierte Regeln, keine Live-KI oder echten Aktionen.",
+    "lab_tabs": [
+      "Dringende Bestellung",
+      "Industrieller Meilenstein",
+      "Geschäftsassistent"
+    ],
+    "lab_names": [
+      "Bestellung DEMO-012",
+      "Einsatz SITE-A",
+      "Interne Anfrage DEMO-034"
+    ],
+    "lab_stories": [
+      "12 Teile angefragt, 8 verfügbar. Wie geht es weiter, ohne nicht vorhandenen Bestand zu versprechen?",
+      "Der Meilenstein braucht einen Nachweis und die Zustimmung der Leitung. Darf die Ausführung sofort starten?",
+      "Eine Aktion wird aus einem internen Dokument vorgeschlagen. Die Quelle muss erlaubt und der Vorschlag geprüft sein."
+    ],
+    "lab_stages": [
+      "Dossier eingegangen",
+      "Geschäftsregeln geprüft",
+      "Entscheidung freigegeben"
+    ],
+    "lab_try": "Freigabe versuchen",
+    "lab_reset": "Szenario neu spielen",
+    "lab_ready": "Zu prüfen",
+    "lab_blocked": "Freigabe blockiert",
+    "lab_approved": "Entscheidung freigegeben",
+    "lab_unfixed": "Versuchen Sie die Freigabe, um die Prüfungen zu sehen.",
+    "lab_issues": [
+      "Die erste Teillieferung überschreitet den verfügbaren Bestand.",
+      "Der Nachweis fehlt im Dossier.",
+      "Die aktuelle Rolle darf diesen Meilenstein nicht freigeben.",
+      "Die interne Quelle ist in diesem Szenario nicht erlaubt.",
+      "Der Vorschlag wurde noch nicht geprüft."
+    ],
+    "lab_fixes": [
+      "In zwei Teilen liefern",
+      "Nachweis beifügen",
+      "Zustimmung der Leitung anfordern",
+      "Fiktive Quelle erlauben",
+      "Vorschlag prüfen"
+    ],
+    "lab_metrics": [
+      "Angefragt",
+      "Verfügbar",
+      "Erste Lieferung",
+      "Später zu planen",
+      "Reserviert",
+      "Nachweis",
+      "Freigabe",
+      "Quelle",
+      "Prüfung"
+    ],
+    "lab_yes": "Bereit",
+    "lab_no": "Unvollständig",
+    "lab_log_title": "Entscheidungsprotokoll",
+    "lab_logs": [
+      "Fiktives Dossier geladen.",
+      "Freigabe versucht: Prüfungen ausgeführt.",
+      "Dossier ergänzt; eine neue Prüfung ist erforderlich.",
+      "Freigabe in dieser Simulation protokolliert."
+    ],
+    "lab_results": [
+      "Der erste Teil ist reserviert; der Rest wird nach Nachlieferung geplant.",
+      "Nachweis und Zustimmung liegen vor. Der Meilenstein kann zum nächsten Schritt.",
+      "Quelle und Prüfung sind bestätigt. Die Anfrage ist vorbereitet; es wird keine echte Nachricht gesendet."
+    ],
+    "lab_rules": "Szenarioregeln ansehen",
+    "lab_rule_text": [
+      "Erste Lieferung ≤ verfügbarer Bestand. Freigabe reserviert nur einmal. Der Rest wird nicht versprochen.",
+      "Nachweis UND Zustimmung der Leitung. Ein Klick umgeht diese Bedingungen nicht.",
+      "Erlaubte Quelle UND menschliche Prüfung. Diese Demo verwendet einen vorbereiteten Vorschlag, kein KI-Modell."
+    ],
+    "lab_cta": "Einen Ablauf für mein Team gestalten",
+    "value_title": "Zeitgewinn\nwird gemessen.",
+    "value_copy": "Automatisierung kann Arbeit in Prüfung oder Wartung verlagern. Vergleichen Sie beide Situationen mit eigenen Annahmen und prüfen Sie diese in einem Versuch.",
+    "value_open": "Einen Prozess Schritt für Schritt vergleichen",
+    "value_labels": [
+      "Vorgänge pro Woche",
+      "Minuten je Vorgang heute",
+      "Verarbeitung danach, ohne Prüfung (min)",
+      "Anteil automatisierter Vorgänge (%)",
+      "Menschliche Prüfung je automatisiertem Vorgang (min)",
+      "Zusätzlicher Betrieb pro Woche (min)"
+    ],
+    "value_table": [
+      "Heutige Situation",
+      "Verbleibende manuelle Vorgänge",
+      "Automatische Verarbeitung",
+      "Menschliche Prüfung",
+      "Betrieb",
+      "Summe danach"
+    ],
+    "value_result": "Theoretischer Unterschied pro Woche",
+    "value_positive": "Möglicherweise frei werdende Zeit, im realen Versuch zu bestätigen.",
+    "value_negative": "Diese Annahme verursacht zusätzliche Arbeit. Der Ablauf muss überdacht werden.",
+    "value_zero": "Diese Annahme spart keine Zeit.",
+    "value_invalid": "Sechs gültige Werte zum Vergleich eingeben.",
+    "value_unit": "Stunden",
+    "value_formula": "Vorher = Volumen × aktuelle Dauer. Nachher = Volumen × [(1 − Anteil) × aktuelle Dauer + Anteil × (Verarbeitung + Prüfung)] + Betrieb. Unterschied = (vorher − nachher) ÷ 60.",
+    "value_note": "Fiktives vorausgefülltes Beispiel. Der Anteil bezeichnet tatsächlich bearbeitete Vorgänge, keine KI-Sicherheit. Prüfung ist nicht in der Verarbeitung enthalten. Schulung und Einrichtung liegen außerhalb dieser Wochenrechnung; es wird kein Preis oder finanzieller Ertrag abgeleitet.",
+    "value_cta": "Diese Annahmen gemeinsam prüfen",
+    "brief_title": "Einen Bedarf klären?\nMit den richtigen Fragen beginnen.",
+    "brief_copy": "Wählen Sie einen Ablauf und nennen Sie Werkzeuge und Einschränkungen. Wir bereiten einen Gesprächseinstieg vor — ohne automatischen Preis, Termin oder Angebot.",
+    "brief_labels": [
+      "Geplanter Ablauf",
+      "Vorhandene Werkzeuge",
+      "Wichtigstes Hindernis",
+      "Wichtige Einschränkungen"
+    ],
+    "brief_placeholder": "Tabellen, vorhandenes ERP, interne Werkzeuge…",
+    "brief_problem_placeholder": "Was Ihr Team besser tun können soll…",
+    "brief_constraints": [
+      "Vertrauliche Daten",
+      "Vorhandene Werkzeuge behalten",
+      "Mehrere Nutzerrollen"
+    ],
+    "brief_download": "Briefing herunterladen",
+    "brief_transfer": "Zum Formular hinzufügen",
+    "brief_done": "Ihr Briefing ist bereit für das Gespräch.",
+    "brief_disclaimer": "Unverbindliche Eingrenzung: Bedarf, Abhängigkeiten, Zuständigkeiten und Abnahmekriterien werden vor einem Angebot validiert.",
+    "trust_title": "Die richtige Technologie.\nAus dem richtigen Grund.",
+    "trust_items": [
+      [
+        "Beim Arbeitsalltag beginnen",
+        "Ein beobachteter Prozess, bekannte Nutzer und ausdrückliche Regeln."
+      ],
+      [
+        "Vorhandenes verbinden",
+        "APIs und Zugang werden vor Integrationsversprechen geprüft."
+      ],
+      [
+        "Kontrolle behalten",
+        "Rechte, Freigaben, Backups und Dokumentation werden im Projekt festgelegt."
+      ]
+    ],
+    "saas_heading": "Unsere Produkte nehmen Gestalt an.",
+    "saas_copy": "NovalisOS ist unser interner Kern in Entwicklung. Funktionen und Grenzen sind dokumentiert; kommerzieller Zugang ist noch nicht offen.",
+    "saas_link": "NovalisOS und seinen Status ansehen",
+    "contact_title": "Ihr nächstes Werkzeug\nbeginnt mit einem Gespräch.",
+    "contact_copy": "Ein komplizierter Vorgang, ein zu verbindendes Werkzeug oder eine Idee? Beschreiben Sie Ihre Situation. Wir finden gemeinsam einen sinnvollen ersten Schritt.",
+    "contact_note": "Umfang, Integrationen und Begleitung werden vor dem Angebot geklärt. Hier werden keine Preise berechnet.",
+    "contact_cta": "Gespräch buchen · 30 Min.",
+    "contact_form_note": "Ihre Anfrage ist nach der hier gezeigten Bestätigung eingegangen. Wir antworten persönlich, um die nächsten Schritte zu vereinbaren.",
+    "footer_line": "Werkzeuge, die Ihre Arbeit voranbringen."
+  }
+}

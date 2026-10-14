@@ -63,14 +63,7 @@ def enrich_ultimate(lang,prefix,out,client):
 def write_ultimate_pages(content,url):
  urls=[]
  for lang,t in D.items():
-  # Standalone lab shares the exact homepage tools and their translations.
-  root=ROOT/lang/'lab';root.mkdir(exist_ok=True)
-  navigation=f'<a href="../">{esc(t["hero_cta"])} ←</a>'
-  client={'ultimate':t}
-  body='<main id="main">'+lab(t).replace('<h2 id="lab-title">','<h1 id="lab-title">').replace('</h2></div><p>','</h1></div><p>',1)+'</main>'
-  htmlpage=page_shell(lang,url+'/'.join(['',lang,'lab','']),t['lab_page_head'],body,client,'../../',url,navigation)
-  (root/'index.html').write_text(htmlpage);urls.append(f'{url}/{lang}/lab/')
-  for i,slug in enumerate(SLUGS):
+  for i,slug in enumerate(SLUGS[:1]):
    root=ROOT/lang/'realisations'/slug;root.mkdir(parents=True,exist_ok=True);canonical=f'{url}/{lang}/realisations/{slug}/'
    fields=['case_context','case_goals','case_users','case_features','case_arch','case_limits']
    blocks=''.join(f'<section><h2>{esc(t["case_labels"][n])}</h2><p>{esc(t[key][i])}</p></section>' for n,key in enumerate(fields))
@@ -85,4 +78,4 @@ def page_shell(lang,canonical,title,body,client,prefix,url,navigation):
  alternates=''.join(f'<link rel="alternate" hreflang="{l}" href="{canonical.replace("/"+lang+"/","/"+l+"/",1)}">' for l in D)
  data=json.dumps(client,ensure_ascii=False).replace('<','\\u003c')
  script=f'<script src="{prefix}assets/lab-engine.js?v={version("lab-engine.js")}" defer></script><script src="{prefix}assets/ultimate.js?v={version("ultimate.js")}" defer></script>' if client else ''
- return f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(title)} — Novalis AI"><title>{esc(title)} — Novalis AI</title><link rel="canonical" href="{canonical}">{alternates}<link rel="icon" href="{prefix}assets/N_novalis.png"><link rel="stylesheet" href="{prefix}assets/styles.css"><link rel="stylesheet" href="{prefix}assets/v2.css"><link rel="stylesheet" href="{prefix}assets/studio.css"><link rel="stylesheet" href="{prefix}assets/ultimate.css?v={version("ultimate.css")}">{script}<meta property="og:image" content="{url}/assets/novalis_og.png"><meta property="og:title" content="{esc(title)} — Novalis AI"><meta property="og:type" content="website"><meta property="og:url" content="{canonical}"></head><body class="ultimate-detail"><header class="site-header"><div class="shell header-inner"><a class="brand" href="{prefix}{lang}/"><img src="{prefix}assets/logo.webp" alt="Novalis AI" width="1200" height="269"></a>{navigation}<nav class="detail-language">'+''.join(f'<a href="{canonical.replace("/"+lang+"/","/"+l+"/",1)}" lang="{l}" hreflang="{l}">{l.upper()}</a>' for l in D)+f'</nav></div></header>{body}<footer class="detail-footer shell"><a href="mailto:contact@novalisai.com">contact@novalisai.com</a><span>Novalis AI · Wavre · BE 0878.868.302</span></footer><script id="site-data" type="application/json">{data}</script></body></html>'
+ return f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(title)} — Novalis AI"><title>{esc(title)} — Novalis AI</title><link rel="canonical" href="{canonical}">{alternates}<link rel="icon" href="{prefix}assets/N_novalis.png"><link rel="stylesheet" href="{prefix}assets/showcase.css?v={version("showcase.css")}">{script}<meta property="og:image" content="{url}/assets/novalis_og.png"><meta property="og:title" content="{esc(title)} — Novalis AI"><meta property="og:type" content="website"><meta property="og:url" content="{canonical}"></head><body class="ultimate-detail"><header class="site-header"><div class="shell header-inner"><a class="brand" href="{prefix}{lang}/"><img src="{prefix}assets/logo.webp" alt="Novalis AI" width="1200" height="269"></a>{navigation}<nav class="detail-language">'+''.join(f'<a href="{canonical.replace("/"+lang+"/","/"+l+"/",1)}" lang="{l}" hreflang="{l}">{l.upper()}</a>' for l in D)+f'</nav></div></header>{body}<footer class="detail-footer shell"><a href="mailto:contact@novalisai.com">contact@novalisai.com</a><span>Novalis AI · Wavre · BE 0878.868.302</span></footer><script id="site-data" type="application/json">{data}</script></body></html>'

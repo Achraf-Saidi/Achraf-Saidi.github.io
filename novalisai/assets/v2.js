@@ -18,7 +18,7 @@
   const initial=document.createElement('option');initial.value='';initial.textContent='—';select.append(initial);slotField.append(label,select);
   form.querySelector('.consent').before(slotField);
   fetch(api+'/api/public/slots',{credentials:'omit'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(d=>{
-   if(!d.items.length){const p=document.createElement('p');p.className='form-note';p.textContent=labels.no_slots;slotField.append(p);select.hidden=true;return;}
+   if(!d.items.length){slotField.remove();return;}
    d.items.forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=new Intl.DateTimeFormat(document.documentElement.lang,{dateStyle:'full',timeStyle:'short',timeZone:'Europe/Brussels'}).format(new Date(s.starts_at))+' · Europe/Brussels';select.append(o);});
   }).catch(()=>{slotField.hidden=true;});
   const status=document.createElement('p');status.className='form-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status);

@@ -12,7 +12,7 @@
  menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){setMenu(false);menu.focus();}});
- window.matchMedia('(min-width: 801px)').addEventListener('change',e=>{if(e.matches)setMenu(false);});
+ window.matchMedia('(min-width: 1001px)').addEventListener('change',e=>{if(e.matches)setMenu(false);});
  const language=document.getElementById('language');
  language.addEventListener('change',()=>{
   const option=language.selectedOptions[0];
