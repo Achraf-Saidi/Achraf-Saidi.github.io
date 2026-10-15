@@ -2,7 +2,7 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "stage-final-tracking-layout",
+  "task": "publish-engineering-and-reference-recovery",
   "script": "novalis-os/deploy/remote-premium.py",
   "timeout": 600,
   "response_public_key": "zHdhkurF6+tkSkVBx7d0tyQCqP85G5J2Adm8mFWXNTs="
