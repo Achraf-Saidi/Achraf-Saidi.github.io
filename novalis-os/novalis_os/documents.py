@@ -2,7 +2,7 @@ import hashlib
 from pathlib import Path
 from flask import Blueprint, g, current_app, request, jsonify, abort, send_file
 from werkzeug.utils import secure_filename
-from .db import row, uid, transaction, now, audit
+from .db import row,rows,uid,transaction,now,audit,notify
 from .security import required, project_access
 
 documents = Blueprint('documents', __name__)
@@ -50,14 +50,34 @@ def upload(project_id):
     destination.chmod(0o600)
     try:
         with transaction() as db:
-            project_access(project_id)
+            project=project_access(project_id)
+            if project['status']=='archived':abort(409,'Ce projet est archivé. Aucun nouveau document ne peut être ajouté.')
+            previous=request.form.get('supersedes','')
+            root_id,number=document_id,1
+            if previous:
+                if g.user['role'] not in {'manager','account'}:abort(403,'Seul le responsable peut publier une nouvelle version.')
+                old=row('SELECT id,project_id,channel FROM documents WHERE id=?',(previous,))
+                if not old or old['project_id']!=project_id or old['channel']!=channel:abort(404,'Version précédente introuvable dans ce canal.')
+                if row('SELECT document_id FROM document_versions WHERE previous_id=?',(previous,)):abort(409,'Une nouvelle version existe déjà. Rechargez le projet.')
+                version=row('SELECT root_id,number FROM document_versions WHERE document_id=?',(previous,))
+                if not version:
+                    db.execute('INSERT INTO document_versions VALUES(?,?,NULL,1)',(previous,previous))
+                    version=dict(root_id=previous,number=1)
+                root_id,number=version['root_id'],version['number']+1
             db.execute('INSERT INTO documents VALUES(?,?,?,?,?,?,?,?,?)',
                        (document_id,project_id,g.user['id'],channel,filename,MIMES[ext],len(value),hashlib.sha256(value).hexdigest(),now()))
-            audit('document.uploaded',document_id,{'channel':channel})
+            db.execute('INSERT INTO document_versions VALUES(?,?,?,?)',(document_id,root_id,previous or None,number))
+            audit('document.uploaded',document_id,{'channel':channel,'version':number,'previous_id':previous or None})
+            if channel=='external':
+                if g.user['role']=='client':
+                    notify(project['account_id'],'document',document_id,'Un document client est disponible dans le projet.')
+                else:
+                    for user in rows("SELECT id FROM users WHERE client_id=? AND org_id=? AND role='client' AND status='active'",(project['client_id'],project['org_id'])):
+                        notify(user['id'],'document',document_id,'Un nouveau document partagé est disponible dans votre projet.')
     except Exception:
         destination.unlink(missing_ok=True)
         raise
-    return jsonify(id=document_id),201
+    return jsonify(id=document_id,version=number),201
 
 
 @documents.get('/api/documents/<document_id>')

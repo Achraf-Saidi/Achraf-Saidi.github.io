@@ -37,9 +37,7 @@ jobs:
         env:
           NOVALIS_JSDOM_MODULE: ${{ github.workspace }}/novalisai/qa/node_modules/jsdom
         run: |
-          node novalisai/qa/verify.cjs
-          node novalisai/qa/v2.cjs
-          node novalisai/qa/showcase.cjs
+          node novalisai/qa/premium.cjs
           node novalis-os/tests/ui.cjs
           node novalis-os/tests/payments-ui.cjs
       - name: Build production image

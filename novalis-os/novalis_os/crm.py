@@ -34,11 +34,9 @@ def contact():
     rate_limit('contact', 5, 3600)
     if d.get('website') or d.get('consent') is not True:
         abort(400, 'Vérifiez les informations du formulaire.')
-    with transaction():
-        lead_id = create_lead(d, current_app.config['ORG_ID'])
-        queue_email(email(d), 'Novalis AI — votre demande est enregistrée',
-                    'Bonjour,\n\nVotre demande a bien été enregistrée par Novalis AI. Nous reviendrons vers vous pour organiser notre premier échange d’une heure, offert et sans engagement.\n\nNovalis AI',org_id=current_app.config['ORG_ID'])
-    return jsonify(id=lead_id, received=True, email_status='queued'), 201
+    from .intake import accept_contact
+    result,status=accept_contact(d)
+    return jsonify(result),status
 
 
 @crm.get('/api/public/slots')
@@ -112,7 +110,7 @@ def reschedule_booking():
 @crm.get('/api/leads')
 @required('manager', 'account')
 def leads():
-    sql = 'SELECT * FROM leads WHERE org_id=?'
+    sql = 'SELECT leads.*,(SELECT reference FROM lead_intake WHERE lead_id=leads.id) AS public_reference FROM leads WHERE org_id=?'
     values = [g.user['org_id']]
     if g.user['role'] == 'account':
         sql += ' AND owner_id=?'
@@ -150,6 +148,8 @@ def edit_lead(lead_id):
         if not changed:
             abort(409, 'Cette fiche a été modifiée. Rechargez-la.')
         audit('lead.updated', lead_id, {'status': stage})
+        from .intake import track_transition
+        track_transition(lead_id,stage)
     return jsonify(ok=True, version=version+1)
 
 
@@ -213,6 +213,8 @@ def convert(lead_id):
         db.execute("UPDATE leads SET status='won',version=version+1 WHERE id=?", (lead_id,))
         notify(account_id, 'project', project_id, 'Un nouveau projet vous est confié.')
         audit('lead.converted', lead_id, {'project_id': project_id})
+        from .intake import track_transition
+        track_transition(lead_id,'won')
     return jsonify(id=project_id, client_id=client_id), 201
 
 

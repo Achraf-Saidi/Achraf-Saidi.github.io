@@ -1,0 +1,1746 @@
+{
+  "fr": {
+    "nav": [
+      "Showroom",
+      "Notre approche",
+      "Novalis OS",
+      "Le collectif"
+    ],
+    "eyebrow": "CONSEIL · DESIGN · DÉVELOPPEMENT",
+    "hero": [
+      "Le terrain écrit",
+      "la première ligne."
+    ],
+    "intro": "Avant le code, il y a votre entreprise. Ses habitudes, ses contraintes, ses idées. Nous prenons le temps de les comprendre pour construire les outils qui leur correspondent.",
+    "cta": "Parlons de votre métier",
+    "explore": "Explorer le showroom",
+    "hour": "Une heure pour faire le point. Offerte, sans engagement.",
+    "hero_caption": "Un outil de projet, une boutique, un service : des expériences qui prennent le métier au sérieux.",
+    "hero_chips": [
+      "Logiciels sur mesure",
+      "Sites & commerce",
+      "IA & données"
+    ],
+    "hero_note": "Du premier croquis au logiciel en service.",
+    "show_title": [
+      "Des idées qui ont déjà",
+      "une forme concrète."
+    ],
+    "show_copy": "Explorez ce que nous pouvons concevoir autour de vos opérations, de vos clients et de vos ambitions. Chaque interface ouvre une discussion sur votre propre projet.",
+    "filters": [
+      "Tout explorer",
+      "Logiciels métier",
+      "Sites & commerce",
+      "IA & data",
+      "SaaS"
+    ],
+    "concept": "Concept d’interface",
+    "open": "Explorer ce concept",
+    "close": "Fermer",
+    "zoom": "Agrandir",
+    "zoom_out": "Vue complète",
+    "case_labels": [
+      "Le point de départ",
+      "Ce que nous concevons",
+      "Ce que cela change"
+    ],
+    "case_cta": "Imaginons votre version",
+    "case_modules": "Parcours & fonctions",
+    "show_count": "concepts à explorer",
+    "case_note": "Une direction de conception, à adapter à votre activité.",
+    "bridge_title": [
+      "Une belle interface, oui.",
+      "Un métier compris, surtout."
+    ],
+    "bridge_copy": "Nous allons chercher ce qui se passe entre les écrans : une information recopiée, une validation attendue, une décision prise trop tard. C’est là que le projet commence.",
+    "bridge_items": [
+      [
+        "Observer",
+        "Les personnes, les gestes et les outils déjà en place."
+      ],
+      [
+        "Relier",
+        "Les données, les responsabilités et les moments de décision."
+      ],
+      [
+        "Construire",
+        "Un périmètre clair, des versions visibles, des usages vérifiés."
+      ]
+    ],
+    "os_kicker": "VOTRE ESPACE CLIENT · NOVALIS OS",
+    "os_title": [
+      "Vous voyez le projet",
+      "prendre forme."
+    ],
+    "os_copy": "Les livrables ne disparaissent pas derrière un e-mail. Avec Novalis OS, vous retrouvez les jalons, les documents partagés, les échanges et les décisions qui vous concernent, dans un espace dédié.",
+    "os_note": "Démonstration interactive · projet exemple",
+    "os_tabs": [
+      "Vue d’ensemble",
+      "Jalons",
+      "Documents",
+      "Décisions",
+      "Échanges"
+    ],
+    "os_project": "Atelier Sillage · Portail de commandes",
+    "os_status": "Conception validée · développement en cours",
+    "os_progress": "Jalons acceptés",
+    "os_next": "La prochaine décision",
+    "os_next_copy": "Vérifier le parcours de réception avant la prochaine livraison.",
+    "os_milestones": [
+      "Diagnostic & périmètre",
+      "Parcours & maquettes",
+      "Socle de données",
+      "Réception & réservations",
+      "Recette & mise en service"
+    ],
+    "os_states": [
+      "Accepté",
+      "En cours",
+      "À examiner",
+      "À venir"
+    ],
+    "os_docs": [
+      "Cahier des charges · v2",
+      "Parcours de réception · v2",
+      "Compte rendu de cadrage · v1"
+    ],
+    "os_doc_action": "Ouvrir l’aperçu",
+    "os_document": "Périmètre : recevoir une commande, vérifier les disponibilités, réserver les pièces et préparer la livraison. Critères : distinguer disponible et réservé, signaler une quantité insuffisante et conserver la décision. Hors périmètre : paiement et comptabilité.",
+    "os_decision_title": "Parcours de réception · version 2",
+    "os_decision_copy": "Le document rassemble le parcours, les règles de disponibilité et les points à vérifier. La validation porte uniquement sur cette version.",
+    "os_approve": "Essayer la validation",
+    "os_approved": "Version 2 validée dans cette démonstration.",
+    "os_history": "Historique des décisions",
+    "os_history_initial": "Le cahier des charges v2 a été accepté.",
+    "os_message": "Le premier parcours de réception est prêt à examiner. Vous pouvez consulter le document puis laisser une décision dans l’onglet dédié.",
+    "os_reply": "Les échanges restent attachés au bon projet.",
+    "os_open_real": "Accéder à mon espace client",
+    "os_features": [
+      "Un interlocuteur identifié",
+      "Les bonnes informations, au bon endroit",
+      "Des validations rattachées à leur version"
+    ],
+    "method_title": [
+      "On commence par écouter.",
+      "On avance en montrant."
+    ],
+    "method_copy": "Un premier échange, puis un cadre précis. Vous savez ce que nous construisons, pourquoi, et ce qu’il faut valider pour passer à la suite.",
+    "method_steps": [
+      [
+        "Une heure, ensemble.",
+        "Un échange gratuit et sans engagement pour comprendre votre entreprise, votre besoin et les premières contraintes.",
+        "Une première lecture du besoin"
+      ],
+      [
+        "Aller sur le terrain.",
+        "Observer les opérations, les outils et les passages de relais. Distinguer la cause du problème de ses symptômes.",
+        "Un diagnostic des flux et priorités"
+      ],
+      [
+        "Dessiner la bonne réponse.",
+        "Comparer les options, concevoir les parcours et tester les hypothèses. Automatisation et IA sont évaluées là où elles ont un intérêt.",
+        "Des parcours et une première maquette"
+      ],
+      [
+        "Poser le cadre.",
+        "Décrire les fonctionnalités, le périmètre, les livrables, le planning et le budget avant de lancer la réalisation.",
+        "Un cahier des charges et une proposition"
+      ],
+      [
+        "Construire par jalons.",
+        "Développer, tester et montrer les versions. Vos retours et vos validations restent visibles dans Novalis OS.",
+        "Des livraisons progressives vérifiables"
+      ],
+      [
+        "Faire vivre le logiciel.",
+        "Préparer la mise en service, accompagner les utilisateurs et cadrer la maintenance et les évolutions.",
+        "Un déploiement et un suivi définis ensemble"
+      ]
+    ],
+    "deliverable": "Vous repartez avec",
+    "ai_title": [
+      "Un assistant qui sait",
+      "quand passer la main."
+    ],
+    "ai_copy": "Répondre à une question de suivi, retrouver la bonne procédure, préparer un dossier : l’IA aide là où vos données et vos règles lui donnent un cadre. Les décisions sensibles restent à leur responsable.",
+    "ai_demo": "Démonstration guidée · service client",
+    "ai_questions": [
+      "Où en est ma commande ?",
+      "Puis-je changer mon adresse ?",
+      "D’où vient cette réponse ?"
+    ],
+    "ai_answers": [
+      "La commande CMD-2048 est préparée. Le lien transporteur sera disponible après la remise du colis.",
+      "Le changement d’adresse doit être vérifié par le service client. Je peux préparer le dossier pour une personne habilitée.",
+      "La réponse utilise le statut de CMD-2048 et la procédure « Modification de livraison ». Une réponse ne remplace pas une autorisation."
+    ],
+    "ai_source": "Source du scénario : suivi logistique & procédure de livraison",
+    "ai_handoff": "Voir le passage à l’équipe",
+    "ai_handoff_result": "Aperçu du dossier transmis : CMD-2048 · changement d’adresse · validation du service client requise.",
+    "ai_placeholder": "Choisissez une question pour explorer le parcours.",
+    "ai_context": "Commande CMD-2048",
+    "ai_state": "Préparée · adresse protégée",
+    "crew_title": [
+      "La rigueur scientifique.",
+      "Le sens du produit."
+    ],
+    "crew_copy": "Le conseil, le design et l’ingénierie avancent dans la même équipe. Nous réunissons les compétences autour du problème, avec JetThings et des spécialistes indépendants selon les missions.",
+    "founder_role": "Cofondateur & CTO",
+    "founder_bio": "Formé en sciences des données à l’École polytechnique de Louvain, chercheur et assistant à l’UCLouvain, Achraf relie statistique, machine learning et conception logicielle. Il porte le cadrage technique et l’architecture des projets Novalis.",
+    "profile": "Parcours professionnel",
+    "crew_roles": [
+      [
+        "05",
+        "Frontend",
+        "Interfaces, usages mobiles & accessibilité."
+      ],
+      [
+        "06",
+        "Backend",
+        "Règles métier, API & architecture."
+      ],
+      [
+        "03",
+        "Data scientists",
+        "Statistique, machine learning & analyse."
+      ],
+      [
+        "↗",
+        "Design & réseau",
+        "Design produit, JetThings & spécialistes."
+      ]
+    ],
+    "contact_title": [
+      "Commençons",
+      "par votre réalité."
+    ],
+    "contact_copy": "Décrivez ce qui vous ralentit, ce qui manque ou ce que vous voulez créer. Nous préparons ensemble la suite, à partir de votre situation.",
+    "contact_hour": "Premier échange d’une heure offert, sans engagement.",
+    "contact_schedule": "Demander mon échange d’une heure",
+    "contact_schedule_note": "Nous convenons de l’horaire avec vous. Les créneaux disponibles peuvent être réservés directement.",
+    "contact_intro": "Votre point de départ",
+    "contact_step": [
+      "01 · Votre besoin",
+      "02 · Votre contact"
+    ],
+    "continue": "Continuer",
+    "back": "Retour",
+    "send": "Envoyer ma demande",
+    "sending": "Envoi en cours…",
+    "form_note": "Une référence et un lien privé de suivi sont affichés après réception.",
+    "confirmation_title": "C’est bien reçu.",
+    "confirmation_copy": "Votre demande est enregistrée dans Novalis OS. Conservez votre lien privé pour suivre les prochaines étapes. Notre équipe vous recontactera pour organiser l’échange.",
+    "reference": "Votre référence",
+    "tracking_link": "Ouvrir mon suivi",
+    "tracking_save": "Copier mon lien privé",
+    "copied": "Lien copié.",
+    "copy_failed": "Sélectionnez le lien pour le conserver.",
+    "new_request": "Une autre demande",
+    "save_note": "Ce lien personnel est valable 90 jours. Il donne accès au statut : conservez-le sans le publier.",
+    "failure": "L’envoi n’est pas confirmé. Vos informations sont conservées dans le formulaire. Réessayez ; si le problème persiste, écrivez-nous.",
+    "uncertain": "La réception doit être vérifiée. Réessayez avec les mêmes informations pour éviter une demande en double.",
+    "unavailable": "Le service de demande est momentanément indisponible. Réessayez ou écrivez à contact@novalisai.com.",
+    "retry": "Réessayer la connexion",
+    "loading": "Connexion au service…",
+    "follow": "Suivre une demande",
+    "track_title": [
+      "Votre demande,",
+      "sans zone d’ombre."
+    ],
+    "track_copy": "Consultez les étapes enregistrées par l’équipe avec votre lien personnel.",
+    "track_private": "Ce lien est personnel. Aucun détail du projet ni message interne n’est affiché ici.",
+    "check_status": "Actualiser le statut",
+    "track_empty": "Ouvrez le lien privé affiché après l’envoi de votre demande.",
+    "track_expired": "Ce lien est introuvable ou expiré. Contactez Novalis avec votre référence.",
+    "track_error": "Le statut ne peut pas être chargé pour le moment. Réessayez.",
+    "track_states": [
+      "Reçue",
+      "En cours d’étude",
+      "Prise de contact",
+      "Proposition",
+      "Projet ouvert",
+      "Clôturée"
+    ],
+    "project_ready": "Votre projet a été ouvert. Votre interlocuteur vous communiquera votre accès personnel à Novalis OS.",
+    "footer": "Les bons outils commencent par les bonnes questions.",
+    "footer_pages": [
+      "Expertise",
+      "Entreprise",
+      "Confidentialité",
+      "Mentions légales"
+    ],
+    "faq_title": [
+      "Avant de faire",
+      "le premier pas."
+    ],
+    "faqs": [
+      [
+        "Et si nous ne savons pas encore quoi construire ?",
+        "C’est précisément le rôle du premier échange et du diagnostic : comprendre le problème avant de définir un outil."
+      ],
+      [
+        "Peut-on conserver nos logiciels actuels ?",
+        "Nous étudions les connexions possibles, les accès et les contraintes. Une intégration est confirmée après vérification technique."
+      ],
+      [
+        "Comment le budget est-il défini ?",
+        "Après cadrage, une proposition précise le périmètre, les livrables, les jalons et les conditions. Aucun prix automatique ne remplace cette étude."
+      ],
+      [
+        "L’IA est-elle systématiquement nécessaire ?",
+        "Non. Une règle claire, une API ou une interface mieux pensée peut suffire. Nous évaluons l’IA lorsque son apport peut être vérifié."
+      ]
+    ],
+    "cases": [
+      {
+        "asset": "projects",
+        "slug": "projets-industriels",
+        "group": "business",
+        "category": "Projets industriels",
+        "title": "Un ERP à la mesure du terrain.",
+        "problem": "Les jalons, les achats et les documents évoluent séparément. Une pièce ou une validation manquante peut bloquer une intervention.",
+        "solution": "Un dossier qui réunit projets, ressources, achats, documents et validations, avec des vues adaptées aux responsables de projet et aux équipes terrain.",
+        "value": "Voir ce qui conditionne une intervention avant de l’engager.",
+        "modules": [
+          "Hydrocarbures & maintenance",
+          "Jalons & achats",
+          "Ressources & RH",
+          "Documents & approbations"
+        ]
+      },
+      {
+        "asset": "fashion",
+        "slug": "commerce-mode",
+        "group": "web",
+        "category": "Boutique de mode",
+        "title": "La marque se ressent. Le parcours reste simple.",
+        "problem": "Une collection mérite une mise en scène qui donne envie, sans compliquer le choix d’une taille, la disponibilité ou le panier.",
+        "solution": "Une boutique éditoriale avec collections, fiches produit, variantes, stock et parcours d’achat pensé pour le téléphone.",
+        "value": "Faire travailler ensemble l’image de marque et les étapes qui mènent à l’achat.",
+        "modules": [
+          "Catalogue & variantes",
+          "Panier & commande",
+          "Stock & disponibilité",
+          "Mobile"
+        ]
+      },
+      {
+        "asset": "stock",
+        "slug": "gestion-stock",
+        "group": "business",
+        "category": "Gestion de stock",
+        "title": "Chaque mouvement a sa place.",
+        "problem": "Le disponible, le réservé et les arrivages se suivent dans des fichiers distincts. La réponse donnée au client peut devenir incertaine.",
+        "solution": "Une gestion de stock et de ventes qui distingue chaque quantité, enregistre les mouvements et relie commandes, réceptions et alertes.",
+        "value": "Donner à l’équipe une disponibilité compréhensible et traçable.",
+        "modules": [
+          "Achats & réceptions",
+          "Stock & réservations",
+          "Ventes & transferts",
+          "Alertes & historique"
+        ]
+      },
+      {
+        "asset": "restaurant",
+        "slug": "restaurant-reservation",
+        "group": "web",
+        "category": "Restaurant & réservation",
+        "title": "L’envie avant la réservation.",
+        "problem": "La carte, les horaires et la réservation sont dispersés. Sur mobile, trouver une table prend trop d’étapes.",
+        "solution": "Un site à l’image de la table, avec une carte lisible, des informations pratiques et une réservation raccordée aux disponibilités.",
+        "value": "Prolonger l’expérience du restaurant dès la première visite en ligne.",
+        "modules": [
+          "Carte & univers",
+          "Réservation",
+          "Informations pratiques",
+          "Mobile"
+        ]
+      },
+      {
+        "asset": "copilot",
+        "slug": "assistant-flux",
+        "group": "ai",
+        "category": "Assistant documentaire",
+        "title": "La bonne réponse a une source.",
+        "problem": "Retrouver une procédure et préparer une action oblige à traverser des documents et des outils séparés.",
+        "solution": "Une recherche dans les sources autorisées, des réponses reliées aux documents et des actions proposées avec contrôle humain.",
+        "value": "Réduire la recherche dispersée en gardant la provenance et la responsabilité.",
+        "modules": [
+          "Recherche & citations",
+          "Droits d’accès",
+          "Actions proposées",
+          "Validation humaine"
+        ]
+      },
+      {
+        "asset": "insight",
+        "slug": "aide-decision",
+        "group": "ai",
+        "category": "Données & décisions",
+        "title": "Voir les options avant de choisir.",
+        "problem": "Les capacités, les priorités et les délais se contredisent. Un indicateur seul ne dit pas quelle décision prendre.",
+        "solution": "Un espace de pilotage qui rapproche tableaux de bord, prévisions, détection d’anomalies et scénarios sous contraintes.",
+        "value": "Comparer les possibilités avec des hypothèses et des limites explicites.",
+        "modules": [
+          "Analytics & prévisions",
+          "Capacité & optimisation",
+          "Anomalies",
+          "Scénarios"
+        ]
+      },
+      {
+        "asset": "food",
+        "slug": "novalis-food",
+        "group": "saas",
+        "category": "Novalis Food",
+        "title": "Du panier au coup de feu.",
+        "problem": "La commande, la cuisine et la livraison utilisent des canaux différents. Les changements circulent difficilement pendant le service.",
+        "solution": "Un concept SaaS reliant carte, commande mobile, préparation et remise, avec des statuts compris par le client et par l’équipe.",
+        "value": "Garder un même fil entre ce qui est commandé, préparé et remis.",
+        "modules": [
+          "Commande & carte",
+          "Cuisine",
+          "Livraison & retrait",
+          "Concept SaaS"
+        ]
+      },
+      {
+        "asset": "support",
+        "slug": "service-client",
+        "group": "ai",
+        "category": "Service client & IA",
+        "title": "Répondre. Vérifier. Passer la main.",
+        "problem": "Les demandes récurrentes occupent le support, mais certaines réponses demandent une donnée de commande ou une autorisation précise.",
+        "solution": "Un assistant relié aux sources autorisées, qui renseigne le client et prépare une transmission à l’équipe quand une décision humaine est nécessaire.",
+        "value": "Faciliter les réponses courantes sans masquer les situations qui exigent une personne.",
+        "modules": [
+          "Chat client",
+          "Contexte & sources",
+          "Permissions",
+          "Relais humain"
+        ]
+      }
+    ],
+    "title": "Novalis AI — Le terrain écrit la première ligne.",
+    "footer_word": [
+      "De la suite",
+      "dans vos idées."
+    ],
+    "booking_confirmed": "Votre échange d’une heure est réservé :",
+    "applied_ai": "IA APPLIQUÉE",
+    "point_of_view": "NOTRE POINT DE VUE",
+    "os_doc_contents": [
+      "Périmètre : recevoir une commande, vérifier les disponibilités, réserver les pièces et préparer la livraison. Critères : distinguer disponible et réservé, signaler une quantité insuffisante et conserver la décision. Hors périmètre : paiement et comptabilité.",
+      "Version 2 du parcours : une commande arrive dans le dossier, la disponibilité est vérifiée, puis la quantité autorisée est réservée. Une quantité insuffisante bloque la confirmation complète et demande une décision sur les lots. La validation ci-dessous accepte ce parcours pour la démonstration.",
+      "Compte rendu de cadrage : l’équipe souhaite remplacer les fichiers séparés de commandes et de réservations. Le premier lot porte sur le suivi des réceptions. Les critères de disponibilité doivent être validés avec les utilisateurs avant développement."
+    ]
+  },
+  "en": {
+    "nav": [
+      "Showroom",
+      "Our approach",
+      "Novalis OS",
+      "The team"
+    ],
+    "eyebrow": "CONSULTING · DESIGN · DEVELOPMENT",
+    "hero": [
+      "The first line starts",
+      "on the ground."
+    ],
+    "intro": "Before the code comes your business: its habits, constraints and ideas. We take time to understand them, then build the tools that fit.",
+    "cta": "Tell us how you work",
+    "explore": "Explore the showroom",
+    "hour": "One hour to take stock. Free, with no commitment.",
+    "hero_caption": "A project workspace, a store, a service: experiences built around the people using them.",
+    "hero_chips": [
+      "Custom software",
+      "Web & commerce",
+      "AI & data"
+    ],
+    "hero_note": "From the first sketch to software in use.",
+    "show_title": [
+      "Ideas you can",
+      "already explore."
+    ],
+    "show_copy": "See what we can design around your operations, customers and ambitions. Each interface starts a conversation about your own project.",
+    "filters": [
+      "Explore all",
+      "Business software",
+      "Web & commerce",
+      "AI & data",
+      "SaaS"
+    ],
+    "concept": "Interface concept",
+    "open": "Explore this concept",
+    "close": "Close",
+    "zoom": "Enlarge",
+    "zoom_out": "Full view",
+    "case_labels": [
+      "The starting point",
+      "What we design",
+      "What changes"
+    ],
+    "case_cta": "Imagine your version",
+    "case_modules": "Journeys & features",
+    "show_count": "concepts to explore",
+    "case_note": "A design direction to adapt to your business.",
+    "bridge_title": [
+      "A thoughtful interface.",
+      "A business understood."
+    ],
+    "bridge_copy": "We look at what happens between screens: information copied, an approval awaited, a decision made too late. That is where a project begins.",
+    "bridge_items": [
+      [
+        "Observe",
+        "People, daily work and the tools already in place."
+      ],
+      [
+        "Connect",
+        "Data, responsibilities and moments of decision."
+      ],
+      [
+        "Build",
+        "A clear scope, visible versions and verified uses."
+      ]
+    ],
+    "os_kicker": "YOUR CLIENT WORKSPACE · NOVALIS OS",
+    "os_title": [
+      "Watch your project",
+      "take shape."
+    ],
+    "os_copy": "Deliverables do not disappear into an email thread. Novalis OS brings together milestones, shared documents, conversations and the decisions that concern you in a dedicated workspace.",
+    "os_note": "Interactive demonstration · example project",
+    "os_tabs": [
+      "Overview",
+      "Milestones",
+      "Documents",
+      "Decisions",
+      "Conversations"
+    ],
+    "os_project": "Atelier Sillage · Order portal",
+    "os_status": "Design approved · development in progress",
+    "os_progress": "Accepted milestones",
+    "os_next": "Your next decision",
+    "os_next_copy": "Review the receiving workflow before the next delivery.",
+    "os_milestones": [
+      "Discovery & scope",
+      "Journeys & design",
+      "Data foundation",
+      "Receiving & reservations",
+      "Acceptance & launch"
+    ],
+    "os_states": [
+      "Accepted",
+      "In progress",
+      "To review",
+      "Upcoming"
+    ],
+    "os_docs": [
+      "Specification · v2",
+      "Receiving journey · v2",
+      "Discovery notes · v1"
+    ],
+    "os_doc_action": "Open preview",
+    "os_document": "Scope: receive an order, check availability, reserve parts and prepare delivery. Criteria: distinguish available from reserved, flag insufficient quantity and retain the decision. Excluded: payment and accounting.",
+    "os_decision_title": "Receiving journey · version 2",
+    "os_decision_copy": "The document covers the journey, availability rules and acceptance points. Approval applies only to this version.",
+    "os_approve": "Try the approval",
+    "os_approved": "Version 2 approved in this demonstration.",
+    "os_history": "Decision history",
+    "os_history_initial": "Specification v2 was accepted.",
+    "os_message": "The first receiving journey is ready for review. Open the document and leave a decision in the dedicated tab.",
+    "os_reply": "Conversations stay attached to the right project.",
+    "os_open_real": "Open my client workspace",
+    "os_features": [
+      "A named contact",
+      "The right information in one place",
+      "Approvals linked to their version"
+    ],
+    "method_title": [
+      "We start by listening.",
+      "We progress by showing."
+    ],
+    "method_copy": "A first conversation, then a precise framework. You know what we are building, why, and what needs approval before the next step.",
+    "method_steps": [
+      [
+        "An hour, together.",
+        "A free, no-obligation conversation about your company, needs and initial constraints.",
+        "An initial understanding of the need"
+      ],
+      [
+        "Understand the ground.",
+        "Observe operations, tools and handovers. Separate the cause from its symptoms.",
+        "A diagnosis of workflows and priorities"
+      ],
+      [
+        "Design the right response.",
+        "Compare options, design journeys and test assumptions. Assess automation and AI where they can help.",
+        "Journeys and a first prototype"
+      ],
+      [
+        "Set the framework.",
+        "Define features, scope, deliverables, schedule and budget before implementation.",
+        "A specification and proposal"
+      ],
+      [
+        "Build through milestones.",
+        "Develop, test and show each version. Feedback and approvals remain visible in Novalis OS.",
+        "Progressive, verifiable deliveries"
+      ],
+      [
+        "Support real use.",
+        "Prepare launch, help users adopt the product and define maintenance and evolution.",
+        "A deployment and support plan"
+      ]
+    ],
+    "deliverable": "What you receive",
+    "ai_title": [
+      "An assistant that knows",
+      "when to hand over."
+    ],
+    "ai_copy": "Answer a tracking question, find a procedure or prepare a case: AI helps where your data and rules provide a framework. Sensitive decisions stay with the responsible person.",
+    "ai_demo": "Guided demonstration · customer service",
+    "ai_questions": [
+      "Where is my order?",
+      "Can I change my address?",
+      "Where does this answer come from?"
+    ],
+    "ai_answers": [
+      "Order CMD-2048 is prepared. Carrier tracking becomes available after handover.",
+      "An address change must be checked by customer service. I can prepare the case for an authorised person.",
+      "The answer uses the status of CMD-2048 and the Delivery Changes procedure. An answer does not replace an authorisation."
+    ],
+    "ai_source": "Scenario source: logistics tracking & delivery procedure",
+    "ai_handoff": "Preview the team handover",
+    "ai_handoff_result": "Handover preview: CMD-2048 · address change · customer service approval required.",
+    "ai_placeholder": "Choose a question to explore the journey.",
+    "ai_context": "Order CMD-2048",
+    "ai_state": "Prepared · address protected",
+    "crew_title": [
+      "Scientific rigour.",
+      "A sense for product."
+    ],
+    "crew_copy": "Consulting, design and engineering work together. We bring the right skills to the problem, with JetThings and independent specialists as needed.",
+    "founder_role": "Co-founder & CTO",
+    "founder_bio": "Trained in data science at the Louvain School of Engineering, a researcher and teaching assistant at UCLouvain, Achraf connects statistics, machine learning and software design. He leads technical scoping and architecture at Novalis.",
+    "profile": "Professional background",
+    "crew_roles": [
+      [
+        "05",
+        "Frontend",
+        "Interfaces, mobile use & accessibility."
+      ],
+      [
+        "06",
+        "Backend",
+        "Business rules, APIs & architecture."
+      ],
+      [
+        "03",
+        "Data scientists",
+        "Statistics, machine learning & analysis."
+      ],
+      [
+        "↗",
+        "Design & network",
+        "Product design, JetThings & specialists."
+      ]
+    ],
+    "contact_title": [
+      "Let’s start",
+      "with your reality."
+    ],
+    "contact_copy": "Describe what slows you down, what is missing or what you want to create. We will work out the next step from your situation.",
+    "contact_hour": "First one-hour conversation free, with no commitment.",
+    "contact_schedule": "Request my one-hour conversation",
+    "contact_schedule_note": "We agree a time with you. Available slots can be booked directly.",
+    "contact_intro": "Your starting point",
+    "contact_step": [
+      "01 · Your need",
+      "02 · Your contact"
+    ],
+    "continue": "Continue",
+    "back": "Back",
+    "send": "Send my request",
+    "sending": "Sending…",
+    "form_note": "A reference and a private tracking link appear after receipt.",
+    "confirmation_title": "Safely received.",
+    "confirmation_copy": "Your request is registered in Novalis OS. Keep your private link to follow the next steps. Our team will contact you to arrange the conversation.",
+    "reference": "Your reference",
+    "tracking_link": "Open my tracking page",
+    "tracking_save": "Copy my private link",
+    "copied": "Link copied.",
+    "copy_failed": "Select the link to keep it.",
+    "new_request": "Another request",
+    "save_note": "This personal link is valid for 90 days. It provides access to the status: keep it private.",
+    "failure": "Receipt is not confirmed. Your information remains in the form. Retry or email us if the problem continues.",
+    "uncertain": "Receipt needs to be checked. Retry with the same information to avoid a duplicate request.",
+    "unavailable": "The request service is temporarily unavailable. Retry or email contact@novalisai.com.",
+    "retry": "Retry connection",
+    "loading": "Connecting to the service…",
+    "follow": "Track a request",
+    "track_title": [
+      "Your request,",
+      "clearly followed."
+    ],
+    "track_copy": "See the steps recorded by the team using your personal link.",
+    "track_private": "This link is personal. No project details or internal messages appear here.",
+    "check_status": "Refresh status",
+    "track_empty": "Open the private link shown after sending your request.",
+    "track_expired": "This link was not found or has expired. Contact Novalis with your reference.",
+    "track_error": "The status cannot be loaded right now. Please retry.",
+    "track_states": [
+      "Received",
+      "Under review",
+      "Contact",
+      "Proposal",
+      "Project opened",
+      "Closed"
+    ],
+    "project_ready": "Your project has been opened. Your contact will provide your personal Novalis OS access.",
+    "footer": "The right tools begin with the right questions.",
+    "footer_pages": [
+      "Expertise",
+      "Company",
+      "Privacy",
+      "Legal notice"
+    ],
+    "faq_title": [
+      "Before taking",
+      "the first step."
+    ],
+    "faqs": [
+      [
+        "What if we do not yet know what to build?",
+        "That is the point of the first conversation and diagnosis: understand the problem before defining a tool."
+      ],
+      [
+        "Can we keep our current software?",
+        "We assess possible connections, access and constraints. Integration is confirmed after technical verification."
+      ],
+      [
+        "How is the budget defined?",
+        "After scoping, a proposal sets out the scope, deliverables, milestones and conditions. An automatic price cannot replace this work."
+      ],
+      [
+        "Is AI always necessary?",
+        "No. A clear rule, an API or a better interface may be enough. We assess AI where its contribution can be verified."
+      ]
+    ],
+    "cases": [
+      {
+        "asset": "projects",
+        "slug": "projets-industriels",
+        "group": "business",
+        "category": "Industrial projects",
+        "title": "An ERP grounded in your operations.",
+        "problem": "Milestones, purchasing and documents evolve separately. A missing part or approval can block an intervention.",
+        "solution": "A shared project record for resources, purchasing, documents and approvals, with views for project leads and field teams.",
+        "value": "See what an intervention depends on before committing.",
+        "modules": [
+          "Hydrocarbons & maintenance",
+          "Milestones & purchasing",
+          "Resources & HR",
+          "Documents & approvals"
+        ]
+      },
+      {
+        "asset": "fashion",
+        "slug": "commerce-mode",
+        "group": "web",
+        "category": "Fashion ecommerce",
+        "title": "Feel the brand. Find the right product.",
+        "problem": "A collection needs a distinctive presentation without making size, availability or checkout hard to find.",
+        "solution": "An editorial store with collections, product pages, variants, stock and a mobile purchase journey.",
+        "value": "Make brand expression and the steps towards purchase work together.",
+        "modules": [
+          "Catalogue & variants",
+          "Cart & orders",
+          "Stock & availability",
+          "Mobile"
+        ]
+      },
+      {
+        "asset": "stock",
+        "slug": "gestion-stock",
+        "group": "business",
+        "category": "Stock management",
+        "title": "Every movement in its place.",
+        "problem": "Available stock, reservations and arrivals are tracked in separate files. Answers to customers become uncertain.",
+        "solution": "Inventory and sales management separating each quantity and connecting movements, orders, receipts and alerts.",
+        "value": "Give the team clear, traceable availability.",
+        "modules": [
+          "Purchasing & receipts",
+          "Stock & reservations",
+          "Sales & transfers",
+          "Alerts & history"
+        ]
+      },
+      {
+        "asset": "restaurant",
+        "slug": "restaurant-reservation",
+        "group": "web",
+        "category": "Restaurant & reservations",
+        "title": "An appetite for the experience.",
+        "problem": "Menus, opening hours and booking are scattered. Finding a table takes too many steps on mobile.",
+        "solution": "A restaurant website with a readable menu, practical details and reservations connected to availability.",
+        "value": "Extend the restaurant experience from the first online visit.",
+        "modules": [
+          "Menu & identity",
+          "Reservations",
+          "Practical details",
+          "Mobile"
+        ]
+      },
+      {
+        "asset": "copilot",
+        "slug": "assistant-flux",
+        "group": "ai",
+        "category": "Document assistant",
+        "title": "A useful answer has a source.",
+        "problem": "Finding a procedure and preparing an action means searching through disconnected tools and documents.",
+        "solution": "Search within authorised sources, answers linked to documents and proposed actions with human review.",
+        "value": "Bring research together while retaining provenance and responsibility.",
+        "modules": [
+          "Search & citations",
+          "Access rights",
+          "Proposed actions",
+          "Human approval"
+        ]
+      },
+      {
+        "asset": "insight",
+        "slug": "aide-decision",
+        "group": "ai",
+        "category": "Data & decisions",
+        "title": "See the options before choosing.",
+        "problem": "Capacity, priorities and deadlines compete. A metric alone does not tell you which decision to make.",
+        "solution": "A workspace combining dashboards, forecasts, anomaly detection and constrained scenarios.",
+        "value": "Compare possibilities with explicit assumptions and limits.",
+        "modules": [
+          "Analytics & forecasts",
+          "Capacity & optimisation",
+          "Anomalies",
+          "Scenarios"
+        ]
+      },
+      {
+        "asset": "food",
+        "slug": "novalis-food",
+        "group": "saas",
+        "category": "Novalis Food",
+        "title": "From the basket to the kitchen.",
+        "problem": "Ordering, kitchen work and delivery use different channels. Changes get lost during service.",
+        "solution": "A SaaS concept connecting the menu, mobile orders, preparation and handover through clear states.",
+        "value": "Keep one thread from what is ordered to what is prepared and delivered.",
+        "modules": [
+          "Orders & menu",
+          "Kitchen",
+          "Delivery & collection",
+          "SaaS concept"
+        ]
+      },
+      {
+        "asset": "support",
+        "slug": "service-client",
+        "group": "ai",
+        "category": "Customer service & AI",
+        "title": "Answer. Check. Hand over.",
+        "problem": "Routine questions occupy support, but some answers need an order record or a specific authorisation.",
+        "solution": "An assistant connected to authorised sources that informs customers and prepares a team handover when needed.",
+        "value": "Help with routine questions while keeping human decisions visible.",
+        "modules": [
+          "Customer chat",
+          "Context & sources",
+          "Permissions",
+          "Human handover"
+        ]
+      }
+    ],
+    "title": "Novalis AI — The first line starts on the ground.",
+    "footer_word": [
+      "A considered start.",
+      "A clearer next step."
+    ],
+    "booking_confirmed": "Your one-hour conversation is booked:",
+    "applied_ai": "APPLIED AI",
+    "point_of_view": "OUR PERSPECTIVE",
+    "os_doc_contents": [
+      "Scope: receive an order, check availability, reserve parts and prepare delivery. Criteria: distinguish available from reserved, flag insufficient quantity and retain the decision. Excluded: payment and accounting.",
+      "Journey version 2: an order enters the record, availability is checked, then the authorised quantity is reserved. Insufficient quantity blocks full confirmation and requires a decision about batches. Approval in this demonstration accepts this journey.",
+      "Discovery notes: the team wants to replace separate order and reservation files. The first delivery covers receiving. Availability criteria must be validated with users before development."
+    ]
+  },
+  "nl": {
+    "nav": [
+      "Showroom",
+      "Onze aanpak",
+      "Novalis OS",
+      "Het team"
+    ],
+    "eyebrow": "ADVIES · DESIGN · ONTWIKKELING",
+    "hero": [
+      "De eerste regel begint",
+      "op de werkvloer."
+    ],
+    "intro": "Vóór de code komt uw bedrijf: zijn gewoonten, beperkingen en ideeën. We begrijpen hoe u werkt en bouwen de hulpmiddelen die daarbij passen.",
+    "cta": "Vertel ons hoe u werkt",
+    "explore": "Ontdek de showroom",
+    "hour": "Eén uur om helderheid te scheppen. Gratis en vrijblijvend.",
+    "hero_caption": "Een projectomgeving, winkel of dienst: ervaringen ontworpen voor de mensen die ze gebruiken.",
+    "hero_chips": [
+      "Software op maat",
+      "Web & commerce",
+      "AI & data"
+    ],
+    "hero_note": "Van de eerste schets tot software in gebruik.",
+    "show_title": [
+      "Ideeën die u",
+      "al kunt verkennen."
+    ],
+    "show_copy": "Ontdek wat we kunnen ontwerpen rond uw processen, klanten en ambities. Elke interface is een startpunt voor uw eigen project.",
+    "filters": [
+      "Alles",
+      "Bedrijfssoftware",
+      "Web & commerce",
+      "AI & data",
+      "SaaS"
+    ],
+    "concept": "Interfaceconcept",
+    "open": "Verken dit concept",
+    "close": "Sluiten",
+    "zoom": "Vergroten",
+    "zoom_out": "Volledig beeld",
+    "case_labels": [
+      "Het vertrekpunt",
+      "Wat we ontwerpen",
+      "Wat verandert"
+    ],
+    "case_cta": "Denk aan uw eigen versie",
+    "case_modules": "Trajecten & functies",
+    "show_count": "concepten om te ontdekken",
+    "case_note": "Een ontwerprichting, aangepast aan uw bedrijf.",
+    "bridge_title": [
+      "Een doordachte interface.",
+      "Een begrepen bedrijf."
+    ],
+    "bridge_copy": "We kijken naar wat tussen de schermen gebeurt: overgeschreven informatie, een ontbrekende goedkeuring, een te late beslissing. Daar begint het project.",
+    "bridge_items": [
+      [
+        "Observeren",
+        "Mensen, dagelijkse handelingen en bestaande hulpmiddelen."
+      ],
+      [
+        "Verbinden",
+        "Gegevens, verantwoordelijkheden en beslissingen."
+      ],
+      [
+        "Bouwen",
+        "Een duidelijke scope, zichtbare versies en getoetst gebruik."
+      ]
+    ],
+    "os_kicker": "UW KLANTOMGEVING · NOVALIS OS",
+    "os_title": [
+      "Zie uw project",
+      "vorm krijgen."
+    ],
+    "os_copy": "Opleveringen verdwijnen niet in een e-mailketen. Novalis OS brengt mijlpalen, gedeelde documenten, gesprekken en uw beslissingen samen in een eigen omgeving.",
+    "os_note": "Interactieve demonstratie · voorbeeldproject",
+    "os_tabs": [
+      "Overzicht",
+      "Mijlpalen",
+      "Documenten",
+      "Beslissingen",
+      "Gesprekken"
+    ],
+    "os_project": "Atelier Sillage · Bestelportaal",
+    "os_status": "Ontwerp goedgekeurd · ontwikkeling loopt",
+    "os_progress": "Aanvaarde mijlpalen",
+    "os_next": "Uw volgende beslissing",
+    "os_next_copy": "Bekijk het ontvangsttraject vóór de volgende oplevering.",
+    "os_milestones": [
+      "Diagnose & scope",
+      "Trajecten & ontwerp",
+      "Gegevensbasis",
+      "Ontvangst & reservaties",
+      "Acceptatie & ingebruikname"
+    ],
+    "os_states": [
+      "Aanvaard",
+      "In uitvoering",
+      "Te bekijken",
+      "Gepland"
+    ],
+    "os_docs": [
+      "Lastenboek · v2",
+      "Ontvangsttraject · v2",
+      "Verslag verkenning · v1"
+    ],
+    "os_doc_action": "Voorbeeld openen",
+    "os_document": "Scope: een bestelling ontvangen, beschikbaarheid controleren, onderdelen reserveren en levering voorbereiden. Criteria: beschikbaar en gereserveerd onderscheiden, tekorten melden en de beslissing bewaren. Uitgesloten: betalingen en boekhouding.",
+    "os_decision_title": "Ontvangsttraject · versie 2",
+    "os_decision_copy": "Het document beschrijft het traject, de voorraadregels en de controlepunten. Goedkeuring geldt alleen voor deze versie.",
+    "os_approve": "Probeer de goedkeuring",
+    "os_approved": "Versie 2 is goedgekeurd in deze demonstratie.",
+    "os_history": "Beslissingsgeschiedenis",
+    "os_history_initial": "Lastenboek v2 is aanvaard.",
+    "os_message": "Het eerste ontvangsttraject is klaar voor beoordeling. Bekijk het document en neem een beslissing in het bijbehorende tabblad.",
+    "os_reply": "Gesprekken blijven bij het juiste project.",
+    "os_open_real": "Mijn klantomgeving openen",
+    "os_features": [
+      "Een vast aanspreekpunt",
+      "De juiste informatie op één plek",
+      "Goedkeuringen bij de juiste versie"
+    ],
+    "method_title": [
+      "We beginnen met luisteren.",
+      "We tonen de vooruitgang."
+    ],
+    "method_copy": "Een eerste gesprek, daarna een duidelijk kader. U weet wat we bouwen, waarom en wat moet worden goedgekeurd.",
+    "method_steps": [
+      [
+        "Eén uur samen.",
+        "Een gratis, vrijblijvend gesprek over uw bedrijf, behoeften en eerste beperkingen.",
+        "Een eerste beeld van de behoefte"
+      ],
+      [
+        "De werkvloer begrijpen.",
+        "Processen, hulpmiddelen en overdrachten observeren. Oorzaken van symptomen onderscheiden.",
+        "Een diagnose van stromen en prioriteiten"
+      ],
+      [
+        "Het juiste antwoord ontwerpen.",
+        "Opties vergelijken, trajecten ontwerpen en aannames toetsen. Automatisering en AI beoordelen waar ze kunnen helpen.",
+        "Trajecten en een eerste prototype"
+      ],
+      [
+        "Het kader vastleggen.",
+        "Functies, scope, opleveringen, planning en budget bepalen vóór de bouw.",
+        "Een lastenboek en voorstel"
+      ],
+      [
+        "Bouwen via mijlpalen.",
+        "Ontwikkelen, testen en versies tonen. Feedback en goedkeuringen blijven zichtbaar in Novalis OS.",
+        "Stapsgewijze, controleerbare opleveringen"
+      ],
+      [
+        "Het gebruik begeleiden.",
+        "Ingebruikname voorbereiden, gebruikers ondersteunen en onderhoud en evolutie afspreken.",
+        "Een uitrol- en begeleidingsplan"
+      ]
+    ],
+    "deliverable": "Wat u ontvangt",
+    "ai_title": [
+      "Een assistent die weet",
+      "wanneer hij overdraagt."
+    ],
+    "ai_copy": "Een trackingvraag beantwoorden, een procedure vinden of een dossier voorbereiden: AI helpt binnen uw gegevens en regels. Gevoelige beslissingen blijven bij de verantwoordelijke.",
+    "ai_demo": "Begeleide demonstratie · klantenservice",
+    "ai_questions": [
+      "Waar is mijn bestelling?",
+      "Kan ik mijn adres wijzigen?",
+      "Waar komt dit antwoord vandaan?"
+    ],
+    "ai_answers": [
+      "Bestelling CMD-2048 is voorbereid. De trackinglink verschijnt na overdracht aan de vervoerder.",
+      "De klantenservice moet een adreswijziging controleren. Ik kan het dossier voor een bevoegde medewerker voorbereiden.",
+      "Het antwoord gebruikt de status van CMD-2048 en de procedure Leveringswijzigingen. Een antwoord vervangt geen toestemming."
+    ],
+    "ai_source": "Bron van het scenario: logistieke tracking & leveringsprocedure",
+    "ai_handoff": "Bekijk de overdracht",
+    "ai_handoff_result": "Voorbeeld overdracht: CMD-2048 · adreswijziging · goedkeuring klantenservice vereist.",
+    "ai_placeholder": "Kies een vraag om het traject te verkennen.",
+    "ai_context": "Bestelling CMD-2048",
+    "ai_state": "Voorbereid · adres beschermd",
+    "crew_title": [
+      "Wetenschappelijke nauwkeurigheid.",
+      "Gevoel voor product."
+    ],
+    "crew_copy": "Advies, design en engineering werken samen. We brengen de nodige expertise bijeen, met JetThings en onafhankelijke specialisten volgens de opdracht.",
+    "founder_role": "Medeoprichter & CTO",
+    "founder_bio": "Achraf is opgeleid in data science aan de École polytechnique de Louvain en werkt als onderzoeker en assistent aan UCLouvain. Hij verbindt statistiek, machine learning en softwareontwerp en leidt de technische afbakening en architectuur bij Novalis.",
+    "profile": "Professionele achtergrond",
+    "crew_roles": [
+      [
+        "05",
+        "Frontend",
+        "Interfaces, mobiel gebruik & toegankelijkheid."
+      ],
+      [
+        "06",
+        "Backend",
+        "Bedrijfsregels, API’s & architectuur."
+      ],
+      [
+        "03",
+        "Data scientists",
+        "Statistiek, machine learning & analyse."
+      ],
+      [
+        "↗",
+        "Design & netwerk",
+        "Productdesign, JetThings & specialisten."
+      ]
+    ],
+    "contact_title": [
+      "Laten we beginnen",
+      "bij uw realiteit."
+    ],
+    "contact_copy": "Vertel wat u vertraagt, ontbreekt of wat u wilt maken. Samen bepalen we de volgende stap op basis van uw situatie.",
+    "contact_hour": "Eerste gesprek van één uur gratis en vrijblijvend.",
+    "contact_schedule": "Mijn gesprek van één uur aanvragen",
+    "contact_schedule_note": "We spreken samen een tijdstip af. Beschikbare tijden kunt u direct boeken.",
+    "contact_intro": "Uw vertrekpunt",
+    "contact_step": [
+      "01 · Uw behoefte",
+      "02 · Uw contact"
+    ],
+    "continue": "Verder",
+    "back": "Terug",
+    "send": "Mijn aanvraag versturen",
+    "sending": "Wordt verstuurd…",
+    "form_note": "Na ontvangst verschijnen een referentie en een privévolglink.",
+    "confirmation_title": "Goed ontvangen.",
+    "confirmation_copy": "Uw aanvraag staat in Novalis OS. Bewaar de privélink om de volgende stappen te volgen. Ons team neemt contact op voor het gesprek.",
+    "reference": "Uw referentie",
+    "tracking_link": "Mijn aanvraag volgen",
+    "tracking_save": "Mijn privélink kopiëren",
+    "copied": "Link gekopieerd.",
+    "copy_failed": "Selecteer de link om die te bewaren.",
+    "new_request": "Nog een aanvraag",
+    "save_note": "Deze persoonlijke link is 90 dagen geldig en geeft toegang tot de status. Houd hem privé.",
+    "failure": "Ontvangst is niet bevestigd. Uw informatie blijft in het formulier. Probeer opnieuw of mail ons.",
+    "uncertain": "Ontvangst moet worden gecontroleerd. Probeer met dezelfde informatie om een dubbele aanvraag te vermijden.",
+    "unavailable": "De aanvraagdienst is tijdelijk niet beschikbaar. Probeer opnieuw of mail contact@novalisai.com.",
+    "retry": "Verbinding opnieuw proberen",
+    "loading": "Verbinding maken…",
+    "follow": "Een aanvraag volgen",
+    "track_title": [
+      "Uw aanvraag,",
+      "helder opgevolgd."
+    ],
+    "track_copy": "Bekijk via uw persoonlijke link de stappen die het team heeft geregistreerd.",
+    "track_private": "Deze link is persoonlijk. Projectdetails en interne berichten worden hier niet getoond.",
+    "check_status": "Status vernieuwen",
+    "track_empty": "Open de privélink die na uw aanvraag is getoond.",
+    "track_expired": "Deze link is niet gevonden of verlopen. Neem contact op met Novalis en vermeld uw referentie.",
+    "track_error": "De status kan nu niet worden geladen. Probeer opnieuw.",
+    "track_states": [
+      "Ontvangen",
+      "In beoordeling",
+      "Contact",
+      "Voorstel",
+      "Project geopend",
+      "Afgesloten"
+    ],
+    "project_ready": "Uw project is geopend. Uw contactpersoon bezorgt uw persoonlijke toegang tot Novalis OS.",
+    "footer": "De juiste hulpmiddelen beginnen met de juiste vragen.",
+    "footer_pages": [
+      "Expertise",
+      "Bedrijf",
+      "Privacy",
+      "Juridisch"
+    ],
+    "faq_title": [
+      "Vóór de",
+      "eerste stap."
+    ],
+    "faqs": [
+      [
+        "Wat als we nog niet weten wat te bouwen?",
+        "Daarvoor dienen het eerste gesprek en de diagnose: het probleem begrijpen vóór we een hulpmiddel bepalen."
+      ],
+      [
+        "Kunnen we onze huidige software behouden?",
+        "We onderzoeken verbindingen, toegang en beperkingen. Integraties worden pas na technische controle bevestigd."
+      ],
+      [
+        "Hoe wordt het budget bepaald?",
+        "Na afbakening beschrijft een voorstel de scope, opleveringen, mijlpalen en voorwaarden. Een automatische prijs vervangt deze studie niet."
+      ],
+      [
+        "Is AI altijd nodig?",
+        "Nee. Een duidelijke regel, API of betere interface kan voldoende zijn. We beoordelen AI wanneer de bijdrage kan worden getoetst."
+      ]
+    ],
+    "cases": [
+      {
+        "asset": "projects",
+        "slug": "projets-industriels",
+        "group": "business",
+        "category": "Industriële projecten",
+        "title": "Een ERP voor de werkvloer.",
+        "problem": "Mijlpalen, aankopen en documenten veranderen apart. Een ontbrekend onderdeel of akkoord kan werk blokkeren.",
+        "solution": "Eén projectdossier voor middelen, aankopen, documenten en goedkeuringen, met weergaven voor projectleiders en uitvoerders.",
+        "value": "Zie waarvan een interventie afhangt vóór u die vastlegt.",
+        "modules": [
+          "Koolwaterstoffen & onderhoud",
+          "Mijlpalen & aankopen",
+          "Middelen & HR",
+          "Documenten & goedkeuringen"
+        ]
+      },
+      {
+        "asset": "fashion",
+        "slug": "commerce-mode",
+        "group": "web",
+        "category": "Modewebshop",
+        "title": "Het merk voelen. Eenvoudig kiezen.",
+        "problem": "Een collectie verdient een eigen presentatie, zonder maat, beschikbaarheid of winkelmand moeilijk vindbaar te maken.",
+        "solution": "Een redactionele winkel met collecties, productpagina’s, varianten, voorraad en een mobiel aankooptraject.",
+        "value": "Merkbeleving en de stappen naar aankoop laten samenwerken.",
+        "modules": [
+          "Catalogus & varianten",
+          "Winkelmand & orders",
+          "Voorraad & beschikbaarheid",
+          "Mobiel"
+        ]
+      },
+      {
+        "asset": "stock",
+        "slug": "gestion-stock",
+        "group": "business",
+        "category": "Voorraadbeheer",
+        "title": "Elke beweging op zijn plaats.",
+        "problem": "Beschikbaar, gereserveerd en verwacht staan in verschillende bestanden. Antwoorden aan klanten worden onzeker.",
+        "solution": "Voorraad- en verkoopbeheer dat aantallen onderscheidt en bewegingen, orders, ontvangsten en meldingen verbindt.",
+        "value": "Het team een helder en traceerbaar voorraadbeeld geven.",
+        "modules": [
+          "Aankopen & ontvangsten",
+          "Voorraad & reservaties",
+          "Verkoop & transfers",
+          "Meldingen & historiek"
+        ]
+      },
+      {
+        "asset": "restaurant",
+        "slug": "restaurant-reservation",
+        "group": "web",
+        "category": "Restaurant & reservatie",
+        "title": "Zin in de ervaring.",
+        "problem": "Menu, openingsuren en reservaties staan verspreid. Mobiel een tafel vinden kost te veel stappen.",
+        "solution": "Een restaurantwebsite met leesbare kaart, praktische informatie en reservaties gekoppeld aan beschikbaarheid.",
+        "value": "De restaurantervaring al bij het eerste online bezoek laten beginnen.",
+        "modules": [
+          "Kaart & identiteit",
+          "Reservatie",
+          "Praktische informatie",
+          "Mobiel"
+        ]
+      },
+      {
+        "asset": "copilot",
+        "slug": "assistant-flux",
+        "group": "ai",
+        "category": "Documentassistent",
+        "title": "Een bruikbaar antwoord heeft een bron.",
+        "problem": "Een procedure vinden en een actie voorbereiden vraagt zoeken in losse documenten en hulpmiddelen.",
+        "solution": "Zoeken in toegestane bronnen, antwoorden met documentverwijzingen en voorgestelde acties onder menselijke controle.",
+        "value": "Zoekwerk bundelen met behoud van herkomst en verantwoordelijkheid.",
+        "modules": [
+          "Zoeken & bronverwijzingen",
+          "Toegangsrechten",
+          "Voorgestelde acties",
+          "Menselijke goedkeuring"
+        ]
+      },
+      {
+        "asset": "insight",
+        "slug": "aide-decision",
+        "group": "ai",
+        "category": "Data & beslissingen",
+        "title": "Opties zien vóór u kiest.",
+        "problem": "Capaciteit, prioriteiten en deadlines botsen. Eén indicator zegt niet welke beslissing nodig is.",
+        "solution": "Een werkruimte met dashboards, voorspellingen, anomaliedetectie en scenario’s met beperkingen.",
+        "value": "Mogelijkheden vergelijken met duidelijke aannames en grenzen.",
+        "modules": [
+          "Analyse & voorspellingen",
+          "Capaciteit & optimalisatie",
+          "Anomalieën",
+          "Scenario’s"
+        ]
+      },
+      {
+        "asset": "food",
+        "slug": "novalis-food",
+        "group": "saas",
+        "category": "Novalis Food",
+        "title": "Van winkelmand tot keuken.",
+        "problem": "Bestellingen, keuken en levering gebruiken verschillende kanalen. Wijzigingen raken zoek tijdens de service.",
+        "solution": "Een SaaS-concept dat kaart, mobiele bestelling, bereiding en overdracht verbindt met heldere statussen.",
+        "value": "Eén lijn van besteld naar bereid en bezorgd.",
+        "modules": [
+          "Bestellingen & kaart",
+          "Keuken",
+          "Levering & afhaling",
+          "SaaS-concept"
+        ]
+      },
+      {
+        "asset": "support",
+        "slug": "service-client",
+        "group": "ai",
+        "category": "Klantenservice & AI",
+        "title": "Antwoorden. Controleren. Overdragen.",
+        "problem": "Routinevragen bezetten support, maar sommige antwoorden vragen ordergegevens of een specifieke toestemming.",
+        "solution": "Een assistent met toegestane bronnen die klanten informeert en zo nodig overdracht aan het team voorbereidt.",
+        "value": "Routinevragen helpen zonder menselijke beslissingen te verbergen.",
+        "modules": [
+          "Klantchat",
+          "Context & bronnen",
+          "Rechten",
+          "Menselijke overdracht"
+        ]
+      }
+    ],
+    "title": "Novalis AI — Software begint op de werkvloer.",
+    "footer_word": [
+      "Een helder begin.",
+      "Een passende volgende stap."
+    ],
+    "booking_confirmed": "Uw gesprek van één uur is geboekt:",
+    "applied_ai": "TOEGEPASTE AI",
+    "point_of_view": "ONZE KIJK",
+    "os_doc_contents": [
+      "Scope: een bestelling ontvangen, beschikbaarheid controleren, onderdelen reserveren en levering voorbereiden. Criteria: beschikbaar en gereserveerd onderscheiden, tekorten melden en de beslissing bewaren. Uitgesloten: betalingen en boekhouding.",
+      "Traject versie 2: een bestelling komt in het dossier, beschikbaarheid wordt gecontroleerd en de toegestane hoeveelheid wordt gereserveerd. Een tekort blokkeert volledige bevestiging en vraagt een beslissing over deelloten. De demonstratiegoedkeuring aanvaardt dit traject.",
+      "Verkenningsverslag: het team wil afzonderlijke order- en reservatiebestanden vervangen. De eerste oplevering behandelt ontvangsten. Beschikbaarheidscriteria moeten vóór ontwikkeling met gebruikers worden bevestigd."
+    ]
+  },
+  "de": {
+    "nav": [
+      "Showroom",
+      "Unser Ansatz",
+      "Novalis OS",
+      "Das Team"
+    ],
+    "eyebrow": "BERATUNG · DESIGN · ENTWICKLUNG",
+    "hero": [
+      "Die erste Zeile beginnt",
+      "in Ihrem Alltag."
+    ],
+    "intro": "Vor dem Code kommt Ihr Unternehmen: seine Gewohnheiten, Grenzen und Ideen. Wir verstehen Ihre Arbeit und entwickeln die passenden Werkzeuge.",
+    "cta": "Sprechen wir über Ihre Arbeit",
+    "explore": "Showroom entdecken",
+    "hour": "Eine Stunde für einen klaren Anfang. Kostenlos und unverbindlich.",
+    "hero_caption": "Ein Projektportal, ein Shop, ein Service: Erlebnisse für die Menschen, die sie nutzen.",
+    "hero_chips": [
+      "Individuelle Software",
+      "Web & Commerce",
+      "KI & Daten"
+    ],
+    "hero_note": "Von der ersten Skizze bis zur Software im Einsatz.",
+    "show_title": [
+      "Ideen, die Sie",
+      "schon erkunden können."
+    ],
+    "show_copy": "Entdecken Sie, was wir für Ihre Abläufe, Kunden und Ziele entwerfen können. Jede Oberfläche eröffnet ein Gespräch über Ihr eigenes Projekt.",
+    "filters": [
+      "Alle entdecken",
+      "Unternehmenssoftware",
+      "Web & Commerce",
+      "KI & Daten",
+      "SaaS"
+    ],
+    "concept": "Oberflächenkonzept",
+    "open": "Konzept erkunden",
+    "close": "Schließen",
+    "zoom": "Vergrößern",
+    "zoom_out": "Gesamtansicht",
+    "case_labels": [
+      "Der Ausgangspunkt",
+      "Was wir entwerfen",
+      "Was sich verändert"
+    ],
+    "case_cta": "Ihre eigene Version vorstellen",
+    "case_modules": "Abläufe & Funktionen",
+    "show_count": "Konzepte entdecken",
+    "case_note": "Eine Gestaltungsrichtung, angepasst an Ihr Unternehmen.",
+    "bridge_title": [
+      "Eine durchdachte Oberfläche.",
+      "Ein verstandenes Unternehmen."
+    ],
+    "bridge_copy": "Wir betrachten, was zwischen Bildschirmen passiert: kopierte Daten, ausstehende Freigaben, verspätete Entscheidungen. Dort beginnt das Projekt.",
+    "bridge_items": [
+      [
+        "Beobachten",
+        "Menschen, tägliche Arbeit und bestehende Werkzeuge."
+      ],
+      [
+        "Verbinden",
+        "Daten, Zuständigkeiten und Entscheidungen."
+      ],
+      [
+        "Entwickeln",
+        "Ein klarer Umfang, sichtbare Versionen und geprüftes Verhalten."
+      ]
+    ],
+    "os_kicker": "IHR KUNDENBEREICH · NOVALIS OS",
+    "os_title": [
+      "Sehen Sie Ihr Projekt",
+      "Gestalt annehmen."
+    ],
+    "os_copy": "Ergebnisse verschwinden nicht in E-Mail-Ketten. Novalis OS bündelt Meilensteine, freigegebene Dokumente, Gespräche und Ihre Entscheidungen in einem eigenen Bereich.",
+    "os_note": "Interaktive Demonstration · Beispielprojekt",
+    "os_tabs": [
+      "Übersicht",
+      "Meilensteine",
+      "Dokumente",
+      "Entscheidungen",
+      "Gespräche"
+    ],
+    "os_project": "Atelier Sillage · Bestellportal",
+    "os_status": "Design freigegeben · Entwicklung läuft",
+    "os_progress": "Angenommene Meilensteine",
+    "os_next": "Ihre nächste Entscheidung",
+    "os_next_copy": "Prüfen Sie den Wareneingang vor der nächsten Lieferung.",
+    "os_milestones": [
+      "Diagnose & Umfang",
+      "Abläufe & Design",
+      "Datenbasis",
+      "Wareneingang & Reservierung",
+      "Abnahme & Start"
+    ],
+    "os_states": [
+      "Angenommen",
+      "In Arbeit",
+      "Zu prüfen",
+      "Geplant"
+    ],
+    "os_docs": [
+      "Pflichtenheft · v2",
+      "Wareneingang · v2",
+      "Gesprächsprotokoll · v1"
+    ],
+    "os_doc_action": "Vorschau öffnen",
+    "os_document": "Umfang: eine Bestellung empfangen, Verfügbarkeit prüfen, Teile reservieren und Lieferung vorbereiten. Kriterien: verfügbar und reserviert unterscheiden, Fehlmengen melden und die Entscheidung behalten. Ausgenommen: Zahlung und Buchhaltung.",
+    "os_decision_title": "Wareneingang · Version 2",
+    "os_decision_copy": "Das Dokument enthält den Ablauf, Verfügbarkeitsregeln und Prüfpunkte. Die Freigabe gilt nur für diese Version.",
+    "os_approve": "Freigabe ausprobieren",
+    "os_approved": "Version 2 wurde in dieser Demonstration freigegeben.",
+    "os_history": "Entscheidungsverlauf",
+    "os_history_initial": "Pflichtenheft v2 wurde angenommen.",
+    "os_message": "Der erste Wareneingang ist bereit zur Prüfung. Öffnen Sie das Dokument und treffen Sie die Entscheidung im entsprechenden Reiter.",
+    "os_reply": "Gespräche bleiben beim richtigen Projekt.",
+    "os_open_real": "Meinen Kundenbereich öffnen",
+    "os_features": [
+      "Ein fester Ansprechpartner",
+      "Die richtigen Informationen an einem Ort",
+      "Freigaben mit Versionsbezug"
+    ],
+    "method_title": [
+      "Wir beginnen mit Zuhören.",
+      "Wir zeigen den Fortschritt."
+    ],
+    "method_copy": "Ein erstes Gespräch, danach ein präziser Rahmen. Sie wissen, was wir entwickeln, warum und was vor dem nächsten Schritt freizugeben ist.",
+    "method_steps": [
+      [
+        "Eine Stunde zusammen.",
+        "Ein kostenloses, unverbindliches Gespräch über Ihr Unternehmen, Ihren Bedarf und erste Grenzen.",
+        "Ein erstes Verständnis des Bedarfs"
+      ],
+      [
+        "Den Alltag verstehen.",
+        "Abläufe, Werkzeuge und Übergaben beobachten. Ursachen von Symptomen unterscheiden.",
+        "Eine Diagnose von Abläufen und Prioritäten"
+      ],
+      [
+        "Die richtige Antwort entwerfen.",
+        "Optionen vergleichen, Abläufe entwerfen und Annahmen prüfen. Automatisierung und KI dort bewerten, wo sie helfen.",
+        "Abläufe und ein erster Prototyp"
+      ],
+      [
+        "Den Rahmen festlegen.",
+        "Funktionen, Umfang, Ergebnisse, Zeitplan und Budget vor der Umsetzung definieren.",
+        "Ein Pflichtenheft und ein Angebot"
+      ],
+      [
+        "In Meilensteinen entwickeln.",
+        "Entwickeln, testen und Versionen zeigen. Rückmeldungen und Freigaben bleiben in Novalis OS sichtbar.",
+        "Schrittweise prüfbare Lieferungen"
+      ],
+      [
+        "Die Nutzung begleiten.",
+        "Start vorbereiten, Nutzer unterstützen und Wartung sowie Weiterentwicklung vereinbaren.",
+        "Ein Bereitstellungs- und Betreuungsplan"
+      ]
+    ],
+    "deliverable": "Was Sie erhalten",
+    "ai_title": [
+      "Ein Assistent, der weiß,",
+      "wann er übergeben muss."
+    ],
+    "ai_copy": "Eine Versandfrage beantworten, eine Anleitung finden oder einen Vorgang vorbereiten: KI hilft im Rahmen Ihrer Daten und Regeln. Sensible Entscheidungen bleiben beim Verantwortlichen.",
+    "ai_demo": "Geführte Demonstration · Kundenservice",
+    "ai_questions": [
+      "Wo ist meine Bestellung?",
+      "Kann ich meine Adresse ändern?",
+      "Woher stammt diese Antwort?"
+    ],
+    "ai_answers": [
+      "Bestellung CMD-2048 ist vorbereitet. Die Sendungsverfolgung wird nach Übergabe verfügbar.",
+      "Der Kundenservice muss eine Adressänderung prüfen. Ich kann den Vorgang für eine berechtigte Person vorbereiten.",
+      "Die Antwort nutzt den Status von CMD-2048 und die Anleitung Lieferänderungen. Eine Antwort ersetzt keine Berechtigung."
+    ],
+    "ai_source": "Quelle des Szenarios: Logistikstatus & Lieferanleitung",
+    "ai_handoff": "Übergabe an das Team ansehen",
+    "ai_handoff_result": "Übergabevorschau: CMD-2048 · Adressänderung · Freigabe durch Kundenservice nötig.",
+    "ai_placeholder": "Wählen Sie eine Frage, um den Ablauf zu erkunden.",
+    "ai_context": "Bestellung CMD-2048",
+    "ai_state": "Vorbereitet · Adresse geschützt",
+    "crew_title": [
+      "Wissenschaftliche Sorgfalt.",
+      "Gespür für Produkte."
+    ],
+    "crew_copy": "Beratung, Design und Engineering arbeiten zusammen. Wir bringen die nötigen Fähigkeiten ein, mit JetThings und unabhängigen Spezialisten je nach Auftrag.",
+    "founder_role": "Mitgründer & CTO",
+    "founder_bio": "Achraf ist in Data Science an der École polytechnique de Louvain ausgebildet und forscht und lehrt als Assistent an UCLouvain. Er verbindet Statistik, Machine Learning und Softwaredesign und verantwortet technische Planung und Architektur bei Novalis.",
+    "profile": "Beruflicher Werdegang",
+    "crew_roles": [
+      [
+        "05",
+        "Frontend",
+        "Oberflächen, mobile Nutzung & Barrierefreiheit."
+      ],
+      [
+        "06",
+        "Backend",
+        "Geschäftsregeln, APIs & Architektur."
+      ],
+      [
+        "03",
+        "Data Scientists",
+        "Statistik, Machine Learning & Analyse."
+      ],
+      [
+        "↗",
+        "Design & Netzwerk",
+        "Produktdesign, JetThings & Spezialisten."
+      ]
+    ],
+    "contact_title": [
+      "Beginnen wir",
+      "mit Ihrem Alltag."
+    ],
+    "contact_copy": "Beschreiben Sie, was Sie aufhält, was fehlt oder was Sie entwickeln möchten. Wir bestimmen den nächsten Schritt anhand Ihrer Situation.",
+    "contact_hour": "Erstes einstündiges Gespräch kostenlos und unverbindlich.",
+    "contact_schedule": "Mein einstündiges Gespräch anfragen",
+    "contact_schedule_note": "Wir vereinbaren einen Termin mit Ihnen. Verfügbare Zeiten können direkt gebucht werden.",
+    "contact_intro": "Ihr Ausgangspunkt",
+    "contact_step": [
+      "01 · Ihr Bedarf",
+      "02 · Ihr Kontakt"
+    ],
+    "continue": "Weiter",
+    "back": "Zurück",
+    "send": "Meine Anfrage senden",
+    "sending": "Wird gesendet…",
+    "form_note": "Nach Eingang erscheinen eine Referenz und ein privater Statuslink.",
+    "confirmation_title": "Gut angekommen.",
+    "confirmation_copy": "Ihre Anfrage ist in Novalis OS erfasst. Bewahren Sie Ihren privaten Link für die nächsten Schritte auf. Unser Team meldet sich für das Gespräch.",
+    "reference": "Ihre Referenz",
+    "tracking_link": "Meinen Status öffnen",
+    "tracking_save": "Privaten Link kopieren",
+    "copied": "Link kopiert.",
+    "copy_failed": "Wählen Sie den Link aus, um ihn aufzubewahren.",
+    "new_request": "Weitere Anfrage",
+    "save_note": "Dieser persönliche Link gilt 90 Tage und zeigt den Status. Bitte privat aufbewahren.",
+    "failure": "Der Eingang ist nicht bestätigt. Ihre Angaben bleiben im Formular. Versuchen Sie es erneut oder schreiben Sie uns.",
+    "uncertain": "Der Eingang muss geprüft werden. Wiederholen Sie die Anfrage mit denselben Angaben, um ein Duplikat zu vermeiden.",
+    "unavailable": "Der Anfragedienst ist vorübergehend nicht verfügbar. Erneut versuchen oder contact@novalisai.com schreiben.",
+    "retry": "Verbindung erneut versuchen",
+    "loading": "Verbindung wird aufgebaut…",
+    "follow": "Anfrage verfolgen",
+    "track_title": [
+      "Ihre Anfrage,",
+      "klar im Blick."
+    ],
+    "track_copy": "Sehen Sie mit Ihrem persönlichen Link die vom Team erfassten Schritte.",
+    "track_private": "Dieser Link ist persönlich. Projektdetails und interne Nachrichten werden hier nicht angezeigt.",
+    "check_status": "Status aktualisieren",
+    "track_empty": "Öffnen Sie den privaten Link, der nach Ihrer Anfrage angezeigt wurde.",
+    "track_expired": "Dieser Link wurde nicht gefunden oder ist abgelaufen. Kontaktieren Sie Novalis mit Ihrer Referenz.",
+    "track_error": "Der Status kann gerade nicht geladen werden. Bitte erneut versuchen.",
+    "track_states": [
+      "Eingegangen",
+      "In Prüfung",
+      "Kontaktaufnahme",
+      "Angebot",
+      "Projekt eröffnet",
+      "Abgeschlossen"
+    ],
+    "project_ready": "Ihr Projekt wurde eröffnet. Ihr Ansprechpartner stellt Ihren persönlichen Zugang zu Novalis OS bereit.",
+    "footer": "Die richtigen Werkzeuge beginnen mit den richtigen Fragen.",
+    "footer_pages": [
+      "Expertise",
+      "Unternehmen",
+      "Datenschutz",
+      "Impressum"
+    ],
+    "faq_title": [
+      "Vor dem",
+      "ersten Schritt."
+    ],
+    "faqs": [
+      [
+        "Was, wenn wir noch nicht wissen, was wir bauen sollen?",
+        "Dafür gibt es das erste Gespräch und die Diagnose: das Problem verstehen, bevor ein Werkzeug definiert wird."
+      ],
+      [
+        "Können wir bestehende Software behalten?",
+        "Wir prüfen Verbindungen, Zugänge und Grenzen. Integrationen werden nach technischer Prüfung bestätigt."
+      ],
+      [
+        "Wie wird das Budget bestimmt?",
+        "Nach der Planung beschreibt ein Angebot Umfang, Ergebnisse, Meilensteine und Bedingungen. Ein automatischer Preis ersetzt diese Prüfung nicht."
+      ],
+      [
+        "Ist KI immer nötig?",
+        "Nein. Eine klare Regel, API oder bessere Oberfläche kann ausreichen. KI bewerten wir, wenn ihr Beitrag überprüfbar ist."
+      ]
+    ],
+    "cases": [
+      {
+        "asset": "projects",
+        "slug": "projets-industriels",
+        "group": "business",
+        "category": "Industrieprojekte",
+        "title": "Ein ERP nah am Arbeitsalltag.",
+        "problem": "Meilensteine, Einkauf und Dokumente entwickeln sich getrennt. Fehlende Teile oder Freigaben können Einsätze blockieren.",
+        "solution": "Eine Projektakte für Ressourcen, Einkauf, Dokumente und Freigaben mit Ansichten für Projektleitung und Außenteams.",
+        "value": "Abhängigkeiten eines Einsatzes erkennen, bevor er zugesagt wird.",
+        "modules": [
+          "Kohlenwasserstoffe & Wartung",
+          "Meilensteine & Einkauf",
+          "Ressourcen & Personal",
+          "Dokumente & Freigaben"
+        ]
+      },
+      {
+        "asset": "fashion",
+        "slug": "commerce-mode",
+        "group": "web",
+        "category": "Modehandel",
+        "title": "Die Marke spüren. Einfach auswählen.",
+        "problem": "Eine Kollektion braucht Charakter, ohne Größe, Verfügbarkeit oder Warenkorb schwer auffindbar zu machen.",
+        "solution": "Ein redaktioneller Shop mit Kollektionen, Produktseiten, Varianten, Bestand und mobilem Kaufablauf.",
+        "value": "Markenerlebnis und Schritte zum Kauf zusammenbringen.",
+        "modules": [
+          "Katalog & Varianten",
+          "Warenkorb & Bestellung",
+          "Bestand & Verfügbarkeit",
+          "Mobil"
+        ]
+      },
+      {
+        "asset": "stock",
+        "slug": "gestion-stock",
+        "group": "business",
+        "category": "Lagerverwaltung",
+        "title": "Jede Bewegung am richtigen Ort.",
+        "problem": "Verfügbar, reserviert und erwartet stehen in getrennten Dateien. Antworten an Kunden werden unsicher.",
+        "solution": "Lager- und Vertriebsverwaltung, die Mengen trennt und Bewegungen, Aufträge, Wareneingänge und Warnungen verbindet.",
+        "value": "Dem Team klare und nachvollziehbare Verfügbarkeit geben.",
+        "modules": [
+          "Einkauf & Wareneingang",
+          "Bestand & Reservierung",
+          "Vertrieb & Umlagerung",
+          "Warnungen & Verlauf"
+        ]
+      },
+      {
+        "asset": "restaurant",
+        "slug": "restaurant-reservation",
+        "group": "web",
+        "category": "Restaurant & Reservierung",
+        "title": "Vorfreude auf das Erlebnis.",
+        "problem": "Karte, Öffnungszeiten und Reservierung sind verstreut. Mobil einen Tisch zu finden braucht zu viele Schritte.",
+        "solution": "Eine Restaurantwebsite mit lesbarer Karte, praktischen Informationen und verfügbarkeitsbasierter Reservierung.",
+        "value": "Das Restauranterlebnis beim ersten Onlinebesuch beginnen lassen.",
+        "modules": [
+          "Karte & Identität",
+          "Reservierung",
+          "Praktische Informationen",
+          "Mobil"
+        ]
+      },
+      {
+        "asset": "copilot",
+        "slug": "assistant-flux",
+        "group": "ai",
+        "category": "Dokumentenassistent",
+        "title": "Eine gute Antwort hat eine Quelle.",
+        "problem": "Eine Anleitung finden und eine Aktion vorbereiten erfordert Suchen in getrennten Werkzeugen und Dokumenten.",
+        "solution": "Suche in erlaubten Quellen, Antworten mit Dokumentbezug und vorgeschlagene Aktionen mit menschlicher Prüfung.",
+        "value": "Suche bündeln und Herkunft sowie Verantwortung behalten.",
+        "modules": [
+          "Suche & Quellen",
+          "Zugriffsrechte",
+          "Vorgeschlagene Aktionen",
+          "Menschliche Freigabe"
+        ]
+      },
+      {
+        "asset": "insight",
+        "slug": "aide-decision",
+        "group": "ai",
+        "category": "Daten & Entscheidungen",
+        "title": "Optionen vor der Entscheidung sehen.",
+        "problem": "Kapazität, Prioritäten und Termine konkurrieren. Eine Kennzahl allein bestimmt keine Entscheidung.",
+        "solution": "Ein Bereich für Dashboards, Prognosen, Anomalieerkennung und Szenarien unter Nebenbedingungen.",
+        "value": "Möglichkeiten mit klaren Annahmen und Grenzen vergleichen.",
+        "modules": [
+          "Analyse & Prognosen",
+          "Kapazität & Optimierung",
+          "Anomalien",
+          "Szenarien"
+        ]
+      },
+      {
+        "asset": "food",
+        "slug": "novalis-food",
+        "group": "saas",
+        "category": "Novalis Food",
+        "title": "Vom Warenkorb in die Küche.",
+        "problem": "Bestellung, Küche und Lieferung nutzen getrennte Kanäle. Änderungen gehen im Betrieb verloren.",
+        "solution": "Ein SaaS-Konzept, das Karte, mobile Bestellung, Zubereitung und Übergabe durch klare Zustände verbindet.",
+        "value": "Eine Linie von bestellt über zubereitet bis übergeben.",
+        "modules": [
+          "Bestellung & Karte",
+          "Küche",
+          "Lieferung & Abholung",
+          "SaaS-Konzept"
+        ]
+      },
+      {
+        "asset": "support",
+        "slug": "service-client",
+        "group": "ai",
+        "category": "Kundenservice & KI",
+        "title": "Antworten. Prüfen. Übergeben.",
+        "problem": "Routinefragen binden den Support, aber einige Antworten brauchen Auftragsdaten oder eine Freigabe.",
+        "solution": "Ein Assistent mit erlaubten Quellen, der Kunden informiert und nötigenfalls die Übergabe an das Team vorbereitet.",
+        "value": "Routinefragen unterstützen und menschliche Entscheidungen sichtbar halten.",
+        "modules": [
+          "Kundenchat",
+          "Kontext & Quellen",
+          "Berechtigungen",
+          "Menschliche Übergabe"
+        ]
+      }
+    ],
+    "title": "Novalis AI — Software beginnt in Ihrem Alltag.",
+    "footer_word": [
+      "Ein klarer Anfang.",
+      "Ein passender nächster Schritt."
+    ],
+    "booking_confirmed": "Ihr einstündiges Gespräch ist reserviert:",
+    "applied_ai": "ANGEWANDTE KI",
+    "point_of_view": "UNSERE SICHT",
+    "os_doc_contents": [
+      "Umfang: eine Bestellung empfangen, Verfügbarkeit prüfen, Teile reservieren und Lieferung vorbereiten. Kriterien: verfügbar und reserviert unterscheiden, Fehlmengen melden und die Entscheidung behalten. Ausgenommen: Zahlung und Buchhaltung.",
+      "Ablauf Version 2: Ein Auftrag wird erfasst, Verfügbarkeit geprüft und die erlaubte Menge reserviert. Fehlmengen verhindern eine vollständige Bestätigung und erfordern eine Losentscheidung. Die Demonstrationsfreigabe nimmt diesen Ablauf an.",
+      "Gesprächsprotokoll: Das Team möchte getrennte Auftrags- und Reservierungsdateien ersetzen. Die erste Lieferung betrifft den Wareneingang. Verfügbarkeitsregeln müssen vor der Entwicklung mit Nutzern bestätigt werden."
+    ]
+  }
+}
