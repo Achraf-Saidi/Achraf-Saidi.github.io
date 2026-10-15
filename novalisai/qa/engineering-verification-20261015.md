@@ -24,7 +24,23 @@ Quatre piliers structurent l’accueil et le hub Expertise : ingénierie logicie
 - 108 pages hors redirections : un seul h1, langue, liens locaux et assets vérifiés.
 - Préparation de publication isolée réussie ; aucune source Python, base ou configuration privée dans les fichiers publics.
 
-Recette visuelle et déploiement : à consigner après prévisualisation. Les tests DOM ne remplacent pas les mesures de rendu, une recette sur appareils physiques, un audit WCAG complet ou des mesures Core Web Vitals.
+## Recette et publication
+
+Source applicative publiée : `1a5255f6bd24ea7d5403bbb4465e6c200768dd54`. Deux CI finales réussies : 38776230795 et 38776222801. Les ajouts de compte rendu après cette source ne changent pas la version applicative en production.
+
+- Chrome : 40 mesures de l’accueil (4 langues × 10 largeurs, de 320 à 1920 px), 16 du suivi (4 langues × 4 largeurs), 6 sur les pages data/web et 4 avec filtre web actif dans le showroom. Les 66 mesures ont leurs styles chargés et n’ont aucun débordement horizontal. Fichier `engineering-responsive-20261015.json`.
+- Revue visuelle desktop et mobile du hero, ainsi que du formulaire de suivi. Ajustements réalisés pour la lisibilité des petites annotations, la géométrie du showroom et l’accès au formulaire sans zone vide imposée. À 390 px, le formulaire de suivi commence à environ 338 px et son panneau se termine à environ 784 px dans la vue de recette de 880 px.
+- Comparaison native testée dans le navigateur sur la page data : total du scénario de 1 530 € à 1 350 €, cohérent avec la diminution de 180 € du coût d’allocation.
+- Préparation isolée, répétition de migration et intégrité SQLite réussies. Les dernières reprises ont réutilisé les 52 tests backend de la première préparation uniquement après comparaison SHA256 de tous les fichiers backend concernés ; les CI finales ont également exécuté la suite entière.
+- Publication Hostinger effectuée après sauvegarde cohérente vérifiée. 76 URL comparées au build ; 117 fichiers HTML publiés, dont 9 redirections historiques. Scripts, feuilles de style et nouveaux modules vérifiés sur le serveur.
+- Compte et paramètres de sécurité inchangés. Pointage, son contenu, sa configuration et ses processus sont identiques avant/après. Aucun redémarrage de nginx, PostgreSQL ou PM2. Clé SSH temporaire retirée, liste Hostinger vide après publication.
+- Accueil public vérifié dans Chrome : nouvelle accroche, styles, données calculées, configuration du formulaire connectée. Aucune demande commerciale ni réunion de test créée en production. La consultation publique d’une référence de recette inexistante renvoie le message attendu et conserve les champs, sans afficher d’ancien résultat.
+
+Preuves : `novalis-engineering-live-20261015.jpg`, `novalis-tracking-live-20261015.jpg`, `engineering-responsive-20261015.json`, `engineering-deployment-20261015.json`.
+
+Les tests DOM et Chrome ne remplacent pas une recette sur appareils physiques, Safari/Firefox, un audit WCAG complet ou des mesures Lighthouse/Core Web Vitals. Les tailles gzip calculées des deux CSS totalisent 15,0 Ko et celles des trois scripts 7,8 Ko ; ce sont des budgets d’assets, pas des mesures de chargement ou de performance vécue. Le hero ne charge plus de grande image de concept.
+
+Restent distincts de cette livraison : fournisseur SMTP, recette marchande Mollie/Bancontact, Peppol et tout modèle IA réellement exécuté côté serveur. Aucun résultat commercial ni taux de conversion n’est garanti.
 
 ## Références consultées
 
