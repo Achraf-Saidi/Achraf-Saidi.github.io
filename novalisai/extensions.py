@@ -48,7 +48,7 @@ def write_pages(content,site_url):
             page_nav=''.join(f'<a href="../{p[0]}/"'+(' aria-current="page"' if p[0]==slug else '')+f'>{esc(p[1])}</a>' for p in e['pages'] if p[0] not in {'mentions-legales','cookies','confidentialite'})
             public_links=''
             if slug=='realisations':
-                public_links='<p class="concept-note">'+esc(S[lang]['concept_note'])+'</p><div class="project-directory">'+''.join(f'<a href="../solutions/{path}/"><span>0{i+1}</span><strong>{esc(S[lang]["product_titles"][i])} · {esc(S[lang]["concept"])}</strong><b aria-hidden="true">↗</b></a>' for i,path in enumerate(SLUGS))+'</div>'
+                public_links='<p class="concept-note">'+esc(S[lang]['concept_note'])+'</p><div class="project-directory">'+''.join(f'<a href="../solutions/{case["slug"]}/"><span>0{i+1}</span><strong>{esc(case["category"])} · {esc(P[lang]["concept"])}</strong><b aria-hidden="true">↗</b></a>' for i,case in enumerate(P[lang]['cases']))+'</div>'
 
             if slug=='contact':
                 public_links=f'<a class="button" href="../#contact">{esc(P[lang]["contact_schedule"])} ↗</a><p>{esc(P[lang]["contact_hour"])}</p>'
