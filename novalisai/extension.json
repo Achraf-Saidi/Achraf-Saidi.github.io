@@ -162,24 +162,28 @@
         "entreprise",
         "L’entreprise",
         "Une direction technique accessible.",
-        "Novalis AI associe une direction en Belgique à un réseau de compétences mobilisé selon les besoins. Un interlocuteur reste responsable du cadrage, de la coordination et de la qualité.",
+        "Le conseil, le design et l’ingénierie avancent dans la même équipe. Nous réunissons les compétences autour du problème, avec JetThings et des spécialistes indépendants selon les missions.",
         [
-          "Achraf Saidi — cofondateur et CTO",
-          "Une équipe à temps plein en frontend, backend, data et design, coordonnée autour de votre produit. JetThings apporte un réseau de collaboration ; des indépendants peuvent compléter l’équipe selon la tâche.",
-          "JetThings / JetNext : réseau de collaboration",
-          "Disponibilité des spécialistes vérifiée par projet"
+          "Achraf Saidi — Cofondateur & CTO",
+          "Formé en sciences des données à l’École polytechnique de Louvain, chercheur et assistant à l’UCLouvain, Achraf relie statistique, machine learning et conception logicielle. Il porte le cadrage technique et l’architecture des projets Novalis.",
+          "5 développeurs frontend · 6 développeurs backend · 3 data scientists",
+          "Le conseil, le design et l’ingénierie avancent dans la même équipe. Nous réunissons les compétences autour du problème, avec JetThings et des spécialistes indépendants selon les missions."
         ]
       ],
       [
         "realisations",
         "Réalisations et recherche",
-        "Des statuts clairs. Des exemples concrets.",
-        "Découvrez des sites publics en évolution et nos démonstrations illustratives. Leur présentation ne constitue ni une référence client livrée ni une affirmation de résultats commerciaux.",
+        "Des pistes concrètes pour votre activité.",
+        "Le showroom rassemble des concepts d’interface : une manière d’explorer votre futur projet, sans les présenter comme des références clients livrées.",
         [
-          "BILADI : atlas et encyclopédie en développement",
-          "Code32 : site éducatif public",
-          "Numeria : plateforme éducative en développement",
-          "Novalis OS : noyau applicatif en cours de validation"
+          "Projets industriels — Voir ce qui conditionne une intervention avant de l’engager.",
+          "Boutique de mode — Faire travailler ensemble l’image de marque et les étapes qui mènent à l’achat.",
+          "Gestion de stock — Donner à l’équipe une disponibilité compréhensible et traçable.",
+          "Restaurant & réservation — Prolonger l’expérience du restaurant dès la première visite en ligne.",
+          "Assistant documentaire — Réduire la recherche dispersée en gardant la provenance et la responsabilité.",
+          "Données & décisions — Comparer les possibilités avec des hypothèses et des limites explicites.",
+          "Novalis Food — Garder un même fil entre ce qui est commandé, préparé et remis.",
+          "Service client & IA — Faciliter les réponses courantes sans masquer les situations qui exigent une personne."
         ]
       ],
       [
@@ -198,7 +202,7 @@
         "espace-client",
         "Espace client",
         "Un suivi clair, avec votre interlocuteur.",
-        "Novalis OS centralise les projets, les échanges partagés, les livrables et les validations. Lorsque le portail est raccordé au serveur, son accès est réservé aux personnes invitées, avec un compte personnel et des autorisations par rôle et projet.",
+        "Novalis OS réunit les jalons, documents partagés, échanges et validations de votre projet. L’accès est personnel, sur invitation, avec des droits adaptés au rôle et au projet.",
         [
           "Compte personnel et accès par projet",
           "Communication avec votre responsable",
@@ -222,12 +226,12 @@
         "confidentialite",
         "Confidentialité",
         "Les données utiles, avec des accès maîtrisés.",
-        "Lorsque le formulaire est relié à Novalis OS, vos coordonnées et votre demande sont enregistrées pour organiser notre réponse ou votre rendez-vous. Sans ce raccordement, il prépare un brouillon dans votre messagerie. Les comptes et projets sont réservés aux personnes autorisées ; les e-mails restent en attente tant que le service d’envoi n’est pas activé.",
+        "Vos coordonnées et votre demande sont enregistrées dans Novalis OS pour préparer notre réponse ou votre rendez-vous. Le lien personnel de suivi, valable 90 jours, affiche uniquement les étapes de traitement. Les notes et échanges internes restent privés.",
         [
-          "Finalité : traiter votre demande",
-          "Droits : contact@novalisai.com",
-          "Documents internes séparés des échanges clients",
-          "Politique ERP à finaliser avant l’ouverture aux clients"
+          "Finalité : traiter votre demande et organiser le premier échange",
+          "Vos demandes relatives aux données : contact@novalisai.com",
+          "Le lien de suivi est personnel : conservez-le sans le publier",
+          "Les documents et espaces clients sont réservés aux personnes autorisées"
         ]
       ],
       [
@@ -417,24 +421,28 @@
         "entreprise",
         "The company",
         "Accessible technical leadership.",
-        "Novalis AI combines leadership in Belgium with a specialist network matched to each project. One contact remains responsible for scope, coordination and quality.",
+        "Consulting, design and engineering work together. We bring the right skills to the problem, with JetThings and independent specialists as needed.",
         [
-          "Achraf Saidi — cofounder and CTO",
-          "A full-time team across frontend, backend, data and design, coordinated around your product. JetThings extends the collaboration network; independent specialists can join for a particular task.",
-          "JetThings / JetNext: collaboration network",
-          "Availability checked for each project"
+          "Achraf Saidi — Co-founder & CTO",
+          "Trained in data science at the Louvain School of Engineering, a researcher and teaching assistant at UCLouvain, Achraf connects statistics, machine learning and software design. He leads technical scoping and architecture at Novalis.",
+          "5 frontend developers · 6 backend developers · 3 data scientists",
+          "Consulting, design and engineering work together. We bring the right skills to the problem, with JetThings and independent specialists as needed."
         ]
       ],
       [
         "realisations",
         "Work and research",
-        "Clear status. Concrete examples.",
-        "Explore evolving public websites and illustrative demonstrations. They are not presented as delivered client references or evidence of commercial outcomes.",
+        "Concrete directions for your business.",
+        "The showroom brings together interface concepts to explore a future project. They are not presented as delivered client references.",
         [
-          "BILADI: atlas and encyclopedia in development",
-          "Code32: public education website",
-          "Numeria: education platform in development",
-          "Novalis OS: application core undergoing validation"
+          "Industrial projects — See what an intervention depends on before committing.",
+          "Fashion ecommerce — Make brand expression and the steps towards purchase work together.",
+          "Stock management — Give the team clear, traceable availability.",
+          "Restaurant & reservations — Extend the restaurant experience from the first online visit.",
+          "Document assistant — Bring research together while retaining provenance and responsibility.",
+          "Data & decisions — Compare possibilities with explicit assumptions and limits.",
+          "Novalis Food — Keep one thread from what is ordered to what is prepared and delivered.",
+          "Customer service & AI — Help with routine questions while keeping human decisions visible."
         ]
       ],
       [
@@ -453,7 +461,7 @@
         "espace-client",
         "Client portal",
         "Clear follow-up with your coordinator.",
-        "Novalis OS brings together projects, shared conversations, deliverables and approvals. When the portal is connected to the server, access is restricted to invited people with personal accounts and permissions by role and project.",
+        "Novalis OS brings together milestones, shared documents, conversations and approvals for your project. Access is personal and by invitation, with permissions matched to role and project.",
         [
           "Personal account and project access",
           "Communication with your coordinator",
@@ -477,12 +485,12 @@
         "confidentialite",
         "Privacy",
         "Relevant data and controlled access.",
-        "When the form is connected to Novalis OS, your contact details and enquiry are stored to handle our response or your meeting. Without that connection, it prepares a draft in your email application. Accounts and projects are restricted to authorised people; emails remain queued until the sending service is enabled.",
+        "Your contact details and request are stored in Novalis OS to prepare our response or your meeting. The personal tracking link, valid for 90 days, shows only processing stages. Internal notes and conversations remain private.",
         [
-          "Purpose: handle your enquiry",
-          "Your rights: contact@novalisai.com",
-          "Internal documents separate from client exchanges",
-          "ERP policy to be finalised before client access opens"
+          "Purpose: handle your enquiry and arrange the first conversation",
+          "Requests about your data: contact@novalisai.com",
+          "The tracking link is personal: keep it private",
+          "Documents and client workspaces are restricted to authorised people"
         ]
       ],
       [
@@ -672,24 +680,28 @@
         "entreprise",
         "Het bedrijf",
         "Toegankelijke technische leiding.",
-        "Novalis AI combineert leiding in België met een netwerk van specialisten. Eén contactpersoon bewaakt de scope, coördinatie en kwaliteit.",
+        "Advies, design en engineering werken samen. We brengen de nodige expertise bijeen, met JetThings en onafhankelijke specialisten volgens de opdracht.",
         [
-          "Achraf Saidi — medeoprichter en CTO",
-          "Een voltijds team voor frontend, backend, data en design, rond uw product. JetThings breidt het samenwerkingsnetwerk uit; zelfstandige specialisten kunnen per taak bijdragen.",
-          "JetThings / JetNext: samenwerkingsnetwerk",
-          "Beschikbaarheid per project nagegaan"
+          "Achraf Saidi — Medeoprichter & CTO",
+          "Achraf is opgeleid in data science aan de École polytechnique de Louvain en werkt als onderzoeker en assistent aan UCLouvain. Hij verbindt statistiek, machine learning en softwareontwerp en leidt de technische afbakening en architectuur bij Novalis.",
+          "5 frontendontwikkelaars · 6 backendontwikkelaars · 3 data scientists",
+          "Advies, design en engineering werken samen. We brengen de nodige expertise bijeen, met JetThings en onafhankelijke specialisten volgens de opdracht."
         ]
       ],
       [
         "realisations",
         "Werk en onderzoek",
-        "Heldere status. Concrete voorbeelden.",
-        "Ontdek publieke websites in ontwikkeling en illustratieve demonstraties. Ze worden niet voorgesteld als opgeleverde klantreferenties of commerciële resultaten.",
+        "Concrete richtingen voor uw bedrijf.",
+        "De showroom bundelt interfaceconcepten om een toekomstig project te verkennen. Het zijn geen opgeleverde klantreferenties.",
         [
-          "BILADI: atlas en encyclopedie in ontwikkeling",
-          "Code32: publieke onderwijswebsite",
-          "Numeria: onderwijsplatform in ontwikkeling",
-          "Novalis OS: applicatiekern in validatie"
+          "Industriële projecten — Zie waarvan een interventie afhangt vóór u die vastlegt.",
+          "Modewebshop — Merkbeleving en de stappen naar aankoop laten samenwerken.",
+          "Voorraadbeheer — Het team een helder en traceerbaar voorraadbeeld geven.",
+          "Restaurant & reservatie — De restaurantervaring al bij het eerste online bezoek laten beginnen.",
+          "Documentassistent — Zoekwerk bundelen met behoud van herkomst en verantwoordelijkheid.",
+          "Data & beslissingen — Mogelijkheden vergelijken met duidelijke aannames en grenzen.",
+          "Novalis Food — Eén lijn van besteld naar bereid en bezorgd.",
+          "Klantenservice & AI — Routinevragen helpen zonder menselijke beslissingen te verbergen."
         ]
       ],
       [
@@ -708,7 +720,7 @@
         "espace-client",
         "Klantenportaal",
         "Heldere opvolging met uw contactpersoon.",
-        "Novalis OS brengt projecten, gedeelde gesprekken, resultaten en goedkeuringen samen. Zodra het portaal met de server is verbonden, hebben alleen uitgenodigde personen toegang, met een persoonlijk account en rechten per rol en project.",
+        "Novalis OS bundelt mijlpalen, gedeelde documenten, gesprekken en goedkeuringen van uw project. Toegang is persoonlijk en op uitnodiging, met rechten per rol en project.",
         [
           "Persoonlijk account en projecttoegang",
           "Communicatie met uw coördinator",
@@ -732,12 +744,12 @@
         "confidentialite",
         "Privacy",
         "Relevante gegevens en beheerde toegang.",
-        "Wanneer het formulier met Novalis OS is verbonden, worden uw contactgegevens en aanvraag opgeslagen om ons antwoord of uw afspraak te organiseren. Zonder die verbinding maakt het een concept in uw e-mailprogramma. Accounts en projecten zijn voorbehouden aan bevoegde personen; e-mails blijven in de wachtrij totdat de verzenddienst actief is.",
+        "Uw contactgegevens en aanvraag worden in Novalis OS opgeslagen om ons antwoord of uw afspraak voor te bereiden. De persoonlijke volglink is 90 dagen geldig en toont alleen behandelstappen. Interne notities en gesprekken blijven privé.",
         [
-          "Doel: uw aanvraag behandelen",
-          "Uw rechten: contact@novalisai.com",
-          "Interne documenten apart van klantgesprekken",
-          "ERP-beleid vóór klanttoegang afronden"
+          "Doel: uw aanvraag behandelen en het eerste gesprek organiseren",
+          "Vragen over uw gegevens: contact@novalisai.com",
+          "De volglink is persoonlijk: houd hem privé",
+          "Documenten en klantomgevingen zijn beperkt tot bevoegde personen"
         ]
       ],
       [
@@ -927,24 +939,28 @@
         "entreprise",
         "Das Unternehmen",
         "Erreichbare technische Leitung.",
-        "Novalis AI verbindet Führung in Belgien mit einem passenden Expertennetzwerk. Ein Ansprechpartner verantwortet Umfang, Koordination und Qualität.",
+        "Beratung, Design und Engineering arbeiten zusammen. Wir bringen die nötigen Fähigkeiten ein, mit JetThings und unabhängigen Spezialisten je nach Auftrag.",
         [
-          "Achraf Saidi — Mitgründer und CTO",
-          "Ein Vollzeitteam für Frontend, Backend, Daten und Design rund um Ihr Produkt. JetThings erweitert das Netzwerk; unabhängige Spezialisten können je Aufgabe beitragen.",
-          "JetThings / JetNext: Zusammenarbeit",
-          "Verfügbarkeit für jedes Projekt geprüft"
+          "Achraf Saidi — Mitgründer & CTO",
+          "Achraf ist in Data Science an der École polytechnique de Louvain ausgebildet und forscht und lehrt als Assistent an UCLouvain. Er verbindet Statistik, Machine Learning und Softwaredesign und verantwortet technische Planung und Architektur bei Novalis.",
+          "5 Frontend-Entwickler · 6 Backend-Entwickler · 3 Data Scientists",
+          "Beratung, Design und Engineering arbeiten zusammen. Wir bringen die nötigen Fähigkeiten ein, mit JetThings und unabhängigen Spezialisten je nach Auftrag."
         ]
       ],
       [
         "realisations",
         "Projekte und Forschung",
-        "Klarer Status. Konkrete Beispiele.",
-        "Entdecken Sie öffentliche Websites in Entwicklung und beispielhafte Demonstrationen. Sie werden nicht als ausgelieferte Kundenreferenzen oder geschäftliche Erfolge dargestellt.",
+        "Konkrete Richtungen für Ihr Unternehmen.",
+        "Der Showroom bündelt Oberflächenkonzepte zur Erkundung eines künftigen Projekts. Es sind keine ausgelieferten Kundenreferenzen.",
         [
-          "BILADI: Atlas und Enzyklopädie in Entwicklung",
-          "Code32: öffentliche Bildungswebsite",
-          "Numeria: Bildungsplattform in Entwicklung",
-          "Novalis OS: Anwendungskern in Validierung"
+          "Industrieprojekte — Abhängigkeiten eines Einsatzes erkennen, bevor er zugesagt wird.",
+          "Modehandel — Markenerlebnis und Schritte zum Kauf zusammenbringen.",
+          "Lagerverwaltung — Dem Team klare und nachvollziehbare Verfügbarkeit geben.",
+          "Restaurant & Reservierung — Das Restauranterlebnis beim ersten Onlinebesuch beginnen lassen.",
+          "Dokumentenassistent — Suche bündeln und Herkunft sowie Verantwortung behalten.",
+          "Daten & Entscheidungen — Möglichkeiten mit klaren Annahmen und Grenzen vergleichen.",
+          "Novalis Food — Eine Linie von bestellt über zubereitet bis übergeben.",
+          "Kundenservice & KI — Routinefragen unterstützen und menschliche Entscheidungen sichtbar halten."
         ]
       ],
       [
@@ -963,7 +979,7 @@
         "espace-client",
         "Kundenportal",
         "Klarer Überblick mit Ihrem Ansprechpartner.",
-        "Novalis OS bündelt Projekte, geteilte Gespräche, Ergebnisse und Freigaben. Sobald das Portal mit dem Server verbunden ist, erhalten ausschließlich eingeladene Personen Zugriff, mit einem persönlichen Konto und Berechtigungen nach Rolle und Projekt.",
+        "Novalis OS bündelt Meilensteine, geteilte Dokumente, Gespräche und Freigaben Ihres Projekts. Zugang ist persönlich und auf Einladung, mit Rechten je Rolle und Projekt.",
         [
           "Persönliches Konto und Projektzugriff",
           "Kommunikation mit Ihrer Koordination",
@@ -987,12 +1003,12 @@
         "confidentialite",
         "Datenschutz",
         "Nützliche Daten und kontrollierter Zugriff.",
-        "Wenn das Formular mit Novalis OS verbunden ist, werden Ihre Kontaktdaten und Anfrage gespeichert, um unsere Antwort oder Ihren Termin zu organisieren. Ohne diese Verbindung erstellt es einen Entwurf in Ihrem E-Mail-Programm. Konten und Projekte sind autorisierten Personen vorbehalten; E-Mails bleiben bis zur Aktivierung des Versanddienstes in der Warteschlange.",
+        "Ihre Kontaktdaten und Anfrage werden in Novalis OS gespeichert, um unsere Antwort oder Ihren Termin vorzubereiten. Der persönliche Statuslink gilt 90 Tage und zeigt nur Bearbeitungsschritte. Interne Notizen und Gespräche bleiben privat.",
         [
-          "Zweck: Ihre Anfrage bearbeiten",
-          "Ihre Rechte: contact@novalisai.com",
-          "Interne Dokumente getrennt von Kundengesprächen",
-          "ERP-Richtlinie vor Kundenzugang abschließen"
+          "Zweck: Ihre Anfrage bearbeiten und das erste Gespräch organisieren",
+          "Fragen zu Ihren Daten: contact@novalisai.com",
+          "Der Statuslink ist persönlich: Bitte privat aufbewahren",
+          "Dokumente und Kundenbereiche sind berechtigten Personen vorbehalten"
         ]
       ],
       [

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from ultimate import D
 from showcase import S, SLUGS
+from premium import P
 
 ROOT=Path(__file__).parent
 E=json.loads((ROOT/'extension.json').read_text())
@@ -35,8 +36,8 @@ def write_pages(content,site_url):
     for lang,e in E.items():
         for slug,title,headline,description,bullets in e['pages']:
             if slug=='methode':
-                t=D[lang]
-                bullets=[f'{phase} — {t["method_details"][i]} {t["deliverable"]} : {t["method_deliverables"][i]}. {t["decision"]} : {t["method_decisions"][i]}' for i,phase in enumerate(t['method_phases'])]
+                t=P[lang]
+                bullets=[phase[0]+' '+phase[1]+' '+t['deliverable']+' : '+phase[2] for phase in t['method_steps']]
                 description=t['method_copy']
             root=ROOT/lang/slug
             root.mkdir(parents=True,exist_ok=True)
@@ -47,10 +48,10 @@ def write_pages(content,site_url):
             page_nav=''.join(f'<a href="../{p[0]}/"'+(' aria-current="page"' if p[0]==slug else '')+f'>{esc(p[1])}</a>' for p in e['pages'] if p[0] not in {'mentions-legales','cookies','confidentialite'})
             public_links=''
             if slug=='realisations':
-                public_links='<p class="concept-note">'+esc(S[lang]['concept_note'])+'</p><div class="project-directory">'+''.join(f'<a href="../solutions/{path}/"><span>0{i+1}</span><strong>{esc(S[lang]["product_titles"][i])} · {esc(S[lang]["concept"])}</strong><b aria-hidden="true">↗</b></a>' for i,path in enumerate(SLUGS))+'</div>'
+                public_links='<p class="concept-note">'+esc(S[lang]['concept_note'])+'</p><div class="project-directory">'+''.join(f'<a href="../solutions/{case["slug"]}/"><span>0{i+1}</span><strong>{esc(case["category"])} · {esc(P[lang]["concept"])}</strong><b aria-hidden="true">↗</b></a>' for i,case in enumerate(P[lang]['cases']))+'</div>'
 
             if slug=='contact':
-                public_links=f'<a class="button" href="https://www.cal.eu/novalisai/30min" target="_blank" rel="noopener noreferrer">{esc(D[lang]["calendar_cta"])} ↗</a><p>{esc(D[lang]["calendar_note"])}</p>'
+                public_links=f'<a class="button" href="../#contact">{esc(P[lang]["contact_schedule"])} ↗</a><p>{esc(P[lang]["contact_hour"])}</p>'
             access_link=f'<a class="text-link" data-portal-link href="../#contact">{esc(e["contact"])} ↗</a>' if slug=='espace-client' else ''
             related=''.join(f'<a href="../{p[0]}/">{esc(p[1])} ↗</a>' for p in e['pages'] if p[0] in {'sur-mesure','saas','automatisation','data-ia'} and p[0]!=slug)
             legal=slug in {'mentions-legales','confidentialite','cookies','espace-client'}

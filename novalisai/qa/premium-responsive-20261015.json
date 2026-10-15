@@ -1,0 +1,399 @@
+{
+  "source": "a4ee4da420f947bd1faed4dd2ec6e6dadb8b6a06",
+  "vitrine": [
+    {
+      "width": 320,
+      "client": 305,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 305
+    },
+    {
+      "width": 360,
+      "client": 345,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 345
+    },
+    {
+      "width": 390,
+      "client": 375,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 375
+    },
+    {
+      "width": 430,
+      "client": 415,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 415
+    },
+    {
+      "width": 768,
+      "client": 753,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 753
+    },
+    {
+      "width": 1024,
+      "client": 1009,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 1009
+    },
+    {
+      "width": 1280,
+      "client": 1265,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 1265
+    },
+    {
+      "width": 1440,
+      "client": 1425,
+      "css": "#f7f4ee",
+      "lang": "fr",
+      "scroll": 1425
+    },
+    {
+      "width": 320,
+      "client": 305,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 305
+    },
+    {
+      "width": 360,
+      "client": 345,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 345
+    },
+    {
+      "width": 390,
+      "client": 375,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 375
+    },
+    {
+      "width": 430,
+      "client": 415,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 415
+    },
+    {
+      "width": 768,
+      "client": 753,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 753
+    },
+    {
+      "width": 1024,
+      "client": 1009,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 1009
+    },
+    {
+      "width": 1280,
+      "client": 1265,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 1265
+    },
+    {
+      "width": 1440,
+      "client": 1425,
+      "css": "#f7f4ee",
+      "lang": "en",
+      "scroll": 1425
+    },
+    {
+      "width": 320,
+      "client": 305,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 305
+    },
+    {
+      "width": 360,
+      "client": 345,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 345
+    },
+    {
+      "width": 390,
+      "client": 375,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 375
+    },
+    {
+      "width": 430,
+      "client": 415,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 415
+    },
+    {
+      "width": 768,
+      "client": 753,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 753
+    },
+    {
+      "width": 1024,
+      "client": 1009,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 1009
+    },
+    {
+      "width": 1280,
+      "client": 1265,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 1265
+    },
+    {
+      "width": 1440,
+      "client": 1425,
+      "css": "#f7f4ee",
+      "lang": "nl",
+      "scroll": 1425
+    },
+    {
+      "width": 320,
+      "client": 305,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 305
+    },
+    {
+      "width": 360,
+      "client": 345,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 345
+    },
+    {
+      "width": 390,
+      "client": 375,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 375
+    },
+    {
+      "width": 430,
+      "client": 415,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 415
+    },
+    {
+      "width": 768,
+      "client": 753,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 753
+    },
+    {
+      "width": 1024,
+      "client": 1009,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 1009
+    },
+    {
+      "width": 1280,
+      "client": 1265,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 1265
+    },
+    {
+      "width": 1440,
+      "client": 1425,
+      "css": "#f7f4ee",
+      "lang": "de",
+      "scroll": 1425
+    }
+  ],
+  "erp": [
+    {
+      "role": "manager",
+      "width": "320",
+      "client": 305,
+      "cssReady": "#f4f6f2",
+      "scroll": 305
+    },
+    {
+      "role": "manager",
+      "width": "390",
+      "client": 375,
+      "cssReady": "#f4f6f2",
+      "scroll": 375
+    },
+    {
+      "role": "manager",
+      "width": "768",
+      "client": 753,
+      "cssReady": "#f4f6f2",
+      "scroll": 753
+    },
+    {
+      "role": "manager",
+      "width": "1280",
+      "client": 1265,
+      "cssReady": "#f4f6f2",
+      "scroll": 1265
+    },
+    {
+      "role": "account",
+      "width": "320",
+      "client": 305,
+      "cssReady": "#f4f6f2",
+      "scroll": 305
+    },
+    {
+      "role": "account",
+      "width": "390",
+      "client": 375,
+      "cssReady": "#f4f6f2",
+      "scroll": 375
+    },
+    {
+      "role": "account",
+      "width": "768",
+      "client": 753,
+      "cssReady": "#f4f6f2",
+      "scroll": 753
+    },
+    {
+      "role": "account",
+      "width": "1280",
+      "client": 1265,
+      "cssReady": "#f4f6f2",
+      "scroll": 1265
+    },
+    {
+      "role": "developer",
+      "width": "320",
+      "client": 305,
+      "cssReady": "#f4f6f2",
+      "scroll": 305
+    },
+    {
+      "role": "developer",
+      "width": "390",
+      "client": 375,
+      "cssReady": "#f4f6f2",
+      "scroll": 375
+    },
+    {
+      "role": "developer",
+      "width": "768",
+      "client": 753,
+      "cssReady": "#f4f6f2",
+      "scroll": 753
+    },
+    {
+      "role": "developer",
+      "width": "1280",
+      "client": 1265,
+      "cssReady": "#f4f6f2",
+      "scroll": 1265
+    },
+    {
+      "role": "client",
+      "width": "320",
+      "client": 305,
+      "cssReady": "#f4f6f2",
+      "scroll": 305
+    },
+    {
+      "role": "client",
+      "width": "390",
+      "client": 375,
+      "cssReady": "#f4f6f2",
+      "scroll": 375
+    },
+    {
+      "role": "client",
+      "width": "768",
+      "client": 753,
+      "cssReady": "#f4f6f2",
+      "scroll": 753
+    },
+    {
+      "role": "client",
+      "width": "1280",
+      "client": 1265,
+      "cssReady": "#f4f6f2",
+      "scroll": 1265
+    },
+    {
+      "role": "finance",
+      "width": "320",
+      "client": 305,
+      "cssReady": "#f4f6f2",
+      "scroll": 305
+    },
+    {
+      "role": "finance",
+      "width": "390",
+      "client": 375,
+      "cssReady": "#f4f6f2",
+      "scroll": 375
+    },
+    {
+      "role": "finance",
+      "width": "768",
+      "client": 753,
+      "cssReady": "#f4f6f2",
+      "scroll": 753
+    },
+    {
+      "role": "finance",
+      "width": "1280",
+      "client": 1265,
+      "cssReady": "#f4f6f2",
+      "scroll": 1265
+    },
+    {
+      "role": "sysadmin",
+      "width": "320",
+      "client": 305,
+      "cssReady": "#f4f6f2",
+      "scroll": 305
+    },
+    {
+      "role": "sysadmin",
+      "width": "390",
+      "client": 375,
+      "cssReady": "#f4f6f2",
+      "scroll": 375
+    },
+    {
+      "role": "sysadmin",
+      "width": "768",
+      "client": 753,
+      "cssReady": "#f4f6f2",
+      "scroll": 753
+    },
+    {
+      "role": "sysadmin",
+      "width": "1280",
+      "client": 1265,
+      "cssReady": "#f4f6f2",
+      "scroll": 1265
+    }
+  ]
+}

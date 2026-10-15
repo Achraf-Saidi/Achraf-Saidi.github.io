@@ -143,6 +143,7 @@ def create_app(overrides=None):
     from .documents import documents
     from .payments import payments, payment_configuration
     from .workspace import workspace
-    for blueprint in [auth,crm,projects,finance,documents,payments,workspace]:
+    from .intake import intake
+    for blueprint in [auth,crm,projects,finance,documents,payments,workspace,intake]:
         app.register_blueprint(blueprint)
     return app

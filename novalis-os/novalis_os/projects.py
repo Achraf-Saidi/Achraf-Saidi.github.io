@@ -125,8 +125,11 @@ def project_detail(project_id):
     messages = rows('''SELECT m.id,m.channel,m.body,m.created_at,u.name AS author_name FROM messages m
         JOIN users u ON u.id=m.author_id WHERE m.project_id=?'''+(" AND m.channel='external'" if client else
         " AND m.channel='internal'" if g.user['role'] in {'developer','finance'} else '')+' ORDER BY m.created_at', (project_id,))
-    documents = rows('SELECT id,filename,mime,size,channel,created_at FROM documents WHERE project_id=?'+(" AND channel='external'" if client else
-        " AND channel='internal'" if g.user['role'] in {'developer','finance'} else ''), (project_id,))
+    documents = rows('''SELECT d.id,d.filename,d.mime,d.size,d.channel,d.created_at,
+        COALESCE(v.root_id,d.id) AS root_id,COALESCE(v.number,1) AS version,
+        NOT EXISTS(SELECT 1 FROM document_versions next WHERE next.previous_id=d.id) AS latest
+        FROM documents d LEFT JOIN document_versions v ON v.document_id=d.id WHERE d.project_id=?'''+(" AND d.channel='external'" if client else
+        " AND d.channel='internal'" if g.user['role'] in {'developer','finance'} else '')+' ORDER BY d.created_at DESC,v.number DESC', (project_id,))
     requests = [] if g.user['role'] in {'developer','finance'} else rows('SELECT * FROM requests WHERE project_id=? ORDER BY created_at DESC', (project_id,))
     team = [] if client or g.user['role'] == 'finance' else rows('''SELECT u.id,u.name,u.role FROM users u JOIN project_members m ON m.user_id=u.id
         WHERE m.project_id=? UNION SELECT id,name,role FROM users WHERE id=?''', (project_id,project['account_id']))
