@@ -1,0 +1,533 @@
+{
+  "source": "1a5255f6bd24ea7d5403bbb4465e6c200768dd54",
+  "checks": [
+    {
+      "page": "home",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 305
+    },
+    {
+      "page": "home",
+      "width": 360,
+      "client": 345,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 345
+    },
+    {
+      "page": "home",
+      "width": 375,
+      "client": 360,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 360
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 375
+    },
+    {
+      "page": "home",
+      "width": 430,
+      "client": 415,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 415
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 753
+    },
+    {
+      "page": "home",
+      "width": 1024,
+      "client": 1009,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 1009
+    },
+    {
+      "page": "home",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 1265
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "client": 1425,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 1425
+    },
+    {
+      "page": "home",
+      "width": 1920,
+      "client": 1905,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 1905
+    },
+    {
+      "page": "home",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 305
+    },
+    {
+      "page": "home",
+      "width": 360,
+      "client": 345,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 345
+    },
+    {
+      "page": "home",
+      "width": 375,
+      "client": 360,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 360
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 375
+    },
+    {
+      "page": "home",
+      "width": 430,
+      "client": 415,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 415
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 753
+    },
+    {
+      "page": "home",
+      "width": 1024,
+      "client": 1009,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 1009
+    },
+    {
+      "page": "home",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 1265
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "client": 1425,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 1425
+    },
+    {
+      "page": "home",
+      "width": 1920,
+      "client": 1905,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 1905
+    },
+    {
+      "page": "home",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 305
+    },
+    {
+      "page": "home",
+      "width": 360,
+      "client": 345,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 345
+    },
+    {
+      "page": "home",
+      "width": 375,
+      "client": 360,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 360
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 375
+    },
+    {
+      "page": "home",
+      "width": 430,
+      "client": 415,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 415
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 753
+    },
+    {
+      "page": "home",
+      "width": 1024,
+      "client": 1009,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1009
+    },
+    {
+      "page": "home",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1265
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "client": 1425,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1425
+    },
+    {
+      "page": "home",
+      "width": 1920,
+      "client": 1905,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1905
+    },
+    {
+      "page": "home",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 305
+    },
+    {
+      "page": "home",
+      "width": 360,
+      "client": 345,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 345
+    },
+    {
+      "page": "home",
+      "width": 375,
+      "client": 360,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 360
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 375
+    },
+    {
+      "page": "home",
+      "width": 430,
+      "client": 415,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 415
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 753
+    },
+    {
+      "page": "home",
+      "width": 1024,
+      "client": 1009,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 1009
+    },
+    {
+      "page": "home",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 1265
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "client": 1425,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 1425
+    },
+    {
+      "page": "home",
+      "width": 1920,
+      "client": 1905,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 1905
+    },
+    {
+      "page": "tracking",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 305
+    },
+    {
+      "page": "tracking",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 375
+    },
+    {
+      "page": "tracking",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 753
+    },
+    {
+      "page": "tracking",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "de",
+      "scroll": 1265
+    },
+    {
+      "page": "tracking",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 305
+    },
+    {
+      "page": "tracking",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 375
+    },
+    {
+      "page": "tracking",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 753
+    },
+    {
+      "page": "tracking",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "fr",
+      "scroll": 1265
+    },
+    {
+      "page": "tracking",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 305
+    },
+    {
+      "page": "tracking",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 375
+    },
+    {
+      "page": "tracking",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 753
+    },
+    {
+      "page": "tracking",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "en",
+      "scroll": 1265
+    },
+    {
+      "page": "tracking",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 305
+    },
+    {
+      "page": "tracking",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 375
+    },
+    {
+      "page": "tracking",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 753
+    },
+    {
+      "page": "tracking",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1265
+    },
+    {
+      "page": "data-ia",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 305
+    },
+    {
+      "page": "data-ia",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 753
+    },
+    {
+      "page": "data-ia",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1265
+    },
+    {
+      "page": "sites-web",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 305
+    },
+    {
+      "page": "sites-web",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 753
+    },
+    {
+      "page": "sites-web",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1265
+    },
+    {
+      "page": "showroom-web-filter",
+      "width": 320,
+      "client": 305,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 305
+    },
+    {
+      "page": "showroom-web-filter",
+      "width": 390,
+      "client": 375,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 375
+    },
+    {
+      "page": "showroom-web-filter",
+      "width": 768,
+      "client": 753,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 753
+    },
+    {
+      "page": "showroom-web-filter",
+      "width": 1280,
+      "client": 1265,
+      "css": "#f6f7f9",
+      "lang": "nl",
+      "scroll": 1265
+    }
+  ]
+}

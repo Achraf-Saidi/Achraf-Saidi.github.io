@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from ultimate import D
 from showcase import S, SLUGS
-from premium import P
+from premium import P, shell as premium_shell
 
 ROOT=Path(__file__).parent
 E=json.loads((ROOT/'extension.json').read_text())
@@ -57,5 +57,7 @@ def write_pages(content,site_url):
             legal=slug in {'mentions-legales','confidentialite','cookies','espace-client'}
             secondary='' if legal else f'<section class="detail-method"><p class="eyebrow">NOVALIS / DELIVERY</p><h2>{esc(e["principle"])}</h2><p>{esc(e["principle_copy"])}</p><a class="text-link" href="../methode/">{esc(e["read"])} ↗</a></section>'
             output=f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="theme-color" content="#fbf8f3"><title>{esc(title)} — Novalis AI</title><link rel="canonical" href="{url}">{alternates}<link rel="icon" href="../../assets/N_novalis.png"><link rel="stylesheet" href="../../assets/showcase.css"><script src="../../assets/pages.js" defer></script><meta property="og:title" content="{esc(title)} — Novalis AI"><meta property="og:image" content="{site_url}/assets/novalis_og.png"><meta property="og:url" content="{url}"></head><body class="detail-page"><a class="skip-link" href="#main">{esc(content[lang]['skip'])}</a><header class="site-header"><div class="header-inner shell"><a class="brand" href="../"><img src="../../assets/logo.webp" alt="Novalis AI" width="1200" height="269"></a><nav class="detail-header-links" aria-label="{esc(e['navigation'])}"><a href="../expertise/">{esc(e['pages'][0][1])}</a><a href="../entreprise/">{esc(e['pages'][6][1])}</a><a class="button small" href="../#contact">{esc(content[lang]['book'])} ↗</a></nav></div></header><main id="main" class="shell"><div class="detail-breadcrumb"><a href="../">{esc(e['home'])}</a><span>/</span><span>{esc(title)}</span></div><section class="detail-hero"><p class="eyebrow">NOVALIS / {esc(title)}</p><h1>{esc(headline)}</h1><p class="detail-lead">{esc(description)}</p><a class="button" href="../#contact">{esc(content[lang]['talk'])} ↗</a></section><div class="detail-layout"><section class="detail-body"><h2>{esc(title if legal else e['scope'])}</h2><ol class="detail-capabilities">'''+''.join(f'<li><span>0{i+1}</span><p>{esc(b)}</p></li>' for i,b in enumerate(bullets))+f'''</ol>{public_links}{access_link}{secondary}<nav class="detail-related" aria-label="{esc(e['navigation'])}">{related}</nav></section><aside class="detail-aside"><span class="eyebrow">NOVALIS / EXPLORE</span><nav aria-label="{esc(e['navigation'])}">{page_nav}</nav></aside></div></main><footer class="detail-footer shell"><a href="../">{esc(e['back'])} ←</a><a href="mailto:contact@novalisai.com">contact@novalisai.com</a><nav aria-label="{esc(content[lang]['language'])}">{languages}</nav><p>© 2026 Novalis AI</p></footer></body></html>'''
+            body=output.split('<main id="main" class="shell">',1)[1].split('</main>',1)[0]
+            output=premium_shell(lang,url,title,'<div class="shell">'+body+'</div>','../../',site_url,description=description)
             (root/'index.html').write_text(output)
     return urls

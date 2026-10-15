@@ -31,3 +31,17 @@ Toutes les routes privées exigent une session serveur. Les mutations exigent l�
 | Suivi | `GET /api/dashboard`, `/api/audit`, `/api/integrations` | Indicateurs réels, journal par organisation, états des intégrations |
 
 Erreurs JSON : `{ "error": "message" }`. 400 données invalides, 401 connexion nécessaire, 403 opération interdite, 404 objet inaccessible/inexistant, 409 version/état/unicité en conflit, 413 taille excessive, 429 limite de fréquence. Ne pas transformer un refus en succès visuel. Les liens et jetons d’invitation ne sont jamais renvoyés par la liste des comptes.
+
+## Consultation d’une demande après perte du lien
+
+`POST /api/public/request-lookup` accepte un objet JSON :
+
+```json
+{"reference":"NV-26-A1B2C3D4","email":"client@example.test"}
+```
+
+La référence est normalisée en majuscules et l’e-mail en minuscules. Une correspondance dans l’organisation publique renvoie seulement `reference` et `status` (`received`, `reviewing`, `contact`, `proposal`, `project`, `closed`). Aucun jeton, historique daté, contenu commercial, document, identifiant de projet ou droit de compte n’est renvoyé. Ce parcours n’authentifie pas un compte client. Il est limité à huit tentatives par IP sur quinze minutes, exige une origine autorisée et répond sans cache. Une référence inconnue et un e-mail incorrect produisent la même erreur 404 ; la limite produit 429. La consultation générale reste possible après expiration du lien privé, tant que l’enregistrement de la demande est conservé.
+
+`POST /api/public/request-status` conserve son accès par jeton personnel, avec historique public limité et expiration de 90 jours. Ce jeton ne devient pas un droit d’accès à Novalis OS.
+
+La vitrine peut conserver au maximum cinq liens privés valides dans `novalis-request-links-v1` sur le navigateur, avec uniquement référence, jeton et expiration. La page Suivi permet leur effacement ; un navigateur refusant le stockage garde l’alternative référence/e-mail. L’e-mail saisi pour consulter une référence n’est pas mémorisé par la vitrine. Aucun envoi d’e-mail n’est nécessaire à ces deux parcours.

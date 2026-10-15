@@ -25,6 +25,28 @@ class Intake(unittest.TestCase):
   with ThreadPoolExecutor(max_workers=2) as pool:responses=list(pool.map(send,range(2)))
   self.assertEqual(sorted(r.status_code for r in responses),[200,201]);self.assertEqual(responses[0].json['id'],responses[1].json['id']);self.assertEqual(responses[0].json['tracking_token'],responses[1].json['tracking_token']);self.public('contact',{**b,'description':'Un contenu différent pour le même identifiant.'},409)
   with self.app.app_context():self.assertEqual(len(rows('SELECT id FROM leads')),1);self.assertEqual(len(rows('SELECT id FROM outbox')),1)
+ def test_reference_and_email_show_only_general_stage_even_after_private_link_expiry(self):
+  r=self.public('contact',self.body(),201)
+  with self.app.app_context():get_db().execute("UPDATE lead_intake SET expires_at='2001-01-01T00:00:00+00:00'")
+  shown=self.public('request-lookup',dict(reference=r['reference'].lower(),email='PROSPECT@EXAMPLE.TEST'))
+  self.assertEqual(shown,dict(reference=r['reference'],status='received'))
+  self.public('request-status',{'token':r['tracking_token']},404)
+  self.call('manager','PATCH','/api/leads/'+r['id'],dict(status='proposal',version=1,scoping_note='PRIVATE COMMERCIAL NOTE'))
+  shown=self.public('request-lookup',dict(reference=r['reference'],email='prospect@example.test'))
+  self.assertEqual(shown,dict(reference=r['reference'],status='proposal'))
+  self.assertNotIn('PRIVATE',str(shown))
+ def test_reference_lookup_mismatch_origin_scope_and_no_cache(self):
+  r=self.public('contact',self.body(),201);good=dict(reference=r['reference'],email='prospect@example.test')
+  a=self.public('request-lookup',{**good,'email':'someone@example.test'},404)
+  b=self.public('request-lookup',{**good,'reference':'NV-26-00000000'},404)
+  self.assertEqual(a,b);self.public('request-lookup',good,403,origin='https://attacker.test')
+  response=self.app.test_client().post('/api/public/request-lookup',json=good,headers={'Origin':'https://public.novalis.test'})
+  self.assertEqual(response.status_code,200);self.assertIn('no-store',response.headers['Cache-Control'])
+  self.app.config['ORG_ID']='another-organization'
+  self.public('request-lookup',good,404)
+ def test_reference_lookup_limits_attempts(self):
+  for _ in range(8):self.public('request-lookup',dict(reference='NV-26-00000000',email='someone@example.test'),404)
+  self.public('request-lookup',dict(reference='NV-26-00000000',email='someone@example.test'),429)
  def test_invalid_expired_and_foreign_tokens_do_not_disclose(self):
   r=self.public('contact',self.body(),201);self.public('request-status',{'token':'x'},404);self.public('request-status',{'token':'x'*43},404);self.public('request-status',{'token':r['tracking_token']},403,origin='https://attacker.test')
   with self.app.app_context():get_db().execute("UPDATE lead_intake SET expires_at='2001-01-01T00:00:00+00:00'")

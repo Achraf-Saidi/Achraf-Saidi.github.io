@@ -5,7 +5,8 @@ from extensions import enrich, write_pages
 from studio import enrich_studio
 from ultimate import D, enrich_ultimate, write_ultimate_pages
 from showcase import enrich_showcase, write_showcase_pages
-from premium import enrich_premium,write_premium_pages
+from premium import P, enrich_premium,write_premium_pages
+from engineering import write_pages as write_engineering_pages
 from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parent
@@ -129,7 +130,7 @@ def main():
   if set(content[lang])!=keys:raise ValueError(f'Translation keys differ: {lang}')
   (ROOT/lang).mkdir(exist_ok=True);(ROOT/lang/'index.html').write_text(render(content,lang,url))
  (ROOT/'index.html').write_text(render(content,'fr',url,True))
- page_urls=list(dict.fromkeys(write_pages(content,url)+write_ultimate_pages(content,url)+write_showcase_pages(url)+write_premium_pages(url)))
+ page_urls=list(dict.fromkeys(write_pages(content,url)+write_ultimate_pages(content,url)+write_showcase_pages(url)+write_premium_pages(url)+write_engineering_pages(P,url)))
  urls='<url><loc>'+url+'/</loc></url>'+''.join(f'<url><loc>{url}/{l}/</loc></url>' for l in LANGUAGES)+''.join(f'<url><loc>{v}</loc></url>' for v in page_urls)
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls+'</urlset>\n')
  print('Generated FR, EN, NL, DE and French home page.')

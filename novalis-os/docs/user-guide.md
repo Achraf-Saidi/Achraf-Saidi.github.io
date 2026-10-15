@@ -47,3 +47,9 @@ Les comptes sensibles exigent TOTP. Conservez les codes de récupération dans v
 Un conflit de version signifie qu’un autre utilisateur a modifié la fiche. Rechargez-la avant de recommencer. Lorsqu’un serveur refuse une action, l’interface affiche l’erreur et conserve le formulaire. Aucun succès n’est affiché à la place d’une erreur réseau.
 
 Les calendriers utilisent UTC au stockage ; l’ERP affiche le fuseau de votre navigateur et la vitrine indique Europe/Brussels pour les rendez-vous publics.
+
+## Retrouver le statut d’une demande vitrine
+
+Ouvrez la page **Suivre une demande** depuis le pied de page de novalisai.com. Indiquez la référence reçue après l’envoi et l’adresse e-mail utilisée pour cette demande, puis choisissez **Consulter le statut**. Cette consultation montre l’étape générale ; elle ne donne accès ni aux documents ni à un espace client.
+
+Sur le navigateur utilisé pour envoyer la demande, les liens privés conservés apparaissent aussi dans **Demandes sur cet appareil**. Ils ouvrent l’historique public pendant leur validité. Sur un appareil partagé, utilisez **Effacer les liens de cet appareil** après consultation. Après expiration ou perte du lien, référence et e-mail permettent toujours de retrouver l’étape générale tant que la demande est conservée dans Novalis OS.
