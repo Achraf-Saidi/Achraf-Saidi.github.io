@@ -59,7 +59,7 @@ def enrich_premium(lang,prefix,out,client,content):
 
 def shell(lang,canonical,heading,body,prefix,url,tracking=False):
  t=P[lang];meta='<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">' if tracking else ''
- data=dict(premium=t,asset_prefix=prefix+'assets/',runtime_config=prefix+'runtime-config.json',tracking_path=prefix+lang+'/suivi/',home_path=prefix+lang+'/',tracking_page=tracking)
+ data=dict(premium=t,asset_prefix=prefix+'assets/',runtime_config=prefix+'runtime-config.json',tracking_path=prefix+lang+'/suivi/',home_path=prefix+lang+'/',tracking_page=tracking,page_path=canonical.split('/'+lang+'/',1)[-1])
  alternates=''.join(f'<link rel="alternate" hreflang="{l}" href="{canonical.replace("/"+lang+"/","/"+l+"/",1)}">' for l in P)
  return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(heading)} — Novalis AI</title><meta name="description" content="{e(t['intro'])}"><meta name="theme-color" content="#f7f4ee">{meta}<link rel="canonical" href="{canonical}">{alternates}<link rel="icon" href="{prefix}assets/N_novalis.png"><link rel="stylesheet" href="{prefix}assets/premium.css?v={version('premium.css')}"><script src="{prefix}assets/premium.js?v={version('premium.js')}" defer></script><script src="{prefix}assets/intake.js?v={version('intake.js')}" defer></script></head><body><a class="skip-link" href="#main">↓</a>{header(t,lang,prefix)}<main id="main">{body}</main>{footer(t,lang,prefix)}{dialogs(t)}<script type="application/json" id="site-data">{json.dumps(data,ensure_ascii=False).replace('<',chr(92)+'u003c')}</script></body></html>'''
 def write_premium_pages(url):
