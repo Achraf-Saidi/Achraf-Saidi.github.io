@@ -37,7 +37,30 @@ La publication d’un document externe notifie les comptes clients concernés ; 
 - Tests DOM existants des six rôles et du paiement/facturation conservés et réussis.
 - Préparation isolée de la version Hostinger réussie ; sources Python, base et environnement privés exclus du répertoire public.
 
-La recette visuelle, les contrôles du déploiement et leurs limites seront consignés après revue. Les tests DOM ne prouvent pas le rendu sur appareils réels, ni l’accessibilité complète ou un score de performance.
+## Recette visuelle et publication réalisées
+
+La version applicative publiée est `a4ee4da420f947bd1faed4dd2ec6e6dadb8b6a06`. La CI de cette version est réussie (run 38740642712). Les ajouts suivants au dépôt concernent uniquement les preuves et ce compte rendu.
+
+- Chrome : 4 langues × 8 largeurs (320, 360, 390, 430, 768, 1024, 1280, 1440), styles effectivement chargés, sans débordement horizontal du document. Mesures dans `premium-responsive-20261015.json`.
+- Novalis OS : six rôles × quatre largeurs (320, 390, 768, 1280), sans débordement horizontal. Vues utilisant une fixture clairement étiquetée dans un environnement de revue isolé.
+- Revue visuelle des accueils, showroom filtré et ouvert, zoom, navigation mobile, onglets/documents de la démonstration Novalis OS, formulaire étape 2 sans envoi réel, pipeline et documents du manager. La flèche du CTA desktop et le sélecteur de langue à 320 px ont été corrigés pendant la recette.
+- Répétition de migration sur copie : versions 1–4, deuxième exécution idempotente, intégrité SQLite et clés étrangères vérifiées. Données actives conservées pendant la revue.
+- Publication Hostinger effectuée le 15 octobre 2026, après sauvegarde cohérente vérifiée. Migration additive, conservation des comptes et paramètres de sécurité, vérification de la santé du backend et de la route privée de suivi.
+- 48 URL publiques et les principaux scripts, styles et nouveaux visuels ont été comparés aux fichiers préparés. La publication comprend 109 fichiers HTML, dont les redirections historiques ; le contrôle de contenu porte sur 100 pages hors redirections.
+- Seuls Novalis OS et son worker ont été redémarrés. La page, la configuration et les processus de Pointage sont identiques avant/après ; nginx, PostgreSQL et PM2 n’ont pas été redémarrés. La clé SSH temporaire a été retirée et la liste Hostinger est vide après l’opération.
+- Accueil réel vérifié dans le navigateur après actualisation : nouveau slogan, nouveau CSS, images chargées et formulaire disponible après lecture de la configuration publique. Aucune demande commerciale de test n’a été ajoutée en production.
+
+Preuves : `novalis-premium-live-20261015.jpg` (accueil public), `novalis-os-demo-mobile-20261015.jpg` (revue responsive 390 px), `premium-deployment-20261015.json` (résumé expurgé du contrôle de publication).
+
+## Limites et prochaines intégrations
+
+Les demandes sont réellement enregistrées, suivies dans le pipeline et consultables via leur lien privé ; les notifications internes sont persistées. Les e-mails externes nécessitent encore la configuration et un essai réel du fournisseur SMTP. Le lien de suivi doit être conservé par le visiteur ; il expire après 90 jours et n’est pas un compte client.
+
+La prise de rendez-vous directe exige des créneaux d’une heure créés par l’équipe ; en leur absence, le formulaire précise que l’horaire sera convenu personnellement. La réservation atomique est testée en base isolée, sans réserver un vrai créneau client.
+
+Le paiement en ligne Mollie/Bancontact reste désactivé tant que le compte marchand et ses clés ne sont pas configurés et qu’une recette fournisseur n’est pas terminée. Aucun encaissement réel, envoi SMTP ou flux Peppol n’a été réalisé. La démonstration IA publique reste un scénario guidé local ; les huit concepts ne sont pas présentés comme des projets clients livrés.
+
+La vérification responsive dans Chrome et les tests DOM ne remplacent pas une recette sur iPhone/Android physiques, Safari/Firefox, un audit WCAG complet ou des mesures Lighthouse/Core Web Vitals. Aucun score de performance ni gain de conversion mesuré n’est revendiqué.
 
 ## Références primaires étudiées
 
