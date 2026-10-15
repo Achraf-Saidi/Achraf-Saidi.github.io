@@ -1,19 +1,19 @@
 {
   "fr": {
     "nav": [
-      "Showroom",
+      "Expertises",
       "Notre approche",
       "Novalis OS",
       "Le collectif"
     ],
-    "eyebrow": "CONSEIL · DESIGN · DÉVELOPPEMENT",
+    "eyebrow": "Studio de conception et d’ingénierie logicielle.",
     "hero": [
-      "Le terrain écrit",
-      "la première ligne."
+      "Votre entreprise ne ressemble à aucune autre.",
+      "Pourquoi ses outils le devraient-ils ?"
     ],
-    "intro": "Avant le code, il y a votre entreprise. Ses habitudes, ses contraintes, ses idées. Nous prenons le temps de les comprendre pour construire les outils qui leur correspondent.",
-    "cta": "Parlons de votre métier",
-    "explore": "Explorer le showroom",
+    "intro": "Nous concevons des sites web, des applications et des logiciels métier qui répondent à vos besoins réels. Du design à l’intelligence artificielle, chaque solution est pensée pour servir votre activité, simplifier votre quotidien et accompagner votre croissance.",
+    "cta": "Parlons de votre projet",
+    "explore": "Explorer nos réalisations",
     "hour": "Une heure pour faire le point. Offerte, sans engagement.",
     "hero_caption": "Un outil de projet, une boutique, un service : des expériences qui prennent le métier au sérieux.",
     "hero_chips": [
@@ -23,8 +23,8 @@
     ],
     "hero_note": "Du premier croquis au logiciel en service.",
     "show_title": [
-      "Des idées qui ont déjà",
-      "une forme concrète."
+      "Le meilleur moyen de vous montrer,",
+      "c’est de vous laisser explorer."
     ],
     "show_copy": "Explorez ce que nous pouvons concevoir autour de vos opérations, de vos clients et de vos ambitions. Chaque interface ouvre une discussion sur votre propre projet.",
     "filters": [
@@ -69,8 +69,8 @@
     ],
     "os_kicker": "VOTRE ESPACE CLIENT · NOVALIS OS",
     "os_title": [
-      "Vous voyez le projet",
-      "prendre forme."
+      "Votre projet avance.",
+      "Vous le voyez."
     ],
     "os_copy": "Les livrables ne disparaissent pas derrière un e-mail. Avec Novalis OS, vous retrouvez les jalons, les documents partagés, les échanges et les décisions qui vous concernent, dans un espace dédié.",
     "os_note": "Démonstration interactive · projet exemple",
@@ -159,10 +159,10 @@
     ],
     "deliverable": "Vous repartez avec",
     "ai_title": [
-      "Un assistant qui sait",
-      "quand passer la main."
+      "Ne mettez pas de l’IA partout.",
+      "Mettez-la là où elle sert."
     ],
-    "ai_copy": "Répondre à une question de suivi, retrouver la bonne procédure, préparer un dossier : l’IA aide là où vos données et vos règles lui donnent un cadre. Les décisions sensibles restent à leur responsable.",
+    "ai_copy": "Un assistant pour vos clients, une recherche dans vos documents, une automatisation ou une aide à la décision : nous choisissons la technologie en fonction du problème à résoudre. Une règle claire vaut parfois mieux qu’un modèle.",
     "ai_demo": "Démonstration guidée · service client",
     "ai_questions": [
       "Où en est ma commande ?",
@@ -211,10 +211,10 @@
       ]
     ],
     "contact_title": [
-      "Commençons",
-      "par votre réalité."
+      "Il y a peut-être",
+      "une meilleure façon de faire."
     ],
-    "contact_copy": "Décrivez ce qui vous ralentit, ce qui manque ou ce que vous voulez créer. Nous préparons ensemble la suite, à partir de votre situation.",
+    "contact_copy": "Un site à repenser, un processus trop lent, un logiciel qui vous limite ou une idée à développer ? Racontez-nous votre situation. Nous chercherons ensemble ce qui mérite vraiment d’être construit.",
     "contact_hour": "Premier échange d’une heure offert, sans engagement.",
     "contact_schedule": "Demander mon échange d’une heure",
     "contact_schedule_note": "Nous convenons de l’horaire avec vous. Les créneaux disponibles peuvent être réservés directement.",
@@ -236,7 +236,7 @@
     "copied": "Lien copié.",
     "copy_failed": "Sélectionnez le lien pour le conserver.",
     "new_request": "Une autre demande",
-    "save_note": "Ce lien personnel est valable 90 jours. Il donne accès au statut : conservez-le sans le publier.",
+    "save_note": "Lien privé enregistré sur cet appareil. Vous pouvez aussi retrouver l’étape générale avec votre référence et votre e-mail.",
     "failure": "L’envoi n’est pas confirmé. Vos informations sont conservées dans le formulaire. Réessayez ; si le problème persiste, écrivez-nous.",
     "uncertain": "La réception doit être vérifiée. Réessayez avec les mêmes informations pour éviter une demande en double.",
     "unavailable": "Le service de demande est momentanément indisponible. Réessayez ou écrivez à contact@novalisai.com.",
@@ -247,11 +247,11 @@
       "Votre demande,",
       "sans zone d’ombre."
     ],
-    "track_copy": "Consultez les étapes enregistrées par l’équipe avec votre lien personnel.",
+    "track_copy": "Vous avez fermé ou perdu votre lien ? Retrouvez l’étape générale avec votre référence et l’e-mail utilisé lors de la demande.",
     "track_private": "Ce lien est personnel. Aucun détail du projet ni message interne n’est affiché ici.",
     "check_status": "Actualiser le statut",
-    "track_empty": "Ouvrez le lien privé affiché après l’envoi de votre demande.",
-    "track_expired": "Ce lien est introuvable ou expiré. Contactez Novalis avec votre référence.",
+    "track_empty": "Vous avez fermé ou perdu votre lien ? Retrouvez l’étape générale avec votre référence et l’e-mail utilisé lors de la demande.",
+    "track_expired": "Ce lien est introuvable ou expiré. Retrouvez l’étape générale avec votre référence et votre e-mail ci-dessous.",
     "track_error": "Le statut ne peut pas être chargé pour le moment. Réessayez.",
     "track_states": [
       "Reçue",
@@ -262,7 +262,7 @@
       "Clôturée"
     ],
     "project_ready": "Votre projet a été ouvert. Votre interlocuteur vous communiquera votre accès personnel à Novalis OS.",
-    "footer": "Les bons outils commencent par les bonnes questions.",
+    "footer": "Le standard n’a pas votre ambition.",
     "footer_pages": [
       "Expertise",
       "Entreprise",
@@ -421,10 +421,10 @@
         ]
       }
     ],
-    "title": "Novalis AI — Le terrain écrit la première ligne.",
+    "title": "Novalis AI — Studio de conception et d’ingénierie logicielle.",
     "footer_word": [
-      "De la suite",
-      "dans vos idées."
+      "Novalis",
+      "Design & Engineering"
     ],
     "booking_confirmed": "Votre échange d’une heure est réservé :",
     "applied_ai": "IA APPLIQUÉE",
@@ -433,23 +433,139 @@
       "Périmètre : recevoir une commande, vérifier les disponibilités, réserver les pièces et préparer la livraison. Critères : distinguer disponible et réservé, signaler une quantité insuffisante et conserver la décision. Hors périmètre : paiement et comptabilité.",
       "Version 2 du parcours : une commande arrive dans le dossier, la disponibilité est vérifiée, puis la quantité autorisée est réservée. Une quantité insuffisante bloque la confirmation complète et demande une décision sur les lots. La validation ci-dessous accepte ce parcours pour la démonstration.",
       "Compte rendu de cadrage : l’équipe souhaite remplacer les fichiers séparés de commandes et de réservations. Le premier lot porte sur le suivi des réceptions. Les critères de disponibilité doivent être validés avec les utilisateurs avant développement."
-    ]
+    ],
+    "lookup_title": "Retrouver ma demande",
+    "lookup_reference": "Référence de la demande",
+    "lookup_email": "E-mail utilisé lors de la demande",
+    "lookup_submit": "Consulter le statut",
+    "lookup_result": "Étape générale de votre demande",
+    "lookup_note": "Cette consultation affiche uniquement l’étape générale. Aucun document, message ou détail du projet n’est accessible avec ces informations.",
+    "saved_title": "Demandes sur cet appareil",
+    "saved_clear": "Effacer les liens de cet appareil",
+    "saved_note": "Les liens privés sont conservés sur ce navigateur pendant leur validité, sans votre nom ni votre e-mail. Sur un appareil partagé, effacez-les après consultation.",
+    "lookup_missing": "Aucune demande trouvée avec ces informations. Vérifiez la référence et l’e-mail.",
+    "lookup_limited": "Trop de tentatives. Réessayez dans 15 minutes.",
+    "lookup_error": "Le service est indisponible. Vos champs sont conservés ; réessayez.",
+    "saved_open": "Ouvrir le suivi privé",
+    "engineering": {
+      "dashboard_title": "Comprendre. Comparer. Décider.",
+      "months": [
+        "Mai",
+        "Juin",
+        "Juil.",
+        "Août",
+        "Sept.",
+        "Oct."
+      ],
+      "total": "Coûts opérationnels",
+      "period_note": "Période du scénario",
+      "orders": "Commandes à répartir",
+      "units": "unités à prendre en charge",
+      "forecast": "Projection simple",
+      "forecast_note": "Moyenne des 3 derniers mois",
+      "chart": "Évolution des coûts",
+      "observed": "Scénario observé",
+      "chart_alt": "Coûts mensuels de mai à octobre. Les valeurs figurent sous chaque colonne.",
+      "compare": "Comparer les scénarios",
+      "baseline": "Répartition initiale",
+      "optimal": "Répartition optimisée",
+      "shipping": "Coût de répartition",
+      "allocation": "Affectation proposée",
+      "difference": "Écart sur ce scénario",
+      "volume": "Commandes à traiter",
+      "capacity": "Capacité du partenaire B",
+      "feasible": "Demande couverte · capacités respectées",
+      "infeasible": "Capacité insuffisante : {n} unités restent à affecter. Aucun gain calculé.",
+      "assistant": "Assistant d’analyse",
+      "local": "Scénario local · sans appel IA",
+      "questions": [
+        "Qu’est-ce qui explique la variation ?",
+        "Comparer les scénarios",
+        "Sur quelles hypothèses ?"
+      ],
+      "initial_answer": "Les coûts passent de 1 410 € à 1 530 €. Le transport explique 90 € des 120 € de variation. Comparez les répartitions avant de décider.",
+      "source": "Source : les données et règles de cette démonstration.",
+      "assumptions": "Voir le modèle et ses limites",
+      "model": "A : 7 €/unité, capacité 120. B : 4 €/unité, capacité ajustable, frais fixes de 60 € s’il est utilisé. Les unités sont entières et toute la demande doit être couverte. Les autres coûts de la période sont fixés à 830 €. Comparaison exhaustive des affectations possibles ; aucun délai ou risque de transport n’est modélisé.",
+      "forecast_model": "La projection est la moyenne arithmétique des trois derniers mois observés. Ce n’est pas un modèle de prévision entraîné et elle ne comporte pas d’intervalle d’incertitude.",
+      "demo_note": "Démonstration interactive · calcul local",
+      "understand": "Comprendre le modèle",
+      "strip": "Du site web à la décision métier, les mêmes exigences de conception.",
+      "expertise_title": "Une expertise. Toutes les pièces du puzzle.",
+      "expertise_copy": "Nous combinons les compétences utiles à votre projet. Une interface simple peut reposer sur une logique métier exigeante ; une bonne automatisation peut tenir en quelques règles.",
+      "pillars": [
+        [
+          "Ingénierie logicielle",
+          "Logiciels métier, ERP, applications et plateformes conçus autour de vos opérations.",
+          "Architecture · API · intégrations"
+        ],
+        [
+          "IA & automatisation",
+          "Des assistants et des flux qui exploitent vos données dans un cadre maîtrisé.",
+          "Recherche · documents · workflows"
+        ],
+        [
+          "Data science & optimisation",
+          "Comprendre les variations, tester les prévisions et décider sous contraintes.",
+          "Statistique · machine learning · optimisation"
+        ],
+        [
+          "Design & expériences web",
+          "Sites, e-commerce et parcours mobiles qui soignent chaque étape de la relation client.",
+          "UX/UI · web · commerce"
+        ]
+      ],
+      "data_title": "Vos chiffres devraient vous aider à décider, pas vous laisser deviner.",
+      "data_copy": "Un tableau de bord explique ce qui se passe. Une prévision éclaire ce qui pourrait suivre. L’optimisation recherche ce qui est possible avec vos contraintes.",
+      "data_items": [
+        [
+          "Comprendre",
+          "Relier les données, mesurer les écarts, explorer les tendances et identifier les anomalies."
+        ],
+        [
+          "Anticiper",
+          "Évaluer une prévision sur des données qu’elle n’a pas vues, comparer les scénarios et rendre l’incertitude visible."
+        ],
+        [
+          "Optimiser",
+          "Définir un objectif, représenter les contraintes et calculer une répartition de ressources réalisable."
+        ]
+      ],
+      "model_title": "Changez une contrainte. Observez la décision.",
+      "model_copy": "Dans la démonstration, augmentez le volume ou réduisez la capacité du partenaire B. Le calcul recherche la répartition la moins coûteuse parmi toutes celles qui satisfont la demande. Si aucune n’existe, il l’indique.",
+      "model_try": "Essayer la démonstration",
+      "objective": "Objectif · coût opérationnel minimal",
+      "constraints": "Contraintes · demande et capacités",
+      "integer_note": "a, b : unités entières ≥ 0 · d : demande · c : capacité B",
+      "variation": "Le total observé est de {total}. Écart avec septembre : {delta}. Le transport représente {transport} de variation ; les autres postes, +30 €.",
+      "comparison": "Répartition initiale : {base}. Meilleure affectation admissible : A {a} / B {b}, pour {opt}. Écart de {saving} sur ce scénario, sans garantie pour un projet réel.",
+      "not_feasible": "La demande dépasse la capacité disponible. Il faut ajuster une contrainte avant de comparer les coûts.",
+      "question_model": "Le calcul énumère les affectations entières possibles. Il respecte les capacités et inclut les frais fixes de B. La projection utilise une moyenne mobile de trois mois.",
+      "show_all": "Explorer tous les concepts",
+      "service_title": "Ce que nous concevons",
+      "approach_title": "Comment nous l’abordons",
+      "validation_title": "Ce que nous vérifions",
+      "services_copy": "Le choix technique découle du besoin, des usages et des contraintes. Le périmètre et les critères de recette sont définis avant le développement.",
+      "related_title": "À explorer aussi",
+      "signature": "Le standard n’a pas votre ambition."
+    },
+    "save_fallback": "Ce navigateur ne permet pas de conserver le lien. Copiez-le, ou retrouvez l’étape générale avec votre référence et votre e-mail."
   },
   "en": {
     "nav": [
-      "Showroom",
+      "Expertise",
       "Our approach",
       "Novalis OS",
       "The team"
     ],
-    "eyebrow": "CONSULTING · DESIGN · DEVELOPMENT",
+    "eyebrow": "Software Design & Engineering Studio.",
     "hero": [
-      "The first line starts",
-      "on the ground."
+      "Your business is one of a kind.",
+      "Your software should be, too."
     ],
-    "intro": "Before the code comes your business: its habits, constraints and ideas. We take time to understand them, then build the tools that fit.",
-    "cta": "Tell us how you work",
-    "explore": "Explore the showroom",
+    "intro": "We design and build websites, apps and business software around the way you work. From exceptional design to practical AI, every solution has a purpose: make your business run better and give it room to grow.",
+    "cta": "Let’s talk about your project",
+    "explore": "Explore our work",
     "hour": "One hour to take stock. Free, with no commitment.",
     "hero_caption": "A project workspace, a store, a service: experiences built around the people using them.",
     "hero_chips": [
@@ -459,8 +575,8 @@
     ],
     "hero_note": "From the first sketch to software in use.",
     "show_title": [
-      "Ideas you can",
-      "already explore."
+      "The best way to show you",
+      "is to let you explore."
     ],
     "show_copy": "See what we can design around your operations, customers and ambitions. Each interface starts a conversation about your own project.",
     "filters": [
@@ -505,8 +621,8 @@
     ],
     "os_kicker": "YOUR CLIENT WORKSPACE · NOVALIS OS",
     "os_title": [
-      "Watch your project",
-      "take shape."
+      "Your project moves forward.",
+      "You see it happen."
     ],
     "os_copy": "Deliverables do not disappear into an email thread. Novalis OS brings together milestones, shared documents, conversations and the decisions that concern you in a dedicated workspace.",
     "os_note": "Interactive demonstration · example project",
@@ -595,10 +711,10 @@
     ],
     "deliverable": "What you receive",
     "ai_title": [
-      "An assistant that knows",
-      "when to hand over."
+      "Don’t put AI everywhere.",
+      "Put it where it helps."
     ],
-    "ai_copy": "Answer a tracking question, find a procedure or prepare a case: AI helps where your data and rules provide a framework. Sensitive decisions stay with the responsible person.",
+    "ai_copy": "A customer assistant, document search, workflow automation or decision support: we choose technology around the problem. Sometimes a clear rule is better than a model.",
     "ai_demo": "Guided demonstration · customer service",
     "ai_questions": [
       "Where is my order?",
@@ -647,10 +763,10 @@
       ]
     ],
     "contact_title": [
-      "Let’s start",
-      "with your reality."
+      "There may be",
+      "a better way to work."
     ],
-    "contact_copy": "Describe what slows you down, what is missing or what you want to create. We will work out the next step from your situation.",
+    "contact_copy": "A website to rethink, a slow process, software holding you back or an idea to build? Tell us what is happening. We’ll work out together what is worth creating.",
     "contact_hour": "First one-hour conversation free, with no commitment.",
     "contact_schedule": "Request my one-hour conversation",
     "contact_schedule_note": "We agree a time with you. Available slots can be booked directly.",
@@ -672,7 +788,7 @@
     "copied": "Link copied.",
     "copy_failed": "Select the link to keep it.",
     "new_request": "Another request",
-    "save_note": "This personal link is valid for 90 days. It provides access to the status: keep it private.",
+    "save_note": "Private link saved on this device. You can also check the general stage with your reference and email.",
     "failure": "Receipt is not confirmed. Your information remains in the form. Retry or email us if the problem continues.",
     "uncertain": "Receipt needs to be checked. Retry with the same information to avoid a duplicate request.",
     "unavailable": "The request service is temporarily unavailable. Retry or email contact@novalisai.com.",
@@ -683,11 +799,11 @@
       "Your request,",
       "clearly followed."
     ],
-    "track_copy": "See the steps recorded by the team using your personal link.",
+    "track_copy": "Closed or lost your link? Check the general stage using your reference and the email you used for your request.",
     "track_private": "This link is personal. No project details or internal messages appear here.",
     "check_status": "Refresh status",
-    "track_empty": "Open the private link shown after sending your request.",
-    "track_expired": "This link was not found or has expired. Contact Novalis with your reference.",
+    "track_empty": "Closed or lost your link? Check the general stage using your reference and the email you used for your request.",
+    "track_expired": "This link was not found or has expired. Check the general stage using your reference and email below.",
     "track_error": "The status cannot be loaded right now. Please retry.",
     "track_states": [
       "Received",
@@ -698,7 +814,7 @@
       "Closed"
     ],
     "project_ready": "Your project has been opened. Your contact will provide your personal Novalis OS access.",
-    "footer": "The right tools begin with the right questions.",
+    "footer": "Built for ambitions beyond the standard.",
     "footer_pages": [
       "Expertise",
       "Company",
@@ -857,10 +973,10 @@
         ]
       }
     ],
-    "title": "Novalis AI — The first line starts on the ground.",
+    "title": "Novalis AI — Software Design & Engineering Studio.",
     "footer_word": [
-      "A considered start.",
-      "A clearer next step."
+      "Novalis",
+      "Design & Engineering"
     ],
     "booking_confirmed": "Your one-hour conversation is booked:",
     "applied_ai": "APPLIED AI",
@@ -869,23 +985,139 @@
       "Scope: receive an order, check availability, reserve parts and prepare delivery. Criteria: distinguish available from reserved, flag insufficient quantity and retain the decision. Excluded: payment and accounting.",
       "Journey version 2: an order enters the record, availability is checked, then the authorised quantity is reserved. Insufficient quantity blocks full confirmation and requires a decision about batches. Approval in this demonstration accepts this journey.",
       "Discovery notes: the team wants to replace separate order and reservation files. The first delivery covers receiving. Availability criteria must be validated with users before development."
-    ]
+    ],
+    "lookup_title": "Find my request",
+    "lookup_reference": "Request reference",
+    "lookup_email": "Email used for your request",
+    "lookup_submit": "Check status",
+    "lookup_result": "Your request at a glance",
+    "lookup_note": "This view shows only the general stage. These details do not provide access to documents, messages or project information.",
+    "saved_title": "Requests on this device",
+    "saved_clear": "Remove saved links from this device",
+    "saved_note": "Private links are saved in this browser until they expire, without your name or email. Remove them after use on a shared device.",
+    "lookup_missing": "No request matches those details. Check the reference and email.",
+    "lookup_limited": "Too many attempts. Try again in 15 minutes.",
+    "lookup_error": "The service is unavailable. Your entries are kept; please try again.",
+    "saved_open": "Open private tracking",
+    "engineering": {
+      "dashboard_title": "Understand. Compare. Decide.",
+      "months": [
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct"
+      ],
+      "total": "Operating costs",
+      "period_note": "Illustrative period",
+      "orders": "Orders to allocate",
+      "units": "units to fulfil",
+      "forecast": "Simple projection",
+      "forecast_note": "Last 3 months averaged",
+      "chart": "Cost evolution",
+      "observed": "Observed scenario",
+      "chart_alt": "Monthly costs from May to October. Values are shown below each bar.",
+      "compare": "Compare scenarios",
+      "baseline": "Initial allocation",
+      "optimal": "Optimized allocation",
+      "shipping": "Allocation cost",
+      "allocation": "Proposed allocation",
+      "difference": "Difference in this scenario",
+      "volume": "Orders to fulfil",
+      "capacity": "Partner B capacity",
+      "feasible": "Demand fulfilled · capacities respected",
+      "infeasible": "Insufficient capacity: {n} units remain unallocated. No saving calculated.",
+      "assistant": "Analysis assistant",
+      "local": "Local scenario · no AI call",
+      "questions": [
+        "What explains the change?",
+        "Compare the scenarios",
+        "What are the assumptions?"
+      ],
+      "initial_answer": "Costs move from €1,410 to €1,530. Transport accounts for €90 of the €120 change. Compare allocations before making a decision.",
+      "source": "Source: the data and rules in this demonstration.",
+      "assumptions": "Model and limitations",
+      "model": "A: €7/unit, capacity 120. B: €4/unit, adjustable capacity, €60 fixed charge if used. Units are integers and all demand must be fulfilled. Other costs are fixed at €830. Every possible allocation is compared; transport time and risk are outside this model.",
+      "forecast_model": "The projection is the arithmetic mean of the last three observed months. It is not a trained forecast and has no uncertainty interval.",
+      "demo_note": "Interactive demonstration · local calculation",
+      "understand": "Understand the model",
+      "strip": "From your website to your business decisions, the same care in design.",
+      "expertise_title": "One team. Every part of the picture.",
+      "expertise_copy": "We bring together the skills your project needs. A simple interface can support demanding business rules; the right automation may need only a few clear rules.",
+      "pillars": [
+        [
+          "Software engineering",
+          "Business software, ERP, apps and platforms built around your operations.",
+          "Architecture · APIs · integrations"
+        ],
+        [
+          "AI & automation",
+          "Assistants and workflows that use your data within clear boundaries.",
+          "Search · documents · workflows"
+        ],
+        [
+          "Data science & optimization",
+          "Understand changes, evaluate forecasts and make decisions under constraints.",
+          "Statistics · machine learning · optimization"
+        ],
+        [
+          "Design & digital experiences",
+          "Websites, commerce and mobile journeys that care for every customer interaction.",
+          "UX/UI · web · commerce"
+        ]
+      ],
+      "data_title": "Your data should help you decide, not leave you guessing.",
+      "data_copy": "A dashboard explains what is happening. A forecast explores what could follow. Optimization searches for what is possible within your constraints.",
+      "data_items": [
+        [
+          "Understand",
+          "Connect data, measure differences, explore trends and investigate anomalies."
+        ],
+        [
+          "Anticipate",
+          "Evaluate forecasts on unseen data, compare scenarios and make uncertainty visible."
+        ],
+        [
+          "Optimize",
+          "Define an objective, represent constraints and calculate a feasible allocation of resources."
+        ]
+      ],
+      "model_title": "Change a constraint. See the decision change.",
+      "model_copy": "Increase demand or reduce partner B’s capacity in the demonstration. The model finds the lowest-cost allocation that fulfils all demand. If none exists, it tells you.",
+      "model_try": "Try the demonstration",
+      "objective": "Objective · lowest operating cost",
+      "constraints": "Constraints · demand and capacity",
+      "integer_note": "a, b: integer units ≥ 0 · d: demand · c: B capacity",
+      "variation": "Observed total: {total}. Change from September: {delta}. Transport contributes {transport}; the other categories contribute +€30.",
+      "comparison": "Initial allocation: {base}. Best feasible allocation: A {a} / B {b}, costing {opt}. Difference of {saving} in this scenario, with no promise of real-world savings.",
+      "not_feasible": "Demand exceeds available capacity. Adjust a constraint before comparing costs.",
+      "question_model": "The model checks every possible integer allocation, respecting capacity and including B’s fixed charge. The projection is a three-month moving average.",
+      "show_all": "Explore all concepts",
+      "service_title": "What we design",
+      "approach_title": "How we approach it",
+      "validation_title": "What we verify",
+      "services_copy": "Technology follows the need, the people using it and the constraints. Scope and acceptance criteria are agreed before development.",
+      "related_title": "Explore further",
+      "signature": "Built for ambitions beyond the standard."
+    },
+    "save_fallback": "This browser could not save the link. Copy it, or check the general stage with your reference and email."
   },
   "nl": {
     "nav": [
-      "Showroom",
+      "Expertises",
       "Onze aanpak",
       "Novalis OS",
       "Het team"
     ],
-    "eyebrow": "ADVIES · DESIGN · ONTWIKKELING",
+    "eyebrow": "Studio voor softwareontwerp en -engineering.",
     "hero": [
-      "De eerste regel begint",
-      "op de werkvloer."
+      "Uw onderneming is uniek.",
+      "Waarom zouden uw tools dat niet zijn?"
     ],
-    "intro": "Vóór de code komt uw bedrijf: zijn gewoonten, beperkingen en ideeën. We begrijpen hoe u werkt en bouwen de hulpmiddelen die daarbij passen.",
-    "cta": "Vertel ons hoe u werkt",
-    "explore": "Ontdek de showroom",
+    "intro": "We ontwerpen websites, apps en bedrijfssoftware rond uw echte behoeften. Van design tot artificiële intelligentie: elke oplossing ondersteunt uw activiteiten, vereenvoudigt uw werk en geeft ruimte om te groeien.",
+    "cta": "Laten we uw project bespreken",
+    "explore": "Ontdek ons werk",
     "hour": "Eén uur om helderheid te scheppen. Gratis en vrijblijvend.",
     "hero_caption": "Een projectomgeving, winkel of dienst: ervaringen ontworpen voor de mensen die ze gebruiken.",
     "hero_chips": [
@@ -895,8 +1127,8 @@
     ],
     "hero_note": "Van de eerste schets tot software in gebruik.",
     "show_title": [
-      "Ideeën die u",
-      "al kunt verkennen."
+      "De beste manier om het te tonen,",
+      "is u zelf te laten ontdekken."
     ],
     "show_copy": "Ontdek wat we kunnen ontwerpen rond uw processen, klanten en ambities. Elke interface is een startpunt voor uw eigen project.",
     "filters": [
@@ -941,8 +1173,8 @@
     ],
     "os_kicker": "UW KLANTOMGEVING · NOVALIS OS",
     "os_title": [
-      "Zie uw project",
-      "vorm krijgen."
+      "Uw project gaat vooruit.",
+      "U ziet het gebeuren."
     ],
     "os_copy": "Opleveringen verdwijnen niet in een e-mailketen. Novalis OS brengt mijlpalen, gedeelde documenten, gesprekken en uw beslissingen samen in een eigen omgeving.",
     "os_note": "Interactieve demonstratie · voorbeeldproject",
@@ -1031,10 +1263,10 @@
     ],
     "deliverable": "Wat u ontvangt",
     "ai_title": [
-      "Een assistent die weet",
-      "wanneer hij overdraagt."
+      "Zet AI niet overal in.",
+      "Zet het in waar het helpt."
     ],
-    "ai_copy": "Een trackingvraag beantwoorden, een procedure vinden of een dossier voorbereiden: AI helpt binnen uw gegevens en regels. Gevoelige beslissingen blijven bij de verantwoordelijke.",
+    "ai_copy": "Een klantassistent, documenten doorzoeken, processen automatiseren of beslissingen ondersteunen: we kiezen technologie volgens het probleem. Soms is een heldere regel beter dan een model.",
     "ai_demo": "Begeleide demonstratie · klantenservice",
     "ai_questions": [
       "Waar is mijn bestelling?",
@@ -1083,10 +1315,10 @@
       ]
     ],
     "contact_title": [
-      "Laten we beginnen",
-      "bij uw realiteit."
+      "Misschien kan het",
+      "op een betere manier."
     ],
-    "contact_copy": "Vertel wat u vertraagt, ontbreekt of wat u wilt maken. Samen bepalen we de volgende stap op basis van uw situatie.",
+    "contact_copy": "Een website herdenken, een traag proces, software die u beperkt of een idee uitwerken? Vertel ons wat er speelt. Samen bepalen we wat het waard is om te bouwen.",
     "contact_hour": "Eerste gesprek van één uur gratis en vrijblijvend.",
     "contact_schedule": "Mijn gesprek van één uur aanvragen",
     "contact_schedule_note": "We spreken samen een tijdstip af. Beschikbare tijden kunt u direct boeken.",
@@ -1108,7 +1340,7 @@
     "copied": "Link gekopieerd.",
     "copy_failed": "Selecteer de link om die te bewaren.",
     "new_request": "Nog een aanvraag",
-    "save_note": "Deze persoonlijke link is 90 dagen geldig en geeft toegang tot de status. Houd hem privé.",
+    "save_note": "Privélink opgeslagen op dit apparaat. Met uw referentie en e-mailadres kunt u ook de algemene fase bekijken.",
     "failure": "Ontvangst is niet bevestigd. Uw informatie blijft in het formulier. Probeer opnieuw of mail ons.",
     "uncertain": "Ontvangst moet worden gecontroleerd. Probeer met dezelfde informatie om een dubbele aanvraag te vermijden.",
     "unavailable": "De aanvraagdienst is tijdelijk niet beschikbaar. Probeer opnieuw of mail contact@novalisai.com.",
@@ -1119,11 +1351,11 @@
       "Uw aanvraag,",
       "helder opgevolgd."
     ],
-    "track_copy": "Bekijk via uw persoonlijke link de stappen die het team heeft geregistreerd.",
+    "track_copy": "Link gesloten of kwijt? Bekijk de algemene fase met uw referentie en het e-mailadres van uw aanvraag.",
     "track_private": "Deze link is persoonlijk. Projectdetails en interne berichten worden hier niet getoond.",
     "check_status": "Status vernieuwen",
-    "track_empty": "Open de privélink die na uw aanvraag is getoond.",
-    "track_expired": "Deze link is niet gevonden of verlopen. Neem contact op met Novalis en vermeld uw referentie.",
+    "track_empty": "Link gesloten of kwijt? Bekijk de algemene fase met uw referentie en het e-mailadres van uw aanvraag.",
+    "track_expired": "Deze link is niet gevonden of verlopen. Bekijk hieronder de algemene fase met uw referentie en e-mailadres.",
     "track_error": "De status kan nu niet worden geladen. Probeer opnieuw.",
     "track_states": [
       "Ontvangen",
@@ -1134,7 +1366,7 @@
       "Afgesloten"
     ],
     "project_ready": "Uw project is geopend. Uw contactpersoon bezorgt uw persoonlijke toegang tot Novalis OS.",
-    "footer": "De juiste hulpmiddelen beginnen met de juiste vragen.",
+    "footer": "Gebouwd voor ambities voorbij de standaard.",
     "footer_pages": [
       "Expertise",
       "Bedrijf",
@@ -1293,10 +1525,10 @@
         ]
       }
     ],
-    "title": "Novalis AI — Software begint op de werkvloer.",
+    "title": "Novalis AI — Studio voor softwareontwerp en -engineering.",
     "footer_word": [
-      "Een helder begin.",
-      "Een passende volgende stap."
+      "Novalis",
+      "Design & Engineering"
     ],
     "booking_confirmed": "Uw gesprek van één uur is geboekt:",
     "applied_ai": "TOEGEPASTE AI",
@@ -1305,23 +1537,139 @@
       "Scope: een bestelling ontvangen, beschikbaarheid controleren, onderdelen reserveren en levering voorbereiden. Criteria: beschikbaar en gereserveerd onderscheiden, tekorten melden en de beslissing bewaren. Uitgesloten: betalingen en boekhouding.",
       "Traject versie 2: een bestelling komt in het dossier, beschikbaarheid wordt gecontroleerd en de toegestane hoeveelheid wordt gereserveerd. Een tekort blokkeert volledige bevestiging en vraagt een beslissing over deelloten. De demonstratiegoedkeuring aanvaardt dit traject.",
       "Verkenningsverslag: het team wil afzonderlijke order- en reservatiebestanden vervangen. De eerste oplevering behandelt ontvangsten. Beschikbaarheidscriteria moeten vóór ontwikkeling met gebruikers worden bevestigd."
-    ]
+    ],
+    "lookup_title": "Mijn aanvraag terugvinden",
+    "lookup_reference": "Referentie van de aanvraag",
+    "lookup_email": "E-mailadres van uw aanvraag",
+    "lookup_submit": "Status bekijken",
+    "lookup_result": "Huidige fase van uw aanvraag",
+    "lookup_note": "Deze weergave toont alleen de algemene fase. Deze gegevens geven geen toegang tot documenten, berichten of projectinformatie.",
+    "saved_title": "Aanvragen op dit apparaat",
+    "saved_clear": "Opgeslagen links verwijderen",
+    "saved_note": "Privélinks blijven in deze browser bewaard tot ze verlopen, zonder naam of e-mailadres. Verwijder ze op een gedeeld apparaat na gebruik.",
+    "lookup_missing": "Geen aanvraag gevonden. Controleer de referentie en het e-mailadres.",
+    "lookup_limited": "Te veel pogingen. Probeer over 15 minuten opnieuw.",
+    "lookup_error": "De dienst is niet beschikbaar. Uw invoer blijft behouden; probeer opnieuw.",
+    "saved_open": "Privéopvolging openen",
+    "engineering": {
+      "dashboard_title": "Begrijpen. Vergelijken. Beslissen.",
+      "months": [
+        "Mei",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Okt"
+      ],
+      "total": "Operationele kosten",
+      "period_note": "Periode van het voorbeeld",
+      "orders": "Te verdelen bestellingen",
+      "units": "te verwerken eenheden",
+      "forecast": "Eenvoudige projectie",
+      "forecast_note": "Gemiddelde van de laatste 3 maanden",
+      "chart": "Kostenontwikkeling",
+      "observed": "Waargenomen scenario",
+      "chart_alt": "Maandelijkse kosten van mei tot oktober. Waarden staan onder elke kolom.",
+      "compare": "Scenario’s vergelijken",
+      "baseline": "Oorspronkelijke verdeling",
+      "optimal": "Geoptimaliseerde verdeling",
+      "shipping": "Kosten van de verdeling",
+      "allocation": "Voorgestelde verdeling",
+      "difference": "Verschil in dit scenario",
+      "volume": "Te verwerken bestellingen",
+      "capacity": "Capaciteit van partner B",
+      "feasible": "Vraag gedekt · capaciteiten gerespecteerd",
+      "infeasible": "Onvoldoende capaciteit: {n} eenheden blijven over. Geen besparing berekend.",
+      "assistant": "Analyseassistent",
+      "local": "Lokaal scenario · geen AI-aanroep",
+      "questions": [
+        "Wat verklaart de verandering?",
+        "Scenario’s vergelijken",
+        "Welke aannames gelden?"
+      ],
+      "initial_answer": "De kosten stijgen van € 1.410 naar € 1.530. Transport verklaart € 90 van het verschil van € 120. Vergelijk de verdelingen voordat u beslist.",
+      "source": "Bron: de gegevens en regels van deze demonstratie.",
+      "assumptions": "Model en beperkingen",
+      "model": "A: € 7 per eenheid, capaciteit 120. B: € 4 per eenheid, instelbare capaciteit, € 60 vaste kosten bij gebruik. Alle eenheden zijn geheel en de volledige vraag moet worden gedekt. Overige kosten: € 830. Alle mogelijke verdelingen worden vergeleken; transporttijd en risico vallen buiten het model.",
+      "forecast_model": "De projectie is het rekenkundig gemiddelde van de laatste drie maanden. Het is geen getraind voorspellingsmodel en bevat geen onzekerheidsinterval.",
+      "demo_note": "Interactieve demonstratie · lokale berekening",
+      "understand": "Het model begrijpen",
+      "strip": "Van uw website tot bedrijfsbeslissingen: dezelfde aandacht voor ontwerp.",
+      "expertise_title": "Eén team. Alle onderdelen van het geheel.",
+      "expertise_copy": "We combineren de vaardigheden die uw project nodig heeft. Achter een eenvoudige interface kunnen complexe bedrijfsregels zitten. De juiste automatisering vraagt soms slechts enkele heldere regels.",
+      "pillars": [
+        [
+          "Software-engineering",
+          "Bedrijfssoftware, ERP, apps en platformen rond uw activiteiten.",
+          "Architectuur · API’s · integraties"
+        ],
+        [
+          "AI & automatisering",
+          "Assistenten en werkstromen die uw gegevens binnen duidelijke grenzen gebruiken.",
+          "Zoeken · documenten · werkstromen"
+        ],
+        [
+          "Data science & optimalisatie",
+          "Veranderingen begrijpen, voorspellingen toetsen en beslissen onder beperkingen.",
+          "Statistiek · machine learning · optimalisatie"
+        ],
+        [
+          "Design & digitale ervaringen",
+          "Websites, webwinkels en mobiele trajecten met aandacht voor elk klantcontact.",
+          "UX/UI · web · commerce"
+        ]
+      ],
+      "data_title": "Uw gegevens moeten helpen beslissen, niet laten gokken.",
+      "data_copy": "Een dashboard toont wat er gebeurt. Een voorspelling verkent wat kan volgen. Optimalisatie zoekt wat mogelijk is binnen uw beperkingen.",
+      "data_items": [
+        [
+          "Begrijpen",
+          "Gegevens verbinden, verschillen meten, trends verkennen en afwijkingen onderzoeken."
+        ],
+        [
+          "Anticiperen",
+          "Voorspellingen toetsen op onbekende gegevens, scenario’s vergelijken en onzekerheid zichtbaar maken."
+        ],
+        [
+          "Optimaliseren",
+          "Een doel bepalen, beperkingen vastleggen en een haalbare middelenverdeling berekenen."
+        ]
+      ],
+      "model_title": "Wijzig een beperking. Zie de beslissing veranderen.",
+      "model_copy": "Verhoog de vraag of verlaag de capaciteit van partner B. Het model zoekt de goedkoopste verdeling die de volledige vraag dekt. Bestaat die niet, dan meldt het dat.",
+      "model_try": "Probeer de demonstratie",
+      "objective": "Doel · minimale operationele kosten",
+      "constraints": "Beperkingen · vraag en capaciteit",
+      "integer_note": "a, b: gehele eenheden ≥ 0 · d: vraag · c: capaciteit B",
+      "variation": "Waargenomen totaal: {total}. Verschil met september: {delta}. Transport draagt {transport} bij; de overige categorieën +€ 30.",
+      "comparison": "Oorspronkelijke verdeling: {base}. Beste haalbare verdeling: A {a} / B {b}, voor {opt}. Verschil: {saving} in dit voorbeeld, zonder besparingsbelofte voor echte projecten.",
+      "not_feasible": "De vraag overschrijdt de beschikbare capaciteit. Pas een beperking aan voordat u kosten vergelijkt.",
+      "question_model": "Het model controleert alle gehele verdelingen, respecteert de capaciteiten en telt de vaste kosten van B mee. De projectie is een gemiddelde over drie maanden.",
+      "show_all": "Alle concepten bekijken",
+      "service_title": "Wat we ontwerpen",
+      "approach_title": "Onze aanpak",
+      "validation_title": "Wat we controleren",
+      "services_copy": "De technologie volgt de behoefte, de gebruikers en de beperkingen. We spreken de scope en acceptatiecriteria af vóór de ontwikkeling.",
+      "related_title": "Verder verkennen",
+      "signature": "Gebouwd voor ambities voorbij de standaard."
+    },
+    "save_fallback": "Deze browser kon de link niet opslaan. Kopieer hem, of bekijk de algemene fase met uw referentie en e-mailadres."
   },
   "de": {
     "nav": [
-      "Showroom",
-      "Unser Ansatz",
+      "Expertise",
+      "Unser Vorgehen",
       "Novalis OS",
       "Das Team"
     ],
-    "eyebrow": "BERATUNG · DESIGN · ENTWICKLUNG",
+    "eyebrow": "Studio für Softwaredesign und Engineering.",
     "hero": [
-      "Die erste Zeile beginnt",
-      "in Ihrem Alltag."
+      "Ihr Unternehmen ist einzigartig.",
+      "Warum sollten es Ihre Werkzeuge nicht sein?"
     ],
-    "intro": "Vor dem Code kommt Ihr Unternehmen: seine Gewohnheiten, Grenzen und Ideen. Wir verstehen Ihre Arbeit und entwickeln die passenden Werkzeuge.",
-    "cta": "Sprechen wir über Ihre Arbeit",
-    "explore": "Showroom entdecken",
+    "intro": "Wir gestalten Websites, Apps und Geschäftssoftware für Ihren tatsächlichen Bedarf. Von Design bis künstlicher Intelligenz: Jede Lösung unterstützt Ihre Arbeit, vereinfacht den Alltag und schafft Raum für Wachstum.",
+    "cta": "Sprechen wir über Ihr Projekt",
+    "explore": "Unsere Arbeit entdecken",
     "hour": "Eine Stunde für einen klaren Anfang. Kostenlos und unverbindlich.",
     "hero_caption": "Ein Projektportal, ein Shop, ein Service: Erlebnisse für die Menschen, die sie nutzen.",
     "hero_chips": [
@@ -1331,8 +1679,8 @@
     ],
     "hero_note": "Von der ersten Skizze bis zur Software im Einsatz.",
     "show_title": [
-      "Ideen, die Sie",
-      "schon erkunden können."
+      "Am besten zeigen wir es Ihnen,",
+      "indem Sie es selbst erkunden."
     ],
     "show_copy": "Entdecken Sie, was wir für Ihre Abläufe, Kunden und Ziele entwerfen können. Jede Oberfläche eröffnet ein Gespräch über Ihr eigenes Projekt.",
     "filters": [
@@ -1377,8 +1725,8 @@
     ],
     "os_kicker": "IHR KUNDENBEREICH · NOVALIS OS",
     "os_title": [
-      "Sehen Sie Ihr Projekt",
-      "Gestalt annehmen."
+      "Ihr Projekt kommt voran.",
+      "Sie sehen es."
     ],
     "os_copy": "Ergebnisse verschwinden nicht in E-Mail-Ketten. Novalis OS bündelt Meilensteine, freigegebene Dokumente, Gespräche und Ihre Entscheidungen in einem eigenen Bereich.",
     "os_note": "Interaktive Demonstration · Beispielprojekt",
@@ -1467,10 +1815,10 @@
     ],
     "deliverable": "Was Sie erhalten",
     "ai_title": [
-      "Ein Assistent, der weiß,",
-      "wann er übergeben muss."
+      "Setzen Sie KI nicht überall ein.",
+      "Sondern dort, wo sie hilft."
     ],
-    "ai_copy": "Eine Versandfrage beantworten, eine Anleitung finden oder einen Vorgang vorbereiten: KI hilft im Rahmen Ihrer Daten und Regeln. Sensible Entscheidungen bleiben beim Verantwortlichen.",
+    "ai_copy": "Ein Kundenassistent, Dokumentensuche, automatisierte Abläufe oder Entscheidungshilfe: Wir wählen die Technik nach dem Problem. Manchmal ist eine klare Regel besser als ein Modell.",
     "ai_demo": "Geführte Demonstration · Kundenservice",
     "ai_questions": [
       "Wo ist meine Bestellung?",
@@ -1519,10 +1867,10 @@
       ]
     ],
     "contact_title": [
-      "Beginnen wir",
-      "mit Ihrem Alltag."
+      "Vielleicht gibt es",
+      "einen besseren Weg."
     ],
-    "contact_copy": "Beschreiben Sie, was Sie aufhält, was fehlt oder was Sie entwickeln möchten. Wir bestimmen den nächsten Schritt anhand Ihrer Situation.",
+    "contact_copy": "Eine Website überdenken, einen langsamen Prozess verbessern, begrenzende Software ersetzen oder eine Idee entwickeln? Erzählen Sie uns davon. Gemeinsam finden wir heraus, was sich zu bauen lohnt.",
     "contact_hour": "Erstes einstündiges Gespräch kostenlos und unverbindlich.",
     "contact_schedule": "Mein einstündiges Gespräch anfragen",
     "contact_schedule_note": "Wir vereinbaren einen Termin mit Ihnen. Verfügbare Zeiten können direkt gebucht werden.",
@@ -1544,7 +1892,7 @@
     "copied": "Link kopiert.",
     "copy_failed": "Wählen Sie den Link aus, um ihn aufzubewahren.",
     "new_request": "Weitere Anfrage",
-    "save_note": "Dieser persönliche Link gilt 90 Tage und zeigt den Status. Bitte privat aufbewahren.",
+    "save_note": "Privater Link auf diesem Gerät gespeichert. Mit Referenz und E-Mail-Adresse können Sie auch die allgemeine Phase prüfen.",
     "failure": "Der Eingang ist nicht bestätigt. Ihre Angaben bleiben im Formular. Versuchen Sie es erneut oder schreiben Sie uns.",
     "uncertain": "Der Eingang muss geprüft werden. Wiederholen Sie die Anfrage mit denselben Angaben, um ein Duplikat zu vermeiden.",
     "unavailable": "Der Anfragedienst ist vorübergehend nicht verfügbar. Erneut versuchen oder contact@novalisai.com schreiben.",
@@ -1555,11 +1903,11 @@
       "Ihre Anfrage,",
       "klar im Blick."
     ],
-    "track_copy": "Sehen Sie mit Ihrem persönlichen Link die vom Team erfassten Schritte.",
+    "track_copy": "Link geschlossen oder verloren? Prüfen Sie die allgemeine Phase mit Ihrer Referenz und der E-Mail-Adresse Ihrer Anfrage.",
     "track_private": "Dieser Link ist persönlich. Projektdetails und interne Nachrichten werden hier nicht angezeigt.",
     "check_status": "Status aktualisieren",
-    "track_empty": "Öffnen Sie den privaten Link, der nach Ihrer Anfrage angezeigt wurde.",
-    "track_expired": "Dieser Link wurde nicht gefunden oder ist abgelaufen. Kontaktieren Sie Novalis mit Ihrer Referenz.",
+    "track_empty": "Link geschlossen oder verloren? Prüfen Sie die allgemeine Phase mit Ihrer Referenz und der E-Mail-Adresse Ihrer Anfrage.",
+    "track_expired": "Dieser Link wurde nicht gefunden oder ist abgelaufen. Prüfen Sie unten die allgemeine Phase mit Referenz und E-Mail-Adresse.",
     "track_error": "Der Status kann gerade nicht geladen werden. Bitte erneut versuchen.",
     "track_states": [
       "Eingegangen",
@@ -1570,7 +1918,7 @@
       "Abgeschlossen"
     ],
     "project_ready": "Ihr Projekt wurde eröffnet. Ihr Ansprechpartner stellt Ihren persönlichen Zugang zu Novalis OS bereit.",
-    "footer": "Die richtigen Werkzeuge beginnen mit den richtigen Fragen.",
+    "footer": "Für Ambitionen jenseits des Standards.",
     "footer_pages": [
       "Expertise",
       "Unternehmen",
@@ -1729,10 +2077,10 @@
         ]
       }
     ],
-    "title": "Novalis AI — Software beginnt in Ihrem Alltag.",
+    "title": "Novalis AI — Studio für Softwaredesign und Engineering.",
     "footer_word": [
-      "Ein klarer Anfang.",
-      "Ein passender nächster Schritt."
+      "Novalis",
+      "Design & Engineering"
     ],
     "booking_confirmed": "Ihr einstündiges Gespräch ist reserviert:",
     "applied_ai": "ANGEWANDTE KI",
@@ -1741,6 +2089,122 @@
       "Umfang: eine Bestellung empfangen, Verfügbarkeit prüfen, Teile reservieren und Lieferung vorbereiten. Kriterien: verfügbar und reserviert unterscheiden, Fehlmengen melden und die Entscheidung behalten. Ausgenommen: Zahlung und Buchhaltung.",
       "Ablauf Version 2: Ein Auftrag wird erfasst, Verfügbarkeit geprüft und die erlaubte Menge reserviert. Fehlmengen verhindern eine vollständige Bestätigung und erfordern eine Losentscheidung. Die Demonstrationsfreigabe nimmt diesen Ablauf an.",
       "Gesprächsprotokoll: Das Team möchte getrennte Auftrags- und Reservierungsdateien ersetzen. Die erste Lieferung betrifft den Wareneingang. Verfügbarkeitsregeln müssen vor der Entwicklung mit Nutzern bestätigt werden."
-    ]
+    ],
+    "lookup_title": "Meine Anfrage finden",
+    "lookup_reference": "Referenz der Anfrage",
+    "lookup_email": "E-Mail-Adresse Ihrer Anfrage",
+    "lookup_submit": "Status prüfen",
+    "lookup_result": "Aktuelle Phase Ihrer Anfrage",
+    "lookup_note": "Diese Ansicht zeigt nur die allgemeine Phase. Dokumente, Nachrichten und Projektdetails sind damit nicht zugänglich.",
+    "saved_title": "Anfragen auf diesem Gerät",
+    "saved_clear": "Gespeicherte Links entfernen",
+    "saved_note": "Private Links werden bis zu ihrem Ablauf in diesem Browser gespeichert, ohne Namen oder E-Mail-Adresse. Entfernen Sie sie nach der Nutzung auf einem gemeinsam genutzten Gerät.",
+    "lookup_missing": "Keine passende Anfrage gefunden. Prüfen Sie Referenz und E-Mail-Adresse.",
+    "lookup_limited": "Zu viele Versuche. Bitte in 15 Minuten erneut versuchen.",
+    "lookup_error": "Der Dienst ist nicht verfügbar. Ihre Eingaben bleiben erhalten; versuchen Sie es erneut.",
+    "saved_open": "Private Verfolgung öffnen",
+    "engineering": {
+      "dashboard_title": "Verstehen. Vergleichen. Entscheiden.",
+      "months": [
+        "Mai",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Okt"
+      ],
+      "total": "Betriebskosten",
+      "period_note": "Zeitraum des Beispiels",
+      "orders": "Zu verteilende Aufträge",
+      "units": "zu bearbeitende Einheiten",
+      "forecast": "Einfache Projektion",
+      "forecast_note": "Mittelwert der letzten 3 Monate",
+      "chart": "Kostenentwicklung",
+      "observed": "Beobachtetes Szenario",
+      "chart_alt": "Monatliche Kosten von Mai bis Oktober. Werte stehen unter jeder Säule.",
+      "compare": "Szenarien vergleichen",
+      "baseline": "Ursprüngliche Verteilung",
+      "optimal": "Optimierte Verteilung",
+      "shipping": "Verteilungskosten",
+      "allocation": "Vorgeschlagene Verteilung",
+      "difference": "Unterschied in diesem Szenario",
+      "volume": "Zu bearbeitende Aufträge",
+      "capacity": "Kapazität von Partner B",
+      "feasible": "Nachfrage gedeckt · Kapazitäten eingehalten",
+      "infeasible": "Unzureichende Kapazität: {n} Einheiten bleiben offen. Keine Einsparung berechnet.",
+      "assistant": "Analyseassistent",
+      "local": "Lokales Szenario · kein KI-Aufruf",
+      "questions": [
+        "Was erklärt die Veränderung?",
+        "Szenarien vergleichen",
+        "Welche Annahmen gelten?"
+      ],
+      "initial_answer": "Die Kosten steigen von 1.410 € auf 1.530 €. Transport erklärt 90 € der Veränderung von 120 €. Vergleichen Sie die Verteilungen vor der Entscheidung.",
+      "source": "Quelle: Daten und Regeln dieser Demonstration.",
+      "assumptions": "Modell und Grenzen",
+      "model": "A: 7 €/Einheit, Kapazität 120. B: 4 €/Einheit, einstellbare Kapazität, 60 € Fixkosten bei Nutzung. Die Einheiten sind ganzzahlig, die gesamte Nachfrage muss gedeckt werden. Weitere Kosten: 830 €. Alle möglichen Verteilungen werden verglichen; Transportzeit und Risiken sind nicht modelliert.",
+      "forecast_model": "Die Projektion ist der arithmetische Mittelwert der letzten drei Monate. Sie ist kein trainiertes Prognosemodell und enthält kein Unsicherheitsintervall.",
+      "demo_note": "Interaktive Demonstration · lokale Berechnung",
+      "understand": "Das Modell verstehen",
+      "strip": "Von Ihrer Website bis zur Geschäftsentscheidung: derselbe Anspruch an Gestaltung.",
+      "expertise_title": "Ein Team. Alle Teile im Blick.",
+      "expertise_copy": "Wir verbinden die Fähigkeiten, die Ihr Projekt braucht. Hinter einer einfachen Oberfläche können anspruchsvolle Geschäftsregeln stehen. Eine gute Automatisierung benötigt manchmal nur wenige klare Regeln.",
+      "pillars": [
+        [
+          "Softwareentwicklung",
+          "Geschäftssoftware, ERP, Apps und Plattformen rund um Ihre Abläufe.",
+          "Architektur · APIs · Integrationen"
+        ],
+        [
+          "KI & Automatisierung",
+          "Assistenten und Abläufe, die Ihre Daten innerhalb klarer Grenzen nutzen.",
+          "Suche · Dokumente · Workflows"
+        ],
+        [
+          "Data Science & Optimierung",
+          "Veränderungen verstehen, Prognosen prüfen und unter Einschränkungen entscheiden.",
+          "Statistik · Machine Learning · Optimierung"
+        ],
+        [
+          "Design & digitale Erlebnisse",
+          "Websites, Onlineshops und mobile Abläufe mit Sorgfalt für jeden Kundenkontakt.",
+          "UX/UI · Web · Commerce"
+        ]
+      ],
+      "data_title": "Ihre Daten sollen beim Entscheiden helfen, nicht beim Raten.",
+      "data_copy": "Ein Dashboard erklärt, was passiert. Eine Prognose untersucht, was folgen könnte. Optimierung sucht, was unter Ihren Einschränkungen möglich ist.",
+      "data_items": [
+        [
+          "Verstehen",
+          "Daten verbinden, Unterschiede messen, Trends untersuchen und Auffälligkeiten prüfen."
+        ],
+        [
+          "Vorausschauen",
+          "Prognosen an unbekannten Daten prüfen, Szenarien vergleichen und Unsicherheit zeigen."
+        ],
+        [
+          "Optimieren",
+          "Ein Ziel definieren, Einschränkungen abbilden und eine machbare Ressourcenverteilung berechnen."
+        ]
+      ],
+      "model_title": "Ändern Sie eine Einschränkung. Beobachten Sie die Entscheidung.",
+      "model_copy": "Erhöhen Sie die Nachfrage oder verringern Sie die Kapazität von Partner B. Das Modell sucht die günstigste Verteilung, die die gesamte Nachfrage deckt. Ist keine möglich, zeigt es das an.",
+      "model_try": "Demonstration ausprobieren",
+      "objective": "Ziel · minimale Betriebskosten",
+      "constraints": "Bedingungen · Nachfrage und Kapazität",
+      "integer_note": "a, b: ganze Einheiten ≥ 0 · d: Nachfrage · c: Kapazität B",
+      "variation": "Beobachtete Summe: {total}. Änderung gegenüber September: {delta}. Transport trägt {transport} bei; weitere Posten +30 €.",
+      "comparison": "Ursprüngliche Verteilung: {base}. Beste machbare Verteilung: A {a} / B {b}, für {opt}. Differenz: {saving} in diesem Beispiel, ohne Einsparversprechen für reale Projekte.",
+      "not_feasible": "Die Nachfrage übersteigt die verfügbare Kapazität. Passen Sie eine Bedingung an, bevor Sie Kosten vergleichen.",
+      "question_model": "Das Modell prüft alle ganzzahligen Verteilungen, hält Kapazitäten ein und berücksichtigt die Fixkosten von B. Die Projektion ist ein gleitender Dreimonatsmittelwert.",
+      "show_all": "Alle Konzepte entdecken",
+      "service_title": "Was wir entwickeln",
+      "approach_title": "Unser Vorgehen",
+      "validation_title": "Was wir prüfen",
+      "services_copy": "Die Technologie folgt dem Bedarf, den Nutzern und den Einschränkungen. Umfang und Abnahmekriterien werden vor der Entwicklung vereinbart.",
+      "related_title": "Weiter entdecken",
+      "signature": "Für Ambitionen jenseits des Standards."
+    },
+    "save_fallback": "Dieser Browser konnte den Link nicht speichern. Kopieren Sie ihn oder prüfen Sie die allgemeine Phase mit Referenz und E-Mail-Adresse."
   }
 }

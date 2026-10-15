@@ -98,3 +98,27 @@ def request_status():
                    portal_url=current_app.config['APP_ORIGIN']+'/os/' if events[-1]['status']=='project' else None)
     result.headers['Cache-Control']='no-store, private'
     return result
+
+@intake.post('/api/public/request-lookup')
+def request_lookup():
+    """Reference plus contact address reveals only a coarse, read-only stage.
+
+    This is deliberately not recovery of the bearer token or account access.
+    The full history, dates, project identifiers and all lead content stay private.
+    Existing references work without a database change or an email provider.
+    """
+    rate_limit('request-lookup',8,900)
+    d=data()
+    reference=text(d,'reference',24).upper()
+    address=email(d)
+    if not re.fullmatch(r'NV-\d{2}-[A-F0-9]{8}',reference):
+        abort(404,'Demande introuvable. Vérifiez la référence et l’adresse e-mail.')
+    item=row('''SELECT i.reference,e.status FROM lead_intake i
+        JOIN leads l ON l.id=i.lead_id
+        JOIN lead_public_events e ON e.id=(SELECT MAX(id) FROM lead_public_events WHERE lead_id=i.lead_id)
+        WHERE i.reference=? AND l.email=? AND l.org_id=?''',
+        (reference,address,current_app.config['ORG_ID']))
+    if not item:abort(404,'Demande introuvable. Vérifiez la référence et l’adresse e-mail.')
+    result=jsonify(reference=item['reference'],status=item['status'])
+    result.headers['Cache-Control']='no-store, private'
+    return result
