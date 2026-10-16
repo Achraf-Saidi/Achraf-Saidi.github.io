@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {seed,addCart,available,createOrder,transition,recordPayment,refund,findOrder,saveProduct,validPhone,totals} from '../domain.mjs';
+const customer={name:'Lina Test',phone:'0555000000',wilaya:'Alger',commune:'Commune de test',address:'Adresse fictive'};
+const order=()=>{const s=seed(),id=s.products[0].variants[0].id;addCart(s,id,2);return {s,id,o:createOrder(s,customer)};};
+test('Algerian mobile normalization and rejection',()=>{assert(validPhone('+213 555 00 00 00'));assert(validPhone('00213555000000'));assert(!validPhone('0123456789'));assert(!validPhone('0555'));});
+test('cart prevents quantities above available stock',()=>{const s=seed(),id=s.products[0].variants[0].id;assert.throws(()=>addCart(s,id,9));assert.throws(()=>addCart(s,id,-1));addCart(s,id,8);assert.throws(()=>addCart(s,id));});
+test('orders snapshot prices and reserve stock',()=>{const {s,id,o}=order();assert.equal(available(s,id),6);assert.equal(o.total,14400);s.products[0].price=1;assert.equal(o.items[0].price,6900);assert.equal(s.cart.length,0);});
+test('invalid customer never creates an order',()=>{const s=seed();addCart(s,s.products[0].variants[0].id);assert.throws(()=>createOrder(s,{...customer,phone:'x'}));assert.equal(s.orders.length,0);assert.equal(s.cart.length,1);});
+test('cancel releases reservation once',()=>{const {s,id,o}=order();transition(s,o.id,'Annulée');assert.equal(available(s,id),8);assert.throws(()=>transition(s,o.id,'Annulée'));});
+test('shipping deducts physical stock once and return restores once',()=>{const {s,id,o}=order();for(const status of ['Confirmée','En préparation','Expédiée'])transition(s,o.id,status);assert.equal(s.products[0].variants[0].stock,6);assert.equal(available(s,id),6);assert.throws(()=>transition(s,o.id,'Expédiée'));transition(s,o.id,'Livrée');transition(s,o.id,'Retour reçu');assert.equal(available(s,id),8);assert.throws(()=>transition(s,o.id,'Retour reçu'));});
+test('delivery does not imply payment; payment and refund cannot duplicate',()=>{const {s,o}=order();assert.throws(()=>recordPayment(s,o.id));for(const status of ['Confirmée','En préparation','Expédiée','Livrée'])transition(s,o.id,status);assert.equal(o.payment,'À encaisser');recordPayment(s,o.id);assert.throws(()=>recordPayment(s,o.id));assert.throws(()=>refund(s,o.id));transition(s,o.id,'Retour reçu');refund(s,o.id);assert.equal(o.payment,'Remboursé');assert.throws(()=>refund(s,o.id));});
+test('reference lookup needs matching normalized phone after serialized reload',()=>{const {s,o}=order();const restored=JSON.parse(JSON.stringify(s));assert(findOrder(restored,o.id.toLowerCase(),'+213555000000'));assert(!findOrder(restored,o.id,'0666000000'));});
+test('reserved stock cannot be overwritten',()=>{const {s}=order();const p=structuredClone(s.products[0]);p.variants[0].stock=1;assert.throws(()=>saveProduct(s,p));});
+test('duplicate SKU rejected across and within products',()=>{const s=seed(),p=structuredClone(s.products[0]);p.variants[1].sku=p.variants[0].sku;assert.throws(()=>saveProduct(s,p));});
+test('archived product cannot be ordered',()=>{const s=seed(),id=s.products[0].variants[0].id;addCart(s,id);s.products[0].active=false;assert.throws(()=>createOrder(s,customer));});
+test('delivery selected in totals and snapshotted',()=>{const s=seed();addCart(s,s.products[0].variants[0].id);assert.equal(totals(s,'desk').total,7300);const o=createOrder(s,customer,'desk');s.settings.deskFee=999;assert.equal(o.shipping,400);});
+test('skip-stage transition rejected',()=>{const {s,o}=order();assert.throws(()=>transition(s,o.id,'Livrée'));});
