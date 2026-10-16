@@ -1,0 +1,59 @@
+---
+interface Props{kind:'derivative'|'bayes'|'matrix'|'gradient'|'backprop';lang?:'fr'|'en';compact?:boolean;}
+const {kind,lang='fr',compact=false}=Astro.props;const en=lang==='en';
+const titles={derivative:en?'A secant becomes a tangent':'La sécante devient tangente',bayes:en?'What does a positive test mean?':'Que signifie un test positif ?',matrix:en?'A matrix moves the plane':'Une matrice transforme le plan',gradient:en?'Fit a line, one step at a time':'Ajuster une droite, pas à pas',backprop:en?'Follow the gradient through a neuron':'Suivre le gradient dans un neurone'};
+const fields:Record<string,Array<[string,string,number,number,number,number]>>={
+ derivative:[['x','x',-1,2,.1,1],['h','h',.01,2,.01,1]],
+ bayes:[['p',en?'Prevalence (%)':'Prévalence (%)',.1,30,.1,1],['s',en?'Sensitivity (%)':'Sensibilité (%)',50,100,.1,99],['c',en?'Specificity (%)':'Spécificité (%)',50,100,.1,95]],
+ matrix:[['a','a',-2,2,.1,1],['b','b',-2,2,.1,.5],['c','c',-2,2,.1,0],['d','d',-2,2,.1,1]],
+ gradient:[['rate',en?'Learning rate':'Taux d’apprentissage',.005,1,.005,.1]],
+ backprop:[['w1','w₁',-2,2,.05,.5],['w2','w₂',-3,3,.05,2]]
+};
+---
+<section class:list={['lab',compact&&'compact-lab']} data-lab={kind} data-lang={lang} aria-label={titles[kind]}>
+<div class="eyebrow">{en?'Interactive notebook':'Carnet interactif'}</div><p><strong>{titles[kind]}</strong></p>
+{kind!=='bayes'&&<svg viewBox="0 0 440 235" role="img" aria-label={titles[kind]}><title>{titles[kind]}</title><text x="20" y="110" fill="currentColor">{en?'The text below also explains the calculation.':'Le texte ci-dessous explique aussi le calcul.'}</text></svg>}
+<div class="controls">{fields[kind].map(([key,label,min,max,step,value])=><label>{label} <span data-value={key}>{value}</span><input type="range" name={key} min={min} max={max} step={step} value={value} aria-label={label}/></label>)}</div>
+{kind==='gradient'&&<div><button type="button" data-step>{en?'One gradient step':'Un pas de gradient'}</button> <button type="button" class="secondary" data-reset>{en?'Reset':'Recommencer'}</button></div>}
+<output aria-live="polite">{kind==='derivative'?'f(x) = x² ; x = 1 ; h = 1 → sécante / secant = 3 ; tangente / tangent = 2':kind==='bayes'?'P(D | +) = 0.0099 / (0.0099 + 0.0495) = 1/6 ≈ 16.67%':kind==='matrix'?'A = [[1, 0.5], [0, 1]] ; A(1, 1) = (1.5, 1)':kind==='gradient'?'x = [0,1,2] ; y = [1,3,5] ; w = b = 0 ; MSE = 35/3':'w₁ = 0.5 ; w₂ = 2 ; x = y = 1 ; ŷ ≈ 0.924234'}</output>
+<noscript><p>{en?'JavaScript is needed for the controls. The worked calculation remains available above and in the lesson.':'JavaScript est nécessaire aux commandes. Le calcul reste lisible ci-dessus et dans le cours.'}</p></noscript>
+</section>
+<script>
+import {secant,bayes,transform,step,mse,backprop} from '../lib/math.mjs';
+for(const el of document.querySelectorAll<HTMLElement>('[data-lab]')){
+ const kind=el.dataset.lab,en=el.dataset.lang==='en',out=el.querySelector('output')!,svg=el.querySelector('svg');let w=0,b=0,n=0;
+ const get=(name:string)=>Number(el.querySelector<HTMLInputElement>(`input[name="${name}"]`)!.value);
+ const f=(n:number)=>Number.isFinite(n)?n.toFixed(5):'∞';
+ const line=(x1:number,y1:number,x2:number,y2:number,color:string,dash='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" ${dash?'stroke-dasharray="'+dash+'"':''}/>`;
+ function draw(){
+  el.querySelectorAll<HTMLInputElement>('input').forEach(i=>{el.querySelector(`[data-value="${i.name}"]`)!.textContent=i.value;});
+  if(kind==='bayes'){const r=bayes(get('p')/100,get('s')/100,get('c')/100);out.textContent=(en?'Among 10,000 people: ':'Sur 10 000 personnes : ')+`\n${en?'true positives':'vrais positifs'} = ${f(10000*r.tp)}\n${en?'false positives':'faux positifs'} = ${f(10000*r.fp)}\nP(D | +) = ${f(100*r.posterior)} %`;return;}
+  let html=`<title>${kind}</title>`;const px=(x:number)=>55+x*80,py=(y:number)=>205-y*22;
+  if(kind==='derivative'){
+   const x=get('x'),h=get('h'),m=secant(x,h);html+=line(10,205,430,205,'var(--muted)')+line(135,225,135,10,'var(--muted)');
+   const X=(x:number)=>135+x*66,Y=(y:number)=>205-y*20;let d='';for(let t=-1.7;t<=4.3;t+=.03)d+=`${d?'L':'M'}${X(t)},${Y(t*t)} `;
+   html+=`<path d="${d}" fill="none" stroke="var(--green)" stroke-width="2.5"/>`;
+   html+=line(X(-2),Y(x*x+2*x*(-2-x)),X(5),Y(x*x+2*x*(5-x)),'var(--muted)','5 4');
+   html+=line(X(-2),Y(x*x+m*(-2-x)),X(5),Y(x*x+m*(5-x)),'var(--gold)');
+   html+=`<circle cx="${X(x)}" cy="${Y(x*x)}" r="4" fill="var(--green)"/><circle cx="${X(x+h)}" cy="${Y((x+h)**2)}" r="4" fill="var(--gold)"/><text x="360" y="225" fill="currentColor">x</text><text x="145" y="20" fill="currentColor">f(x)=x²</text>`;
+   out.textContent=`x = ${x} ; h = ${h}\n${en?'Secant (gold, solid)':'Sécante (ocre, continue)'} = 2x + h = ${f(m)}\n${en?'Tangent (dashed)':'Tangente (pointillés)'} = 2x = ${f(2*x)}\n${en?'Slope error':'Erreur de pente'} = h = ${f(h)}`;
+  }else if(kind==='matrix'){
+   const a=get('a'),bb=get('b'),c=get('c'),d=get('d');const X=(x:number)=>220+45*x,Y=(y:number)=>118-45*y;
+   for(let k=-5;k<=5;k++)html+=line(X(k),0,X(k),235,'var(--line)')+line(0,Y(k),440,Y(k),'var(--line)');
+   const pts=[[0,0],[1,0],[1,1],[0,1]].map(([x,y])=>transform(a,bb,c,d,x,y));html+=`<polygon points="${pts.map(([x,y])=>`${X(x)},${Y(y)}`).join(' ')}" fill="var(--green)" fill-opacity=".15" stroke="var(--green)" stroke-width="2"/>`;
+   html+=line(X(0),Y(0),X(a),Y(c),'var(--green)')+line(X(0),Y(0),X(bb),Y(d),'var(--gold)');
+   html+=`<text x="12" y="22" fill="currentColor">e₁ → (${a}, ${c}) ; e₂ → (${bb}, ${d})</text>`;
+   out.textContent=`A = [[${a}, ${bb}], [${c}, ${d}]]\nA(1,1) = (${f(a+bb)}, ${f(c+d)})\ndet(A) = ${f(a*d-bb*c)}${Math.abs(a*d-bb*c)<1e-10?(en?' · singular':' · singulière'):''}`;
+  }else if(kind==='gradient'){
+   html+=line(20,205,420,205,'var(--muted)')+line(55,225,55,10,'var(--muted)');[0,1,2].forEach((x,i)=>html+=`<circle cx="${px(x)}" cy="${py([1,3,5][i])}" r="5" fill="var(--green)"/>`);
+   html+=line(px(0),py(b),px(3.8),py(w*3.8+b),'var(--gold)');html+=`<text x="280" y="225" fill="currentColor">x</text><text x="65" y="22" fill="currentColor">y</text>`;
+   out.textContent=`${en?'Iteration':'Itération'} ${n}\nw = ${f(w)} ; b = ${f(b)}\nMSE = ${f(mse(w,b))}${Math.abs(w)>1e6?(en?'\nDivergence: reduce the learning rate.':'\nDivergence : réduisez le taux d’apprentissage.'):''}`;
+  }else{
+   const r=backprop(get('w1'),get('w2'));html+=line(62,110,205,110,'var(--green)')+line(235,110,385,110,'var(--gold)');[[45,'x = 1'],[220,'tanh'],[397,'ŷ']].forEach(([x,t])=>html+=`<circle cx="${x}" cy="110" r="28" fill="var(--sl-color-bg)" stroke="var(--green)"/><text x="${x}" y="115" fill="currentColor" text-anchor="middle">${t}</text>`);html+=`<text x="125" y="85" fill="currentColor">w₁</text><text x="308" y="85" fill="currentColor">w₂</text><text x="220" y="190" fill="currentColor" text-anchor="middle">L = ½(ŷ − 1)²</text>`;
+   out.textContent=`h = tanh(w₁) = ${f(r.h)}\nŷ = w₂h = ${f(r.prediction)} ; L = ${f(r.loss)}\n∂L/∂w₂ = ${f(r.dw2)}\n∂L/∂w₁ = ${f(r.dw1)}`;
+  }
+  if(svg)svg.innerHTML=html;
+ }
+ el.addEventListener('input',draw);el.querySelector('[data-step]')?.addEventListener('click',()=>{if(n>=1000||!Number.isFinite(w)||Math.abs(w)>1e12)return;const r=step(w,b,get('rate'));w=r.w;b=r.b;n++;draw();});el.querySelector('[data-reset]')?.addEventListener('click',()=>{w=b=n=0;draw();});draw();
+}
+</script>

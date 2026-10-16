@@ -1,0 +1,117 @@
+---
+title: "Événements, conditionnement et théorème de Bayes"
+description: "Construire une probabilité conditionnelle et comprendre un test positif sans oublier la prévalence."
+conceptId: D1.01
+effort: 60
+prerequisites: ["A1.01"]
+status: published
+sidebar:
+  order: 6
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="D1.01" lang="fr" minutes={60} />
+
+## Un test positif signifie-t-il « malade » ?
+
+Imaginons un test fictif : il détecte 99 % des personnes malades et donne un résultat négatif chez 95 % des personnes non malades. Si 1 % de la population est malade, quelle proportion des personnes positives est réellement malade ? Répondre 99 % confond deux conditionnements. Nous allons retrouver la réponse en comptant, puis la démontrer.
+
+Prérequis : [fractions et proportions](/achraf-notebooks/fr/foundations/numbers/). Objectifs : représenter des événements, distinguer indépendance et incompatibilité, calculer une probabilité conditionnelle et dériver Bayes. Les chiffres sont pédagogiques : ce carnet n'évalue aucun véritable test médical.
+
+## Décrire une expérience aléatoire
+
+L'ensemble $\Omega$ contient les issues possibles. Un **événement** $A$ est un ensemble d'issues. Le complément $A^c$ signifie « pas $A$ ». L'intersection $A\cap B$ signifie « $A$ et $B$ » ; l'union $A\cup B$, « $A$ ou $B$, éventuellement les deux ».
+
+Une probabilité $P$ attribue aux événements un nombre entre 0 et 1. Elle vérifie $P(\Omega)=1$ et l'additivité pour des événements disjoints. Pour une famille dénombrable d'événements deux à deux disjoints, la probabilité de leur union est la somme de leurs probabilités. En particulier $P(A^c)=1-P(A)$ et
+
+$$P(A\cup B)=P(A)+P(B)-P(A\cap B).$$
+
+L'intersection est soustraite car elle a été comptée deux fois. Pour un dé équilibré, $A=\{2,4,6\}$ et $B=\{4,5,6\}$ donnent $P(A\cup B)=3/6+3/6-2/6=4/6$. Cette règle ne suppose pas l'indépendance.
+
+## Conditionner : changer le groupe de référence
+
+Si nous savons que $B$ est réalisé et que $P(B)>0$, nous ne comparons plus les issues à tout $\Omega$, mais seulement au groupe $B$. La fraction de ce groupe appartenant aussi à $A$ est :
+
+$$P(A\mid B)=\frac{P(A\cap B)}{P(B)}.$$
+
+La barre verticale signifie « sachant ». Pour le dé précédent, $P(A\mid B)=(2/6)/(3/6)=2/3$. Parmi $\{4,5,6\}$, deux nombres sont pairs.
+
+Deux événements sont **indépendants** si $P(A\cap B)=P(A)P(B)$. Lorsque $P(B)>0$, cela équivaut à $P(A\mid B)=P(A)$. Des événements **incompatibles** ont une intersection vide. S'ils ont chacun une probabilité positive, ils ne sont pas indépendants : apprendre l'un rend l'autre impossible.
+
+## Déduire Bayes, plutôt que mémoriser
+
+La définition donne $P(A\cap B)=P(A\mid B)P(B)$, mais aussi $P(A\cap B)=P(B\mid A)P(A)$ lorsque les conditionnements existent. En égalant puis en divisant par $P(B)$ :
+
+$$P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}.$$
+
+Le dénominateur peut se calculer en séparant les cas $A$ et $A^c$ :
+
+$$P(B)=P(B\mid A)P(A)+P(B\mid A^c)P(A^c).$$
+
+Cette loi des probabilités totales compte toutes les façons d'observer $B$. Pour plusieurs groupes disjoints couvrant la population, on additionne les contributions de chaque groupe.
+
+## Compter 10 000 personnes
+
+Notons $D$ la maladie et $+$ le résultat positif. La **prévalence** est $P(D)=0{,}01$, la **sensibilité** $P(+\mid D)=0{,}99$ et la **spécificité** $P(-\mid D^c)=0{,}95$. Le taux de faux positifs est donc $P(+\mid D^c)=0{,}05$.
+
+Parmi 10 000 personnes, les effectifs attendus sont 100 malades et 9 900 non-malades. On attend 99 vrais positifs, mais $9900\times0{,}05=495$ faux positifs. Parmi les 594 positifs :
+
+$$P(D\mid+)=\frac{99}{99+495}=\frac16\approx16{,}67\,\%.$$
+
+Il ne s'agit pas d'un paradoxe : les non-malades sont très nombreux. Même un petit taux de faux positifs crée un grand groupe. Les nombres sont des effectifs attendus ; une expérience réelle fluctuerait autour d'eux.
+
+<Lab kind="bayes" lang="fr" />
+
+Gardez sensibilité et spécificité fixes, puis augmentez la prévalence. La valeur prédictive positive change. Les propriétés conditionnelles d'un test ne suffisent donc pas à fixer cette probabilité pour toutes les populations. Dans la pratique, sensibilité et spécificité elles-mêmes peuvent aussi varier selon le contexte.
+
+## Implémentation transparente
+
+```python
+p, sensitivity, specificity = 0.01, 0.99, 0.95
+true_positive = p * sensitivity
+false_positive = (1-p) * (1-specificity)
+posterior = true_positive / (true_positive + false_positive)
+print(round(posterior, 6))  # 0.166667
+```
+
+Chaque terme est une proportion de toute la population. Leur somme au dénominateur est $P(+)$. Il faut vérifier qu'elle est strictement positive avant de conditionner.
+
+## Exercices
+
+1. Recalculez pour une prévalence de 10 %, avec le même test.
+2. Sur un dé équilibré, $A$ = « pair », $B$ = « supérieur à 4 ». Sont-ils indépendants ?
+3. Pourquoi le taux de faux positifs n'est-il pas $P(D^c\mid+)$ ?
+4. Avec deux tests positifs, peut-on simplement mettre la première réponse au carré ?
+
+<details>
+<summary>Indice</summary>
+
+Écrivez explicitement le groupe après la barre conditionnelle. Pour 4, il faut connaître la dépendance entre les tests sachant l'état de santé.
+
+</details>
+
+
+<details>
+<summary>Corrigé détaillé</summary>
+
+
+
+1. Les vrais positifs représentent $0{,}1\times0{,}99=0{,}099$ et les faux positifs $0{,}9\times0{,}05=0{,}045$. Le résultat vaut $0{,}099/0{,}144=0{,}6875$, soit 68,75 %.
+2. $P(A)=1/2$, $P(B)=1/3$ et $P(A\cap B)=P(\{6\})=1/6$. Le produit vaut aussi $1/6$ : ils sont indépendants.
+3. $P(+\mid D^c)$ se calcule parmi les non-malades. $P(D^c\mid+)$ se calcule parmi les positifs. Les dénominateurs diffèrent.
+4. Non. Il faut spécifier la loi jointe des résultats, notamment leur indépendance conditionnelle éventuelle. Même sous cette hypothèse, on multiplie les vraisemblances conditionnelles puis on renormalise avec Bayes, plutôt que de mettre la probabilité finale au carré.
+
+
+
+</details>
+
+
+
+<Quiz id="bayes-base" lang="fr" question="Avec le test initial, combien de vrais positifs attend-on parmi 10 000 personnes ?" answer={99} explanation="10 000 × 0,01 × 0,99 = 99. Les 495 faux positifs expliquent pourquoi la probabilité après un résultat positif vaut seulement 1/6." />
+
+## Références et suite
+
+[Harvard Stat 110](https://stat110.hsites.harvard.edu/) propose un approfondissement de la probabilité conditionnelle. L'[histoire et les sources originales](/achraf-notebooks/fr/references/) replacent la contribution de Bayes dans une évolution collective. La suite du programme traite des variables aléatoires, des lois et de l'inférence bayésienne : une probabilité sur des paramètres exige alors de préciser un modèle et une loi a priori.

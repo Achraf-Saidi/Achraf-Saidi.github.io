@@ -1,0 +1,89 @@
+---
+title: "R: thinking in vectors and analysing groups"
+description: "Vectors, indexing, functions, missing data and grouped summaries."
+conceptId: C4.01
+effort: 50
+prerequisites: ["A1.01"]
+status: published
+sidebar:
+  order: 9
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="C4.01" lang="en" minutes={50} />
+
+## One operation, several observations
+
+In R, `x <- c(2, 4, 6)` creates a numerical vector. `<-` assigns a value to a name; `c` combines elements. The expression `x + 1` gives `3 5 7`: the operation applies to each element. This **vectorization** makes many analyses readable, provided you understand object size and type.
+
+Prerequisite: [fractions and proportions](/achraf-notebooks/en/foundations/numbers/). Goals: distinguish vectors from tables, select observations, define a function and summarize groups. Python is not required.
+
+## Selecting accurately
+
+Indexing starts at **1**: `x[1]` is 2. The expression `x[c(1,3)]` selects the first and third elements. The expression `x[x > 3]` gives `4 6` because `x > 3` produces the logical vector `FALSE TRUE TRUE`. An atomic vector has a common type; `c(1, "a")` converts the number to text. Lists can hold different object types.
+
+Watch **recycling**: `c(1,2,3,4) + c(10,20)` gives `11 22 13 24`. R repeats the shorter vector. This can be intentional or hide an incorrect dimension. Inspect `length` and `str` to check.
+
+## A function with edge cases
+
+```r
+mean_checked <- function(x) {
+  if (!is.numeric(x)) stop("numeric vector required")
+  if (length(x) == 0L) stop("empty vector")
+  if (anyNA(x)) stop("missing values must be handled explicitly")
+  sum(x) / length(x)
+}
+mean_checked(c(2, 4, 6))  # 4
+```
+
+The construct `function(x)` defines a function. An `if` requires a logical condition of length one; `!` negates it. The function `stop` interrupts with a message. R returns the last evaluated expression even without `return`. The value `NA` denotes missingness: `mean(c(2,NA,6))` gives `NA`. Setting `na.rm=TRUE` computes over observed values, changing the analysed group and requiring justification.
+
+## Columns connected by rows
+
+A `data.frame` stores observations in rows and variables in columns. Each column may have its own type. The `$` operator accesses a column. This lab creates two groups and checks their means:
+
+<CodeLab language="r" lang="en" filename="r-basics.R" code={'scores <- data.frame(\n  group = c("A", "A", "B", "B"),\n  score = c(10, 14, 8, 12)\n)\nprint(scores)\nprint(tapply(scores$score, scores$group, mean))\nstopifnot(mean(scores$score) == 11)\n'} />
+
+The function `tapply` splits `score` according to `group`, applies `mean` to each part, and returns a summary: A is 12 and B is 10. The overall mean is 11. With unequal group sizes, the mean of group means need not equal the overall mean.
+
+## Reading dplyr
+
+In a local environment with a recent dplyr installation:
+
+```r
+library(dplyr)
+scores |> summarise(mean_score = mean(score), .by = group)
+scores |> group_by(group) |> summarise(mean_score = mean(score))
+```
+
+The pipe `|>` passes the result on its left into the operation on its right. The `.by` argument defines groups for **this operation**. The function `group_by` creates a grouped object that influences subsequent operations; `ungroup` removes grouping. In this small example, numerical results agree. A tibble is a table variant with stricter printing and subsetting choices, rather than a different statistical theory. The lab uses base R to avoid mandatory packages.
+
+## Exercises
+
+1. What does `x[x <= 4]` return for `x <- c(2,4,6)`?
+2. Write the overall mean after explicitly excluding missing values.
+3. Groups A and B contain 2 and 8 people, with means 12 and 10. What is the overall mean?
+4. Why can `apply` on a mixed text/numeric data frame surprise you?
+
+<details>
+<summary>Worked solutions</summary>
+
+
+
+1. The vector `2 4`, selected by `TRUE TRUE FALSE`.
+2. Use `mean(x, na.rm = TRUE)` and report the observed count and exclusion rationale. If every value is missing, the observed mean is undefined.
+3. $(2\times12+8\times10)/10=10.4$. The unweighted mean of group means, 11, would be wrong here.
+4. `apply` converts a data frame into a matrix, imposing a common type. A text column can convert numbers into character strings. Select numerical columns or use column-wise operations that preserve types.
+
+
+
+</details>
+
+
+
+<Quiz id="r-index" lang="en" question="For x <- c(2,4,6), what is x[1]?" answer={2} explanation="R indexing starts at 1. Python indexing starts at 0: remember this when switching languages." />
+
+Official references: [An Introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) and [dplyr, summarise](https://dplyr.tidyverse.org/reference/summarise.html). [Regression](/achraf-notebooks/en/learning/regression/) shows how these observations become a model.

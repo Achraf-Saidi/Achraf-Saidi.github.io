@@ -1,0 +1,102 @@
+---
+title: "Multi-omiques : comprendre les mesures avant de les intégrer"
+description: "De l’ADN aux matrices de données : biologie minimale, fusion et validation scientifique."
+conceptId: K1.01
+effort: 65
+prerequisites: ["B1.01", "D1.01"]
+status: published
+sidebar:
+  order: 12
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="K1.01" lang="fr" minutes={65} />
+
+## Pourquoi un seul regard ne suffit-il pas ?
+
+Deux tissus peuvent posséder un patrimoine génétique proche et fonctionner très différemment. Les gènes présents ne disent pas, à eux seuls, lesquels sont exprimés, quelles protéines sont disponibles et quelles réactions biochimiques ont lieu. Les approches **multi-omiques** étudient plusieurs ensembles de mesures biologiques pour mieux décrire un système. Leur intérêt n'est pas de concaténer le plus grand nombre de colonnes : il est de relier des observations complémentaires à une question biologique précise.
+
+Prérequis : [matrices](/achraf-notebooks/fr/mathematics/linear-algebra/) et [probabilités](/achraf-notebooks/fr/mathematics/probability/). Objectifs : distinguer les principales modalités, construire leurs matrices, comparer trois stratégies de fusion et reconnaître les limites d'une prédiction biomédicale. La biologie nécessaire est introduite ici ; les méthodes avancées restent au programme du parcours K.
+
+## ADN, ARN et protéines : une carte simplifiée
+
+Une cellule contient de l'**ADN**, molécule portant de l'information génétique. Les **gènes** sont des régions dont l'expression permet la production de molécules fonctionnelles, notamment des ARN. La **transcription** produit de l'ARN à partir d'une matrice d'ADN. Certains ARN, dits messagers, peuvent être **traduits** en protéines. Les protéines participent à la structure, au transport, à la signalisation et à la catalyse des réactions.
+
+Ce schéma ne signifie pas que tous les gènes codent des protéines ni que quantité d'ARN égale quantité de protéine. La régulation, la dégradation et les modifications moléculaires modifient les relations. Un tissu contient souvent plusieurs types cellulaires : une mesure globale mélange leurs contributions. La distinction entre expression par cellule et composition du tissu est donc essentielle.
+
+La **génomique** étudie l'ADN et ses variations. La **transcriptomique** mesure les ARN. La **protéomique** étudie les protéines ; la **métabolomique**, les petites molécules associées aux processus biochimiques. L'**épigénomique** étudie notamment des états de la chromatine et des modifications associés à la régulation. Ces couches ont des dynamiques et des erreurs de mesure différentes.
+
+## Ce que produit une expérience
+
+En RNA-seq, on séquence des fragments issus des ARN selon un protocole, puis on attribue les lectures à des éléments d'intérêt. Un tableau de comptes ne donne pas directement une concentration absolue de chaque molécule. Profondeur de séquençage, longueur et ambiguïté d'attribution peuvent intervenir selon le protocole et l'analyse. Un simple classement des comptes bruts entre échantillons peut donc être trompeur.
+
+La transcriptomique unicellulaire conserve une résolution par cellule, mais présente d'autres difficultés : comptages clairsemés, profondeur variable et dépendance entre cellules d'un même individu. Une modalité manquante pour un patient n'est pas équivalente à une expression nulle d'un gène.
+
+Pour $n$ patients et une modalité $v$, écrivons $X^{(v)}\in\mathbb R^{n\times p_v}$. $p_v$ est son nombre de variables. La ligne $i$ représente le patient $i$ ; la colonne $j$ une mesure. Deux matrices ne peuvent être fusionnées par ligne qu'après vérification des identifiants et de l'alignement des patients. Un mauvais appariement peut produire un modèle numériquement exécutable mais scientifiquement dépourvu de sens.
+
+## Trois familles de fusion
+
+La **fusion précoce** concatène les variables après un prétraitement adapté : $X=[X^{(1)}\mid X^{(2)}]$. Si les deux modalités ont 5 000 et 300 variables, le modèle reçoit 5 300 variables. Leur échelle et leur nombre peuvent déséquilibrer l'apprentissage ; la régularisation et une comparaison avec chaque modalité seule sont nécessaires.
+
+La **fusion intermédiaire** apprend une représentation partagée. Un modèle factoriel peut approximer $X^{(v)}\approx Z(W^{(v)})^T$ : $Z$ est une matrice $n\times k$ de facteurs patients, $W^{(v)}$ une matrice $p_v\times k$ de charges, et $k$ le nombre de facteurs. Le produit retrouve la forme $n\times p_v$. Des modèles comme MOFA+ ajoutent un cadre probabiliste multi-vues ; cette formule n'en résume pas toutes les hypothèses ni l'inférence.
+
+La **fusion tardive** combine les prédictions de modèles séparés, par exemple une moyenne pondérée. Les poids doivent être choisis sur la validation, jamais sur le test. Une combinaison complexe doit battre des références simples pour justifier son coût. Les graphes de similarité, réseaux neuronaux multimodaux et méthodes contrastives offrent d'autres constructions, à étudier après ces références.
+
+## Une démarche scientifique complète
+
+Prenons une question illustrative : plusieurs modalités améliorent-elles la prédiction d'un résultat par rapport à une seule modalité ? Il faut définir le résultat, le moment de prédiction, la population, la disponibilité des mesures et l'usage envisagé **avant** de comparer les modèles.
+
+Le protocole commence par le contrôle des échantillons, des unités et de la qualité. Le partage entraînement/validation/test se fait au niveau de l'individu ; les répétitions ou cellules d'un même individu ne doivent pas traverser les partitions. Les transformations apprises, la sélection de gènes et les hyperparamètres sont ajustés dans les plis d'entraînement. Un protocole doit traiter les effets de lot sans utiliser les étiquettes du test.
+
+Si le laboratoire ou l'hôpital est associé au résultat, un modèle peut apprendre le site plutôt que la biologie recherchée. Une validation sur une autre cohorte ou un autre site mesure mieux ce risque. Une importance de variable est une association dépendant du modèle ; elle ne prouve pas qu'une intervention sur ce gène modifierait la maladie.
+
+## À quoi l'IA peut-elle contribuer ?
+
+Le ML peut prédire, regrouper des patients ou sélectionner des signaux. Le DL peut apprendre des représentations non linéaires, mais ses paramètres nombreux peuvent être inadaptés à de petites cohortes. Le RL concerne des décisions séquentielles dans un environnement défini ; il n'est pas une méthode d'intégration par défaut. Une tâche de prédiction d'un résultat fixe n'a pas automatiquement besoin de RL.
+
+Une performance rétrospective ne démontre pas un bénéfice clinique. Celui-ci dépend de la validation, de la calibration, de l'usage, de l'impact sur les décisions et de l'évaluation adaptée à la pratique clinique.
+
+## Un petit exemple de dimensions
+
+```python
+# 3 patients, 2 variables d'une modalité, 1 de l'autre.
+rna = [[1., 2.], [2., 1.], [3., 4.]]
+protein = [[0.5], [0.8], [1.2]]
+# Les identifiants des patients ont été alignés au préalable.
+fused = [a+b for a, b in zip(rna, protein)]
+assert len(fused) == 3 and len(fused[0]) == 3
+```
+
+Ce code montre la concaténation ; ce n'est pas un pipeline biologique. Le véritable prétraitement doit être choisi pour les mesures utilisées.
+
+## Exercices
+
+1. Deux matrices de 100 patients comportent 5 000 et 300 variables. Donnez la forme de leur concaténation.
+2. Pourquoi une séparation aléatoire des cellules peut-elle surestimer une généralisation à de nouveaux patients ?
+3. Une mutation associée à un résultat est-elle nécessairement sa cause ?
+4. Quel contrôle révèle si la seconde modalité améliore réellement la prédiction ?
+
+<details>
+<summary>Corrigé</summary>
+
+
+
+1. $100\times5300$, si les patients sont correctement alignés.
+2. Des cellules d'un même individu partagent des caractéristiques biologiques et techniques. Leur présence dans entraînement et test donne au modèle une information sur les individus censés être nouveaux.
+3. Non : confusion, sélection et corrélations avec d'autres mécanismes peuvent expliquer l'association. Une conclusion causale exige un raisonnement supplémentaire.
+4. Comparer, avec les mêmes partitions et un budget de réglage raisonnable, chaque modalité seule et la fusion. Rapporter aussi l'incertitude, les cas manquants et les changements de cohorte.
+
+
+
+</details>
+
+
+
+<Quiz id="omics-shape" lang="fr" question="100 patients, 5 000 variables ARN et 300 variables protéiques : combien de colonnes après fusion précoce ?" answer={5300} explanation="Les colonnes s’additionnent, les lignes restent les mêmes : 100 × 5 300, après alignement des patients." />
+
+## Références et parcours
+
+Sources : [EMBL-EBI, Functional genomics I](https://www.ebi.ac.uk/training/online/courses/functional-genomics-i-introduction-and-design/) pour les mesures et [Argelaguet et al., MOFA+, Genome Biology, 2020](https://doi.org/10.1186/s13059-020-02015-1) pour une méthode originale d'intégration. Les données traitées de [MOFAdata](https://bioconductor.org/packages/release/data/experiment/html/MOFAdata.html) sont une piste de projet ; la licence du paquet ne doit pas être confondue avec tous les droits sur les données biologiques sous-jacentes. Le [catalogue](/achraf-notebooks/fr/curriculum/#school-k) expose le parcours K complet. Le projet multi-omique de cohorte réelle reste **prévu**, avec les vérifications de provenance et de droits à finaliser avant sa publication.

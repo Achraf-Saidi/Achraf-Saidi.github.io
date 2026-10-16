@@ -1,0 +1,116 @@
+---
+title: "Une droite qui apprend : régression et descente de gradient"
+description: "Définir une perte, dériver ses gradients, calculer un premier pas et distinguer ajustement et généralisation."
+conceptId: F3.01
+effort: 70
+prerequisites: ["A9.01", "B1.01", "C2.01"]
+status: published
+sidebar:
+  order: 10
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="F3.01" lang="fr" minutes={70} />
+
+## Comment choisir une droite ?
+
+Nous observons trois couples $(x_i,y_i)$ : $(0,1)$, $(1,3)$, $(2,5)$. L'indice $i$ numérote les observations de 1 à $n=3$. Nous voulons prédire une sortie par $\hat y_i=wx_i+b$. Le symbole $\hat y$ désigne une prédiction, $w$ une pente et $b$ une constante. Ici, la droite $w=2,b=1$ traverse les trois points. Une méthode d'apprentissage doit pouvoir retrouver ses paramètres sans que nous lui donnions la réponse.
+
+Prérequis : [dérivées](/achraf-notebooks/fr/foundations/derivatives/), [vecteurs et matrices](/achraf-notebooks/fr/mathematics/linear-algebra/) et [Python](/achraf-notebooks/fr/programming/python/). Objectifs : construire les moindres carrés, dériver les gradients, calculer une mise à jour et définir une évaluation honnête.
+
+## Transformer une préférence en fonction
+
+Le résidu signé est $e_i=wx_i+b-y_i$. Les résidus positifs et négatifs ne doivent pas s'annuler artificiellement. On minimise donc leur carré moyen, la **MSE** :
+
+$$L(w,b)=\frac1n\sum_{i=1}^n(wx_i+b-y_i)^2.$$
+
+$L$ est la perte d'entraînement, un nombre réel non négatif. Les carrés pénalisent fortement les grands écarts : cela donne une géométrie simple, mais aussi une sensibilité aux valeurs extrêmes. La perte mesure un écart dans l'unité de $y$ au carré ; sa racine, RMSE, retrouve l'unité de $y$.
+
+Au départ $w=b=0$, les résidus sont $-1,-3,-5$, donc $L(0,0)=(1+9+25)/3=35/3$. À $w=2,b=1$, tous sont nuls et $L=0$, minimum global puisque les carrés sont non négatifs.
+
+## Dériver par rapport à deux paramètres
+
+Une dérivée partielle fait varier un paramètre en gardant l'autre fixe. La règle de chaîne donne $\partial e_i^2/\partial w=2e_i x_i$ et $\partial e_i^2/\partial b=2e_i$. Le symbole $\partial$ indique cette dérivation partielle. En sommant :
+
+$$\frac{\partial L}{\partial w}=\frac2n\sum_i e_i x_i,\qquad\frac{\partial L}{\partial b}=\frac2n\sum_i e_i.$$
+
+Le **gradient** rassemble ces dérivées dans un vecteur. Il pointe vers la plus forte augmentation locale selon la norme euclidienne. Pour diminuer la perte, on essaie donc le sens opposé avec un pas positif $\eta$, appelé taux d'apprentissage :
+
+$$w_{\mathrm{nouveau}}=w-\eta\frac{\partial L}{\partial w},\qquad b_{\mathrm{nouveau}}=b-\eta\frac{\partial L}{\partial b}.$$
+
+Les deux dérivées doivent être calculées aux **anciens** paramètres. Mettre $w$ à jour avant de calculer le gradient en $b$ produirait une méthode différente.
+
+## Un vrai premier pas
+
+Au départ, $\partial L/\partial w=2(0-3-10)/3=-26/3$ et $\partial L/\partial b=2(-1-3-5)/3=-6$. Pour $\eta=0{,}1$, les nouveaux paramètres sont $w=13/15\approx0{,}8667$, $b=0{,}6$. La perte devient environ 3,2074, contre 11,6667 initialement. Un pas a amélioré l'ajustement, sans atteindre encore la solution.
+
+<Lab kind="gradient" lang="fr" />
+
+Faites plusieurs pas avec $\eta=0{,}1$, puis réinitialisez et augmentez le taux. Un pas trop grand peut faire augmenter la perte et conduire à la divergence. La convexité garantit ici que les minima locaux sont globaux ; elle ne rend pas tous les taux d'apprentissage valides.
+
+## Implémenter la mise à jour
+
+```python
+x, y = [0., 1., 2.], [1., 3., 5.]
+w = b = 0.0
+rate = 0.1
+for iteration in range(300):
+    errors = [w*xi+b-yi for xi, yi in zip(x, y)]
+    dw = 2*sum(e*xi for e, xi in zip(errors, x))/len(x)
+    db = 2*sum(errors)/len(x)
+    w, b = w-rate*dw, b-rate*db
+print(round(w, 5), round(b, 5))  # 2.0 1.0
+```
+
+La boucle calcule les erreurs sur toutes les observations : c'est une descente de gradient **batch**. La descente stochastique utilise une observation ou un petit lot ; elle demande une analyse différente du bruit des gradients.
+
+## La lecture matricielle et une solution directe
+
+Plaçons une colonne de 1 pour l'interception et une colonne contenant les $x_i$ dans $X\in\mathbb R^{n\times2}$. Avec $\beta=(b,w)^T$ et le vecteur des sorties $y\in\mathbb R^n$, la perte est $\|X\beta-y\|^2/n$. Annuler son gradient donne les équations normales $X^TX\beta=X^Ty$. Si les colonnes de $X$ sont indépendantes, la solution est unique. Si elles ne le sont pas, il peut y avoir plusieurs paramètres donnant les mêmes prédictions d'entraînement.
+
+La formule $(X^TX)^{-1}X^Ty$ exprime la solution en plein rang, mais calculer explicitement l'inverse est généralement un mauvais choix numérique. Utilisez `numpy.linalg.lstsq` ou un solveur par QR/SVD. Avec scikit-learn :
+
+```python
+import numpy as np
+
+from sklearn.linear_model import LinearRegression
+X = np.array(x).reshape(-1, 1)
+model = LinearRegression().fit(X, y)
+print(model.coef_, model.intercept_)  # [2.] 1.0
+```
+
+En R, `lm(y ~ x)` ajuste le même modèle avec interception. Ces bibliothèques ne donnent un sens statistique à l'incertitude que sous des hypothèses supplémentaires. Minimiser les carrés n'exige pas des erreurs normales ; les tests et intervalles classiques font intervenir leur propre cadre d'hypothèses.
+
+## Apprendre ne signifie pas généraliser
+
+Les trois points sont ici synthétiques et parfaitement alignés. Une perte d'entraînement nulle ne prouve rien sur de nouvelles données. Un projet réel réserve un ensemble de test, choisit les hyperparamètres sans le consulter et compare à une prédiction constante de référence. Une séparation temporelle ou par patient peut être nécessaire selon l'usage. Toute transformation apprise sur les données doit être ajustée dans l'entraînement uniquement.
+
+## Exercices
+
+1. Pour les mêmes points, calculez $L(1,1)$.
+2. Si $y$ est mesuré en euros, quelle est l'unité de la MSE ? De la RMSE ?
+3. Pourquoi une matrice $X$ dont la seconde colonne est aussi une colonne de 1 pose-t-elle problème ?
+4. Pourquoi choisir le taux d'apprentissage sur les résultats du test final invalide-t-il son rôle ?
+
+<details>
+<summary>Corrigé</summary>
+
+
+
+1. Les prédictions sont 1,2,3 et les résidus 0,$-1$,$-2$, donc $L=5/3$.
+2. MSE en euros carrés ; RMSE en euros.
+3. Les colonnes sont dépendantes. Seule la somme des deux coefficients est identifiable : plusieurs paramètres produisent les mêmes sorties.
+4. Le test participe alors au choix du modèle. Il n'est plus une mesure indépendante de cette sélection ; utilisez une validation séparée ou une validation croisée adaptée.
+
+
+
+</details>
+
+
+
+<Quiz id="regression-loss" lang="fr" question="Avec w=b=0 et y=[1,3,5], quelle est la somme des carrés des résidus ?" answer={35} explanation="1² + 3² + 5² = 35. La moyenne des carrés est 35/3." />
+
+Références : [An Introduction to Statistical Learning](https://www.statlearning.com/) et [scikit-learn, LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html). Le [projet reproductible](/achraf-notebooks/fr/projects/) comprend une solution téléchargeable. La [rétropropagation](/achraf-notebooks/fr/learning/backpropagation/) généralise le calcul du gradient à une composition non linéaire.

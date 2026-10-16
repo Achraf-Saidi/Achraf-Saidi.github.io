@@ -1,0 +1,108 @@
+---
+title: "Rétropropagation : dériver un petit réseau de bout en bout"
+description: "Propagation avant, perte, gradients des deux couches et vérification par différences finies."
+conceptId: G4.01
+effort: 65
+prerequisites: ["F3.01"]
+status: published
+sidebar:
+  order: 11
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="G4.01" lang="fr" minutes={65} />
+
+## Qui doit changer quand le réseau se trompe ?
+
+Une prédiction dépend de plusieurs calculs successifs. Pour corriger ses paramètres, nous devons connaître l'effet de chacun sur l'erreur finale. La **rétropropagation** applique efficacement la règle de chaîne au graphe de ces calculs. Elle calcule des dérivées ; la descente de gradient utilise ensuite ces dérivées pour modifier les paramètres. Ce sont deux opérations distinctes.
+
+Prérequis : [régression et gradient](/achraf-notebooks/fr/learning/regression/), donc dérivées et composition. Objectifs : suivre une propagation avant, calculer les quatre gradients d'un petit réseau et contrôler un gradient numériquement. Le réseau étudié est une régression à une unité cachée, pas un système biologique ni un grand modèle.
+
+## Un réseau minuscule, toutes les quantités définies
+
+L'entrée scalaire est $x$, la cible est $y$. La première couche possède un poids $w_1$ et un biais $b_1$. Elle produit $z=w_1x+b_1$, puis $h=\tanh(z)$. La seconde couche possède $w_2,b_2$ et renvoie $\hat y=w_2h+b_2$. La perte d'une observation est $L=(\hat y-y)^2/2$.
+
+La fonction $\tanh(z)=(e^z-e^{-z})/(e^z+e^{-z})$ est une activation lisse comprise entre $-1$ et 1 ; $e^z$ désigne l'exponentielle. Sa dérivée est $1-\tanh^2(z)$. En écrivant son numérateur $N$ et son dénominateur $D$, on a $N'=D$, $D'=N$, donc $(N/D)'=(D^2-N^2)/D^2=1-(N/D)^2$. La non-linéarité empêche toute la composition de se réduire à une seule transformation affine.
+
+## Calculer la propagation avant
+
+Fixons $x=y=1$, $w_1=0{,}5$, $b_1=0$, $w_2=2$, $b_2=0$. Nous obtenons successivement :
+
+$$z=0{,}5,\qquad h=\tanh(0{,}5)\approx0{,}462117,$$
+$$\hat y=2h\approx0{,}924234,\qquad L\approx0{,}00287022.$$
+
+On stocke les valeurs intermédiaires utiles, notamment $h$. Refaire tous les calculs pour chaque paramètre serait inutilement coûteux.
+
+## Revenir de la perte vers les paramètres
+
+Posons $\delta=\partial L/\partial\hat y=\hat y-y\approx-0{,}075766$. Ce signal mesure l'effet local de la sortie sur la perte. Pour la dernière couche :
+
+$$\frac{\partial L}{\partial w_2}=\delta h,\qquad\frac{\partial L}{\partial b_2}=\delta.$$
+
+Le signal vers $h$ vaut $\partial L/\partial h=\delta w_2$. En traversant l'activation, il devient $\partial L/\partial z=\delta w_2(1-h^2)$. Enfin :
+
+$$\frac{\partial L}{\partial w_1}=\delta w_2(1-h^2)x,\qquad\frac{\partial L}{\partial b_1}=\delta w_2(1-h^2).$$
+
+Chaque facteur correspond à une arête de la composition : effet de $L$ sur la sortie, effet de la sortie sur $h$, effet de $h$ sur $z$, effet de $z$ sur le paramètre. Pour ces valeurs, les gradients en $w_2,b_2,w_1,b_1$ valent environ $-0{,}03501$, $-0{,}07577$, $-0{,}11917$, $-0{,}11917$. Le signe négatif indique qu'augmenter légèrement ces paramètres diminue localement la perte. Une grande augmentation pourrait avoir l'effet inverse.
+
+<Lab kind="backprop" lang="fr" />
+
+Le laboratoire fixe $x=y=1$ et les biais à zéro, afin d'isoler les deux poids. Approchez $w_1$ d'une valeur de grande amplitude : l'activation se rapproche d'une saturation et le facteur $1-h^2$ diminue. Cela illustre un mécanisme de petits gradients.
+
+## Code et contrôle indépendant
+
+```python
+import math
+
+def loss(w1, w2, x=1., y=1.):
+    prediction = w2 * math.tanh(w1*x)
+    return 0.5*(prediction-y)**2
+
+w1, w2, x, y = 0.5, 2., 1., 1.
+h = math.tanh(w1*x)
+delta = w2*h-y
+grad_w1 = delta*w2*(1-h*h)*x
+grad_w2 = delta*h
+step = 1e-6
+numeric = (loss(w1+step,w2)-loss(w1-step,w2))/(2*step)
+assert abs(grad_w1-numeric) < 1e-8
+print(grad_w1, grad_w2)
+```
+
+La différence finie centrée perturbe réellement un paramètre et mesure le changement de perte. Elle ne réutilise pas la formule analytique du gradient : c'est un contrôle indépendant. Trop grand, le déplacement déforme l'approximation ; trop petit, il amplifie les erreurs d'arrondi. Ce test ne prouve pas une implémentation pour toutes les entrées, mais détecte de nombreuses erreurs de signe ou de facteur.
+
+## Des scalaires aux matrices
+
+Pour une couche de $d$ entrées et $m$ sorties, $z=Wx+b$ avec $x\in\mathbb R^d$, $W\in\mathbb R^{m\times d}$ et $b,z\in\mathbb R^m$. Si $g=\partial L/\partial z\in\mathbb R^m$ est le signal reçu, alors $\partial L/\partial W=gx^T$ et $\partial L/\partial x=W^Tg$. Le premier produit est une matrice $m\times d$, le second un vecteur de dimension $d$ : les dimensions vérifient les formules. Pour plusieurs observations, on somme ou moyenne leurs contributions selon la définition de la perte.
+
+Dans PyTorch, les tenseurs marqués `requires_grad=True` enregistrent le graphe. `loss.backward()` calcule et accumule les gradients ; il faut les remettre à zéro entre mises à jour indépendantes. L'autodifférentiation évite d'écrire ces règles à la main, mais ne choisit ni une bonne perte, ni les données, ni le protocole d'évaluation.
+
+## Exercices
+
+1. Pourquoi le facteur $1/2$ de la perte disparaît-il dans $\delta$ ?
+2. Si $x=0$, quel est le gradient en $w_1$ ? Et celui en $b_1$ ?
+3. Sans activation, pourquoi deux couches affines restent-elles une seule fonction affine ?
+4. Quelle erreur produit une mise à jour de $w_2$ avant de calculer le gradient en $w_1$ ?
+
+<details>
+<summary>Corrigé</summary>
+
+
+
+1. Dériver $(\hat y-y)^2$ donne le facteur 2, qui annule $1/2$.
+2. Le gradient en $w_1$ est nul grâce au facteur $x$. Celui en $b_1$ peut rester non nul, car changer le biais change $z$ même si l'entrée est zéro.
+3. $W_2(W_1x+b_1)+b_2=(W_2W_1)x+(W_2b_1+b_2)$, encore une transformation affine.
+4. Les gradients ne correspondraient plus tous au même point du paramétrage. Calculez d'abord tous les gradients de la propagation avant courante, puis mettez à jour.
+
+
+
+</details>
+
+
+
+<Quiz id="backprop-chain" lang="fr" question="La rétropropagation réalise principalement…" options={['Le calcul des gradients par la règle de chaîne','Le choix automatique des données','Une preuve de généralisation']} answer={0} explanation="Elle calcule les dérivées de la perte par rapport aux paramètres. Optimisation et évaluation restent des étapes distinctes." />
+
+Références : [Deep Learning, Goodfellow, Bengio et Courville](https://www.deeplearningbook.org/), chapitre sur les réseaux à propagation avant ; [PyTorch, autograd](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html). La bibliothèque de [projets](/achraf-notebooks/fr/projects/) fournit ce contrôle numérique sous forme de notebook.

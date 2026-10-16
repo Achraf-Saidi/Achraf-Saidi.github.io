@@ -1,0 +1,108 @@
+---
+title: "Backpropagation: differentiating a small network end to end"
+description: "Forward pass, loss, gradients through two layers and a finite-difference check."
+conceptId: G4.01
+effort: 65
+prerequisites: ["F3.01"]
+status: published
+sidebar:
+  order: 11
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="G4.01" lang="en" minutes={65} />
+
+## What should change when a network is wrong?
+
+A prediction depends on successive calculations. To correct parameters, we need each parameter’s effect on the final error. **Backpropagation** efficiently applies the chain rule to this computational graph. It calculates derivatives; gradient descent then uses them to update parameters. These are distinct operations.
+
+Prerequisite: [regression and gradients](/achraf-notebooks/en/learning/regression/), including differentiation and composition. Goals: execute a forward pass, calculate all four gradients of a small network and check a gradient numerically. This is a one-hidden-unit regression network, not a biological system or a large model.
+
+## A tiny network with every quantity defined
+
+The scalar input is $x$ and the target is $y$. Layer one has weight $w_1$ and bias $b_1$, producing $z=w_1x+b_1$ followed by $h=\tanh(z)$. Layer two has $w_2,b_2$ and produces $\hat y=w_2h+b_2$. The one-observation loss is $L=(\hat y-y)^2/2$.
+
+The activation $\tanh(z)=(e^z-e^{-z})/(e^z+e^{-z})$ is smooth and lies between $-1$ and 1; $e^z$ denotes the exponential. Its derivative is $1-\tanh^2(z)$. Calling numerator $N$ and denominator $D$, we have $N'=D$ and $D'=N$, hence $(N/D)'=(D^2-N^2)/D^2=1-(N/D)^2$. Nonlinearity prevents the entire composition from collapsing into a single affine transformation.
+
+## Calculating the forward pass
+
+Set $x=y=1$, $w_1=0.5$, $b_1=0$, $w_2=2$, $b_2=0$. Then:
+
+$$z=0.5,\qquad h=\tanh(0.5)\approx0.462117,$$
+$$\hat y=2h\approx0.924234,\qquad L\approx0.00287022.$$
+
+Store useful intermediate values, especially $h$. Recomputing the entire network separately for each parameter would waste work.
+
+## Moving backwards from loss to parameters
+
+Let $\delta=\partial L/\partial\hat y=\hat y-y\approx-0.075766$. This signal measures the local effect of the output on loss. For the last layer:
+
+$$\frac{\partial L}{\partial w_2}=\delta h,\qquad\frac{\partial L}{\partial b_2}=\delta.$$
+
+The signal reaching $h$ is $\partial L/\partial h=\delta w_2$. Passing through the activation gives $\partial L/\partial z=\delta w_2(1-h^2)$. Finally:
+
+$$\frac{\partial L}{\partial w_1}=\delta w_2(1-h^2)x,\qquad\frac{\partial L}{\partial b_1}=\delta w_2(1-h^2).$$
+
+Each factor follows an edge of the composition: loss to output, output to $h$, $h$ to $z$, and $z$ to the parameter. For these values, gradients with respect to $w_2,b_2,w_1,b_1$ are approximately $-0.03501$, $-0.07577$, $-0.11917$, $-0.11917$. Their negative signs mean that a small increase in these parameters decreases loss locally. A large increase might do the opposite.
+
+<Lab kind="backprop" lang="en" />
+
+The lab fixes $x=y=1$ and both biases at zero to isolate the two weights. Give $w_1$ a larger magnitude: the activation approaches saturation and $1-h^2$ shrinks. This illustrates a mechanism producing small gradients.
+
+## Code and an independent check
+
+```python
+import math
+
+def loss(w1, w2, x=1., y=1.):
+    prediction = w2 * math.tanh(w1*x)
+    return 0.5*(prediction-y)**2
+
+w1, w2, x, y = 0.5, 2., 1., 1.
+h = math.tanh(w1*x)
+delta = w2*h-y
+grad_w1 = delta*w2*(1-h*h)*x
+grad_w2 = delta*h
+step = 1e-6
+numeric = (loss(w1+step,w2)-loss(w1-step,w2))/(2*step)
+assert abs(grad_w1-numeric) < 1e-8
+print(grad_w1, grad_w2)
+```
+
+The central finite difference actually perturbs a parameter and measures the loss change. It does not reuse the analytic gradient formula, making it an independent check. Too large a displacement distorts the approximation; too small amplifies rounding errors. This check does not prove correctness on every input, but catches many sign and factor mistakes.
+
+## From scalars to matrices
+
+For a layer with $d$ inputs and $m$ outputs, $z=Wx+b$, with $x\in\mathbb R^d$, $W\in\mathbb R^{m\times d}$ and $b,z\in\mathbb R^m$. If the incoming signal is $g=\partial L/\partial z\in\mathbb R^m$, then $\partial L/\partial W=gx^T$ and $\partial L/\partial x=W^Tg$. The first product has size $m\times d$; the second has dimension $d$. Dimensions check the formulas. For several observations, sum or average contributions according to the chosen loss.
+
+In PyTorch, tensors marked `requires_grad=True` record the graph. Calling `loss.backward()` calculates and accumulates gradients; reset them between independent updates. Automatic differentiation saves manual rules but does not choose the right loss, data or evaluation protocol.
+
+## Exercises
+
+1. Why does the loss factor $1/2$ disappear from $\delta$?
+2. If $x=0$, what is the gradient with respect to $w_1$? What about $b_1$?
+3. Without an activation, why do two affine layers remain one affine function?
+4. What goes wrong if you update $w_2$ before calculating the gradient for $w_1$?
+
+<details>
+<summary>Worked solutions</summary>
+
+
+
+1. Differentiating $(\hat y-y)^2$ gives a factor 2, cancelling $1/2$.
+2. The gradient for $w_1$ is zero because of the factor $x$. The bias gradient can remain nonzero: changing the bias changes $z$ even when input is zero.
+3. $W_2(W_1x+b_1)+b_2=(W_2W_1)x+(W_2b_1+b_2)$ is still affine.
+4. The gradients no longer correspond to the same parameter point. Calculate all gradients for the current forward pass before updating parameters.
+
+
+
+</details>
+
+
+
+<Quiz id="backprop-chain" lang="en" question="Backpropagation primarily performs…" options={['Gradient calculation using the chain rule','Automatic selection of training data','A proof of generalization']} answer={0} explanation="It calculates loss derivatives with respect to parameters. Optimization and evaluation remain separate steps." />
+
+References: [Deep Learning, Goodfellow, Bengio and Courville](https://www.deeplearningbook.org/), feedforward networks chapter; [PyTorch, autograd](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html). The [projects](/achraf-notebooks/en/projects/) provide this numerical check as a notebook.

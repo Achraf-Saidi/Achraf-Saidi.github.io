@@ -1,0 +1,99 @@
+---
+title: "Variables, identités et équations"
+description: "Comprendre les lettres dans les formules et résoudre une équation sans perdre son sens."
+conceptId: A2.01
+effort: 40
+prerequisites: ["A1.01"]
+status: published
+sidebar:
+  order: 2
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="A2.01" lang="fr" minutes={40} />
+
+## Que cherche-t-on quand on résout ?
+
+Un abonnement coûte 5 € plus 2 € par séance. Pour combien de séances la facture atteint-elle 17 € ? Appelons $x$ le nombre de séances. L'expression $5+2x$ décrit une facture possible ; l'équation $5+2x=17$ impose une condition. **Résoudre**, c'est trouver toutes les valeurs autorisées de $x$ qui la rendent vraie.
+
+Prérequis : [nombres et fractions](/achraf-notebooks/fr/foundations/numbers/). Objectifs : distinguer expression, identité et équation ; développer, factoriser et résoudre des équations linéaires simples.
+
+## Les lettres ont un rôle
+
+Une **variable** représente une valeur qui peut changer. Une **inconnue** est une valeur recherchée dans un problème. Un **paramètre** est fixé pendant un calcul mais peut varier entre problèmes. Dans $ax+b=0$, $x$ peut être l'inconnue, et $a,b$ des paramètres. Le rôle vient du contexte, pas de la lettre.
+
+L'écriture $2x$ signifie $2\times x$. Une expression comme $x^2+3x$ n'affirme rien : on peut l'évaluer pour un $x$ donné. Une équation affirme que deux expressions sont égales pour les valeurs cherchées. Une **identité**, comme $(x+1)^2=x^2+2x+1$, est vraie pour tout réel $x$.
+
+## Garder l'équilibre
+
+Pour $5+2x=17$, soustrayons 5 aux deux membres : $2x=12$. Divisons les deux membres par 2 : $x=6$. En remplaçant dans l'énoncé, $5+2\times6=17$ : la solution convient.
+
+Ajouter la même quantité aux deux membres préserve l'équivalence. Multiplier ou diviser par un même nombre **non nul** aussi. Le symbole $\iff$ signifie « si et seulement si » : les deux équations ont les mêmes solutions.
+
+$$5+2x=17\iff2x=12\iff x=6.$$
+
+Diviser par une expression qui pourrait être nulle peut faire perdre des solutions. Pour $x(x-1)=0$, diviser par $x$ oublie $x=0$. On utilise plutôt la propriété : un produit réel est nul si et seulement si au moins l'un de ses facteurs est nul. Les solutions sont 0 et 1.
+
+## Développer et factoriser
+
+La distributivité $a(b+c)=ab+ac$ relie addition et multiplication. Ainsi $(x+2)(x+3)=x^2+3x+2x+6=x^2+5x+6$. Développer décompose un produit en somme. Factoriser effectue le chemin inverse ; $x^2+5x+6=(x+2)(x+3)$ révèle les racines $-2$ et $-3$.
+
+Pour le carré d'une somme :
+
+$$(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2=a^2+2ab+b^2.$$
+
+Le terme croisé $2ab$ sera décisif dans la construction de la dérivée de $x^2$. Il explique aussi pourquoi $(a+b)^2\ne a^2+b^2$ en général.
+
+## Contraintes et inégalités
+
+Dans $1/(x-2)$, $x=2$ est interdit. Avant une transformation algébrique, notez les valeurs exclues. En multipliant une inégalité par un nombre négatif, son sens s'inverse : $-2x<6$ équivaut à $x>-3$. Sur la droite réelle, changer le signe réfléchit les positions et renverse leur ordre.
+
+Le contexte peut ajouter une contrainte : un nombre de séances doit être entier et non négatif. Une solution algébrique négative serait alors exclue du problème concret.
+
+## Calculer, puis vérifier
+
+```python
+x = (17 - 5) / 2
+assert 5 + 2 * x == 17
+print(x)  # 6.0
+```
+
+`assert` vérifie ici une propriété exacte de ces petits nombres. Avec des calculs flottants plus généraux, on utilisera une tolérance. Un solveur informatique ne dispense pas d'identifier le domaine des solutions.
+
+## Exercices
+
+1. Résolvez $3(x-2)=12$ puis vérifiez.
+2. Résolvez $x^2=3x$ sans perdre de solution.
+3. Simplifiez $(x^2-1)/(x-1)$ en précisant son domaine.
+
+<details>
+<summary>Indice</summary>
+
+Pour 2 et 3, mettez tout en facteurs. Une expression simplifiée conserve les restrictions initiales.
+
+</details>
+
+
+<details>
+<summary>Corrigé</summary>
+
+
+
+1. $x-2=4$, donc $x=6$. Vérification : $3(6-2)=12$.
+2. $x^2-3x=x(x-3)=0$, donc $x=0$ ou $x=3$. Diviser immédiatement par $x$ aurait perdu 0.
+3. $x^2-1=(x-1)(x+1)$. Pour $x\ne1$, le quotient vaut $x+1$. À $x=1$, l'expression initiale reste indéfinie.
+
+
+
+</details>
+
+
+
+<Quiz id="algebra-square" lang="fr" question="Pour x = 3, combien vaut (x + 2)² ?" answer={25} explanation="(3 + 2)² = 5² = 25, ou 9 + 12 + 4 = 25." />
+
+## Vers les fonctions
+
+Une équation demande des valeurs ; une fonction organise une dépendance entre valeurs. Poursuivez avec [les fonctions](/achraf-notebooks/fr/foundations/functions/). Référence complémentaire : les prérequis algébriques et les applications du [cours de calcul différentiel du MIT](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/).

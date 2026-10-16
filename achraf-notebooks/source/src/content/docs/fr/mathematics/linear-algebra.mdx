@@ -1,0 +1,92 @@
+---
+title: "Vecteurs et matrices : des calculs qui ont une géométrie"
+description: "Combinaisons linéaires, produit scalaire, multiplication matricielle et transformations du plan."
+conceptId: B1.01
+effort: 60
+prerequisites: ["A2.01"]
+status: published
+sidebar:
+  order: 7
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="B1.01" lang="fr" minutes={60} />
+
+## Une donnée peut être un vecteur
+
+Pour décrire une observation par sa taille et sa masse, nous avons besoin de deux nombres ordonnés. Un vecteur $x=(x_1,x_2)$ est un élément de $\mathbb R^2$ : $x_1,x_2$ sont ses coordonnées. En géométrie, on le dessine comme un déplacement depuis l'origine. En science des données, on l'interprète comme une liste de mesures. Cette double lecture relie calcul et représentation.
+
+Prérequis : [algèbre](/achraf-notebooks/fr/foundations/algebra/). Objectifs : calculer une combinaison linéaire et un produit scalaire, lire les dimensions d'une matrice, expliquer sa multiplication par un vecteur et composer deux transformations.
+
+## Additionner et mesurer
+
+L'addition est coordonnée par coordonnée : $(1,2)+(3,-1)=(4,1)$. Multiplier par un scalaire réel $\alpha$ donne $\alpha(1,2)=(\alpha,2\alpha)$. Une **combinaison linéaire** de vecteurs $u,v$ s'écrit $au+bv$ avec des coefficients réels $a,b$. Les vecteurs $e_1=(1,0)$ et $e_2=(0,1)$ permettent d'écrire tout $x=(x_1,x_2)$ comme $x_1e_1+x_2e_2$.
+
+Le **produit scalaire** $u^Tv=\sum_{j=1}^d u_jv_j$ produit un nombre à partir de deux vecteurs de $d$ coordonnées ; $\sum$ signifie que l'on additionne les termes de l'indice $j=1$ à $d$. Le symbole $T$ indique la transposition : un vecteur colonne devient une ligne. Pour $u=(1,2)$ et $v=(3,-1)$, $u^Tv=3-2=1$.
+
+La norme euclidienne est $\|u\|=\sqrt{u^Tu}$. Pour $(3,4)$ elle vaut 5, comme dans le théorème de Pythagore. Des vecteurs non nuls sont orthogonaux lorsque leur produit scalaire est zéro. Avec des mesures de différentes unités, cette géométrie numérique dépend de l'échelle choisie : convertir les centimètres en mètres change les distances si l'on ne normalise pas.
+
+## Une matrice décrit l'action sur les axes
+
+Une matrice $A\in\mathbb R^{m\times d}$ comporte $m$ lignes et $d$ colonnes. Elle transforme un vecteur de $d$ coordonnées en un vecteur de $m$ coordonnées. Prenons
+
+$$A=\begin{pmatrix}1&2\\0&1\end{pmatrix},\qquad x=\begin{pmatrix}3\\4\end{pmatrix}.$$
+
+Le produit s'obtient en prenant le produit scalaire de chaque ligne de $A$ avec $x$ :
+
+$$Ax=\begin{pmatrix}1\times3+2\times4\\0\times3+1\times4\end{pmatrix}=\begin{pmatrix}11\\4\end{pmatrix}.$$
+
+Autre lecture, tout aussi importante : $Ax$ est la combinaison des **colonnes** de $A$, pondérée par les coordonnées de $x$ : $3(1,0)+4(2,1)=(11,4)$. Les colonnes sont précisément $Ae_1$ et $Ae_2$. Connaître l'image des vecteurs de base suffit donc à connaître la transformation linéaire entière.
+
+<Lab kind="matrix" lang="fr" />
+
+La figure montre l'image du carré unité et des deux vecteurs de base. Si le déterminant $ad-bc$ d'une matrice $2\times2$ est nul, l'image du carré s'écrase sur une droite ou un point. La transformation perd une dimension et n'est pas inversible. Le signe du déterminant indique l'orientation ; sa valeur absolue est le facteur de changement d'aire.
+
+## Multiplier, c'est composer
+
+Si $A$ transforme des vecteurs de dimension $d$ en dimension $m$, et $B$ de dimension $m$ en dimension $k$, alors $BA$ est de taille $k\times d$ et $BAx=B(Ax)$. Les dimensions internes doivent correspondre. Le coefficient à la ligne $i$ et colonne $j$ vaut $(BA)_{ij}=\sum_{r=1}^m B_{ir}A_{rj}$.
+
+L'ordre importe. Pour $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ et $B=\begin{pmatrix}2&0\\0&1\end{pmatrix}$, $AB=\begin{pmatrix}2&1\\0&1\end{pmatrix}$ mais $BA=\begin{pmatrix}2&2\\0&1\end{pmatrix}$. Faire une déformation puis un étirement ne donne pas toujours le même résultat que l'ordre inverse.
+
+## Calculer sans magie
+
+```python
+A = [[1, 2], [0, 1]]
+x = [3, 4]
+y = [sum(a*v for a, v in zip(row, x)) for row in A]
+print(y)  # [11, 4]
+```
+
+Avec NumPy, `np.array(A) @ np.array(x)` fait ce produit. Le symbole `*` y désigne une multiplication élément par élément, pas le produit matriciel. En R, le produit matriciel est `%*%` ; `*` reste élément par élément. Les formes des tableaux doivent toujours être vérifiées.
+
+## Exercices
+
+1. Calculez le produit scalaire de $(1,-1)$ et $(2,2)$, puis interprétez-le.
+2. Une matrice $3\times4$ peut-elle multiplier un vecteur de dimension 3 ? Quelle serait la sortie pour une entrée valide ?
+3. Trouvez l'image de $(1,2)$ par $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$.
+4. Pourquoi une matrice dont les deux colonnes sont identiques n'est-elle pas inversible ?
+
+<details>
+<summary>Corrigé</summary>
+
+
+
+1. $1\times2-1\times2=0$ : les vecteurs sont orthogonaux.
+2. Non : elle attend 4 coordonnées. La sortie a 3 coordonnées.
+3. L'image vaut $(-2,1)$ : c'est une rotation d'un quart de tour dans le sens trigonométrique.
+4. Elle envoie $(1,0)$ et $(0,1)$ vers le même vecteur. Deux entrées distinctes donnent la même sortie : on ne peut pas retrouver une entrée unique. En dimension 2, son déterminant est nul.
+
+
+
+</details>
+
+
+
+<Quiz id="matrix-entry" lang="fr" question="A=[[1,2],[0,1]] et x=(3,4). Première coordonnée de Ax ?" answer={11} explanation="La première ligne donne 1×3 + 2×4 = 11. La seconde donne 4." />
+
+## Référence et prolongement
+
+[MIT 18.06, Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) approfondit espaces, rang, projections et décompositions. La [régression linéaire](/achraf-notebooks/fr/learning/regression/) utilisera une matrice dont les lignes représentent les observations et les colonnes les variables. Ce carnet pose les opérations ; il ne remplace pas tout le cours d'algèbre linéaire avancée prévu au catalogue.

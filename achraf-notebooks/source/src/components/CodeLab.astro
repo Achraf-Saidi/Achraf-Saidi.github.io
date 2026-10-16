@@ -1,0 +1,16 @@
+---
+const {language='python',code='',lang='fr',filename}=Astro.props;const en=lang==='en';const b=import.meta.env.BASE_URL.replace(/\/$/,'');
+---
+<section class="lab" data-code-lab={language} data-lang={lang}>
+<div class="eyebrow">{language==='r'?'R · webR':'Python · Pyodide'}</div><p>{en?'Run real code locally in your browser. The runtime downloads only after you click Run (several MB). No account.':'Exécutez du vrai code dans votre navigateur. Le moteur se télécharge au clic sur Exécuter (plusieurs Mo). Aucun compte.'}</p>
+<label>{en?'Editable code':'Code modifiable'}<textarea spellcheck="false" aria-label={en?'Editable code':'Code modifiable'}>{code}</textarea></label>
+<button type="button" data-run>{en?'Run code':'Exécuter le code'}</button> <button type="button" class="secondary" data-stop disabled>{en?'Stop / reset':'Arrêter / réinitialiser'}</button>
+{filename&&<a class="tool-btn secondary" href={`${b}/downloads/${filename}`} download>{en?'Download':'Télécharger'}</a>}
+<output aria-live="polite">{en?'Ready. First run needs an Internet connection.':'Prêt. La première exécution nécessite une connexion Internet.'}</output>
+<p class="muted"><small>{en?'Text output only. Heavy packages and model training belong in the downloadable notebooks. Stop terminates the worker if your code loops forever.':'Sortie texte uniquement. Les paquets lourds et l’entraînement de modèles passent par les notebooks téléchargeables. Arrêter interrompt le moteur en cas de boucle infinie.'}</small></p>
+</section>
+<script>
+for(const el of document.querySelectorAll<HTMLElement>('[data-code-lab]')){let worker:Worker|undefined;const run=el.querySelector<HTMLButtonElement>('[data-run]')!,stop=el.querySelector<HTMLButtonElement>('[data-stop]')!,out=el.querySelector('output')!,en=el.dataset.lang==='en';
+function reset(){worker?.terminate();worker=undefined;run.disabled=false;stop.disabled=true;}
+run.addEventListener('click',()=>{run.disabled=true;stop.disabled=false;out.textContent=en?'Loading / running…':'Chargement / exécution…';if(!worker){worker=new Worker(`${import.meta.env.BASE_URL.replace(/\/$/,'')}/labs/${el.dataset.codeLab}-worker.js`,{type:'module'});worker.onerror=()=>{out.textContent=en?'Runtime failed. Check the connection or download the code.':'Échec du moteur. Vérifiez la connexion ou téléchargez le code.';reset();};worker.onmessage=e=>{out.textContent=String(e.data.output);run.disabled=false;stop.disabled=false;};}worker.postMessage(el.querySelector('textarea')!.value);});stop.addEventListener('click',()=>{reset();out.textContent=en?'Stopped. The next run starts a fresh session.':'Arrêté. La prochaine exécution ouvrira une nouvelle session.';});window.addEventListener('pagehide',()=>worker?.terminate());}
+</script>

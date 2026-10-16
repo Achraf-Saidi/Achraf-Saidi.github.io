@@ -1,0 +1,11 @@
+---
+interface Props{id:string;question:string;options?:string[];answer:number;explanation:string;lang?:'fr'|'en';tolerance?:number;}
+const {id,question,options,answer,explanation,lang='fr',tolerance=.001}=Astro.props;const en=lang==='en';
+---
+<form class="lab quiz" data-quiz={id} data-answer={answer} data-explanation={explanation} data-lang={lang} data-tolerance={tolerance}>
+<div class="eyebrow">{en?'Check your understanding':'Vérifier sa compréhension'}</div><fieldset><legend>{question}</legend>{options?options.map((o,i)=><label><input type="radio" name="answer" value={i} required/>{o}</label>):<label>{en?'Numeric answer':'Réponse numérique'}<input name="answer" type="number" step="any" required/></label>}</fieldset><button type="submit">{en?'Check my answer':'Vérifier ma réponse'}</button><p role="status" hidden></p>
+</form>
+<script>
+import {readProgress,writeProgress} from '../lib/progress';import {scoreNumeric} from '../lib/math.mjs';
+for(const form of document.querySelectorAll<HTMLFormElement>('[data-quiz]'))form.addEventListener('submit',event=>{event.preventDefault();const answer=String(new FormData(form).get('answer')??''),correct=scoreNumeric(answer,Number(form.dataset.answer),Number(form.dataset.tolerance)),en=form.dataset.lang==='en';const status=form.querySelector<HTMLElement>('[role=status]')!;status.hidden=false;status.textContent=(correct?(en?'Correct. ':'Exact. '):(en?'Try again. ':'À revoir. '))+form.dataset.explanation;const p=readProgress();p.attempts[form.dataset.quiz!]={answer,correct};writeProgress(p);});
+</script>

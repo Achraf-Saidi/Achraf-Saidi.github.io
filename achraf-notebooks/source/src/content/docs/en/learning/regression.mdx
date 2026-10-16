@@ -1,0 +1,116 @@
+---
+title: "A line that learns: regression and gradient descent"
+description: "Define a loss, derive its gradients, calculate the first step and distinguish fitting from generalization."
+conceptId: F3.01
+effort: 70
+prerequisites: ["A9.01", "B1.01", "C2.01"]
+status: published
+sidebar:
+  order: 10
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="F3.01" lang="en" minutes={70} />
+
+## How do we choose a line?
+
+We observe three pairs $(x_i,y_i)$: $(0,1)$, $(1,3)$ and $(2,5)$. The index $i$ labels observations from 1 to $n=3$. Predict an output using $\hat y_i=wx_i+b$. The symbol $\hat y$ denotes a prediction, $w$ a slope and $b$ an intercept. Here $w=2,b=1$ fits every point. A learning procedure should recover parameters without being told this answer.
+
+Prerequisites: [derivatives](/achraf-notebooks/en/foundations/derivatives/), [vectors and matrices](/achraf-notebooks/en/mathematics/linear-algebra/) and [Python](/achraf-notebooks/en/programming/python/). Goals: construct least squares, derive gradients, calculate an update and define an honest evaluation.
+
+## Turning a preference into a function
+
+The signed residual is $e_i=wx_i+b-y_i$. Positive and negative residuals should not cancel artificially, so minimize their mean square, the **MSE**:
+
+$$L(w,b)=\frac1n\sum_{i=1}^n(wx_i+b-y_i)^2.$$
+
+The training loss $L$ is a nonnegative real number. Squaring strongly penalizes large discrepancies, giving simple geometry but sensitivity to extreme observations. MSE has the squared units of $y$; its square root, RMSE, restores the original units.
+
+Initially $w=b=0$, so residuals are $-1,-3,-5$ and $L(0,0)=(1+9+25)/3=35/3$. At $w=2,b=1$, residuals vanish and $L=0$, a global minimum because squares cannot be negative.
+
+## Differentiating with respect to two parameters
+
+A partial derivative varies one parameter while holding the other fixed. By the chain rule, $\partial e_i^2/\partial w=2e_i x_i$ and $\partial e_i^2/\partial b=2e_i$. The symbol $\partial$ denotes partial differentiation. Summing gives
+
+$$\frac{\partial L}{\partial w}=\frac2n\sum_i e_i x_i,\qquad\frac{\partial L}{\partial b}=\frac2n\sum_i e_i.$$
+
+The **gradient** collects these derivatives into a vector. Under Euclidean geometry, it points toward greatest local increase. To reduce loss, try the opposite direction with a positive step size $\eta$, the learning rate:
+
+$$w_{\mathrm{new}}=w-\eta\frac{\partial L}{\partial w},\qquad b_{\mathrm{new}}=b-\eta\frac{\partial L}{\partial b}.$$
+
+Calculate both derivatives at the **old** parameters. Updating $w$ before calculating the derivative with respect to $b$ would produce a different procedure.
+
+## A complete first step
+
+Initially, $\partial L/\partial w=2(0-3-10)/3=-26/3$ and $\partial L/\partial b=2(-1-3-5)/3=-6$. With $\eta=0.1$, the new parameters are $w=13/15\approx0.8667$, $b=0.6$. Loss becomes approximately 3.2074, compared with 11.6667 initially. One step improves fit without yet reaching the solution.
+
+<Lab kind="gradient" lang="en" />
+
+Take several steps with $\eta=0.1$, then reset and increase it. Too large a step can increase loss and cause divergence. Convexity makes local minima global here; it does not validate every learning rate.
+
+## Implementing the update
+
+```python
+x, y = [0., 1., 2.], [1., 3., 5.]
+w = b = 0.0
+rate = 0.1
+for iteration in range(300):
+    errors = [w*xi+b-yi for xi, yi in zip(x, y)]
+    dw = 2*sum(e*xi for e, xi in zip(errors, x))/len(x)
+    db = 2*sum(errors)/len(x)
+    w, b = w-rate*dw, b-rate*db
+print(round(w, 5), round(b, 5))  # 2.0 1.0
+```
+
+This is **batch** gradient descent: every update uses every observation. Stochastic descent uses one observation or a small batch and requires an analysis of gradient noise.
+
+## The matrix view and a direct solution
+
+Let $X\in\mathbb R^{n\times2}$ contain a column of ones for the intercept and a column of $x_i$ values. With $\beta=(b,w)^T$ and output vector $y\in\mathbb R^n$, loss is $\|X\beta-y\|^2/n$. Setting its gradient to zero gives the normal equations $X^TX\beta=X^Ty$. Independent columns give a unique solution. Dependent columns can allow several parameter vectors to produce the same training predictions.
+
+The full-rank formula $(X^TX)^{-1}X^Ty$ expresses the solution, but explicitly computing an inverse is usually a poor numerical choice. Use `numpy.linalg.lstsq` or a QR/SVD solver. With scikit-learn:
+
+```python
+import numpy as np
+
+from sklearn.linear_model import LinearRegression
+X = np.array(x).reshape(-1, 1)
+model = LinearRegression().fit(X, y)
+print(model.coef_, model.intercept_)  # [2.] 1.0
+```
+
+In R, `lm(y ~ x)` fits the same model with an intercept. Statistical uncertainty requires additional assumptions. Minimizing squared errors does not require normally distributed errors; classical tests and intervals have their own assumptions.
+
+## Fitting is not generalization
+
+These three points are synthetic and perfectly aligned. Zero training loss does not establish performance on new observations. A real project reserves test data, selects hyperparameters without consulting it, and compares against a constant baseline. Temporal or patient-level splits may be necessary. Fit every learned preprocessing transformation using training data alone.
+
+## Exercises
+
+1. For these points, calculate $L(1,1)$.
+2. If $y$ is measured in euros, what are the units of MSE and RMSE?
+3. What goes wrong if the second column of $X$ is also all ones?
+4. Why does choosing a learning rate using final test results compromise that test?
+
+<details>
+<summary>Worked solutions</summary>
+
+
+
+1. Predictions are 1,2,3 and residuals 0,$-1$,$-2$, giving $L=5/3$.
+2. MSE is in squared euros; RMSE is in euros.
+3. The columns are dependent. Only the sum of the coefficients is identifiable: multiple parameters produce the same outputs.
+4. The test has participated in model selection, so it is no longer independent of that selection. Use separate validation or appropriate cross-validation.
+
+
+
+</details>
+
+
+
+<Quiz id="regression-loss" lang="en" question="With w=b=0 and y=[1,3,5], what is the sum of squared residuals?" answer={35} explanation="1² + 3² + 5² = 35. The mean squared error is 35/3." />
+
+References: [An Introduction to Statistical Learning](https://www.statlearning.com/) and [scikit-learn, LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html). The [reproducible project](/achraf-notebooks/en/projects/) provides downloadable solutions. [Backpropagation](/achraf-notebooks/en/learning/backpropagation/) extends gradient calculations to nonlinear compositions.

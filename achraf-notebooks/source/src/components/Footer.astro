@@ -1,0 +1,6 @@
+---
+import Pagination from '@astrojs/starlight/components/Pagination.astro';
+const en=Astro.locals.starlightRoute.lang==='en';
+const b=import.meta.env.BASE_URL.replace(/\/$/,'');
+---
+<Pagination /><footer class="notebook-footer"><span class="footer-mark">AN<span>·</span></span><div><strong>Achraf Notebooks</strong><p>By Achraf Saidi · {en?'Knowledge, freely shared.':'Le savoir, en partage.'}</p></div><div class="footer-links"><a href={`${b}/${en?'en':'fr'}/about/`}>{en?'Editorial status':'Avancement éditorial'}</a><span>MIT · CC BY 4.0</span></div></footer>

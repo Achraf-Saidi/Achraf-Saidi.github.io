@@ -1,0 +1,102 @@
+---
+title: "Multi-omics: understanding measurements before integration"
+description: "From DNA to data matrices: basic biology, fusion and scientific validation."
+conceptId: K1.01
+effort: 65
+prerequisites: ["B1.01", "D1.01"]
+status: published
+sidebar:
+  order: 12
+---
+import LessonTools from '../../../../components/LessonTools.astro';
+import Lab from '../../../../components/Lab.astro';
+import Quiz from '../../../../components/Quiz.astro';
+import CodeLab from '../../../../components/CodeLab.astro';
+
+<LessonTools id="K1.01" lang="en" minutes={65} />
+
+## Why is one view insufficient?
+
+Two tissues can have similar genetic material yet function differently. The genes present do not by themselves tell us which are expressed, which proteins are available or which biochemical reactions are occurring. **Multi-omics** studies combine several types of biological measurements to describe a system. Their purpose is not to concatenate as many columns as possible, but to connect complementary observations to a precise biological question.
+
+Prerequisites: [matrices](/achraf-notebooks/en/mathematics/linear-algebra/) and [probability](/achraf-notebooks/en/mathematics/probability/). Goals: distinguish modalities, construct their data matrices, compare three fusion strategies and recognize the limits of biomedical prediction. Necessary biology is introduced here; advanced methods remain in pathway K’s roadmap.
+
+## DNA, RNA and proteins: a simplified map
+
+A cell contains **DNA**, a molecule carrying genetic information. **Genes** are regions whose expression produces functional molecules, including RNAs. **Transcription** produces RNA using DNA as a template. Some RNAs, called messenger RNAs, can be **translated** into proteins. Proteins contribute to structure, transport, signalling and the catalysis of reactions.
+
+This does not mean every gene encodes a protein or that RNA abundance equals protein abundance. Regulation, degradation and molecular modifications affect those relationships. A tissue often contains several cell types, and bulk measurements mix their contributions. Distinguishing expression within cells from tissue composition is essential.
+
+**Genomics** studies DNA and its variation. **Transcriptomics** measures RNA. **Proteomics** studies proteins; **metabolomics** studies small molecules associated with biochemical processes. **Epigenomics** studies, among other things, chromatin states and modifications associated with regulation. These layers have different dynamics and measurement errors.
+
+## What an experiment produces
+
+RNA-seq sequences fragments derived from RNA according to a protocol and assigns reads to relevant features. A count table is not a direct measurement of every molecule’s absolute concentration. Sequencing depth, length and assignment ambiguity can matter depending on the protocol and analysis. Ranking raw counts across samples can therefore mislead.
+
+Single-cell transcriptomics retains cellular resolution but raises other issues: sparse counts, variable depth and dependence between cells from the same individual. A patient missing an entire modality is not equivalent to a gene having zero expression.
+
+For $n$ patients and modality $v$, write $X^{(v)}\in\mathbb R^{n\times p_v}$. Here $p_v$ is the number of variables in that modality. Row $i$ represents patient $i$; column $j$ represents a measurement. Before combining matrices row-wise, verify identifiers and patient alignment. Incorrect pairing can yield executable code with scientifically meaningless results.
+
+## Three fusion families
+
+**Early fusion** concatenates variables after appropriate preprocessing: $X=[X^{(1)}\mid X^{(2)}]$. Modalities with 5,000 and 300 variables produce 5,300 inputs. Their scales and sizes can imbalance learning; regularization and comparisons against each modality alone are necessary.
+
+**Intermediate fusion** learns a shared representation. A factor model can approximate $X^{(v)}\approx Z(W^{(v)})^T$: $Z$ is an $n\times k$ matrix of patient factors, $W^{(v)}$ a $p_v\times k$ matrix of loadings, and $k$ the number of factors. The product has the required $n\times p_v$ shape. Models such as MOFA+ provide a probabilistic multi-view framework; this equation does not describe all their assumptions or inference procedures.
+
+**Late fusion** combines predictions from separate models, for example through a weighted average. Choose weights using validation data, never the test set. Complex combinations should outperform simple baselines to justify their cost. Similarity networks, multimodal neural networks and contrastive approaches offer further constructions after these foundations.
+
+## A complete scientific workflow
+
+An illustrative question is whether several modalities improve prediction of an outcome compared with one modality alone. Define the outcome, prediction time, population, available measurements and intended use **before** comparing models.
+
+Begin by checking samples, units and quality. Split training, validation and test data at the individual level; repeated measurements or cells from one person must not cross partitions. Fit learned transformations, gene selection and hyperparameters within training folds. Address batch effects without using test labels.
+
+If laboratory or hospital is associated with outcome, a model may learn site rather than the intended biology. Evaluation on another cohort or site better measures this risk. A variable importance is a model-dependent association, not proof that intervening on that gene would change disease.
+
+## What can AI contribute?
+
+ML can predict, cluster patients or identify signals. DL can learn nonlinear representations, but many parameters may be unsuitable for a small cohort. RL addresses sequential decisions within a specified environment; it is not a default integration method. Predicting a fixed outcome does not automatically require RL.
+
+Retrospective performance does not establish clinical benefit. Benefit depends on validation, calibration, intended use, effects on decisions and evaluation suited to clinical practice.
+
+## A small dimensional example
+
+```python
+# 3 patients, 2 variables in one modality, 1 in the other.
+rna = [[1., 2.], [2., 1.], [3., 4.]]
+protein = [[0.5], [0.8], [1.2]]
+# Patient identifiers have already been aligned.
+fused = [a+b for a, b in zip(rna, protein)]
+assert len(fused) == 3 and len(fused[0]) == 3
+```
+
+This demonstrates concatenation, not a biological pipeline. Real preprocessing must match the actual measurements.
+
+## Exercises
+
+1. Two aligned 100-patient matrices contain 5,000 and 300 variables. What is their concatenated shape?
+2. Why can randomly splitting cells overestimate generalization to new patients?
+3. Is a mutation associated with an outcome necessarily its cause?
+4. What comparison reveals whether a second modality improves prediction?
+
+<details>
+<summary>Worked solutions</summary>
+
+
+
+1. $100\times5300$, provided patients are aligned.
+2. Cells from one individual share biological and technical properties. Including them in training and test gives information about individuals that should be unseen.
+3. No: confounding, selection and correlation with other mechanisms can explain the association. Causal conclusions require additional reasoning.
+4. Compare each modality alone against fusion using identical partitions and a reasonable tuning budget. Report uncertainty, missing modalities and changes across cohorts as well.
+
+
+
+</details>
+
+
+
+<Quiz id="omics-shape" lang="en" question="100 patients, 5,000 RNA variables and 300 protein variables: how many columns after early fusion?" answer={5300} explanation="Add columns while preserving rows: 100 × 5,300, after aligning patient identifiers." />
+
+## References and pathway
+
+Sources: [EMBL-EBI, Functional genomics I](https://www.ebi.ac.uk/training/online/courses/functional-genomics-i-introduction-and-design/) for biological measurements, and [Argelaguet et al., MOFA+, Genome Biology, 2020](https://doi.org/10.1186/s13059-020-02015-1) for an original integration method. Processed [MOFAdata](https://bioconductor.org/packages/release/data/experiment/html/MOFAdata.html) is a project candidate; a package’s licence should not be confused with every right over its underlying biological data. The [catalogue](/achraf-notebooks/en/curriculum/#school-k) presents the full pathway K. The real-cohort multi-omics project remains **planned**, pending final provenance and rights checks.
