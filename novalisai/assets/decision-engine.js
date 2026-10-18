@@ -1,19 +1,18 @@
-/* Local illustrative model. Currency amounts describe this scenario, never a Novalis quote. */
-(function(root){'use strict';
- function plan(demand,capacity){
-  if(!Number.isInteger(demand)||demand<60||demand>160||!Number.isInteger(capacity)||capacity<0||capacity>100)throw new RangeError('Invalid scenario');
-  const cost=(a,b)=>a*7+b*4+(b>0?60:0);
-  const baseA=Math.min(120,demand),baseB=Math.min(capacity,demand-baseA),missing=Math.max(0,demand-120-capacity);
-  let best=null;
-  for(let b=0;b<=Math.min(demand,capacity);b++){
-   const a=demand-b;if(a>120)continue;const total=cost(a,b);
-   if(!best||total<best.cost)best={a,b,cost:total};
-  }
-  const baseline={a:baseA,b:baseB,cost:cost(baseA,baseB)};
-  const previous=1410,other=830,history=[1260,1290,1350,1320,1410,baseline.cost+other];
-  return {demand,capacity,feasible:!missing,missing,baseline,optimal:best,saving:best?baseline.cost-best.cost:null,
-   history,previous,current:history[5],transportChange:baseline.cost-610,otherChange:30,
-   forecast:Math.round((history[3]+history[4]+history[5])/3)};
- }
- const api=Object.freeze({plan});if(typeof module==='object'&&module.exports)module.exports=api;else root.NovalisDecision=api;
-})(typeof window==='object'?window:this);
+/* Guided, local workflow scenarios. No model call, send, booking or payment. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else{root.NovalisWorkflow=api;api.mount(root.document);}})(typeof window!=='undefined'?window:this,function(){
+'use strict';
+function estimate(volume,manual,review){if(![volume,manual,review].every(Number.isInteger)||volume<1||volume>10000||manual<1||manual>120||review<1||review>120)return null;const total=Math.max(0,volume*(manual-review));return {total,hours:Math.floor(total/60),minutes:total%60};}
+function mount(d){const data=JSON.parse(d.getElementById('site-data')?.textContent||'{}'),s=data.premium?.workflow;if(!s)return;const view=d.defaultView,reduced=()=>!!view.matchMedia?.('(prefers-reduced-motion: reduce)').matches,format=(str,v)=>str.replace(/\{(\w+)\}/g,(_,key)=>String(v[key]??''));
+d.querySelectorAll('[data-workflow]').forEach(app=>{const q=selector=>app.querySelector(selector);let selected=0,exception=false,epoch=0;const timers=new Set();
+const later=(fn,ms)=>{const id=view.setTimeout(()=>{timers.delete(id);fn();},ms);timers.add(id);};
+function clear(){epoch++;timers.forEach(id=>view.clearTimeout(id));timers.clear();app.removeAttribute('aria-busy');app.dataset.state='idle';q('[data-flow-result]').hidden=true;q('[data-flow-status]').textContent='';q('.flow-ready').hidden=false;q('[data-flow-run]').disabled=false;q('[data-flow-run]').firstChild.textContent=s.run;app.querySelectorAll('[data-flow-step]').forEach(el=>el.classList.remove('active','done'));}
+function reset(){clear();const c=s.cases[selected];q('[data-flow-source]').textContent=c.source;q('[data-flow-message]').textContent=exception?c.missing_message:c.message;app.querySelectorAll('[data-flow-case]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.flowCase)===selected)));q('[data-flow-exception]').setAttribute('aria-pressed',String(exception));}
+function result(run){if(run!==epoch)return;const c=s.cases[selected],dl=q('[data-flow-fields]');dl.replaceChildren();const fields=exception?[[s.steps[1],c.missing]]:c.fields;fields.forEach(([label,value])=>{const row=d.createElement('div'),dt=d.createElement('dt'),dd=d.createElement('dd');dt.textContent=label;dd.textContent=value;row.append(dt,dd);dl.append(row);});q('[data-flow-result-title]').textContent=exception?s.exception_title:s.result_title;q('[data-flow-check]').textContent=exception?s.exception_check:s.check;const reply=exception?c.missing_reply:c.reply,target=q('[data-flow-draft]');target.textContent=reply;q('[data-flow-result]').hidden=false;q('.flow-ready').hidden=true;app.dataset.state=exception?'blocked':'ready';app.removeAttribute('aria-busy');q('[data-flow-run]').disabled=false;q('[data-flow-run]').firstChild.textContent=s.rerun;q('[data-flow-status]').textContent=exception?s.exception_title:s.result_title;
+ if(!reduced()){target.textContent='';let i=0;const type=()=>{if(run!==epoch)return;i=Math.min(reply.length,i+4);target.textContent=reply.slice(0,i);if(i<reply.length)later(type,14);};type();}}
+function run(){clear();const ticket=epoch;app.dataset.state='running';app.setAttribute('aria-busy','true');q('[data-flow-run]').disabled=true;q('[data-flow-status]').textContent=s.running;const steps=[...app.querySelectorAll('[data-flow-step]')];if(reduced()){steps.forEach(el=>el.classList.add('done'));result(ticket);return;}steps[0].classList.add('active');steps.forEach((el,i)=>later(()=>{if(ticket!==epoch)return;el.classList.remove('active');el.classList.add('done');steps[i+1]?.classList.add('active');if(i===2)result(ticket);},(i+1)*300));}
+app.querySelectorAll('[data-flow-case]').forEach(b=>b.addEventListener('click',()=>{selected=Number(b.dataset.flowCase);exception=false;reset();}));q('[data-flow-run]').addEventListener('click',run);q('[data-flow-exception]').addEventListener('click',()=>{exception=!exception;reset();run();});
+function impact(){const volume=q('[data-flow-volume]').valueAsNumber,manual=q('[data-flow-manual]').valueAsNumber,review=q('[data-flow-review]').valueAsNumber,m=estimate(volume,manual,review);q('[data-flow-estimate]').textContent=m?(m.total?format(s.estimate,m)+' · '+format(s.formula,{volume,manual,review}):s.no_gain):s.invalid;}
+app.querySelectorAll('.flow-assumptions input').forEach(el=>el.addEventListener('input',impact));reset();impact();
+view.addEventListener('pagehide',()=>{epoch++;timers.forEach(id=>view.clearTimeout(id));});
+});}
+return Object.freeze({estimate,mount});});

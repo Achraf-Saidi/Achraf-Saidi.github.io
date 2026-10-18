@@ -74,16 +74,16 @@
     "result": "Heures libérables par semaine",
     "math_note": "Volume × durée × part automatisable ÷ 60. Une estimation illustrative ; les erreurs, la qualité et le coût d’intégration se mesurent séparément.",
     "team_poles": [
-      "Interfaces",
-      "Architecture",
-      "Données",
-      "Design"
+      "Frontend",
+      "Backend",
+      "Data scientists",
+      "Design & réseau"
     ],
     "team_details": [
-      "Frontend et mobile : une expérience lisible, rapide et adaptée aux usages.",
-      "Backend, API et déploiement : des règles métier cohérentes et des accès maîtrisés.",
-      "Statistiques, optimisation et IA : des hypothèses explicites et des résultats évalués.",
-      "UX et UI : des parcours compréhensibles et une identité visuelle cohérente."
+      "Interfaces, usages mobiles & accessibilité.",
+      "Règles métier, API & architecture.",
+      "Statistique, machine learning & analyse.",
+      "Design produit, ergonomie et spécialistes indépendants."
     ],
     "pages": [
       [
@@ -162,12 +162,12 @@
         "entreprise",
         "L’entreprise",
         "Une direction technique accessible.",
-        "Le conseil, le design et l’ingénierie avancent dans la même équipe. Nous réunissons les compétences autour du problème, avec JetThings et des spécialistes indépendants selon les missions.",
+        "Un panel de compétences en développement, design produit, data science et intelligence artificielle, réuni autour de votre activité. Une direction technique identifiée, des spécialistes mobilisés au bon moment.",
         [
           "Achraf Saidi — Cofondateur & CTO",
           "Formé en sciences des données à l’École polytechnique de Louvain, chercheur et assistant à l’UCLouvain, Achraf relie statistique, machine learning et conception logicielle. Il porte le cadrage technique et l’architecture des projets Novalis.",
-          "5 développeurs frontend · 6 développeurs backend · 3 data scientists",
-          "Le conseil, le design et l’ingénierie avancent dans la même équipe. Nous réunissons les compétences autour du problème, avec JetThings et des spécialistes indépendants selon les missions."
+          "Un panel de compétences en développement, design produit, data science et intelligence artificielle, réuni autour de votre activité. Une direction technique identifiée, des spécialistes mobilisés au bon moment.",
+          "Nous faisons régulièrement appel à des indépendants et à notre réseau de partenaires en Afrique, notamment JetThings et JetNext. Cette organisation nous permet d’adapter l’équipe à chaque projet et de proposer des budgets compétitifs, avec un cadrage, des revues techniques et un suivi centralisés chez Novalis."
         ]
       ],
       [
@@ -334,16 +334,16 @@
     "result": "Hours potentially freed each week",
     "math_note": "Volume × duration × automatable share ÷ 60. An illustrative estimate; errors, quality and integration costs must be evaluated separately.",
     "team_poles": [
-      "Interfaces",
-      "Architecture",
-      "Data",
-      "Design"
+      "Frontend",
+      "Backend",
+      "Data scientists",
+      "Design & network"
     ],
     "team_details": [
-      "Frontend and mobile: clear, fast experiences suited to actual use.",
-      "Backend, APIs and deployment: consistent business rules and controlled access.",
-      "Statistics, optimisation and AI: explicit assumptions and evaluated results.",
-      "UX and UI: understandable journeys and a consistent identity."
+      "Interfaces, mobile use & accessibility.",
+      "Business rules, APIs & architecture.",
+      "Statistics, machine learning & analysis.",
+      "Product design, usability and independent specialists."
     ],
     "pages": [
       [
@@ -422,12 +422,12 @@
         "entreprise",
         "The company",
         "Accessible technical leadership.",
-        "Consulting, design and engineering work together. We bring the right skills to the problem, with JetThings and independent specialists as needed.",
+        "A range of expertise in software engineering, product design, data science and AI, brought together around your business. Clear technical leadership, with specialists involved when they add value.",
         [
           "Achraf Saidi — Co-founder & CTO",
           "Trained in data science at the Louvain School of Engineering, a researcher and teaching assistant at UCLouvain, Achraf connects statistics, machine learning and software design. He leads technical scoping and architecture at Novalis.",
-          "5 frontend developers · 6 backend developers · 3 data scientists",
-          "Consulting, design and engineering work together. We bring the right skills to the problem, with JetThings and independent specialists as needed."
+          "A range of expertise in software engineering, product design, data science and AI, brought together around your business. Clear technical leadership, with specialists involved when they add value.",
+          "We regularly work with independent specialists and our partner network in Africa, including JetThings and JetNext. This lets us adapt the team to each project and offer competitive budgets, with scoping, technical reviews and project oversight coordinated by Novalis."
         ]
       ],
       [
@@ -594,16 +594,16 @@
     "result": "Mogelijk vrijgemaakte uren per week",
     "math_note": "Volume × duur × automatiseerbaar aandeel ÷ 60. Een illustratieve schatting; fouten, kwaliteit en integratiekosten worden apart beoordeeld.",
     "team_poles": [
-      "Interfaces",
-      "Architectuur",
-      "Data",
-      "Design"
+      "Frontend",
+      "Backend",
+      "Data scientists",
+      "Design & netwerk"
     ],
     "team_details": [
-      "Frontend en mobiel: heldere, snelle ervaringen voor het dagelijkse gebruik.",
-      "Backend, API’s en uitrol: consistente bedrijfsregels en beheerde toegang.",
-      "Statistiek, optimalisatie en AI: expliciete aannames en getoetste resultaten.",
-      "UX en UI: begrijpelijke gebruikersreizen en een samenhangende identiteit."
+      "Interfaces, mobiel gebruik & toegankelijkheid.",
+      "Bedrijfsregels, API’s & architectuur.",
+      "Statistiek, machine learning & analyse.",
+      "Productdesign, gebruiksgemak en onafhankelijke specialisten."
     ],
     "pages": [
       [
@@ -682,12 +682,12 @@
         "entreprise",
         "Het bedrijf",
         "Toegankelijke technische leiding.",
-        "Advies, design en engineering werken samen. We brengen de nodige expertise bijeen, met JetThings en onafhankelijke specialisten volgens de opdracht.",
+        "Een panel van expertise in softwareontwikkeling, productdesign, data science en AI, samengebracht rond uw bedrijf. Een duidelijk technisch aanspreekpunt en specialisten op het juiste moment.",
         [
           "Achraf Saidi — Medeoprichter & CTO",
           "Achraf is opgeleid in data science aan de École polytechnique de Louvain en werkt als onderzoeker en assistent aan UCLouvain. Hij verbindt statistiek, machine learning en softwareontwerp en leidt de technische afbakening en architectuur bij Novalis.",
-          "5 frontendontwikkelaars · 6 backendontwikkelaars · 3 data scientists",
-          "Advies, design en engineering werken samen. We brengen de nodige expertise bijeen, met JetThings en onafhankelijke specialisten volgens de opdracht."
+          "Een panel van expertise in softwareontwikkeling, productdesign, data science en AI, samengebracht rond uw bedrijf. Een duidelijk technisch aanspreekpunt en specialisten op het juiste moment.",
+          "We werken regelmatig met onafhankelijke specialisten en ons partnernetwerk in Afrika, waaronder JetThings en JetNext. Zo stemmen we het team af op elk project en bieden we concurrerende budgetten, met afbakening, technische reviews en opvolging centraal bij Novalis."
         ]
       ],
       [
@@ -854,16 +854,16 @@
     "result": "Potenziell frei werdende Stunden pro Woche",
     "math_note": "Volumen × Dauer × automatisierbarer Anteil ÷ 60. Eine beispielhafte Schätzung; Fehler, Qualität und Integrationskosten werden gesondert bewertet.",
     "team_poles": [
-      "Oberflächen",
-      "Architektur",
-      "Daten",
-      "Design"
+      "Frontend",
+      "Backend",
+      "Data Scientists",
+      "Design & Netzwerk"
     ],
     "team_details": [
-      "Frontend und Mobilgeräte: klare, schnelle Oberflächen für den Alltag.",
-      "Backend, APIs und Betrieb: konsistente Geschäftsregeln und kontrollierte Zugriffe.",
-      "Statistik, Optimierung und KI: klare Annahmen und geprüfte Ergebnisse.",
-      "UX und UI: verständliche Abläufe und eine einheitliche Gestaltung."
+      "Oberflächen, mobile Nutzung & Barrierefreiheit.",
+      "Geschäftsregeln, APIs & Architektur.",
+      "Statistik, Machine Learning & Analyse.",
+      "Produktdesign, Ergonomie und unabhängige Spezialisten."
     ],
     "pages": [
       [
@@ -942,12 +942,12 @@
         "entreprise",
         "Das Unternehmen",
         "Erreichbare technische Leitung.",
-        "Beratung, Design und Engineering arbeiten zusammen. Wir bringen die nötigen Fähigkeiten ein, mit JetThings und unabhängigen Spezialisten je nach Auftrag.",
+        "Ein Spektrum an Kompetenzen in Softwareentwicklung, Produktdesign, Data Science und KI, gebündelt für Ihr Unternehmen. Klare technische Verantwortung und Spezialisten zum passenden Zeitpunkt.",
         [
           "Achraf Saidi — Mitgründer & CTO",
           "Achraf ist in Data Science an der École polytechnique de Louvain ausgebildet und forscht und lehrt als Assistent an UCLouvain. Er verbindet Statistik, Machine Learning und Softwaredesign und verantwortet technische Planung und Architektur bei Novalis.",
-          "5 Frontend-Entwickler · 6 Backend-Entwickler · 3 Data Scientists",
-          "Beratung, Design und Engineering arbeiten zusammen. Wir bringen die nötigen Fähigkeiten ein, mit JetThings und unabhängigen Spezialisten je nach Auftrag."
+          "Ein Spektrum an Kompetenzen in Softwareentwicklung, Produktdesign, Data Science und KI, gebündelt für Ihr Unternehmen. Klare technische Verantwortung und Spezialisten zum passenden Zeitpunkt.",
+          "Wir arbeiten regelmäßig mit unabhängigen Spezialisten und unserem Partnernetzwerk in Afrika, darunter JetThings und JetNext. So passen wir das Team an jedes Projekt an und bieten wettbewerbsfähige Budgets. Planung, technische Reviews und Projektbegleitung werden bei Novalis koordiniert."
         ]
       ],
       [
