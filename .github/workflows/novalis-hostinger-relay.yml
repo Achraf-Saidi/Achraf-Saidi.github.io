@@ -7,7 +7,7 @@ permissions:
   contents: read
 concurrency:
   group: novalis-hostinger-vps-operation-v2
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   operation:
     if: github.repository == 'Achraf-Saidi/Achraf-Saidi.github.io'
