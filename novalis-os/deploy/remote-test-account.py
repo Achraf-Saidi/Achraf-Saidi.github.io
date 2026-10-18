@@ -61,3 +61,5 @@ if result.returncode:
     raise RuntimeError('Account operation failed: '+result.stderr[-1800:])
 assert baseline()==before, 'Service or environment changed'
 print(result.stdout.strip())
+
+# Temporary VPS access explicitly approved by the owner on 2026-10-18.
