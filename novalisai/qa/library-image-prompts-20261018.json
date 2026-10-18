@@ -1,0 +1,42 @@
+[
+  {
+    "asset": "retreat",
+    "width": 1586,
+    "height": 992,
+    "bytes": 291484,
+    "prompt": "Use case: ui-mockup. Asset type: premium hospitality website interface, fictitious concept for a technology studio portfolio. Create a truly exceptional finished desktop homepage for a boutique coastal guesthouse named AUBE. Straight-on full browser canvas, landscape 16:10, no device mockup, no perspective, no surrounding room. Sophisticated editorial art direction: huge elegant ivory serif headline 'Le temps vous appartient.', tiny refined navigation 'La maison  Les chambres  Les alentours', understated 'Réserver' button. Main hero photographic Mediterranean stone house, sculptural olive tree, sunken pool reflecting warm sunset, sea horizon, architectural hospitality photography. Use a beautifully balanced split between dramatic imagery and restrained typography, discreet date selection strip 'Arrivée  Départ  2 voyageurs' and a small lower glimpse of room details with tactile linen. Warm ivory, deep olive, muted amber; immense attention to rhythm, legibility and spacing. Realistic intuitive booking UX, exceptional international boutique hotel design quality. All text French, sparse, exact supplied headlines; no testimonials, awards, client logos or star ratings; no AI label, no watermark. This must look like an actual beautifully designed website screenshot, not a generic dashboard or collage.",
+    "method": "built-in image_gen"
+  },
+  {
+    "asset": "botanique",
+    "width": 1586,
+    "height": 992,
+    "bytes": 205938,
+    "prompt": "Use case: ui-mockup. Asset type: exceptionally beautiful ecommerce homepage, fictitious brand concept. Finished photorealistic straight-on website screenshot, landscape 16:10, no physical screen frame, no perspective. Brand NÉROLI, botanical skincare retail concept. Strong art direction: oversized sophisticated dark forest green editorial typography, warm stone/pale butter background, exquisite amber glass skincare bottles on travertine with a single botanical branch, macro ingredient image, graceful asymmetric collage integrated into a precise ecommerce grid. Exact hero headline 'Le soin, à l’essentiel.' Refined slim header with 'Visage  Corps  Notre approche', functional-looking bag icon with count 0, small 'Découvrir la collection' CTA. Lower strip of 3 beautifully photographed products with believable short names 'Huile visage', 'Baume corps', 'Gel nettoyant', no prices required. Premium editorial commerce quality, natural photographic textures, restrained tactile lighting, beautiful sans-serif/serif pairing, generous whitespace and clear purchase journey. No clinical or environmental claims, reviews, awards, brand client logos, watermarks, AI labels. Not a template, not generic cards, no dashboard.",
+    "method": "built-in image_gen"
+  },
+  {
+    "asset": "architecture",
+    "width": 1586,
+    "height": 992,
+    "bytes": 315588,
+    "prompt": "Use case: ui-mockup. Asset type: spectacular architecture studio portfolio website concept. Finished desktop website screenshot, straight-on edge-to-edge landscape 16:10, no physical device frame, no perspective. Fictitious studio name HORIZON. A daring impeccably composed editorial architecture homepage: huge confident charcoal grotesk title 'Habiter autrement.' over warm offwhite, wide art-directed photograph of a serene contemporary red-brick and raw concrete courtyard with a sculptural tree, soft Belgian overcast light, precise architectural lines. Slim top navigation 'Projets  Studio  Contact', small date '2026', selected project label 'Maison Cour — Brabant wallon'. Layout combines an oversized typographic masthead, exceptionally beautiful cropped photo taking most of the page, small circular next-project control, and one disciplined side annotation. Muted rust red accents, lots of considered negative space. Award-level contemporary creative studio web art direction while remaining legible and easy to navigate. No fake awards, testimonials or client logos, no watermarks, no AI disclaimer, sparse exact French text. Should feel crafted, tactile and memorable, not an agency template.",
+    "method": "built-in image_gen"
+  },
+  {
+    "asset": "field",
+    "width": 1586,
+    "height": 992,
+    "bytes": 134860,
+    "prompt": "Use case: ui-mockup. Asset type: polished field-service operations web application concept, not a real client screenshot. Straight-on landscape 16:10 full app canvas, no device frame, no perspective. Fictitious product 'Novalis Terrain'. Design an exceptionally clear premium SaaS interface for coordinating maintenance across several buildings. Soft slate blue-white base, deep navy sidebar, restrained electric blue and amber statuses. Visible left nav 'Vue d’ensemble', 'Interventions', 'Équipes', 'Équipements', 'Documents'. Page title 'Chaque intervention, au bon endroit.' Main area includes a thoughtful day timeline with technician rows and realistically spaced job blocks; alongside it a selected intervention card 'Porte automatique · Dépôt Nord', priority 'À confirmer', planned time '10:30', checklist 'Diagnostic', 'Pièce disponible', 'Compte rendu'. Small secondary panel shows a photo thumbnail of a mechanical industrial door and maintenance history. Practical UX hierarchy, readable French labels, semantic icons, generous spacing, precise alignment, genuine operational plausibility, no charts or invented ROI percentages. No fake customers, certifications, testimonials, watermark or AI label. Not a generic analytics dashboard.",
+    "method": "built-in image_gen"
+  },
+  {
+    "asset": "reconcile",
+    "width": 1586,
+    "height": 992,
+    "bytes": 93710,
+    "prompt": "Use case: ui-mockup. Asset type: premium accounts payable and AI document review interface concept. Landscape 16:10, exact straight-on finished web app screenshot, no physical device or perspective. Product title 'Novalis Achats'. Elegant white, ink navy and warm muted copper. Page title 'De la pièce reçue au dossier vérifié.' A carefully designed document review workspace: left sidebar 'Réception', 'À vérifier', 'Fournisseurs', 'Historique'; center shows a clean invoice document preview titled 'FACTURE FOUR-204' with sparse rows and highlighted supplier/order-reference fields, not dense illegible text. Right review panel 'Contrôles' with three semantic rows 'Montants cohérents', 'Commande à rapprocher', 'Validation humaine requise'. A clear amber attention item 'Référence de commande manquante', secondary button 'Préparer une demande', contextual source tag 'Document reçu'. Bottom small activity trail with timestamps, no auto-pay action. Highly credible, calm professional enterprise UX, refined typography, clear field grouping, tactile document-paper hierarchy. No charts, financial forecasts, trust badges, regulatory certification claims, fake client logos, watermark or AI disclaimer. Should look like an expertly shipped business product.",
+    "method": "built-in image_gen"
+  }
+]

@@ -420,6 +420,142 @@
           "Permissions",
           "Relais humain"
         ]
+      },
+      {
+        "asset": "retreat",
+        "slug": "hotellerie-reservation",
+        "group": "web",
+        "category": "Hôtellerie & réservation",
+        "title": "Donner envie de rester. Faciliter la réservation.",
+        "problem": "Une maison singulière perd sa personnalité dans un site standard et ses demandes se dispersent entre messages et plateformes.",
+        "solution": "Une expérience éditoriale immersive, des chambres faciles à comparer et un parcours de demande de réservation clair, relié aux outils retenus pour l’établissement.",
+        "value": "Faire sentir le lieu, puis guider le visiteur vers une réservation compréhensible.",
+        "modules": [
+          "Chambres & disponibilités",
+          "Parcours de réservation",
+          "Contenus multilingues",
+          "Intégration au logiciel hôtelier"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "botanique",
+        "slug": "boutique-beaute",
+        "group": "web",
+        "category": "E-commerce & beauté",
+        "title": "Une marque qui se ressent. Une boutique qui se comprend.",
+        "problem": "Une belle marque peut perdre des ventes lorsque les produits, les usages et les étapes d’achat manquent de clarté.",
+        "solution": "Un univers visuel précis, des collections lisibles, des fiches produit soignées et un parcours mobile qui accompagne le choix jusqu’au paiement via un prestataire adapté.",
+        "value": "Réunir désir de marque et simplicité d’achat.",
+        "modules": [
+          "Collections & recherche",
+          "Fiches produit",
+          "Panier & commande",
+          "Compte client & suivi"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "architecture",
+        "slug": "studio-architecture",
+        "group": "web",
+        "category": "Architecture & portfolio",
+        "title": "Un site à la hauteur des lieux que vous imaginez.",
+        "problem": "Des projets remarquables peuvent devenir difficiles à explorer dans un portfolio mal hiérarchisé.",
+        "solution": "Une direction artistique éditoriale, des photographies qui respirent et des fiches projet structurées autour du contexte, des intentions et des usages.",
+        "value": "Faire découvrir une démarche, puis rendre la prise de contact naturelle.",
+        "modules": [
+          "Projets & catégories",
+          "Galeries immersives",
+          "Présentation du studio",
+          "Demandes de projet qualifiées"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "field",
+        "slug": "interventions-terrain",
+        "group": "business",
+        "category": "Interventions & maintenance",
+        "title": "La bonne équipe. Les bonnes pièces. Le bon dossier.",
+        "problem": "Les demandes, les disponibilités, les pièces et les comptes rendus circulent dans des outils séparés.",
+        "solution": "Un espace pour préparer l’intervention, affecter les ressources disponibles, suivre les prérequis et rassembler photos et historique. Les vérifications finales restent humaines.",
+        "value": "Éviter de découvrir un élément manquant une fois sur place.",
+        "modules": [
+          "Planning des interventions",
+          "Disponibilités & compétences",
+          "Fiches mobiles & photos",
+          "Contrôles de clôture"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "reconcile",
+        "slug": "achats-factures",
+        "group": "ai",
+        "category": "Achats & contrôle documentaire",
+        "title": "De la pièce reçue au dossier vérifié.",
+        "problem": "Une facture arrive sans référence de commande ; la recherche, le rapprochement et les questions reprennent à la main.",
+        "solution": "Une préparation assistée extrait les informations, signale les incohérences et rassemble les pièces utiles avant vérification et validation par l’équipe.",
+        "value": "Concentrer le travail sur les exceptions et conserver la trace des contrôles.",
+        "modules": [
+          "Extraction documentaire",
+          "Rapprochement commande-réception",
+          "Circuit de validation",
+          "Historique des contrôles"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "planning",
+        "slug": "planning-equipes",
+        "group": "business",
+        "category": "Planning & couverture",
+        "title": "Un planning qui tient compte du terrain.",
+        "problem": "Un créneau libre ne suffit pas : une absence ou une compétence manquante peut fragiliser toute une équipe.",
+        "solution": "Un planning qui rapproche disponibilité, sites et compétences requises, signale les conflits et propose des options à faire valider par le responsable.",
+        "value": "Voir les tensions de couverture avant de confirmer le planning.",
+        "modules": [
+          "Disponibilités",
+          "Compétences requises",
+          "Alertes de couverture",
+          "Validation du responsable"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "quality",
+        "slug": "qualite-actions",
+        "group": "business",
+        "category": "Qualité & actions correctives",
+        "title": "Un problème signalé doit avoir une suite.",
+        "problem": "Une anomalie est photographiée, transmise puis perdue entre services ; sa résolution reste difficile à vérifier.",
+        "solution": "Un dossier partagé relie le signalement, l’élément concerné, le responsable, l’action corrective et les preuves à examiner avant clôture.",
+        "value": "Rendre visible qui fait quoi et sur quelle preuve le dossier peut être clos.",
+        "modules": [
+          "Signalements & photos",
+          "Actions & responsables",
+          "Échéances & preuves",
+          "Vérification avant clôture"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "receivables",
+        "slug": "echeances-relances",
+        "group": "business",
+        "category": "Factures & relation client",
+        "title": "Relancer avec le bon contexte.",
+        "problem": "Échéances, litiges et promesses de règlement se mélangent dans les boîtes mail et les fichiers de suivi.",
+        "solution": "Une vue relie les factures, les échanges et les engagements annoncés. Les relances sont préparées selon le contexte et validées avant envoi.",
+        "value": "Distinguer ce qui est attendu, discuté et réellement réglé.",
+        "modules": [
+          "Échéances & soldes",
+          "Litiges & promesses",
+          "Relances à valider",
+          "Rapprochement des règlements"
+        ],
+        "format": "svg"
       }
     ],
     "title": "Novalis AI — Studio de conception et d’ingénierie logicielle.",
@@ -1006,6 +1142,142 @@
           "Permissions",
           "Human handover"
         ]
+      },
+      {
+        "asset": "retreat",
+        "slug": "hotellerie-reservation",
+        "group": "web",
+        "category": "Hospitality & booking",
+        "title": "Make them want to stay. Make booking simple.",
+        "problem": "A distinctive property loses its personality in a standard website while enquiries scatter across messages and platforms.",
+        "solution": "An immersive editorial experience, rooms that are easy to compare and a clear booking enquiry journey connected to the property’s selected tools.",
+        "value": "Convey the place, then guide visitors towards an understandable booking journey.",
+        "modules": [
+          "Rooms & availability",
+          "Booking journey",
+          "Multilingual content",
+          "Hotel software integration"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "botanique",
+        "slug": "boutique-beaute",
+        "group": "web",
+        "category": "Commerce & beauty",
+        "title": "A brand you can feel. A shop you can understand.",
+        "problem": "A beautiful brand can lose sales when products, uses and purchasing steps are unclear.",
+        "solution": "A precise visual world, clear collections, considered product pages and a mobile journey that supports selection through payment with a suitable provider.",
+        "value": "Bring brand appeal and purchasing ease together.",
+        "modules": [
+          "Collections & search",
+          "Product pages",
+          "Cart & orders",
+          "Customer account & tracking"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "architecture",
+        "slug": "studio-architecture",
+        "group": "web",
+        "category": "Architecture & portfolio",
+        "title": "A website worthy of the places you imagine.",
+        "problem": "Remarkable projects can become difficult to explore in a poorly structured portfolio.",
+        "solution": "Editorial art direction, photography with room to breathe and project pages structured around context, intentions and use.",
+        "value": "Reveal an approach, then make getting in touch natural.",
+        "modules": [
+          "Projects & categories",
+          "Immersive galleries",
+          "Studio presentation",
+          "Qualified project enquiries"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "field",
+        "slug": "interventions-terrain",
+        "group": "business",
+        "category": "Field service & maintenance",
+        "title": "The right team. The right parts. The full picture.",
+        "problem": "Requests, availability, parts and reports circulate in separate tools.",
+        "solution": "A workspace to prepare visits, assign available resources, track prerequisites and gather photos and history. Final checks remain human.",
+        "value": "Avoid discovering a missing prerequisite after arriving on site.",
+        "modules": [
+          "Intervention scheduling",
+          "Availability & skills",
+          "Mobile reports & photos",
+          "Completion checks"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "reconcile",
+        "slug": "achats-factures",
+        "group": "ai",
+        "category": "Purchasing & document review",
+        "title": "From received document to checked file.",
+        "problem": "An invoice arrives without an order reference; searching, matching and questions start again manually.",
+        "solution": "Assisted preparation extracts information, flags inconsistencies and gathers supporting records before the team checks and approves them.",
+        "value": "Focus work on exceptions and retain the checking history.",
+        "modules": [
+          "Document extraction",
+          "Order-receipt matching",
+          "Approval flow",
+          "Check history"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "planning",
+        "slug": "planning-equipes",
+        "group": "business",
+        "category": "Scheduling & coverage",
+        "title": "A schedule that understands operations.",
+        "problem": "An empty slot is not enough: an absence or missing skill can leave a team without coverage.",
+        "solution": "A schedule brings availability, sites and required skills together, flags conflicts and suggests options for manager approval.",
+        "value": "See coverage issues before confirming the schedule.",
+        "modules": [
+          "Availability",
+          "Required skills",
+          "Coverage alerts",
+          "Manager approval"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "quality",
+        "slug": "qualite-actions",
+        "group": "business",
+        "category": "Quality & corrective action",
+        "title": "A reported problem needs a next step.",
+        "problem": "An issue is photographed, forwarded and lost between teams; its resolution is difficult to verify.",
+        "solution": "A shared record links the report, affected item, owner, corrective action and evidence to review before closing.",
+        "value": "Make responsibility and closure evidence visible.",
+        "modules": [
+          "Reports & photos",
+          "Actions & owners",
+          "Due dates & evidence",
+          "Checks before closing"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "receivables",
+        "slug": "echeances-relances",
+        "group": "business",
+        "category": "Invoices & customer relations",
+        "title": "Follow up with the right context.",
+        "problem": "Due dates, disputes and payment promises become mixed across inboxes and tracking files.",
+        "solution": "One view connects invoices, conversations and stated commitments. Follow-ups are drafted in context and approved before sending.",
+        "value": "Distinguish what is expected, disputed and actually paid.",
+        "modules": [
+          "Due dates & balances",
+          "Disputes & promises",
+          "Follow-ups for review",
+          "Payment matching"
+        ],
+        "format": "svg"
       }
     ],
     "title": "Novalis AI — Software Design & Engineering Studio.",
@@ -1592,6 +1864,142 @@
           "Rechten",
           "Menselijke overdracht"
         ]
+      },
+      {
+        "asset": "retreat",
+        "slug": "hotellerie-reservation",
+        "group": "web",
+        "category": "Gastvrijheid & reservering",
+        "title": "Zin om te blijven. Eenvoudig reserveren.",
+        "problem": "Een bijzondere plek verliest haar karakter op een standaardwebsite; aanvragen verspreiden zich over berichten en platformen.",
+        "solution": "Een meeslepende presentatie, makkelijk vergelijkbare kamers en een helder reserveringstraject dat aansluit op de gekozen hoteltools.",
+        "value": "Laat de plek spreken en begeleid bezoekers naar een duidelijk reserveringstraject.",
+        "modules": [
+          "Kamers & beschikbaarheid",
+          "Reserveringstraject",
+          "Meertalige inhoud",
+          "Koppeling met hotelsoftware"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "botanique",
+        "slug": "boutique-beaute",
+        "group": "web",
+        "category": "Webwinkel & verzorging",
+        "title": "Een merk dat u voelt. Een winkel die u begrijpt.",
+        "problem": "Een mooi merk kan verkoop verliezen wanneer producten, gebruik en aankoopstappen onduidelijk zijn.",
+        "solution": "Een doordachte visuele wereld, heldere collecties, verzorgde productpagina’s en een mobiel traject tot betaling via een passende aanbieder.",
+        "value": "Merkbeleving en aankoopgemak samenbrengen.",
+        "modules": [
+          "Collecties & zoeken",
+          "Productpagina’s",
+          "Winkelmand & bestellingen",
+          "Klantaccount & opvolging"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "architecture",
+        "slug": "studio-architecture",
+        "group": "web",
+        "category": "Architectuur & portfolio",
+        "title": "Een website op het niveau van uw ontwerpen.",
+        "problem": "Bijzondere projecten worden moeilijk vindbaar in een slecht opgebouwd portfolio.",
+        "solution": "Redactionele vormgeving, fotografie met ademruimte en projectpagina’s rond context, intentie en gebruik.",
+        "value": "Maak de werkwijze zichtbaar en contact opnemen vanzelfsprekend.",
+        "modules": [
+          "Projecten & categorieën",
+          "Meeslepende galerijen",
+          "Studiopresentatie",
+          "Gerichte projectaanvragen"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "field",
+        "slug": "interventions-terrain",
+        "group": "business",
+        "category": "Interventies & onderhoud",
+        "title": "Het juiste team. De juiste onderdelen. Eén dossier.",
+        "problem": "Aanvragen, beschikbaarheid, onderdelen en verslagen zitten in verschillende tools.",
+        "solution": "Een omgeving om interventies voor te bereiden, beschikbare mensen toe te wijzen en voorwaarden, foto’s en historiek samen te brengen. De eindcontrole blijft bij mensen.",
+        "value": "Ontbrekende voorwaarden ontdekken vóór het bezoek.",
+        "modules": [
+          "Interventieplanning",
+          "Beschikbaarheid & vaardigheden",
+          "Mobiele verslagen & foto’s",
+          "Afsluitcontroles"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "reconcile",
+        "slug": "achats-factures",
+        "group": "ai",
+        "category": "Aankoop & documentcontrole",
+        "title": "Van ontvangen document naar gecontroleerd dossier.",
+        "problem": "Een factuur zonder bestelreferentie leidt opnieuw tot handmatig zoeken, vergelijken en vragen stellen.",
+        "solution": "Ondersteunde voorbereiding haalt gegevens op, markeert verschillen en verzamelt stukken voor controle en goedkeuring door het team.",
+        "value": "Aandacht richten op uitzonderingen en controles traceerbaar houden.",
+        "modules": [
+          "Documentextractie",
+          "Bestelling en ontvangst koppelen",
+          "Goedkeuringsproces",
+          "Controlehistoriek"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "planning",
+        "slug": "planning-equipes",
+        "group": "business",
+        "category": "Planning & bezetting",
+        "title": "Een planning die rekening houdt met de praktijk.",
+        "problem": "Een vrij tijdslot volstaat niet: een afwezigheid of ontbrekende vaardigheid kan een team verzwakken.",
+        "solution": "Beschikbaarheid, locaties en vereiste vaardigheden samenbrengen, conflicten tonen en opties ter goedkeuring voorstellen.",
+        "value": "Bezettingsproblemen zien vóór de planning wordt bevestigd.",
+        "modules": [
+          "Beschikbaarheid",
+          "Vereiste vaardigheden",
+          "Bezettingswaarschuwingen",
+          "Goedkeuring door verantwoordelijke"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "quality",
+        "slug": "qualite-actions",
+        "group": "business",
+        "category": "Kwaliteit & verbeteracties",
+        "title": "Een melding verdient een vervolg.",
+        "problem": "Een afwijking wordt gefotografeerd, doorgestuurd en raakt zoek tussen teams; de oplossing blijft moeilijk controleerbaar.",
+        "solution": "Eén dossier verbindt melding, betrokken onderdeel, verantwoordelijke, herstelactie en bewijs dat vóór afsluiting wordt gecontroleerd.",
+        "value": "Zien wie wat doet en welk bewijs nodig is om af te sluiten.",
+        "modules": [
+          "Meldingen & foto’s",
+          "Acties & verantwoordelijken",
+          "Termijnen & bewijs",
+          "Controle vóór afsluiting"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "receivables",
+        "slug": "echeances-relances",
+        "group": "business",
+        "category": "Facturen & klantrelatie",
+        "title": "Opvolgen met de juiste context.",
+        "problem": "Vervaldata, betwistingen en betaalbeloften raken vermengd in mailboxen en bestanden.",
+        "solution": "Eén overzicht verbindt facturen, gesprekken en toezeggingen. Herinneringen worden in context voorbereid en vóór verzending goedgekeurd.",
+        "value": "Verwachte, betwiste en ontvangen betalingen onderscheiden.",
+        "modules": [
+          "Vervaldata & saldi",
+          "Betwistingen & toezeggingen",
+          "Herinneringen ter controle",
+          "Betalingen koppelen"
+        ],
+        "format": "svg"
       }
     ],
     "title": "Novalis AI — Studio voor softwareontwerp en -engineering.",
@@ -2178,6 +2586,142 @@
           "Berechtigungen",
           "Menschliche Übergabe"
         ]
+      },
+      {
+        "asset": "retreat",
+        "slug": "hotellerie-reservation",
+        "group": "web",
+        "category": "Gastgewerbe & Buchung",
+        "title": "Lust zu bleiben. Einfach buchen.",
+        "problem": "Ein besonderer Ort verliert auf einer Standardwebsite seinen Charakter; Anfragen verteilen sich auf Nachrichten und Plattformen.",
+        "solution": "Ein eindrucksvoller redaktioneller Auftritt, vergleichbare Zimmer und ein klarer Buchungsweg mit den gewählten Hotelwerkzeugen.",
+        "value": "Den Ort erlebbar machen und zur verständlichen Buchung führen.",
+        "modules": [
+          "Zimmer & Verfügbarkeit",
+          "Buchungsweg",
+          "Mehrsprachige Inhalte",
+          "Hotelsoftware anbinden"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "botanique",
+        "slug": "boutique-beaute",
+        "group": "web",
+        "category": "Commerce & Pflege",
+        "title": "Eine Marke zum Erleben. Ein Shop zum Verstehen.",
+        "problem": "Eine schöne Marke verliert Verkäufe, wenn Produkte, Anwendung und Kaufablauf unklar bleiben.",
+        "solution": "Eine präzise Bildwelt, klare Kollektionen, sorgfältige Produktseiten und ein mobiler Weg bis zur Zahlung über einen passenden Anbieter.",
+        "value": "Markenwirkung und einfachen Einkauf verbinden.",
+        "modules": [
+          "Kollektionen & Suche",
+          "Produktseiten",
+          "Warenkorb & Bestellungen",
+          "Kundenkonto & Verfolgung"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "architecture",
+        "slug": "studio-architecture",
+        "group": "web",
+        "category": "Architektur & Portfolio",
+        "title": "Eine Website auf dem Niveau Ihrer Räume.",
+        "problem": "Besondere Projekte sind in einem schlecht strukturierten Portfolio schwer zu entdecken.",
+        "solution": "Redaktionelle Gestaltung, großzügige Fotografie und Projektseiten zu Kontext, Absicht und Nutzung.",
+        "value": "Eine Arbeitsweise zeigen und die Kontaktaufnahme erleichtern.",
+        "modules": [
+          "Projekte & Kategorien",
+          "Immersive Galerien",
+          "Studiovorstellung",
+          "Gezielte Projektanfragen"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "field",
+        "slug": "interventions-terrain",
+        "group": "business",
+        "category": "Außendienst & Wartung",
+        "title": "Das richtige Team. Die richtigen Teile. Ein Dossier.",
+        "problem": "Anfragen, Verfügbarkeit, Ersatzteile und Berichte liegen in getrennten Werkzeugen.",
+        "solution": "Ein Bereich zur Vorbereitung, Ressourcenzuweisung und Bündelung von Voraussetzungen, Fotos und Historie. Die Abschlussprüfung bleibt beim Menschen.",
+        "value": "Fehlende Voraussetzungen vor der Anfahrt erkennen.",
+        "modules": [
+          "Einsatzplanung",
+          "Verfügbarkeit & Fähigkeiten",
+          "Mobile Berichte & Fotos",
+          "Abschlussprüfungen"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "reconcile",
+        "slug": "achats-factures",
+        "group": "ai",
+        "category": "Einkauf & Dokumentenprüfung",
+        "title": "Vom Eingang zum geprüften Vorgang.",
+        "problem": "Eine Rechnung ohne Bestellreferenz führt erneut zu manueller Suche, Zuordnung und Rückfragen.",
+        "solution": "Unterstützte Vorbereitung liest Informationen aus, markiert Unstimmigkeiten und sammelt Belege für die Prüfung und Freigabe durch das Team.",
+        "value": "Arbeit auf Ausnahmen konzentrieren und Prüfungen nachvollziehbar halten.",
+        "modules": [
+          "Dokumentenauswertung",
+          "Bestellung und Eingang zuordnen",
+          "Freigabeprozess",
+          "Prüfhistorie"
+        ],
+        "format": "webp"
+      },
+      {
+        "asset": "planning",
+        "slug": "planning-equipes",
+        "group": "business",
+        "category": "Planung & Besetzung",
+        "title": "Eine Planung für die betriebliche Realität.",
+        "problem": "Ein freies Zeitfenster reicht nicht: Abwesenheit oder fehlende Fähigkeiten können ein Team schwächen.",
+        "solution": "Verfügbarkeit, Standorte und benötigte Fähigkeiten verbinden, Konflikte zeigen und Optionen zur Freigabe vorschlagen.",
+        "value": "Besetzungslücken vor der Planbestätigung erkennen.",
+        "modules": [
+          "Verfügbarkeit",
+          "Erforderliche Fähigkeiten",
+          "Besetzungswarnungen",
+          "Freigabe durch Verantwortliche"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "quality",
+        "slug": "qualite-actions",
+        "group": "business",
+        "category": "Qualität & Korrekturmaßnahmen",
+        "title": "Eine Meldung braucht einen nächsten Schritt.",
+        "problem": "Eine Abweichung wird fotografiert, weitergeleitet und geht zwischen Teams verloren; die Lösung ist schwer nachzuprüfen.",
+        "solution": "Ein Vorgang verbindet Meldung, betroffenes Teil, Verantwortliche, Korrektur und Nachweise vor dem Abschluss.",
+        "value": "Verantwortung und Abschlussnachweise sichtbar machen.",
+        "modules": [
+          "Meldungen & Fotos",
+          "Maßnahmen & Verantwortliche",
+          "Fristen & Nachweise",
+          "Prüfung vor Abschluss"
+        ],
+        "format": "svg"
+      },
+      {
+        "asset": "receivables",
+        "slug": "echeances-relances",
+        "group": "business",
+        "category": "Rechnungen & Kundenbeziehung",
+        "title": "Nachfassen mit dem richtigen Kontext.",
+        "problem": "Fälligkeiten, Einwände und Zahlungszusagen vermischen sich in Postfächern und Dateien.",
+        "solution": "Eine Ansicht verbindet Rechnungen, Gespräche und Zusagen. Erinnerungen werden im Kontext vorbereitet und vor Versand freigegeben.",
+        "value": "Erwartete, strittige und tatsächlich erhaltene Zahlungen unterscheiden.",
+        "modules": [
+          "Fälligkeiten & Salden",
+          "Einwände & Zusagen",
+          "Erinnerungen zur Prüfung",
+          "Zahlungen zuordnen"
+        ],
+        "format": "svg"
       }
     ],
     "title": "Novalis AI — Studio für Softwaredesign und Engineering.",

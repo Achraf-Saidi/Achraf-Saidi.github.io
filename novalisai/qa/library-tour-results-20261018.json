@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-18",
+  "status": "implemented; Hostinger publication blocked pending renewed access approval",
+  "base_main": "4b7c65277c520641326917f3b109e47b75cbf856",
+  "concepts_per_language": 16,
+  "new_concepts": ["hotellerie-reservation", "boutique-beaute", "studio-architecture", "interventions-terrain", "achats-factures", "planning-equipes", "qualite-actions", "echeances-relances"],
+  "home_featured_indices": [0, 8, 9, 12],
+  "client_tour_route": "/{language}/realisations/novalis-os/",
+  "client_tour_steps": 6,
+  "actual_client_ui_captures": 5,
+  "checks": {
+    "premium.cjs": "passed; 140 nonredirect translated pages, local links/assets, dialogs, enquiry receipts/errors/retries and private status states",
+    "engineering.cjs": "passed; workflow scenarios, missing inputs, reduced motion, cancellation, estimates, OS comments/invoices and private reference recovery",
+    "library-tour.cjs": "passed; 4 languages, 16 concepts, category/search intersection, accents, no results/reset, image signatures, guide tabs/keyboard/focus/zoom and mobile disclosure",
+    "raster_decoding": "all WebP/PNG/JPEG assets decoded successfully with Pillow",
+    "native_svg_rendering": "planning, quality and receivables rendered with Inkscape and visually inspected",
+    "production_prepare": "isolated Hostinger build succeeded; no sources, secrets or database included",
+    "actual_client_interface": "existing isolated review inspected and captured with Cua, client role, example project",
+    "new_layout_browser_qa": "pending; no isolated new release could be staged while SSH access was blocked"
+  },
+  "deployment": {
+    "published": false,
+    "production_services_modified_by_this_frontend_change": false,
+    "blocking_reason": "Automatic approval review rejects another temporary root SSH key while a previous expired-run public key has not been removed. Hostinger remove-key connector returned 422 despite the supplied keys parameter.",
+    "stale_public_key_comment": "novalis-relay-39090938272",
+    "stale_private_identity": "GitHub runner confirmed private identity removed",
+    "last_relay_authentication": "failed before any client-capture operator execution",
+    "next_step": "Obtain explicit approval for one temporary VPS connection to remove the stale key, stage this exact source, complete responsive browser review and publish only the showcase."
+  },
+  "limits": ["New mobile layout has automated coverage but no new real-browser responsive measurements yet.", "Client screenshots show the existing example fixture; the new marketing fixture is prepared but was not staged.", "This change does not activate online payment methods or alter ERP authentication."]
+}

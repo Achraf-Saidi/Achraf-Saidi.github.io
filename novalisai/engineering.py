@@ -39,13 +39,12 @@ def write_pages(P,url):
    if slug=='data-ia':body+='<div class="demo-detail shell">'+dashboard(t,'data')+'</div>'+data_section(t)
    elif slug=='automatisation':body+=ai(t).replace('href="#contact"',f'href="../../{lang}/#contact"')
    elif slug=='sites-web':
-    body+='<div class="shell web-examples">'+''.join(f'<a href="../solutions/{c["slug"]}/"><img src="../../assets/concept-{c["asset"]}.webp" alt="{e(c["category"])}" loading="lazy" width="1586" height="992"><h3>{e(c["category"])}</h3><p>{e(c["value"])}</p><span>{e(t["concept"])} ↗</span></a>' for c in [t['cases'][1],t['cases'][3]])+'</div>'
+    body+='<div class="shell web-examples">'+''.join(f'<a href="../solutions/{c["slug"]}/"><img src="../../assets/concept-{c["asset"]}.webp" alt="{e(c["category"])}" loading="lazy" width="1586" height="992"><h3>{e(c["category"])}</h3><p>{e(c["value"])}</p><span>{e(t["concept"])} ↗</span></a>' for c in [c for c in t['cases'] if c['group']=='web'])+'</div>'
    canonical=f'{url}/{lang}/{slug}/';folder=root/lang/slug;folder.mkdir(exist_ok=True);(folder/'index.html').write_text(shell(lang,canonical,title,body,prefix,url,description=description));urls.append(canonical)
   body=f'<section class="service-hero shell"><p class="eyebrow">NOVALIS / EXPERTISES</p><h1>{e(s["expertise_title"])}</h1><p>{e(s["expertise_copy"])}</p></section>'+expertise(t,lang,prefix)+f'<div class="shell service-related"><a class="text-link" href="../saas/">SaaS ↗</a><a class="text-link" href="../#contact">{e(t["cta"])} ↗</a></div>'
   canonical=f'{url}/{lang}/expertise/';(root/lang/'expertise/index.html').write_text(shell(lang,canonical,t['nav'][0],body,prefix,url,description=s['expertise_copy']))
   body=f'<section class="service-hero shell"><p class="eyebrow">NOVALIS / SHOWROOM</p><h1>{e(" ".join(t["show_title"]))}</h1><p>{e(t["show_copy"])}</p><a class="text-link" href="../solutions/optimisation/">Novalis Optimize ↗</a></section>'
-  gallery=showroom(t,lang,prefix).replace('data-selective="true"','').replace(' hidden','').replace('role="status">4 ','role="status">8 ')
-  gallery=gallery[:gallery.index('<a class="button button-secondary showroom-more')]+ '</section>'
+  gallery=showroom(t,lang,prefix,full=True)
   canonical=f'{url}/{lang}/realisations/';(root/lang/'realisations/index.html').write_text(shell(lang,canonical,'Showroom',body+gallery,prefix,url))
   for slug,name,heading in [('aide-decision','Novalis Intelligence',s['dashboard_title']),('optimisation','Novalis Optimize',s['model_title'])]:
    prefix='../../../';body=f'<section class="service-hero shell"><p class="eyebrow">{e(t["concept"])} / {name.upper()}</p><h1 id="hero-title">{e(heading)}</h1><p>{e(s["data_copy"] if slug=="aide-decision" else s["model_copy"])}</p></section><div class="demo-detail shell">'+dashboard(t,slug)+'</div>'+data_section(t)+f'<div class="shell service-related"><a class="button" href="../../#contact">{e(t["case_cta"])} ↗</a></div>'

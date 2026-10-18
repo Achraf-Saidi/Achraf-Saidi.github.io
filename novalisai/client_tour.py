@@ -1,0 +1,18 @@
+"""A faithful tour of the existing client application, with example-project captures."""
+import html,json
+from pathlib import Path
+T=json.loads((Path(__file__).parent/'client-tour.json').read_text())
+SCREENSHOTS=['proposal','overview','messages','documents','overview','invoices']
+def e(v):return html.escape(str(v),quote=True)
+def screenshot(name,prefix,alt,eager=False):
+ return f'<img src="{prefix}assets/os-client-{name}.webp" alt="{e(alt)}" width="1348" height="926" loading="'+('eager' if eager else 'lazy')+'">'
+def teaser(t,lang,prefix):
+ s=t['tour'];href=prefix+lang+'/realisations/novalis-os/'
+ facts=''.join('<li>'+e(v)+'</li>' for v in s['facts'])
+ return f'''<section id="saas" class="os-teaser section shell"><div class="os-teaser-copy"><p class="eyebrow">NOVALIS OS / {e(s['kicker'])}</p><h2>{e(s['teaser'])}</h2><p>{e(s['teaser_copy'])}</p><ul>{facts}</ul><a class="button" href="{href}">{e(s['visit'])} ↗</a></div><a class="os-teaser-visual" href="{href}" aria-label="{e(s['visit'])}"><div class="os-preview-top"><span>Novalis <b>OS</b></span><span>NOVALIS OS / CLIENT</span></div><div class="os-teaser-screen">{screenshot('overview',prefix,s['example'])}</div><div class="os-mobile-project"><span class="eyebrow">ATELIER SILLAGE</span><h3>{e(t['os_project'])}</h3><div class="os-mobile-progress"><strong>60%</strong><span>{e(s['progress'])}</span></div><progress max="5" value="3">3/5</progress><div class="os-mobile-next"><span>{e(s['next'])}</span><strong>{e(s['milestone'])}</strong><span aria-hidden="true">↗</span></div></div><span class="os-preview-caption">{e(s['example'])} <span aria-hidden="true">↗</span></span></a></section>'''
+def guide(t,lang,prefix):
+ s=t['tour'];tabs=''.join(f'<button type="button" role="tab" id="tour-tab-{i}" data-tour-step="{i}" aria-controls="tour-panel-{i}" aria-selected="{str(i==0).lower()}" tabindex="{0 if i==0 else -1}"><span>0{i+1}</span>{e(v[0])}</button>' for i,v in enumerate(s['steps']))
+ panels=[]
+ for i,v in enumerate(s['steps']):
+  panels.append(f'''<section role="tabpanel" id="tour-panel-{i}" aria-labelledby="tour-tab-{i}" tabindex="0"{'' if i==0 else ' hidden'}><div class="tour-step-copy"><span class="eyebrow">0{i+1} / 06</span><h2>{e(v[1])}</h2><p>{e(v[2])}</p></div><figure class="tour-shot"><button type="button" data-tour-zoom="{i}" aria-label="{e(s['zoom']+' · '+v[0])}">{screenshot(SCREENSHOTS[i],prefix,v[0]+' · '+s['example'],i==0)}<span>{e(s['zoom'])} ＋</span></button><figcaption>{e(s['example'])} · {e(s['screen_note'])}</figcaption></figure></section>''')
+ return f'''<section class="tour-hero shell"><a class="text-link" href="../../#saas">← Novalis OS</a><p class="eyebrow">NOVALIS OS / {e(s['kicker'])}</p><h1><span>{e(s['title'][0])}</span><em>{e(s['title'][1])}</em></h1><p>{e(s['intro'])}</p></section><div class="client-tour shell"><div class="tour-tabs" role="tablist" aria-label="Novalis OS">{tabs}</div><div class="tour-panels">{''.join(panels)}</div><p class="tour-payment-note">{e(s['payment_note'])}</p><a class="button" href="../../#contact">{e(t['cta'])} ↗</a></div><dialog id="tour-dialog" aria-label="{e(s['zoom'])}"><div class="dialog-bar"><span>Novalis OS</span><button type="button" data-dialog-close aria-label="{e(s['close'])}">×</button></div><div class="tour-zoom-scroll"><img id="tour-zoom-image" alt="" width="1348" height="926"></div><p>{e(s['example'])}</p></dialog><section class="tour-try-intro shell"><p class="eyebrow">NOVALIS OS / DEMO</p><h2>{e(s['try_title'])}</h2><p>{e(s['try_copy'])}</p></section><noscript><style>.tour-panels [hidden]{{display:block!important}}.tour-tabs{{display:none}}</style></noscript>'''

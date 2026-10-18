@@ -1,0 +1,47 @@
+[
+  {
+    "asset": "os-client-overview.webp",
+    "width": 1348,
+    "height": 926,
+    "sha256": "a38c751d8b6c6b16544fdd8cf30c76c62c7376a05266f5e5ecf0cf89572dd124",
+    "source": "https://www.novalisai.com/_review/erp-1a5255f6bd24ea7d5403bbb4465e6c200768dd54/?role=client",
+    "view": "overview",
+    "method": "Actual client UI captured with Cua; example project; WebP conversion only"
+  },
+  {
+    "asset": "os-client-messages.webp",
+    "width": 1348,
+    "height": 926,
+    "sha256": "e667a0b221f185cf69c1b5d146eae191f155f4cae1a44360bda0eb61e00ec973",
+    "source": "https://www.novalisai.com/_review/erp-1a5255f6bd24ea7d5403bbb4465e6c200768dd54/?role=client",
+    "view": "messages",
+    "method": "Actual client UI captured with Cua; example project; WebP conversion only"
+  },
+  {
+    "asset": "os-client-documents.webp",
+    "width": 1348,
+    "height": 926,
+    "sha256": "abe6593bb9626e6d35a45601938f7d92e4f86a5588a9695e175839fd7f19a591",
+    "source": "https://www.novalisai.com/_review/erp-1a5255f6bd24ea7d5403bbb4465e6c200768dd54/?role=client",
+    "view": "documents",
+    "method": "Actual client UI captured with Cua; example project; WebP conversion only"
+  },
+  {
+    "asset": "os-client-proposal.webp",
+    "width": 1348,
+    "height": 926,
+    "sha256": "0d3c14cd91e6f1031f5f689b0d7ac03dc318dfcab707b3e4d49fe29f96113ad3",
+    "source": "https://www.novalisai.com/_review/erp-1a5255f6bd24ea7d5403bbb4465e6c200768dd54/?role=client",
+    "view": "proposal",
+    "method": "Actual client UI captured with Cua; example project; WebP conversion only"
+  },
+  {
+    "asset": "os-client-invoices.webp",
+    "width": 1348,
+    "height": 926,
+    "sha256": "aa479e40a883d26368c6b935416b240d30d42116a8a3164da988d8d81726a97c",
+    "source": "https://www.novalisai.com/_review/erp-1a5255f6bd24ea7d5403bbb4465e6c200768dd54/?role=client",
+    "view": "invoices",
+    "method": "Actual client UI captured with Cua; example project; WebP conversion only"
+  }
+]
