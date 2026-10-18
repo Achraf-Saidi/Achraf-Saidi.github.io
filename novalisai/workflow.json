@@ -1,0 +1,458 @@
+{
+  "fr": {
+    "intro": "Moins de ressaisie. Des décisions plus claires. Des outils conçus autour de votre façon de travailler.",
+    "label": "Démonstration guidée",
+    "choose": "Choisir un flux métier",
+    "incoming": "À traiter",
+    "steps": [
+      "Comprendre",
+      "Vérifier",
+      "Préparer"
+    ],
+    "promise": "Un message entre. Le travail prend forme.",
+    "run": "Préparer le traitement",
+    "running": "Préparation du scénario…",
+    "rerun": "Rejouer le scénario",
+    "result_title": "Le travail est préparé.",
+    "review_badge": "À valider",
+    "draft": "Réponse proposée",
+    "exception": "Et s’il manque une information ?",
+    "local": "Scénario préparé · sans envoi",
+    "caption": "L’IA, là où le travail se répète.",
+    "try": "Essayez un cas concret",
+    "bottom": "Comprendre le contexte. Relier vos outils. Garder la main.",
+    "os_link": "Et pendant votre projet ? Novalis OS",
+    "impact_title": "Ce que le temps économisé peut représenter",
+    "impact_copy": "Partez de votre volume et du temps réellement passé. Comparez le traitement manuel à une préparation assistée suivie d’une vérification humaine.",
+    "volume": "Demandes / mois",
+    "manual": "Manuel · min / demande",
+    "review": "Avec vérification · min / demande",
+    "estimate": "{hours} h {minutes} min / mois de temps potentiellement libéré",
+    "no_gain": "Avec ces hypothèses, aucun temps n’est libéré.",
+    "invalid": "Indiquez un volume de 1 à 10 000 et des durées de 1 à 120 minutes, en nombres entiers.",
+    "formula": "{volume} × ({manual} − {review}) min.",
+    "assumption_note": "Estimation arithmétique, pas une mesure de performance. Intégration, complexité et coût du projet restent à évaluer lors du diagnostic. Aucun gain garanti.",
+    "noscript": "Cette démonstration nécessite JavaScript. Nos exemples d’interfaces restent accessibles plus bas.",
+    "exception_title": "Une information manque : le flux s’arrête.",
+    "exception_check": "Aucune action engagée. Une question est préparée pour votre équipe.",
+    "check": "Source identifiée · contrôles explicités · validation humaine avant toute action.",
+    "cases": [
+      {
+        "label": "Demande client",
+        "source": "Commercial / e-mail entrant",
+        "message": "Bonjour, nous ouvrons un second dépôt. Il nous faut un outil pour suivre le stock et les transferts entre sites. Peut-on en discuter mardi ?",
+        "fields": [
+          [
+            "Besoin identifié",
+            "Stock multi-sites et transferts"
+          ],
+          [
+            "Travail préparé",
+            "Fiche prospect + briefing de rendez-vous"
+          ],
+          [
+            "Contrôle humain",
+            "Confirmer le créneau avec le client"
+          ]
+        ],
+        "reply": "Bonjour, nous avons bien identifié votre besoin de suivi entre dépôts. Quels créneaux vous conviendraient mardi pour un premier échange ?",
+        "missing": "La date exacte n’est pas précisée. Aucun rendez-vous n’est réservé.",
+        "missing_reply": "Pourriez-vous préciser la date du mardi souhaité et votre disponibilité ?",
+        "missing_message": "Bonjour, nous ouvrons un second dépôt et cherchons un outil de suivi des stocks et transferts. Peut-on en discuter mardi ?"
+      },
+      {
+        "label": "Facture fournisseur",
+        "source": "Comptabilité / document reçu",
+        "message": "Facture FOUR-204 · 24 unités à 50 € HT · TVA 21 % · total annoncé 1 452 € · référence commande absente.",
+        "fields": [
+          [
+            "Extraction",
+            "1 200 € HT + 252 € TVA = 1 452 €"
+          ],
+          [
+            "Travail préparé",
+            "Pré-classement et contrôle arithmétique"
+          ],
+          [
+            "Point de vigilance",
+            "Commande à rapprocher avant validation"
+          ]
+        ],
+        "reply": "Les montants sont cohérents. Merci de rattacher la commande correspondante avant validation comptable. Aucun règlement n’est déclenché.",
+        "missing": "Le montant total manque. Impossible de terminer le contrôle de cohérence.",
+        "missing_reply": "Merci de transmettre la facture complète pour vérifier le total et la TVA.",
+        "missing_message": "Facture FOUR-204 · 24 unités à 50 € HT · TVA 21 % · total manquant · référence commande absente."
+      },
+      {
+        "label": "Support client",
+        "source": "Support / message entrant",
+        "message": "Je n’ai pas reçu ma livraison CMD-2048. Pouvez-vous me dire où elle en est ?",
+        "fields": [
+          [
+            "Intention",
+            "Suivi de livraison · CMD-2048"
+          ],
+          [
+            "Source consultée",
+            "Statut exemple : préparation au dépôt"
+          ],
+          [
+            "Travail préparé",
+            "Réponse sourcée + tâche de vérification"
+          ]
+        ],
+        "reply": "Votre commande CMD-2048 est indiquée en préparation dans ce scénario. L’équipe vérifierait l’expédition avant de confirmer une date de livraison.",
+        "missing": "La référence de commande manque. Aucun dossier client n’est recherché au hasard.",
+        "missing_reply": "Pouvez-vous nous communiquer la référence de votre commande ?",
+        "missing_message": "Je n’ai pas reçu ma livraison. Pouvez-vous me dire où elle en est ?"
+      }
+    ],
+    "optimization_steps": [
+      "Un objectif mesurable",
+      "Des contraintes explicites",
+      "Une décision vérifiable"
+    ]
+  },
+  "en": {
+    "intro": "Less rekeying. Clearer decisions. Software built around the way you work.",
+    "label": "Guided demo",
+    "choose": "Choose a workflow",
+    "incoming": "To process",
+    "steps": [
+      "Understand",
+      "Check",
+      "Prepare"
+    ],
+    "promise": "A message comes in. The work takes shape.",
+    "run": "Prepare the workflow",
+    "running": "Preparing the scenario…",
+    "rerun": "Replay the scenario",
+    "result_title": "The work is prepared.",
+    "review_badge": "For review",
+    "draft": "Suggested reply",
+    "exception": "What if information is missing?",
+    "local": "Prepared scenario · nothing sent",
+    "caption": "AI, where work repeats itself.",
+    "try": "Try a real-world scenario",
+    "bottom": "Understand the context. Connect your tools. Stay in control.",
+    "os_link": "And during your project? Novalis OS",
+    "impact_title": "What saved time could mean",
+    "impact_copy": "Use your actual volume and time spent. Compare manual handling with assisted preparation followed by human review.",
+    "volume": "Requests / month",
+    "manual": "Manual · min / request",
+    "review": "With review · min / request",
+    "estimate": "{hours} h {minutes} min / month potentially freed up",
+    "no_gain": "These assumptions do not produce a time saving.",
+    "invalid": "Enter a volume from 1 to 10,000 and times from 1 to 120 minutes, using whole numbers.",
+    "formula": "{volume} × ({manual} − {review}) min.",
+    "assumption_note": "Arithmetic estimate, not measured performance. Integration, complexity and project costs still need to be assessed during discovery. No guaranteed savings.",
+    "noscript": "This demo requires JavaScript. Interface concepts remain available below.",
+    "exception_title": "Information is missing: the workflow stops.",
+    "exception_check": "No action taken. A question is prepared for your team.",
+    "check": "Source identified · explicit checks · human approval before any action.",
+    "cases": [
+      {
+        "label": "Customer enquiry",
+        "source": "Sales / incoming email",
+        "message": "Hello, we are opening a second warehouse. We need a tool to track stock and transfers between sites. Could we discuss it on Tuesday?",
+        "fields": [
+          [
+            "Need identified",
+            "Multi-site inventory and transfers"
+          ],
+          [
+            "Work prepared",
+            "Lead record + meeting brief"
+          ],
+          [
+            "Human check",
+            "Confirm the meeting time with the customer"
+          ]
+        ],
+        "reply": "Hello, we have identified your need to track stock between warehouses. When would you be available on Tuesday for an initial conversation?",
+        "missing": "The exact date is missing. No meeting is booked.",
+        "missing_reply": "Which Tuesday do you mean, and when would you be available?",
+        "missing_message": "Hello, we are opening a second warehouse and need a tool to track stock and transfers. Could we discuss it on Tuesday?"
+      },
+      {
+        "label": "Supplier invoice",
+        "source": "Accounting / incoming document",
+        "message": "Invoice FOUR-204 · 24 units at €50 net · VAT 21% · stated total €1,452 · purchase order reference missing.",
+        "fields": [
+          [
+            "Extraction",
+            "€1,200 net + €252 VAT = €1,452"
+          ],
+          [
+            "Work prepared",
+            "Pre-classification and arithmetic check"
+          ],
+          [
+            "Attention required",
+            "Match the purchase order before approval"
+          ]
+        ],
+        "reply": "The amounts are consistent. Please link the matching purchase order before accounting approval. No payment is triggered.",
+        "missing": "The total amount is missing. The consistency check cannot be completed.",
+        "missing_reply": "Please provide the full invoice so the total and VAT can be checked.",
+        "missing_message": "Invoice FOUR-204 · 24 units at €50 net · VAT 21% · total missing · purchase order reference missing."
+      },
+      {
+        "label": "Customer support",
+        "source": "Support / incoming message",
+        "message": "I have not received order CMD-2048. Could you tell me where it is?",
+        "fields": [
+          [
+            "Intent",
+            "Delivery tracking · CMD-2048"
+          ],
+          [
+            "Source checked",
+            "Example status: being prepared at warehouse"
+          ],
+          [
+            "Work prepared",
+            "Sourced reply + verification task"
+          ]
+        ],
+        "reply": "Order CMD-2048 is shown as being prepared in this scenario. The team would check dispatch before confirming a delivery date.",
+        "missing": "The order reference is missing. No customer record is guessed.",
+        "missing_reply": "Could you provide your order reference?",
+        "missing_message": "I have not received my delivery. Could you tell me where it is?"
+      }
+    ],
+    "optimization_steps": [
+      "A measurable objective",
+      "Explicit constraints",
+      "A verifiable decision"
+    ]
+  },
+  "nl": {
+    "intro": "Minder overtypen. Duidelijkere beslissingen. Software die past bij uw manier van werken.",
+    "label": "Begeleide demo",
+    "choose": "Kies een werkproces",
+    "incoming": "Te verwerken",
+    "steps": [
+      "Begrijpen",
+      "Controleren",
+      "Voorbereiden"
+    ],
+    "promise": "Een bericht komt binnen. Het werk krijgt vorm.",
+    "run": "Verwerking voorbereiden",
+    "running": "Scenario wordt voorbereid…",
+    "rerun": "Scenario opnieuw afspelen",
+    "result_title": "Het werk is voorbereid.",
+    "review_badge": "Ter controle",
+    "draft": "Voorgesteld antwoord",
+    "exception": "Wat als informatie ontbreekt?",
+    "local": "Voorbereid scenario · niets verstuurd",
+    "caption": "AI waar het werk zich herhaalt.",
+    "try": "Probeer een concreet scenario",
+    "bottom": "De context begrijpen. Uw tools verbinden. De regie houden.",
+    "os_link": "En tijdens uw project? Novalis OS",
+    "impact_title": "Wat bespaarde tijd kan betekenen",
+    "impact_copy": "Gebruik uw werkelijke volume en tijdsbesteding. Vergelijk handmatige verwerking met ondersteunde voorbereiding en menselijke controle.",
+    "volume": "Aanvragen / maand",
+    "manual": "Handmatig · min / aanvraag",
+    "review": "Met controle · min / aanvraag",
+    "estimate": "{hours} u {minutes} min / maand mogelijk vrijgemaakt",
+    "no_gain": "Met deze aannames wordt geen tijd vrijgemaakt.",
+    "invalid": "Vul een volume van 1 tot 10.000 en tijden van 1 tot 120 minuten in, als gehele getallen.",
+    "formula": "{volume} × ({manual} − {review}) min.",
+    "assumption_note": "Rekenkundige schatting, geen gemeten prestatie. Integratie, complexiteit en projectkosten worden tijdens de analyse beoordeeld. Geen gegarandeerde besparing.",
+    "noscript": "Deze demo vereist JavaScript. De interfaceconcepten blijven hieronder beschikbaar.",
+    "exception_title": "Informatie ontbreekt: het proces stopt.",
+    "exception_check": "Geen actie uitgevoerd. Een vraag is voorbereid voor uw team.",
+    "check": "Bron vermeld · expliciete controles · menselijke goedkeuring vóór elke actie.",
+    "cases": [
+      {
+        "label": "Klantaanvraag",
+        "source": "Verkoop / binnenkomende e-mail",
+        "message": "Hallo, we openen een tweede magazijn. We zoeken een tool voor voorraad en transfers tussen locaties. Kunnen we dinsdag overleggen?",
+        "fields": [
+          [
+            "Behoefte herkend",
+            "Voorraad en transfers tussen locaties"
+          ],
+          [
+            "Werk voorbereid",
+            "Prospectfiche + gespreksvoorbereiding"
+          ],
+          [
+            "Menselijke controle",
+            "Tijdstip bevestigen met de klant"
+          ]
+        ],
+        "reply": "Hallo, we begrijpen uw behoefte aan voorraadoverzicht tussen magazijnen. Wanneer bent u dinsdag beschikbaar voor een eerste gesprek?",
+        "missing": "De exacte datum ontbreekt. Er wordt geen afspraak geboekt.",
+        "missing_reply": "Welke dinsdag bedoelt u en wanneer bent u beschikbaar?",
+        "missing_message": "Hallo, we openen een tweede magazijn en zoeken een tool voor voorraad en transfers. Kunnen we dinsdag overleggen?"
+      },
+      {
+        "label": "Leveranciersfactuur",
+        "source": "Boekhouding / ontvangen document",
+        "message": "Factuur FOUR-204 · 24 eenheden à € 50 excl. btw · 21% btw · vermeld totaal € 1.452 · bestelreferentie ontbreekt.",
+        "fields": [
+          [
+            "Extractie",
+            "€ 1.200 excl. + € 252 btw = € 1.452"
+          ],
+          [
+            "Werk voorbereid",
+            "Voorclassificatie en rekencontrole"
+          ],
+          [
+            "Aandachtspunt",
+            "Bestelling koppelen vóór goedkeuring"
+          ]
+        ],
+        "reply": "De bedragen kloppen. Koppel de bijbehorende bestelling vóór boekhoudkundige goedkeuring. Er wordt geen betaling gestart.",
+        "missing": "Het totaalbedrag ontbreekt. De controle kan niet worden afgerond.",
+        "missing_reply": "Stuur de volledige factuur om het totaal en de btw te controleren.",
+        "missing_message": "Factuur FOUR-204 · 24 eenheden à € 50 excl. btw · 21% btw · totaal ontbreekt · bestelreferentie ontbreekt."
+      },
+      {
+        "label": "Klantenservice",
+        "source": "Support / binnenkomend bericht",
+        "message": "Ik heb bestelling CMD-2048 niet ontvangen. Wat is de status?",
+        "fields": [
+          [
+            "Intentie",
+            "Levering opvolgen · CMD-2048"
+          ],
+          [
+            "Geraadpleegde bron",
+            "Voorbeeldstatus: voorbereiding in magazijn"
+          ],
+          [
+            "Werk voorbereid",
+            "Antwoord met bron + controletaak"
+          ]
+        ],
+        "reply": "Bestelling CMD-2048 staat in dit scenario in voorbereiding. Het team controleert de verzending voordat een leverdatum wordt bevestigd.",
+        "missing": "De bestelreferentie ontbreekt. Er wordt geen klantdossier geraden.",
+        "missing_reply": "Kunt u uw bestelreferentie doorgeven?",
+        "missing_message": "Ik heb mijn levering niet ontvangen. Wat is de status?"
+      }
+    ],
+    "optimization_steps": [
+      "Een meetbaar doel",
+      "Expliciete randvoorwaarden",
+      "Een toetsbare beslissing"
+    ]
+  },
+  "de": {
+    "intro": "Weniger Doppelerfassung. Klarere Entscheidungen. Software für Ihre Arbeitsweise.",
+    "label": "Geführte Demo",
+    "choose": "Arbeitsablauf wählen",
+    "incoming": "Zu bearbeiten",
+    "steps": [
+      "Verstehen",
+      "Prüfen",
+      "Vorbereiten"
+    ],
+    "promise": "Eine Nachricht kommt an. Die Arbeit nimmt Form an.",
+    "run": "Bearbeitung vorbereiten",
+    "running": "Szenario wird vorbereitet…",
+    "rerun": "Szenario erneut abspielen",
+    "result_title": "Die Arbeit ist vorbereitet.",
+    "review_badge": "Zur Prüfung",
+    "draft": "Antwortvorschlag",
+    "exception": "Was, wenn Informationen fehlen?",
+    "local": "Vorbereitetes Szenario · kein Versand",
+    "caption": "KI dort, wo Arbeit sich wiederholt.",
+    "try": "Ein konkretes Beispiel ausprobieren",
+    "bottom": "Den Kontext verstehen. Ihre Werkzeuge verbinden. Die Kontrolle behalten.",
+    "os_link": "Und während Ihres Projekts? Novalis OS",
+    "impact_title": "Was eingesparte Zeit bedeuten kann",
+    "impact_copy": "Nutzen Sie Ihr tatsächliches Volumen und Ihren Zeitaufwand. Vergleichen Sie manuelle Bearbeitung mit unterstützter Vorbereitung und menschlicher Prüfung.",
+    "volume": "Anfragen / Monat",
+    "manual": "Manuell · Min. / Anfrage",
+    "review": "Mit Prüfung · Min. / Anfrage",
+    "estimate": "{hours} Std. {minutes} Min. / Monat potenziell frei",
+    "no_gain": "Mit diesen Annahmen ergibt sich keine Zeitersparnis.",
+    "invalid": "Geben Sie ein Volumen von 1 bis 10.000 und Zeiten von 1 bis 120 Minuten als ganze Zahlen ein.",
+    "formula": "{volume} × ({manual} − {review}) Min.",
+    "assumption_note": "Rechnerische Schätzung, keine gemessene Leistung. Integration, Komplexität und Projektkosten werden in der Analyse bewertet. Keine garantierten Einsparungen.",
+    "noscript": "Diese Demo benötigt JavaScript. Die Oberflächenkonzepte bleiben unten zugänglich.",
+    "exception_title": "Information fehlt: Der Ablauf hält an.",
+    "exception_check": "Keine Aktion ausgeführt. Eine Rückfrage ist für Ihr Team vorbereitet.",
+    "check": "Quelle benannt · nachvollziehbare Prüfungen · menschliche Freigabe vor jeder Aktion.",
+    "cases": [
+      {
+        "label": "Kundenanfrage",
+        "source": "Vertrieb / eingehende E-Mail",
+        "message": "Hallo, wir eröffnen ein zweites Lager. Wir brauchen ein Werkzeug für Bestände und Transfers zwischen Standorten. Können wir am Dienstag sprechen?",
+        "fields": [
+          [
+            "Bedarf erkannt",
+            "Bestände und Transfers mehrerer Standorte"
+          ],
+          [
+            "Arbeit vorbereitet",
+            "Interessenteneintrag + Gesprächsbriefing"
+          ],
+          [
+            "Menschliche Prüfung",
+            "Termin mit dem Kunden bestätigen"
+          ]
+        ],
+        "reply": "Hallo, wir haben Ihren Bedarf an Bestandsübersicht zwischen Lagern erkannt. Wann hätten Sie am Dienstag Zeit für ein erstes Gespräch?",
+        "missing": "Das genaue Datum fehlt. Kein Termin wird gebucht.",
+        "missing_reply": "Welchen Dienstag meinen Sie, und wann sind Sie verfügbar?",
+        "missing_message": "Hallo, wir eröffnen ein zweites Lager und suchen ein Werkzeug für Bestände und Transfers. Können wir am Dienstag sprechen?"
+      },
+      {
+        "label": "Lieferantenrechnung",
+        "source": "Buchhaltung / eingegangenes Dokument",
+        "message": "Rechnung FOUR-204 · 24 Einheiten zu 50 € netto · 21 % MwSt. · genannter Gesamtbetrag 1.452 € · Bestellreferenz fehlt.",
+        "fields": [
+          [
+            "Extraktion",
+            "1.200 € netto + 252 € MwSt. = 1.452 €"
+          ],
+          [
+            "Arbeit vorbereitet",
+            "Vorklassifizierung und Rechenprüfung"
+          ],
+          [
+            "Prüfpunkt",
+            "Bestellung vor Freigabe zuordnen"
+          ]
+        ],
+        "reply": "Die Beträge stimmen überein. Bitte ordnen Sie die passende Bestellung vor der buchhalterischen Freigabe zu. Keine Zahlung wird ausgelöst.",
+        "missing": "Der Gesamtbetrag fehlt. Die Prüfung kann nicht abgeschlossen werden.",
+        "missing_reply": "Bitte senden Sie die vollständige Rechnung zur Prüfung von Gesamtbetrag und MwSt.",
+        "missing_message": "Rechnung FOUR-204 · 24 Einheiten zu 50 € netto · 21 % MwSt. · Gesamtbetrag fehlt · Bestellreferenz fehlt."
+      },
+      {
+        "label": "Kundenservice",
+        "source": "Support / eingehende Nachricht",
+        "message": "Meine Bestellung CMD-2048 ist noch nicht angekommen. Wie ist der Status?",
+        "fields": [
+          [
+            "Absicht",
+            "Lieferstatus · CMD-2048"
+          ],
+          [
+            "Geprüfte Quelle",
+            "Beispielstatus: Vorbereitung im Lager"
+          ],
+          [
+            "Arbeit vorbereitet",
+            "Antwort mit Quelle + Prüfaufgabe"
+          ]
+        ],
+        "reply": "Bestellung CMD-2048 wird in diesem Szenario vorbereitet. Das Team würde den Versand prüfen, bevor es einen Liefertermin bestätigt.",
+        "missing": "Die Bestellreferenz fehlt. Es wird kein Kundendatensatz geraten.",
+        "missing_reply": "Können Sie uns Ihre Bestellreferenz nennen?",
+        "missing_message": "Meine Lieferung ist noch nicht angekommen. Wie ist der Status?"
+      }
+    ],
+    "optimization_steps": [
+      "Ein messbares Ziel",
+      "Klare Bedingungen",
+      "Eine überprüfbare Entscheidung"
+    ]
+  }
+}

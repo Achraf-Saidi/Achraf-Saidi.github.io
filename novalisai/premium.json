@@ -72,14 +72,15 @@
       "Votre projet avance.",
       "Vous le voyez."
     ],
-    "os_copy": "Les livrables ne disparaissent pas derrière un e-mail. Avec Novalis OS, vous retrouvez les jalons, les documents partagés, les échanges et les décisions qui vous concernent, dans un espace dédié.",
+    "os_copy": "Vous savez ce qui avance, ce qui vous attend et ce que vous validez. Novalis OS réunit le suivi du projet, les documents, vos échanges et les factures dans un espace dédié. Les modalités de paiement par échéances sont définies ensemble dans votre proposition.",
     "os_note": "Démonstration interactive · projet exemple",
     "os_tabs": [
       "Vue d’ensemble",
       "Jalons",
       "Documents",
       "Décisions",
-      "Échanges"
+      "Échanges",
+      "Factures"
     ],
     "os_project": "Atelier Sillage · Portail de commandes",
     "os_status": "Conception validée · développement en cours",
@@ -184,30 +185,30 @@
       "La rigueur scientifique.",
       "Le sens du produit."
     ],
-    "crew_copy": "Le conseil, le design et l’ingénierie avancent dans la même équipe. Nous réunissons les compétences autour du problème, avec JetThings et des spécialistes indépendants selon les missions.",
+    "crew_copy": "Un panel de compétences en développement, design produit, data science et intelligence artificielle, réuni autour de votre activité. Une direction technique identifiée, des spécialistes mobilisés au bon moment.",
     "founder_role": "Cofondateur & CTO",
     "founder_bio": "Formé en sciences des données à l’École polytechnique de Louvain, chercheur et assistant à l’UCLouvain, Achraf relie statistique, machine learning et conception logicielle. Il porte le cadrage technique et l’architecture des projets Novalis.",
     "profile": "Parcours professionnel",
     "crew_roles": [
       [
-        "05",
+        "screen",
         "Frontend",
         "Interfaces, usages mobiles & accessibilité."
       ],
       [
-        "06",
+        "code",
         "Backend",
         "Règles métier, API & architecture."
       ],
       [
-        "03",
+        "chart",
         "Data scientists",
         "Statistique, machine learning & analyse."
       ],
       [
-        "↗",
+        "people",
         "Design & réseau",
-        "Design produit, JetThings & spécialistes."
+        "Design produit, ergonomie et spécialistes indépendants."
       ]
     ],
     "contact_title": [
@@ -448,7 +449,7 @@
     "lookup_error": "Le service est indisponible. Vos champs sont conservés ; réessayez.",
     "saved_open": "Ouvrir le suivi privé",
     "engineering": {
-      "dashboard_title": "Comprendre. Comparer. Décider.",
+      "dashboard_title": "L’IA, là où le travail se répète.",
       "months": [
         "Mai",
         "Juin",
@@ -531,8 +532,8 @@
           "Définir un objectif, représenter les contraintes et calculer une répartition de ressources réalisable."
         ]
       ],
-      "model_title": "Changez une contrainte. Observez la décision.",
-      "model_copy": "Dans la démonstration, augmentez le volume ou réduisez la capacité du partenaire B. Le calcul recherche la répartition la moins coûteuse parmi toutes celles qui satisfont la demande. Si aucune n’existe, il l’indique.",
+      "model_title": "Vos contraintes font partie de la solution.",
+      "model_copy": "Délais, capacités, priorités, budget : nous formalisons ce qui compte pour votre activité avant de choisir un modèle. Une proposition reste explicable et soumise à vos règles métier.",
       "model_try": "Essayer la démonstration",
       "objective": "Objectif · coût opérationnel minimal",
       "constraints": "Contraintes · demande et capacités",
@@ -549,7 +550,40 @@
       "related_title": "À explorer aussi",
       "signature": "Le standard n’a pas votre ambition."
     },
-    "save_fallback": "Ce navigateur ne permet pas de conserver le lien. Copiez-le, ou retrouvez l’étape générale avec votre référence et votre e-mail."
+    "save_fallback": "Ce navigateur ne permet pas de conserver le lien. Copiez-le, ou retrouvez l’étape générale avec votre référence et votre e-mail.",
+    "partner_title": "Les bonnes compétences. Une organisation qui compte.",
+    "partner_copy": "Nous faisons régulièrement appel à des indépendants et à notre réseau de partenaires en Afrique, notamment JetThings et JetNext. Cette organisation nous permet d’adapter l’équipe à chaque projet et de proposer des budgets compétitifs, avec un cadrage, des revues techniques et un suivi centralisés chez Novalis.",
+    "os_payment_tab": "Factures",
+    "os_payment_title": "Vos échéances, sans mauvaise surprise.",
+    "os_payment_intro": "Exemple de facturation en trois temps, selon les modalités convenues au devis. Chaque facture conserve sa propre échéance et son suivi de règlement.",
+    "os_payment_rows": [
+      [
+        "Acompte · lancement",
+        "Facture NV-2026-021 · échéance 04/05/2026",
+        "Réglée"
+      ],
+      [
+        "Conception · phase intermédiaire",
+        "Facture NV-2026-032 · échéance 15/06/2026",
+        "À régler"
+      ],
+      [
+        "Solde · livraison",
+        "Facture à émettre selon la proposition",
+        "À venir"
+      ]
+    ],
+    "os_payment_note": "L’équipe établit les factures selon l’accord. Une validation de jalon ne déclenche aucun prélèvement. Cet exemple ne propose aucun paiement réel.",
+    "os_comment_label": "Votre retour à l’équipe",
+    "os_comment_placeholder": "Ex. : Prévoir aussi le suivi des transferts entre dépôts.",
+    "os_comment_send": "Ajouter mon retour à la démo",
+    "os_comment_empty": "Écrivez votre retour avant de l’ajouter.",
+    "os_comment_done": "Retour ajouté à cette démonstration. Rien n’a été envoyé ; le contenu disparaît à la fermeture.",
+    "os_comment_author": "VOUS / DÉMONSTRATION",
+    "os_comment_hint": "Dans votre espace client réel, les échanges du projet sont conservés. Ici, vous pouvez essayer le parcours sans envoyer de message.",
+    "os_banner_title": "Un budget convenu. Des étapes visibles.",
+    "os_banner_copy": "Périmètre, validations et échéances restent lisibles tout au long de la collaboration.",
+    "os_banner_cta": "Voir un exemple de factures"
   },
   "en": {
     "nav": [
@@ -624,14 +658,15 @@
       "Your project moves forward.",
       "You see it happen."
     ],
-    "os_copy": "Deliverables do not disappear into an email thread. Novalis OS brings together milestones, shared documents, conversations and the decisions that concern you in a dedicated workspace.",
+    "os_copy": "See what is moving forward, what comes next and what needs your approval. Novalis OS brings project progress, documents, conversations and invoices into one dedicated workspace. Payment stages are agreed together in your proposal.",
     "os_note": "Interactive demonstration · example project",
     "os_tabs": [
       "Overview",
       "Milestones",
       "Documents",
       "Decisions",
-      "Conversations"
+      "Conversations",
+      "Invoices"
     ],
     "os_project": "Atelier Sillage · Order portal",
     "os_status": "Design approved · development in progress",
@@ -736,30 +771,30 @@
       "Scientific rigour.",
       "A sense for product."
     ],
-    "crew_copy": "Consulting, design and engineering work together. We bring the right skills to the problem, with JetThings and independent specialists as needed.",
+    "crew_copy": "A range of expertise in software engineering, product design, data science and AI, brought together around your business. Clear technical leadership, with specialists involved when they add value.",
     "founder_role": "Co-founder & CTO",
     "founder_bio": "Trained in data science at the Louvain School of Engineering, a researcher and teaching assistant at UCLouvain, Achraf connects statistics, machine learning and software design. He leads technical scoping and architecture at Novalis.",
     "profile": "Professional background",
     "crew_roles": [
       [
-        "05",
+        "screen",
         "Frontend",
         "Interfaces, mobile use & accessibility."
       ],
       [
-        "06",
+        "code",
         "Backend",
         "Business rules, APIs & architecture."
       ],
       [
-        "03",
+        "chart",
         "Data scientists",
         "Statistics, machine learning & analysis."
       ],
       [
-        "↗",
+        "people",
         "Design & network",
-        "Product design, JetThings & specialists."
+        "Product design, usability and independent specialists."
       ]
     ],
     "contact_title": [
@@ -1000,7 +1035,7 @@
     "lookup_error": "The service is unavailable. Your entries are kept; please try again.",
     "saved_open": "Open private tracking",
     "engineering": {
-      "dashboard_title": "Understand. Compare. Decide.",
+      "dashboard_title": "AI, where work repeats itself.",
       "months": [
         "May",
         "Jun",
@@ -1083,8 +1118,8 @@
           "Define an objective, represent constraints and calculate a feasible allocation of resources."
         ]
       ],
-      "model_title": "Change a constraint. See the decision change.",
-      "model_copy": "Increase demand or reduce partner B’s capacity in the demonstration. The model finds the lowest-cost allocation that fulfils all demand. If none exists, it tells you.",
+      "model_title": "Your constraints are part of the solution.",
+      "model_copy": "Deadlines, capacity, priorities, budget: we formalise what matters to your business before choosing a model. A recommendation remains explainable and subject to your business rules.",
       "model_try": "Try the demonstration",
       "objective": "Objective · lowest operating cost",
       "constraints": "Constraints · demand and capacity",
@@ -1101,7 +1136,40 @@
       "related_title": "Explore further",
       "signature": "Built for ambitions beyond the standard."
     },
-    "save_fallback": "This browser could not save the link. Copy it, or check the general stage with your reference and email."
+    "save_fallback": "This browser could not save the link. Copy it, or check the general stage with your reference and email.",
+    "partner_title": "The right skills. A carefully structured team.",
+    "partner_copy": "We regularly work with independent specialists and our partner network in Africa, including JetThings and JetNext. This lets us adapt the team to each project and offer competitive budgets, with scoping, technical reviews and project oversight coordinated by Novalis.",
+    "os_payment_tab": "Invoices",
+    "os_payment_title": "Your due dates, clearly set out.",
+    "os_payment_intro": "An example of billing in three stages, as agreed in the proposal. Each invoice has its own due date and payment status.",
+    "os_payment_rows": [
+      [
+        "Deposit · start",
+        "Invoice NV-2026-021 · due 04/05/2026",
+        "Paid"
+      ],
+      [
+        "Design · intermediate phase",
+        "Invoice NV-2026-032 · due 15/06/2026",
+        "To pay"
+      ],
+      [
+        "Balance · delivery",
+        "Invoice to be issued under the proposal",
+        "Upcoming"
+      ]
+    ],
+    "os_payment_note": "The team issues invoices under the agreement. Approving a milestone does not trigger a debit. This example accepts no real payment.",
+    "os_comment_label": "Your feedback to the team",
+    "os_comment_placeholder": "E.g. Please include tracking for transfers between warehouses.",
+    "os_comment_send": "Add my feedback to the demo",
+    "os_comment_empty": "Write your feedback before adding it.",
+    "os_comment_done": "Feedback added to this demo. Nothing was sent; it disappears when you leave.",
+    "os_comment_author": "YOU / DEMO",
+    "os_comment_hint": "Conversations are saved in your real client workspace. Here, you can try the journey without sending a message.",
+    "os_banner_title": "An agreed budget. Visible stages.",
+    "os_banner_copy": "Scope, approvals and due dates remain clear throughout the collaboration.",
+    "os_banner_cta": "See example invoices"
   },
   "nl": {
     "nav": [
@@ -1176,14 +1244,15 @@
       "Uw project gaat vooruit.",
       "U ziet het gebeuren."
     ],
-    "os_copy": "Opleveringen verdwijnen niet in een e-mailketen. Novalis OS brengt mijlpalen, gedeelde documenten, gesprekken en uw beslissingen samen in een eigen omgeving.",
+    "os_copy": "Zie wat vooruitgaat, wat volgt en wat uw goedkeuring vraagt. Novalis OS bundelt projectvoortgang, documenten, gesprekken en facturen in een eigen omgeving. Betalingstermijnen worden samen vastgelegd in uw voorstel.",
     "os_note": "Interactieve demonstratie · voorbeeldproject",
     "os_tabs": [
       "Overzicht",
       "Mijlpalen",
       "Documenten",
       "Beslissingen",
-      "Gesprekken"
+      "Gesprekken",
+      "Facturen"
     ],
     "os_project": "Atelier Sillage · Bestelportaal",
     "os_status": "Ontwerp goedgekeurd · ontwikkeling loopt",
@@ -1288,30 +1357,30 @@
       "Wetenschappelijke nauwkeurigheid.",
       "Gevoel voor product."
     ],
-    "crew_copy": "Advies, design en engineering werken samen. We brengen de nodige expertise bijeen, met JetThings en onafhankelijke specialisten volgens de opdracht.",
+    "crew_copy": "Een panel van expertise in softwareontwikkeling, productdesign, data science en AI, samengebracht rond uw bedrijf. Een duidelijk technisch aanspreekpunt en specialisten op het juiste moment.",
     "founder_role": "Medeoprichter & CTO",
     "founder_bio": "Achraf is opgeleid in data science aan de École polytechnique de Louvain en werkt als onderzoeker en assistent aan UCLouvain. Hij verbindt statistiek, machine learning en softwareontwerp en leidt de technische afbakening en architectuur bij Novalis.",
     "profile": "Professionele achtergrond",
     "crew_roles": [
       [
-        "05",
+        "screen",
         "Frontend",
         "Interfaces, mobiel gebruik & toegankelijkheid."
       ],
       [
-        "06",
+        "code",
         "Backend",
         "Bedrijfsregels, API’s & architectuur."
       ],
       [
-        "03",
+        "chart",
         "Data scientists",
         "Statistiek, machine learning & analyse."
       ],
       [
-        "↗",
+        "people",
         "Design & netwerk",
-        "Productdesign, JetThings & specialisten."
+        "Productdesign, gebruiksgemak en onafhankelijke specialisten."
       ]
     ],
     "contact_title": [
@@ -1552,7 +1621,7 @@
     "lookup_error": "De dienst is niet beschikbaar. Uw invoer blijft behouden; probeer opnieuw.",
     "saved_open": "Privéopvolging openen",
     "engineering": {
-      "dashboard_title": "Begrijpen. Vergelijken. Beslissen.",
+      "dashboard_title": "AI waar het werk zich herhaalt.",
       "months": [
         "Mei",
         "Jun",
@@ -1635,8 +1704,8 @@
           "Een doel bepalen, beperkingen vastleggen en een haalbare middelenverdeling berekenen."
         ]
       ],
-      "model_title": "Wijzig een beperking. Zie de beslissing veranderen.",
-      "model_copy": "Verhoog de vraag of verlaag de capaciteit van partner B. Het model zoekt de goedkoopste verdeling die de volledige vraag dekt. Bestaat die niet, dan meldt het dat.",
+      "model_title": "Uw randvoorwaarden horen bij de oplossing.",
+      "model_copy": "Deadlines, capaciteit, prioriteiten, budget: we leggen vast wat telt voor uw bedrijf voordat we een model kiezen. Een voorstel blijft verklaarbaar en volgt uw bedrijfsregels.",
       "model_try": "Probeer de demonstratie",
       "objective": "Doel · minimale operationele kosten",
       "constraints": "Beperkingen · vraag en capaciteit",
@@ -1653,7 +1722,40 @@
       "related_title": "Verder verkennen",
       "signature": "Gebouwd voor ambities voorbij de standaard."
     },
-    "save_fallback": "Deze browser kon de link niet opslaan. Kopieer hem, of bekijk de algemene fase met uw referentie en e-mailadres."
+    "save_fallback": "Deze browser kon de link niet opslaan. Kopieer hem, of bekijk de algemene fase met uw referentie en e-mailadres.",
+    "partner_title": "De juiste expertise. Een doordachte organisatie.",
+    "partner_copy": "We werken regelmatig met onafhankelijke specialisten en ons partnernetwerk in Afrika, waaronder JetThings en JetNext. Zo stemmen we het team af op elk project en bieden we concurrerende budgetten, met afbakening, technische reviews en opvolging centraal bij Novalis.",
+    "os_payment_tab": "Facturen",
+    "os_payment_title": "Uw vervaldata, helder in beeld.",
+    "os_payment_intro": "Een voorbeeld van facturering in drie fasen, volgens het afgesproken voorstel. Elke factuur heeft een eigen vervaldatum en betaalstatus.",
+    "os_payment_rows": [
+      [
+        "Voorschot · start",
+        "Factuur NV-2026-021 · vervalt 04/05/2026",
+        "Betaald"
+      ],
+      [
+        "Ontwerp · tussenfase",
+        "Factuur NV-2026-032 · vervalt 15/06/2026",
+        "Te betalen"
+      ],
+      [
+        "Saldo · oplevering",
+        "Factuur volgens het voorstel op te maken",
+        "Binnenkort"
+      ]
+    ],
+    "os_payment_note": "Het team maakt facturen volgens de afspraak. Een mijlpaal goedkeuren start geen afschrijving. In dit voorbeeld kunt u niet echt betalen.",
+    "os_comment_label": "Uw feedback aan het team",
+    "os_comment_placeholder": "Bijv. Graag ook de transfers tussen magazijnen opvolgen.",
+    "os_comment_send": "Mijn feedback aan de demo toevoegen",
+    "os_comment_empty": "Schrijf eerst uw feedback.",
+    "os_comment_done": "Feedback toegevoegd aan deze demo. Er is niets verstuurd; de inhoud verdwijnt bij het verlaten.",
+    "os_comment_author": "U / DEMO",
+    "os_comment_hint": "In uw echte klantomgeving blijven projectgesprekken bewaard. Hier probeert u het traject zonder een bericht te versturen.",
+    "os_banner_title": "Een afgesproken budget. Zichtbare stappen.",
+    "os_banner_copy": "Scope, goedkeuringen en vervaldata blijven duidelijk tijdens de samenwerking.",
+    "os_banner_cta": "Voorbeeldfacturen bekijken"
   },
   "de": {
     "nav": [
@@ -1728,14 +1830,15 @@
       "Ihr Projekt kommt voran.",
       "Sie sehen es."
     ],
-    "os_copy": "Ergebnisse verschwinden nicht in E-Mail-Ketten. Novalis OS bündelt Meilensteine, freigegebene Dokumente, Gespräche und Ihre Entscheidungen in einem eigenen Bereich.",
+    "os_copy": "Sehen Sie, was vorankommt, was als Nächstes ansteht und was Sie freigeben. Novalis OS bündelt Fortschritt, Dokumente, Gespräche und Rechnungen in einem eigenen Bereich. Zahlungsetappen werden gemeinsam im Angebot vereinbart.",
     "os_note": "Interaktive Demonstration · Beispielprojekt",
     "os_tabs": [
       "Übersicht",
       "Meilensteine",
       "Dokumente",
-      "Entscheidungen",
-      "Gespräche"
+      "Freigaben",
+      "Gespräche",
+      "Rechnungen"
     ],
     "os_project": "Atelier Sillage · Bestellportal",
     "os_status": "Design freigegeben · Entwicklung läuft",
@@ -1840,30 +1943,30 @@
       "Wissenschaftliche Sorgfalt.",
       "Gespür für Produkte."
     ],
-    "crew_copy": "Beratung, Design und Engineering arbeiten zusammen. Wir bringen die nötigen Fähigkeiten ein, mit JetThings und unabhängigen Spezialisten je nach Auftrag.",
+    "crew_copy": "Ein Spektrum an Kompetenzen in Softwareentwicklung, Produktdesign, Data Science und KI, gebündelt für Ihr Unternehmen. Klare technische Verantwortung und Spezialisten zum passenden Zeitpunkt.",
     "founder_role": "Mitgründer & CTO",
     "founder_bio": "Achraf ist in Data Science an der École polytechnique de Louvain ausgebildet und forscht und lehrt als Assistent an UCLouvain. Er verbindet Statistik, Machine Learning und Softwaredesign und verantwortet technische Planung und Architektur bei Novalis.",
     "profile": "Beruflicher Werdegang",
     "crew_roles": [
       [
-        "05",
+        "screen",
         "Frontend",
         "Oberflächen, mobile Nutzung & Barrierefreiheit."
       ],
       [
-        "06",
+        "code",
         "Backend",
         "Geschäftsregeln, APIs & Architektur."
       ],
       [
-        "03",
+        "chart",
         "Data Scientists",
         "Statistik, Machine Learning & Analyse."
       ],
       [
-        "↗",
+        "people",
         "Design & Netzwerk",
-        "Produktdesign, JetThings & Spezialisten."
+        "Produktdesign, Ergonomie und unabhängige Spezialisten."
       ]
     ],
     "contact_title": [
@@ -2104,7 +2207,7 @@
     "lookup_error": "Der Dienst ist nicht verfügbar. Ihre Eingaben bleiben erhalten; versuchen Sie es erneut.",
     "saved_open": "Private Verfolgung öffnen",
     "engineering": {
-      "dashboard_title": "Verstehen. Vergleichen. Entscheiden.",
+      "dashboard_title": "KI dort, wo Arbeit sich wiederholt.",
       "months": [
         "Mai",
         "Jun",
@@ -2187,8 +2290,8 @@
           "Ein Ziel definieren, Einschränkungen abbilden und eine machbare Ressourcenverteilung berechnen."
         ]
       ],
-      "model_title": "Ändern Sie eine Einschränkung. Beobachten Sie die Entscheidung.",
-      "model_copy": "Erhöhen Sie die Nachfrage oder verringern Sie die Kapazität von Partner B. Das Modell sucht die günstigste Verteilung, die die gesamte Nachfrage deckt. Ist keine möglich, zeigt es das an.",
+      "model_title": "Ihre Bedingungen gehören zur Lösung.",
+      "model_copy": "Fristen, Kapazitäten, Prioritäten, Budget: Wir erfassen die Anforderungen Ihres Betriebs, bevor wir ein Modell wählen. Ein Vorschlag bleibt erklärbar und folgt Ihren Geschäftsregeln.",
       "model_try": "Demonstration ausprobieren",
       "objective": "Ziel · minimale Betriebskosten",
       "constraints": "Bedingungen · Nachfrage und Kapazität",
@@ -2205,6 +2308,39 @@
       "related_title": "Weiter entdecken",
       "signature": "Für Ambitionen jenseits des Standards."
     },
-    "save_fallback": "Dieser Browser konnte den Link nicht speichern. Kopieren Sie ihn oder prüfen Sie die allgemeine Phase mit Referenz und E-Mail-Adresse."
+    "save_fallback": "Dieser Browser konnte den Link nicht speichern. Kopieren Sie ihn oder prüfen Sie die allgemeine Phase mit Referenz und E-Mail-Adresse.",
+    "partner_title": "Die richtigen Fähigkeiten. Eine durchdachte Organisation.",
+    "partner_copy": "Wir arbeiten regelmäßig mit unabhängigen Spezialisten und unserem Partnernetzwerk in Afrika, darunter JetThings und JetNext. So passen wir das Team an jedes Projekt an und bieten wettbewerbsfähige Budgets. Planung, technische Reviews und Projektbegleitung werden bei Novalis koordiniert.",
+    "os_payment_tab": "Rechnungen",
+    "os_payment_title": "Ihre Fälligkeiten, klar im Blick.",
+    "os_payment_intro": "Ein Beispiel für Abrechnung in drei Etappen gemäß Angebot. Jede Rechnung hat eine eigene Fälligkeit und einen Zahlungsstatus.",
+    "os_payment_rows": [
+      [
+        "Anzahlung · Start",
+        "Rechnung NV-2026-021 · fällig 04.05.2026",
+        "Bezahlt"
+      ],
+      [
+        "Konzeption · Zwischenphase",
+        "Rechnung NV-2026-032 · fällig 15.06.2026",
+        "Offen"
+      ],
+      [
+        "Restbetrag · Lieferung",
+        "Rechnung gemäß Angebot auszustellen",
+        "Geplant"
+      ]
+    ],
+    "os_payment_note": "Das Team stellt Rechnungen gemäß Vereinbarung aus. Eine Meilensteinfreigabe löst keine Abbuchung aus. Dieses Beispiel bietet keine echte Zahlung.",
+    "os_comment_label": "Ihre Rückmeldung an das Team",
+    "os_comment_placeholder": "Z. B. Bitte auch Transfers zwischen Lagern berücksichtigen.",
+    "os_comment_send": "Rückmeldung zur Demo hinzufügen",
+    "os_comment_empty": "Schreiben Sie zuerst Ihre Rückmeldung.",
+    "os_comment_done": "Rückmeldung zur Demo hinzugefügt. Nichts wurde gesendet; der Inhalt verschwindet beim Verlassen.",
+    "os_comment_author": "SIE / DEMO",
+    "os_comment_hint": "In Ihrem echten Kundenbereich bleiben Projektgespräche gespeichert. Hier können Sie den Ablauf ohne Versand ausprobieren.",
+    "os_banner_title": "Ein vereinbartes Budget. Sichtbare Etappen.",
+    "os_banner_copy": "Umfang, Freigaben und Fälligkeiten bleiben während der Zusammenarbeit verständlich.",
+    "os_banner_cta": "Beispielrechnungen ansehen"
   }
 }
