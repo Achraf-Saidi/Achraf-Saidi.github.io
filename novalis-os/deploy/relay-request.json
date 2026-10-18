@@ -2,8 +2,11 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "disable-mfa-for-requested-direction-account",
-  "script": "novalis-os/deploy/remote-mfa.py",
-  "timeout": 360,
-  "response_public_key": "dZXZzUntvoiLxw3szY/1wgcifUEa5UwnNdQsRPrDa38="
+  "task": "Stage isolated client UI screenshots without changing any live service; retry after key propagation",
+  "script": "novalis-os/deploy/remote-client-capture.py",
+  "timeout": 300,
+  "response_public_key": "06cQhwnZQ26Qix3+IBYL/VSOc/5+6OL0cRp1zN22uTA=",
+  "revoke_public_keys": [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP1UtBS97ltWQjklqJcJfPp5J0Qn8DkEJ9snha/08I+O novalis-relay-39090938272"
+  ]
 }
