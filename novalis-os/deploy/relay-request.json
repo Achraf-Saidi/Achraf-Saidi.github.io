@@ -1,9 +1,0 @@
-{
-  "host": "72.61.166.178",
-  "user": "root",
-  "port": 22,
-  "task": "Correct test account email and disable MFA only for requested account",
-  "script": "novalis-os/deploy/remote-correct-account.py",
-  "timeout": 120,
-  "response_public_key": "GNUcfh1VdCC2s1xzKXEm2NA4lFMh133qdZ0uuFP1yGg="
-}
