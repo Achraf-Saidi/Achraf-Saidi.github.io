@@ -19,6 +19,8 @@ Source base: `06f445aeffe05395ea379e6db99a23212dfcd1b3`.
 - `node novalisai/qa/premium.cjs`: all four languages, eight concepts, filters/dialogs/zoom, document previews, keyboard tabs, approval, page headings, language and local link/asset existence; contact acknowledgement/failure/retry and private status states.
 - `node novalisai/qa/engineering.cjs`: three workflows and missing inputs in each language; reduced motion; cancellation of an in-flight run; estimate boundaries; six-tab navigation; safe comment rendering and persistence between demo tabs; invoice examples without a fake checkout; reference lookup/resume/errors/privacy and stale response protection.
 - JavaScript syntax and Python compilation checks.
+- Text colour calculations for the new workflow: primary 11.65:1, copper on page 5.66:1, muted labels at least 4.52:1; footer muted text darkened after a 4.30:1 finding. This is a scoped contrast check, not a full accessibility audit.
+- The mobile preparation button follows the incoming message visually, above the processing steps, to make the first interaction reachable earlier.
 - Existing image/font assets restored from the pinned source. No new external runtime dependency.
 
 ## Operational boundaries
