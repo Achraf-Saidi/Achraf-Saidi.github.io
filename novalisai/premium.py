@@ -5,14 +5,20 @@ from pathlib import Path
 ROOT=Path(__file__).parent
 P=json.loads((ROOT/'premium.json').read_text())
 from workflow import W,icon
-for language,translation in P.items():translation['workflow']=W[language]
+from client_tour import T,teaser as os_teaser,guide as os_guide
+for language,translation in P.items():translation['workflow']=W[language];translation['tour']=T[language]
 DIMS={'projects':(1586,992),'stock':(1672,941),'copilot':(1672,941),'insight':(1536,1024),'fashion':(1586,992),'restaurant':(1586,992),'food':(1586,992),'support':(1586,992)}
+DIMS.update({k:(1586,992) for k in ['retreat','botanique','architecture','field','reconcile']})
+DIMS.update({k:(1600,1000) for k in ['planning','quality','receivables']})
+for translation in P.values():
+ for case in translation['cases']:case['width'],case['height']=DIMS[case['asset']]
+
 def e(v):return html.escape(str(v),quote=True)
 def version(name):return hashlib.sha256((ROOT/'assets'/name).read_bytes()).hexdigest()[:10]
 def title(lines):return '<span>'+e(lines[0])+'</span><em>'+e(lines[1])+'</em>'
 def image(case,prefix,eager=False):
- w,h=DIMS[case['asset']]
- return f'<img src="{prefix}assets/concept-{case["asset"]}.webp" alt="{e(case["category"])} · {e(case["title"])}" width="{w}" height="{h}" loading="'+('eager' if eager else 'lazy')+'"'+(' fetchpriority="high"' if eager else '')+'>'
+ w,h=DIMS[case['asset']];ext='svg' if case.get('format')=='svg' else 'webp'
+ return f'<img src="{prefix}assets/concept-{case["asset"]}.{ext}" alt="{e(case["category"])} · {e(case["title"])}" width="{w}" height="{h}" loading="'+('eager' if eager else 'lazy')+'"'+(' fetchpriority="high"' if eager else '')+'>'
 def header(t,lang,prefix,home=False):
  base='' if home else prefix+lang+'/'
  links=''.join(f'<a href="{base}#{anchor}">{e(v)}</a>' for anchor,v in zip(['expertises','methode','saas','equipe'],t['nav']))
@@ -26,12 +32,16 @@ def dialogs(t):
 def hero(t,prefix):
  chips=''.join('<li>'+e(v)+'</li>' for v in t['hero_chips'])
  return f'''<section class="premium-hero shell" aria-labelledby="hero-title"><div class="hero-top"><div><p class="eyebrow">{e(t['eyebrow'])}</p><h1 id="hero-title">{title(t['hero'])}</h1></div><div class="hero-intro"><p>{e(t['intro'])}</p><div class="hero-actions"><a class="button" href="#contact">{e(t['cta'])} ↗</a><a class="text-link" href="#solutions">{e(t['explore'])} ↓</a></div><p class="small-copy">{e(t['hour'])}</p></div></div><div class="hero-visuals"><button class="hero-main-visual image-action" type="button" data-case="0"><span class="image-heading"><b>{e(t['cases'][0]['category'])}</b><span>{e(t['concept'])} ↗</span></span>{image(t['cases'][0],prefix,True)}<span class="hero-visual-caption">{e(t['cases'][0]['value'])}</span></button><div class="hero-side"><button class="hero-fashion image-action" type="button" data-case="1">{image(t['cases'][1],prefix)}<span>{e(t['cases'][1]['category'])} <b>↗</b></span></button><a class="hero-project-note" href="#saas"><span>NOVALIS OS</span><strong>{e(t['os_next'])}</strong><p>{e(t['os_next_copy'])}</p><span class="note-status">{e(t['os_states'][2])} <b>↗</b></span></a></div></div><div class="hero-bottom"><p>{e(t['hero_note'])}</p><ul>{chips}</ul></div></section>'''
-def showroom(t,lang,prefix):
+def showroom(t,lang,prefix,full=False):
  filters=''.join(f'<button type="button" data-showroom-filter="{key}" aria-pressed="{str(i==0).lower()}">{e(label)}</button>' for i,(key,label) in enumerate(zip(['all','business','web','ai','saas'],t['filters'])))
  cards=[]
  for i,c in enumerate(t['cases']):
-  cards.append(f'''<article class="work-card work-{c['asset']}" data-case-group="{c['group']}" data-featured="{str(i in [0,2,5,6]).lower()}"{'' if i in [0,2,5,6] else ' hidden'}><button class="work-visual image-action" type="button" data-case="{i}" aria-label="{e(t['open']+' · '+c['category'])}">{image(c,prefix)}<span class="work-concept">{e(t['concept'])}</span><span class="work-expand" aria-hidden="true">↗</span></button><div class="work-caption"><div><p class="eyebrow">{e(c['category'])}</p><h3><a href="{prefix}{lang}/solutions/{c['slug']}/">{e(c['title'])}</a></h3></div><span class="work-index" aria-hidden="true">{i+1:02d}</span></div><p class="work-value">{e(c['value'])}</p></article>''')
- return f'''<section id="solutions" class="showroom section shell" data-selective="true" aria-labelledby="showroom-title"><div class="section-heading"><div><p class="eyebrow">01 / SHOWROOM</p><h2 id="showroom-title">{title(t['show_title'])}</h2></div><p>{e(t['show_copy'])}</p></div><div class="showroom-toolbar"><div class="filter-list" role="group" aria-label="Showroom">{filters}</div><p id="showroom-count" role="status">4 {e(t['show_count'])}</p></div><div class="work-grid">{''.join(cards)}</div><a class="button button-secondary showroom-more" href="{prefix}{lang}/realisations/">{e(t['engineering']['show_all'])} ↗</a></section>'''
+  cards.append(f'''<article class="work-card work-{c['asset']}" data-case-group="{c['group']}" data-featured="{str(i in [0,8,9,12]).lower()}"{'' if full or i in [0,8,9,12] else ' hidden'}><button class="work-visual image-action" type="button" data-case="{i}" aria-label="{e(t['open']+' · '+c['category'])}">{image(c,prefix)}<span class="work-concept">{e(t['concept'])}</span><span class="work-expand" aria-hidden="true">↗</span></button><div class="work-caption"><div><p class="eyebrow">{e(c['category'])}</p><h3><a href="{prefix}{lang}/solutions/{c['slug']}/">{e(c['title'])}</a></h3></div><span class="work-index" aria-hidden="true">{i+1:02d}</span></div><p class="work-value">{e(c['value'])}</p></article>''')
+ search=f'<div class="library-search"><label for="concept-search">{e(t["tour"]["search"])}</label><div><input type="search" id="concept-search" placeholder="{e(t["tour"]["placeholder"])}" maxlength="120" autocomplete="off"><button type="button" id="concept-reset" hidden>{e(t["tour"]["reset"])}</button></div></div>' if full else ''
+ more='' if full else f'<a class="button button-secondary showroom-more" href="{prefix}{lang}/realisations/">{e(t["engineering"]["show_all"])} ↗</a>'
+ mode='data-library="true"' if full else 'data-selective="true"'
+ heading='' if full else f'''<div class="section-heading"><div><p class="eyebrow">01 / SHOWROOM</p><h2 id="showroom-title">{title(t['show_title'])}</h2></div><p>{e(t['show_copy'])}</p></div>'''
+ return f'''<section id="solutions" class="showroom section shell" {mode} aria-labelledby="showroom-title">{heading}{search}<div class="showroom-toolbar"><div class="filter-list" role="group" aria-label="Showroom">{filters}</div><p id="showroom-count" role="status">{len(t["cases"]) if full else 4} {e(t['show_count'])}</p></div><div class="work-grid">{''.join(cards)}</div><p class="library-empty" id="concept-empty" role="status" hidden>{e(t["tour"]["empty"])}</p>{more}</section>'''
 def bridge(t):
  items=''.join(f'<article><span>0{i+1}</span><h3>{e(v[0])}</h3><p>{e(v[1])}</p></article>' for i,v in enumerate(t['bridge_items']))
  return f'<section class="manifesto section"><div class="shell"><p class="eyebrow">NOVALIS / {e(t['point_of_view'])}</p><div class="manifesto-intro"><h2>{title(t["bridge_title"])}</h2><p>{e(t["bridge_copy"])}</p></div><div class="manifesto-grid">{items}</div></div></section>'
@@ -56,7 +66,7 @@ def faqs(t):
  return '<section class="faq-section section shell"><h2>'+title(t['faq_title'])+'</h2><div>'+''.join('<details><summary>'+e(q)+'<span aria-hidden="true">＋</span></summary><p>'+e(a)+'</p></details>' for q,a in t['faqs'])+'</div></section>'
 def enrich_premium(lang,prefix,out,client,content):
  t=P[lang]
- out.update(title=e(t['title']),description=e(t['intro']),premium_header=header(t,lang,prefix,True),premium_footer=footer(t,lang,prefix),premium_dialogs=dialogs(t),premium_content=engineering_hero(t,prefix)+expertise(t,lang,prefix)+showroom(t,lang,prefix)+ai(t)+data_section(t)+os_demo(t)+method(t)+crew(t)+faqs(t)+contact(t,content,lang,prefix),premium_style=version('premium.css'),premium_script=version('premium.js'),intake_script=version('intake.js'),decision_script=version('decision-engine.js'),engineering_style=version('engineering.css'))
+ out.update(title=e(t['title']),description=e(t['intro']),premium_header=header(t,lang,prefix,True),premium_footer=footer(t,lang,prefix),premium_dialogs=dialogs(t),premium_content=engineering_hero(t,prefix)+expertise(t,lang,prefix)+showroom(t,lang,prefix)+ai(t)+data_section(t)+os_teaser(t,lang,prefix)+method(t)+crew(t)+faqs(t)+contact(t,content,lang,prefix),premium_style=version('premium.css'),premium_script=version('premium.js'),intake_script=version('intake.js'),decision_script=version('decision-engine.js'),engineering_style=version('engineering.css'))
  keep={k:client[k] for k in ['menu','close','policies','runtime_config']}
  client.clear();client.update(keep,premium=t,asset_prefix=prefix+'assets/',tracking_path=prefix+lang+'/suivi/',home_path=prefix+lang+'/')
 
@@ -74,7 +84,7 @@ def write_premium_pages(url):
    story=''.join('<section><p class="eyebrow">'+e(label)+'</p><h2>'+e(text)+'</h2></section>' for label,text in zip(t['case_labels'],[c['problem'],c['solution'],c['value']]))
    body=f'<article class="case-detail shell section"><p class="eyebrow">{e(t["concept"])} / {e(c["category"])}</p><h1>{e(c["title"])}</h1><p class="case-lead">{e(c["value"])}</p><button type="button" class="case-cover image-action" data-case="{i}" aria-label="{e(t["zoom"])}">{image(c,prefix,True)}</button><div class="case-story">{story}</div><div class="case-modules"><h2>{e(t["case_modules"])}</h2><ul>{modules}</ul></div><p class="small-copy">{e(t["case_note"])}</p><a class="button" href="../../#contact">{e(t["case_cta"])} ↗</a></article>'
    (folder/'index.html').write_text(shell(lang,canonical,c['title'],body,prefix,url));urls.append(canonical)
-  for path,heading,body in [('lab',t['ai_demo'],ai(t).replace('href="#contact"',f'href="../../{lang}/#contact"').replace('<h2>','<h1>',1).replace('</h2>','</h1>',1)),('realisations/novalis-os','Novalis OS','<div class="shell os-detail-heading"><p class="eyebrow">NOVALIS / CLIENT</p><h1>Novalis OS</h1></div>'+os_demo(t))]:
+  for path,heading,body in [('lab',t['ai_demo'],ai(t).replace('href="#contact"',f'href="../../{lang}/#contact"').replace('<h2>','<h1>',1).replace('</h2>','</h1>',1)),('realisations/novalis-os','Novalis OS',os_guide(t,lang,'../../../')+os_demo(t))]:
    depth='../../' if path=='lab' else '../../../';folder=ROOT/lang/path;folder.mkdir(parents=True,exist_ok=True);canonical=f'{url}/{lang}/{path}/';(folder/'index.html').write_text(shell(lang,canonical,heading,body,depth,url));urls.append(canonical)
   folder=ROOT/lang/'suivi';folder.mkdir(exist_ok=True);canonical=f'{url}/{lang}/suivi/'
   body=f'<section class="tracking-section section shell"><p class="eyebrow">NOVALIS AI / {e(t["follow"])}</p><h1>{title(t["track_title"])}</h1><p class="case-lead">{e(t["track_copy"])}</p><div class="tracking-card" id="tracking-result"><p id="tracking-state" role="status">{e(t["loading"])}</p><h2 id="tracking-reference"></h2><ol id="tracking-events"></ol><p id="tracking-project"></p><a class="button" id="tracking-portal" href="https://app.novalisai.com/os/" hidden>Novalis OS ↗</a><button type="button" class="button" id="tracking-refresh" hidden>{e(t["check_status"])}</button></div><p class="small-copy">{e(t["track_private"])}</p><a class="text-link" href="mailto:contact@novalisai.com">contact@novalisai.com ↗</a></section>'

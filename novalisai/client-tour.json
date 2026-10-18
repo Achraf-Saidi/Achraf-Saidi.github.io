@@ -1,0 +1,270 @@
+{
+  "fr": {
+    "kicker": "VOTRE ESPACE CLIENT",
+    "title": [
+      "Un projet qui avance.",
+      "Une vue sur chaque étape."
+    ],
+    "intro": "Les décisions, les documents et les échanges restent au même endroit. Voici ce que vous retrouvez dans Novalis OS, du périmètre convenu jusqu’aux livraisons et aux échéances.",
+    "teaser": "Votre projet, sans zone floue.",
+    "teaser_copy": "Vous savez où en est le travail, ce qui attend votre retour et ce qui a été convenu. Novalis OS relie votre équipe à la nôtre, tout au long du projet.",
+    "visit": "Visiter votre futur espace",
+    "example": "Captures de Novalis OS · projet exemple",
+    "screen_note": "Interface client présentée en français.",
+    "zoom": "Agrandir la capture",
+    "close": "Fermer",
+    "next": "À examiner",
+    "milestone": "Réception et réservations",
+    "progress": "3 jalons validés sur 5",
+    "facts": [
+      "Avancement et prochaines décisions",
+      "Échanges et documents partagés",
+      "Échéances et règlements visibles"
+    ],
+    "steps": [
+      [
+        "Le cadre",
+        "Un périmètre auquel revenir.",
+        "Retrouvez la proposition partagée, ses hypothèses et ce qu’elle comprend. Les demandes d’évolution gardent leur propre suivi."
+      ],
+      [
+        "Le déroulement",
+        "Vous voyez la suite arriver.",
+        "Les jalons donnent une vue lisible du projet. Un lot soumis à votre revue se distingue d’une étape déjà acceptée."
+      ],
+      [
+        "Les échanges",
+        "Un retour utile, au bon endroit.",
+        "Posez une question, précisez un besoin ou commentez le travail depuis le projet. Les échanges partagés restent accessibles à votre équipe."
+      ],
+      [
+        "Les documents",
+        "La bonne version, à portée de main.",
+        "Consultez le cahier des charges et les fichiers partagés. La version récente et l’historique permettent de retrouver le contexte."
+      ],
+      [
+        "Les validations",
+        "Votre avis fait avancer le projet.",
+        "Examinez un lot livré selon les critères convenus. Acceptez le jalon ou demandez les ajustements nécessaires, avec un commentaire précis."
+      ],
+      [
+        "Les échéances",
+        "Le budget se suit aussi.",
+        "Retrouvez les factures, leurs échéances, les règlements enregistrés et le solde restant. Un paiement par étapes se définit dans votre proposition."
+      ]
+    ],
+    "payment_note": "Les captures présentent le suivi des factures et règlements. Les moyens de paiement en ligne dépendent de leur activation pour votre dossier ; aucun encaissement n’est effectué dans cette visite.",
+    "try_title": "Essayez un parcours guidé",
+    "try_copy": "Explorez les onglets, laissez un commentaire et validez un jalon dans la démonstration ci-dessous.",
+    "search": "Rechercher un concept",
+    "placeholder": "Stock, réservation, factures…",
+    "empty": "Aucun concept pour cette recherche.",
+    "reset": "Effacer la recherche",
+    "library_title": "16 pistes pour votre prochain projet.",
+    "mobile_title": "Et si ce travail se préparait tout seul ?",
+    "mobile_copy": "Une demande reçue. Les informations vérifiées. Une action préparée pour votre équipe.",
+    "mobile_open": "Voir le flux en action",
+    "mobile_close": "Réduire la démonstration"
+  },
+  "en": {
+    "kicker": "YOUR CLIENT SPACE",
+    "title": [
+      "A project moving forward.",
+      "Clarity at every step."
+    ],
+    "intro": "Decisions, documents and conversations stay together. See what Novalis OS brings to your project, from agreed scope to deliveries and payment milestones.",
+    "teaser": "Your project, clearly in view.",
+    "teaser_copy": "Know how the work is progressing, what needs your feedback and what was agreed. Novalis OS connects your team with ours throughout the project.",
+    "visit": "Tour your future workspace",
+    "example": "Novalis OS screenshots · example project",
+    "screen_note": "Client interface shown in French.",
+    "zoom": "Enlarge screenshot",
+    "close": "Close",
+    "next": "Ready for review",
+    "milestone": "Receiving and reservations",
+    "progress": "3 of 5 milestones accepted",
+    "facts": [
+      "Progress and upcoming decisions",
+      "Shared conversations and documents",
+      "Visible invoices and payment records"
+    ],
+    "steps": [
+      [
+        "The scope",
+        "An agreement you can refer to.",
+        "Find the shared proposal, its assumptions and what is included. Requests for changes retain their own tracking."
+      ],
+      [
+        "The roadmap",
+        "See what comes next.",
+        "Milestones provide a clear view of the project. A delivery submitted for review is distinct from a step already accepted."
+      ],
+      [
+        "Conversations",
+        "Useful feedback, in the right place.",
+        "Ask a question, clarify a need or comment on the work from the project. Shared conversations remain available to your team."
+      ],
+      [
+        "Documents",
+        "The right version, within reach.",
+        "Read the specification and shared files. The latest version and its history keep the context accessible."
+      ],
+      [
+        "Approvals",
+        "Your feedback moves work forward.",
+        "Review a delivered milestone against the agreed criteria. Accept it or request the necessary adjustments with a clear comment."
+      ],
+      [
+        "Payments",
+        "Keep the budget in view too.",
+        "See invoices, due dates, recorded payments and outstanding balances. Any staged payment arrangement is defined in your proposal."
+      ]
+    ],
+    "payment_note": "Screenshots show invoice and payment tracking. Online payment methods depend on activation for your account; this tour does not collect payments.",
+    "try_title": "Try a guided journey",
+    "try_copy": "Explore the tabs, leave a comment and accept a milestone in the demonstration below.",
+    "search": "Search concepts",
+    "placeholder": "Stock, booking, invoices…",
+    "empty": "No concepts match your search.",
+    "reset": "Clear search",
+    "library_title": "16 directions for your next project.",
+    "mobile_title": "What if this work prepared itself?",
+    "mobile_copy": "A request received. Information checked. An action prepared for your team.",
+    "mobile_open": "See the workflow in action",
+    "mobile_close": "Collapse demonstration"
+  },
+  "nl": {
+    "kicker": "UW KLANTOMGEVING",
+    "title": [
+      "Een project dat vooruitgaat.",
+      "Zicht op elke stap."
+    ],
+    "intro": "Beslissingen, documenten en gesprekken blijven bij elkaar. Ontdek Novalis OS, van de afgesproken scope tot opleveringen en betaalmomenten.",
+    "teaser": "Uw project, helder in beeld.",
+    "teaser_copy": "U ziet hoe het werk vordert, wat uw reactie vraagt en wat is afgesproken. Novalis OS verbindt uw team met het onze tijdens het hele project.",
+    "visit": "Bekijk uw toekomstige werkruimte",
+    "example": "Schermafbeeldingen van Novalis OS · voorbeeldproject",
+    "screen_note": "Klantinterface getoond in het Frans.",
+    "zoom": "Schermafbeelding vergroten",
+    "close": "Sluiten",
+    "next": "Te beoordelen",
+    "milestone": "Ontvangst en reserveringen",
+    "progress": "3 van 5 mijlpalen goedgekeurd",
+    "facts": [
+      "Voortgang en volgende beslissingen",
+      "Gedeelde gesprekken en documenten",
+      "Zicht op facturen en betalingen"
+    ],
+    "steps": [
+      [
+        "De scope",
+        "Een afspraak om op terug te vallen.",
+        "Bekijk de gedeelde offerte, de aannames en wat is inbegrepen. Wijzigingsverzoeken houden hun eigen opvolging."
+      ],
+      [
+        "De planning",
+        "U ziet wat hierna komt.",
+        "Mijlpalen geven een helder beeld van het project. Een opgeleverd onderdeel ter beoordeling verschilt duidelijk van een al goedgekeurde stap."
+      ],
+      [
+        "Gesprekken",
+        "Nuttige feedback op de juiste plek.",
+        "Stel een vraag, verduidelijk een behoefte of reageer vanuit het project. Gedeelde gesprekken blijven beschikbaar voor uw team."
+      ],
+      [
+        "Documenten",
+        "De juiste versie binnen bereik.",
+        "Bekijk het bestek en de gedeelde bestanden. De nieuwste versie en de historie houden de context beschikbaar."
+      ],
+      [
+        "Goedkeuringen",
+        "Uw reactie helpt het project vooruit.",
+        "Beoordeel een oplevering aan de hand van de afgesproken criteria. Keur de mijlpaal goed of vraag gerichte aanpassingen met een duidelijke toelichting."
+      ],
+      [
+        "Betalingen",
+        "Ook het budget blijft in beeld.",
+        "Bekijk facturen, vervaldata, geregistreerde betalingen en het openstaande saldo. Betalen in stappen wordt in uw offerte afgesproken."
+      ]
+    ],
+    "payment_note": "De schermafbeeldingen tonen facturen en geregistreerde betalingen. Online betaalmethoden hangen af van activering voor uw dossier; deze rondleiding verwerkt geen betalingen.",
+    "try_title": "Probeer een begeleid traject",
+    "try_copy": "Verken de tabbladen, plaats een reactie en keur een mijlpaal goed in de demonstratie hieronder.",
+    "search": "Zoek een concept",
+    "placeholder": "Voorraad, reserveringen, facturen…",
+    "empty": "Geen concepten voor deze zoekopdracht.",
+    "reset": "Zoekopdracht wissen",
+    "library_title": "16 richtingen voor uw volgende project.",
+    "mobile_title": "Wat als dit werk zichzelf voorbereidt?",
+    "mobile_copy": "Een aanvraag ontvangen. Informatie gecontroleerd. Een actie voorbereid voor uw team.",
+    "mobile_open": "Bekijk de workflow",
+    "mobile_close": "Demonstratie inklappen"
+  },
+  "de": {
+    "kicker": "IHR KUNDENBEREICH",
+    "title": [
+      "Ein Projekt kommt voran.",
+      "Jeder Schritt im Blick."
+    ],
+    "intro": "Entscheidungen, Dokumente und Gespräche bleiben zusammen. Entdecken Sie Novalis OS, vom vereinbarten Umfang bis zu Lieferungen und Zahlungsterminen.",
+    "teaser": "Ihr Projekt, klar im Blick.",
+    "teaser_copy": "Sie sehen, wie die Arbeit vorankommt, wo Ihre Rückmeldung gefragt ist und was vereinbart wurde. Novalis OS verbindet Ihr Team über das gesamte Projekt mit unserem.",
+    "visit": "Ihren künftigen Arbeitsbereich ansehen",
+    "example": "Screenshots aus Novalis OS · Beispielprojekt",
+    "screen_note": "Kundenoberfläche auf Französisch dargestellt.",
+    "zoom": "Screenshot vergrößern",
+    "close": "Schließen",
+    "next": "Zur Prüfung",
+    "milestone": "Wareneingang und Reservierungen",
+    "progress": "3 von 5 Meilensteinen angenommen",
+    "facts": [
+      "Fortschritt und nächste Entscheidungen",
+      "Gemeinsame Gespräche und Dokumente",
+      "Rechnungen und Zahlungen im Blick"
+    ],
+    "steps": [
+      [
+        "Der Umfang",
+        "Eine Vereinbarung zum Nachschlagen.",
+        "Sehen Sie das geteilte Angebot, seine Annahmen und enthaltenen Leistungen. Änderungswünsche behalten ihre eigene Nachverfolgung."
+      ],
+      [
+        "Der Ablauf",
+        "Sie sehen, was als Nächstes kommt.",
+        "Meilensteine machen das Projekt übersichtlich. Eine zur Prüfung eingereichte Lieferung unterscheidet sich klar von einem bereits angenommenen Schritt."
+      ],
+      [
+        "Gespräche",
+        "Nützliche Rückmeldung am richtigen Ort.",
+        "Stellen Sie eine Frage, präzisieren Sie einen Bedarf oder kommentieren Sie die Arbeit im Projekt. Geteilte Gespräche bleiben für Ihr Team zugänglich."
+      ],
+      [
+        "Dokumente",
+        "Die richtige Version griffbereit.",
+        "Lesen Sie das Pflichtenheft und geteilte Dateien. Die aktuelle Version und der Verlauf bewahren den Zusammenhang."
+      ],
+      [
+        "Freigaben",
+        "Ihre Rückmeldung bringt das Projekt voran.",
+        "Prüfen Sie eine Lieferung anhand der vereinbarten Kriterien. Nehmen Sie den Meilenstein an oder bitten Sie mit einem klaren Kommentar um Anpassungen."
+      ],
+      [
+        "Zahlungen",
+        "Auch das Budget bleibt im Blick.",
+        "Sehen Sie Rechnungen, Fälligkeiten, erfasste Zahlungen und offene Beträge. Eine Zahlung in Etappen wird im Angebot vereinbart."
+      ]
+    ],
+    "payment_note": "Die Screenshots zeigen Rechnungs- und Zahlungsübersichten. Online-Zahlungsarten hängen von ihrer Aktivierung für Ihr Konto ab; diese Tour nimmt keine Zahlungen entgegen.",
+    "try_title": "Einen geführten Ablauf ausprobieren",
+    "try_copy": "Erkunden Sie die Registerkarten, hinterlassen Sie einen Kommentar und nehmen Sie einen Meilenstein in der folgenden Demonstration an.",
+    "search": "Konzepte durchsuchen",
+    "placeholder": "Bestand, Buchungen, Rechnungen…",
+    "empty": "Keine Konzepte für diese Suche.",
+    "reset": "Suche löschen",
+    "library_title": "16 Richtungen für Ihr nächstes Projekt.",
+    "mobile_title": "Was, wenn sich diese Arbeit selbst vorbereitet?",
+    "mobile_copy": "Eine Anfrage empfangen. Informationen geprüft. Eine Aktion für Ihr Team vorbereitet.",
+    "mobile_open": "Workflow in Aktion ansehen",
+    "mobile_close": "Demonstration einklappen"
+  }
+}

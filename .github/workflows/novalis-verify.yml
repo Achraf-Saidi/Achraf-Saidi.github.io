@@ -39,6 +39,7 @@ jobs:
         run: |
           node novalisai/qa/premium.cjs
           node novalisai/qa/engineering.cjs
+          node novalisai/qa/library-tour.cjs
           node novalis-os/tests/ui.cjs
           node novalis-os/tests/payments-ui.cjs
           node novalis-os/tests/documents-ui.cjs
