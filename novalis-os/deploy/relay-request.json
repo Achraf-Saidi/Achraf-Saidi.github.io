@@ -2,7 +2,7 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "stage-public-workflow-experience",
+  "task": "stage-final-public-workflow-experience",
   "script": "novalis-os/deploy/remote-workflow.py",
   "timeout": 600,
   "response_public_key": "tRIQ3HwveQKGWW+uV1UePMG9AWsNBCYChaXx+HaJLX8="
