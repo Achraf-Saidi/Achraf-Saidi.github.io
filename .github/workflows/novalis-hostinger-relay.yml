@@ -29,7 +29,8 @@ jobs:
           ssh-keygen -q -t ed25519 -f "$RUNNER_TEMP/novalis-relay-key" -N '' -C "novalis-relay-$GITHUB_RUN_ID"
           public_key=$(cat "$RUNNER_TEMP/novalis-relay-key.pub")
           printf 'public_key=%s\n' "$public_key" >> "$GITHUB_OUTPUT"
-      - name: 'Authorize temporary key: ${{ steps.identity.outputs.public_key }}'
+          python -c 'from pathlib import Path; import os,base64; from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey; from cryptography.hazmat.primitives import serialization; k=X25519PrivateKey.generate(); p=Path(os.environ["RUNNER_TEMP"])/"novalis-input-key"; p.write_bytes(k.private_bytes(serialization.Encoding.Raw,serialization.PrivateFormat.Raw,serialization.NoEncryption())); print("input_public_key="+base64.b64encode(k.public_key().public_bytes(serialization.Encoding.Raw,serialization.PublicFormat.Raw)).decode())' >> "$GITHUB_OUTPUT"
+      - name: 'Authorize temporary key: ${{ steps.identity.outputs.public_key }} Input: ${{ steps.identity.outputs.input_public_key }}'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python novalis-os/deploy/relay.py novalis-os/deploy/relay-request.json

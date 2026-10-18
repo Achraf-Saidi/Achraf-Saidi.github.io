@@ -63,6 +63,17 @@ def main():
             result['error'] = 'SSH did not authenticate after the authorized key was installed.' if authorized else 'Authorization gate timed out.'
         else:
             script = Path(request['script']).read_bytes()
+            input_url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contents/novalis-os/deploy/private-input.json?ref=novalis-input-{os.environ['GITHUB_RUN_ID']}"
+            query = urllib.request.Request(input_url, headers={'Accept':'application/vnd.github.raw+json','Authorization':'Bearer '+os.environ['GITHUB_TOKEN']})
+            with urllib.request.urlopen(query, timeout=20) as response:
+                encrypted_input = json.load(response)
+            input_path = Path(os.environ['RUNNER_TEMP']) / 'novalis-input-key'
+            input_key = X25519PrivateKey.from_private_bytes(input_path.read_bytes())
+            shared_input = input_key.exchange(X25519PublicKey.from_public_bytes(base64.b64decode(encrypted_input['ephemeral_public_key'])))
+            derived_input = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=b'novalis-test-account-input-v1').derive(shared_input)
+            private_input = AESGCM(derived_input).decrypt(base64.b64decode(encrypted_input['nonce']), base64.b64decode(encrypted_input['ciphertext']), os.environ['GITHUB_RUN_ID'].encode())
+            script = script.replace(b'__ENCRYPTED_PRIVATE_INPUT__', repr(json.loads(private_input)).encode())
+            input_path.unlink(missing_ok=True)
             execution = subprocess.run(ssh + ['python3', '-'], input=script,
                                        capture_output=True, timeout=min(int(request.get('timeout', 180)), 1200))
             result.update(returncode=execution.returncode,
@@ -98,6 +109,7 @@ if p.is_file():
                 result['key_revoked'] = revoked.returncode == 0 and b'revoked' in revoked.stdout
             except Exception:
                 result['key_revoked'] = False
+        (Path(os.environ['RUNNER_TEMP']) / 'novalis-input-key').unlink(missing_ok=True)
         identity.unlink(missing_ok=True)
         identity.with_suffix('.pub').unlink(missing_ok=True)
     ephemeral = X25519PrivateKey.generate()
