@@ -52,7 +52,8 @@
     <button id="tab-diagnostics" role="tab" type="button" aria-selected="false" aria-controls="panel-diagnostics" data-tab="diagnostics" tabindex="-1">02 <span>Calibration & G</span></button>
     <button id="tab-patients" role="tab" type="button" aria-selected="false" aria-controls="panel-patients" data-tab="patients" tabindex="-1">03 <span>Patients</span></button>
     <button id="tab-mc" role="tab" type="button" aria-selected="false" aria-controls="panel-mc" data-tab="mc" tabindex="-1">04 <span>Monte-Carlo</span></button>
-    <button id="tab-method" role="tab" type="button" aria-selected="false" aria-controls="panel-method" data-tab="method" tabindex="-1">05 <span>Méthode</span></button>
+    <button id="tab-audit" role="tab" type="button" aria-selected="false" aria-controls="panel-audit" data-tab="audit" tabindex="-1">05 <span>Audit des solutions</span></button>
+    <button id="tab-method" role="tab" type="button" aria-selected="false" aria-controls="panel-method" data-tab="method" tabindex="-1">06 <span>Méthode</span></button>
   </nav>
 
   <section id="panel-monitor" class="tab-panel" role="tabpanel" aria-labelledby="tab-monitor">
@@ -100,6 +101,56 @@
     <div id="mc-output" aria-live="polite"><div class="empty-state"><span class="empty-symbol">∑</span><h3>Mesurer le comportement répété.</h3><p>Lance un bras H₀ pour les fausses alertes, puis compare avec une vraie dérive pour étudier la détection.</p></div></div>
     <details class="card extra"><summary>Vérification initiale du moteur · 600 simulations reproductibles</summary><div id="reference-validation"><p class="small muted">Chargement des résultats de validation…</p></div></details>
     <p class="small muted">La puissance est la probabilité d’une alerte sous une alternative ; elle peut inclure une alerte antérieure au changement. Le tableau sépare ces alertes précoces. Le délai médian est conditionnel à une première alerte après le changement, ou depuis le départ si l’erreur prédictive est déjà présente initialement ; les absences d’alerte restent dans le dénominateur du taux de détection.</p>
+  </section>
+
+  <section id="panel-audit" class="tab-panel" role="tabpanel" aria-labelledby="tab-audit" hidden>
+    <article class="card mc-intro">
+      <p class="eyebrow">METTRE LES SOLUTIONS SIMPLES À L’ÉPREUVE</p>
+      <h2>Qu’est-ce qui résiste aux correctifs élémentaires ?</h2>
+      <p>Comparaison appariée de 13 méthodes sur 11 scénarios. Aucun biais n’est ajouté à Ĝ : les estimateurs apprennent réellement sur les observations passées censurées. Les scénarios H₀ conservent la calibration visée dans le PDF, même quand la censure ou la forme des temps change.</p>
+      <p class="notice warning">Une méthode qui passe ces scénarios n’est pas démontrée valide en général. Un échec hors de ses hypothèses ne réfute pas son théorème. Cet audit mesure le comportement et la difficulté ; il ne prouve ni une nouveauté bibliographique ni l’impossibilité d’une solution simple.</p>
+      <div class="audit-kpis" id="audit-kpis"></div>
+      <p class="small muted">Surveillance tous les 10 patients évalués, puis à N. Paris adaptés à des bornes de scores prévisibles, différents des paris fixes du premier laboratoire. IC de Wilson à 95 % par cellule ; tests unilatéraux d’inflation corrigés par Holm sur la famille H₀.</p>
+      <div class="export-actions" style="justify-content:flex-start">
+        <button class="secondary" id="audit-download-summary" type="button">Résumé · CSV</button>
+        <button class="secondary" id="audit-download-raw" type="button">Répétitions · CSV</button>
+        <button class="secondary" id="audit-download-json" type="button">Protocole & résultats · JSON</button>
+        <button class="primary" id="audit-download-report" type="button">Rapport d’audit · HTML</button>
+        <a class="secondary" href="./AUDIT_METHODS.md">Méthodes & justification</a>
+        <a class="secondary" href="./AUDIT_RESULTS.md">Bilan scientifique détaillé</a>
+      </div>
+    </article>
+    <article class="card">
+      <p class="eyebrow">RÉSULTATS DE CONFIRMATION</p><h2>Fréquence d’au moins une première alerte</h2>
+      <p class="small muted">H₀ : une alerte est une fausse alerte. H₁ : distinguer une détection après changement d’une alerte précoce. La matrice est une synthèse descriptive ; sélectionne un scénario pour les intervalles et les hypothèses.</p>
+      <div id="audit-matrix" class="table-scroll"><p class="small muted">Chargement des expériences…</p></div>
+      <p class="chart-note">Un astérisque signale une inflation détectée après correction de Holm. Le symbole † indique que l’hypothèse exponentielle homogène de la méthode « G encadré » est violée dans ce scénario.</p>
+    </article>
+    <article class="chart-card">
+      <header><div><p class="eyebrow">EXAMINER UN SCÉNARIO</p><h2>Alertes, incertitude et détection</h2></div><div class="export-group"><button type="button" id="audit-chart-svg">SVG</button><button type="button" id="audit-chart-png">PNG</button></div></header>
+      <div class="diagnostic-toolbar"><label for="audit-scenario">Scénario <select id="audit-scenario"></select></label><span class="small muted" id="audit-scenario-note"></span></div>
+      <div id="audit-chart"></div>
+      <div id="audit-detail" class="table-scroll"></div>
+    </article>
+    <article class="interpretation">
+      <p class="eyebrow">CE QUE L’AUDIT PERMET DE CONCLURE</p>
+      <div id="audit-interpretation"><p>Les résultats seront interprétés avec leur périmètre statistique.</p></div>
+      <p><a href="./AUDIT_METHODS.md">Lire les hypothèses, la preuve du cas paramétrique simple et les limites de l’audit →</a></p>
+    </article>
+    <article class="card mc-intro">
+      <p class="eyebrow">REPRODUIRE AVEC D’AUTRES GRAINES</p><h2>Relancer les 13 solutions sur un scénario</h2>
+      <p>Cette expérience utilise le scénario sélectionné ci-dessus et ses réglages d’audit prédéfinis. Les contrôles du protocole principal ne modifient pas ce benchmark ; N, le nombre de répétitions et la graine sont réglés ici.</p>
+      <div class="mc-controls">
+        <label for="audit-n">Patients <select id="audit-n"><option value="1000">1 000</option><option value="2500" selected>2 500</option><option value="10000">10 000</option></select></label>
+        <label for="audit-reps">Répétitions <select id="audit-reps"><option value="20" selected>20 · exploration</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></label>
+        <label for="audit-seed">Graine <input type="number" id="audit-seed" min="0" max="4294967295" step="1" value="19634721"></label>
+        <button class="primary" id="audit-run" type="button">Lancer les solutions</button>
+        <button class="secondary" id="audit-stop" type="button" hidden>Arrêter</button>
+        <button class="secondary" id="audit-restore" type="button">Résultats publiés</button>
+      </div>
+      <div class="mc-progress" id="audit-progress" hidden><progress id="audit-progress-bar" value="0" max="100"></progress><span id="audit-progress-text" role="status"></span></div>
+      <p class="small muted" id="audit-run-status">Le calcul s’exécute dans un Web Worker. Les résultats interactifs restent distincts de la confirmation publiée.</p>
+    </article>
   </section>
 
   <section id="panel-method" class="tab-panel" role="tabpanel" aria-labelledby="tab-method" hidden>

@@ -16,7 +16,7 @@ function runWorker(message){
     worker.on('error',reject);
     worker.on('message',data=>{
       if(data.type==='error'){worker.terminate();reject(new Error(data.message));return;}
-      if(data.type==='progress'){progress.push(data);return;}
+      if(data.type==='progress'||data.type==='audit-progress'){progress.push(data);return;}
       worker.terminate();resolve({data,progress});
     });
     worker.postMessage(message);
@@ -40,5 +40,12 @@ test('Monte-Carlo null/current arms, seeds, counts and completion progress are c
     assert.equal(arm.methods[k].hits,raw.filter(r=>r[k]!==null).length);
     assert.equal(arm.methods[k].rate,arm.methods[k].hits/20);
   }
+});
+test('audit Worker runs the 13 remedies and returns all completed paired replications',async()=>{
+  const {data,progress}=await runWorker({type:'audit',options:{reps:2,scenarios:['homogeneous'],settings:{n:100}}});
+  assert.equal(data.type,'audit');
+  assert.equal(data.result.results.length,1);assert.equal(data.result.raw.length,2);
+  assert.equal(Object.keys(data.result.results[0].methods).length,13);
+  assert.equal(progress.at(-1).completed,2);
 });
 

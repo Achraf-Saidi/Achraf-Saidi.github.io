@@ -263,6 +263,8 @@ Local checkpoints are browser-local and can be exported. Share links encode conf
 
 ## Validation limits
 
+The separate [simple-remedy audit](AUDIT_METHODS.md) extends these checks with 13 methods, augmented IPCW, predictable betting bounds and a restricted parametric censoring-confidence envelope. Its [confirmation results](AUDIT_RESULTS.md) use a distinct fixed protocol; the original monitor above is unchanged.
+
 Numerical identities, bounds, censoring likelihood fits, temporal integrity, deterministic reproduction and worker/Monte-Carlo aggregation have automated checks. The conditional exponential fit was additionally compared to an independent SciPy optimizer.
 
 Browser rendering and PNG download behavior require visual/browser verification. This development environment did not provide the browser-control capability required for that QA path; no claim of completed cross-browser visual testing is made.

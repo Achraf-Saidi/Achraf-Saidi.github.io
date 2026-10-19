@@ -1,6 +1,12 @@
 import {simulate,normalize,METHODS,wilson,quantile,hasAlternative,VERSION} from './engine.mjs';
+import {runAudit} from './audit.mjs';
 self.onmessage=async({data})=>{
   try{
+    if(data.type==='audit'){
+      const result=await runAudit(data.options,p=>self.postMessage({type:'audit-progress',...p}));
+      self.postMessage({type:'audit',result});
+      return;
+    }
     if(data.type==='simulate'){
       const result=simulate(data.config);
       self.postMessage({type:'simulation',result});

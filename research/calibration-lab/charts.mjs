@@ -16,7 +16,7 @@ export function number(v){
   return new Intl.NumberFormat('fr-BE',{maximumFractionDigits:a<1?3:1}).format(v);
 }
 export function lineChart(target,{title,description='',series=[],xLabel='Patients évalués',yLabel='',
-  xDomain=null,yDomain=null,reference=[],shade=[],points=false,metadata='',height=310}){
+  xDomain=null,yDomain=null,xTicks=null,reference=[],shade=[],points=false,metadata='',height=310}){
   const W=860,H=height,pad={l:68,r:24,t:25,b:56},w=W-pad.l-pad.r,h=H-pad.t-pad.b;
   const finite=series.flatMap(s=>s.data).filter(p=>Number.isFinite(p[0])&&Number.isFinite(p[1]));
   let [xmin,xmax]=xDomain??[Math.min(...finite.map(p=>p[0]),0),Math.max(...finite.map(p=>p[0]),1)];
@@ -36,8 +36,8 @@ export function lineChart(target,{title,description='',series=[],xLabel='Patient
     svg.append(el('line',{x1:pad.l,x2:W-pad.r,y1:px,y2:px,stroke:COLORS.grid}),
       el('text',{x:pad.l-10,y:px+4,'text-anchor':'end',fill:'#667387','font-size':11,'font-family':'system-ui'},number(y)));
   }
-  for(let j=0;j<=5;j++){
-    const x=xmin+(xmax-xmin)*j/5,px=X(x);
+  for(const x of xTicks??Array.from({length:6},(_,j)=>xmin+(xmax-xmin)*j/5)){
+    const px=X(x);
     svg.append(el('text',{x:px,y:H-30,'text-anchor':'middle',fill:'#667387','font-size':11,'font-family':'system-ui'},number(x)));
   }
   svg.append(el('text',{x:pad.l+w/2,y:H-9,'text-anchor':'middle',fill:'#5e6b80','font-size':12,'font-family':'system-ui'},xLabel),

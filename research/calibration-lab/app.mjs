@@ -1,5 +1,6 @@
 import {VERSION,DEFAULTS,PRESETS,METHODS,LABELS,normalize,simulate,mean,aggregate,calibrationBins,uniformBand,prefixSummary,csv,hasAlternative} from './engine.mjs';
 import {COLORS,number,lineChart,timeline,download,exportSVG,exportPNG} from './charts.mjs';
+import {initAuditUI} from './audit-ui.mjs';
 
 const $=id=>document.getElementById(id);
 const pct=v=>Number.isFinite(v)?(100*v).toLocaleString('fr-BE',{maximumFractionDigits:1})+' %':'—';
@@ -525,7 +526,8 @@ function init(){
     const encoded=new URLSearchParams(location.hash.slice(1)).get('config');
     if(encoded)config=normalize(JSON.parse(encoded));
   }catch{toast('Lien de protocole invalide : utilisation des réglages locaux.');}
-  setControls(config);bind();renderSaved();run(config);loadReferenceValidation();
+  setControls(config);bind();renderSaved();run(config);loadReferenceValidation();initAuditUI();
+  if(new URLSearchParams(location.hash.slice(1)).get('view')==='audit')selectTab('audit');
 }
 init();
 

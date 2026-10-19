@@ -22,6 +22,8 @@ The interface is in French. All data are synthetic; nothing is uploaded. This fi
 
 ## Scientific scope
 
+The **Audit des solutions** tab adds 13 paired methods on 11 fixed scenarios: 2,200 confirmation cohorts of 2,500 surveillance patients each, with no artificial perturbation of estimated G. Read [the results](AUDIT_RESULTS.md) and [the mathematical protocol](AUDIT_METHODS.md), or [open the audit directly](https://achraf-saidi.github.io/research/calibration-lab/#view=audit). It tests reverse KM, conditional censoring models, AIPCW and a conservative confidence-envelope construction whose guarantee is restricted to homogeneous exponential censoring.
+
 This is **a simulation workbench**, not a solution to calibration monitoring with unknown censoring. A plug-in censoring estimator is not automatically anytime-valid. No claim of exact reproduction of an earlier experiment or of the Arnold–Henzi–Ziegel PIT/isotonic procedure is made.
 
 Each procedure has its own level α. Looking across four procedures, many datasets, horizons or interactively selected configurations is not a single level-α test.
@@ -37,6 +39,12 @@ Read [METHODS.md](METHODS.md) and the in-app **Méthode** tab for the definition
 | worker.mjs | Background simulation and paired Monte-Carlo |
 | charts.mjs | Native SVG charts and self-contained SVG / PNG downloads |
 | app.mjs | Controls, replay, diagnostics, storage and exports |
+| audit.mjs / audit-ui.mjs | Paired simple-remedy benchmark and interactive results |
+| AUDIT_METHODS.md / AUDIT_RESULTS.md | Audit assumptions, derivations, results and doctoral implications |
+| audit-results/confirm.json | Confirmation summary, uncertainty, global Holm correction and source hashes |
+| audit-results/confirm-replicates.json.gz | Seeds and first-alarm indices for every paired method/cohort |
+| tests/audit.test.mjs | Augmented score, confidence sequence and audit numerical checks |
+| tests/run-audit.mjs / tests/merge-audit.mjs | Reproduce and merge the three confirmation batches |
 | tests/engine.test.mjs | Statistical identities, bounds, temporal integrity and numerical tests |
 | tests/worker.test.mjs | Worker transport and Monte-Carlo aggregation |
 | tests/validate.mjs | Reproducible repeated-simulation validation |
@@ -50,7 +58,7 @@ For local use, serve the repository root over HTTP, then visit /research/calibra
 
 Node 20+ is sufficient for the numerical checks:
 
-    node --test research/calibration-lab/tests/engine.test.mjs research/calibration-lab/tests/worker.test.mjs
+    node --test research/calibration-lab/tests/engine.test.mjs research/calibration-lab/tests/worker.test.mjs research/calibration-lab/tests/audit.test.mjs
     node research/calibration-lab/tests/validate.mjs 200
 
 A separate SciPy optimization check was used during implementation to compare the conditional exponential censoring fit with an independent optimizer. This does not introduce a runtime dependency.
