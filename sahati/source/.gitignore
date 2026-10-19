@@ -1,9 +1,0 @@
-node_modules/
-dist/
-.sites-runtime/
-.wrangler/
-.env*
-tsconfig.tsbuildinfo
-
-# Exclude linked dependency directories as well as normal directories.
-node_modules

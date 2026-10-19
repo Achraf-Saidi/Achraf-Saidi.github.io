@@ -1,8 +1,0 @@
-{
-  "status": "blocked",
-  "requested_method": "InMoose 0.9.1 limma eBayes trend=False robust=True",
-  "observed_error": "NotImplementedError: Robust estimation in squeezeVar is not implemented",
-  "silent_fallback": false,
-  "results_produced": false,
-  "note": "The documented robust option is not implemented in this installed port. Primary results remain unchanged."
-}
