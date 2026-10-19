@@ -30,7 +30,10 @@ def present_invoice(item):
     paid = row('SELECT COALESCE(SUM(amount_cents),0) AS paid FROM payments WHERE invoice_id=?',(item['id'],))['paid']
     online = row('SELECT COALESCE(SUM(allocated_cents),0) AS paid FROM provider_receipts WHERE invoice_id=?',(item['id'],))['paid']
     paid += online
-    return {**item,'total_cents':total,'paid_cents':paid,'balance_cents':total-paid}
+    doc=row('SELECT test_mode FROM billing_documents WHERE invoice_id=?',(item['id'],))
+    if doc and doc['test_mode']:
+        paid=row('SELECT COALESCE(SUM(amount_cents),0) AS paid FROM billing_test_receipts WHERE invoice_id=?',(item['id'],))['paid']
+    return {**item,'billing_document':doc is not None,'total_cents':total,'paid_cents':paid,'balance_cents':total-paid}
 
 
 @finance.get('/api/projects/<project_id>/invoices')
@@ -42,7 +45,7 @@ def invoice_list(project_id):
 
 
 @finance.post('/api/projects/<project_id>/invoices')
-@required('manager','finance')
+@required('manager')
 def invoice_draft(project_id):
     d = data()
     with transaction() as db:
@@ -61,13 +64,15 @@ def invoice_draft(project_id):
 
 
 @finance.post('/api/invoices/<invoice_id>/register')
-@required('manager','finance')
+@required('manager')
 def invoice_register(invoice_id):
     d = data()
     with transaction() as db:
         item = invoice_access(invoice_id)
         if item['status']!='draft':
             abort(409,'Cette facture est déjà enregistrée.')
+        if row('SELECT 1 FROM billing_documents WHERE invoice_id=?',(invoice_id,)):
+            abort(409,'Utilisez l’atelier de facturation pour ce document.')
         # This imports the reference of an invoice already issued outside Novalis OS.
         # It never claims a PDF or an internal draft has been sent through Peppol.
         if d.get('issued_externally') is not True:
@@ -81,11 +86,13 @@ def invoice_register(invoice_id):
 
 
 @finance.post('/api/invoices/<invoice_id>/payments')
-@required('manager','finance')
+@required('manager')
 def payment(invoice_id):
     d = data()
     with transaction() as db:
         item = invoice_access(invoice_id)
+        if row('SELECT 1 FROM billing_documents WHERE invoice_id=? AND test_mode=1',(invoice_id,)):
+            abort(409,'Utilisez le parcours de simulation pour une facture TEST.')
         key = text(d,'idempotency_key',100,8)
         amount = integer(d,'amount_cents',1,100000000)
         reference = text(d,'bank_reference',200)
@@ -112,14 +119,14 @@ def payment(invoice_id):
 @required('manager','finance','client')
 def invoice_detail(invoice_id):
     item = invoice_access(invoice_id)
-    return jsonify(invoice=present_invoice(item),payments=rows('SELECT id,amount_cents,bank_reference,paid_at,created_at FROM payments WHERE invoice_id=? ORDER BY created_at DESC',(invoice_id,)),online_receipts=rows('SELECT provider_id,amount_cents,allocated_cents,excess_cents,paid_at FROM provider_receipts WHERE invoice_id=?',(invoice_id,)),lines=rows('SELECT description,quantity,unit_cents,vat_basis_points FROM invoice_lines WHERE invoice_id=?',(invoice_id,)))
+    return jsonify(billing_document=bool(row('SELECT 1 FROM billing_documents WHERE invoice_id=?',(invoice_id,))),invoice=present_invoice(item),payments=rows('SELECT id,amount_cents,bank_reference,paid_at,created_at FROM payments WHERE invoice_id=? ORDER BY created_at DESC',(invoice_id,)),online_receipts=rows('SELECT provider_id,amount_cents,allocated_cents,excess_cents,paid_at FROM provider_receipts WHERE invoice_id=?',(invoice_id,)),lines=rows('SELECT description,quantity,unit_cents,vat_basis_points FROM invoice_lines WHERE invoice_id=?',(invoice_id,)))
 
 
 @finance.get('/api/finance')
 @required('manager','finance')
 def finance_overview():
     invoices = [present_invoice(i) for i in rows('''SELECT i.*,p.name AS project_name FROM invoices i JOIN projects p ON p.id=i.project_id
-        WHERE p.org_id=? ORDER BY i.created_at DESC''',(g.user['org_id'],))]
+        WHERE p.org_id=? AND NOT EXISTS(SELECT 1 FROM billing_documents b WHERE b.invoice_id=i.id AND b.test_mode=1) ORDER BY i.created_at DESC''',(g.user['org_id'],))]
     expenses = rows('SELECT * FROM expenses WHERE org_id=? ORDER BY spent_at DESC',(g.user['org_id'],))
     registered = [i for i in invoices if i['status']!='draft']
     return jsonify(invoices=invoices,expenses=expenses,totals={
@@ -151,7 +158,7 @@ def export():
     def safe(value):
         value = str(value)
         return "'"+value if value.lstrip()[:1] in {'=','+','-','@'} or value[:1] in {'\t','\r'} else value
-    for i in rows('SELECT i.*,p.name AS project_name FROM invoices i JOIN projects p ON p.id=i.project_id WHERE p.org_id=?',(g.user['org_id'],)):
+    for i in rows('SELECT i.*,p.name AS project_name FROM invoices i JOIN projects p ON p.id=i.project_id WHERE p.org_id=? AND NOT EXISTS(SELECT 1 FROM billing_documents b WHERE b.invoice_id=i.id AND b.test_mode=1)',(g.user['org_id'],)):
         presented = present_invoice(i)
         writer.writerow([safe(i['external_number'] or 'BROUILLON'),safe(i['project_name']),i['status'],presented['total_cents'],presented['paid_cents'],i['due_date']])
     return Response('\ufeff'+output.getvalue(),mimetype='text/csv',headers={'Content-Disposition':'attachment; filename="novalis-finances.csv"'})

@@ -98,10 +98,12 @@ def invoice_attempts(invoice_id):
     return jsonify(items=[public_attempt(i) for i in rows('SELECT * FROM payment_attempts WHERE invoice_id=?'+suffix+' ORDER BY created_at DESC',(invoice_id,))])
 
 @payments.post('/api/invoices/<invoice_id>/checkout')
-@required('manager','finance','client')
+@required('manager','client')
 def checkout(invoice_id):
     d=data()
     if set(d)-{'method'}:abort(400,'Le montant est calculé par le serveur ; fournissez uniquement le moyen de paiement.')
+    if row('SELECT 1 FROM billing_documents WHERE invoice_id=? AND test_mode=1',(invoice_id,)):
+        abort(403,'Une facture TEST ne peut pas créer un encaissement fournisseur.')
     require_config();mode=current_app.config['PAYMENTS_MODE']
     if mode=='test' and g.user['role']=='client':abort(403,'Les tests sont réservés à la direction et aux finances.')
     rate_limit('checkout',20,60,invoice_id);chosen=text(d,'method',30,0,'');invoice=invoice_access(invoice_id);total=present_invoice(invoice)['balance_cents']
@@ -184,7 +186,7 @@ def apply_refund(identifier,r):
         # or reopen a debt just because a commercial refund was requested.
 
 @payments.post('/api/payment-attempts/<attempt_id>/refunds')
-@required('manager','finance')
+@required('manager')
 def refund_create(attempt_id):
     d=data();item=attempt_access(attempt_id);require_config(item['mode']);value=integer(d,'amount_cents',1,100000000);reason=text(d,'reason',500);key=text(d,'idempotency_key',100,8)
     if d.get('confirmed') is not True:abort(400,'Confirmez le remboursement et le traitement comptable associé.')

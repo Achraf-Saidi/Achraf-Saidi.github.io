@@ -127,13 +127,13 @@ class Workflows(unittest.TestCase):
 
     def test_05_external_invoice_and_bank_confirmation(self):
         project,_,_,_=self.flow()
-        invoice=self.call('finance','POST',f'/api/projects/{project}/invoices',{'due_date':date.today().isoformat(),'lines':[{'description':'Acompte','quantity':1,'unit_cents':10000,'vat_basis_points':2100}]},201)['id']
+        invoice=self.call('manager','POST',f'/api/projects/{project}/invoices',{'due_date':date.today().isoformat(),'lines':[{'description':'Acompte','quantity':1,'unit_cents':10000,'vat_basis_points':2100}]},201)['id']
         self.call('client','GET','/api/invoices/'+invoice,expected=404)
-        self.call('finance','POST',f'/api/invoices/{invoice}/register',{'issued_externally':True,'external_number':'EXT-2026-001','peppol_reference':'TEST-receipt'})
+        self.call('manager','POST',f'/api/invoices/{invoice}/register',{'issued_externally':True,'external_number':'EXT-2026-001','peppol_reference':'TEST-receipt'})
         payment={'amount_cents':12100,'bank_reference':'TEST-bank-reference','bank_confirmed':True,'paid_at':date.today().isoformat(),'idempotency_key':'TEST-pay-1'}
         self.call('client','POST',f'/api/invoices/{invoice}/payments',payment,403)
-        self.call('finance','POST',f'/api/invoices/{invoice}/payments',payment,201)
-        self.call('finance','POST',f'/api/invoices/{invoice}/payments',payment)
+        self.call('manager','POST',f'/api/invoices/{invoice}/payments',payment,201)
+        self.call('manager','POST',f'/api/invoices/{invoice}/payments',payment)
         self.assertEqual(self.call('client','GET','/api/invoices/'+invoice)['invoice']['balance_cents'],0)
         self.assertEqual(self.call('manager','GET','/api/finance')['totals']['paid_cents'],12100)
         with self.app.app_context():

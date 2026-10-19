@@ -55,7 +55,7 @@ def create_app(overrides=None):
         else:
             load_session()
         check_request()
-        json_limit=131072 if request.endpoint=='finance.invoice_draft' else 32768
+        json_limit=131072 if request.endpoint in {'finance.invoice_draft','billing.create','billing.edit'} else 32768
         if request.path.startswith('/api/') and request.is_json and request.content_length and request.content_length>json_limit:
             abort(413,'La demande dépasse la taille autorisée.')
 
@@ -110,7 +110,7 @@ def create_app(overrides=None):
 
     @app.get('/os/<path:filename>')
     def web_asset(filename):
-        if filename not in {'app.js','app.css'}:
+        if filename not in {'app.js','app.css','billing.js','billing.css'}:
             abort(404)
         return send_from_directory(Path(__file__).parent.parent/'web',filename)
 
@@ -136,6 +136,8 @@ def create_app(overrides=None):
                        calendar='internal',online_payment=payment_configuration()['state'],peppol='external_registration_only',
                        outbox=rows('SELECT id,subject,status,attempts,created_at,last_error FROM outbox WHERE org_id=? ORDER BY created_at DESC LIMIT 100',(g.user['org_id'],)))
 
+    from .billing import billing
+    app.register_blueprint(billing)
     from .auth import auth
     from .crm import crm
     from .projects import projects

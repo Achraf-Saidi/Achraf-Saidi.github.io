@@ -45,10 +45,10 @@ class Payments(unittest.TestCase):
         self.psp=FakeMollie();self.psp.mode=mode
         self.app.config.update(PAYMENTS_MODE=mode,MOLLIE_TEST_KEY='test_only_contract_key',MOLLIE_LIVE_KEY='live_only_contract_key',PAYMENTS_LIVE_ENABLED=mode=='live',PAYMENT_PROVIDER_FACTORY=lambda m:self.psp)
         project,*_=self.flow()
-        identifier=self.call('finance','POST',f'/api/projects/{project}/invoices',{'due_date':date.today().isoformat(),'lines':[{'description':'Acompte','quantity':1,'unit_cents':10000,'vat_basis_points':2100}]},201)['id']
-        if registered:self.call('finance','POST',f'/api/invoices/{identifier}/register',{'issued_externally':True,'external_number':'EXT-TEST','peppol_reference':'EXTERNAL'})
+        identifier=self.call('manager','POST',f'/api/projects/{project}/invoices',{'due_date':date.today().isoformat(),'lines':[{'description':'Acompte','quantity':1,'unit_cents':10000,'vat_basis_points':2100}]},201)['id']
+        if registered:self.call('manager','POST',f'/api/invoices/{identifier}/register',{'issued_externally':True,'external_number':'EXT-TEST','peppol_reference':'EXTERNAL'})
         return identifier
-    def checkout(self,invoice,who='finance',expected=201,body=None):return self.call(who,'POST',f'/api/invoices/{invoice}/checkout',body if body is not None else {'method':'bancontact'},expected)
+    def checkout(self,invoice,who='manager',expected=201,body=None):return self.call(who,'POST',f'/api/invoices/{invoice}/checkout',body if body is not None else {'method':'bancontact'},expected)
     def paid(self,attempt):self.psp.mark(attempt['provider_id'],'paid');return self.callback(attempt)
     def callback(self,attempt):return self.app.test_client().post('/api/payments/mollie/webhook',data={'id':attempt['provider_id'],'status':'paid','amount':'0.01'})
     def test_disabled_configuration(self):
@@ -56,8 +56,8 @@ class Payments(unittest.TestCase):
         self.assertFalse(self.call('finance','GET','/api/payments/config')['enabled']);self.checkout(invoice,expected=503);self.assertEqual(self.psp.creates,0)
     def test_role_draft_and_foreign_client(self):
         invoice=self.invoice(registered=False);self.checkout(invoice,expected=409)
-        self.call('finance','POST',f'/api/invoices/{invoice}/register',{'issued_externally':True,'external_number':'EXT-TEST','peppol_reference':'EXTERNAL'})
-        for who,status in [('developer',403),('account',403),('other-client',404)]:self.checkout(invoice,who,status)
+        self.call('manager','POST',f'/api/invoices/{invoice}/register',{'issued_externally':True,'external_number':'EXT-TEST','peppol_reference':'EXTERNAL'})
+        for who,status in [('finance',403),('developer',403),('account',403),('other-client',404)]:self.checkout(invoice,who,status)
         self.assertEqual(self.psp.creates,0)
     def test_server_amount_and_available_methods(self):
         invoice=self.invoice();self.checkout(invoice,expected=400,body={'method':'bancontact','amount_cents':1});self.checkout(invoice,expected=400,body={'method':'paypal'})
@@ -94,7 +94,7 @@ class Payments(unittest.TestCase):
     def test_timeout_recovery_and_key_rotation(self):
         invoice=self.invoice();self.psp.timeout=True;self.checkout(invoice,expected=503)
         with self.app.app_context():a=row('SELECT * FROM payment_attempts');self.assertEqual(a['status'],'uncertain')
-        result=self.call('finance','POST','/api/payment-attempts/'+a['id']+'/reconcile',{})['attempt'];self.assertEqual(result['status'],'open');self.assertEqual(self.psp.creates,1)
+        result=self.call('manager','POST','/api/payment-attempts/'+a['id']+'/reconcile',{})['attempt'];self.assertEqual(result['status'],'open');self.assertEqual(self.psp.creates,1)
         self.checkout(invoice,expected=200)
     def test_old_uncertain_attempt_never_recreated(self):
         invoice=self.invoice();self.psp.timeout=True;self.checkout(invoice,expected=503);self.psp.items={}
@@ -106,17 +106,17 @@ class Payments(unittest.TestCase):
         invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.psp.down=True;self.assertEqual(self.callback(a).status_code,503);self.psp.down=False;self.psp.mark(a['provider_id'],'paid')
         r=self.call('client','POST','/api/payment-attempts/'+a['id']+'/reconcile',{});self.assertEqual(r['attempt']['status'],'paid')
     def test_partial_bank_payment_and_overpayment(self):
-        invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.call('finance','POST',f'/api/invoices/{invoice}/payments',dict(amount_cents=2000,bank_reference='BANK',bank_confirmed=True,paid_at=date.today().isoformat(),idempotency_key='bank_partial_1'),201);self.paid(a)
+        invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.call('manager','POST',f'/api/invoices/{invoice}/payments',dict(amount_cents=2000,bank_reference='BANK',bank_confirmed=True,paid_at=date.today().isoformat(),idempotency_key='bank_partial_1'),201);self.paid(a)
         detail=self.call('finance','GET','/api/invoices/'+invoice);self.assertEqual(detail['invoice']['paid_cents'],12100);self.assertEqual(detail['online_receipts'][0]['excess_cents'],2000)
     def test_refund_states_idempotency_and_reservation(self):
         invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.paid(a);path='/api/payment-attempts/'+a['id']+'/refunds';body=dict(amount_cents=3000,reason='Retour convenu',idempotency_key='refund_test_key_1',confirmed=True)
-        self.call('client','POST',path,body,403);r=self.call('finance','POST',path,body,201);self.assertEqual(r['status'],'queued');self.assertTrue(self.call('finance','POST',path,body)['replayed']);self.assertEqual(self.psp.refund_creates,1)
-        self.call('finance','POST',path,{**body,'amount_cents':10000,'idempotency_key':'refund_other_key'},409)
+        self.call('client','POST',path,body,403);r=self.call('manager','POST',path,body,201);self.assertEqual(r['status'],'queued');self.assertTrue(self.call('manager','POST',path,body)['replayed']);self.assertEqual(self.psp.refund_creates,1)
+        self.call('manager','POST',path,{**body,'amount_cents':10000,'idempotency_key':'refund_other_key'},409)
         next(iter(self.psp.refund_items.values()))['status']='refunded';self.callback(a)
         detail=self.call('finance','GET','/api/payment-attempts/'+a['id'])['attempt'];self.assertEqual(detail['refunds'][0]['status'],'refunded');self.assertEqual(self.call('finance','GET','/api/invoices/'+invoice)['invoice']['status'],'paid')
     def test_ambiguous_refund_not_repeated(self):
-        invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.paid(a);self.psp.timeout=True;body=dict(amount_cents=3000,reason='Retour',idempotency_key='refund_timeout_key',confirmed=True);path='/api/payment-attempts/'+a['id']+'/refunds';self.call('finance','POST',path,body,503)
-        self.call('finance','POST',path,body);self.assertEqual(self.psp.refund_creates,1)
+        invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.paid(a);self.psp.timeout=True;body=dict(amount_cents=3000,reason='Retour',idempotency_key='refund_timeout_key',confirmed=True);path='/api/payment-attempts/'+a['id']+'/refunds';self.call('manager','POST',path,body,503)
+        self.call('manager','POST',path,body);self.assertEqual(self.psp.refund_creates,1)
     def test_additive_migration_and_receipt_immutability(self):
         invoice=self.invoice();a=self.checkout(invoice)['attempt'];self.paid(a)
         from novalis_os.db import migrate

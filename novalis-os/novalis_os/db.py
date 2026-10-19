@@ -48,11 +48,13 @@ def migrate(path):
         schema += '\n'+Path(__file__).with_name('payment-schema.sql').read_text()
         schema += '\n'+Path(__file__).with_name('workspace-schema.sql').read_text()
         schema += '\n'+Path(__file__).with_name('intake-schema.sql').read_text()
+        schema += '\n'+Path(__file__).with_name('billing-schema.sql').read_text()
         db.executescript('BEGIN IMMEDIATE;\n' + schema + '\nCOMMIT;')
         db.execute('INSERT OR IGNORE INTO migrations VALUES(1,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(2,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(3,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(4,?)', (now(),))
+        db.execute('INSERT OR IGNORE INTO migrations VALUES(5,?)', (now(),))
     finally:
         db.close()
 
