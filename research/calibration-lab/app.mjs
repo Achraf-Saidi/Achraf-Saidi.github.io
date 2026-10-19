@@ -116,7 +116,7 @@ function persist(){
 }
 function metadata(){
   const c=state.sim?.config??state.config;
-  return 'Calibration Lab '+VERSION+' | seed='+c.seed+' | N='+c.n+' | τ='+c.tau+' | α='+c.alpha+' | évalués='+matured()+' | '+METHODS.filter(k=>state.visible.has(k)).map(k=>LABELS[k]).join(' / ');
+  return 'Calibration Lab '+VERSION+' | seed='+c.seed+' | N='+c.n+' | τ='+c.tau+' | α='+c.alpha+' | évalués='+matured()+' | période diagnostics='+$('diagnostic-scope').value+' | '+METHODS.filter(k=>state.visible.has(k)).map(k=>LABELS[k]).join(' / ');
 }
 function expName(part){return 'calibration-'+part+'-seed'+(state.sim?.config.seed??state.config.seed);}
 function upTo(rows,key,value){
@@ -408,7 +408,7 @@ function exportTrajectory(){
   if(!state.sim)return;
   const columns=[{key:'i'},{key:'evalTime',label:'evaluation_month'}];
   for(const k of METHODS)columns.push({label:'log_e_'+k,get:r=>r.logE[k]},
-    {label:'anytime_p_'+k,get:r=>Math.exp(-r.maxLogE[k])},{label:'score_'+k,get:r=>r.scores[k]});
+    {label:'inverse_running_max_e_'+k,get:r=>Math.exp(-r.maxLogE[k])},{label:'score_'+k,get:r=>r.scores[k]});
   download(csv(state.sim.patients,columns),expName('trajectoires')+'.csv','text/csv;charset=utf-8');
 }
 function exportConfig(){
