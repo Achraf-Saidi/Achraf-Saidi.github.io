@@ -1,7 +1,8 @@
 """Management ledger; legal invoice issuance belongs to a configured provider."""
 import csv
 import io
-from flask import Blueprint, g, jsonify, abort, Response
+from datetime import date
+from flask import Blueprint, g, jsonify, abort, Response, request
 from .db import get_db, row, rows, uid, now, transaction, audit
 from .security import required, project_access
 from .validation import data, text, integer, choice, day
@@ -125,13 +126,129 @@ def invoice_detail(invoice_id):
 @finance.get('/api/finance')
 @required('manager','finance')
 def finance_overview():
-    invoices = [present_invoice(i) for i in rows('''SELECT i.*,p.name AS project_name FROM invoices i JOIN projects p ON p.id=i.project_id
-        WHERE p.org_id=? AND NOT EXISTS(SELECT 1 FROM billing_documents b WHERE b.invoice_id=i.id AND b.test_mode=1) ORDER BY i.created_at DESC''',(g.user['org_id'],))]
-    expenses = rows('SELECT * FROM expenses WHERE org_id=? ORDER BY spent_at DESC',(g.user['org_id'],))
+    return jsonify(financial_snapshot(finance_mode()))
+
+
+def finance_mode():
+    return choice(request.args,'mode',['live','test'],'live')
+
+
+def financial_snapshot(mode):
+    db=get_db()
+    if db.in_transaction:
+        return _financial_snapshot(mode)
+    db.execute('BEGIN')
+    try:
+        return _financial_snapshot(mode)
+    finally:
+        db.execute('ROLLBACK')
+
+
+def _financial_snapshot(mode):
+    """Build the journal from confirmed source records, never from invoice status alone."""
+    test = mode=='test'
+    org = g.user['org_id']
+    invoices = [present_invoice(i) for i in rows('''SELECT i.*,p.name AS project_name,c.name AS client_name,
+        b.title,b.published_at,b.canceled_at,COALESCE(b.test_mode,0) AS test_mode
+        FROM invoices i JOIN projects p ON p.id=i.project_id JOIN clients c ON c.id=p.client_id
+        LEFT JOIN billing_documents b ON b.invoice_id=i.id
+        WHERE p.org_id=? AND COALESCE(b.test_mode,0)=? AND b.canceled_at IS NULL
+        ORDER BY i.created_at DESC,i.id DESC''',(org,int(test)))]
+    lookup = {i['id']:i for i in invoices}
+    for i in invoices:
+        i['payment_status']='draft' if i['status']=='draft' else 'paid' if i['balance_cents']<=0 else 'partial' if i['paid_cents'] else 'overdue' if i['due_date']<date.today().isoformat() else 'unpaid'
+    movements = []
+
+    def add(record,kind,method,direction,stamp,reference,description='',receipt_id=None):
+        invoice = lookup.get(record.get('invoice_id'))
+        if not invoice or invoice['status']=='draft':
+            return
+        movements.append({'id':kind+':'+record['id'],'kind':kind,'method':method,'direction':direction,
+            'amount_cents':record['amount_cents'],'occurred_at':stamp,'reference':reference,
+            'description':description or invoice.get('title') or invoice['external_number'] or 'Règlement de facture',
+            'invoice_id':invoice['id'],'invoice_number':invoice['external_number'],'project_name':invoice['project_name'],
+            'client_name':invoice['client_name'],'test_mode':test,'billing_document':invoice['billing_document'],
+            'receipt_url':('/api/billing/'+invoice['id']+'/receipts/'+receipt_id+'/pdf') if receipt_id and invoice['billing_document'] else None,
+            'allocated_cents':record.get('allocated_cents',record['amount_cents']),
+            'excess_cents':record.get('excess_cents',0)})
+
+    if test:
+        for r in rows('''SELECT r.* FROM billing_test_receipts r JOIN billing_documents b ON b.invoice_id=r.invoice_id
+                WHERE b.org_id=? AND b.test_mode=1''',(org,)):
+            add(r,'payment',r['method'],'in',r['paid_at'],r['reference'],receipt_id=r['id'])
+        expenses = []
+        pending_refunds = []
+    else:
+        for r in rows('''SELECT r.* FROM payments r JOIN invoices i ON i.id=r.invoice_id
+                JOIN projects p ON p.id=i.project_id WHERE p.org_id=?''',(org,)):
+            add(r,'payment','transfer','in',r['paid_at'],r['bank_reference'],receipt_id=r['id'])
+        for r in rows('''SELECT r.*,a.method FROM provider_receipts r JOIN payment_attempts a ON a.id=r.attempt_id
+                WHERE a.org_id=? AND a.mode='live' ''',(org,)):
+            add(r,'online',r['method'] or 'online','in',r['paid_at'],r['provider_id'],receipt_id=r['attempt_id'])
+        refund_records = rows('''SELECT r.*,a.invoice_id FROM refund_attempts r JOIN payment_attempts a ON a.id=r.attempt_id
+                WHERE a.org_id=? AND a.mode='live' ''',(org,))
+        for r in refund_records:
+            if r['status']=='refunded':
+                add(r,'refund','online','out',r['updated_at'],r['provider_id'] or r['id'],r['reason'])
+        pending_refunds = [r for r in refund_records if r['invoice_id'] in lookup and r['status'] not in {'refunded','failed','canceled'}]
+        expenses = rows('''SELECT e.*,p.name AS project_name FROM expenses e LEFT JOIN projects p ON p.id=e.project_id
+            WHERE e.org_id=? ORDER BY e.spent_at DESC,e.created_at DESC''',(org,))
+        for e in expenses:
+            movements.append({'id':'expense:'+e['id'],'kind':'expense','method':'expense','direction':'out',
+                'amount_cents':e['amount_cents'],'occurred_at':e['spent_at'],'reference':'DEP-'+e['id'][:10].upper(),
+                'description':e['description'],'invoice_id':None,'invoice_number':None,'client_name':'',
+                'project_name':e.get('project_name') or '',
+                'test_mode':False,'billing_document':False,'receipt_url':None,'allocated_cents':0,'excess_cents':0})
+    movements.sort(key=lambda m:(m['occurred_at'][:10],m['occurred_at'],m['id']),reverse=True)
     registered = [i for i in invoices if i['status']!='draft']
-    return jsonify(invoices=invoices,expenses=expenses,totals={
-        'invoiced_cents':sum(i['total_cents'] for i in registered),'paid_cents':sum(i['paid_cents'] for i in registered),
-        'receivable_cents':sum(i['balance_cents'] for i in registered),'expenses_cents':sum(e['amount_cents'] for e in expenses)})
+    incoming = sum(m['amount_cents'] for m in movements if m['direction']=='in')
+    outgoing = sum(m['amount_cents'] for m in movements if m['direction']=='out')
+    notices = rows('''SELECT n.invoice_id,MAX(n.created_at) AS created_at FROM billing_transfer_notices n
+        JOIN billing_documents b ON b.invoice_id=n.invoice_id WHERE b.org_id=? AND b.test_mode=?
+        GROUP BY n.invoice_id''',(org,int(test)))
+    return {'mode':mode,'test_mode':test,'updated_at':now(),'invoices':invoices,'expenses':expenses,'movements':movements,
+        'demo_invoice_count':row('''SELECT COUNT(*) AS n FROM billing_documents WHERE org_id=? AND test_mode=1
+            AND published_at IS NOT NULL AND canceled_at IS NULL''',(org,))['n'],
+        'pending_transfers':[n for n in notices if n['invoice_id'] in lookup and lookup[n['invoice_id']]['balance_cents']>0],
+        'pending_refunds':pending_refunds,'totals':{
+            'invoiced_cents':sum(i['total_cents'] for i in registered),
+            'paid_cents':sum(i['paid_cents'] for i in registered),
+            'receivable_cents':sum(max(0,i['balance_cents']) for i in registered),
+            'expenses_cents':sum(e['amount_cents'] for e in expenses),'received_cents':incoming,
+            'outgoing_cents':outgoing,'refunded_cents':sum(m['amount_cents'] for m in movements if m['kind']=='refund'),
+            'net_flow_cents':incoming-outgoing,'draft_count':len(invoices)-len(registered)}}
+
+
+def filtered_movements(items):
+    start = day(request.args,'from') if request.args.get('from') else ''
+    end = day(request.args,'to') if request.args.get('to') else ''
+    if start and end and start>end:
+        abort(400,'La date de début doit précéder la date de fin.')
+    kind = choice(request.args,'kind',['','in','out','refund','transfer','bancontact'],'')
+    query = text(request.args,'q',200,0,'').lower()
+    return [m for m in items if (not start or m['occurred_at'][:10]>=start) and
+        (not end or m['occurred_at'][:10]<=end) and (not kind or m['direction']==kind or m['kind']==kind or m['method']==kind) and
+        (not query or query in ' '.join(str(m.get(k) or '') for k in ['reference','description','invoice_number','client_name','project_name']).lower())]
+
+
+def safe_csv(value):
+    value = str(value or '')
+    return "'"+value if value.lstrip()[:1] in {'=','+','-','@'} or value[:1] in {'\t','\r'} else value
+
+
+@finance.get('/api/finance/movements.csv')
+@required('manager','finance')
+def movement_export():
+    mode=finance_mode();snapshot=financial_snapshot(mode)
+    output=io.StringIO();writer=csv.writer(output)
+    writer.writerow(['environnement','date','operation','methode','client','projet','facture','reference','description','entree_centimes','sortie_centimes'])
+    for m in filtered_movements(snapshot['movements']):
+        values=['TEST' if mode=='test' else 'REEL',m['occurred_at'],m['kind'],m['method'],
+            *[m[k] for k in ['client_name','project_name','invoice_number','reference','description']],
+            m['amount_cents'] if m['direction']=='in' else 0,m['amount_cents'] if m['direction']=='out' else 0]
+        writer.writerow([safe_csv(v) if isinstance(v,str) or v is None else v for v in values])
+    filename='novalis-mouvements'+('-TEST' if mode=='test' else '')+'.csv'
+    return Response('\ufeff'+output.getvalue(),mimetype='text/csv',headers={'Content-Disposition':'attachment; filename="'+filename+'"'})
 
 
 @finance.post('/api/expenses')
@@ -155,13 +272,11 @@ def export():
     output = io.StringIO()
     writer = csv.writer(output)
     writer.writerow(['reference','projet','statut','total_centimes','paye_centimes','echeance'])
-    def safe(value):
-        value = str(value)
-        return "'"+value if value.lstrip()[:1] in {'=','+','-','@'} or value[:1] in {'\t','\r'} else value
-    for i in rows('SELECT i.*,p.name AS project_name FROM invoices i JOIN projects p ON p.id=i.project_id WHERE p.org_id=? AND NOT EXISTS(SELECT 1 FROM billing_documents b WHERE b.invoice_id=i.id AND b.test_mode=1)',(g.user['org_id'],)):
-        presented = present_invoice(i)
-        writer.writerow([safe(i['external_number'] or 'BROUILLON'),safe(i['project_name']),i['status'],presented['total_cents'],presented['paid_cents'],i['due_date']])
-    return Response('\ufeff'+output.getvalue(),mimetype='text/csv',headers={'Content-Disposition':'attachment; filename="novalis-finances.csv"'})
+    mode=finance_mode()
+    for i in financial_snapshot(mode)['invoices']:
+        writer.writerow([safe_csv(i['external_number'] or 'BROUILLON'),safe_csv(i['project_name']),i['status'],i['total_cents'],i['paid_cents'],i['due_date']])
+    filename='novalis-finances'+('-TEST' if mode=='test' else '')+'.csv'
+    return Response('\ufeff'+output.getvalue(),mimetype='text/csv',headers={'Content-Disposition':'attachment; filename="'+filename+'"'})
 
 
 @finance.post('/api/projects/<project_id>/proposals')

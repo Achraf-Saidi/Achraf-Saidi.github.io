@@ -12,7 +12,7 @@ const root=path.resolve(__dirname,'..'),wait=()=>new Promise(r=>setTimeout(r,0))
    else if(url.startsWith('/api/payment-attempts/')){if(url.endsWith('/reconcile')){assert.equal(o.method,'POST');status='paid';}data={attempt:attempt()};}
    if(data)return {ok:true,status:200,json:async()=>data};return base(url,o);
   };
-  w.eval(fs.readFileSync(path.join(root,'web/app.js'),'utf8'));await wait();await wait();await wait();
+  w.eval(fs.readFileSync(path.join(root,'web/finance.js'),'utf8'));w.eval(fs.readFileSync(path.join(root,'web/app.js'),'utf8'));await wait();await wait();await wait();
   d.querySelector('[data-view=finance]').click();await wait();await wait();d.querySelector('[data-invoice]').click();await wait();await wait();assert(d.getElementById('dialog-content').textContent.includes('Référence fictive'));
   d.getElementById('invoice-online-actions').querySelector('button').click();await wait();await wait();
   if(mode==='disabled'){assert(d.getElementById('dialog-content').textContent.includes('Aucun encaissement en ligne actif'));assert(!d.getElementById('operation-form'));}

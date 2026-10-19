@@ -31,7 +31,7 @@ const script=fs.readFileSync(path.join(root,'web/app.js'),'utf8');
    else throw new Error('Unexpected endpoint '+url);
    return {ok:true,json:async()=>value};
   };
-  w.eval(script);await wait();await wait();await wait();
+  w.eval(fs.readFileSync(path.join(root,'web/finance.js'),'utf8'));w.eval(script);await wait();await wait();await wait();
   assert(d.getElementById('auth-screen').hidden);assert(!d.getElementById('app-shell').hidden);assert.equal(d.querySelectorAll('#user-name script').length,0);
   assert.equal(new Set([...d.querySelectorAll('[id]')].map(e=>e.id)).size,d.querySelectorAll('[id]').length);
   if(['developer','client','account','sysadmin'].includes(role))assert(!d.querySelector('[data-view="finance"]'));

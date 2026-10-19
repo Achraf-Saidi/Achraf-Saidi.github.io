@@ -1,0 +1,26 @@
+/* Financial UI uses a fixture exported by the real backend, including TEST receipts. */
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{JSDOM}=require(process.env.NOVALIS_JSDOM_MODULE||'jsdom');
+const root=path.resolve(__dirname,'..'),fixture=JSON.parse(fs.readFileSync(process.argv[2],'utf8')),tick=()=>new Promise(r=>setTimeout(r,0));
+(async()=>{
+ const dom=new JSDOM(fs.readFileSync(path.join(root,'web/index.html'),'utf8'),{url:'https://app.novalis.test/os/',runScripts:'outside-only'}),w=dom.window,d=w.document;
+ w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+ w.fetch=async()=>({ok:false,status:401,json:async()=>({error:'Session requise'})});
+ w.eval(fs.readFileSync(path.join(root,'web/finance.js'),'utf8'));w.eval(fs.readFileSync(path.join(root,'web/app.js'),'utf8'));await tick();
+ const toggle=d.getElementById('password-toggle'),password=d.getElementById('login-password');
+ assert.equal(password.type,'password');toggle.click();assert.equal(password.type,'text');assert.equal(toggle.getAttribute('aria-pressed'),'true');toggle.click();assert.equal(password.type,'password');
+ assert.equal(d.querySelectorAll('#login-form input[required]').length,2);assert(!d.querySelector('.auth-mfa').open);assert.equal(d.querySelector('#login-form button[type=submit]').textContent.trim(),'Se connecter ↗');
+ d.getElementById('auth-screen').hidden=true;d.getElementById('app-shell').hidden=false;
+ const calls=[],opened=[],state={user:{role:'manager'},view:'finance',epoch:1};
+ const context={state,epoch:1,current:n=>n===state.epoch,title(){d.getElementById('view-actions').replaceChildren();},button:(label,fn,host)=>{const b=d.createElement('button');b.textContent=label;b.onclick=fn;host.append(b);},toastError:e=>{throw e;},api:async p=>{calls.push(p);return p.includes('mode=test')?fixture.finance_test:fixture.finance_live;},invoiceRows:()=>'',bindInvoices(){},newInvoice(){},newExpense(){},openInvoice:async id=>opened.push(id)};
+ await w.NovalisFinance.mount(context);
+ assert(d.querySelector('[data-finance-mode=live]').getAttribute('aria-pressed')==='true');assert.equal(d.querySelectorAll('.finance-table tbody tr').length,0);assert(d.getElementById('finance-open-demo'));
+ d.getElementById('finance-open-demo').click();await tick();await tick();
+ assert(calls.includes('/api/finance?mode=test'));assert.equal(d.querySelectorAll('.finance-table tbody tr').length,1);assert.match(d.querySelector('.finance-demo-banner').textContent,/Aucun argent/);
+ const link=d.querySelector('.finance-row-links a');assert.equal(link.getAttribute('href'),fixture.finance_test.movements[0].receipt_url);d.querySelector('[data-finance-invoice]').click();await tick();assert.deepEqual(opened,[fixture.document.id]);
+ d.getElementById('finance-search').value='not-in-the-fixture';d.getElementById('finance-search').dispatchEvent(new w.Event('input'));assert.equal(d.querySelectorAll('.finance-table tbody tr').length,0);
+ assert.match(d.getElementById('finance-export').getAttribute('href'),/q=not-in-the-fixture/);d.getElementById('finance-clear').click();assert.equal(d.querySelectorAll('.finance-table tbody tr').length,1);
+ d.getElementById('finance-from').value='2026-12-31';d.getElementById('finance-to').value='2026-01-01';d.getElementById('finance-from').dispatchEvent(new w.Event('change'));d.getElementById('finance-to').dispatchEvent(new w.Event('change'));assert.match(d.getElementById('finance-period-error').textContent,/précéder/);assert.equal(d.getElementById('finance-export').getAttribute('aria-disabled'),'true');
+ d.getElementById('finance-clear').click();const refresh=[...d.querySelectorAll('#view-actions button')].find(b=>b.textContent==='Actualiser');refresh.click();await tick();await tick();assert.equal(d.querySelectorAll('.finance-table tbody tr').length,1);
+ assert(!d.getElementById('view-actions').textContent.includes('Enregistrer une dépense'));
+ dom.window.close();console.log('Finance and login UI: explicit environments, actual receipt links, filters, exports, refresh and password controls passed.');
+})().catch(e=>{console.error(e);process.exit(1);});

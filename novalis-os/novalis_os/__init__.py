@@ -110,7 +110,7 @@ def create_app(overrides=None):
 
     @app.get('/os/<path:filename>')
     def web_asset(filename):
-        if filename not in {'app.js','app.css','billing.js','billing.css'}:
+        if filename not in {'app.js','app.css','billing.js','billing.css','finance.js','finance.css','auth.css'}:
             abort(404)
         return send_from_directory(Path(__file__).parent.parent/'web',filename)
 

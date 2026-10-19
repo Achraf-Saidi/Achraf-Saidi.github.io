@@ -15,6 +15,14 @@ Une organisation explicitement marquée de démonstration peut recevoir des docu
 
 Le client peut simuler un succès, un refus ou une annulation et un règlement partiel. Le reçu existe uniquement après le succès simulé. Le QR TEST ouvre la facture dans Novalis ; il ne contient aucune instruction bancaire. Aucun e-mail n’est envoyé par la création des données de démonstration.
 
+## Journal et suivi financier
+
+**Suivi financier** présente deux environnements explicites : **Opérations réelles** et **Démonstration**. Les factures et règlements TEST apparaissent dans Démonstration avec leurs reçus ; les simulations n’affectent jamais les flux réels. Le journal est recalculé depuis les paiements bancaires confirmés, les reçus prestataire, les dépenses et les remboursements effectivement confirmés. Une facture publiée, un échec de paiement, une déclaration de virement ou un remboursement en attente ne crée aucun mouvement d’argent confirmé.
+
+Les filtres de recherche, de type et de période s’appliquent au journal et aux indicateurs d’entrées/sorties. Le reste à encaisser et le récapitulatif des factures couvrent toutes les échéances de l’environnement choisi. L’export des mouvements reprend les filtres et marque chaque ligne TEST ou REEL. Les mouvements sont actualisés à l’ouverture, au retour dans l’onglet et toutes les 30 secondes tant que cette vue est active. Le bouton Actualiser permet une vérification immédiate.
+
+Les encaissements prestataire sont bruts : la part affectée à la facture et l’éventuel excédent restent distincts. Les remboursements confirmés figurent en sortie sans réécrire la facture ni son règlement. Le flux net enregistré ne constitue pas un solde bancaire et n’inclut pas automatiquement les frais ou les virements du prestataire vers le compte de Novalis.
+
 ## Documents réels et Falco
 
 Les coordonnées légales de la société doivent être renseignées. Les documents B2B belges restent des brouillons/projets de facture tant que le raccordement Falco/Peppol n’est pas disponible : **aucune transmission n’est prétendue**. Le téléchargement des données préparées fournit le snapshot et les montants pour le futur connecteur ; il ne constitue ni une requête API Falco prête à envoyer ni une preuve de conformité Peppol.
