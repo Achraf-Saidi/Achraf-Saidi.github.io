@@ -1,4 +1,4 @@
-"""Isolated Novalis billing deployment. Never changes Pointage or the shared proxy."""
+"""Isolated Novalis billing deployment. Explicit temporary access authorized by the owner on 2026-10-19."""
 import concurrent.futures,hashlib,http.client,json,os,pwd,secrets,shutil,socket,sqlite3,ssl,subprocess,time,urllib.request,venv
 from pathlib import Path
 PRIVATE=__ENCRYPTED_PRIVATE_INPUT__
@@ -144,3 +144,4 @@ with app.app_context():
  dest=Path('/etc/novalis-os')/('deployment-billing-'+SOURCE[:12]+'.json');dest.write_text(json.dumps(REPORT,indent=2));dest.chmod(0o600);print(json.dumps(REPORT))
 try:main()
 except Exception as e:REPORT.update(error=str(e));print(json.dumps(REPORT));raise
+
