@@ -3873,6 +3873,15 @@
   ],
   "totalCohorts": 2200,
   "totalMethodRuns": 28600,
+  "diagnosticAvailability": {
+    "meanClipFraction": {
+      "notMeasuredFor": [
+        "dr_pooled",
+        "dr_cond"
+      ],
+      "note": "The AIPCW clipping counter was not recorded in audit 1.0.0; its legacy zero is not a measured clipping rate. First alarms and scores are unaffected."
+    }
+  },
   "rawFormat": "first-alarm-matrix-v1; per-replicate first alarms and seeds retained; score diagnostics reproducible by seed",
   "exploratoryPairedContrasts": [
     {

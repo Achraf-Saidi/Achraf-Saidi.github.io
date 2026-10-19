@@ -115,6 +115,7 @@ Ce qui n'est pas validé par l'audit : « jamais fait », « aucune solution sim
 - Contrôles indépendants avec SciPy de l'ajustement exponentiel initial, des racines de l'encadrement, des espérances AIPCW par quadrature et des 117 queues binomiales.
 - Réconciliation des 143 taux méthode/scénario avec les 2 200 enregistrements comprimés de premières alertes.
 - Empreintes SHA-256 du moteur et du code d'audit identiques à celles figées avant les calculs confirmatoires.
+- Diagnostic secondaire : la troncature AIPCW n'a pas été comptée dans le code figé ; l'interface la signale comme non mesurée, sans modifier les premières alertes ni les scores.
 - Cohérence statique des identifiants de contrôles et des imports vérifiée. Le rendu visuel et le téléchargement PNG n'ont pas pu être vérifiés dans un navigateur de cet environnement.
 
 Les commandes de reproduction sont dans [AUDIT_METHODS.md](AUDIT_METHODS.md). Le dashboard permet de relancer les 13 méthodes sur le scénario choisi avec d'autres graines et effectifs, de visualiser les IC et de télécharger SVG, PNG, CSV, JSON et rapport HTML.

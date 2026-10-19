@@ -54,7 +54,7 @@ function renderDetail(){
   $('audit-detail').innerHTML='<table><thead><tr><th>Procédure</th><th>Alerte</th><th>IC Wilson 95 %</th><th>Alertes précoces</th><th>Après changement</th><th>Sans alerte</th><th>Délai médian*</th><th>Score moyen</th><th>Troncature</th><th>Inflation Holm</th></tr></thead><tbody>'+
     (active.solutions??SOLUTIONS).map((m,i)=>{
       const v=r.methods[m.id];
-      return '<tr><td>'+String(i+1)+'. '+esc(m.label)+(m.id==='guard_exp'&&!r.scenario.guardValid?' †':'')+'</td><td>'+pct(v.rate)+' ('+v.hits+'/'+v.total+')</td><td>['+pct(v.ci[0])+' ; '+pct(v.ci[1])+']</td><td>'+v.early+'</td><td>'+v.post+'</td><td>'+v.nonDetection+'</td><td>'+(v.medianDelay===null?'—':number(v.medianDelay))+'</td><td>'+number(v.meanScore)+'</td><td>'+pct(v.meanClipFraction)+'</td><td>'+(r.scenario.null?(v.inflationDetected?'détectée':'non détectée'):'sans objet')+'</td></tr>';
+      return '<tr><td>'+String(i+1)+'. '+esc(m.label)+(m.id==='guard_exp'&&!r.scenario.guardValid?' †':'')+'</td><td>'+pct(v.rate)+' ('+v.hits+'/'+v.total+')</td><td>['+pct(v.ci[0])+' ; '+pct(v.ci[1])+']</td><td>'+v.early+'</td><td>'+v.post+'</td><td>'+v.nonDetection+'</td><td>'+(v.medianDelay===null?'—':number(v.medianDelay))+'</td><td>'+number(v.meanScore)+'</td><td>'+(m.kind==='dr'?'non mesurée':pct(v.meanClipFraction))+'</td><td>'+(r.scenario.null?(v.inflationDetected?'détectée':'non détectée'):'sans objet')+'</td></tr>';
     }).join('')+'</tbody></table><p class="chart-note">*Patients depuis N/2, conditionnellement à une première alerte après le changement. Une absence d’inflation détectée ne démontre pas le contrôle. Le score de « G encadré » est le milieu descriptif de ses deux enveloppes, pas un score centré unique. '+(r.scenario.guardValid?'La loi génératrice satisfait l’hypothèse de censure exponentielle homogène de cette méthode.':'† La garantie paramétrique de « G encadré » ne s’applique pas dans ce scénario.')+'</p>';
 }
 function renderInterpretation(){
@@ -69,7 +69,11 @@ function renderInterpretation(){
   paragraphs.push('Ces essais ne déterminent pas si une méthode a déjà été publiée et ne prouvent pas qu’aucune autre solution simple ne fonctionne. La double robustesse d’un score ne fournit pas automatiquement un e-processus exact lorsque les deux fonctions auxiliaires sont apprises.');
   $('audit-interpretation').innerHTML=paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('');
 }
-function summaryRows(){return active.results.flatMap(r=>Object.entries(r.methods).map(([id,m])=>({scenario:r.scenario.id,H0:r.scenario.null,method:id,...m})));}
+function summaryRows(){
+  const unmeasured=new Set((active.solutions??SOLUTIONS).filter(m=>m.kind==='dr').map(m=>m.id));
+  return active.results.flatMap(r=>Object.entries(r.methods).map(([id,m])=>({scenario:r.scenario.id,H0:r.scenario.null,method:id,...m,
+    meanClipFraction:unmeasured.has(id)?null:m.meanClipFraction})));
+}
 function exportSummary(){
   const cols=['scenario','H0','method','hits','total','rate','early','post','nonDetection','medianDelay','meanScore','meanGRMSE','meanClipFraction','inflationP','inflationPHolm','inflationDetected','guardModelValid'];
   download(csv(summaryRows(),[...cols.map(key=>({key})),{label:'ci95_lower',get:r=>r.ci[0]},{label:'ci95_upper',get:r=>r.ci[1]}]),'calibration-audit-summary.csv','text/csv;charset=utf-8');

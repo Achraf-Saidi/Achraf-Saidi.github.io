@@ -67,6 +67,8 @@ Les KM sont inversés : la censure devient l'événement. L'historique n'utilise
 
 La référence oracle IPCW n'est pas une borne d'efficacité optimale : elle utilise seulement R/G*. AIPCW exploite aussi les événements observés avant τ et leur temps. Une meilleure puissance qu'un moniteur oracle IPCW particulier n'est donc pas paradoxale.
 
+Le compteur de troncature des probabilités de censure a été enregistré pour les variantes IPCW, mais pas pour AIPCW dans le code figé 1.0.0. Pour AIPCW, l'interface affiche « non mesurée » et le CSV de résumé laisse la case vide. Le zéro historique de ce champ dans le JSON n'est pas une mesure ; les métadonnées le signalent. Cela n'affecte pas les scores ni les premières alertes.
+
 ## 4. Surveillance séquentielle et bornes prévisibles
 
 L'audit conserve les fonctions h, la grille de paris et les départs fixés du premier moteur, mais adapte les tailles des paris à une borne de score disponible dans le passé. Les décisions sont prises tous les 10 patients évalués et à N. Le processus est arrêté à sa première alerte.

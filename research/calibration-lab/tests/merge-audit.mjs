@@ -23,6 +23,8 @@ if(report.results.length!==SCENARIOS.length||new Set(report.results.map(r=>r.sce
 report.familySize=applyHolm(report.results);
 report.totalCohorts=report.reps*report.results.length;
 report.totalMethodRuns=report.totalCohorts*SOLUTIONS.length;
+report.diagnosticAvailability={meanClipFraction:{notMeasuredFor:SOLUTIONS.filter(m=>m.kind==='dr').map(m=>m.id),
+  note:'The AIPCW clipping counter was not recorded in audit 1.0.0; its legacy zero is not a measured clipping rate. First alarms and scores are unaffected.'}};
 report.rawFormat='first-alarm-matrix-v1; per-replicate first alarms and seeds retained; score diagnostics reproducible by seed';
 const raw=['a','b','c'].flatMap(k=>JSON.parse(readFileSync(new URL('confirm-'+k+'-replicates.json',directory),'utf8')).raw);
 const methodIds=SOLUTIONS.map(m=>m.id),scenarioIds=SCENARIOS.map(s=>s.id);
