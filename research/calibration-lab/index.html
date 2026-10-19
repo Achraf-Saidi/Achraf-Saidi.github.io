@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Laboratoire reproductible de calibration séquentielle des probabilités de survie sous censure. Données synthétiques, vrai G, G estimé, e-processus et simulations Monte-Carlo.">
+<meta name="theme-color" content="#f4f6f9">
+<title>Survival Calibration Lab · Achraf Saidi</title>
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%232d528b'/%3E%3Cpath d='M8 34L18 27L26 29L39 12' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au laboratoire</a>
+<header class="topbar">
+  <a class="identity" href="../index.html"><span class="identity-mark" aria-hidden="true">∿</span><span><strong>Achraf Saidi</strong><small>RESEARCH / EXPERIMENTAL LAB</small></span></a>
+  <div class="top-links"><a href="../index.html">← Recherche</a><a href="https://github.com/Achraf-Saidi/Achraf-Saidi.github.io/tree/main/research/calibration-lab" target="_blank" rel="noopener">Code & protocole ↗</a><span class="version">v1.0</span></div>
+</header>
+<div class="workspace">
+<aside class="sidebar" id="settings" aria-label="Paramètres de l’expérience">
+  <div class="sidebar-head"><div><p class="eyebrow">CONCEVOIR L’EXPÉRIENCE</p><h2>Le protocole</h2></div><button type="button" class="icon-button mobile-only" id="close-settings" aria-label="Fermer les paramètres">×</button></div>
+  <form id="config-form">
+    <div id="control-groups"></div>
+    <div class="sidebar-bottom">
+      <button class="primary wide" type="submit" id="run">Générer & analyser <span aria-hidden="true">↗</span></button>
+      <p id="dirty-note" class="small muted">Les mêmes patients sont comparés entre les quatre méthodes.</p>
+      <div class="split"><button type="button" id="reset" class="text-button">Réinitialiser</button><button type="button" id="random-seed" class="text-button">Nouvelle graine</button></div>
+    </div>
+  </form>
+</aside>
+<main id="main" tabindex="-1">
+  <section class="intro">
+    <div class="intro-top"><p class="eyebrow">STATISTICAL RESEARCH WORKBENCH</p><span class="pill"><i></i>Données entièrement synthétiques</span></div>
+    <h1>Survival Calibration <em>Lab.</em></h1>
+    <p class="lead">Suivre la fiabilité d’un modèle, patient après patient.<br>Isoler ce qui vient des prédictions, de la censure et de l’estimation de <span class="math-inline">G</span>.</p>
+    <div class="intro-actions"><button class="secondary mobile-only" id="open-settings" type="button">Modifier le protocole</button><button type="button" class="text-button" data-tab-go="method">Lire les hypothèses & les équations →</button></div>
+  </section>
+  <section class="scenario-bar" aria-labelledby="scenario-title">
+    <label id="scenario-title" for="preset">Commencer par un scénario</label>
+    <select id="preset" aria-describedby="preset-description"></select>
+    <p id="preset-description">Choisir un scénario configure le protocole et lance une simulation.</p>
+  </section>
+  <div class="status-row" role="status" aria-live="polite"><span id="run-status">Initialisation du laboratoire…</span><span id="experiment-id" class="mono"></span></div>
+  <div id="global-alert" class="notice warning" hidden></div>
+  <section class="replay-bar" aria-label="Horloge de suivi">
+    <div class="replay-title"><span class="live-dot"></span><strong>Horloge du suivi</strong><span class="muted small">Unité : mois</span></div>
+    <div class="replay-controls"><button id="rewind" type="button" class="icon-button" aria-label="Revenir au début">↤</button><button id="play" type="button" class="play-button" aria-label="Lire le suivi">▶</button><input id="clock" type="range" min="0" max="112" value="112" step=".1" aria-label="Temps calendaire du suivi"><button type="button" class="icon-button" id="end" aria-label="Aller à la fin">↦</button><select id="speed" aria-label="Vitesse de lecture"><option value="1">×1</option><option value="3">×3</option><option value="8">×8</option></select></div>
+    <div class="clock-stats" id="clock-stats"><span>En attente de la cohorte…</span></div>
+  </section>
+  <nav class="tabs" role="tablist" aria-label="Vues du laboratoire">
+    <button id="tab-monitor" role="tab" type="button" aria-selected="true" aria-controls="panel-monitor" data-tab="monitor">01 <span>Surveillance</span></button>
+    <button id="tab-diagnostics" role="tab" type="button" aria-selected="false" aria-controls="panel-diagnostics" data-tab="diagnostics" tabindex="-1">02 <span>Calibration & G</span></button>
+    <button id="tab-patients" role="tab" type="button" aria-selected="false" aria-controls="panel-patients" data-tab="patients" tabindex="-1">03 <span>Patients</span></button>
+    <button id="tab-mc" role="tab" type="button" aria-selected="false" aria-controls="panel-mc" data-tab="mc" tabindex="-1">04 <span>Monte-Carlo</span></button>
+    <button id="tab-method" role="tab" type="button" aria-selected="false" aria-controls="panel-method" data-tab="method" tabindex="-1">05 <span>Méthode</span></button>
+  </nav>
+
+  <section id="panel-monitor" class="tab-panel" role="tabpanel" aria-labelledby="tab-monitor">
+    <div class="metrics-grid" id="metrics"></div>
+    <div class="method-switches" id="method-switches" aria-label="Courbes visibles"></div>
+    <article class="chart-card featured">
+      <header><div><p class="eyebrow">ÉVIDENCE SÉQUENTIELLE</p><h2>Quand une alerte se déclenche-t-elle ?</h2><p>Échelle log₁₀. La ligne d’alerte est fixée à 1/α pour chaque procédure.</p></div><div class="export-group"><button data-export="evidence" data-format="svg" type="button">SVG</button><button data-export="evidence" data-format="png" type="button">PNG</button></div></header>
+      <div id="chart-evidence" class="chart"></div>
+      <div id="alarm-summary" class="alarm-summary"></div>
+      <p class="chart-note">La courbe avec G estimé est un diagnostic expérimental : le simple plug-in ne reçoit pas une garantie anytime-valid. Chaque procédure a son propre seuil ; « au moins une des quatre » n’est pas un test global au niveau α.</p>
+    </article>
+    <div class="two-grid">
+      <article class="chart-card"><header><div><p class="eyebrow">CENTRAGE</p><h2>Moyenne des scores</h2><p>Une moyenne durablement éloignée de zéro signale un problème de centrage.</p></div><div class="export-group"><button data-export="scores" data-format="svg" type="button">SVG</button><button data-export="scores" data-format="png" type="button">PNG</button></div></header><div id="chart-scores" class="chart"></div><p class="chart-note">Moyennes cumulées. Les moyennes globales peuvent masquer une erreur locale selon p.</p></article>
+      <article class="chart-card"><header><div><p class="eyebrow">ORIGINE DU SIGNAL</p><h2>Prédiction ou estimation de G ?</h2><p>Décomposition de l’espérance du score plug-in sous indépendance conditionnelle.</p></div><div class="export-group"><button data-export="decomposition" data-format="svg" type="button">SVG</button><button data-export="decomposition" data-format="png" type="button">PNG</button></div></header><div id="chart-decomposition" class="chart"></div><p class="chart-note">S*−p : erreur prédictive. S*(G*/Ĝ−1) : effet de l’ajustement. Ces composantes utilisent la vérité synthétique.</p></article>
+    </div>
+    <article class="interpretation"><p class="eyebrow">LECTURE DE L’EXPÉRIENCE</p><div id="interpretation"></div></article>
+    <details class="card extra"><summary>Intervalle simultané conservateur pour le score oracle</summary><p>Contrôle par Hoeffding et dépense de α sur les temps : une bande de concentration autour de la moyenne cumulée des espérances conditionnelles. Sous H₀, cette cible vaut zéro. La bande peut être large avec de faibles G.</p><div class="export-group" style="width:max-content"><button data-export="band" data-format="svg" type="button">SVG</button><button data-export="band" data-format="png" type="button">PNG</button></div><div id="chart-band" class="chart"></div><p class="small muted">Cette bande suppose un G vrai et une indépendance conditionnelle. Elle ne résout pas l’incertitude sur Ĝ. Les bandes et l’e-processus sont deux procédures distinctes au niveau α chacune.</p></details>
+    <section class="card experiments"><div class="section-heading"><div><p class="eyebrow">COMPARER DES CONFIGURATIONS</p><h2>Carnet d’expériences</h2></div><button type="button" class="secondary" id="save-experiment">Mémoriser cette expérience</button></div><p class="small muted">Jusqu’à six protocoles conservés dans ce navigateur. Chaque ligne peut être rechargée ou exportée.</p><div id="saved-experiments"></div></section>
+  </section>
+
+  <section id="panel-diagnostics" class="tab-panel" role="tabpanel" aria-labelledby="tab-diagnostics" hidden>
+    <div class="diagnostic-toolbar"><label>Période analysée <select id="diagnostic-scope"><option value="all">Tous les patients évalués</option><option value="recent">Fenêtre récente</option><option value="before">Avant changement</option><option value="after">Après changement</option></select></label><span id="scope-count" class="small muted"></span></div>
+    <div class="two-grid">
+      <article class="chart-card"><header><div><p class="eyebrow">FIABILITÉ À L’HORIZON τ</p><h2>Courbe de calibration</h2><p>Classes fixes de probabilités. La diagonale représente l’accord parfait.</p></div><div class="export-group"><button data-export="calibration" data-format="svg" type="button">SVG</button><button data-export="calibration" data-format="png" type="button">PNG</button></div></header><div id="chart-calibration" class="chart"></div><p class="chart-note">La courbe S* est la vérité du générateur. Les moyennes R/G sont des estimateurs de Horvitz–Thompson ; elles peuvent dépasser 1 et ne sont pas tronquées.</p></article>
+      <article class="chart-card"><header><div><p class="eyebrow">MÉCANISME D’OBSERVATION</p><h2>G vrai et G estimé</h2><p>Moyennes par petits blocs de patients ; les variations individuelles restent dans le CSV.</p></div><div class="export-group"><button data-export="g" data-format="svg" type="button">SVG</button><button data-export="g" data-format="png" type="button">PNG</button></div></header><div id="chart-g" class="chart"></div><p class="chart-note">G*=P(C&gt;τ|X,passé), et non la probabilité que Y soit connu. Ĝ est figé pour chaque patient avant l’insertion de sa contribution dans l’apprentissage.</p></article>
+      <article class="chart-card"><header><div><p class="eyebrow">APPRENTISSAGE DE LA CENSURE</p><h2>Erreur sur G au fil du suivi</h2><p>RMSE des probabilités et terme de biais théorique dans des fenêtres glissantes.</p></div><div class="export-group"><button data-export="g-error" data-format="svg" type="button">SVG</button><button data-export="g-error" data-format="png" type="button">PNG</button></div></header><div id="chart-g-error" class="chart"></div><p class="chart-note">L’absence de fuite temporelle ne garantit pas le centrage. Une estimation fondée sur le passé peut rester imprécise ou mal spécifiée.</p></article>
+      <article class="chart-card"><header><div><p class="eyebrow">INFORMATION DISPONIBLE</p><h2>Poids & effectif effectif</h2><p>ESS/n des contributions de survie R/Ĝ dans une fenêtre glissante.</p></div><div class="export-group"><button data-export="ess" data-format="svg" type="button">SVG</button><button data-export="ess" data-format="png" type="button">PNG</button></div></header><div id="chart-ess" class="chart"></div><p class="chart-note">ESS=(Σw)²/Σw², ici w=R/G. Indicateur descriptif des contributions de survie ; il ne remplace pas une variance ou un effectif clinique.</p></article>
+    </div>
+    <article class="card"><p class="eyebrow">TABLEAU STATISTIQUE</p><h2>Indicateurs sur la période choisie</h2><div class="table-scroll" id="stat-table"></div><p class="chart-note">Le Brier IPCW utilise G(T−) pour les événements observés et G(τ) pour les survivants observés. L’ECE par classes et le Brier sont descriptifs ; le Brier mesure aussi la discrimination. Aucune de ces deux quantités n’est un test séquentiel de calibration.</p></article>
+  </section>
+
+  <section id="panel-patients" class="tab-panel" role="tabpanel" aria-labelledby="tab-patients" hidden>
+    <article class="chart-card"><header><div><p class="eyebrow">ARRIVÉES ET MATURATION</p><h2>Chaque patient a sa propre horloge</h2><p>Les 18 arrivées les plus récentes à l’instant choisi. Aucun score avant arrivée + τ.</p></div><div class="export-group"><button data-export="timeline" data-format="svg" type="button">SVG</button><button data-export="timeline" data-format="png" type="button">PNG</button></div></header><div id="chart-timeline"></div><p class="chart-note">Un événement peut être connu avant τ ; le protocole attend néanmoins le même horizon pour tous afin de conserver l’ordre d’évaluation défini dans le PDF.</p></article>
+    <article class="card"><div class="section-heading"><div><p class="eyebrow">AUDITER LES CONTRIBUTIONS</p><h2>Registre synthétique</h2></div><label class="checkbox-label"><input id="show-truth" type="checkbox">Afficher les variables latentes</label></div>
+    <div class="patient-filters"><label>Filtrer <select id="patient-filter"><option value="all">Tous les évalués</option><option value="censored">Censurés avant événement et τ</option><option value="event">Événement observé avant τ</option><option value="survived">Survie observée au-delà de τ</option><option value="clipped">Ĝ tronqué</option></select></label><label>Patient n° <input type="number" id="patient-search" min="1" placeholder="Tous"></label><span class="muted small" id="patient-count"></span></div>
+    <div class="table-scroll" id="patient-table"></div><p class="chart-note">Les 100 dernières lignes du filtre sont affichées. Le CSV contient toute la cohorte, les temps latents, les scores et les paramètres d’apprentissage. « Censuré » ne signifie pas « événement ».</p></article>
+  </section>
+
+  <section id="panel-mc" class="tab-panel" role="tabpanel" aria-labelledby="tab-mc" hidden>
+    <article class="card mc-intro"><p class="eyebrow">PASSER D’UNE TRAJECTOIRE À UNE EXPÉRIENCE STATISTIQUE</p><h2>Une alerte isolée ne mesure pas un taux de fausses alertes.</h2><p>Répéter le protocole avec des graines indépendantes permet d’estimer la probabilité d’au moins une alerte pendant le suivi. Les méthodes sont appariées : elles reçoivent les mêmes patients dans chaque répétition.</p>
+      <div class="mc-controls"><label>Répétitions par bras <select id="mc-reps"><option value="50">50 · exploration</option><option value="100" selected>100</option><option value="300">300</option><option value="1000">1 000 · plus précis</option></select></label><label>Protocole <select id="mc-arm"><option value="both">H₀ valide + scénario actuel</option><option value="null">H₀ valide uniquement</option><option value="current">Scénario actuel uniquement</option></select></label><button type="button" id="run-mc" class="primary">Lancer Monte-Carlo</button><button type="button" id="stop-mc" class="secondary" hidden>Arrêter</button></div>
+      <p class="small muted">Le bras H₀ impose S*=p et ρ=0 ; il conserve la censure, son éventuelle dérive, le shift de X et les réglages de Ĝ. Le résultat est un taux de fausses alertes sous ce générateur, accompagné d’un IC de Wilson à 95 %.</p>
+      <div class="mc-progress" id="mc-progress" hidden><progress id="mc-progress-bar" value="0" max="100"></progress><span id="mc-progress-text" role="status"></span></div>
+    </article>
+    <div id="mc-output" aria-live="polite"><div class="empty-state"><span class="empty-symbol">∑</span><h3>Mesurer le comportement répété.</h3><p>Lance un bras H₀ pour les fausses alertes, puis compare avec une vraie dérive pour étudier la détection.</p></div></div>
+    <details class="card extra"><summary>Vérification initiale du moteur · 600 simulations reproductibles</summary><div id="reference-validation"><p class="small muted">Chargement des résultats de validation…</p></div></details>
+    <p class="small muted">La puissance est la probabilité d’une alerte sous une alternative ; elle peut inclure une alerte antérieure au changement. Le tableau sépare ces alertes précoces. Le délai médian est conditionnel à une première alerte après le changement, ou depuis le départ si l’erreur prédictive est déjà présente initialement ; les absences d’alerte restent dans le dénominateur du taux de détection.</p>
+  </section>
+
+  <section id="panel-method" class="tab-panel" role="tabpanel" aria-labelledby="tab-method" hidden>
+    <article class="card prose">
+      <p class="eyebrow">CADRAGE STATISTIQUE · ALIGNÉ SUR LE PDF DOCTORAL</p>
+      <h2>Ce que ce laboratoire teste exactement</h2>
+      <p>La cible est la <strong>calibration conditionnelle séquentielle à un horizon fixé</strong>. Le modèle déployé produit une probabilité de survie pᵢ=f<sub>τ</sub>(Xᵢ). La réponse latente est Yᵢ=1{Tᵢ&gt;τ}. Sous l’hypothèse nulle :</p>
+      <div class="equation">H₀ : E[Yᵢ | pᵢ, ℱᵢ₋₁] = pᵢ.</div>
+      <p>Il ne s’agit ni de la calibration de toute la courbe de survie, ni de la couverture d’un intervalle de prédiction. Le modèle est une règle logistique fixée, choisie pour connaître exactement ses probabilités et isoler le mécanisme statistique. Aucun réseau neuronal n’est entraîné dans cette première expérience.</p>
+      <h3>1. Générer une cohorte avec une vérité connue</h3>
+      <p>Le profil synthétique comprend une covariable continue x et un groupe binaire z. La règle de prédiction est fixe, même si la distribution de X change :</p>
+      <div class="equation">pᵢ = σ(logit(p₀) + βxᵢ + γzᵢ)<br>S*ᵢ = σ(logit(pᵢ) + δ₀ + dᵢ[δ + κ(logit(pᵢ)−logit(p₀)) + ηzᵢ]).</div>
+      <p>σ est la fonction logistique ; dᵢ vaut zéro avant le changement et augmente ensuite selon la durée de transition choisie. Si δ₀=δ=κ=η=0, S*ᵢ=pᵢ, y compris après un changement de population. Les temps T suivent une Weibull calibrée pour que P(Tᵢ&gt;τ|Xᵢ)=S*ᵢ.</p>
+      <div class="equation">Tᵢ = τ [−log(Uᵢ)/(−log S*ᵢ)]<sup>1/k</sup>, &nbsp; Uᵢ ∼ Uniforme(0,1).</div>
+      <p>Le scénario « population différente » modifie la moyenne de x ou la proportion du groupe, sans imposer de décalibration. Changer τ régénère une expérience avec p₀ défini à ce nouvel horizon : ce n’est pas une comparaison simultanée de plusieurs horizons sur les mêmes temps latents.</p>
+      <h3>2. Ajouter une vraie censure à droite</h3>
+      <div class="equation">G*ᵢ = max(g<sub>min</sub>, exp[−a exp(bxᵢ+czᵢ+dᵢΔ<sub>C</sub>)]), &nbsp; a=−log(1−q)<br>Cᵢ = τ (−log Vᵢ)/(−log G*ᵢ).</div>
+      <p>q paramètre la probabilité P(C≤τ) pour x=z=d=0 ; ce n’est pas le taux réalisé de réponses inconnues. Les données observées à maturité sont U=min(T,C,τ) et les indicateurs d’événement, de censure ou de fin de suivi. Si C&lt;min(T,τ), Y est inconnu. Si T≤min(C,τ), Y=0 est connu. Si min(T,C)&gt;τ, Y=1 est connu.</p>
+      <p>Par défaut, les tirages de T et C sont indépendants conditionnellement à X et à l’état du scénario. L’option ρ utilise une copule gaussienne et <strong>viole intentionnellement</strong> cette hypothèse. Même connaître le G marginal ne suffit alors plus à justifier IPCW ; la décomposition de biais est désactivée.</p>
+      <h3>3. Le lien exact entre calibration et G</h3>
+      <div class="equation">Rᵢ = 1{min(Tᵢ,Cᵢ)&gt;τ}<br>E[Rᵢ | Xᵢ, ℱᵢ₋₁] = S*ᵢG*ᵢ<br>E[Rᵢ/G*ᵢ | Xᵢ, ℱᵢ₋₁] = S*ᵢ.</div>
+      <p>Les quatre scores comparés sont Y−p (référence sans censure), R−p (naïf), R/G*−p (oracle) et R/Ĝ−p (plug-in). Sous indépendance et positivité :</p>
+      <div class="equation">E[Rᵢ/Ĝᵢ−pᵢ | Xᵢ, ℱᵢ₋₁]<br>= (S*ᵢ−pᵢ) + S*ᵢ(G*ᵢ/Ĝᵢ−1).</div>
+      <p>Le second terme est précisément la difficulté du PDF. Si Ĝ sous-estime G*, le score tend à augmenter ; s’il le surestime, le score tend à diminuer. Une estimation correcte en moyenne ou asymptotiquement n’apporte pas automatiquement un contrôle des alertes à tout instant en échantillon fini.</p>
+      <h3>4. Estimer G sans regarder le futur</h3>
+      <p>Un échantillon historique indépendant, entièrement suivi à l’instant zéro, initialise Ĝ. Ensuite le modèle de censure utilise seulement les patients déjà évalués. Pour i, on calcule d’abord Ĝ et le score, puis on ajoute son observation à l’apprentissage. Les variables latentes T, C, Y, S* et G* ne sont jamais transmises à l’estimateur.</p>
+      <ul><li><strong>KM marginal :</strong> Kaplan–Meier inversé, où la censure devient l’événement et T censure l’observation de C. Il peut être inadéquat lorsque C dépend de X et T aussi.</li><li><strong>KM stratifié :</strong> six strates fixées à l’avance, groupe × trois intervalles de p. Un effectif inférieur à dix dans une strate déclenche un repli sur le KM marginal. Cette stratification grossière ne garantit pas d’éliminer toute dépendance résiduelle.</li><li><strong>Exponentiel conditionnel :</strong> maximum de vraisemblance pour log λ<sub>C</sub>(X)=θ₀+θ₁x+θ₂z, avec petite régularisation des pentes. Il utilise la durée observée et l’indicateur de censure. Il peut être mal spécifié sous dérive, dépendance ou plafonnement actif de la loi génératrice.</li></ul>
+      <p>Apprentissage figé, croissant ou sur fenêtre récente ; réajustement à la fréquence choisie. Un décalage volontaire du logit de Ĝ permet un stress-test. Le seuil inférieur ε tronque Ĝ : cela stabilise les poids mais peut introduire un biais. Le laboratoire affiche combien de contributions sont tronquées. À zéro observation historique, la valeur initiale sert uniquement de repli et ne représente pas une estimation apprise.</p>
+      <h3>5. Un moniteur de scores explicite et vérifiable</h3>
+      <p>Le laboratoire implémente sa propre construction élémentaire par paris sur des scores centrés bornés. Elle s’inspire du cadre des tests séquentiels ; elle n’est pas une reproduction de l’algorithme PIT/isotonique d’Arnold, Henzi et Ziegel.</p>
+      <div class="equation">M<sub>n,h,λ,s</sub> = ∏<sub>i=s+1…n</sub> [1 + λ h(pᵢ) ψᵢ]<br>E<sub>n</sub> = moyenne fixe des M<sub>n,h,λ,s</sub>, &nbsp; alerte si E<sub>n</sub> ≥ 1/α.</div>
+      <p>h est soit 1, soit l’indicatrice d’un des quatre intervalles fixes de p : [0,.25), [.25,.5), [.5,.75), [.75,1]. Les paris positifs valent .002, .006, .02, .06, .15, .35, .65, .9 ; les négatifs sont ces mêmes valeurs multipliées par −g, avec g=min(g<sub>min</sub>,ε) pour IPCW et g=1 sans pondération. Les facteurs restent strictement positifs. Les points de départ sont fixés avant simulation à 0, N/4, N/2 et 3N/4, ou uniquement 0 si l’option est désactivée. Les composantes non encore démarrées valent 1.</p>
+      <p>Si les scores sont centrés conditionnellement au passé et respectent leurs bornes, chaque composante est une martingale non négative d’espérance 1 ; leur mélange aussi. L’inégalité de Ville donne P(sup<sub>n</sub>E<sub>n</sub>≥1/α)≤α. Cela vaut pour la référence sans censure sous H₀ et pour l’oracle sous H₀ + indépendance + positivité. Le score naïf sous censure et le plug-in ne satisfont pas ces conditions en général.</p>
+      <p>Le contrôle concerne le moniteur agrégé sur les fonctions h prédéfinies dans <em>une procédure</em>. Comparer quatre méthodes, changer les réglages après avoir vu les résultats, tester plusieurs horizons ou retenir la meilleure expérience ne constitue pas un test global au niveau α. L’absence d’alerte ne prouve pas la calibration.</p>
+      <h3>6. Temps de prédiction, temps de suivi</h3>
+      <p>Les arrivées sont régulières ou suivent un processus de Poisson homogène. Tous les patients attendent exactement τ après leur arrivée pour entrer dans la surveillance. Le passé d’évaluation contient les observations des patients déjà évalués ; les résultats partiels des patients encore en suivi ne sont pas utilisés par les paris ou l’estimateur. Une surveillance utilisant immédiatement tous les résultats partiels demanderait une filtration et une construction supplémentaires.</p>
+      <h3>7. Mesures, bandes et Monte-Carlo</h3>
+      <p>Les courbes de calibration utilisent des classes fixes et des moyennes de Horvitz–Thompson, sans les forcer dans [0,1]. L’ECE regroupe les écarts absolus par classe ; elle dépend du découpage et reste une mesure descriptive. Le Brier IPCW vaut :</p>
+      <div class="equation">BS = moyenne [1{T≤C,T≤τ} p²/G(T−|X) + R(1−p)²/G(τ|X)].</div>
+      <p>Pour la bande simultanée du score oracle, αₙ=6α/(π²n²) et bₙ=(1+1/g<sub>min</sub>)√{log(2/αₙ)/(2n)}. La bande moyenne(ψ)±bₙ couvre simultanément les moyennes cumulées des espérances conditionnelles par une borne de Hoeffding et l’union des temps. Elle est volontairement conservatrice et n’est pas une correction de l’erreur sur Ĝ.</p>
+      <p>Monte-Carlo estime la fréquence d’au moins une première alerte par répétition et fournit des IC de Wilson à 95 %. Le délai de détection après changement est conditionnel à une première alerte survenue après le changement. Les alertes précoces et les non-détections sont comptées séparément.</p>
+      <h3>Références et périmètre</h3>
+      <p>Source de cadrage : <em>Continuous Calibration Monitoring of Survival Predictions under Right Censoring</em>, document doctoral fourni par Achraf Saidi. Le PDF et les résultats antérieurs ne sont pas publiés par ce laboratoire.</p>
+      <ol class="references">
+        <li>Arnold, Henzi & Ziegel (2023). <a href="https://arxiv.org/abs/2109.11761" target="_blank" rel="noopener">Sequentially valid tests for forecast calibration ↗</a>.</li>
+        <li>Documentation <em>pec</em>. <a href="https://search.r-project.org/CRAN/refmans/pec/html/ipcw.html" target="_blank" rel="noopener">Estimation of censoring probabilities : KM marginal, stratifié et modèles conditionnels ↗</a>.</li>
+        <li>Kvamme & Borgan. <a href="https://arxiv.org/abs/1912.08581" target="_blank" rel="noopener">The Brier Score under Administrative Censoring: Problems and Solutions ↗</a>.</li>
+      </ol>
+      <p>Ce laboratoire étudie le problème et permet de vérifier des implémentations. Il ne constitue ni une preuve de nouveauté bibliographique, ni une solution validée au problème doctoral de G inconnu. Les données sont génériques et synthétiques, sans interprétation clinique spécifique.</p>
+      <p><a href="./METHODS.md">Protocole détaillé et format des exports →</a> · <a href="./tests/engine.test.mjs">Tests du moteur →</a></p>
+    </article>
+  </section>
+
+  <section class="export-dock card" aria-labelledby="export-title"><div><p class="eyebrow">REPRODUIRE & APPROFONDIR</p><h2 id="export-title">Emporter l’expérience.</h2><p>La cohorte complète, les scores, les réglages et les graphiques restent réutilisables.</p></div><div class="export-actions"><button id="export-patients" type="button" class="secondary">Patients · CSV</button><button id="export-trajectory" type="button" class="secondary">Trajectoires · CSV</button><button id="export-config" type="button" class="secondary">Protocole · JSON</button><button id="import-config" type="button" class="secondary">Importer JSON</button><button id="share" type="button" class="secondary">Copier le lien</button><button id="export-report" type="button" class="primary">Rapport · HTML</button></div><input type="file" accept=".json,application/json" id="config-file" hidden></section>
+  <footer class="lab-footer"><span>Achraf Saidi · ISBA / LIDAM · UCLouvain</span><span>Calcul local · Graine reproductible · Aucune dépendance externe</span></footer>
+</main>
+</div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<noscript><p class="notice">Active JavaScript pour exécuter le simulateur. Le protocole est aussi disponible dans le fichier METHODS.md.</p></noscript>
+</body>
+</html>
+

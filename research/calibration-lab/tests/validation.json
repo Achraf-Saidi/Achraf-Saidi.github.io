@@ -1,0 +1,288 @@
+{
+  "version": "1.0.0",
+  "replicates": 200,
+  "n": 2000,
+  "alpha": 0.05,
+  "baseSeed": 283719,
+  "arms": [
+    {
+      "name": "null-homogeneous",
+      "config": {
+        "seed": 20261019,
+        "n": 2000,
+        "tau": 12,
+        "arrivalRate": 30,
+        "arrival": "regular",
+        "baseSurvival": 0.75,
+        "riskSpread": 0.85,
+        "groupEffect": -0.35,
+        "groupPrevalence": 0.4,
+        "shape": 1.25,
+        "change": 0.5,
+        "ramp": 0,
+        "eventShift": 0,
+        "slopeShift": 0,
+        "initialShift": 0,
+        "groupShift": 0,
+        "xShift": 0,
+        "prevalenceShift": 0,
+        "censoring": true,
+        "censorRate": 0.35,
+        "censorX": 0,
+        "censorGroup": 0,
+        "censorShift": 0,
+        "censorRho": 0,
+        "gMin": 0.05,
+        "estimator": "km",
+        "trainN": 300,
+        "learning": "expanding",
+        "window": 600,
+        "refitEvery": 50,
+        "initialG": 0.7,
+        "gBias": 0,
+        "clip": 0.05,
+        "alpha": 0.05,
+        "bins": 6,
+        "rolling": 300,
+        "restart": true
+      },
+      "methods": {
+        "full": {
+          "alarmRate": 0.01,
+          "alarms": 2,
+          "wilson95": [
+            0.002746658133544525,
+            0.03572176171617572
+          ],
+          "meanScore": -0.0013655664512925681
+        },
+        "naive": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.2443330664512926
+        },
+        "oracle": {
+          "alarmRate": 0.005,
+          "alarms": 1,
+          "wilson95": [
+            0.0008831687156010126,
+            0.02777370439789189
+          ],
+          "meanScore": -0.0009134510666772424
+        },
+        "plugin": {
+          "alarmRate": 0.005,
+          "alarms": 1,
+          "wilson95": [
+            0.0008831687156010126,
+            0.02777370439789189
+          ],
+          "meanScore": -0.0018540248168455154
+        }
+      }
+    },
+    {
+      "name": "null-biased-G",
+      "config": {
+        "seed": 20261019,
+        "n": 2000,
+        "tau": 12,
+        "arrivalRate": 30,
+        "arrival": "regular",
+        "baseSurvival": 0.75,
+        "riskSpread": 0.85,
+        "groupEffect": -0.35,
+        "groupPrevalence": 0.4,
+        "shape": 1.25,
+        "change": 0.5,
+        "ramp": 0,
+        "eventShift": 0,
+        "slopeShift": 0,
+        "initialShift": 0,
+        "groupShift": 0,
+        "xShift": 0,
+        "prevalenceShift": 0,
+        "censoring": true,
+        "censorRate": 0.35,
+        "censorX": 0,
+        "censorGroup": 0,
+        "censorShift": 0,
+        "censorRho": 0,
+        "gMin": 0.05,
+        "estimator": "km",
+        "trainN": 300,
+        "learning": "expanding",
+        "window": 600,
+        "refitEvery": 50,
+        "initialG": 0.7,
+        "gBias": 1,
+        "clip": 0.05,
+        "alpha": 0.05,
+        "bins": 6,
+        "rolling": 300,
+        "restart": true
+      },
+      "methods": {
+        "full": {
+          "alarmRate": 0.01,
+          "alarms": 2,
+          "wilson95": [
+            0.002746658133544525,
+            0.03572176171617572
+          ],
+          "meanScore": -0.0013655664512925681
+        },
+        "naive": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.2443330664512926
+        },
+        "oracle": {
+          "alarmRate": 0.005,
+          "alarms": 1,
+          "wilson95": [
+            0.0008831687156010126,
+            0.02777370439789189
+          ],
+          "meanScore": -0.0009134510666772424
+        },
+        "plugin": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.15513001211902522
+        }
+      }
+    },
+    {
+      "name": "predictive-drift",
+      "config": {
+        "seed": 20261019,
+        "n": 2000,
+        "tau": 12,
+        "arrivalRate": 30,
+        "arrival": "regular",
+        "baseSurvival": 0.75,
+        "riskSpread": 0.85,
+        "groupEffect": -0.35,
+        "groupPrevalence": 0.4,
+        "shape": 1.25,
+        "change": 0.5,
+        "ramp": 0,
+        "eventShift": -1.3,
+        "slopeShift": 0,
+        "initialShift": 0,
+        "groupShift": 0,
+        "xShift": 0,
+        "prevalenceShift": 0,
+        "censoring": true,
+        "censorRate": 0.35,
+        "censorX": 0,
+        "censorGroup": 0,
+        "censorShift": 0,
+        "censorRho": 0,
+        "gMin": 0.05,
+        "estimator": "km",
+        "trainN": 300,
+        "learning": "expanding",
+        "window": 600,
+        "refitEvery": 50,
+        "initialG": 0.7,
+        "gBias": 0,
+        "clip": 0.05,
+        "alpha": 0.05,
+        "bins": 6,
+        "rolling": 300,
+        "restart": true
+      },
+      "methods": {
+        "full": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.1355705664512926
+        },
+        "naive": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.3314430664512924
+        },
+        "oracle": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.13492883568206177
+        },
+        "plugin": {
+          "alarmRate": 1,
+          "alarms": 200,
+          "wilson95": [
+            0.9811546736227346,
+            1
+          ],
+          "meanScore": -0.13570871872219553
+        }
+      }
+    }
+  ],
+  "baseConfig": {
+    "seed": 20261019,
+    "n": 2000,
+    "tau": 12,
+    "arrivalRate": 30,
+    "arrival": "regular",
+    "baseSurvival": 0.75,
+    "riskSpread": 0.85,
+    "groupEffect": -0.35,
+    "groupPrevalence": 0.4,
+    "shape": 1.25,
+    "change": 0.5,
+    "ramp": 0,
+    "eventShift": 0,
+    "slopeShift": 0,
+    "initialShift": 0,
+    "groupShift": 0,
+    "xShift": 0,
+    "prevalenceShift": 0,
+    "censoring": true,
+    "censorRate": 0.35,
+    "censorX": 0,
+    "censorGroup": 0,
+    "censorShift": 0,
+    "censorRho": 0,
+    "gMin": 0.05,
+    "estimator": "km",
+    "trainN": 300,
+    "learning": "expanding",
+    "window": 600,
+    "refitEvery": 50,
+    "initialG": 0.7,
+    "gBias": 0,
+    "clip": 0.05,
+    "alpha": 0.05,
+    "bins": 6,
+    "rolling": 300,
+    "restart": true
+  }
+}
