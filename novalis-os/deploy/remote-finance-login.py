@@ -124,3 +124,5 @@ def main():
  dest=Path('/etc/novalis-os')/('deployment-finance-login-'+SOURCE[:12]+'.json');dest.write_text(json.dumps(REPORT,indent=2));dest.chmod(0o600);print(json.dumps(REPORT))
 try:main()
 except Exception as e:REPORT.update(error=str(e));print(json.dumps(REPORT));raise
+
+# Resume the isolated operation after the GitHub processing delay.
