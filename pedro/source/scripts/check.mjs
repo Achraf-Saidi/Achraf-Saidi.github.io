@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {buildArchitecture,PLATES,SPEC} from '../src/architecture.js';
-import {buildLandscape,groundY,SITE,basinRadius} from '../src/landscape.js';
+import {buildLandscape,groundY,SITE,basinRadius,routeDistance,towerPoint,towerDistance} from '../src/landscape.js';
 const a=buildArchitecture();
 a.root.updateMatrixWorld(true);const bounds=new THREE.Box3().setFromObject(a.root);
 assert(Math.abs(bounds.max.y-15)<.02,'Measured tower top must be 15 m.');
@@ -20,18 +20,31 @@ ray.set(new THREE.Vector3(.8,9,0),new THREE.Vector3(0,-1,0));ray.far=3;
 const plateHits=ray.intersectObject(a.structure,true).filter(h=>h.point.y>6&&h.point.y<7);
 assert.equal(plateHits.length,0,'Lower disk must not block the internal stairwell.');
 const landscape=buildLandscape({},true);landscape.root.updateMatrixWorld(true);inspect(landscape.root);
-assert.equal(groundY(0,0),SITE.foundationY);
+assert.equal(groundY(0,0),-SITE.basinDepth,'The existing hollow must stay in place.');
 for(let i=0;i<72;i++){
- const theta=i/72*Math.PI*2,x=SPEC.baseRadius*Math.cos(theta),z=SPEC.baseRadius*Math.sin(theta);
+ const theta=i/72*Math.PI*2,x=SITE.towerX+SPEC.baseRadius*Math.cos(theta),z=SITE.towerZ+SPEC.baseRadius*Math.sin(theta);
  assert(Math.abs(groundY(x,z)-SITE.foundationY)<.015,'Tower foundation must rest on a level floor.');
 }
 assert(groundY(0,7.8)-groundY(0,0)>1.3,'The access path must approach a real excavated hollow.');
-assert(basinRadius(0,0)<.48,'Tower belongs inside the hollow.');
+assert(basinRadius(SITE.towerX,SITE.towerZ)>1,'Tower must move onto the marked lawn in front of the hollow.');
+for(const run of landscape.fenceRuns)for(const p of run)assert(routeDistance(p.x,p.z)>.50,'No fence or wire may cross a path or its clear margin.');
+for(const p of landscape.curbPoints)assert(routeDistance(p.x,p.z,'road')>.31,'Road curbs must open at pedestrian crossings.');
+for(const route of landscape.routes){
+ for(const p of route.curve.getSpacedPoints(150))assert(landscape.allowsWalking(p.x,p.z),'Paths must stay open to the walking character.');
+ if(route.name!=='approach')for(const p of route.curve.getSpacedPoints(300))assert(towerDistance(p.x,p.z)>SPEC.baseRadius+route.width/2+.2,'The relocated base must not obstruct a path.');
+}
+const entrance=landscape.routes.find(r=>r.name==='approach').curve.getPoint(1),door=towerPoint(0,0,1.3);
+assert(entrance.distanceTo(new THREE.Vector3(door.x,0,door.z))<.001,'The access path must reach the relocated doorway.');
+a.root.position.copy(towerPoint(0,0,0));a.root.updateMatrixWorld(true);
+ray.set(towerPoint(0,1.1,4),new THREE.Vector3(0,0,-1));ray.far=3;
+assert.equal(ray.intersectObject(a.cladding,true).length,0,'Relocated entrance remains open.');
+ray.set(towerPoint(0,SPEC.balconyY+1,4),new THREE.Vector3(0,0,-1));
+assert.equal(ray.intersectObject(a.cladding,true).length,0,'Relocated balcony and ascent destination remain aligned.');
 for(let z=-12;z<=9;z+=.25)for(let x=-9;x<=9;x+=.25){
  const gradient=Math.hypot((groundY(x+.02,z)-groundY(x-.02,z))/.04,(groundY(x,z+.02)-groundY(x,z-.02))/.04);
  assert(Number.isFinite(gradient)&&gradient<.65,'Bank must stay gentle and continuous.');
 }
 const html=await fs.readFile('dist/index.html','utf8');assert(!/__STYLE__|__SCRIPT__/.test(html));assert(!/<script[^>]+src=/.test(html));assert(!/<link[^>]+rel="stylesheet"/.test(html));assert(html.includes('<title>Pedro</title>'));assert(!/dorea|chatgpt|openai/i.test(html));assert(!html.includes('class="signature'));assert(!html.includes('data-tip='));
 for(const f of ['src/app.js','src/style.css'])assert((await fs.stat(f)).size>1000);
-console.log(JSON.stringify({ok:true,measuredHeight:bounds.max.y-bounds.min.y,modelWidth:bounds.max.x-bounds.min.x,meshes,triangles,entranceOpen:true,balconyOpen:true,stairsNotBlocked:true,runtimeSelfContained:true,galleryPhotosExternal:true}));
+console.log(JSON.stringify({ok:true,measuredHeight:bounds.max.y-bounds.min.y,modelWidth:bounds.max.x-bounds.min.x,meshes,triangles,towerPosition:a.root.position.toArray(),clearFences:true,openCrossings:true,alignedEntrance:true,balconyOpen:true,stairsNotBlocked:true,runtimeSelfContained:true,galleryPhotosExternal:true}));
 
