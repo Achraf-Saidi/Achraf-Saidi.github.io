@@ -1,0 +1,30 @@
+const paths={
+ orbit:'<ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-28 12 12)"/><ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(-28 12 12)"/><circle cx="12" cy="12" r="1"/>',
+ walk:'<circle cx="13" cy="4" r="2"/><path d="m7 12 3-4 4 1 3 4 3 1M10 8l-1 7-4 5m5-7 4 3 1 5m-1-12-1 5"/>',
+ home:'<path d="m3 10 9-7 9 7M6 9v12h12V9m-8 12v-7h4v7"/>',
+ top:'<path d="m3 7 9-4 9 4-9 4-9-4Zm0 5 9 4 9-4M3 17l9 4 9-4"/>',
+ balcony:'<path d="M3 11h18M4 11v8m4-8v8m4-8v8m4-8v8m4-8v8M3 19h18M9 7l3-4 3 4m-3-4v7"/>',
+ ground:'<path d="M3 18h18m-16 0 7-7 7 7M12 11V3m-4 4 4-4 4 4"/>',
+ tree:'<path d="M12 21v-5m-3 0h6c4 0 5-5 2-7 1-4-2-7-5-7s-6 3-5 7c-3 2-2 7 2 7Z"/>',
+ cut:'<path d="m4 7 8-4 8 4v10l-8 4-8-4V7m0 0 8 4 8-4M12 11v10M3 21 21 3"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>',
+ moon:'<path d="M20 15A8.6 8.6 0 0 1 9 4a8.6 8.6 0 1 0 11 11Z"/>',
+ play:'<path d="m8 4 12 8-12 8V4Z"/>',
+ pause:'<path d="M8 4v16M16 4v16"/>',
+ camera:'<path d="M3 7h4l2-3h6l2 3h4v13H3V7Z"/><circle cx="12" cy="13" r="4"/>',
+ fullscreen:'<path d="M9 3H3v6m12-6h6v6M3 15v6h6m6 0h6v-6"/>',
+ download:'<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
+ cube:'<path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10L3 7m9 5 9-5m-9 5v10"/>',
+ file:'<path d="M14 2H5v20h14V7l-5-5v5h5M8 14l-2 2 2 2m8-4 2 2-2 2m-5 1 2-6"/>',
+ gallery:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 6"/>',
+ close:'<path d="m6 6 12 12M18 6 6 18"/>',
+ left:'<path d="m14 5-7 7 7 7"/>',right:'<path d="m10 5 7 7-7 7"/>',
+ up:'<path d="m5 14 7-7 7 7"/>',down:'<path d="m5 10 7 7 7-7"/>',
+ eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+ chevron:'<path d="m8 5 7 7-7 7"/>',check:'<path d="m5 12 4 4L19 6"/>',
+ mouse:'<rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 2v7m-6 1h12"/>',
+ hand:'<path d="M8 12V5a2 2 0 0 1 4 0v5-7a2 2 0 0 1 4 0v8-5a2 2 0 0 1 4 0v8c0 5-3 8-7 8-3 0-4-1-6-4l-4-5c-1-2 1-3 3-1l2 2v-2Z"/>',
+ reset:'<path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/>'
+};
+export function icon(name){return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]??paths.cube}</svg>`;}
+
