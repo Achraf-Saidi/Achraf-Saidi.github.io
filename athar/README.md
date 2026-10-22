@@ -62,3 +62,7 @@ Le projet est livré en statique prêt à publier. Aucun workflow de build n'est
 - Les visuels industriels sont des schémas SVG originaux, et non des photographies de sites clients.
 
 © ATHAR — documentation de conception.
+
+## Première impression et compréhension immédiate (22 octobre 2026)
+
+L'accueil présente désormais explicitement le besoin résolu : le technicien consigne ses observations, ATHAR prépare le rapport, et le responsable vérifie les champs. Une démonstration interactive à trois scénarios (mesure, anomalie, donnée inconnue) montre la transformation d'une phrase en champ documentaire. Une section « Sans ATHAR / Avec ATHAR » rend le bénéfice concret avant de détailler les modules. Les styles complémentaires sont dans `assets/clarity.css`.
