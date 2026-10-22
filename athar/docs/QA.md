@@ -24,3 +24,7 @@ La suite Node dans `tests/core.test.mjs` valide extraction bornée, inconnues, r
 4. Définir une architecture multilingue, un routeur indexable ou un générateur statique pour SEO profond.
 5. Préciser unités, locale, modèle et validation des données par type métier et déployer des tests de bout en bout.
 6. Faire auditer l'ergonomie avec des intervenants terrain.
+
+## Vérifications de la refonte de clarté (22 octobre 2026)
+
+La syntaxe JS et la suite de tests de logique ont réussi. Des tests avec Chromium/Playwright sur une page locale reconstruite sans accès réseau ont été réalisés en 1440, 768 et 390 pixels : absence d'erreurs JS, absence de débordement horizontal, changement effectif des trois observations, navigation fonctionnelle vers la démonstration complète. Ces tests ne remplacent pas une étude de compréhension avec de vrais utilisateurs ni la vérification publique de GitHub Pages.
