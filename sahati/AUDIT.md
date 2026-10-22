@@ -39,3 +39,8 @@ Les données cliniques sont encore des entités JSON génériques ; les référe
 Le coffre ne synchronise pas les appareils. Un QR nécessite le même coffre et un compte autorisé ; son décodage sur un second appareil ne crée pas un registre partagé. Les PDF ne sont pas des signatures électroniques. Le journal local n’est pas inviolable. Les impressions et téléchargements peuvent conserver des copies hors du coffre.
 
 Les anciens assets sont conservés pour permettre un retour arrière. Aucun autre dossier du dépôt n’est modifié. Voir `FEATURE_MATRIX.md`, `SECURITY_AND_COMPLIANCE.md` et `VALIDATION.md` pour les statuts détaillés.
+
+
+## Livraison complémentaire du 22 octobre 2026
+
+Les limites « un seul lot par traitement », « absence de journal de stock », « absence de commandes/inventaires/rappels », « deux langues seulement » et « absence d’assistant global » ont été traitées dans la version 0.3. Le journal conserve un solde d’ouverture pour les stocks anciens et les nouvelles opérations. Les droits des 14 métiers et les deux codes ne sont pas remplacés. Le contrôle visuel a été étendu à Chrome et à un viewport mobile ; ce contrôle ne constitue pas une validation clinique ou une recette sur téléphones physiques.

@@ -38,3 +38,8 @@ Le français couvre les parcours de démonstration. L’arabe couvre la navigati
 Mesurer la durée médiane des tâches, les erreurs d’identité détectées, les dossiers incomplets, les résultats non transmis, la compréhension patient par reformulation, l’accessibilité sur téléphone et les incidents de confidentialité. Établir une période de référence avant toute affirmation d’amélioration. Les indicateurs du prototype ne constituent pas une mesure de performance réelle.
 
 La trajectoire privilégie un service volontaire et quelques workflows complets, puis les modules supplémentaires justifiés par le terrain. Les recommandations d’architecture et de gouvernance s’inspirent de références publiques documentées dans `BENCHMARK.md` ; elles constituent des choix de conception originaux.
+
+
+## Incrément livré — 22 octobre 2026
+
+Le patient gagne un espace quotidien pour préparer ses visites, garder ses questions et exporter son agenda. Sina sert de guide permanent avec des scénarios locaux. La pharmacie gère le cycle article → commande → réception → lot → délivrance, avec comptages, emplacements et rappels. L’interface s’ouvre au français, à l’arabe RTL, à l’anglais et à Tamaziɣt latin. Ces ajouts approfondissent la démonstration persistante ; le passage à un service hospitalier partagé reste soumis aux exigences de pilote.

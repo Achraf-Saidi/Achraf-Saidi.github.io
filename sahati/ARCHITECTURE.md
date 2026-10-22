@@ -1,6 +1,6 @@
 # SAHATI — Architecture et frontières
 
-## Version Pages 0.2
+## Version Pages 0.3
 
 `React → adaptateur local → moteur métier → SQLite WASM → coffre AES-GCM / IndexedDB`.
 
@@ -44,3 +44,14 @@ Une archive PACS, un connecteur laboratoire et les extractions de recherche cons
 La production demande pagination, normalisation, indexation, supervision, résolution des doublons, tests de charge et restauration. Le moteur actuel charge au maximum 3 000 entités pour le scénario ; il ne convient pas à la volumétrie hospitalière nationale. GitHub Pages héberge uniquement des ressources publiques synthétiques.
 
 Le code territorial du répertoire de démonstration est un identifiant à deux chiffres, sans liste nationale embarquée ni plafond historique à 58. Les codes et périmètres institutionnels doivent être repris depuis un référentiel officiel versionné avant le pilote.
+
+
+## Extension 0.3 — inventaire, carnet et langues
+
+`lib/inventory.ts` gère les tables `sahati_products`, `sahati_purchases`, `sahati_stock_movements` et les clés d’opération. Les lots restent dans `sahati_records` pour préserver les identifiants et les ordonnances existants. `ensureInventory` rattache les lots anciens au catalogue et crée un solde d’ouverture une seule fois. Les gardes de version, mises à jour, mouvements et résultats d’opération appartiennent au même batch SQLite ; toute violation de contrainte annule le batch.
+
+Le catalogue clinique ne transmet aux médecins ni coûts ni fournisseurs. L’API d’inventaire réserve l’écriture à la pharmacie et à la logistique ; direction et administration ont une lecture des stocks. Le patient ne reçoit pas cet inventaire.
+
+`lib/patient-tools.ts` valide un carnet versionné par compte patient, dans `sahati_patient_tools`. Ce carnet reste distinct des transmissions médicales. `lib/sina.ts` est un moteur de règles de démonstration et `components/sina.tsx` un panneau avec gestion du focus ; aucune requête vers Mistral, Llama ou un autre fournisseur n’est intégrée.
+
+`lib/i18n.ts` et les tables de traductions servent le texte d’interface. Le choix `kab` désigne ici Tamaziɣt en écriture latine. Les noms, textes source et données saisies restent inchangés. La direction RTL, les propriétés logiques CSS et la police Noto Sans Arabic locale traitent l’arabe. Aucun service de traduction ne reçoit les dossiers.

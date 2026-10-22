@@ -1,8 +1,16 @@
-# SAHATI — Guide de démonstration 0.2
+# SAHATI — Guide de démonstration 0.3
 
 Ouvrir https://achraf-saidi.github.io/sahati/ puis utiliser les deux codes existants. Ils ne sont pas reproduits dans la documentation. Les comptes de démonstration utilisent `SahatiDemo2026!` ; les adresses par métier sont proposées sur la page de connexion. Aucun compte ChatGPT ni serveur de soins n’intervient dans ce parcours.
 
 **Préparer :** utiliser un navigateur récent, autoriser le stockage, garder le même appareil pour tous les comptes et exporter une sauvegarde avant une démonstration importante. Une reprogrammation ou une action est conservée dans ce coffre. Les données sont fictives ; ne saisir aucune information médicale réelle.
+
+## Nouveautés 0.3 — environ 8 minutes
+
+- Dans chaque page, ouvrir **Sina**. Demander « mon prochain rendez-vous », « mes résultats » ou, avec le compte pharmacie, « mon stock ». Tester un raccourci et le changement de langue. Le bandeau précise que l’IA n’est pas connectée.
+- Compte patient : ouvrir **Mon quotidien**. Ajouter puis cocher un rappel, préparer la prochaine visite, rédiger une question et une note personnelle, enregistrer un contact fictif. Exporter l’agenda et la fiche PDF. Ces données ne sont pas surveillées par un professionnel.
+- Compte pharmacie : ouvrir **Pharmacie & stocks**. Réceptionner un lot avec une date valide, puis voir sa trace dans **Mouvements**. Créer et confirmer une commande, réceptionner une partie, vérifier le reliquat. Dans **Lots & emplacements**, essayer un transfert et un comptage motivé ; bloquer/libérer un lot.
+- Médecin : créer une ordonnance en choisissant un article du catalogue et son unité ; garder les autres consignes entièrement fictives. Valider, puis compte pharmacie → **Délivrances** → aperçu FEFO → confirmation. Patient : vérifier les lots et quantités de la même ordonnance.
+- Le menu de langue propose français, arabe, anglais et Tamaziɣt latin. Les sources cliniques restent dans leur langue initiale.
 
 ## Parcours principal — environ 15 minutes proposées
 

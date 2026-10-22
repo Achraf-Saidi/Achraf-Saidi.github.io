@@ -46,3 +46,10 @@ Définir responsables de traitement, sous-traitants, délégué, référent clin
 ## Terminologies et licences
 
 FHIR est une spécification sous licence ouverte avec marque protégée ; l’export partiel ne signifie pas conformité. LOINC a ses conditions de diffusion et contenus tiers. SNOMED CT nécessite une étude de licence territoriale avant distribution. Les conditions de CIM/ICD et des logiciels PACS doivent être relues. Aucune terminologie propriétaire complète n’est copiée dans le prototype. Voir `BENCHMARK.md`.
+
+
+## Ajouts locaux du 22 octobre 2026
+
+Sina ne possède pas de clé d’API, n’envoie aucune conversation à un fournisseur et ne fournit pas de décision clinique. Son contexte est supprimé lors de la sortie du compte. L’inventaire et le carnet personnel entrent dans le même coffre chiffré et la même procédure de sauvegarde/restauration. Les clés d’idempotence évitent une double réception lors du rejeu de la même opération ; elles ne remplacent pas un système comptable certifié.
+
+La quarantaine et le rappel sont des états applicatifs de démonstration. Ils n’activent ni rappel réglementaire, ni contact fournisseur, ni message patient. Le carnet personnel ne déclenche pas d’alerte médicale. Les autorisations locales et le chiffrement restent soumis aux limites du navigateur déjà décrites ; une utilisation clinique exige l’architecture serveur et la gouvernance prévues.

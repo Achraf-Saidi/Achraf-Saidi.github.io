@@ -3,6 +3,7 @@ export type Module={id:string;title:string;ar:string;description:string;icon:str
 const clinical:Role[]=['doctor','resident','nurse'];
 export const modules:Module[]=[
  {id:'dashboard',title:'Vue d’ensemble',ar:'نظرة عامة',description:'Le bon aperçu pour commencer votre journée.',icon:'LayoutDashboard',group:'Votre espace',roles:['doctor','resident','nurse','reception','lab','radiology','pharmacy','patient','researcher','student','director','finance','logistics','admin']},
+ {id:'daily',title:'Mon quotidien',ar:'يومياتي',description:'Rappels, préparation des visites et carnet personnel.',icon:'Heart',group:'Votre espace',roles:['patient']},
  {id:'my-record',title:'Mon dossier médical',ar:'ملفي الطبي',description:'Votre histoire, vos mesures et vos documents, dans un même fil.',icon:'FolderHeart',group:'Votre espace',roles:['patient']},
  {id:'learning',title:'Campus médical',ar:'الحرم الطبي',description:'Cas fictifs, raisonnement et progression personnelle.',icon:'GraduationCap',group:'Formation',roles:['student','resident','doctor']},
  {id:'institutional',title:'Vue institutionnelle',ar:'المنظور المؤسسي',description:'Capacités du réseau fictif, définitions et rapports.',icon:'Building2',group:'Gestion de l’hôpital',roles:['director','admin']},
@@ -17,7 +18,7 @@ export const modules:Module[]=[
  {id:'emergencies',kind:'emergencies',title:'Urgences',ar:'الاستعجالات',description:'Triage professionnel, file de prise en charge et orientation.',icon:'Activity',group:'Parcours de soins',create:'Nouvelle arrivée',roles:clinical},
  {id:'surgeries',kind:'surgeries',title:'Bloc opératoire',ar:'غرف العمليات',description:'Planning du bloc et contrôles préopératoires.',icon:'Scissors',group:'Parcours de soins',create:'Programmer une intervention',roles:clinical},
  {id:'documents',kind:'documents',title:'Documents',ar:'الوثائق',description:'Comptes rendus et pièces jointes dans leur contexte.',icon:'FileText',group:'Parcours de soins',create:'Nouveau document',roles:[...clinical,'patient']},
- {id:'stock',kind:'stock',title:'Pharmacie & stocks',ar:'الصيدلية والمخزون',description:'Lots, péremptions et mouvements enregistrés.',icon:'Package',group:'Gestion de l’hôpital',create:'Nouveau lot',roles:['pharmacy','logistics','director','admin']},
+ {id:'stock',kind:'stock',title:'Pharmacie & stocks',ar:'الصيدلية والمخزون',description:'Catalogue, lots, commandes, inventaires et délivrances FEFO.',icon:'Package',group:'Gestion de l’hôpital',create:'Nouveau lot',roles:['pharmacy','logistics','director','admin']},
  {id:'invoices',kind:'invoices',title:'Facturation',ar:'الفوترة',description:'Suivi des factures et règlements fictifs en dinars.',icon:'Wallet',group:'Gestion de l’hôpital',create:'Nouvelle facture',roles:['finance']},
  {id:'staff',kind:'staff',title:'Équipes & planning',ar:'الفرق والجدول',description:'Services, affectations et horaires de démonstration.',icon:'Users',group:'Gestion de l’hôpital',create:'Ajouter une affectation',roles:['director','admin']},
  {id:'equipment',kind:'equipment',title:'Équipements',ar:'المعدات',description:'Disponibilité, maintenance et interventions.',icon:'Settings2',group:'Gestion de l’hôpital',create:'Nouvel équipement',roles:['logistics','director','admin']},

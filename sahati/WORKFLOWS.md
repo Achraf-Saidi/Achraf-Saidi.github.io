@@ -6,7 +6,7 @@ Tous les exemples portent sur des personnes et établissements fictifs. Une donn
 
 Patient : demande un rendez-vous. L’accueil confirme puis constate l’arrivée. Le médecin sélectionne ce rendez-vous dans une consultation, documente motif, examen, synthèse et plan, puis enregistre son brouillon. La validation senior rend la consultation visible au patient et termine le rendez-vous associé. Le résident peut soumettre, pas valider.
 
-Une ordonnance référence la consultation, contient les instructions originales et est validée par le médecin. Le patient ouvre le document, ses explications et son PDF. La pharmacie choisit un lot pour chaque traitement : quantités, produit et péremption sont contrôlés. Statut et stock changent ensemble ; un échec annule toute la délivrance. Le QR expose une référence opaque et mène à la vérification locale autorisée. Une annulation reste traçable.
+Une ordonnance référence la consultation, contient les instructions originales et est validée par le médecin. Le patient ouvre le document, ses explications et son PDF. La pharmacie consulte une proposition FEFO : une ligne peut être répartie entre plusieurs lots, par péremption croissante. Produit, unité, statut, quantité et péremption sont contrôlés. Les ordonnances anciennes sans référence de catalogue gardent une correspondance exacte par nom, sans substitution automatique. Statut et stock changent ensemble ; un échec annule toute la délivrance. Le QR expose une référence opaque et mène à la vérification locale autorisée. Une annulation reste traçable.
 
 **Reprogrammation :** patient ou accueil peuvent changer date/heure avant l’arrivée. Pour le patient, la demande repasse à confirmer. Une collision restitue entièrement l’ancien rendez-vous et ses réservations.
 
@@ -55,3 +55,23 @@ Le rapport enregistre le périmètre et l’horodatage. Occupation = occupés / 
 Les brouillons restent éditables selon les droits. Les versions avant/après sont conservées lors des mutations. Une écriture sur une ancienne version, un créneau occupé, un lit pris ou un stock insuffisant échoue sans résultat partiel. Les fichiers restent liés à un document accessible. L’API ne propose pas de suppression d’une version.
 
 Le navigateur demeure modifiable par son propriétaire. Les invariants du moteur démontrent le comportement du produit, pas une protection de production.
+
+
+## H. Circuit de stock détaillé — version 0.3
+
+1. Créer un article, préciser son unité de gestion, sa DCI/présentation si médicament, ses seuils et son coût par défaut. Le catalogue interne ne constitue pas une base pharmacologique certifiée.
+2. Réceptionner avec bon, lot, date, quantité, emplacement et coût ; le même lot au même emplacement est regroupé si la date et l’état correspondent. Le coût du lot devient une moyenne pondérée des réceptions, arrondie au centime.
+3. Une commande passe de brouillon à confirmée ; les réceptions partielles diminuent son reliquat. Une réception supérieure au reliquat échoue. L’annulation d’un reliquat conserve les réceptions déjà enregistrées.
+4. Un comptage exige un motif, journalise l’écart et ne réécrit pas les mouvements passés. Un transfert produit une sortie et une entrée liées dans une seule transaction. Une sortie vers un service conserve son destinataire et son motif.
+5. La quarantaine bloque un emplacement ; un rappel bloque le même article/numéro de lot dans tous les emplacements du même établissement. Le journal permet de retrouver les délivrances antérieures. Aucune notification externe de rappel n’est envoyée.
+6. La délivrance FEFO déduit une seule fois les quantités agrégées par lot, même si plusieurs lignes utilisent ce lot. Une insuffisance sur une ligne annule toute l’opération. Les lots délivrés restent visibles dans l’ordonnance et le PDF.
+
+Les numéros de version et les gardes SQL protègent les transactions. Les opérations d’inventaire reçoivent une clé d’idempotence ; rejouer la même clé du même compte retourne le résultat existant. Le journal démarre par un solde d’ouverture : aucun historique ancien n’est inventé.
+
+Les suggestions utilisent disponible + commandes ouvertes, le seuil et la cible. La couverture estimée utilise les sorties de délivrance/service des 28 derniers jours, calculées sur le journal complet ; sans sortie elle reste absente. Le tableau et l’export affichent au plus les 2 000 mouvements les plus récents.
+
+## I. Mon quotidien et Sina
+
+Le carnet du patient est séparé des notes cliniques. Rappels, questions, notes et contact personnel ne sont pas transmis automatiquement à l’équipe. Cocher un rappel ne modifie aucune prescription. L’export ICS utilise les horaires algériens UTC+1 pour les rendez-vous et les rappels horaires. Les rappels sans heure sont des événements de journée. Les alertes dépendent du calendrier dans lequel l’utilisateur importe le fichier.
+
+Sina lit uniquement le contexte déjà autorisé de la vue active. Elle oriente vers un dossier, un module ou les options de langue ; elle n’effectue pas de mutation clinique et ne choisit pas de dose. La conversation reste en mémoire et est effacée au changement de compte ou de langue. Le mode sans compte donne des repères génériques sans appeler un dossier.

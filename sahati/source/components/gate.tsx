@@ -1,4 +1,5 @@
 'use client';
+import {uiText as tr} from '@/lib/i18n';
 import {useState} from 'react';
 import {AccessControls,Brand,CreatorCredit,Icon,api,usePrefs} from './sahati-ui';
 export default function Gate(){
@@ -34,6 +35,6 @@ export default function Gate(){
     <div className="gate-foot"><Icon name="ShieldCheck" size={16}/>{t('Deux codes pour protéger votre accès','رمزان لحماية الدخول')}</div>
    </div>
   </main>
-  <footer className="gate-footer"><div className="gate-footer-meta"><span>SAHATI · صحتي</span><span>{t('Pensé pour les soins en Algérie.','مصممة للرعاية في الجزائر.')}</span></div><CreatorCredit/></footer>
+  <footer className="gate-footer"><div className="gate-footer-meta"><span>{tr("SAHATI · صحتي")}</span><span>{t('Pensé pour les soins en Algérie.','مصممة للرعاية في الجزائر.')}</span></div><CreatorCredit/></footer>
  </div>;
 }

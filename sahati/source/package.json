@@ -1,6 +1,6 @@
 {
   "name": "sahati",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "engines": {
     "node": ">=24.0.0"
@@ -15,7 +15,8 @@
     "test:connected": "node tests/connected-workflows.mjs",
     "test:dom": "node tests/ui-dom.mjs",
     "typecheck:github": "tsc --project tsconfig.github.json",
-    "test:all": "node scripts/build-github.mjs && SAHATI_TEST_SQLITE=wasm node tests/workflows.mjs && node tests/github-vault.mjs && SAHATI_TEST_SQLITE=wasm node tests/connected-workflows.mjs && node tests/ui-dom.mjs && tsc --project tsconfig.github.json"
+    "test:all": "node scripts/build-github.mjs && SAHATI_TEST_SQLITE=wasm node tests/workflows.mjs && node tests/github-vault.mjs && SAHATI_TEST_SQLITE=wasm node tests/connected-workflows.mjs && SAHATI_TEST_SQLITE=wasm node tests/next-workflows.mjs && node tests/ui-dom.mjs && tsc --project tsconfig.github.json",
+    "test:next": "SAHATI_TEST_SQLITE=wasm node tests/next-workflows.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

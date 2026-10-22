@@ -113,6 +113,15 @@ await test('restoring an encrypted backup preserves records and requires a new l
  await unlock();assert.equal((await localApi('status')).account,null);
  await localApi('login','POST',{email:'medecin@sahati.demo',password:'SahatiDemo2026!'});assert.ok((await localApi('bootstrap')).records.some(r=>r.title==='Consultation locale'));
 });
+await test('inventory and the personal companion survive an encrypted lock and unlock',async()=>{
+ await localApi('login','POST',{email:'pharmacie@sahati.demo',password:'SahatiDemo2026!'});
+ const product=(await localApi('inventory','POST',{action:'product',operationId:crypto.randomUUID(),data:{sku:'VAULT-QA',title:'Article persistant synthétique',category:'supply',unit:'unités',minLevel:1,targetLevel:10,unitPrice:5}})).productId;
+ const lot=(await localApi('inventory','POST',{action:'receive',operationId:crypto.randomUUID(),reference:'BR-VAULT-QA',data:{productId:product,quantity:5,lot:'VAULT-LOT',expiry:'2030-01-01',location:'Centrale'}})).lotId;
+ await localApi('login','POST',{email:'patient@sahati.demo',password:'SahatiDemo2026!'});const initial=await localApi('patient-tools');initial.data.tasks.push({id:'vault-task',title:'Rappel confidentiel synthétique',date:'2030-01-01',time:'09:00',done:false});await localApi('patient-tools','PATCH',{version:initial.version,data:initial.data});
+ const encrypted=await backup();assert.ok(!encrypted.includes('Rappel confidentiel'));assert.ok(!encrypted.includes('Article persistant'));
+ await localApi('lock','POST');await unlock();await localApi('login','POST',{email:'patient@sahati.demo',password:'SahatiDemo2026!'});assert.equal((await localApi('patient-tools')).data.tasks[0].id,'vault-task');
+ await localApi('login','POST',{email:'pharmacie@sahati.demo',password:'SahatiDemo2026!'});const inventory=await localApi('inventory');assert.equal(inventory.lots.find(l=>l.id===lot).quantity,5);assert.ok(inventory.movements.some(m=>m.lot_id===lot&&m.reference==='BR-VAULT-QA'));
+});
 await test('old one-code backups can be restored only after completing both access steps',async()=>{
  await localApi('lock','POST');await localApi('gate','POST',{password});
  await assert.rejects(restore(legacyBackup),/Déverrouillez/);

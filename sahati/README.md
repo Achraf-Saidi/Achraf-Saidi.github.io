@@ -1,4 +1,4 @@
-# SAHATI 0.2 - Démonstration hospitalière reliée
+# SAHATI 0.3 - Démonstration hospitalière reliée
 
 [Ouvrir SAHATI](https://achraf-saidi.github.io/sahati/) · [Guide de démonstration](DEMO_GUIDE.md) · [Présentation PDF](docs/SAHATI_Presentation.pdf)
 
@@ -8,7 +8,14 @@ Identité SAHATI conservée. Démonstration autonome GitHub Pages, sans authenti
 
 Accueil et dossier patient, rendez-vous modifiables, consultation reliée, ordonnances structurées, téléchargement PDF, QR local, mesures et explications sourcées, circuit laboratoire, programmation radiologique et vrai DICOM synthétique, hospitalisation cohérente, campus avec progression, recherche autorisée et pilotage institutionnel.
 
-Les 14 rôles et les modules existants sont conservés. Le scénario est enregistré dans un coffre local chiffré ; il ne se synchronise pas entre appareils. Le QR nécessite le même coffre et un compte autorisé. Aucune donnée réelle, signature qualifiée, base pharmacologique certifiée ou intégration nationale n’est présente.
+Nouveautés du 22 octobre 2026 :
+
+- **Sina** : assistant de démonstration disponible dès l’accès privé et dans les espaces métiers, questions libres, réponses contextualisées, raccourcis autorisés, quatre langues. Aucun service d’IA ni abonnement externe.
+- **Mon quotidien** : rappels personnels, export agenda `.ics`, préparation de visite, questions, carnet de ressenti et fiche pratique PDF. Aucun suivi médical automatique.
+- **Pharmacie** : catalogue avec DCI/présentation/unité, paramètres de réapprovisionnement, lots et emplacements, réceptions, commandes et reliquats, comptages motivés, transferts, sorties de service, quarantaine/rappel, délivrance FEFO multi-lots et journal exportable.
+- **Langues** : français, arabe RTL avec police locale, anglais et Tamaziɣt en alphabet latin. Les textes cliniques saisis et les cas pédagogiques gardent leur langue d’origine ; une relecture linguistique spécialisée reste nécessaire.
+
+Les 14 rôles et 29 espaces sont conservés ou étendus. Le scénario est enregistré dans un coffre local chiffré ; il ne se synchronise pas entre appareils. Le QR nécessite le même coffre et un compte autorisé. Aucune donnée réelle, signature qualifiée, base pharmacologique certifiée ou intégration nationale n’est présente.
 
 ## Documentation
 
@@ -17,7 +24,7 @@ Les 14 rôles et les modules existants sont conservés. Le scénario est enregis
 - [Parcours](WORKFLOWS.md), [sécurité et conformité](SECURITY_AND_COMPLIANCE.md)
 - [Roadmap](ROADMAP.md), [guide](DEMO_GUIDE.md), [validation](VALIDATION.md)
 
-55 scénarios automatisés passent, avec build et typage. PDF rendus, QR décodé et fichier DICOM relu indépendamment. Le rendu de l’application sur un navigateur et des téléphones réels n’a pas pu être contrôlé dans l’environnement de livraison.
+79 scénarios automatisés passent, avec build et typage. Les nouveaux parcours ont aussi été examinés dans Chrome, sur écran large et dans un viewport mobile de 390 px, dont le rendu arabe de Sina. Les téléphones physiques et tous les navigateurs ne sont pas couverts. Les contrôles PDF, QR et DICOM de la version précédente sont documentés dans VALIDATION.md.
 
 ## Sources et build
 

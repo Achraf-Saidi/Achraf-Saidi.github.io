@@ -8,7 +8,8 @@ const values=(object:any,keys:string[])=>keys.filter(k=>object[k]!==undefined&&o
 export function recordSections(e:Entity,patient:Entity|undefined,ar=false):ReportSection[]{
  const sections:ReportSection[]=[];
  if(patient)sections.push({title:ar?'هوية تجريبية':'Identité synthétique',lines:[patient.firstName+' '+patient.lastName,patient.identifier+' · '+patient.birthDate]});
- if(e.kind==='prescriptions')for(const [i,m] of (e.medications||[]).entries())sections.push({title:String(i+1).padStart(2,'0')+' · '+m.name,lines:values(m,['dci','presentation','dose','route','frequency','duration','quantity','renewals','instructions'])});
+ if(e.kind==='prescriptions')for(const [i,m] of (e.medications||[]).entries())sections.push({title:String(i+1).padStart(2,'0')+' · '+m.name,lines:values(m,['dci','presentation','dose','route','frequency','duration','quantity','unit','renewals','instructions'])});
+ if(e.kind==='prescriptions'&&e.dispenses?.length)sections.push({title:ar?'الدفعات المصروفة':'Lots délivrés',lines:[e.dispensedBy||'',e.dispensedAt||'',...e.dispenses.map((d:any)=>[d.medication||'',d.lot||d.stockId,String(d.quantity)+' '+(d.unit||''),d.expiry||''].join(' · '))]});
  for(const [k,label] of [['subjective',ar?'سبب الاستشارة':'Motif / anamnèse'],['objective',ar?'الملاحظات':'Examen et observations'],['assessment',ar?'تقييم المختص':'Synthèse du professionnel'],['plan',ar?'المتابعة':'Plan de suivi'],['result',ar?'التقرير الأصلي':'Compte rendu original'],['body',ar?'المحتوى':'Contenu'],['instructions',ar?'تعليمات':'Consignes'],['dischargeSummary',ar?'ملخص الخروج':'Résumé de sortie']])if(e[k])sections.push({title:label,lines:[String(e[k])]});
  if(e.observations?.length)sections.push({title:ar?'القياسات المسجلة':'Mesures enregistrées',lines:e.observations.map((o:any)=>`${o.name} : ${o.value} ${o.unit} (${o.date})\n${ar?'المجال المرجعي':'Intervalle'} : ${o.reference||(ar?'غير مقدم':'Non fourni')}\n${o.method||''} · ${o.source}`)});
  return sections;
