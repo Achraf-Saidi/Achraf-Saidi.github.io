@@ -142,6 +142,12 @@ def edit(identifier):
         inv,doc=document(identifier)
         if doc['issued_at'] or doc['canceled_at'] or d.get('version')!=doc['version']:abort(409,'Ce brouillon a changé ou a déjà été publié. Rechargez-le.')
         project,test,kind,due,snap=draft_values(d)
+        linked=row('SELECT pi.*,ph.project_id,ph.vat_basis_points FROM phase_invoices pi JOIN project_phases ph ON ph.id=pi.phase_id WHERE pi.invoice_id=?',(identifier,))
+        if linked:
+            frozen=row('SELECT snapshot FROM project_specs WHERE id=?',(linked['spec_id'],))
+            phase=next(x for x in json.loads(frozen['snapshot'])['phases'] if x['id']==linked['phase_id'])
+            if project['id']!=linked['project_id'] or totals(snap['lines'])['net_cents']!=linked['amount_cents'] or any(l['vat_basis_points']!=phase['vat_basis_points'] for l in snap['lines']):
+                abort(409,'Cette facture est liée au prix convenu d’une phase. Conservez le projet, le montant HT et la TVA ; annulez le brouillon pour préparer un autre montant.')
         db.execute('UPDATE invoices SET project_id=?,due_date=? WHERE id=?',(project['id'],due,identifier));replace_lines(db,identifier,snap['lines'])
         db.execute('UPDATE billing_documents SET test_mode=?,title=?,recipient_type=?,snapshot=?,version=version+1 WHERE invoice_id=?',(int(test),snap['title'],kind,json.dumps(snap),identifier));audit('billing.draft_updated',identifier)
     return jsonify(ok=True)

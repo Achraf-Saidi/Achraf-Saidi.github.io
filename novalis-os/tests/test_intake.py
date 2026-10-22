@@ -63,7 +63,7 @@ class Intake(unittest.TestCase):
  def test_old_clients_and_migration_are_compatible(self):
   b=self.body();del b['request_id'];self.assertTrue(self.public('contact',b,201)['received'])
   with self.app.app_context():
-   before=rows('SELECT * FROM users');migrate(self.app.config['DATABASE']);migrate(self.app.config['DATABASE']);self.assertEqual(before,rows('SELECT * FROM users'));self.assertEqual([r['version'] for r in rows('SELECT version FROM migrations ORDER BY version')],[1,2,3,4,5])
+   before=rows('SELECT * FROM users');migrate(self.app.config['DATABASE']);migrate(self.app.config['DATABASE']);self.assertEqual(before,rows('SELECT * FROM users'));self.assertEqual([r['version'] for r in rows('SELECT version FROM migrations ORDER BY version')],[1,2,3,4,5,6])
  def upload(self,who,project,name='scope.txt',content=b'Version 1',channel='external',previous=None,expected=201):
   account=self.accounts[who];body=dict(file=(io.BytesIO(content),name),channel=channel)
   if previous:body['supersedes']=previous

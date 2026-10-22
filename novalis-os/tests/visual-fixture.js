@@ -13,6 +13,7 @@
  window.fetch=async(path,options={})=>{if(!String(path).startsWith('/api/'))return originalFetch(path,options);let value,status=200,body=options.body&&typeof options.body==='string'?JSON.parse(options.body):{},method=options.method||'GET';
   if(path==='/api/session')value={user,csrf:'visual-review-only',mfa_required:false};
   else if(path==='/api/dashboard')value={stats:role==='developer'?{my_tasks:3,submitted_minutes:90}:role==='client'?{active_projects:1}:{active_projects:1,leads:2,my_tasks:3,submitted_minutes:90},projects:[project],alerts:role==='client'?[]:[{...tasks[1],project_id:project.id}],notifications:[{id:'notification-demo',title:'Une tâche attend votre revue.',created_at:at,seen:0}]};
+  else if(path==='/api/planning/'+project.id)value={phases:[],specs:[],team:[],documents:[],invoices:[],sections:{},relations:{}};
   else if(path==='/api/projects')value={items:[project]};
   else if(path==='/api/projects/'+project.id&&method==='GET')value=bundle();
   else if(path==='/api/projects/'+project.id&&method==='PATCH'){Object.assign(project,body);project.version++;value={ok:true};}

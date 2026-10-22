@@ -19,6 +19,7 @@ const script=fs.readFileSync(path.join(root,'web/app.js'),'utf8');
    else if(url==='/api/dashboard')value={stats:{active_projects:1},projects:[p],alerts:[],notifications:[]};
    else if(url==='/api/projects')value={items:[p]};
    else if(url==='/api/projects/p1')value={project:p,tasks:role==='client'?[]:[task],milestones:[{id:'m1',name:'Premier jalon',description:'Resultat',due_date:'2026-12-01',status:'planned',version:1}],messages:[],documents:[],requests:[],team:role==='client'?[]:[{id:role,name:'Test',role}]};
+   else if(url==='/api/planning/p1')value={phases:[],specs:[],team:[],documents:[],invoices:[],sections:{},relations:{}};
    else if(url==='/api/tasks')value={items:[task]};
    else if(url==='/api/tasks/t1'&&options.method==='PATCH'){
     const body=JSON.parse(options.body);assert.equal(body.version,1);assert.equal(body.status,'review');assert.equal(options.headers['X-CSRF-Token'],'test-csrf');task.status='review';task.version++;value={ok:true};
@@ -31,7 +32,7 @@ const script=fs.readFileSync(path.join(root,'web/app.js'),'utf8');
    else throw new Error('Unexpected endpoint '+url);
    return {ok:true,json:async()=>value};
   };
-  w.eval(fs.readFileSync(path.join(root,'web/finance.js'),'utf8'));w.eval(script);await wait();await wait();await wait();
+  w.eval(fs.readFileSync(path.join(root,'web/finance.js'),'utf8'));w.eval(fs.readFileSync(path.join(root,'web/planning.js'),'utf8'));w.eval(script);await wait();await wait();await wait();
   assert(d.getElementById('auth-screen').hidden);assert(!d.getElementById('app-shell').hidden);assert.equal(d.querySelectorAll('#user-name script').length,0);
   assert.equal(new Set([...d.querySelectorAll('[id]')].map(e=>e.id)).size,d.querySelectorAll('[id]').length);
   if(['developer','client','account','sysadmin'].includes(role))assert(!d.querySelector('[data-view="finance"]'));

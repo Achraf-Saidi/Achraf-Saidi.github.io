@@ -56,7 +56,7 @@ def faqs(t):
  return '<section class="faq-section section shell"><h2>'+title(t['faq_title'])+'</h2><div>'+''.join('<details><summary>'+e(q)+'<span aria-hidden="true">＋</span></summary><p>'+e(a)+'</p></details>' for q,a in t['faqs'])+'</div></section>'
 def enrich_premium(lang,prefix,out,client,content):
  t=P[lang]
- out.update(title=e(t['title']),description=e(t['intro']),premium_header=header(t,lang,prefix,True),premium_footer=footer(t,lang,prefix),premium_dialogs=dialogs(t),premium_content=engineering_hero(t,prefix)+expertise(t,lang,prefix)+showroom(t,lang,prefix)+ai(t)+data_section(t)+os_demo(t)+method(t)+crew(t)+faqs(t)+contact(t,content,lang,prefix),premium_style=version('premium.css'),premium_script=version('premium.js'),intake_script=version('intake.js'),decision_script=version('decision-engine.js'),engineering_style=version('engineering.css'))
+ out.update(title=e(t['title']),description=e(t['intro']),premium_header=header(t,lang,prefix,True),premium_footer=footer(t,lang,prefix),premium_dialogs=dialogs(t),premium_content=engineering_hero(t,prefix)+expertise(t,lang,prefix)+showroom(t,lang,prefix)+ai(t)+data_section(t)+os_demo(t)+method(t)+crew(t)+faqs(t)+contact(t,content,lang,prefix),premium_style=version('premium.css'),premium_script=version('premium.js'),intake_script=version('intake.js'),decision_script=version('decision-engine.js'),engineering_style=version('engineering.css'),launch_style=version('launch.css'),launch_script=version('launch.js'))
  keep={k:client[k] for k in ['menu','close','policies','runtime_config']}
  client.clear();client.update(keep,premium=t,asset_prefix=prefix+'assets/',tracking_path=prefix+lang+'/suivi/',home_path=prefix+lang+'/')
 

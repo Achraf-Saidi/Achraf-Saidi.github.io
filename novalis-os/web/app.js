@@ -9,13 +9,13 @@
  const roleNames={manager:'Direction',account:'Relation client',developer:'Développement',client:'Votre espace client',finance:'Finances',sysadmin:'Administration des accès'};
  const labels={new:'Nouveau',qualified:'Qualifié',discovery:'Découverte',scoping:'Cadrage',proposal:'Proposition',negotiation:'Négociation',won:'Gagné',lost:'Perdu',active:'En cours',awaiting_client:'Validation client',delivered:'Livré',maintenance:'Maintenance',archived:'Archivé',todo:'À faire',in_progress:'En cours',blocked:'Bloquée',review:'En revue',approved:'Validé',rejected:'À reprendre',planned:'Planifié',received:'Reçue',analysing:'En analyse',resolved:'Résolue',declined:'Refusé',draft:'Brouillon',shared:'Partagé',accepted:'Accepté',registered:'Enregistrée',paid:'Réglée',partial:'Partiellement réglée',overdue:'En retard',unpaid:'À payer',submitted:'Soumis',reserved:'Réservé',cancelled:'Annulé',invited:'Invitation en attente',suspended:'Suspendu',sent:'Transmis',queued:'En attente',failed:'Échec'};
  const badge=value=>`<span class="badge ${['approved','paid','delivered','accepted'].includes(value)?'good':['blocked','rejected','suspended','failed','overdue'].includes(value)?'alert':''}">${escape(labels[value]||value)}</span>`;
- const state={user:null,csrf:'',view:'dashboard',project:null,bundle:null,tab:'roadmap',channel:'internal',epoch:0};
+ const state={user:null,csrf:'',view:'dashboard',project:null,bundle:null,tab:'plan',channel:'internal',epoch:0};
  const navigation={
-  manager:[['dashboard','Vue d’ensemble','◈'],['leads','Commercial','↗'],['clients','Clients','◎'],['projects','Projets','▣'],['tasks','Réalisation','≡'],['time','Temps','◷'],['calendar','Rendez-vous','▦'],['billing','Factures & paiements','€'],['finance','Suivi financier','◷'],['users','Équipe et accès','✳'],['audit','Journal','↳'],['integrations','Connexions','⌘']],
-  account:[['dashboard','À coordonner','◈'],['leads','Mon portefeuille','↗'],['clients','Mes clients','◎'],['projects','Mes projets','▣'],['tasks','Réalisation','≡'],['time','Temps à valider','◷'],['calendar','Rendez-vous','▦']],
-  developer:[['dashboard','Ma journée','◈'],['tasks','Mes tâches','≡'],['projects','Mes projets','▣'],['time','Mon temps','◷']],
-  client:[['dashboard','Mon suivi','◈'],['projects','Mes projets','▣'],['billing','Factures & paiements','€']],
-  finance:[['finance','Suivi financier','€'],['billing','Factures & paiements','◷'],['projects','Projets','▣']],
+  manager:[['dashboard','Vue d’ensemble','◈'],['leads','Commercial','↗'],['clients','Clients','◎'],['projects','Projets','▣'],['tasks','Réalisation','≡'],['time','Temps','◷'],['calendar','Calendrier partagé','▦'],['billing','Factures & paiements','€'],['finance','Suivi financier','◷'],['users','Équipe et accès','✳'],['audit','Journal','↳'],['integrations','Connexions','⌘']],
+  account:[['dashboard','À coordonner','◈'],['leads','Mon portefeuille','↗'],['clients','Mes clients','◎'],['projects','Mes projets','▣'],['tasks','Réalisation','≡'],['time','Temps à valider','◷'],['calendar','Calendrier partagé','▦']],
+  developer:[['dashboard','Ma journée','◈'],['calendar','Mon calendrier','▦'],['tasks','Mes tâches','≡'],['projects','Mes projets','▣'],['time','Mon temps','◷']],
+  client:[['dashboard','Mon suivi','◈'],['calendar','Mon calendrier','▦'],['projects','Mes projets','▣'],['billing','Factures & paiements','€']],
+  finance:[['finance','Suivi financier','€'],['calendar','Échéances','▦'],['billing','Factures & paiements','◷'],['projects','Projets','▣']],
   sysadmin:[['users','Comptes et accès','✳'],['integrations','Connexions','⌘']]
  };
  async function api(path,method='GET',body){
@@ -98,7 +98,9 @@
  $('session-tools').addEventListener('click',()=>{
   modal('Sécurité du compte',[{name:'confirm',type:'checkbox',label:'Révoquer toutes mes autres sessions'}],async()=>{await api('/api/auth/revoke-sessions','POST',{});toast('Les autres sessions ont été révoquées.');});
  });
+ function leavePlanning(){return !window.NovalisPlanning?.hasUnsaved()||window.confirm('Votre schéma contient des modifications non enregistrées. Quitter sans enregistrer ?');}
  async function view(name){
+  if(!leavePlanning())return;
   const epoch=++state.epoch;state.view=name;
   $('sidebar').classList.remove('open');$('menu-toggle').setAttribute('aria-expanded','false');
   $('main-nav').querySelectorAll('button').forEach(b=>{if(b.dataset.view===name)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
@@ -109,6 +111,7 @@
    await handlers[name](epoch);
   }catch(e){if(epoch===state.epoch)showError(e);}
  }
+ function planningContext(){return {api,state,title,button,toast,modal,openDialog,openProject,openInvoice:id=>window.NovalisBilling.open(id,billingContext())};}
  function billingContext(){return {api,state,title,button,toast,modal,openDialog,paymentOptions};}
  function current(epoch){return epoch===state.epoch;}
  function projectRows(items){return items.length?'<div class="rows">'+items.map(p=>`<article class="row"><div class="row-content"><button class="link" data-open-project="${p.id}">${escape(p.name)}</button><p>${escape(p.account_name)} · ${date(p.due_date)}</p></div>${badge(p.status)}<progress class="progress" max="100" value="${p.progress}" aria-label="Avancement validé : ${p.progress} %"></progress><span class="mini">${p.progress} %</span></article>`).join('')+'</div>':empty('Aucun projet n’est encore associé à votre espace.');}
@@ -168,6 +171,7 @@
   modal('Convertir la proposition acceptée',[{name:'name',label:'Projet',value:lead.company||lead.name},{name:'scope',label:'Périmètre accepté',type:'textarea',value:lead.scoping_note||lead.description},{name:'account_id',label:'Interlocuteur',type:'select',value:lead.owner_id,options:people.items.filter(p=>p.role!=='developer').map(p=>[p.id,p.name])},{name:'budget',label:'Budget contractuel en euros',type:'number',min:0,step:'.01'},{name:'due_date',label:'Échéance prévue',type:'date'},{name:'accepted',label:'L’accord commercial du client a été obtenu',type:'checkbox'}],async d=>{d.version=lead.version;d.budget_cents=Math.round(d.budget*100);delete d.budget;const result=await api('/api/leads/'+lead.id+'/convert','POST',d);await openProject(result.id);toast('Projet créé avec l’historique du prospect. Invitez ensuite le client depuis Équipe et accès.');});
  }
  async function openProject(id){
+  if(!leavePlanning())return;
   state.project=id;state.view='project';const epoch=++state.epoch;
   const d=await api('/api/projects/'+id);if(!current(epoch))return;state.bundle=d;const p=d.project;
   title('Projet / '+(roleNames[state.user.role]),p.name,state.user.role==='client'?'Votre interlocuteur vous accompagne à chaque étape.':'Périmètre, responsabilités et avancement validé.');
@@ -178,14 +182,18 @@
   if(state.user.role==='client')tabs=tabs.filter(t=>t[0]!=='tasks');
   if(['manager','account','client'].includes(state.user.role))tabs.push(['proposals','Propositions']);
   if(['manager','client'].includes(state.user.role))tabs.push(['invoices','Règlements']);
+  tabs.unshift(['plan','Phases & budget'],['graph','Organisation']);
+  if(['manager','account','client'].includes(state.user.role))tabs.splice(2,0,['specification','Cahier des charges']);
   if(!tabs.some(t=>t[0]===state.tab))state.tab=tabs[0][0];
   tabs.forEach(([key,label])=>{const b=button(label,()=>projectTab(key),$('project-tabs'),true);b.dataset.tab=key;});
   await projectTab(state.tab);
  }
  async function refreshProject(){await openProject(state.project);}
  async function projectTab(tab){
+  if(tab!==state.tab&&!leavePlanning())return;
   state.tab=tab;document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tab===tab)));
   const host=$('project-body'),d=state.bundle,p=d.project,coord=['manager','account'].includes(state.user.role);
+  if(['plan','graph','specification'].includes(tab)){await window.NovalisPlanning.project(planningContext(),tab);return;}
   if(tab==='roadmap'){
    host.innerHTML=panel('Les étapes partagées',d.milestones.length?'<div class="client-timeline">'+d.milestones.map((m,i)=>`<article class="row" data-status="${m.status}"><span aria-hidden="true">${m.status==='approved'?'✓':i+1}</span><div class="row-content"><strong>${escape(m.name)}</strong><p>${escape(m.description)}</p><p>${date(m.due_date)}</p></div>${badge(m.status)}<div class="row-actions">${coord&&['planned','rejected'].includes(m.status)?`<button class="secondary" data-submit-milestone="${m.id}">Présenter au client</button>`:''}${state.user.role==='client'&&m.status==='awaiting_client'?`<button class="button" data-approve-milestone="${m.id}">Valider</button><button class="secondary" data-reject-milestone="${m.id}">À reprendre</button>`:''}</div></article>`).join('')+'</div>':empty('Les jalons partagés apparaîtront ici.'))+'<div class="toolbar" id="roadmap-actions"></div>';
    if(coord)button('Ajouter un jalon',()=>modal('Ajouter une étape',[{name:'name',label:'Jalon'},{name:'description',label:'Livrable et critères d’acceptation',type:'textarea'},{name:'due_date',label:'Date prévue',type:'date'}],async value=>{await api(`/api/projects/${p.id}/milestones`,'POST',value);await refreshProject();}),$('roadmap-actions'),true);
@@ -273,7 +281,8 @@
   $('view-content').innerHTML=panel('Feuilles de temps',d.items.length?d.items.map(e=>`<article class="row"><div class="row-content"><strong>${escape(e.task_name)} · ${e.minutes} min</strong><p>${escape(e.user_name)} · ${date(e.work_date)} · ${e.billable?'Facturable':'Non facturable'}</p><p>${escape(e.note)}</p></div>${badge(e.status)}<div class="row-actions">${state.user.role!=='developer'&&e.status==='submitted'?`<button class="button" data-time="${e.id}" data-status="approved">Valider</button><button class="secondary" data-time="${e.id}" data-status="rejected">Refuser</button>`:''}</div></article>`).join(''):empty('Enregistrez le temps depuis une tâche qui vous est affectée.'));
   document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>modal('Examiner une saisie',[{name:'confirm',label:'Confirmer cette décision',type:'checkbox'}],async()=>{await api(`/api/time/${b.dataset.time}/review`,'POST',{status:b.dataset.status});await view('time');})));
  }
- async function calendar(epoch){
+ async function calendar(epoch){return window.NovalisPlanning.calendar(planningContext());}
+ async function legacyCalendar(epoch){
   const d=await api('/api/calendar');if(!current(epoch))return;
   title('Rendez-vous','Une heure pour comprendre le besoin.','Seuls les créneaux publiés et non réservés sont proposés aux visiteurs.');
   $('view-content').innerHTML=panel('Créneaux et rendez-vous',d.items.length?d.items.map(s=>`<article class="row"><div class="row-content"><strong>${instant(s.starts_at)}</strong><p>${s.meeting_id?escape((s.company||s.name)+' — '+s.name):'Créneau publié et disponible'}</p><p>1 heure · affichage dans votre fuseau local</p></div>${badge(s.status||'active')}</article>`).join(''):empty('Publiez vos premiers créneaux disponibles.'));
