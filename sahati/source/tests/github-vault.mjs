@@ -122,6 +122,14 @@ await test('inventory and the personal companion survive an encrypted lock and u
  await localApi('lock','POST');await unlock();await localApi('login','POST',{email:'patient@sahati.demo',password:'SahatiDemo2026!'});assert.equal((await localApi('patient-tools')).data.tasks[0].id,'vault-task');
  await localApi('login','POST',{email:'pharmacie@sahati.demo',password:'SahatiDemo2026!'});const inventory=await localApi('inventory');assert.equal(inventory.lots.find(l=>l.id===lot).quantity,5);assert.ok(inventory.movements.some(m=>m.lot_id===lot&&m.reference==='BR-VAULT-QA'));
 });
+await test('service requests, reservations, suppliers and counts persist inside the encrypted vault',async()=>{
+ await localApi('login','POST',{email:'pharmacie@sahati.demo',password:'SahatiDemo2026!'});const inventory=await localApi('inventory'),p=inventory.products.find(p=>p.sku==='VAULT-QA'),lot=inventory.lots.find(l=>l.productId===p.id);
+ const run=body=>localApi('stock-operations','POST',{operationId:crypto.randomUUID(),...body});const id=(await run({action:'request-create',department:'Service confidentiel synthétique',reason:'Besoin fictif',lines:[{productId:p.id,quantity:2}]})).requestId;await run({action:'request-reserve',requestId:id,version:1,quantities:[2]});
+ const count=(await run({action:'stocktake-create',title:'Comptage chiffré synthétique',location:'Centrale'})).stocktakeId;const supplier=(await run({action:'supplier-save',data:{code:'VAULT-SUP',name:'Fournisseur chiffré synthétique',leadDays:3,active:true}})).supplierId;
+ const encrypted=await backup();for(const text of ['Service confidentiel','Comptage chiffré','Fournisseur chiffré'])assert.ok(!encrypted.includes(text));await localApi('lock','POST');await unlock();await localApi('login','POST',{email:'pharmacie@sahati.demo',password:'SahatiDemo2026!'});
+ const ops=await localApi('stock-operations'),stock=await localApi('inventory');assert.equal(ops.requests.find(r=>r.id===id).status,'prepared');assert.ok(ops.stocktakes.some(s=>s.id===count));assert.ok(ops.suppliers.some(s=>s.id===supplier));assert.equal(stock.lots.find(l=>l.id===lot.id).quantity,5);assert.equal(stock.lots.find(l=>l.id===lot.id).reserved,2);assert.equal(stock.lots.find(l=>l.id===lot.id).free,3);
+ const payload={action:'request-issue',requestId:id,version:2,operationId:crypto.randomUUID()};await run(payload);await localApi('lock','POST');await unlock();await localApi('login','POST',{email:'pharmacie@sahati.demo',password:'SahatiDemo2026!'});assert.equal((await run(payload)).replayed,true);assert.equal((await localApi('inventory')).lots.find(l=>l.id===lot.id).quantity,3);
+});
 await test('old one-code backups can be restored only after completing both access steps',async()=>{
  await localApi('lock','POST');await localApi('gate','POST',{password});
  await assert.rejects(restore(legacyBackup),/Déverrouillez/);

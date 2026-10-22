@@ -4,7 +4,7 @@ Les durées et moyens suivants sont des hypothèses de planification. Ils ne son
 
 ## 0. Démonstration livrée
 
-Conserver une branche de travail et l’historique. Livrer les flux A–G sur un même coffre synthétique, les documents, les définitions et une matrice honnête. Tester le moteur, les erreurs, le chiffrement, les exports et les interactions. Le 22 octobre : Sina, carnet patient, inventaire détaillé et quatre langues livrés ; contrôle dans Chrome sur grand écran et viewport de 390 px. Compléter les tests sur appareils physiques et navigateurs avant présentation officielle.
+Conserver une branche de travail et l’historique. Livrer les flux A–G sur un même coffre synthétique, les documents, les définitions et une matrice honnête. Tester le moteur, les erreurs, le chiffrement, les exports et les interactions. Le 22 octobre : Sina déplaçable, carnet patient, inventaire détaillé, dotations avec réservations, comptages avec revue, fournisseurs/retours et quatre langues livrés ; contrôle dans Chrome sur grand écran et viewport de 390 px. Compléter les tests sur appareils physiques et navigateurs avant présentation officielle.
 
 ## 1. Découverte terrain — 4 à 6 semaines proposées
 

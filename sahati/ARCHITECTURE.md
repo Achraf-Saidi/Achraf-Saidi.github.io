@@ -1,6 +1,6 @@
 # SAHATI — Architecture et frontières
 
-## Version Pages 0.3
+## Version Pages 0.4
 
 `React → adaptateur local → moteur métier → SQLite WASM → coffre AES-GCM / IndexedDB`.
 
@@ -55,3 +55,14 @@ Le catalogue clinique ne transmet aux médecins ni coûts ni fournisseurs. L’A
 `lib/patient-tools.ts` valide un carnet versionné par compte patient, dans `sahati_patient_tools`. Ce carnet reste distinct des transmissions médicales. `lib/sina.ts` est un moteur de règles de démonstration et `components/sina.tsx` un panneau avec gestion du focus ; aucune requête vers Mistral, Llama ou un autre fournisseur n’est intégrée.
 
 `lib/i18n.ts` et les tables de traductions servent le texte d’interface. Le choix `kab` désigne ici Tamaziɣt en écriture latine. Les noms, textes source et données saisies restent inchangés. La direction RTL, les propriétés logiques CSS et la police Noto Sans Arabic locale traitent l’arabe. Aucun service de traduction ne reçoit les dossiers.
+
+
+## Extension 0.4 — opérations de stock
+
+`lib/stock-operations.ts` ajoute demandes de service, inventaires et fournisseurs dans des tables dédiées. `lib/inventory-availability.ts` calcule le stock libre à partir de `sahati_stock_reservations`. Les réservations changent la version du lot sans modifier sa quantité physique. Délivrance d’ordonnance, sortie directe, transfert, retour et correction vérifient ce disponible et les gardes de version dans le même batch. Un lot bloqué ne peut pas être délivré, même s’il a été réservé auparavant.
+
+Les demandes ne contiennent pas de dossier patient. Le demandeur voit ses demandes dans son établissement et un catalogue sans coûts ; pharmacie/logistique gèrent les préparations de leur établissement. Direction/admin lisent les opérations de stock selon leur filtre. Les annulations libèrent les réservations restantes et gardent les livraisons passées.
+
+Chaque inventaire capture les versions, quantités, coûts et emplacements au départ. L’application exige une revue, un comptage complet, un périmètre inchangé et des versions identiques. Le rapprochement remet à vide les comptages des lots modifiés et ajoute les nouveaux lots. Il ne remplace pas silencieusement un comptage. Les réservations ne peuvent pas être effacées par un écart de stock.
+
+`components/sina-position.ts` utilise les Pointer Events, distingue toucher et glissement et borne la bulle à la fenêtre visible. Il conserve uniquement un côté et une position relative dans les préférences locales. `lib/floating-position.ts` contient les calculs sans accès DOM. La conversation de Sina reste temporaire.

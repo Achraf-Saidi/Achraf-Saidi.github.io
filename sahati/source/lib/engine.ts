@@ -11,6 +11,8 @@ import {clinicalCases,casePublic,gradeCase} from './education';
 import {demoStudyUID} from './dicom-demo';
 import {operationalIndicators} from './reporting';
 import {ensureInventory,normalizeStock,movementStmt,inventorySnapshot,inventoryAction,medicationCatalog,allocateFEFO,usableLot,matchesMedication,lotGuard} from './inventory';
+import {withReservations,freeQuantity} from './inventory-availability';
+import {ensureStockOperations,stockOperationsSnapshot,stockOperationsAction,supplySnapshot} from './stock-operations';
 import {patientTools,patientToolsSchema} from './patient-tools';
 export interface Environment {DB?:D1Database;BUCKET?:R2Bucket;SAHATI_GATE_HASH?:string;onSessionCookie?:(value:string)=>void;}
 // The shared engine needs body readers and application headers, not a network
@@ -37,7 +39,7 @@ async function allRecords(db:D1Database):Promise<Entity[]>{const r=await db.prep
 async function getRecord(db:D1Database,id:string){const r=await db.prepare('SELECT * FROM sahati_records WHERE id=?').bind(id).first<any>();if(!r)throw new UserError('Élément introuvable.',404);return {...JSON.parse(r.data),id:r.id,kind:r.kind,hospitalId:r.hospital_id,patientId:r.patient_id||undefined,version:r.version,...(r.kind==='stock'?{quantity:r.quantity}:{})} as Entity;}
 function insertStmt(db:D1Database,e:Entity,author:string){return db.prepare('INSERT INTO sahati_records(id,kind,hospital_id,patient_id,data,quantity,version,created_by,updated_at) VALUES(?,?,?,?,?,?,?,?,?)').bind(e.id,e.kind,e.hospitalId,e.patientId||null,JSON.stringify(e),e.kind==='stock'?e.quantity:0,e.version,author,e.createdAt||new Date().toISOString());}
 async function upgradeDemo(db:D1Database){
- await ensureInventory(db);await db.prepare(patientToolsSchema).run();
+ await ensureInventory(db);await ensureStockOperations(db);await db.prepare(patientToolsSchema).run();
  const versionSchema=["CREATE TABLE IF NOT EXISTS sahati_record_versions(record_id TEXT NOT NULL,version INTEGER NOT NULL,data TEXT NOT NULL,actor_id TEXT NOT NULL,reason TEXT NOT NULL,created_at TEXT NOT NULL,PRIMARY KEY(record_id,version))","CREATE TABLE IF NOT EXISTS sahati_learning_attempts(id TEXT PRIMARY KEY NOT NULL,account_id TEXT NOT NULL,case_id TEXT NOT NULL,result TEXT NOT NULL,created_at TEXT NOT NULL)"];
  await db.batch(versionSchema.map(sql=>db.prepare(sql)));
  if(await db.prepare("SELECT key FROM sahati_metadata WHERE key='connected_demo_v2'").first())return;
@@ -160,7 +162,7 @@ async function mutate(db:D1Database,a:Account,id:string,input:any){
  const commands=[db.prepare('UPDATE sahati_records SET data=?,quantity=?,version=version+1,updated_at=? WHERE id=? AND version=?').bind(JSON.stringify(next),next.kind==='stock'?next.quantity:0,now,id,e.version)];
  const condition='EXISTS(SELECT 1 FROM sahati_records WHERE id=? AND version=? AND updated_at=?)';
  if(e.kind==='prescriptions'&&next.status==='dispensed'){
-  const stocks=(await allRecords(db)).filter(r=>r.kind==='stock'&&r.hospitalId===e.hospitalId);
+  const stocks=await withReservations(db,(await allRecords(db)).filter(r=>r.kind==='stock'&&r.hospitalId===e.hospitalId));
   let disp:any[];
   if(input.autoFEFO===true)disp=allocateFEFO(e,stocks);
   else {const selected=input.dispenses;if(!Array.isArray(selected)||selected.length!==e.medications.length)throw new UserError('Associez un lot à chaque traitement.');const seen=new Set<string>();disp=selected.map((d:any,i:number)=>{const stock=stocks.find(s=>s.id===d.stockId),med=e.medications[i],quantity=positive(d.quantity,'Quantité délivrée',1,10000);if(!stock||!Number.isInteger(quantity)||seen.has(stock.id)||!usableLot(stock)||!matchesMedication(stock,med)||quantity!==med.quantity)throw new UserError('Le lot, la péremption ou la quantité ne correspond pas au traitement.');seen.add(stock.id);return {...d,medIndex:i,medication:med.name,lot:stock.lot,expiry:stock.expiry,productId:stock.productId,unit:stock.unit};});}
@@ -168,7 +170,7 @@ async function mutate(db:D1Database,a:Account,id:string,input:any){
   next.dispenses=disp;next.dispensedBy=a.name;next.dispensedAt=now;next.dispensingMethod=input.autoFEFO?'FEFO':'manual';
   commands[0]=db.prepare('UPDATE sahati_records SET data=?,quantity=0,version=version+1,updated_at=? WHERE id=? AND version=?').bind(JSON.stringify(next),now,id,e.version);
   const guards:D1PreparedStatement[]=[db.prepare('INSERT INTO sahati_inventory_guard(id,valid) VALUES(?,CASE WHEN EXISTS(SELECT 1 FROM sahati_records WHERE id=? AND version=?) THEN 1 ELSE 0 END)').bind(randomToken(),e.id,e.version)];
-  for(const [stockId,qty] of totals){const stock=stocks.find(s=>s.id===stockId)!;if(stock.quantity<qty)throw new UserError('Stock insuffisant.',409);guards.push(lotGuard(db,stock));commands.push(db.prepare("UPDATE sahati_records SET quantity=quantity-?,data=json_set(data,'$.quantity',quantity-?),version=version+1,updated_at=? WHERE id=? AND version=?").bind(qty,qty,now,stockId,stock.version),movementStmt(db,a,stock,'dispense',-qty,stock.quantity-qty,e.id,'Délivrance de l’ordonnance validée',now));}
+  for(const [stockId,qty] of totals){const stock=stocks.find(s=>s.id===stockId)!;if(freeQuantity(stock)<qty)throw new UserError('Stock insuffisant.',409);guards.push(lotGuard(db,stock));commands.push(db.prepare("UPDATE sahati_records SET quantity=quantity-?,data=json_set(data,'$.quantity',quantity-?),version=version+1,updated_at=? WHERE id=? AND version=?").bind(qty,qty,now,stockId,stock.version),movementStmt(db,a,stock,'dispense',-qty,stock.quantity-qty,e.id,'Délivrance de l’ordonnance validée',now));}
   commands.unshift(...guards);
  }
  if(e.kind==='stock'){commands.unshift(lotGuard(db,e));commands.push(movementStmt(db,a,e,'receive',next.quantity-e.quantity,next.quantity,e.id,'Réception du lot existant',now));}
@@ -218,12 +220,17 @@ export async function handleAPI(request:ApplicationRequest,path:string[],env:Env
   if(route==='bootstrap'&&method==='GET'){
    const records=await allRecords(db),patients=records.filter(e=>e.kind==='patients');const hospitalFilter=new URL(request.url).searchParams.get('hospital');const scopedRecords=hospitalFilter&&['admin','director'].includes(a.role)?records.filter(e=>e.hospitalId===hospitalFilter):records;const allowed=scopedRecords.filter(e=>inScope(a,e,patients)&&patientPublished(a,e)).map(e=>redact(a,e));const audits=['admin','director'].includes(a.role)?(await db.prepare('SELECT * FROM sahati_audit ORDER BY created_at DESC LIMIT 120').all()).results:[];
    const users=(await db.prepare('SELECT id,name,email,role,hospital_id,active FROM sahati_accounts').all<any>()).results.map(u=>({id:u.id,name:u.name,email:u.email,role:u.role,hospitalId:u.hospital_id,active:!!u.active}));await log(db,a,'Lecture espace',a.role,`${allowed.length} éléments autorisés`);
+   const decoratedStock=await withReservations(db,allowed.filter(e=>e.kind==='stock'));
    const attachmentRows=(await db.prepare('SELECT id,record_id,file_name,mime,size,created_at FROM sahati_attachments').all<any>()).results.filter(f=>allowed.some(e=>e.id===f.record_id));
    const directory=(await db.prepare('SELECT data FROM sahati_hospitals').all<any>()).results.map(h=>JSON.parse(h.data));
-   return ok({account:a,records:allowed,metrics:metrics(scopedRecords,a),hospitals:directory,accounts:users.filter(u=>['admin','director'].includes(a.role)||(u.hospitalId===a.hospitalId&&(u.role!=='patient'||['doctor','resident','nurse','reception'].includes(a.role)||u.id===a.id))),audit:audits,attachments:attachmentRows,demo:true});
+   return ok({account:a,records:allowed.map(e=>decoratedStock.find(l=>l.id===e.id)||e),metrics:metrics(scopedRecords,a),hospitals:directory,accounts:users.filter(u=>['admin','director'].includes(a.role)||(u.hospitalId===a.hospitalId&&(u.role!=='patient'||['doctor','resident','nurse','reception'].includes(a.role)||u.id===a.id))),audit:audits,attachments:attachmentRows,demo:true});
   }
   if(route==='catalog'&&method==='GET')return ok(await medicationCatalog(db,a));
   if(route==='inventory'&&method==='GET')return ok(await inventorySnapshot(db,a,new URL(request.url).searchParams.get('hospital')));
+  if(route==='stock-operations'&&method==='GET')return ok(await stockOperationsSnapshot(db,a,new URL(request.url).searchParams.get('hospital')));
+  if(route==='stock-operations'&&method==='POST')return ok(await stockOperationsAction(db,a,await jsonInput(request)));
+  if(route==='supplies'&&method==='GET')return ok(await supplySnapshot(db,a));
+  if(route==='supplies'&&method==='POST')return ok(await stockOperationsAction(db,a,await jsonInput(request)));
   if(route==='inventory'&&method==='POST')return ok(await inventoryAction(db,a,await jsonInput(request)));
   if(route==='patient-tools'&&method==='GET')return ok(await patientTools(db,a));
   if(route==='patient-tools'&&method==='PATCH')return ok(await patientTools(db,a,await jsonInput(request)));

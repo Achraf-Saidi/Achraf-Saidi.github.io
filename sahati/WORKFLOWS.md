@@ -75,3 +75,16 @@ Les suggestions utilisent disponible + commandes ouvertes, le seuil et la cible.
 Le carnet du patient est séparé des notes cliniques. Rappels, questions, notes et contact personnel ne sont pas transmis automatiquement à l’équipe. Cocher un rappel ne modifie aucune prescription. L’export ICS utilise les horaires algériens UTC+1 pour les rendez-vous et les rappels horaires. Les rappels sans heure sont des événements de journée. Les alertes dépendent du calendrier dans lequel l’utilisateur importe le fichier.
 
 Sina lit uniquement le contexte déjà autorisé de la vue active. Elle oriente vers un dossier, un module ou les options de langue ; elle n’effectue pas de mutation clinique et ne choisit pas de dose. La conversation reste en mémoire et est effacée au changement de compte ou de langue. Le mode sans compte donne des repères génériques sans appeler un dossier.
+
+
+## J. Dotation des services — version 0.4
+
+Demandeur → **Demandes de service** → articles du catalogue, unités, quantités, service et motif → demande enregistrée. Pharmacie/logistique → **Dotations** → préparation totale ou partielle FEFO → réservation sans déduction physique → délivrance de toute la préparation → sortie et journal atomiques. Les reliquats restent préparables. Le demandeur confirme une réception complète. Annuler conserve les livraisons et libère seulement les réservations restantes. Si un lot réservé est bloqué/périmé, libérer puis refaire la préparation.
+
+## K. Inventaire contrôlé — version 0.4
+
+**Inventaires** → nom et emplacement ou tout l’établissement → comptages explicites, y compris zéro → enregistrer → revue → appliquer les écarts. Les corrections, mouvements et clôture font partie de la même transaction. Un changement de lot ou de périmètre bloque l’application ; **Réconcilier les mouvements** ajoute les nouveaux lots et demande de recompter les lots modifiés. Les comptages inchangés sont gardés. Un comptage inférieur aux réservations exige de libérer celles-ci avant un nouveau rapprochement. Le CSV conserve attendu, compté et écart.
+
+## L. Fournisseurs et sorties — version 0.4
+
+**Fournisseurs** → fiche, code, contact et délai → sélectionner le fournisseur actif lors d’une commande. Mettre en pause interdit les nouvelles commandes liées, sans réécrire les commandes anciennes. **Retours & retraits** → lot, quantité non réservée, motif et bordereau → retour fournisseur ou retrait/perte → journal et quantité mis à jour ensemble → bordereau PDF de démonstration. Les lots bloqués ou périmés peuvent être retirés. Retours et transferts ne gonflent pas la consommation sur 28 jours.

@@ -1,6 +1,6 @@
 {
   "product": "SAHATI",
-  "version": "github-3.0",
+  "version": "github-4.0",
   "url": "https://achraf-saidi.github.io/sahati/",
   "hosting": "GitHub Pages",
   "source": "./source",
@@ -8,13 +8,13 @@
   "data_mode": "encrypted-local-demo",
   "synchronization": false,
   "roles": 14,
-  "modules": 29,
+  "modules": 30,
   "validation": {
     "business_scenarios": 23,
-    "vault_scenarios": 12,
+    "vault_scenarios": 13,
     "connected_scenarios": 13,
-    "dom_scenarios": 12,
-    "total_distinct_scenarios": 79,
+    "dom_scenarios": 16,
+    "total_distinct_scenarios": 103,
     "sqlite_wasm": true,
     "typescript": true,
     "static_build": true,
@@ -24,7 +24,8 @@
     "qr_independent_decode": true,
     "dicom_independent_read": true,
     "next_generation_scenarios": 19,
-    "browser_visual_scope": "Chrome desktop and isolated 390px iframe viewport; disposable synthetic QA data; no physical phone validation"
+    "browser_visual_scope": "Chrome desktop and isolated 390px iframe viewport; disposable synthetic QA data; no physical phone validation",
+    "stock_erp_scenarios": 19
   },
   "local_transport": "application-request-and-session-callback",
   "credits": "By Achraf Saidi, Ryan Aouf & 21 others",
@@ -49,7 +50,11 @@
   "sina": {
     "mode": "local-contextual-demo",
     "external_ai": false,
-    "conversation_persisted": false
+    "conversation_persisted": false,
+    "draggable": true,
+    "position_persisted": true,
+    "pointer_drag_tested": true,
+    "physical_touch_device_tested": false
   },
   "inventory": {
     "catalogue": true,
@@ -58,7 +63,15 @@
     "multi_lot_fefo": true,
     "quarantine_recall": true,
     "within_hospital_transfers": true,
-    "atomic_batches": true
+    "atomic_batches": true,
+    "service_requests": true,
+    "reservations": true,
+    "partial_service_deliveries": true,
+    "stocktake_sessions": true,
+    "stocktake_reconciliation": true,
+    "supplier_directory": true,
+    "supplier_returns": true,
+    "removal_pdf": true
   },
   "updated": "2026-10-22"
 }

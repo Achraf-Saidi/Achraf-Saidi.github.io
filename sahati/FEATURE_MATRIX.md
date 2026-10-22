@@ -1,11 +1,11 @@
-# SAHATI — Matrice fonctionnelle 0.3
+# SAHATI — Matrice fonctionnelle 0.4
 
 **Fonctionnel local** signifie une action persistante dans le même navigateur, sur des données synthétiques. **Limité** signifie un sous-ensemble opérationnel. **Prévu** signifie qu’aucune fonctionnalité de production n’est livrée.
 
 | Module | Utilisateurs | Statut réel | Limites et priorité suivante |
 |---|---|---|---|
 | Accès à deux codes et comptes | Tous | Fonctionnel local | Pas d’authentification serveur ou de synchronisation ; P0 pilote |
-| Sina | Tous | Démonstration interactive locale | Navigation et réponses déterministes ; aucune IA clinique connectée |
+| Sina | Tous | Démonstration interactive locale | Bulle déplaçable au doigt/souris, position locale, clavier ; réponses déterministes sans IA clinique connectée |
 | Mon quotidien | Patient | Fonctionnel local | Rappels, visite, carnet, contact, PDF et ICS ; pas de notification de fond ni surveillance clinique |
 | Accueil patient | Patient | Fonctionnel local | Actions et documents propres au dossier |
 | Dossier longitudinal | Patient, cliniciens habilités | Limité | Historique, synthèse, documents, mesures ; normalisation des antécédents/vaccins P0 |
@@ -18,6 +18,9 @@
 | Lits et hospitalisation | Accueil, médecins, infirmiers, direction | Fonctionnel local | Admission, sortie, nettoyage et indicateurs cohérents ; transferts interservices P1 |
 | Urgences et bloc | Cliniciens | Limité, conservé | Triage manuel et checklist ; protocoles locaux, transmissions et ressources complètes P1 |
 | Pharmacie et stocks | Pharmacie, logistique | Fonctionnel local | Catalogue, commandes, réceptions partielles, coûts pondérés, comptages, transferts, quarantaine/rappels et FEFO atomique ; pas d’EDI fournisseur ni comptabilité réglementaire |
+| Dotations de service | Médecin, résident, infirmier, labo, radiologie, accueil ; pharmacie et logistique | Fonctionnel local | Demandes personnelles, réservation FEFO, livraisons partielles, confirmation ; aucun envoi ou approvisionnement réel |
+| Inventaires de stock | Pharmacie, logistique ; direction/admin en lecture | Fonctionnel local | Comptage par emplacement, revue, application atomique, rapprochement des changements et CSV ; pas de validation réglementaire indépendante |
+| Fournisseurs et retours | Pharmacie, logistique | Fonctionnel local | Répertoire, délais, pause, commandes liées, retraits/retours et bordereau PDF ; aucun contact ou remboursement externe |
 | Finance et RH | Finance, direction, admin | Limité, conservé | Scénarios DZD et affectations ; comptabilité, tarifs et plannings complexes P2 |
 | Pilotage institutionnel | Direction, admin | Fonctionnel local | 5 KPI définis, filtres et rapports ; aucune donnée nationale |
 | Campus médical | Étudiant, résident, médecin | Fonctionnel local | 3 cas fictifs, 9 questions, historique ; cours, stages et supervision P1 |

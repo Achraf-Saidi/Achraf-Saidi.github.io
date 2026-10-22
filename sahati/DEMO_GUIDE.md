@@ -1,8 +1,16 @@
-# SAHATI — Guide de démonstration 0.3
+# SAHATI — Guide de démonstration 0.4
 
 Ouvrir https://achraf-saidi.github.io/sahati/ puis utiliser les deux codes existants. Ils ne sont pas reproduits dans la documentation. Les comptes de démonstration utilisent `SahatiDemo2026!` ; les adresses par métier sont proposées sur la page de connexion. Aucun compte ChatGPT ni serveur de soins n’intervient dans ce parcours.
 
 **Préparer :** utiliser un navigateur récent, autoriser le stockage, garder le même appareil pour tous les comptes et exporter une sauvegarde avant une démonstration importante. Une reprogrammation ou une action est conservée dans ce coffre. Les données sont fictives ; ne saisir aucune information médicale réelle.
+
+## Nouveautés 0.4 — environ 6 minutes supplémentaires
+
+1. **Sina.** Glisser la bulle avec le doigt ou la souris. Elle s’ancre au bord sans ouvrir la conversation ; toucher pour ouvrir. Dans son menu, choisir gauche/droite/réinitialiser. Au clavier : Maj + flèches, Maj + Début pour réinitialiser. Le choix reste sur cet appareil.
+2. **Médecin/infirmier.** Créer une **Demande de service** avec des articles fictifs. Changer de compte dans le même navigateur. Pharmacie → **Dotations** → préparer une partie → contrôler les lots réservés → délivrer. Refaire le reliquat ; demandeur → confirmer la réception complète.
+3. **Inventaires.** Démarrer un comptage sur un emplacement, saisir puis enregistrer chaque quantité. Passer en revue et appliquer. Pour montrer un conflit, faire un mouvement entre comptage et application : le logiciel exige un rapprochement et un nouveau comptage des lots modifiés.
+4. **Fournisseurs / retours.** Créer un fournisseur fictif, le choisir pour une commande. Faire un retrait ou un retour motivé et télécharger son bordereau. Aucun fournisseur réel n’est contacté.
+5. **Arabe.** Vérifier les onglets, références de lot, fractions et formulaires sur écran étroit. Le texte source des articles reste inchangé.
 
 ## Nouveautés 0.3 — environ 8 minutes
 

@@ -1,3 +1,4 @@
+import {stockTranslations} from './stock-translations';
 import {formTranslations} from './form-translations';
 import {professionalTranslations} from './professional-translations';
 import {uiTranslations} from './ui-translations';
@@ -169,3 +170,5 @@ registerTranslations(uiTranslations);
 registerTranslations(professionalTranslations);
 
 registerTranslations(formTranslations);
+
+registerTranslations(stockTranslations);
