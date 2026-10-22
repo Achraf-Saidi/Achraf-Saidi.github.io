@@ -45,9 +45,9 @@ def main():
     shutil.copy2(config,backup/'production.env')
     (backup/'release.json').write_text(json.dumps({'core':str(old),'public':str(old_public)}))
     REPORT['backup']=str(backup)
-    destination=ROOT/'releases'/(RELEASE+'-planning')
+    destination=ROOT/'releases'/(RELEASE+'-planning2')
     if destination.exists():raise RuntimeError('New release already exists; no existing files overwritten.')
-    destination.mkdir(mode=0o755)
+    destination.mkdir(mode=0o755);destination.chmod(0o755)
     archive=backup/'source.tar.gz'
     url='https://codeload.github.com/Achraf-Saidi/Achraf-Saidi.github.io/tar.gz/'+RELEASE
     with urllib.request.urlopen(url,timeout=60) as response,archive.open('wb') as f:
@@ -75,6 +75,7 @@ def main():
         if not path.is_symlink():path.chmod(0o755 if path.is_dir() else 0o644)
     python=destination/'.venv/bin/python'
     env=dict(os.environ,**values,PYTHONPATH=str(destination/'novalis-os'))
+    run(['runuser','-u','novalis-os','--',str(python),'-c','import novalis_os; import reportlab; print("runtime ready")'],env=env,cwd=destination/'novalis-os')
     # A copy of the production database verifies the additive migration before switching.
     migration_check=backup/'migration-check.sqlite3';shutil.copy2(backup/'novalis.sqlite3',migration_check)
     code='from novalis_os.db import migrate; import sys; migrate(sys.argv[1])'
@@ -82,7 +83,7 @@ def main():
     with sqlite3.connect(migration_check) as db:
         if db.execute('PRAGMA integrity_check').fetchone()[0]!='ok':raise RuntimeError('Migration rehearsal failed.')
         REPORT['migration_rehearsed']=db.execute('SELECT MAX(version) FROM migrations').fetchone()[0]
-    public=PUBLIC/'releases'/(RELEASE+'-planning')
+    public=PUBLIC/'releases'/(RELEASE+'-planning2')
     run([str(python),str(destination/'novalis-os/deploy/prepare-public.py'),'--output',str(public),'--site-url','https://www.novalisai.com','--api-origin','https://app.novalisai.com','--portal-url','https://app.novalisai.com/os/'],timeout=120)
     for path in [public,*public.rglob('*')]:path.chmod(0o755 if path.is_dir() else 0o644)
     if not (public/'assets/launch.js').is_file():raise RuntimeError('Public interactive asset missing.')
