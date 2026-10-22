@@ -1,6 +1,6 @@
 # SAHATI — Architecture et frontières
 
-## Version Pages 0.4
+## Version Pages 0.5
 
 `React → adaptateur local → moteur métier → SQLite WASM → coffre AES-GCM / IndexedDB`.
 
@@ -17,7 +17,7 @@ L’adaptateur `github/runtime.ts` sérialise les opérations et transmet des m�
 | Persistance | `github/sqlite.ts`, `vault.ts`, migrations `drizzle` | Transactions et chiffrement local |
 | Livraison | `scripts/build-github.mjs` | Entrées Pages et chunks PDF chargés à la demande |
 
-La génération PDF est différée. Les fontes sont servies par GitHub Pages. Aucune donnée personnelle n’est envoyée à une IA. Le préchargement d’un fichier statique synthétique ne constitue pas une acquisition DICOMweb.
+La génération PDF est différée. Les fontes sont servies par GitHub Pages. Aucun dossier n’est envoyé automatiquement à l’IA optionnelle ; les messages explicitement saisis en mode IA quittent l’appareil. Le préchargement d’un fichier statique synthétique ne constitue pas une acquisition DICOMweb.
 
 ## Données et relations
 
@@ -66,3 +66,12 @@ Les demandes ne contiennent pas de dossier patient. Le demandeur voit ses demand
 Chaque inventaire capture les versions, quantités, coûts et emplacements au départ. L’application exige une revue, un comptage complet, un périmètre inchangé et des versions identiques. Le rapprochement remet à vide les comptages des lots modifiés et ajoute les nouveaux lots. Il ne remplace pas silencieusement un comptage. Les réservations ne peuvent pas être effacées par un écart de stock.
 
 `components/sina-position.ts` utilise les Pointer Events, distingue toucher et glissement et borne la bulle à la fenêtre visible. Il conserve uniquement un côté et une position relative dans les préférences locales. `lib/floating-position.ts` contient les calculs sans accès DOM. La conversation de Sina reste temporaire.
+
+
+## Extension 0.5 — Sina connecté sans clé
+
+`components/use-sina-chat.ts` sépare le guide local du mode distant et conserve uniquement les échanges IA en mémoire. Le client `lib/sina-ai.ts` appelle directement en HTTPS l’API anonyme OpenAI-compatible OVHcloud, avec Mistral Small 3.2 ; il n’importe aucun accès au moteur, au coffre ou au contexte compte. Pas de clé, proxy payant ou abonnement configuré. Le modèle ne reçoit aucun outil et ne peut produire d’action exécutable.
+
+Les modes sont explicites ; changer de mode/compte/langue ou réinitialiser la conversation annule la requête et vide l’historique. Les erreurs 429, réseau, réponse invalide et timeout sont distinctes ; une attente de 31 secondes ménage le quota de deux requêtes/minute/IP/modèle. Le délai fournisseur est borné à cinq minutes. La réponse est limitée à 64 Kio et rendue comme texte, sans HTML. Les quotas restent partagés avec les autres utilisateurs d’une même IP, et la disponibilité gratuite n’est pas garantie.
+
+Voir `SINA_AI.md` pour le flux, les limites et la vérification réelle du fournisseur.

@@ -1,6 +1,6 @@
 {
   "name": "sahati",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "engines": {
     "node": ">=24.0.0"
@@ -15,9 +15,10 @@
     "test:connected": "node tests/connected-workflows.mjs",
     "test:dom": "node tests/ui-dom.mjs",
     "typecheck:github": "tsc --project tsconfig.github.json",
-    "test:all": "node scripts/build-github.mjs && SAHATI_TEST_SQLITE=wasm node tests/workflows.mjs && node tests/github-vault.mjs && SAHATI_TEST_SQLITE=wasm node tests/connected-workflows.mjs && SAHATI_TEST_SQLITE=wasm node tests/next-workflows.mjs && SAHATI_TEST_SQLITE=wasm node tests/stock-operations.mjs && node tests/ui-dom.mjs && tsc --project tsconfig.github.json",
+    "test:all": "node scripts/build-github.mjs && SAHATI_TEST_SQLITE=wasm node tests/workflows.mjs && node tests/github-vault.mjs && SAHATI_TEST_SQLITE=wasm node tests/connected-workflows.mjs && SAHATI_TEST_SQLITE=wasm node tests/next-workflows.mjs && SAHATI_TEST_SQLITE=wasm node tests/stock-operations.mjs && node tests/sina-ai.mjs && node tests/ui-dom.mjs && tsc --project tsconfig.github.json",
     "test:next": "SAHATI_TEST_SQLITE=wasm node tests/next-workflows.mjs",
-    "test:stock": "SAHATI_TEST_SQLITE=wasm node tests/stock-operations.mjs"
+    "test:stock": "SAHATI_TEST_SQLITE=wasm node tests/stock-operations.mjs",
+    "test:ai": "node tests/sina-ai.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

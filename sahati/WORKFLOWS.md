@@ -74,7 +74,7 @@ Les suggestions utilisent disponible + commandes ouvertes, le seuil et la cible.
 
 Le carnet du patient est séparé des notes cliniques. Rappels, questions, notes et contact personnel ne sont pas transmis automatiquement à l’équipe. Cocher un rappel ne modifie aucune prescription. L’export ICS utilise les horaires algériens UTC+1 pour les rendez-vous et les rappels horaires. Les rappels sans heure sont des événements de journée. Les alertes dépendent du calendrier dans lequel l’utilisateur importe le fichier.
 
-Sina lit uniquement le contexte déjà autorisé de la vue active. Elle oriente vers un dossier, un module ou les options de langue ; elle n’effectue pas de mutation clinique et ne choisit pas de dose. La conversation reste en mémoire et est effacée au changement de compte ou de langue. Le mode sans compte donne des repères génériques sans appeler un dossier.
+En mode Guide local, Sina lit uniquement le contexte déjà autorisé de la vue active. Elle oriente vers un dossier, un module ou les options de langue ; elle n’effectue pas de mutation clinique et ne choisit pas de dose. La conversation reste en mémoire et est effacée au changement de compte ou de langue. Le mode sans compte donne des repères génériques sans appeler un dossier.
 
 
 ## J. Dotation des services — version 0.4
@@ -88,3 +88,8 @@ Demandeur → **Demandes de service** → articles du catalogue, unités, quanti
 ## L. Fournisseurs et sorties — version 0.4
 
 **Fournisseurs** → fiche, code, contact et délai → sélectionner le fournisseur actif lors d’une commande. Mettre en pause interdit les nouvelles commandes liées, sans réécrire les commandes anciennes. **Retours & retraits** → lot, quantité non réservée, motif et bordereau → retour fournisseur ou retrait/perte → journal et quantité mis à jour ensemble → bordereau PDF de démonstration. Les lots bloqués ou périmés peuvent être retirés. Retours et transferts ne gonflent pas la consommation sur 28 jours.
+
+
+## M. Sina IA gratuite — version 0.5
+
+Ouvrir Sina → sélectionner **IA gratuite** → lire la notice → envoyer une question fictive. Les instructions statiques et les échanges IA temporaires sont envoyés à OVHcloud/Mistral, sans clé ni compte fournisseur. Aucun dossier ni contexte local n’est joint. Le badge confirme une réponse IA reçue. Un quota ou une panne affiche une erreur avec nouvel essai et retour volontaire au guide local. Le bouton d’arrêt annule la réception. Une nouvelle conversation ou un changement de mode, compte ou langue efface l’historique en mémoire et annule la requête en cours.

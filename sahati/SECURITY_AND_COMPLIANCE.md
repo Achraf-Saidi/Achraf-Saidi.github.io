@@ -1,6 +1,6 @@
 # SAHATI — Sécurité et écarts de conformité
 
-État au 14 octobre 2026. Le prototype est exclusivement synthétique. Aucun usage de soins réels n’est autorisé par ce document ; aucune certification, homologation, affiliation publique ou signature qualifiée n’est revendiquée.
+État du prototype au 22 octobre 2026 ; références juridiques à revalider avant tout pilote. Le prototype est exclusivement synthétique. Aucun usage de soins réels n’est autorisé par ce document ; aucune certification, homologation, affiliation publique ou signature qualifiée n’est revendiquée.
 
 ## Protections réellement présentes
 
@@ -27,7 +27,7 @@
 | PDF exporté | Fichier non chiffré, copie hors du coffre | Politique documentaire, droits d’export et stockage sécurisé |
 | Recherche | Consentement et autorisations simulés | Comité d’éthique, fondement légal, accord de données, minimisation |
 | Imagerie | Fantôme pédagogique unique | PACS sécurisé, rapprochement d’identité et validation du visualiseur |
-| IA | Aucune IA connectée | Évaluation, contrat, hébergement, validation humaine et traçabilité |
+| IA | Mode distant anonyme optionnel, uniquement pour exemples fictifs | Évaluation, contrat, hébergement, validation humaine et traçabilité |
 
 ## Cadre algérien à instruire
 
@@ -50,7 +50,7 @@ FHIR est une spécification sous licence ouverte avec marque protégée ; l’ex
 
 ## Ajouts locaux du 22 octobre 2026
 
-Sina ne possède pas de clé d’API, n’envoie aucune conversation à un fournisseur et ne fournit pas de décision clinique. Son contexte est supprimé lors de la sortie du compte. L’inventaire et le carnet personnel entrent dans le même coffre chiffré et la même procédure de sauvegarde/restauration. Les clés d’idempotence évitent une double réception lors du rejeu de la même opération ; elles ne remplacent pas un système comptable certifié.
+Sina ne possède pas de clé d’API. Son guide local n’envoie aucune conversation au fournisseur. Après sélection explicite du mode IA gratuite, les messages saisis et les derniers échanges IA (huit tours au maximum) sont envoyés à OVHcloud avec des instructions statiques. Aucun dossier, compte, fichier ou résultat du guide local n’est joint automatiquement. Les réponses sont du texte échappé, sans exécution ni action sur les dossiers. Le fournisseur reçoit aussi les métadonnées réseau nécessaires, dont l’adresse IP ; l’accès anonyme ne signifie pas confidentialité contractuelle. La notice impose des données fictives. L’historique n’est pas persisté et est vidé au changement de mode, langue ou compte et à la nouvelle conversation. La requête est annulée lors de cette remise à zéro. Les repères locaux urgents et de traitement ne sont pas présentés comme des réponses IA. Ce dispositif n’est pas une validation clinique. L’inventaire et le carnet personnel entrent dans le même coffre chiffré et la même procédure de sauvegarde/restauration. Les clés d’idempotence évitent une double réception lors du rejeu de la même opération ; elles ne remplacent pas un système comptable certifié.
 
 La quarantaine et le rappel sont des états applicatifs de démonstration. Ils n’activent ni rappel réglementaire, ni contact fournisseur, ni message patient. Le carnet personnel ne déclenche pas d’alerte médicale. Les autorisations locales et le chiffrement restent soumis aux limites du navigateur déjà décrites ; une utilisation clinique exige l’architecture serveur et la gouvernance prévues.
 

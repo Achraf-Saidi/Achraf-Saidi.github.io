@@ -1,11 +1,11 @@
-# SAHATI — Matrice fonctionnelle 0.4
+# SAHATI — Matrice fonctionnelle 0.5
 
 **Fonctionnel local** signifie une action persistante dans le même navigateur, sur des données synthétiques. **Limité** signifie un sous-ensemble opérationnel. **Prévu** signifie qu’aucune fonctionnalité de production n’est livrée.
 
 | Module | Utilisateurs | Statut réel | Limites et priorité suivante |
 |---|---|---|---|
 | Accès à deux codes et comptes | Tous | Fonctionnel local | Pas d’authentification serveur ou de synchronisation ; P0 pilote |
-| Sina | Tous | Démonstration interactive locale | Bulle déplaçable au doigt/souris, position locale, clavier ; réponses déterministes sans IA clinique connectée |
+| Sina | Tous | Guide local et vraie IA anonyme optionnelle | Bulle déplaçable, quatre langues, Mistral Small 3.2 via OVHcloud sans compte ni clé ; messages saisis uniquement, aucun dossier joint, deux requêtes/minute/IP/modèle |
 | Mon quotidien | Patient | Fonctionnel local | Rappels, visite, carnet, contact, PDF et ICS ; pas de notification de fond ni surveillance clinique |
 | Accueil patient | Patient | Fonctionnel local | Actions et documents propres au dossier |
 | Dossier longitudinal | Patient, cliniciens habilités | Limité | Historique, synthèse, documents, mesures ; normalisation des antécédents/vaccins P0 |
@@ -31,7 +31,7 @@
 | PDF A4 | Rôles autorisés | Fonctionnel local | Accents, arabe, pagination, QR pour prescription ; pas de signature qualifiée |
 | CSV | Recherche, direction, pharmacie et logistique | Fonctionnel local | UTF-8 et protection des exports institutionnels contre l’injection de formules |
 | Classeur Excel structuré | Rôles autorisés | Prévu | Aucun CSV renommé en XLSX ; typage, feuilles et validation P1 |
-| IA documentaire contrôlée | Cliniciens, patient | Architecture proposée | Pas de service IA connecté ni de diagnostic autonome |
+| IA documentaire contrôlée | Cliniciens, patient | Architecture proposée | Le chatbot générique ne lit pas les documents ; aucune IA documentaire clinique validée ni diagnostic autonome |
 | FHIR / HL7 / organismes payeurs | Systèmes partenaires | Préparé, non conforme en production | Export JSON partiel ; contrats et validation nécessaires |
 | PWA, hors ligne distribué, notifications | Tous | Prévu | Stockage local ne signifie pas fonctionnement hors ligne de l’application |
 | Interfaces multilingues | Tous | Français, arabe RTL, anglais et Tamaziɣt latin | Données cliniques et cas source conservés ; relecture professionnelle et complétude linguistique à poursuivre |

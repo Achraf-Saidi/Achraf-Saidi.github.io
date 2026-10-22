@@ -1,4 +1,4 @@
-# SAHATI 0.4 - Démonstration hospitalière reliée
+# SAHATI 0.5 - Démonstration hospitalière reliée
 
 [Ouvrir SAHATI](https://achraf-saidi.github.io/sahati/) · [Guide de démonstration](DEMO_GUIDE.md) · [Présentation PDF](docs/SAHATI_Presentation.pdf)
 
@@ -10,11 +10,13 @@ Accueil et dossier patient, rendez-vous modifiables, consultation reliée, ordon
 
 Nouveautés du 22 octobre 2026 :
 
+- **Sina avec une vraie IA gratuite** : Mistral Small 3.2 via l’accès anonyme OVHcloud, sans compte fournisseur ni clé. Ouvrir Sina → **IA gratuite**. Deux requêtes par minute par IP/modèle, disponibilité non garantie. Les messages saisis et l’historique IA temporaire partent au fournisseur ; aucun dossier, fichier ou contexte local n’est joint automatiquement. Données fictives uniquement. Voir [la connexion IA](SINA_AI.md).
+
 - **Sina déplaçable** : glissement au doigt ou à la souris, ancrage au bord, position mémorisée, commandes clavier et remise à zéro.
 - **Gestion de stock étendue** : demandes des services, réservations FEFO, livraisons partielles et confirmation de réception ; inventaires avec revue des écarts et détection des mouvements concurrents ; répertoire fournisseurs, retours/retraits et bordereaux PDF. Le stock physique, libre et réservé est distingué par article et par lot.
 - **Mise en page arabe** : onglets horizontaux, tableaux alignés, nombres et références isolés, formulaires et contrôles adaptés aux petits écrans.
 
-- **Sina** : assistant de démonstration disponible dès l’accès privé et dans les espaces métiers, questions libres, réponses contextualisées, raccourcis autorisés, quatre langues. Aucun service d’IA ni abonnement externe.
+- **Sina** : assistant de démonstration disponible dès l’accès privé et dans les espaces métiers, questions libres, réponses contextualisées, raccourcis autorisés, quatre langues. Le guide local fonctionne sans service externe ; le mode IA est optionnel.
 - **Mon quotidien** : rappels personnels, export agenda `.ics`, préparation de visite, questions, carnet de ressenti et fiche pratique PDF. Aucun suivi médical automatique.
 - **Pharmacie** : catalogue avec DCI/présentation/unité, paramètres de réapprovisionnement, lots et emplacements, réceptions, commandes et reliquats, comptages motivés, transferts, sorties de service, quarantaine/rappel, délivrance FEFO multi-lots et journal exportable.
 - **Langues** : français, arabe RTL avec police locale, anglais et Tamaziɣt en alphabet latin. Les textes cliniques saisis et les cas pédagogiques gardent leur langue d’origine ; une relecture linguistique spécialisée reste nécessaire.
@@ -28,7 +30,7 @@ Les 14 rôles et 30 espaces sont conservés ou étendus. Le scénario est enregi
 - [Parcours](WORKFLOWS.md), [sécurité et conformité](SECURITY_AND_COMPLIANCE.md)
 - [Roadmap](ROADMAP.md), [guide](DEMO_GUIDE.md), [validation](VALIDATION.md)
 
-103 scénarios automatisés passent, avec build et typage. Les nouveaux parcours ont aussi été examinés dans Chrome, sur écran large et dans un viewport mobile de 390 px, dont le rendu arabe de Sina. Les téléphones physiques et tous les navigateurs ne sont pas couverts. Les contrôles PDF, QR et DICOM de la version précédente sont documentés dans VALIDATION.md.
+118 scénarios automatisés passent, avec build et typage. Les nouveaux parcours ont aussi été examinés dans Chrome, sur écran large et dans un viewport mobile de 390 px, dont le rendu arabe de Sina. Les téléphones physiques et tous les navigateurs ne sont pas couverts. Les contrôles PDF, QR et DICOM de la version précédente sont documentés dans VALIDATION.md.
 
 ## Sources et build
 

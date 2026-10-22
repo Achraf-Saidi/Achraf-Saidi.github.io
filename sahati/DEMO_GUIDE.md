@@ -1,8 +1,14 @@
-# SAHATI — Guide de démonstration 0.4
+# SAHATI — Guide de démonstration 0.5
 
 Ouvrir https://achraf-saidi.github.io/sahati/ puis utiliser les deux codes existants. Ils ne sont pas reproduits dans la documentation. Les comptes de démonstration utilisent `SahatiDemo2026!` ; les adresses par métier sont proposées sur la page de connexion. Aucun compte ChatGPT ni serveur de soins n’intervient dans ce parcours.
 
 **Préparer :** utiliser un navigateur récent, autoriser le stockage, garder le même appareil pour tous les comptes et exporter une sauvegarde avant une démonstration importante. Une reprogrammation ou une action est conservée dans ce coffre. Les données sont fictives ; ne saisir aucune information médicale réelle.
+
+## Nouveauté 0.5 — Sina connecté
+
+Ouvrir la bulle Sina puis **IA gratuite**. Aucun compte fournisseur, clé API ou carte bancaire à configurer. Demander « Explique FEFO avec un exemple fictif » ou « Que peut faire SAHATI ? ». Le badge **Réponse IA reçue** confirme une réponse distante réelle. Le délai entre deux envois ménage le quota anonyme de deux requêtes/minute/IP/modèle. Une erreur affiche sa cause et permet de réessayer ou de revenir au guide local. **Arrêter la réponse** annule la requête ; **Nouvelle conversation** efface les échanges de la session.
+
+Les messages écrits dans ce mode sont envoyés à OVHcloud. Aucun dossier, fichier ni réponse du guide local n’est joint automatiquement. Ne saisir que des exemples fictifs. Le guide local reste le mode initial et conserve les raccourcis autorisés vers vos éléments.
 
 ## Nouveautés 0.4 — environ 6 minutes supplémentaires
 
@@ -14,7 +20,7 @@ Ouvrir https://achraf-saidi.github.io/sahati/ puis utiliser les deux codes exist
 
 ## Nouveautés 0.3 — environ 8 minutes
 
-- Dans chaque page, ouvrir **Sina**. Demander « mon prochain rendez-vous », « mes résultats » ou, avec le compte pharmacie, « mon stock ». Tester un raccourci et le changement de langue. Le bandeau précise que l’IA n’est pas connectée.
+- Dans chaque page, ouvrir **Sina**. Demander « mon prochain rendez-vous », « mes résultats » ou, avec le compte pharmacie, « mon stock ». Tester un raccourci et le changement de langue. Rester en mode **Guide local** pour ces raccourcis ; choisir **IA gratuite** pour une conversation distante sans accès au coffre.
 - Compte patient : ouvrir **Mon quotidien**. Ajouter puis cocher un rappel, préparer la prochaine visite, rédiger une question et une note personnelle, enregistrer un contact fictif. Exporter l’agenda et la fiche PDF. Ces données ne sont pas surveillées par un professionnel.
 - Compte pharmacie : ouvrir **Pharmacie & stocks**. Réceptionner un lot avec une date valide, puis voir sa trace dans **Mouvements**. Créer et confirmer une commande, réceptionner une partie, vérifier le reliquat. Dans **Lots & emplacements**, essayer un transfert et un comptage motivé ; bloquer/libérer un lot.
 - Médecin : créer une ordonnance en choisissant un article du catalogue et son unité ; garder les autres consignes entièrement fictives. Valider, puis compte pharmacie → **Délivrances** → aperçu FEFO → confirmation. Patient : vérifier les lots et quantités de la même ordonnance.

@@ -1,6 +1,6 @@
 {
   "product": "SAHATI",
-  "version": "github-4.0",
+  "version": "github-5.0",
   "url": "https://achraf-saidi.github.io/sahati/",
   "hosting": "GitHub Pages",
   "source": "./source",
@@ -13,8 +13,8 @@
     "business_scenarios": 23,
     "vault_scenarios": 13,
     "connected_scenarios": 13,
-    "dom_scenarios": 16,
-    "total_distinct_scenarios": 103,
+    "dom_scenarios": 21,
+    "total_distinct_scenarios": 118,
     "sqlite_wasm": true,
     "typescript": true,
     "static_build": true,
@@ -25,7 +25,10 @@
     "dicom_independent_read": true,
     "next_generation_scenarios": 19,
     "browser_visual_scope": "Chrome desktop and isolated 390px iframe viewport; disposable synthetic QA data; no physical phone validation",
-    "stock_erp_scenarios": 19
+    "stock_erp_scenarios": 19,
+    "anonymous_ai_client_scenarios": 10,
+    "anonymous_ai_live_post": true,
+    "anonymous_ai_browser_response": true
   },
   "local_transport": "application-request-and-session-callback",
   "credits": "By Achraf Saidi, Ryan Aouf & 21 others",
@@ -48,13 +51,31 @@
   ],
   "amazigh_script": "Latin",
   "sina": {
-    "mode": "local-contextual-demo",
-    "external_ai": false,
+    "mode": "local-guide-with-optional-anonymous-ai",
+    "external_ai": true,
     "conversation_persisted": false,
     "draggable": true,
     "position_persisted": true,
     "pointer_drag_tested": true,
-    "physical_touch_device_tested": false
+    "physical_touch_device_tested": false,
+    "default_mode": "local",
+    "provider": "OVHcloud AI Endpoints",
+    "model": "Mistral-Small-3.2-24B-Instruct-2506",
+    "api_key_required": false,
+    "provider_account_required": false,
+    "anonymous_requests_per_minute_per_ip_per_model": 2,
+    "automatic_record_transmission": false,
+    "outgoing_data": "explicit-online-chat-turns-and-static-system-instructions-only",
+    "chat_history_reset": "mode-account-language-new-conversation",
+    "external_ai_controls": [
+      "explicit-mode-choice",
+      "fictional-data-notice",
+      "abort",
+      "timeout",
+      "quota-delay",
+      "bounded-response",
+      "plain-text-rendering"
+    ]
   },
   "inventory": {
     "catalogue": true,
