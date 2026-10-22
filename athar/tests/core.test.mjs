@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {parseObservation,emptyFields,mergeField,completeness,canApprove,escapeHtml} from '../assets/core.js';
+const a=parseObservation('La pression est de 2,8 bars. Température 24 degrés. Circuit secondaire. Filtre avec encrassement. La dernière date de remplacement n’est pas confirmée.');
+assert.equal(a.detected.pressure.value,'2.8');
+assert.equal(a.detected.temperature.value,'24');
+assert.equal(a.detected.circuit.value,'Circuit secondaire');
+assert.equal(a.detected.replacement.value,null);
+assert.equal(a.detected.replacement.status,'missing');
+assert.equal(parseObservation('Quel temps fait-il ?').unparsed,true);
+assert.equal(parseObservation('La pression est de 5 psi.').detected.pressure,undefined);
+let fields=emptyFields();fields.pressure=mergeField(fields.pressure,a.detected.pressure,'obs1');
+assert.equal(fields.pressure.status,'candidate');
+fields.pressure=mergeField(fields.pressure,{value:'3.0',status:'candidate'},'obs2');
+assert.equal(fields.pressure.status,'conflict');
+assert.equal(completeness(fields).required,4);
+assert.equal(canApprove(fields),false);
+assert.equal(escapeHtml('<script>'), '&lt;script&gt;');
+console.log('ATHAR demo engine: 11 checks passed');
