@@ -45,7 +45,7 @@ def main():
     shutil.copy2(config,backup/'production.env')
     (backup/'release.json').write_text(json.dumps({'core':str(old),'public':str(old_public)}))
     REPORT['backup']=str(backup)
-    destination=ROOT/'releases'/RELEASE
+    destination=ROOT/'releases'/(RELEASE+'-planning')
     if destination.exists():raise RuntimeError('New release already exists; no existing files overwritten.')
     destination.mkdir(mode=0o755)
     archive=backup/'source.tar.gz'
@@ -81,8 +81,8 @@ def main():
     run([str(python),'-c',code,str(migration_check)],env=env)
     with sqlite3.connect(migration_check) as db:
         if db.execute('PRAGMA integrity_check').fetchone()[0]!='ok':raise RuntimeError('Migration rehearsal failed.')
-        REPORT['migration_rehearsed']=db.execute('SELECT MAX(version) FROM schema_migrations').fetchone()[0]
-    public=PUBLIC/'releases'/RELEASE
+        REPORT['migration_rehearsed']=db.execute('SELECT MAX(version) FROM migrations').fetchone()[0]
+    public=PUBLIC/'releases'/(RELEASE+'-planning')
     run([str(python),str(destination/'novalis-os/deploy/prepare-public.py'),'--output',str(public),'--site-url','https://www.novalisai.com','--api-origin','https://app.novalisai.com','--portal-url','https://app.novalisai.com/os/'],timeout=120)
     for path in [public,*public.rglob('*')]:path.chmod(0o755 if path.is_dir() else 0o644)
     if not (public/'assets/launch.js').is_file():raise RuntimeError('Public interactive asset missing.')
