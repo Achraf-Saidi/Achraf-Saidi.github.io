@@ -5,3 +5,10 @@
 /* Keep the demonstration legible at real browsing sizes. */
 .launch-tabs button{font-size:12px;color:#61734f}.launch-card strong{font-size:13px;color:#405a32}.launch-card p{font-size:10px;color:#6c7c5f}.launch-step-buttons b{font-size:11px;color:#71835f}.launch-step-buttons span{font-size:10px;color:#80916f}.launch-control-bottom>span,.launch-bottom-tag{font-size:9px;color:#758564}.launch-control-bottom>button{font-size:11px;color:#58743f}.launch-ready{font-size:10px;color:#657f4b}.launch-approve{font-size:12px}.launch-caption{font-size:12px;color:#62764f}.launch-demo-label{font-size:8px}.launch-intro{color:#65745f}.launch-small,.launch-footer,.launch-proof{color:#77866b}.launch-copy h1 em{font-family:Georgia,'Times New Roman',serif!important;font-style:italic!important}
 @media(max-width:480px){.launch-tabs button{font-size:10px}.launch-card strong{font-size:10px}.launch-card p{font-size:8px}.launch-card-icon{display:none}.launch-step-buttons b{font-size:9px}.launch-step-buttons span{font-size:8px}.launch-control-bottom>span{font-size:8px}.launch-control-bottom>button{font-size:9px}.launch-caption{font-size:10px}.launch-demo-label{font-size:7px}.launch-approve{font-size:10px}.launch-ready{font-size:8px}}
+
+/* Original Novalis promise, fitted to the preserved interactive experience. */
+.launch-copy h1.brand-promise{font-size:clamp(36px,3.45vw,54px);line-height:1.11;letter-spacing:-.052em;max-width:625px}
+.launch-copy h1.brand-promise em{display:block;white-space:normal;font-size:.9em;line-height:1.15;letter-spacing:-.045em;margin-top:.15em}
+@media(max-width:1100px){.launch-copy h1.brand-promise{font-size:clamp(35px,4vw,46px)}}
+@media(max-width:820px){.launch-copy h1.brand-promise{font-size:clamp(36px,6.35vw,56px);max-width:720px;margin-left:auto;margin-right:auto}}
+@media(max-width:480px){.launch-copy h1.brand-promise{font-size:clamp(32px,8.5vw,39px);letter-spacing:-.042em;line-height:1.12}.launch-copy h1.brand-promise em{letter-spacing:-.032em}}
