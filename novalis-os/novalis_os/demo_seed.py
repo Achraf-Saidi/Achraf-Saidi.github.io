@@ -230,8 +230,9 @@ def seed(app, passwords=None):
                                          'vat_basis_points':2100}])
                     total=lines[0]['total_cents']
                     db.execute('''INSERT INTO invoices(id,project_id,external_number,due_date,status,created_at)
-                      VALUES(?,?,?,?,?,?)''',(iid,pid,number,due,inv_status,stamp))
+                      VALUES(?,?,?,?,?,?)''',(iid,pid,number,due,'draft',stamp))
                     replace_lines(db,iid,lines)
+                    db.execute('UPDATE invoices SET status=? WHERE id=?',(inv_status,iid))
                     snap={'recipient':{'name':story['company'],'email':story['contact'],'address':'',
                                          'postal_code':'','city':'','country':'BE','company_number':'ENTREPRISE-FICTIVE','vat_number':''},
                           'seller':seller,'lines':lines,'issue_date':issued,'service_date':iso(story['phases'][0][3]),
