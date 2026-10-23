@@ -146,7 +146,7 @@ def seed(app, passwords=None):
                     db.execute('INSERT INTO phase_tasks(task_id,phase_id) VALUES(?,?)',(task_id,phase_id))
                     if idx==0:
                         first_task=task_id
-                        db.execute('INSERT INTO time_entries VALUES(?,?,?,?,?,?,?, ?, ?,?)',
+                        db.execute('INSERT INTO time_entries VALUES(?,?,?,?,?,?,?,?,?)',
                                    (uid(),task_id,actors['developer'],iso(-8),240,1,
                                     'Atelier et revue des besoins de démonstration','approved',stamp))
                     phase_snap.append({'id':phase_id,'project_id':pid,'milestone_id':milestone_id,'name':name,
