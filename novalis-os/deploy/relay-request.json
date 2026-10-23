@@ -2,8 +2,8 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "disable-mfa-for-requested-direction-account",
-  "script": "novalis-os/deploy/remote-mfa.py",
-  "timeout": 360,
-  "response_public_key": "dZXZzUntvoiLxw3szY/1wgcifUEa5UwnNdQsRPrDa38="
+  "task": "publish-tailored-os-and-engineering-demo",
+  "script": "novalis-os/deploy/remote-engineering.py",
+  "timeout": 600,
+  "response_public_key": "8U84SzwV62SP/TU5Ch+Bo0AI94T2ESnu3m9OwCZe3Qc="
 }
