@@ -20,7 +20,8 @@ class DemoSeedTests(unittest.TestCase):
         self.assertTrue(result['created'])
         self.assertEqual(result['projects'],4)
         self.assertEqual(len(result['profiles']),6)
-        self.assertTrue(all(x['test_mode'] for x in result['invoices']))
+        self.assertTrue(all(x['test_mode'] and x['number'].startswith('DEMO-TEST-NV-') for x in result['invoices']))
+        self.assertEqual(len({x['number'] for x in result['invoices']}),3)
         with self.app.app_context():
             db=get_db()
             self.assertEqual(db.execute('SELECT COUNT(*) FROM projects WHERE org_id=?',(DEMO_ORG,)).fetchone()[0],4)
