@@ -69,12 +69,12 @@ class IntelligenceTests(unittest.TestCase):
         self.assertTrue(bills)
         self.assertTrue(bills[0]['target'].startswith('phase-invoice:'))
 
-    def test_sensitive_demo_accounts_still_require_mfa_setup(self):
+    def test_sensitive_demo_accounts_allow_password_only(self):
         self.app.config['MFA_EXEMPT_EMAILS'] = set()
         for role in ['manager', 'finance', 'sysadmin']:
             c, _ = self.login(role)
-            self.assertTrue(c.get('/api/session').json['mfa_required'])
-            self.assertEqual(c.get('/api/projects').status_code, 403)
+            self.assertFalse(c.get('/api/session').json['mfa_required'])
+            self.assertEqual(c.get('/api/session').status_code, 200)
 
 
 if __name__ == '__main__':

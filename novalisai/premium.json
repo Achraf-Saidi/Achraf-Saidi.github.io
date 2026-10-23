@@ -67,12 +67,12 @@
         "Un périmètre clair, des versions visibles, des usages vérifiés."
       ]
     ],
-    "os_kicker": "VOTRE ESPACE CLIENT · NOVALIS OS",
+    "os_kicker": "NOVALIS OS · VOTRE LOGICIEL MÉTIER SUR MESURE",
     "os_title": [
-      "Votre projet avance.",
-      "Vous le voyez."
+      "Votre bureau d’études.",
+      "Votre propre OS."
     ],
-    "os_copy": "Vous savez ce qui avance, ce qui vous attend et ce que vous validez. Novalis OS réunit le suivi du projet, les documents, vos échanges et les factures dans un espace dédié. Les modalités de paiement par échéances sont définies ensemble dans votre proposition.",
+    "os_copy": "Nous construisons votre Novalis OS autour de vos méthodes : clients, missions, équipes, documents, validations et facturation réunis dans un même outil. Pour les bureaux d’études, cabinets et entreprises de services, avec vos étapes, vos rôles et votre identité.",
     "os_note": "Démonstration interactive · projet exemple",
     "os_tabs": [
       "Vue d’ensemble",
@@ -115,11 +115,11 @@
     "os_history_initial": "Le cahier des charges v2 a été accepté.",
     "os_message": "Le premier parcours de réception est prêt à examiner. Vous pouvez consulter le document puis laisser une décision dans l’onglet dédié.",
     "os_reply": "Les échanges restent attachés au bon projet.",
-    "os_open_real": "Accéder à mon espace client",
+    "os_open_real": "Ouvrir Novalis OS",
     "os_features": [
-      "Un interlocuteur identifié",
-      "Les bonnes informations, au bon endroit",
-      "Des validations rattachées à leur version"
+      "Clients et missions reliés",
+      "Livrables et validations par phase",
+      "Facturation et suivi des règlements"
     ],
     "method_title": [
       "On commence par écouter.",
@@ -581,9 +581,28 @@
     "os_comment_done": "Retour ajouté à cette démonstration. Rien n’a été envoyé ; le contenu disparaît à la fermeture.",
     "os_comment_author": "VOUS / DÉMONSTRATION",
     "os_comment_hint": "Dans votre espace client réel, les échanges du projet sont conservés. Ici, vous pouvez essayer le parcours sans envoyer de message.",
-    "os_banner_title": "Un budget convenu. Des étapes visibles.",
-    "os_banner_copy": "Périmètre, validations et échéances restent lisibles tout au long de la collaboration.",
-    "os_banner_cta": "Voir un exemple de factures"
+    "os_banner_title": "Du premier brief à la facture.",
+    "os_banner_copy": "Nous adaptons les modules, les droits et les circuits de validation à votre organisation.",
+    "os_banner_cta": "Voir un exemple de factures",
+    "os_custom_cta": "Construisons votre Novalis OS",
+    "os_modules": [
+      [
+        "Clients & missions",
+        "Un dossier commun, un responsable et un périmètre clair."
+      ],
+      [
+        "Études & livrables",
+        "Phases, tâches, temps, documents et versions réunis."
+      ],
+      [
+        "Portail client",
+        "Échanges et accords rattachés à la bonne version."
+      ],
+      [
+        "Facturation",
+        "Échéances par phase et suivi des règlements."
+      ]
+    ]
   },
   "en": {
     "nav": [
@@ -653,12 +672,12 @@
         "A clear scope, visible versions and verified uses."
       ]
     ],
-    "os_kicker": "YOUR CLIENT WORKSPACE · NOVALIS OS",
+    "os_kicker": "NOVALIS OS · CUSTOM BUSINESS SOFTWARE",
     "os_title": [
-      "Your project moves forward.",
-      "You see it happen."
+      "Your engineering firm.",
+      "Your own OS."
     ],
-    "os_copy": "See what is moving forward, what comes next and what needs your approval. Novalis OS brings project progress, documents, conversations and invoices into one dedicated workspace. Payment stages are agreed together in your proposal.",
+    "os_copy": "We build your Novalis OS around the way you work: clients, assignments, teams, documents, approvals and invoicing in one place. For engineering firms, consultancies and service businesses, with your workflow, roles and identity.",
     "os_note": "Interactive demonstration · example project",
     "os_tabs": [
       "Overview",
@@ -1169,7 +1188,26 @@
     "os_comment_hint": "Conversations are saved in your real client workspace. Here, you can try the journey without sending a message.",
     "os_banner_title": "An agreed budget. Visible stages.",
     "os_banner_copy": "Scope, approvals and due dates remain clear throughout the collaboration.",
-    "os_banner_cta": "See example invoices"
+    "os_banner_cta": "See example invoices",
+    "os_custom_cta": "Let’s build your Novalis OS",
+    "os_modules": [
+      [
+        "Clients & assignments",
+        "One shared file, an owner and a clear scope."
+      ],
+      [
+        "Studies & deliverables",
+        "Phases, tasks, time, documents and versions."
+      ],
+      [
+        "Client portal",
+        "Discussions and approvals tied to the right version."
+      ],
+      [
+        "Invoicing",
+        "Phase-based billing and payment tracking."
+      ]
+    ]
   },
   "nl": {
     "nav": [
@@ -1239,12 +1277,12 @@
         "Een duidelijke scope, zichtbare versies en getoetst gebruik."
       ]
     ],
-    "os_kicker": "UW KLANTOMGEVING · NOVALIS OS",
+    "os_kicker": "NOVALIS OS · BEDRIJFSSOFTWARE OP MAAT",
     "os_title": [
-      "Uw project gaat vooruit.",
-      "U ziet het gebeuren."
+      "Uw studiebureau.",
+      "Uw eigen OS."
     ],
-    "os_copy": "Zie wat vooruitgaat, wat volgt en wat uw goedkeuring vraagt. Novalis OS bundelt projectvoortgang, documenten, gesprekken en facturen in een eigen omgeving. Betalingstermijnen worden samen vastgelegd in uw voorstel.",
+    "os_copy": "Wij bouwen uw Novalis OS rond uw werkwijze: klanten, opdrachten, teams, documenten, goedkeuringen en facturatie in één tool. Voor studiebureaus, advieskantoren en dienstverleners, met uw processen, rollen en identiteit.",
     "os_note": "Interactieve demonstratie · voorbeeldproject",
     "os_tabs": [
       "Overzicht",
@@ -1755,7 +1793,26 @@
     "os_comment_hint": "In uw echte klantomgeving blijven projectgesprekken bewaard. Hier probeert u het traject zonder een bericht te versturen.",
     "os_banner_title": "Een afgesproken budget. Zichtbare stappen.",
     "os_banner_copy": "Scope, goedkeuringen en vervaldata blijven duidelijk tijdens de samenwerking.",
-    "os_banner_cta": "Voorbeeldfacturen bekijken"
+    "os_banner_cta": "Voorbeeldfacturen bekijken",
+    "os_custom_cta": "Samen uw Novalis OS bouwen",
+    "os_modules": [
+      [
+        "Klanten & opdrachten",
+        "Eén dossier met een verantwoordelijke en duidelijke scope."
+      ],
+      [
+        "Studies & opleveringen",
+        "Fasen, taken, uren, documenten en versies."
+      ],
+      [
+        "Klantenportaal",
+        "Overleg en goedkeuringen bij de juiste versie."
+      ],
+      [
+        "Facturatie",
+        "Facturatie per fase en opvolging van betalingen."
+      ]
+    ]
   },
   "de": {
     "nav": [
@@ -1825,12 +1882,12 @@
         "Ein klarer Umfang, sichtbare Versionen und geprüftes Verhalten."
       ]
     ],
-    "os_kicker": "IHR KUNDENBEREICH · NOVALIS OS",
+    "os_kicker": "NOVALIS OS · MASSGESCHNEIDERTE FIRMENSOFTWARE",
     "os_title": [
-      "Ihr Projekt kommt voran.",
-      "Sie sehen es."
+      "Ihr Ingenieurbüro.",
+      "Ihr eigenes OS."
     ],
-    "os_copy": "Sehen Sie, was vorankommt, was als Nächstes ansteht und was Sie freigeben. Novalis OS bündelt Fortschritt, Dokumente, Gespräche und Rechnungen in einem eigenen Bereich. Zahlungsetappen werden gemeinsam im Angebot vereinbart.",
+    "os_copy": "Wir entwickeln Ihr Novalis OS passend zu Ihren Abläufen: Kunden, Aufträge, Teams, Dokumente, Freigaben und Rechnungen in einem System. Für Ingenieurbüros, Beratungen und Dienstleister, mit Ihren Prozessen, Rollen und Ihrer Identität.",
     "os_note": "Interaktive Demonstration · Beispielprojekt",
     "os_tabs": [
       "Übersicht",
@@ -2341,6 +2398,25 @@
     "os_comment_hint": "In Ihrem echten Kundenbereich bleiben Projektgespräche gespeichert. Hier können Sie den Ablauf ohne Versand ausprobieren.",
     "os_banner_title": "Ein vereinbartes Budget. Sichtbare Etappen.",
     "os_banner_copy": "Umfang, Freigaben und Fälligkeiten bleiben während der Zusammenarbeit verständlich.",
-    "os_banner_cta": "Beispielrechnungen ansehen"
+    "os_banner_cta": "Beispielrechnungen ansehen",
+    "os_custom_cta": "Ihr Novalis OS gemeinsam entwickeln",
+    "os_modules": [
+      [
+        "Kunden & Aufträge",
+        "Eine Akte mit Zuständigkeit und klarem Umfang."
+      ],
+      [
+        "Studien & Ergebnisse",
+        "Phasen, Aufgaben, Zeiten, Dokumente und Versionen."
+      ],
+      [
+        "Kundenportal",
+        "Austausch und Freigaben zur richtigen Version."
+      ],
+      [
+        "Rechnungen",
+        "Abrechnung je Phase und Zahlungsverfolgung."
+      ]
+    ]
   }
 }
