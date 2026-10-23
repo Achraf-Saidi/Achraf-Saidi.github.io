@@ -51,7 +51,7 @@ def seed_engineering(app):
    for r in ['manager','developer']:db.execute('INSERT INTO project_members VALUES(?,?)',(PROJECT,ids[r]))
    phases=[]
    for i,(name,price,start,end,status,tasks) in enumerate(PHASES):
-    phase=uid();milestone=uid();taskids=[]
+    phase=uid();milestone=uid();taskids=[];workday=0
     acceptance=['Diagnostic complet et périmètre approuvé.','Variante B et plans de principe acceptés.','Effectifs confirmés, relevé électrique reçu et note CVC validée.','Cohérence des pièces et accord de diffusion.','Décisions techniques et réserves documentées.','Dossier final transmis et réserves levées.'][i]
     db.execute('INSERT INTO milestones(id,project_id,name,due_date,description,status) VALUES(?,?,?,?,?,?)',(milestone,PROJECT,name,day(end),acceptance,status))
     db.execute('INSERT INTO project_phases(id,project_id,milestone_id,name,description,acceptance,starts_on,due_date,price_cents,vat_basis_points,position,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',
@@ -66,7 +66,7 @@ def seed_engineering(app):
       minutes=estimate if i<2 else estimate//2
       while minutes:
        part=min(480,minutes);minutes-=part
-       db.execute('INSERT INTO time_entries VALUES(?,?,?,?,?,?,?,?,?)',(uid(),task,ids['developer'],day(start+j),part,1,'Étude fictive · '+title,'approved' if i<2 else 'submitted',stamp))
+       db.execute('INSERT INTO time_entries VALUES(?,?,?,?,?,?,?,?,?)',(uid(),task,ids['developer'],day(start+workday),part,1,'Étude fictive · '+title,'approved' if i<2 else 'submitted',stamp));workday+=1
     phases.append(dict(id=phase,project_id=PROJECT,milestone_id=milestone,name=name,description='\n'.join(t[0] for t in tasks),acceptance=acceptance,starts_on=day(start),due_date=day(end),price_cents=price,vat_basis_points=2100,position=i,status=status,task_ids=taskids))
    stakeholders=[]
    for name,org,responsibility,category,visibility in [
@@ -100,8 +100,8 @@ def seed_engineering(app):
    for name,channel,body in document_texts:
     ident=uid();payload=body.encode();path=Path(app.config['FILES_DIR'])/ident;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(payload);path.chmod(0o600)
     db.execute('INSERT INTO documents VALUES(?,?,?,?,?,?,?,?,?)',(ident,PROJECT,ids['account'],channel,name,'text/plain',len(payload),hashlib.sha256(payload).hexdigest(),stamp))
-    db.execute('INSERT INTO document_versions VALUES(?,?,NULL,1)',(ident,ident));docs.append(dict(id=ident,filename=name,channel=channel))
-   spec=uid();snapshot=dict(project=dict(id=PROJECT,name='Horizon · rénovation énergétique (démo)',scope=sections['scope'],due_date=day(84)),client=dict(name='ATELIER HORIZON — DÉMONSTRATION'),phases=phases,stakeholders=[s for s in stakeholders if s['visibility']=='shared'],team=[],documents=[d for d in docs if d['channel']=='external'],graph=dict(nodes=[],edges=[],positions={},version=0),total_cents=3600000,frozen_at=stamp)
+    db.execute('INSERT INTO document_versions VALUES(?,?,NULL,1)',(ident,ident));docs.append(dict(id=ident,filename=name,channel=channel,mime='text/plain',size=len(payload),sha256=hashlib.sha256(payload).hexdigest()))
+   spec=uid();snapshot=dict(project=dict(id=PROJECT,name='Horizon · rénovation énergétique (démo)',scope=sections['scope'],due_date=day(84)),client=dict(name='ATELIER HORIZON — DÉMONSTRATION'),phases=phases,stakeholders=[s for s in stakeholders if s['visibility']=='shared'],team=[dict(id=ids[r],name=actors[r]['name'],role=r) for r in ['manager','account','developer','client']],documents=[d for d in docs if d['channel']=='external'],graph=dict(nodes=[],edges=[],positions={},version=0),total_cents=3600000,frozen_at=stamp)
    db.execute('INSERT INTO project_specs(id,project_id,number,title,sections,attachments,snapshot,status,created_by,created_at,shared_at,manager_by,manager_at,manager_name,client_by,client_at,client_name) VALUES(?,?,1,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
     (spec,PROJECT,'Mission ingénierie · périmètre accepté (scénario fictif)',json.dumps(sections),json.dumps([d['id'] for d in docs if d['channel']=='external']),json.dumps(snapshot),'accepted',ids['manager'],stamp,stamp,ids['manager'],stamp,actors['manager']['name'],ids['client'],stamp,actors['client']['name']))
    for role,channel,body in [('account','external','Bienvenue dans la mission Horizon. Diagnostic et avant-projet acceptés ; les études attendent votre confirmation des effectifs. Consultez la note CVC v2 avant de valider le jalon.'),('client','external','La variante B est retenue. Merci de préserver l’accès aux bureaux et de chiffrer séparément une option photovoltaïque.'),('developer','internal','Ne pas figer les protections avant réception du relevé électrique. Deux conflits de réseaux restent à revoir avec l’architecte.'),('account','external','L’option photovoltaïque est en analyse : 2 400 € HT et cinq jours indicatifs, hors contrat actuel. Aucun travail supplémentaire engagé.')]:

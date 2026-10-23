@@ -13,9 +13,14 @@ class EngineeringTests(DemoSeedTests):
    self.assertEqual(db.execute('SELECT sum(price_cents) FROM project_phases WHERE project_id=?',(PROJECT,)).fetchone()[0],3600000)
    self.assertEqual(db.execute('SELECT count(*) FROM tasks WHERE project_id=?',(PROJECT,)).fetchone()[0],18)
    self.assertEqual(db.execute('SELECT count(*) FROM documents WHERE project_id=?',(PROJECT,)).fetchone()[0],5)
+   spec=db.execute('SELECT id FROM project_specs WHERE project_id=?',(PROJECT,)).fetchone()[0]
+   invoices=[r[0] for r in db.execute('SELECT id FROM invoices WHERE project_id=?',(PROJECT,))]
   for r,(email,_) in ROLES.items():
    c=self.app.test_client();res=c.post('/api/auth/login',json={'email':email,'password':credentials[r]},headers={'Origin':'http://localhost:5000'})
    self.assertEqual(res.status_code,200,res.json);self.assertFalse(res.json['mfa_required'])
    self.assertEqual(c.get('/api/session').status_code,200)
    if r in ('manager','account','developer','client'):
     result=c.get('/api/projects/'+PROJECT);self.assertEqual(result.status_code,200,result.json)
+   if r in ('manager','client'):
+    for path in ['/api/planning/specs/'+spec+'/pdf','/api/planning/'+PROJECT+'/dossier/pdf']+['/api/billing/'+i+'/pdf' for i in invoices]:
+     pdf=c.get(path);self.assertEqual(pdf.status_code,200,path);self.assertTrue(pdf.data.startswith(b'%PDF'))
