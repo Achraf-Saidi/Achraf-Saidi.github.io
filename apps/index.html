@@ -3,46 +3,79 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0d1117">
+  <meta name="theme-color" content="#0b111b">
+  <meta name="description" content="Espace de lancement des projets et applications d'Achraf.">
   <meta name="robots" content="noindex,nofollow">
-  <title>Projets</title>
+  <title>Mes projets — Workspace</title>
   <link rel="stylesheet" href="./assets/styles.css">
   <script src="./assets/portal.js" defer></script>
 </head>
 <body class="portal">
-  <div class="app-layout">
-    <aside class="side-nav">
-      <a href="./" class="side-brand" aria-label="Accueil projets">A<span>/</span>R</a>
-      <div class="side-nav-links">
-        <a class="side-link selected" href="./"><span class="side-icon">▦</span><span>Projets</span></a>
-        <a class="side-link" href="./finances/"><span class="side-icon">◈</span><span>Finances</span></a>
-      </div>
-      <a class="side-bottom" href="../">Site personnel ↗</a>
-    </aside>
-    <div class="main-view">
-      <header class="workspace-header">
-        <span class="workspace-label">MES OUTILS</span>
-        <a class="header-link" href="https://github.com/Achraf-Saidi" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      </header>
-      <main class="workspace-content">
-        <div class="page-heading"><div><h1>Projets</h1><p>Accès direct</p></div><span class="count">08</span></div>
-        <div class="tiles">
-          <a class="tool-tile" href="../sahati/" target="_blank" rel="noopener noreferrer"><div class="tool-mark" style="--tone:#64c0ae">✚</div><div class="tile-body"><h2>SAHATI</h2><span>Santé</span></div><span class="tile-arrow">↗</span></a>
-          <a class="tool-tile" href="../numeria/" target="_blank" rel="noopener noreferrer"><div class="tool-mark" style="--tone:#b1a3f5">N</div><div class="tile-body"><h2>Numeria</h2><span>Éducation</span></div><span class="tile-arrow">↗</span></a>
-          <a class="tool-tile" href="../djezz/" target="_blank" rel="noopener noreferrer"><div class="tool-mark" style="--tone:#e49dc5">D</div><div class="tile-body"><h2>DJEZZ</h2><span>Application</span></div><span class="tile-arrow">↗</span></a>
-          <a class="tool-tile" href="../aion/" target="_blank" rel="noopener noreferrer"><div class="tool-mark" style="--tone:#82aff1">◎</div><div class="tile-body"><h2>AION</h2><span>Jumeau médical</span></div><span class="tile-arrow">↗</span></a>
-          <div class="tool-tile configurable" data-project="jetnext"><div class="tool-mark" style="--tone:#f6b76f">J</div><div class="tile-body"><h2>JetNext</h2><span>Entreprise</span></div><button class="tile-setting link-config" data-configure="jetnext" type="button">Ajouter le lien →</button></div>
-          <a class="tool-tile" href="../athar/" target="_blank" rel="noopener noreferrer"><div class="tool-mark" style="--tone:#d9bf86">△</div><div class="tile-body"><h2>ATHAR</h2><span>Opérations</span></div><span class="tile-arrow">↗</span></a>
-          <a class="tool-tile" href="https://app.novalisai.com/os/" target="_blank" rel="noopener noreferrer"><div class="tool-mark" style="--tone:#9fc9d8">N.</div><div class="tile-body"><h2>Novalis OS</h2><span>ERP</span></div><span class="tile-arrow">↗</span></a>
-          <a class="tool-tile finance-tile" href="./finances/"><div class="tool-mark" style="--tone:#e4c18e">A&R</div><div class="tile-body"><h2>Achraf & Rayan</h2><span>Finances</span></div><span class="tile-arrow">↗</span></a>
-        </div>
-      </main>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar frame">
+    <a class="identity" href="../" aria-label="Retour au site principal"><span class="mark">A<span class="mark-divider">/</span>S</span><span>MES PROJETS<br><b>WORKSPACE</b></span></a>
+    <div class="topright"><span class="online"><i></i> ACCÈS DIRECT</span><a href="https://github.com/Achraf-Saidi" target="_blank" rel="noopener noreferrer" class="toplink">GitHub <span>↗</span></a></div>
+  </header>
+  <main class="frame landing-main">
+    <div class="hero-copy">
+      <p class="overline"><span class="tiny-star">✳</span> ACHRAF / WORKSPACE <span class="hero-line"></span> 2026</p>
+      <h1>Mes projets.<br><span>Tous mes outils.</span></h1>
+      <p class="lede">Toutes mes applications, au même endroit.</p>
+      <div class="quickstats"><span><b>07</b> applications</span><span class="statdiv"></span><span><b>01</b> espace financier</span></div>
     </div>
-  </div>
+    <section class="catalogue" aria-labelledby="catalogue-title">
+      <div class="section-caption"><div><p class="overline">01 / APPLICATIONS</p><h2 id="catalogue-title">Applications</h2></div><span class="muted small">Accès direct · 08 espaces</span></div>
+      <div class="project-grid">
+        <a class="project-card" href="../sahati/" target="_blank" rel="noopener noreferrer" style="--accent:#47ddba;--glow:rgba(71,221,186,.11)">
+          <div class="card-top"><span class="project-glyph glyph-health">✚</span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">SAHATI</div><p>Gestion et services de santé.</p>
+          <div class="card-bottom"><span class="category">HEALTHCARE · ERP</span><span class="go">Ouvrir <span>→</span></span></div>
+        </a>
+        <a class="project-card" href="../numeria/" target="_blank" rel="noopener noreferrer" style="--accent:#aaa1ff;--glow:rgba(170,161,255,.13)">
+          <div class="card-top"><span class="project-glyph glyph-numeria">N<span class="glyph-dot">.</span></span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">NUMERIA</div><p>Formation numérique et IA.</p>
+          <div class="card-bottom"><span class="category">EDUCATION · TECH</span><span class="go">Ouvrir <span>→</span></span></div>
+        </a>
+        <a class="project-card" href="../djezz/" target="_blank" rel="noopener noreferrer" style="--accent:#e5a8db;--glow:rgba(229,168,219,.11)">
+          <div class="card-top"><span class="project-glyph glyph-djezz">D<span class="glyph-dot">✦</span></span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">DJEZZ</div><p>Application DJEZZ.</p>
+          <div class="card-bottom"><span class="category">DIGITAL PRODUCT</span><span class="go">Ouvrir <span>→</span></span></div>
+        </a>
+        <a class="project-card" href="../aion/" target="_blank" rel="noopener noreferrer" style="--accent:#68b6fb;--glow:rgba(104,182,251,.14)">
+          <div class="card-top"><span class="project-glyph glyph-aion">◎</span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">AION</div><p>Jumeau médical interactif.</p>
+          <div class="card-bottom"><span class="category">MEDICAL · RESEARCH</span><span class="go">Ouvrir <span>→</span></span></div>
+        </a>
+        <div class="project-card card-configurable" style="--accent:#f6b76f;--glow:rgba(246,183,111,.10)" data-project="jetnext">
+          <div class="card-top"><span class="project-glyph glyph-jet">J<span class="glyph-dot">↗</span></span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">JETNEXT</div><p>Entreprise et projets.</p>
+          <div class="card-bottom"><span class="category">VENTURE · BUSINESS</span><button class="go link-config" type="button" data-configure="jetnext">Ajouter le lien <span>→</span></button></div>
+        </div>
+        <a class="project-card" href="../athar/" target="_blank" rel="noopener noreferrer" style="--accent:#edb977;--glow:rgba(237,185,119,.10)">
+          <div class="card-top"><span class="project-glyph glyph-athar">△</span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">ATHAR</div><p>Rapports et suivi terrain.</p>
+          <div class="card-bottom"><span class="category">OPERATIONS · AI</span><span class="go">Ouvrir <span>→</span></span></div>
+        </a>
+        <a class="project-card" href="https://app.novalisai.com/os/" target="_blank" rel="noopener noreferrer" style="--accent:#8bc3fc;--glow:rgba(139,195,252,.10)">
+          <div class="card-top"><span class="project-glyph glyph-novalis">N<span class="glyph-dot">✶</span></span><span class="out-arrow" aria-hidden="true">↗</span></div>
+          <div class="project-title">NOVALIS OS</div><p>ERP et gestion de projets.</p>
+          <div class="card-bottom"><span class="category">BUSINESS · ERP</span><span class="go">Ouvrir <span>→</span></span></div>
+        </a>
+        <a class="project-card finance-tile" href="./finances/">
+          <div class="card-top"><span class="finance-glyph">A<span>×</span>R</span><span class="lock-icon" aria-hidden="true">♙</span></div>
+          <div class="project-title">ACHRAF <span class="amp">&</span> RAYAN</div><p>Participations et finances communes.</p>
+          <div class="card-bottom"><span class="category">PRIVÉ · FINANCES</span><span class="go">Accéder <span>→</span></span></div>
+        </a>
+      </div>
+    </section>
+    <footer class="portal-footer"><span>© 2026 · ACHRAF SAIDI</span><span>Projets & outils.</span><a href="../">Site personnel ↗</a></footer>
+  </main>
   <dialog class="modal" id="linkDialog" aria-labelledby="linkTitle">
     <form id="linkForm">
-      <h2 id="linkTitle">Lien JetNext</h2>
-      <label for="projectUrl">URL HTTPS</label>
+      <div class="modal-icon">↗</div><h2 id="linkTitle">Configurer JetNext</h2>
+      <p>Lien enregistré sur cet appareil.</p>
+      <label for="projectUrl">ADRESSE HTTPS</label>
       <input type="url" id="projectUrl" placeholder="https://..." required pattern="https://.*">
       <p class="form-error" id="linkError" role="alert"></p>
       <div class="modal-actions"><button class="btn secondary" type="button" id="cancelLink">Annuler</button><button class="btn primary" type="submit">Enregistrer</button></div>
