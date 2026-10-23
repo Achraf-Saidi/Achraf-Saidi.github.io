@@ -184,7 +184,7 @@ def publish(identifier):
         seq=row('SELECT number FROM billing_sequences WHERE org_id=? AND year=? AND test_mode=?',(g.user['org_id'],year,doc['test_mode']))
         number=(seq['number'] if seq else 0)+1
         db.execute('INSERT INTO billing_sequences VALUES(?,?,?,?) ON CONFLICT(org_id,year,test_mode) DO UPDATE SET number=excluded.number',(g.user['org_id'],year,doc['test_mode'],number))
-        reference=('TEST-' if doc['test_mode'] else '')+f'NV-{year}-{number:05d}'
+        reference=('DEMO-TEST-' if doc['test_mode'] and g.user['org_id']=='novalis-demo' else 'TEST-' if doc['test_mode'] else '')+f'NV-{year}-{number:05d}'
         db.execute('UPDATE billing_documents SET snapshot=?,issued_at=?,published_at=?,version=version+1 WHERE invoice_id=?',(json.dumps(snap),now(),now(),identifier))
         db.execute("UPDATE invoices SET external_number=?,status='registered' WHERE id=?",(reference,identifier))
         for u in rows("SELECT id FROM users WHERE client_id=? AND status='active'",(project_access(inv['project_id'],finances=True)['client_id'],)):notify(u['id'],'billing.invoice',identifier,'Une facture est disponible dans votre espace.')
