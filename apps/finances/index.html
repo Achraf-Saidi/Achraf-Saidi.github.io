@@ -1,140 +1,68 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0d1117">
-  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b111b"><meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="referrer" content="no-referrer">
-  <title>Finances — Achraf & Rayan</title>
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="description" content="Espace financier privé chiffré.">
+  <title>Achraf & Rayan — Espace financier</title>
   <link rel="stylesheet" href="../assets/styles.css">
   <script src="../assets/vault.js" defer></script>
 </head>
 <body class="vault">
-  <div class="app-layout">
-    <aside class="side-nav">
-      <a href="../" class="side-brand">A<span>/</span>R</a>
-      <div class="side-nav-links">
-        <a class="side-link" href="../"><span class="side-icon">▦</span><span>Projets</span></a>
-        <a class="side-link selected" href="./"><span class="side-icon">◈</span><span>Finances</span></a>
-      </div>
-      <a class="side-bottom" href="../">← Projets</a>
-    </aside>
-    <div class="main-view">
-      <header class="workspace-header">
-        <span class="workspace-label">ACHRAF & RAYAN</span>
-        <button class="header-link" id="lockButton" hidden type="button">Verrouiller</button>
-      </header>
-      <main class="workspace-content">
-        <section class="unlock-layout" id="lockPanel">
-          <form class="unlock-card" id="unlockForm">
-            <div class="unlock-symbol">A<span>&</span>R</div>
-            <h1 id="unlockHeading">Finances</h1>
-            <label for="vaultPassword">Mot de passe</label>
-            <div class="password-line">
-              <input id="vaultPassword" type="password" autocomplete="current-password" required autofocus placeholder="••••••••••••" spellcheck="false">
-              <button class="eye-button" id="togglePassword" type="button" aria-label="Afficher le mot de passe">Afficher</button>
-            </div>
-            <button class="btn primary wide" id="unlockButton" type="submit"><span>Entrer</span><span>→</span></button>
-            <p class="form-error" id="unlockError" role="alert" aria-live="polite"></p>
-          </form>
+  <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar frame">
+    <a class="identity" href="../"><span class="mark">A<span class="mark-divider">×</span>R</span><span>ACHRAF & RAYAN<br><b>PRIVATE FINANCE</b></span></a>
+    <div class="topright"><a class="toplink" href="../">← Tous les projets</a><button class="toplink signout" id="lockButton" hidden type="button">Verrouiller <span>⌁</span></button></div>
+  </header>
+  <main class="frame vault-main">
+    <section class="unlock-layout" id="lockPanel" aria-labelledby="unlockHeading">
+      <div class="unlock-description"><p class="overline">ACHRAF & RAYAN</p><h1>Nos finances.<br><span>En détail.</span></h1><p class="lede">Résultats, participations, réserve commune.</p><div class="secure-caption"><span>◈</span><div><b>Données chiffrées</b><small>Accès par mot de passe.</small></div></div></div>
+      <form class="unlock-card" id="unlockForm">
+        <div class="big-lock" aria-hidden="true">✳</div><p class="overline">ACCÈS RESTREINT</p><h2 id="unlockHeading">Accès financier</h2><p>Mot de passe requis.</p>
+        <label for="vaultPassword">MOT DE PASSE</label><div class="password-line"><input id="vaultPassword" type="password" autocomplete="current-password" required placeholder="Votre mot de passe" spellcheck="false"><button class="eye-button" id="togglePassword" type="button" aria-label="Afficher le mot de passe">Afficher</button></div>
+        <button class="btn primary wide" id="unlockButton" type="submit"><span>Déverrouiller l'espace</span><span>→</span></button><p class="form-error" id="unlockError" role="alert" aria-live="polite"></p>
+        <div class="unlock-footnote">Données chiffrées</div>
+      </form>
+    </section>
+    <section class="dashboard" id="dashboard" hidden aria-labelledby="dashboardTitle">
+      <div class="dashboard-heading"><div><p class="overline">ACHRAF & RAYAN</p><h1 id="dashboardTitle">Finances<span class="title-dot">.</span></h1><p class="muted">Mise à jour : <span id="updatedAt">—</span></p></div><div class="dashboard-tools"><div class="currency-toggle" role="group" aria-label="Unité monétaire"><button type="button" class="active" data-unit="centimes">Centimes</button><button type="button" data-unit="dzd">DZD</button></div><button class="btn secondary btn-sm" type="button" id="downloadEncrypted">↓ Sauvegarde chiffrée</button></div></div>
+      <div class="disclaimer-inline"><span>ⓘ</span>Résultats indicatifs · Parts calculées, non distribuées.</div>
+      <section class="metric-grid" aria-label="Indicateurs consolidés">
+        <article class="metric"><span class="metric-label">Résultat net</span><strong id="kpiTotal" class="metric-value">—</strong><small>4 projets</small><span class="metric-foot">PORTFOLIO NET</span></article>
+        <article class="metric"><span class="metric-label">Part Achraf</span><strong id="kpiAchraf" class="metric-value">—</strong><small>Parts connues</small><span class="metric-foot">ACHRAF</span></article>
+        <article class="metric"><span class="metric-label">Part Rayan</span><strong id="kpiRayan" class="metric-value">—</strong><small>Projets à répartition connue</small><span class="metric-foot">RAYAN</span></article>
+        <article class="metric metric-reserve"><span class="metric-label">Réserve commune</span><strong id="kpiReserve" class="metric-value">—</strong><small>Simulation</small><span class="metric-foot">FUTURE FUND ↗</span></article>
+      </section>
+      <div class="layout-halves">
+        <section class="analytics-panel" aria-labelledby="breakdownTitle"><div class="panel-heading"><div><p class="overline">01 / RÉSULTATS</p><h2 id="breakdownTitle">Résultats par projet</h2></div><span class="small muted">4 projets</span></div><div id="portfolioBars" class="portfolio-bars" aria-label="Comparaison visuelle des soldes"></div><div class="legend"><span><i class="legend-dot positive"></i> Positif</span><span><i class="legend-dot negative"></i> Négatif</span></div></section>
+        <section class="analytics-panel" aria-labelledby="reserveTitle"><div class="panel-heading"><div><p class="overline">02 / RÉINVESTISSEMENT</p><h2 id="reserveTitle">Réinvestissement</h2></div><span class="finance-micro">SIMULATION</span></div><p class="panel-description">Réserve simulée sur nos parts nettes positives.</p>
+          <div class="rate-top"><span>Taux de réserve</span><strong id="rateDisplay">20 %</strong></div><input id="reserveSlider" type="range" min="0" max="100" step="5" value="20" aria-label="Pourcentage de réserve"><div class="range-ends"><span>0 %</span><span>100 %</span></div>
+          <div class="reserve-results"><div><span>Achraf</span><strong id="reserveAchraf">—</strong></div><div><span>Rayan</span><strong id="reserveRayan">—</strong></div><div class="reserve-total"><span>Réserve totale</span><strong id="reserveTotal">—</strong></div></div>
+          <button class="btn secondary btn-sm" id="saveReserve" type="button">Enregistrer le taux</button><p class="hint" id="saveStatus" aria-live="polite"></p>
         </section>
-        <section class="dashboard" id="dashboard" hidden aria-labelledby="dashboardTitle">
-          <div class="dashboard-heading">
-            <div><h1 id="dashboardTitle">Finances</h1><p class="muted">Mis à jour : <span id="updatedAt">—</span></p></div>
-            <div class="dashboard-tools">
-              <div class="currency-toggle" role="group" aria-label="Unité monétaire">
-                <button type="button" class="active" data-unit="centimes">Centimes</button>
-                <button type="button" data-unit="dzd">DZD</button>
-              </div>
-              <button class="btn secondary btn-sm" type="button" id="downloadEncrypted">Exporter</button>
-            </div>
-          </div>
-          <section class="metric-grid" aria-label="Totaux">
-            <article class="metric"><span class="metric-label">Résultat net</span><strong id="kpiTotal" class="metric-value">—</strong><small>4 projets</small></article>
-            <article class="metric"><span class="metric-label">Achraf</span><strong id="kpiAchraf" class="metric-value">—</strong><small>Part calculée</small></article>
-            <article class="metric"><span class="metric-label">Rayan</span><strong id="kpiRayan" class="metric-value">—</strong><small>Part calculée</small></article>
-            <article class="metric metric-reserve"><span class="metric-label">Réserve simulée</span><strong id="kpiReserve" class="metric-value">—</strong><small>Futurs projets</small></article>
-          </section>
-          <div class="layout-halves">
-            <section class="analytics-panel" aria-labelledby="breakdownTitle">
-              <div class="panel-heading"><h2 id="breakdownTitle">Résultats par projet</h2></div>
-              <div id="portfolioBars" class="portfolio-bars"></div>
-              <div class="legend"><span><i class="legend-dot positive"></i> Positif</span><span><i class="legend-dot negative"></i> Négatif</span></div>
-            </section>
-            <section class="analytics-panel" aria-labelledby="reserveTitle">
-              <div class="panel-heading"><h2 id="reserveTitle">Réinvestissement</h2><span class="small muted">Simulation</span></div>
-              <div class="rate-top"><span>Taux de réserve</span><strong id="rateDisplay">20 %</strong></div>
-              <input id="reserveSlider" type="range" min="0" max="100" step="5" value="20" aria-label="Pourcentage de réserve">
-              <div class="range-ends"><span>0 %</span><span>100 %</span></div>
-              <div class="reserve-results">
-                <div><span>Achraf</span><strong id="reserveAchraf">—</strong></div>
-                <div><span>Rayan</span><strong id="reserveRayan">—</strong></div>
-                <div class="reserve-total"><span>Réserve totale</span><strong id="reserveTotal">—</strong></div>
-              </div>
-              <button class="btn secondary btn-sm" id="saveReserve" type="button">Enregistrer</button>
-              <p class="hint" id="saveStatus" aria-live="polite"></p>
-            </section>
-          </div>
-          <section class="analytics-panel table-panel" aria-labelledby="shareTitle">
-            <div class="panel-heading"><h2 id="shareTitle">Participations</h2><span class="small muted">Modifiable</span></div>
-            <div class="table-scroll">
-              <table class="finance-table">
-                <thead><tr><th>Projet</th><th>Résultat</th><th>Achraf</th><th>Montant</th><th>Rayan</th><th>Montant</th><th>Autres</th><th><span class="sr-only">Modifier</span></th></tr></thead>
-                <tbody id="shareRows"></tbody><tfoot id="shareFooter"></tfoot>
-              </table>
-            </div>
-            <p class="table-note">Numeria : parts à renseigner. Montants théoriques.</p>
-          </section>
-          <div class="layout-halves">
-            <section class="analytics-panel" aria-labelledby="availableTitle">
-              <div class="panel-heading"><h2 id="availableTitle">Après réserve</h2></div>
-              <div class="available-row"><div><span>Achraf</span><b id="availableAchraf">—</b></div><div class="split-track"><span id="splitAchraf"></span></div></div>
-              <div class="available-row"><div><span>Rayan</span><b id="availableRayan">—</b></div><div class="split-track"><span id="splitRayan"></span></div></div>
-            </section>
-            <section class="analytics-panel" aria-labelledby="envelopesTitle">
-              <div class="panel-heading"><h2 id="envelopesTitle">Prochains projets</h2><button id="addEnvelope" type="button" class="btn secondary btn-sm">+ Ajouter</button></div>
-              <div id="envelopeList" class="envelope-list"></div>
-              <div class="envelope-summary"><span>Non affecté</span><strong id="unallocated">—</strong></div>
-            </section>
-          </div>
-          <footer class="finance-footer">
-            <span>100 centimes = 1 DZD · Soldes indicatifs, pas une trésorerie réelle.</span>
-            <button type="button" class="quiet-link" id="restoreDefault">Réinitialiser les chiffres</button>
-          </footer>
-        </section>
-      </main>
-    </div>
-  </div>
-  <dialog class="modal" id="projectDialog" aria-labelledby="projectModalTitle">
-    <form id="projectForm">
-      <h2 id="projectModalTitle">Modifier</h2>
-      <input type="hidden" id="editProjectId">
-      <label for="editAmount">Résultat (centimes)</label>
-      <input id="editAmount" type="number" step="1" required>
-      <div class="form-grid">
-        <div><label for="editAchraf">Achraf (%)</label><input id="editAchraf" type="number" min="0" max="100" step="0.01" placeholder="Inconnu"></div>
-        <div><label for="editRayan">Rayan (%)</label><input id="editRayan" type="number" min="0" max="100" step="0.01" placeholder="Inconnu"></div>
       </div>
-      <p class="form-error" id="projectError" role="alert"></p>
-      <div class="modal-actions"><button type="button" class="btn secondary" data-close-dialog="projectDialog">Annuler</button><button class="btn primary" type="submit">Enregistrer</button></div>
-    </form>
-  </dialog>
-  <dialog class="modal" id="envelopeDialog" aria-labelledby="envelopeTitle">
-    <form id="envelopeForm">
-      <h2 id="envelopeTitle">Nouveau projet</h2>
-      <label for="envelopeName">Nom</label><input id="envelopeName" maxlength="80" required placeholder="Nom du projet">
-      <label for="envelopeAmount">Budget (centimes)</label><input id="envelopeAmount" type="number" min="1" step="1" required>
-      <p class="form-error" id="envelopeError" role="alert"></p>
-      <div class="modal-actions"><button type="button" class="btn secondary" data-close-dialog="envelopeDialog">Annuler</button><button class="btn primary" type="submit">Ajouter</button></div>
-    </form>
-  </dialog>
-  <dialog class="modal" id="resetDialog" aria-labelledby="resetTitle">
-    <form method="dialog">
-      <h2 id="resetTitle">Réinitialiser ?</h2>
-      <p>Les modifications locales seront effacées.</p>
-      <div class="modal-actions"><button value="cancel" class="btn secondary">Annuler</button><button value="confirm" class="btn primary">Réinitialiser</button></div>
-    </form>
-  </dialog>
+      <section class="analytics-panel table-panel" aria-labelledby="shareTitle"><div class="panel-heading"><div><p class="overline">03 / PARTICIPATIONS</p><h2 id="shareTitle">Répartition détaillée</h2></div><span class="small muted">Modifiable</span></div>
+        <div class="table-scroll"><table class="finance-table"><thead><tr><th>Projet</th><th>Résultat</th><th>Achraf</th><th>Part Achraf</th><th>Rayan</th><th>Part Rayan</th><th>Autres</th><th><span class="sr-only">Modifier</span></th></tr></thead><tbody id="shareRows"></tbody><tfoot id="shareFooter"></tfoot></table></div>
+        <p class="table-note">Numeria : parts à renseigner · Autres : participation restante.</p>
+      </section>
+      <div class="layout-halves">
+        <section class="analytics-panel"><div class="panel-heading"><div><p class="overline">04 / APRÈS RÉSERVE</p><h2>Après réserve</h2></div></div>
+          <div class="available-row"><div><span>Achraf</span><b id="availableAchraf">—</b></div><div class="split-track"><span id="splitAchraf"></span></div></div>
+          <div class="available-row"><div><span>Rayan</span><b id="availableRayan">—</b></div><div class="split-track"><span id="splitRayan"></span></div></div>
+        </section>
+        <section class="analytics-panel"><div class="panel-heading"><div><p class="overline">05 / PROCHAINS PROJETS</p><h2>Futurs projets</h2></div><button id="addEnvelope" type="button" class="btn secondary btn-sm">+ Ajouter</button></div>
+          <div id="envelopeList" class="envelope-list"></div><div class="envelope-summary"><span>Non affecté</span><strong id="unallocated">—</strong></div>
+        </section>
+      </div>
+      <footer class="finance-footer"><span>100 centimes = 1 DZD · Montants indicatifs.</span><span>Sauvegarde locale chiffrée.</span><button type="button" class="quiet-link" id="restoreDefault">Revenir aux chiffres initiaux</button></footer>
+    </section>
+  </main>
+  <dialog class="modal" id="projectDialog" aria-labelledby="projectModalTitle"><form id="projectForm"><div class="modal-icon">▦</div><h2 id="projectModalTitle">Modifier un projet</h2><input type="hidden" id="editProjectId">
+    <label for="editAmount">SOLDE EN CENTIMES (« ANCIENS »)</label><input id="editAmount" type="number" step="1" required>
+    <div class="form-grid"><div><label for="editAchraf">PART ACHRAF (%)</label><input id="editAchraf" type="number" min="0" max="100" step="0.01" placeholder="Inconnue"></div><div><label for="editRayan">PART RAYAN (%)</label><input id="editRayan" type="number" min="0" max="100" step="0.01" placeholder="Inconnue"></div></div><p class="hint">Laisser vide si inconnu · Total ≤ 100 %.</p><p class="form-error" id="projectError" role="alert"></p><div class="modal-actions"><button type="button" class="btn secondary" data-close-dialog="projectDialog">Annuler</button><button class="btn primary" type="submit">Enregistrer</button></div></form></dialog>
+  <dialog class="modal" id="envelopeDialog" aria-labelledby="envelopeTitle"><form id="envelopeForm"><div class="modal-icon">✦</div><h2 id="envelopeTitle">Prévoir un investissement</h2><label for="envelopeName">NOM DU PROJET</label><input id="envelopeName" maxlength="80" placeholder="Ex. Nouvelle plateforme" required><label for="envelopeAmount">BUDGET EN CENTIMES</label><input id="envelopeAmount" type="number" min="1" step="1" required placeholder="100000000"><p class="form-error" id="envelopeError" role="alert"></p><div class="modal-actions"><button type="button" class="btn secondary" data-close-dialog="envelopeDialog">Annuler</button><button class="btn primary" type="submit">Ajouter l'enveloppe</button></div></form></dialog>
+  <dialog class="modal" id="resetDialog" aria-labelledby="resetTitle"><form method="dialog"><div class="modal-icon">↺</div><h2 id="resetTitle">Revenir aux données d'origine ?</h2><p>Les modifications locales seront effacées.</p><div class="modal-actions"><button value="cancel" class="btn secondary">Annuler</button><button value="confirm" class="btn primary">Réinitialiser</button></div></form></dialog>
 </body>
 </html>
