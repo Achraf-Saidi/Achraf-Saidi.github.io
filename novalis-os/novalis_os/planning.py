@@ -70,7 +70,8 @@ def overview(project_id):
             (' AND b.published_at IS NOT NULL AND b.canceled_at IS NULL' if g.user['role']=='client' else ''),(project_id,)):
             inv,doc=document(r['invoice_id']);invoices.append({**presented(inv,doc),'phase_id':r['phase_id']})
     documents=rows("SELECT id,filename,mime,size,created_at FROM documents WHERE project_id=? AND channel='external' ORDER BY created_at DESC",(project_id,)) if financial else []
-    return jsonify(phases=phases(project_id,financial),specs=specs,team=team(p),documents=documents,invoices=invoices,sections=SECTIONS,relations=RELATIONS,
+    from .intelligence import visible_stakeholders, workflow
+    return jsonify(phases=phases(project_id,financial),specs=specs,team=team(p),stakeholders=visible_stakeholders(project_id),next_actions=workflow(project_id),documents=documents,invoices=invoices,sections=SECTIONS,relations=RELATIONS,
                    budget_cents=p['budget_cents'] if financial else None)
 
 
@@ -307,7 +308,8 @@ def spec_share(identifier):
             graph=graph_data(p)
             for ph in items:ph['task_ids']=[x['id'] for x in rows('SELECT t.id FROM tasks t JOIN phase_tasks pt ON pt.task_id=t.id WHERE pt.phase_id=? AND t.client_visible=1',(ph['id'],))]
         finally:g.user=staff
-        snapshot=dict(project={'id':p['id'],'name':p['name'],'scope':p['scope'],'due_date':p['due_date']},
+        from .intelligence import visible_stakeholders
+        snapshot=dict(stakeholders=[x for x in visible_stakeholders(p['id']) if x['visibility']=='shared'],project={'id':p['id'],'name':p['name'],'scope':p['scope'],'due_date':p['due_date']},
                       client=row('SELECT name,email,company_number FROM clients WHERE id=?',(p['client_id'],)),phases=items,
                       team=team(p),documents=docs,graph=graph,total_cents=sum(x['price_cents'] for x in items),frozen_at=now())
         db.execute("UPDATE project_specs SET status='shared',snapshot=?,shared_at=?,version=version+1 WHERE id=?",(json.dumps(snapshot),now(),identifier))

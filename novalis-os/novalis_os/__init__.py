@@ -149,6 +149,8 @@ def create_app(overrides=None):
     from .calendar import calendar
     app.register_blueprint(planning)
     app.register_blueprint(calendar)
+    from .intelligence import intelligence
+    app.register_blueprint(intelligence)
     from .workspace import workspace
     from .intake import intake
     for blueprint in [auth,crm,projects,finance,documents,payments,workspace,intake]:

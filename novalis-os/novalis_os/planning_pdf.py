@@ -89,6 +89,10 @@ def specification_pdf(spec,snapshot,sections,invoices=None):
     if client:story+=[p(client.get('name','')),p(client.get('email','')),p(client.get('company_number',''))]
     names={u['id']:u['name'] for u in snapshot.get('team',[])}
     story.append(table([['Nom','Rôle']]+[[u['name'],{'account':'Responsable de projet','developer':'Développement','client':'Client','manager':'Direction'}.get(u['role'],u['role'])] for u in snapshot.get('team',[])],[100*mm,70*mm]))
+    if snapshot.get('stakeholders'):
+        story.append(Spacer(1,5*mm))
+        story.append(p('Acteurs complémentaires et responsabilités','PlanningSection'))
+        story.append(table([['Nom / organisation','Contribution']]+[[x['name']+((' · '+x['organisation']) if x.get('organisation') else ''),x['responsibility']] for x in snapshot['stakeholders']],[75*mm,95*mm]))
     story+=[Spacer(1,8*mm),p('Accord direction : '+(spec.get('manager_name') or names.get(spec.get('manager_by'),'En attente'))),p('Accord client : '+(spec.get('client_name') or names.get(spec.get('client_by'),'En attente'))),Spacer(1,10*mm)]
     for i,(key,label) in enumerate(sections.items(),2):
         story.append(KeepTogether([p(f'{i:02d} / {label}','PlanningSection'),p(spec['sections'].get(key) or 'À préciser conjointement.','BodyNovalis')])) if len(spec['sections'].get(key,''))<1000 else story.extend([p(f'{i:02d} / {label}','PlanningSection'),p(spec['sections'][key])])

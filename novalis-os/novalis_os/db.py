@@ -50,6 +50,7 @@ def migrate(path):
         schema += '\n'+Path(__file__).with_name('intake-schema.sql').read_text()
         schema += '\n'+Path(__file__).with_name('billing-schema.sql').read_text()
         schema += '\n'+Path(__file__).with_name('planning-schema.sql').read_text()
+        schema += '\n'+Path(__file__).with_name('stakeholders-schema.sql').read_text()
         db.executescript('BEGIN IMMEDIATE;\n' + schema + '\nCOMMIT;')
         db.execute('INSERT OR IGNORE INTO migrations VALUES(1,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(2,?)', (now(),))
@@ -57,6 +58,7 @@ def migrate(path):
         db.execute('INSERT OR IGNORE INTO migrations VALUES(4,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(5,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(6,?)', (now(),))
+        db.execute('INSERT OR IGNORE INTO migrations VALUES(7,?)', (now(),))
     finally:
         db.close()
 
