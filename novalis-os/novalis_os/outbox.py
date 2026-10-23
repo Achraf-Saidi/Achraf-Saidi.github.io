@@ -11,6 +11,9 @@ from .security import encrypt, decrypt
 def queue_email(recipient, subject, body, org_id=None):
     user=getattr(g,'user',None)
     org_id=org_id or (user['org_id'] if user else current_app.config['ORG_ID'])
+    # Synthetic demo tenant is never allowed to send real e-mail or invitations.
+    if org_id == 'novalis-demo':
+        return
     get_db().execute('INSERT INTO outbox(id,org_id,recipient,subject,body_cipher,created_at) VALUES(?,?,?,?,?,?)',
                      (uid(), org_id, recipient, subject, encrypt(body), now()))
 
