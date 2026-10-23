@@ -41,7 +41,7 @@ def login():
                    and user['email'].lower() not in current_app.config['MFA_EXEMPT_EMAILS'])
         db.execute('INSERT INTO sessions VALUES(?,?,?,?,?,?)',
                    (digest(token), user['id'], digest(csrf), int(limited), expires(8), now()))
-        audit('auth.login', user['id'])
+        audit('auth.login', user['id'], org_id=user['org_id'])
     result = jsonify(user=user_public(user), csrf=csrf, mfa_required=bool(limited))
     result.set_cookie(current_app.config['COOKIE_NAME'], token, max_age=28800, httponly=True,
                       secure=current_app.config['SECURE_COOKIES'], samesite='Strict', path='/')
