@@ -224,7 +224,7 @@ def seed(app, passwords=None):
                     overdue=story['invoice']=='overdue'
                     due=iso(-7 if overdue else 15)
                     inv_status='paid' if story['invoice']=='paid' else 'registered'
-                    number='TEST-NV-'+str(today.year)+'-'+str(position+1).zfill(5)
+                    number='DEMO-TEST-NV-'+str(today.year)+'-'+str(len(invoices)+1).zfill(5)
                     title='Situation · '+story['phases'][0][0]
                     lines=calculations([{'description':title,'quantity':'1','unit_cents':amount,
                                          'vat_basis_points':2100}])
@@ -251,6 +251,7 @@ def seed(app, passwords=None):
                     invoices.append({'number':number,'status':story['invoice'],'total_cents':total,'test_mode':True})
                 db.execute('''INSERT INTO project_graph(project_id,payload,updated_at)
                   VALUES(?,?,?)''',(pid,json.dumps({'positions':{},'edges':[],'notes':[]}),stamp))
+            db.execute('INSERT INTO billing_sequences(org_id,year,test_mode,number) VALUES(?,?,1,?)', (DEMO_ORG,today.year,len(invoices)))
             # Technical audit trail is append-only and non-sensitive.
             db.execute('''INSERT INTO audit(org_id,actor_id,action,entity_id,detail,created_at)
                VALUES(?,?,?,?,?,?)''',(DEMO_ORG,actors['manager'],'demo.seeded',DEMO_ORG,
