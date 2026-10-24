@@ -56,3 +56,9 @@ and `base` appropriately. Do not replace the umbrella repository's deployment un
 See docs/AUTHORING.md, docs/ARCHITECTURE.md, docs/IMPLEMENTATION.md and
 curriculum/manifest.json. Code: MIT. Original teaching prose: CC BY 4.0. Third-party assets
 retain their own licences; see THIRD-PARTY-NOTICES.md.
+
+## AI mastery expansion — 2026-10-24
+
+The public /achraf-notebooks/mastery/fr/ and /mastery/en/ routes complement the original 12 Starlight lessons. They present the existing 136-module prerequisite roadmap, 26 curated public lectures or books, seven original bilingual mathematical chapters (PCA, Bayes/MCMC, backpropagation, attention, Bellman/RL, censoring/calibration, and multi-omics/GNN), solved exercises, NumPy code, search, local progress and personal notes. **Planned modules remain planned**; the site never claims 136 completed courses.
+
+The mastery pages are committed twice: as immediately served static GitHub Pages artifacts under `achraf-notebooks/mastery/`, and as durable source files under `achraf-notebooks/source/public/mastery/`. Future Astro builds copy the public assets into the final deployment. Source home and curriculum pages link to this section; do not remove these links when rebuilding. Follow official external course pages for their current access terms. This addition has not been independently peer reviewed or browser-tested end to end.
