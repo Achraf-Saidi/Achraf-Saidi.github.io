@@ -22,5 +22,10 @@ const root=path.resolve(__dirname,'..'),fixture=JSON.parse(fs.readFileSync(proce
  d.getElementById('finance-from').value='2026-12-31';d.getElementById('finance-to').value='2026-01-01';d.getElementById('finance-from').dispatchEvent(new w.Event('change'));d.getElementById('finance-to').dispatchEvent(new w.Event('change'));assert.match(d.getElementById('finance-period-error').textContent,/précéder/);assert.equal(d.getElementById('finance-export').getAttribute('aria-disabled'),'true');
  d.getElementById('finance-clear').click();const refresh=[...d.querySelectorAll('#view-actions button')].find(b=>b.textContent==='Actualiser');refresh.click();await tick();await tick();assert.equal(d.querySelectorAll('.finance-table tbody tr').length,1);
  assert(!d.getElementById('view-actions').textContent.includes('Enregistrer une dépense'));
+ state.user.demo_mode=true;await w.NovalisFinance.mount(context);
+ assert.equal(d.querySelector('[data-finance-mode=test]').getAttribute('aria-pressed'),'true');
+ assert.equal(d.querySelectorAll('.finance-table tbody tr').length,1);
+ state.user.demo_mode=false;await w.NovalisFinance.mount(context);
+ assert.equal(d.querySelector('[data-finance-mode=live]').getAttribute('aria-pressed'),'true');
  dom.window.close();console.log('Finance and login UI: explicit environments, actual receipt links, filters, exports, refresh and password controls passed.');
 })().catch(e=>{console.error(e);process.exit(1);});

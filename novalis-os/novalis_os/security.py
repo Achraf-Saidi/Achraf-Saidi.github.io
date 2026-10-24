@@ -144,4 +144,4 @@ def project_access(project_id, staff=False, finances=False):
 
 
 def user_public(user):
-    return {k: user[k] for k in ['id', 'name', 'email', 'role', 'status', 'client_id']}
+    return {**{k: user[k] for k in ['id', 'name', 'email', 'role', 'status', 'client_id']}, 'demo_mode': user['org_id']=='novalis-demo'}

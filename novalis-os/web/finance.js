@@ -82,5 +82,5 @@
  }
  window.addEventListener('focus',()=>{if(active())refresh().catch(report);});
  document.addEventListener('visibilitychange',()=>{if(active()&&!document.hidden)refresh().catch(report);});
- window.NovalisFinance={mount:async context=>{c=context;clearTimeout(timer);await refresh();}};
+ window.NovalisFinance={mount:async context=>{c=context;mode=context.state.user?.demo_mode?'test':'live';filters={q:'',kind:'',from:'',to:''};clearTimeout(timer);await refresh();}};
 })();

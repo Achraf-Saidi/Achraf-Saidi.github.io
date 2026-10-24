@@ -19,6 +19,14 @@ class EngineeringTests(DemoSeedTests):
    c=self.app.test_client();res=c.post('/api/auth/login',json={'email':email,'password':credentials[r]},headers={'Origin':'http://localhost:5000'})
    self.assertEqual(res.status_code,200,res.json);self.assertFalse(res.json['mfa_required'])
    self.assertEqual(c.get('/api/session').status_code,200)
+   if r in ('manager','finance','client'):
+    billing=c.get('/api/billing').json
+    self.assertEqual(billing['default_mode'],'test')
+    self.assertEqual(billing['totals']['invoiced_cents'],0)
+    issued=[i for i in billing['items'] if i['test_mode'] and i['status'] not in ('draft','canceled')]
+    self.assertGreater(billing['test_totals']['paid_cents'],0)
+    self.assertEqual(billing['test_totals']['invoiced_cents'],sum(i['total_cents'] for i in issued))
+    self.assertEqual(billing['test_totals']['balance_cents'],sum(max(0,i['balance_cents']) for i in issued))
    if r in ('manager','account','developer','client'):
     result=c.get('/api/projects/'+PROJECT);self.assertEqual(result.status_code,200,result.json)
    if r in ('manager','client'):

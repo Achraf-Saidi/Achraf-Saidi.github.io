@@ -12,3 +12,43 @@
 @media(max-width:1100px){.launch-copy h1.brand-promise{font-size:clamp(35px,4vw,46px)}}
 @media(max-width:820px){.launch-copy h1.brand-promise{font-size:clamp(36px,6.35vw,56px);max-width:720px;margin-left:auto;margin-right:auto}}
 @media(max-width:480px){.launch-copy h1.brand-promise{font-size:clamp(32px,8.5vw,39px);letter-spacing:-.042em;line-height:1.12}.launch-copy h1.brand-promise em{letter-spacing:-.032em}}
+
+/* A bounded, fluid hero: balanced columns and readable mobile controls. */
+.launch-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:28px clamp(24px,4vw,56px);padding-top:clamp(32px,4vw,56px)}
+.launch-copy{min-width:0;padding:12px 0 24px}
+.launch-copy h1.brand-promise{font-size:clamp(36px,3.4vw,52px);letter-spacing:-.045em;text-wrap:balance}
+.launch-intro{font-size:15px;line-height:1.7;max-width:460px}
+.launch-small,.launch-explore,.launch-footer,.launch-footer>a{font-size:12px;line-height:1.6}
+.launch-proof{font-size:10px;margin-top:26px;flex-wrap:wrap}
+.launch-pause{min-width:36px;min-height:36px}
+.launch-copy .hero-actions .button{font-size:13px;min-height:48px}
+@media(max-width:960px){
+ .launch-hero{grid-template-columns:minmax(0,1fr);gap:22px;padding-top:30px}
+ .launch-copy{text-align:center;padding:0;max-width:680px;margin:auto}
+ .launch-copy .eyebrow,.launch-copy .hero-actions,.launch-proof{justify-content:center}
+ .launch-copy h1.brand-promise{font-size:clamp(32px,5.6vw,48px);max-width:660px;margin:20px auto}
+ .launch-intro{margin:0 auto 22px;max-width:520px}
+ .launch-experience{max-width:640px;width:100%;margin:auto}
+ .launch-theatre{height:320px}
+}
+@media(max-width:480px){
+ .launch-hero{padding-top:22px;gap:20px}
+ .launch-copy h1.brand-promise{font-size:clamp(28px,7.5vw,36px);line-height:1.14;margin:18px auto}
+ .launch-copy .eyebrow{font-size:8px;line-height:1.6;letter-spacing:.08em}
+ .launch-intro{font-size:14px;line-height:1.65;max-width:360px;margin-bottom:20px}
+ .launch-copy .hero-actions{gap:10px}
+ .launch-copy .hero-actions .button{font-size:13px;padding:13px 16px}
+ .launch-explore{font-size:12px;padding:6px}
+ .launch-small{font-size:11px;margin-top:10px}
+ .launch-proof{font-size:9px;gap:14px;margin:18px 0 0}
+ .launch-caption{font-size:11px;align-items:flex-start;flex-wrap:wrap}
+ .launch-demo-label{font-size:8px}
+ .launch-tabs button{font-size:11px;min-height:44px;padding:8px 4px}
+ .launch-theatre{height:295px}
+ .launch-card strong{font-size:11px}.launch-card p{font-size:9px}
+ .launch-step-buttons b{font-size:10px}.launch-step-buttons span{font-size:9px}
+ .launch-control-bottom{align-items:flex-start;flex-wrap:wrap}
+ .launch-control-bottom>span,.launch-control-bottom>button{font-size:10px;line-height:1.5}
+ .launch-ready{font-size:9px}.launch-approve{font-size:12px;min-height:44px;gap:8px}
+ .launch-footer,.launch-footer>a{font-size:11px}.launch-footer{flex-wrap:wrap;gap:10px}
+}

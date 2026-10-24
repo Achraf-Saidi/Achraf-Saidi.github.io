@@ -82,8 +82,11 @@ def overview():
     items=[]
     for r in rows('SELECT i.id FROM invoices i JOIN billing_documents b ON b.invoice_id=i.id JOIN projects p ON p.id=i.project_id WHERE b.org_id=?'+suffix+' ORDER BY i.created_at DESC',params):
         inv,doc=document(r['id']);items.append(presented(inv,doc))
-    real=[i for i in items if not i['test_mode'] and i['status'] not in {'draft','canceled'}]
-    return jsonify(items=items,totals={'invoiced_cents':sum(i['total_cents'] for i in real),'paid_cents':sum(i['paid_cents'] for i in real),'balance_cents':sum(max(0,i['balance_cents']) for i in real)},test_count=sum(i['test_mode'] for i in items))
+    def amounts(test_mode):
+        issued=[i for i in items if i['test_mode']==test_mode and i['status'] not in {'draft','canceled'}]
+        return {'invoiced_cents':sum(i['total_cents'] for i in issued),'paid_cents':sum(i['paid_cents'] for i in issued),'balance_cents':sum(max(0,i['balance_cents']) for i in issued)}
+    return jsonify(items=items,totals=amounts(False),test_totals=amounts(True),default_mode='test' if g.user['org_id']=='novalis-demo' else 'live',test_count=sum(i['test_mode'] for i in items))
+
 
 @billing.get('/api/billing/setup')
 @required('manager','finance')
