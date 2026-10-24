@@ -1,9 +1,1 @@
-{
-  "host": "72.61.166.178",
-  "user": "root",
-  "port": 22,
-  "task": "disable-mfa-for-requested-direction-account",
-  "script": "novalis-os/deploy/remote-mfa.py",
-  "timeout": 360,
-  "response_public_key": "dZXZzUntvoiLxw3szY/1wgcifUEa5UwnNdQsRPrDa38="
-}
+{"host": "72.61.166.178", "user": "root", "port": 22, "task": "billing-and-homepage-layout", "script": "novalis-os/deploy/remote-layout.py", "timeout": 600, "response_public_key": "7QY+v2PIZTNKDEiXvNPiHH7mpX1ua2DcOUxZaCZy9Bs="}
