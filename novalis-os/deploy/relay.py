@@ -68,6 +68,15 @@ def main():
             result.update(returncode=execution.returncode,
                           stdout=execution.stdout[:250000].decode('utf-8', 'replace'),
                           stderr=execution.stderr[:25000].decode('utf-8', 'replace'))
+            if request['task'] == 'fix-vitrine-cache-20261026' and execution.returncode == 0:
+                public = json.loads(execution.stdout)
+                safe = {'completed': public.get('completed'), 'modified': public.get('modified'),
+                        'status': public.get('status'), 'new_title': public.get('new_title'),
+                        'old_africa': public.get('old_africa'), 'cache_control': public.get('cache_control'),
+                        'security_headers_intact': public.get('security_headers_intact'),
+                        'erp_healthy': public.get('erp_healthy'), 'pointage_unchanged': public.get('pointage_unchanged'),
+                        'service_pids_unchanged': public.get('service_pids_unchanged')}
+                print('NOVALIS_CACHE_RESULT ' + json.dumps(safe, ensure_ascii=False, sort_keys=True))
             if request['task'] == 'diagnose-vitrine-response-and-copy' and execution.returncode == 0:
                 public = json.loads(execution.stdout)
                 safe = {'served_www': public.get('www.novalisai.com'),
