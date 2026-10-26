@@ -20,12 +20,12 @@ test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>
  }
  const env={};env.window=env;
  vm.createContext(env);
- for(let part=1;part<=7;part++){
+ for(let part=1;part<=8;part++){
   const s=fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8');
   vm.runInContext(s,env,{timeout:1000});
  }
  const d=env.ACHRAF_DEEP[lang];
- assert.equal(Object.keys(d).length,38);
+ assert.equal(Object.keys(d).length,44);
  for(const [id,c] of Object.entries(d)){
   assert.ok(ids.has(id),id);
   assert.ok(c.sections.length>=3,id);
