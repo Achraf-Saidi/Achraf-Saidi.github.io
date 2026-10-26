@@ -20,12 +20,12 @@ test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>
  }
  const env={};env.window=env;
  vm.createContext(env);
- for(let part=1;part<=8;part++){
+ for(let part=1;part<=9;part++){
   const s=fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8');
   vm.runInContext(s,env,{timeout:1000});
  }
  const d=env.ACHRAF_DEEP[lang];
- assert.equal(Object.keys(d).length,44);
+ assert.equal(Object.keys(d).length,50);
  for(const [id,c] of Object.entries(d)){
   assert.ok(ids.has(id),id);
   assert.ok(c.sections.length>=3,id);
@@ -34,6 +34,6 @@ test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>
  }
  for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(script[1]);
  assert.match(html,/achraf-academy-completed-v1/);
- assert.match(html,/id="notes"/);assert.match(html,/id="visual"/);assert.match(html,/visuals.js/);const visual=fs.readFileSync(path.join(root,lang,'visuals.js'),'utf8');new vm.Script(visual);
+ assert.match(html,/id="notes"/);assert.match(html,/id="visual"/);assert.match(html,/visuals.js/);const visual=fs.readFileSync(path.join(root,lang,'visuals.js'),'utf8');new vm.Script(visual);for(const name of ['visuals-2.js','visuals-3.js']){const code=fs.readFileSync(path.join(root,lang,name),'utf8');new vm.Script(code)}
 });
 }
