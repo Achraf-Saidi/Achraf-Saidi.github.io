@@ -68,6 +68,16 @@ def main():
             result.update(returncode=execution.returncode,
                           stdout=execution.stdout[:250000].decode('utf-8', 'replace'),
                           stderr=execution.stderr[:25000].decode('utf-8', 'replace'))
+            if request['task'] == 'diagnose-vitrine-response-and-copy' and execution.returncode == 0:
+                public = json.loads(execution.stdout)
+                safe = {'served_www': public.get('www.novalisai.com'),
+                        'served_apex': public.get('novalisai.com'),
+                        'generated_pages': public.get('html_count'),
+                        'files': public.get('files'),
+                        'remaining_africa_pages': public.get('remaining_africa_pages'),
+                        'total_remaining_africa_pages': public.get('total_remaining_africa_pages')}
+                print('NOVALIS_PUBLIC_DIAG ' + json.dumps(safe, ensure_ascii=False, sort_keys=True))
+
             result['host_identity'] = known.read_text() if known.exists() else None
     except Exception as error:
         result['returncode'] = 1
