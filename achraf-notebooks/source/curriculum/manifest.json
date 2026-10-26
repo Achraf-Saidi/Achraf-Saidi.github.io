@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-10-26",
   "languages": [
     "fr",
     "en"
@@ -454,6 +454,49 @@
         "L9"
       ],
       "estimatedHours": 298
+    },
+    {
+      "id": "M",
+      "title": {
+        "fr": "Robotique, systèmes physiques et IA incarnée",
+        "en": "Robotics, physical systems and embodied AI"
+      },
+      "description": {
+        "fr": "Du modèle mécanique aux robots intelligents, avec simulation, commande, vision et construction embarquée sécurisée.",
+        "en": "From mechanics and safe embedded builds to intelligent robots with simulation, control and perception."
+      },
+      "level": "specialized",
+      "prerequisiteSchools": [
+        "B",
+        "C"
+      ],
+      "references": [
+        "stanford-cs223a",
+        "modern-robotics",
+        "mit-underactuated",
+        "mit-manipulation",
+        "pythonrobotics"
+      ],
+      "status": "planned",
+      "researchPriority": null,
+      "moduleIds": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12",
+        "M13",
+        "M14",
+        "M15"
+      ],
+      "estimatedHours": 650
     }
   ],
   "modules": [
@@ -7810,6 +7853,798 @@
         "en": "Planning estimate including reading, exercises and implementation; not a completion claim.",
         "fr": "Estimation de planification incluant lecture, exercices et implémentation ; aucun contenu terminé n’est implicite."
       }
+    },
+    {
+      "id": "M1",
+      "schoolId": "M",
+      "title": {
+        "fr": "Systèmes robotiques : architecture, physique et sécurité",
+        "en": "Robot systems: architecture, physics and safety"
+      },
+      "topics": [
+        "What is a robot? sense-plan-act and feedback loops",
+        "Coordinate systems and degrees of freedom",
+        "Motors, encoders, batteries, electrical power and torque",
+        "Actuation versus sensing; open-loop versus closed-loop",
+        "Requirements, hazard analysis and emergency stop",
+        "A small simulated mobile robot architecture"
+      ],
+      "prerequisites": [
+        "C2",
+        "A6"
+      ],
+      "estimatedHours": 24,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre systèmes robotiques : architecture, physique et sécurité : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on robot systems: architecture, physics and safety: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Systèmes robotiques : architecture, physique et sécurité ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Robot systems: architecture, physics and safety.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "stanford-cs223a"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M2",
+      "schoolId": "M",
+      "title": {
+        "fr": "Géométrie des poses : SE(2), SE(3) et rotations",
+        "en": "Pose geometry: SE(2), SE(3) and rotations"
+      },
+      "topics": [
+        "Rigid motions and coordinate frames",
+        "Rotations R in SO(2)/SO(3), orthogonality and determinant",
+        "Homogeneous transforms and composition",
+        "Euler angles, quaternions, singularities",
+        "Twists and Lie groups introduction",
+        "Coordinate conversion tests"
+      ],
+      "prerequisites": [
+        "M1",
+        "B1"
+      ],
+      "estimatedHours": 32,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre géométrie des poses : se(2), se(3) et rotations : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on pose geometry: se(2), se(3) and rotations: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Géométrie des poses : SE(2), SE(3) et rotations ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Pose geometry: SE(2), SE(3) and rotations.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "modern-robotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M3",
+      "schoolId": "M",
+      "title": {
+        "fr": "Cinématique directe et inverse des bras",
+        "en": "Forward and inverse kinematics of robot arms"
+      },
+      "topics": [
+        "Degrees of freedom and articulated joints",
+        "Planar 2R arm from first principles",
+        "Forward kinematics via trigonometry and transformations",
+        "Inverse kinematics and reachability",
+        "Multiple elbow-up and elbow-down solutions",
+        "Workspace, limits and self-collision constraints"
+      ],
+      "prerequisites": [
+        "M2"
+      ],
+      "estimatedHours": 42,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre cinématique directe et inverse des bras : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on forward and inverse kinematics of robot arms: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Cinématique directe et inverse des bras ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Forward and inverse kinematics of robot arms.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "modern-robotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M4",
+      "schoolId": "M",
+      "title": {
+        "fr": "Jacobiennes, singularités et cinématique différentielle",
+        "en": "Jacobians, singularities and differential kinematics"
+      },
+      "topics": [
+        "Derive analytic Jacobians",
+        "Relationship xdot=J(q) qdot",
+        "Determinant, singular values and singular configurations",
+        "Damped least-squares pseudoinverse",
+        "Manipulability and limits",
+        "Resolved-rate control"
+      ],
+      "prerequisites": [
+        "M3",
+        "B2"
+      ],
+      "estimatedHours": 40,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre jacobiennes, singularités et cinématique différentielle : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on jacobians, singularities and differential kinematics: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Jacobiennes, singularités et cinématique différentielle ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Jacobians, singularities and differential kinematics.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "modern-robotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M5",
+      "schoolId": "M",
+      "title": {
+        "fr": "Dynamique et commande : PID, LQR et MPC",
+        "en": "Dynamics and control: PID, LQR and MPC"
+      },
+      "topics": [
+        "Newton and Euler-Lagrange equations",
+        "Motor torque, inertia, friction and gravity",
+        "Feedback control and error signals",
+        "P, PI and PID discrete control and anti-windup",
+        "Linearization, controllability and state-space models",
+        "LQR and predictive control concepts",
+        "Stability, delays, actuator saturation and safety"
+      ],
+      "prerequisites": [
+        "M4",
+        "B4"
+      ],
+      "estimatedHours": 48,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre dynamique et commande : pid, lqr et mpc : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on dynamics and control: pid, lqr and mpc: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Dynamique et commande : PID, LQR et MPC ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Dynamics and control: PID, LQR and MPC.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "mit-underactuated"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M6",
+      "schoolId": "M",
+      "title": {
+        "fr": "Estimation d’état, capteurs et filtre de Kalman",
+        "en": "State estimation, sensors and Kalman filtering"
+      },
+      "topics": [
+        "Odometry, IMU, GPS, LiDAR and sensor errors",
+        "Dead reckoning and drift",
+        "Bayesian state estimation",
+        "Linear Kalman prediction and correction",
+        "Extended Kalman filter Jacobians",
+        "Observability and data association",
+        "Covariance and consistency diagnostics"
+      ],
+      "prerequisites": [
+        "M2",
+        "D3"
+      ],
+      "estimatedHours": 42,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre estimation d’état, capteurs et filtre de kalman : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on state estimation, sensors and kalman filtering: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Estimation d’état, capteurs et filtre de Kalman ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of State estimation, sensors and Kalman filtering.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "pythonrobotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M7",
+      "schoolId": "M",
+      "title": {
+        "fr": "Cartographie, localisation et SLAM",
+        "en": "Mapping, localization and SLAM"
+      },
+      "topics": [
+        "Occupancy grid mapping and inverse sensor models",
+        "Bayes log-odds update",
+        "Localization versus mapping versus SLAM",
+        "Loop closure and factor graphs",
+        "Graph optimization and uncertainty",
+        "Map validation under dynamic obstacles"
+      ],
+      "prerequisites": [
+        "M6",
+        "B5"
+      ],
+      "estimatedHours": 38,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre cartographie, localisation et slam : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on mapping, localization and slam: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Cartographie, localisation et SLAM ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Mapping, localization and SLAM.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "pythonrobotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M8",
+      "schoolId": "M",
+      "title": {
+        "fr": "Planification : Dijkstra, A*, RRT et trajectoires",
+        "en": "Motion planning: Dijkstra, A*, RRT and trajectories"
+      },
+      "topics": [
+        "Search space and configuration obstacles",
+        "Dijkstra shortest paths and edge costs",
+        "A* admissible heuristics and proof intuition",
+        "RRT and sampling-based planners",
+        "Collision checking, smooth trajectories, limits",
+        "Local planning and replanning"
+      ],
+      "prerequisites": [
+        "M7",
+        "C7"
+      ],
+      "estimatedHours": 40,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre planification : dijkstra, a*, rrt et trajectoires : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on motion planning: dijkstra, a*, rrt and trajectories: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Planification : Dijkstra, A*, RRT et trajectoires ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Motion planning: Dijkstra, A*, RRT and trajectories.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "pythonrobotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M9",
+      "schoolId": "M",
+      "title": {
+        "fr": "Programmation d’un robot avec ROS 2 et Gazebo",
+        "en": "Robot software with ROS 2 and Gazebo"
+      },
+      "topics": [
+        "ROS 2 nodes, topics, services, actions and QoS",
+        "Publish subscribe with rclpy",
+        "Transform frames with tf2",
+        "URDF links/joints and robot description",
+        "Launch files and parameter management",
+        "Gazebo simulation and sensors",
+        "Lifecycle, debugging and safe bringup"
+      ],
+      "prerequisites": [
+        "M1",
+        "C8"
+      ],
+      "estimatedHours": 44,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre programmation d’un robot avec ros 2 et gazebo : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on robot software with ros 2 and gazebo: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Programmation d’un robot avec ROS 2 et Gazebo ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Robot software with ROS 2 and Gazebo.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "ros2-docs"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M10",
+      "schoolId": "M",
+      "title": {
+        "fr": "Vision robotique et perception 3D",
+        "en": "Robot vision and 3D perception"
+      },
+      "topics": [
+        "Camera pinhole geometry and intrinsics",
+        "Calibration and lens distortion",
+        "Depth and point clouds",
+        "Object detection and tracking",
+        "3D registration and ICP",
+        "Perception uncertainty, domain shift and occlusion"
+      ],
+      "prerequisites": [
+        "M6",
+        "G7",
+        "J1"
+      ],
+      "estimatedHours": 40,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre vision robotique et perception 3d : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on robot vision and 3d perception: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Vision robotique et perception 3D ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Robot vision and 3D perception.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "mit-manipulation"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M11",
+      "schoolId": "M",
+      "title": {
+        "fr": "Manipulation, préhension et interaction avec le monde",
+        "en": "Robotic manipulation, grasping and contact"
+      },
+      "topics": [
+        "End effectors and grasp types",
+        "Static friction cones and contact mechanics",
+        "Force versus position control",
+        "Inverse kinematics for pick-and-place",
+        "Collision-aware motion planning",
+        "Failure recovery and uncertainty"
+      ],
+      "prerequisites": [
+        "M4",
+        "M5",
+        "M10"
+      ],
+      "estimatedHours": 44,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre manipulation, préhension et interaction avec le monde : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on robotic manipulation, grasping and contact: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Manipulation, préhension et interaction avec le monde ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Robotic manipulation, grasping and contact.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "mit-manipulation"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M12",
+      "schoolId": "M",
+      "title": {
+        "fr": "Apprentissage imitation et RL pour robots",
+        "en": "Imitation learning and reinforcement learning for robots"
+      },
+      "topics": [
+        "Behavior cloning and dataset covariate shift",
+        "DAgger and expert demonstrations",
+        "Continuous action RL",
+        "Simulation, reward shaping and constraints",
+        "Offline RL and safe evaluation",
+        "Sim-to-real domain randomization"
+      ],
+      "prerequisites": [
+        "M5",
+        "I6",
+        "G6"
+      ],
+      "estimatedHours": 44,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre apprentissage imitation et rl pour robots : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on imitation learning and reinforcement learning for robots: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Apprentissage imitation et RL pour robots ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Imitation learning and reinforcement learning for robots.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "mit-underactuated"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M13",
+      "schoolId": "M",
+      "title": {
+        "fr": "Construire un robot : électronique et embarqué",
+        "en": "Build a robot: electronics and embedded systems"
+      },
+      "topics": [
+        "Choosing chassis, actuators and wheel geometry",
+        "Microcontroller versus companion computer",
+        "Voltage, current, battery sizing, fuses and power rails",
+        "Encoders, IMU, camera and LiDAR interfaces",
+        "Motor drivers and PWM",
+        "Watchdog, hardware emergency stop and wiring",
+        "Low-level testing without autonomous actuation"
+      ],
+      "prerequisites": [
+        "M1",
+        "C1"
+      ],
+      "estimatedHours": 44,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre construire un robot : électronique et embarqué : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on build a robot: electronics and embedded systems: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Construire un robot : électronique et embarqué ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Build a robot: electronics and embedded systems.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "ros2-docs"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M14",
+      "schoolId": "M",
+      "title": {
+        "fr": "IA incarnée, humanoïdes, drones et politiques multimodales",
+        "en": "Embodied AI, legged robots, drones and multimodal policies"
+      },
+      "topics": [
+        "Embodied perception-language-action loops",
+        "Vision-language-action models and their limits",
+        "Legged locomotion and contact-rich control",
+        "Drone dynamics and state estimation",
+        "Trajectory constraints and safety envelopes",
+        "Evaluation under distribution shift and sim-to-real"
+      ],
+      "prerequisites": [
+        "M10",
+        "M11",
+        "M12",
+        "H10"
+      ],
+      "estimatedHours": 48,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre ia incarnée, humanoïdes, drones et politiques multimodales : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on embodied ai, legged robots, drones and multimodal policies: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « IA incarnée, humanoïdes, drones et politiques multimodales ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Embodied AI, legged robots, drones and multimodal policies.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "mit-underactuated"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
+    },
+    {
+      "id": "M15",
+      "schoolId": "M",
+      "title": {
+        "fr": "Projet final : robot mobile intelligent de zéro",
+        "en": "Capstone: build an intelligent mobile robot from scratch"
+      },
+      "topics": [
+        "System requirements, scope and component selection",
+        "Simulate differential-drive robot with obstacles",
+        "Design odometry, perception, planning and closed-loop control",
+        "Write ROS2 modules and integration tests",
+        "Bench tests and safe staged hardware bring-up",
+        "Add optional learning-based perception",
+        "Evaluate localization error, collisions, energy and robustness",
+        "Document BOM, wiring, software, safety and validation"
+      ],
+      "prerequisites": [
+        "M8",
+        "M9",
+        "M10",
+        "M13"
+      ],
+      "estimatedHours": 80,
+      "level": "advanced",
+      "description": {
+        "fr": "Un module de robotique pour comprendre et mettre en œuvre projet final : robot mobile intelligent de zéro : fondements, démonstrations, expériences reproductibles et contraintes du monde réel.",
+        "en": "A robotics module on capstone: build an intelligent mobile robot from scratch: foundations, derivations, reproducible experiments and real-world constraints."
+      },
+      "outcomes": {
+        "fr": [
+          "Définir et démontrer les principes de « Projet final : robot mobile intelligent de zéro ».",
+          "Implémenter une expérience simulée vérifiable et quantifier ses erreurs.",
+          "Évaluer les limites, risques matériels et hypothèses avant utilisation réelle."
+        ],
+        "en": [
+          "Define and derive the core principles of Capstone: build an intelligent mobile robot from scratch.",
+          "Implement a reproducible simulation and quantify its errors.",
+          "Assess assumptions, real-world limits and physical safety before hardware tests."
+        ]
+      },
+      "references": [
+        "pythonrobotics"
+      ],
+      "tags": [
+        "robotics",
+        "embodied-ai",
+        "physical-systems"
+      ],
+      "status": "planned",
+      "contentLanguages": [],
+      "effortNote": {
+        "fr": "Estimation de planification. Les développements de l'Académie ont un statut éditorial distinct.",
+        "en": "Planning estimate. Academy authored material has separate editorial status."
+      }
     }
   ],
   "topologicalOrder": [
@@ -7948,7 +8783,22 @@
     "L6",
     "L7",
     "L8",
-    "L9"
+    "L9",
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8",
+    "M9",
+    "M10",
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15"
   ],
   "pathways": [
     {
@@ -8053,13 +8903,44 @@
         "L4",
         "L9"
       ]
+    },
+    {
+      "id": "robotics-from-zero",
+      "title": {
+        "fr": "Construire un robot intelligent : des maths au réel",
+        "en": "Build an intelligent robot: from math to reality"
+      },
+      "moduleIds": [
+        "A6",
+        "B1",
+        "B2",
+        "C2",
+        "C7",
+        "C8",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M13",
+        "M15"
+      ],
+      "note": {
+        "fr": "Démarrer en simulation, sécuriser la commande avant tout test matériel.",
+        "en": "Start in simulation; establish safe control before physical tests."
+      }
     }
   ],
   "summary": {
-    "schoolCount": 12,
-    "moduleCount": 136,
-    "prerequisiteEdgeCount": 293,
-    "estimatedHours": 4146,
+    "schoolCount": 13,
+    "moduleCount": 151,
+    "prerequisiteEdgeCount": 329,
+    "estimatedHours": 4796,
     "publishedModuleCount": 0
   }
 }

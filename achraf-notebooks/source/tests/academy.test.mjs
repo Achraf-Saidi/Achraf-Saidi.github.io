@@ -5,13 +5,13 @@ import vm from 'node:vm';
 import path from 'node:path';
 const root=path.resolve('public/academy');
 for(const lang of ['fr','en']){
-test('Academy '+lang+' has 136 distinct modules and 23 authored expansions',()=>{
+test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>{
  const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
  const raw=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
  assert.ok(raw,'Embedded manifest missing');
  const m=JSON.parse(raw[1]);
- assert.equal(m.modules.length,136);
- assert.equal(new Set(m.modules.map(x=>x.id)).size,136);
+ assert.equal(m.modules.length,151);
+ assert.equal(new Set(m.modules.map(x=>x.id)).size,151);
  const ids=new Set(m.modules.map(x=>x.id));
  for(const module of m.modules){
   assert.ok(module.title.fr&&module.title.en);
@@ -20,12 +20,12 @@ test('Academy '+lang+' has 136 distinct modules and 23 authored expansions',()=>
  }
  const env={};env.window=env;
  vm.createContext(env);
- for(let part=1;part<=3;part++){
+ for(let part=1;part<=7;part++){
   const s=fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8');
   vm.runInContext(s,env,{timeout:1000});
  }
  const d=env.ACHRAF_DEEP[lang];
- assert.equal(Object.keys(d).length,23);
+ assert.equal(Object.keys(d).length,38);
  for(const [id,c] of Object.entries(d)){
   assert.ok(ids.has(id),id);
   assert.ok(c.sections.length>=3,id);
@@ -34,6 +34,6 @@ test('Academy '+lang+' has 136 distinct modules and 23 authored expansions',()=>
  }
  for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(script[1]);
  assert.match(html,/achraf-academy-completed-v1/);
- assert.match(html,/id="notes"/);
+ assert.match(html,/id="notes"/);assert.match(html,/id="visual"/);assert.match(html,/visuals.js/);const visual=fs.readFileSync(path.join(root,lang,'visuals.js'),'utf8');new vm.Script(visual);
 });
 }

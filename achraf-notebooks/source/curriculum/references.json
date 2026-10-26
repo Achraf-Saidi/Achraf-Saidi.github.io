@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-10-26",
   "notice": {
     "en": "Sources are references, not content to copy. Verification records metadata and access observed on the date; external links and licenses may change.",
     "fr": "Les sources servent de références, non de contenu à copier. La vérification reflète les métadonnées et accès observés à cette date ; liens et licences peuvent évoluer."
@@ -1344,10 +1344,213 @@
         "en": "Link and cite; check item-level exceptions before reuse.",
         "fr": "Citer et proposer un lien ; vérifier les exceptions propres à chaque élément."
       }
+    },
+    {
+      "id": "stanford-cs223a",
+      "title": {
+        "fr": "Stanford CS223A — Introduction to Robotics",
+        "en": "Stanford CS223A — Introduction to Robotics"
+      },
+      "citationTitle": "Stanford CS223A — Introduction to Robotics",
+      "type": "course",
+      "url": "https://see.stanford.edu/Course/CS223A",
+      "authors": [
+        "Stanford Engineering Everywhere"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
+    },
+    {
+      "id": "modern-robotics",
+      "title": {
+        "fr": "Modern Robotics — Lynch & Park, video lectures",
+        "en": "Modern Robotics — Lynch & Park, video lectures"
+      },
+      "citationTitle": "Modern Robotics — Lynch & Park, video lectures",
+      "type": "course",
+      "url": "https://modernrobotics.northwestern.edu/",
+      "authors": [
+        "Northwestern University"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
+    },
+    {
+      "id": "mit-underactuated",
+      "title": {
+        "fr": "Underactuated Robotics — Russ Tedrake",
+        "en": "Underactuated Robotics — Russ Tedrake"
+      },
+      "citationTitle": "Underactuated Robotics — Russ Tedrake",
+      "type": "course",
+      "url": "https://underactuated.mit.edu/",
+      "authors": [
+        "MIT"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
+    },
+    {
+      "id": "mit-manipulation",
+      "title": {
+        "fr": "Robotic Manipulation — Russ Tedrake",
+        "en": "Robotic Manipulation — Russ Tedrake"
+      },
+      "citationTitle": "Robotic Manipulation — Russ Tedrake",
+      "type": "course",
+      "url": "https://manipulation.csail.mit.edu/",
+      "authors": [
+        "MIT"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
+    },
+    {
+      "id": "pythonrobotics",
+      "title": {
+        "fr": "PythonRobotics — sample algorithms and documentation",
+        "en": "PythonRobotics — sample algorithms and documentation"
+      },
+      "citationTitle": "PythonRobotics — sample algorithms and documentation",
+      "type": "course",
+      "url": "https://atsushisakai.github.io/PythonRobotics/",
+      "authors": [
+        "Atsushi Sakai and contributors"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
+    },
+    {
+      "id": "ros2-docs",
+      "title": {
+        "fr": "ROS 2 Tutorials — official documentation",
+        "en": "ROS 2 Tutorials — official documentation"
+      },
+      "citationTitle": "ROS 2 Tutorials — official documentation",
+      "type": "course",
+      "url": "https://docs.ros.org/en/jazzy/Tutorials.html",
+      "authors": [
+        "Open Robotics"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
+    },
+    {
+      "id": "modern-robotics-preprint",
+      "title": {
+        "fr": "Modern Robotics — official free preprint portal",
+        "en": "Modern Robotics — official free preprint portal"
+      },
+      "citationTitle": "Modern Robotics — official free preprint portal",
+      "type": "course",
+      "url": "https://hades.mech.northwestern.edu/index.php/Modern_Robotics",
+      "authors": [
+        "Northwestern University"
+      ],
+      "year": 2026,
+      "description": {
+        "fr": "Support public pour étudier la robotique ; consulter les conditions de réutilisation de la source.",
+        "en": "Public teaching resource for robotics; check original reuse conditions."
+      },
+      "verifiedAt": "2026-10-26",
+      "verification": {
+        "method": "official-page-review",
+        "scope": "Source and access checked; reuse license not granted."
+      },
+      "access": "public webpage",
+      "language": "en",
+      "reuseNote": {
+        "fr": "Faire un lien avec attribution ; ne pas recopier les contenus sans droit de réutilisation.",
+        "en": "Link and attribute; do not reproduce content without permission."
+      }
     }
   ],
   "summary": {
-    "referenceCount": 41,
+    "referenceCount": 48,
     "datasetCount": 6,
     "videoCount": 5,
     "originalPaperCount": 9
