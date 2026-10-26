@@ -67,12 +67,12 @@
         "Un périmètre clair, des versions visibles, des usages vérifiés."
       ]
     ],
-    "os_kicker": "NOVALIS OS · VOTRE LOGICIEL MÉTIER SUR MESURE",
+    "os_kicker": "NOVALIS OS · NOTRE OUTIL, VOTRE SOLUTION SUR MESURE",
     "os_title": [
-      "Votre bureau d’études.",
-      "Votre propre OS."
+      "Notre outil de travail.",
+      "Votre futur OS métier."
     ],
-    "os_copy": "Nous construisons votre Novalis OS autour de vos méthodes : clients, missions, équipes, documents, validations et facturation réunis dans un même outil. Pour les bureaux d’études, cabinets et entreprises de services, avec vos étapes, vos rôles et votre identité.",
+    "os_copy": "Nous utilisons Novalis OS pour organiser nos propres projets : clients, missions, planning, tâches, documents, validations et facturation. Nous pouvons également développer votre propre Novalis OS, adapté aux processus, aux équipes et à l’identité de votre entreprise. Ce projet sera lui aussi piloté dans notre OS, avec un suivi clair à chaque étape.",
     "os_note": "Démonstration interactive · projet exemple",
     "os_tabs": [
       "Vue d’ensemble",
@@ -185,30 +185,30 @@
       "La rigueur scientifique.",
       "Le sens du produit."
     ],
-    "crew_copy": "Un panel de compétences en développement, design produit, data science et intelligence artificielle, réuni autour de votre activité. Une direction technique identifiée, des spécialistes mobilisés au bon moment.",
+    "crew_copy": "Logiciels métier, ERP, SaaS, sites web, IA, automatisation, data science, optimisation et design : nous réunissons les compétences adaptées à votre besoin, sous une direction technique identifiée.",
     "founder_role": "Cofondateur & CTO",
     "founder_bio": "Formé en sciences des données à l’École polytechnique de Louvain, chercheur et assistant à l’UCLouvain, Achraf relie statistique, machine learning et conception logicielle. Il porte le cadrage technique et l’architecture des projets Novalis.",
     "profile": "Parcours professionnel",
     "crew_roles": [
       [
-        "screen",
-        "Frontend",
-        "Interfaces, usages mobiles & accessibilité."
+        "code",
+        "Logiciels & plateformes",
+        "ERP, SaaS, applications métier, API et intégrations."
       ],
       [
-        "code",
-        "Backend",
-        "Règles métier, API & architecture."
+        "flow",
+        "IA & automatisation",
+        "Assistants IA, documents intelligents et workflows."
       ],
       [
         "chart",
-        "Data scientists",
-        "Statistique, machine learning & analyse."
+        "Data science & optimisation",
+        "Prévisions, statistiques, simulation et aide à la décision."
       ],
       [
-        "people",
-        "Design & réseau",
-        "Design produit, ergonomie et spécialistes indépendants."
+        "screen",
+        "Design & expériences web",
+        "Sites, e-commerce, UX/UI et applications mobiles."
       ]
     ],
     "contact_title": [
@@ -552,7 +552,7 @@
     },
     "save_fallback": "Ce navigateur ne permet pas de conserver le lien. Copiez-le, ou retrouvez l’étape générale avec votre référence et votre e-mail.",
     "partner_title": "Les bonnes compétences. Une organisation qui compte.",
-    "partner_copy": "Nous faisons régulièrement appel à des indépendants et à notre réseau de partenaires en Afrique, notamment JetThings et JetNext. Cette organisation nous permet d’adapter l’équipe à chaque projet et de proposer des budgets compétitifs, avec un cadrage, des revues techniques et un suivi centralisés chez Novalis.",
+    "partner_copy": "Nous travaillons avec des spécialistes indépendants et des partenaires à travers le monde, notamment JetThings et JetNext. Nous adaptons les compétences à chaque projet pour proposer des budgets compétitifs, tout en assurant chez Novalis le cadrage, la direction technique et le suivi de la livraison.",
     "os_payment_tab": "Factures",
     "os_payment_title": "Vos échéances, sans mauvaise surprise.",
     "os_payment_intro": "Exemple de facturation en trois temps, selon les modalités convenues au devis. Chaque facture conserve sa propre échéance et son suivi de règlement.",
@@ -584,7 +584,7 @@
     "os_banner_title": "Du premier brief à la facture.",
     "os_banner_copy": "Nous adaptons les modules, les droits et les circuits de validation à votre organisation.",
     "os_banner_cta": "Voir un exemple de factures",
-    "os_custom_cta": "Construisons votre Novalis OS",
+    "os_custom_cta": "Concevons votre propre OS",
     "os_modules": [
       [
         "Clients & missions",
@@ -672,12 +672,12 @@
         "A clear scope, visible versions and verified uses."
       ]
     ],
-    "os_kicker": "NOVALIS OS · CUSTOM BUSINESS SOFTWARE",
+    "os_kicker": "NOVALIS OS · OUR WORKSPACE, YOUR CUSTOM SOFTWARE",
     "os_title": [
-      "Your engineering firm.",
-      "Your own OS."
+      "Our own workspace.",
+      "Your own business OS."
     ],
-    "os_copy": "We build your Novalis OS around the way you work: clients, assignments, teams, documents, approvals and invoicing in one place. For engineering firms, consultancies and service businesses, with your workflow, roles and identity.",
+    "os_copy": "We use Novalis OS to manage our projects: clients, assignments, schedules, tasks, documents, approvals and invoicing. We can also develop your own Novalis OS, tailored to your company's processes, people and brand. That development is managed through our own OS, with clear progress at every stage.",
     "os_note": "Interactive demonstration · example project",
     "os_tabs": [
       "Overview",
@@ -790,30 +790,30 @@
       "Scientific rigour.",
       "A sense for product."
     ],
-    "crew_copy": "A range of expertise in software engineering, product design, data science and AI, brought together around your business. Clear technical leadership, with specialists involved when they add value.",
+    "crew_copy": "Business software, ERP, SaaS, websites, AI, automation, data science, optimization and design: we bring together the right skills under clear technical leadership.",
     "founder_role": "Co-founder & CTO",
     "founder_bio": "Trained in data science at the Louvain School of Engineering, a researcher and teaching assistant at UCLouvain, Achraf connects statistics, machine learning and software design. He leads technical scoping and architecture at Novalis.",
     "profile": "Professional background",
     "crew_roles": [
       [
-        "screen",
-        "Frontend",
-        "Interfaces, mobile use & accessibility."
+        "code",
+        "Software & platforms",
+        "ERP, SaaS, business applications, APIs and integrations."
       ],
       [
-        "code",
-        "Backend",
-        "Business rules, APIs & architecture."
+        "flow",
+        "AI & automation",
+        "AI assistants, intelligent documents and workflows."
       ],
       [
         "chart",
-        "Data scientists",
-        "Statistics, machine learning & analysis."
+        "Data science & optimization",
+        "Forecasting, statistics, simulation and decision support."
       ],
       [
-        "people",
-        "Design & network",
-        "Product design, usability and independent specialists."
+        "screen",
+        "Design & web experiences",
+        "Websites, e-commerce, UX/UI and mobile applications."
       ]
     ],
     "contact_title": [
@@ -1157,7 +1157,7 @@
     },
     "save_fallback": "This browser could not save the link. Copy it, or check the general stage with your reference and email.",
     "partner_title": "The right skills. A carefully structured team.",
-    "partner_copy": "We regularly work with independent specialists and our partner network in Africa, including JetThings and JetNext. This lets us adapt the team to each project and offer competitive budgets, with scoping, technical reviews and project oversight coordinated by Novalis.",
+    "partner_copy": "We work with independent specialists and partners around the world, including JetThings and JetNext. We bring together the right skills for each project to offer competitive budgets, while Novalis leads scoping, technical reviews and delivery.",
     "os_payment_tab": "Invoices",
     "os_payment_title": "Your due dates, clearly set out.",
     "os_payment_intro": "An example of billing in three stages, as agreed in the proposal. Each invoice has its own due date and payment status.",
@@ -1189,7 +1189,7 @@
     "os_banner_title": "An agreed budget. Visible stages.",
     "os_banner_copy": "Scope, approvals and due dates remain clear throughout the collaboration.",
     "os_banner_cta": "See example invoices",
-    "os_custom_cta": "Let’s build your Novalis OS",
+    "os_custom_cta": "Build your own OS",
     "os_modules": [
       [
         "Clients & assignments",
@@ -1277,12 +1277,12 @@
         "Een duidelijke scope, zichtbare versies en getoetst gebruik."
       ]
     ],
-    "os_kicker": "NOVALIS OS · BEDRIJFSSOFTWARE OP MAAT",
+    "os_kicker": "NOVALIS OS · ONZE WERKOMGEVING, UW SOFTWARE OP MAAT",
     "os_title": [
-      "Uw studiebureau.",
-      "Uw eigen OS."
+      "Onze eigen werkomgeving.",
+      "Uw eigen bedrijfs-OS."
     ],
-    "os_copy": "Wij bouwen uw Novalis OS rond uw werkwijze: klanten, opdrachten, teams, documenten, goedkeuringen en facturatie in één tool. Voor studiebureaus, advieskantoren en dienstverleners, met uw processen, rollen en identiteit.",
+    "os_copy": "We gebruiken Novalis OS voor onze eigen projecten: klanten, opdrachten, planning, taken, documenten, goedkeuringen en facturatie. We kunnen ook uw eigen Novalis OS ontwikkelen, afgestemd op de processen, medewerkers en identiteit van uw bedrijf. Ook dit traject beheren we via ons OS, met heldere opvolging bij elke stap.",
     "os_note": "Interactieve demonstratie · voorbeeldproject",
     "os_tabs": [
       "Overzicht",
@@ -1395,30 +1395,30 @@
       "Wetenschappelijke nauwkeurigheid.",
       "Gevoel voor product."
     ],
-    "crew_copy": "Een panel van expertise in softwareontwikkeling, productdesign, data science en AI, samengebracht rond uw bedrijf. Een duidelijk technisch aanspreekpunt en specialisten op het juiste moment.",
+    "crew_copy": "Bedrijfssoftware, ERP, SaaS, websites, AI, automatisering, data science, optimalisatie en design: we brengen de juiste expertise samen onder duidelijke technische leiding.",
     "founder_role": "Medeoprichter & CTO",
     "founder_bio": "Achraf is opgeleid in data science aan de École polytechnique de Louvain en werkt als onderzoeker en assistent aan UCLouvain. Hij verbindt statistiek, machine learning en softwareontwerp en leidt de technische afbakening en architectuur bij Novalis.",
     "profile": "Professionele achtergrond",
     "crew_roles": [
       [
-        "screen",
-        "Frontend",
-        "Interfaces, mobiel gebruik & toegankelijkheid."
+        "code",
+        "Software & platformen",
+        "ERP, SaaS, bedrijfsapplicaties, API’s en integraties."
       ],
       [
-        "code",
-        "Backend",
-        "Bedrijfsregels, API’s & architectuur."
+        "flow",
+        "AI & automatisering",
+        "AI-assistenten, slimme documenten en workflows."
       ],
       [
         "chart",
-        "Data scientists",
-        "Statistiek, machine learning & analyse."
+        "Data science & optimalisatie",
+        "Voorspellingen, statistiek, simulatie en beslissingssteun."
       ],
       [
-        "people",
-        "Design & netwerk",
-        "Productdesign, gebruiksgemak en onafhankelijke specialisten."
+        "screen",
+        "Design & webervaringen",
+        "Websites, e-commerce, UX/UI en mobiele apps."
       ]
     ],
     "contact_title": [
@@ -1762,7 +1762,7 @@
     },
     "save_fallback": "Deze browser kon de link niet opslaan. Kopieer hem, of bekijk de algemene fase met uw referentie en e-mailadres.",
     "partner_title": "De juiste expertise. Een doordachte organisatie.",
-    "partner_copy": "We werken regelmatig met onafhankelijke specialisten en ons partnernetwerk in Afrika, waaronder JetThings en JetNext. Zo stemmen we het team af op elk project en bieden we concurrerende budgetten, met afbakening, technische reviews en opvolging centraal bij Novalis.",
+    "partner_copy": "We werken met onafhankelijke specialisten en partners over de hele wereld, waaronder JetThings en JetNext. Zo bieden we passende expertise en concurrerende budgetten, terwijl Novalis de scope, technische controles en oplevering coördineert.",
     "os_payment_tab": "Facturen",
     "os_payment_title": "Uw vervaldata, helder in beeld.",
     "os_payment_intro": "Een voorbeeld van facturering in drie fasen, volgens het afgesproken voorstel. Elke factuur heeft een eigen vervaldatum en betaalstatus.",
@@ -1794,7 +1794,7 @@
     "os_banner_title": "Een afgesproken budget. Zichtbare stappen.",
     "os_banner_copy": "Scope, goedkeuringen en vervaldata blijven duidelijk tijdens de samenwerking.",
     "os_banner_cta": "Voorbeeldfacturen bekijken",
-    "os_custom_cta": "Samen uw Novalis OS bouwen",
+    "os_custom_cta": "Bouw uw eigen OS met ons",
     "os_modules": [
       [
         "Klanten & opdrachten",
@@ -1882,12 +1882,12 @@
         "Ein klarer Umfang, sichtbare Versionen und geprüftes Verhalten."
       ]
     ],
-    "os_kicker": "NOVALIS OS · MASSGESCHNEIDERTE FIRMENSOFTWARE",
+    "os_kicker": "NOVALIS OS · UNSERE PLATTFORM, IHRE INDIVIDUELLE SOFTWARE",
     "os_title": [
-      "Ihr Ingenieurbüro.",
-      "Ihr eigenes OS."
+      "Unser eigener Workspace.",
+      "Ihr eigenes Business-OS."
     ],
-    "os_copy": "Wir entwickeln Ihr Novalis OS passend zu Ihren Abläufen: Kunden, Aufträge, Teams, Dokumente, Freigaben und Rechnungen in einem System. Für Ingenieurbüros, Beratungen und Dienstleister, mit Ihren Prozessen, Rollen und Ihrer Identität.",
+    "os_copy": "Wir nutzen Novalis OS für unsere Projekte: Kunden, Aufträge, Planung, Aufgaben, Dokumente, Freigaben und Rechnungen. Auch für Ihr Unternehmen können wir ein eigenes Novalis OS entwickeln, angepasst an Ihre Prozesse, Teams und Marke. Diese Entwicklung steuern wir ebenfalls in unserem OS mit klarer Begleitung in jeder Phase.",
     "os_note": "Interaktive Demonstration · Beispielprojekt",
     "os_tabs": [
       "Übersicht",
@@ -2000,30 +2000,30 @@
       "Wissenschaftliche Sorgfalt.",
       "Gespür für Produkte."
     ],
-    "crew_copy": "Ein Spektrum an Kompetenzen in Softwareentwicklung, Produktdesign, Data Science und KI, gebündelt für Ihr Unternehmen. Klare technische Verantwortung und Spezialisten zum passenden Zeitpunkt.",
+    "crew_copy": "Geschäftssoftware, ERP, SaaS, Websites, KI, Automatisierung, Data Science, Optimierung und Design: Wir bündeln die passenden Kompetenzen unter klarer technischer Leitung.",
     "founder_role": "Mitgründer & CTO",
     "founder_bio": "Achraf ist in Data Science an der École polytechnique de Louvain ausgebildet und forscht und lehrt als Assistent an UCLouvain. Er verbindet Statistik, Machine Learning und Softwaredesign und verantwortet technische Planung und Architektur bei Novalis.",
     "profile": "Beruflicher Werdegang",
     "crew_roles": [
       [
-        "screen",
-        "Frontend",
-        "Oberflächen, mobile Nutzung & Barrierefreiheit."
+        "code",
+        "Software & Plattformen",
+        "ERP, SaaS, Geschäftsanwendungen, APIs und Integrationen."
       ],
       [
-        "code",
-        "Backend",
-        "Geschäftsregeln, APIs & Architektur."
+        "flow",
+        "KI & Automatisierung",
+        "KI-Assistenten, intelligente Dokumente und Workflows."
       ],
       [
         "chart",
-        "Data Scientists",
-        "Statistik, Machine Learning & Analyse."
+        "Data Science & Optimierung",
+        "Prognosen, Statistik, Simulation und Entscheidungshilfen."
       ],
       [
-        "people",
-        "Design & Netzwerk",
-        "Produktdesign, Ergonomie und unabhängige Spezialisten."
+        "screen",
+        "Design & Web-Erlebnisse",
+        "Websites, E-Commerce, UX/UI und mobile Apps."
       ]
     ],
     "contact_title": [
@@ -2367,7 +2367,7 @@
     },
     "save_fallback": "Dieser Browser konnte den Link nicht speichern. Kopieren Sie ihn oder prüfen Sie die allgemeine Phase mit Referenz und E-Mail-Adresse.",
     "partner_title": "Die richtigen Fähigkeiten. Eine durchdachte Organisation.",
-    "partner_copy": "Wir arbeiten regelmäßig mit unabhängigen Spezialisten und unserem Partnernetzwerk in Afrika, darunter JetThings und JetNext. So passen wir das Team an jedes Projekt an und bieten wettbewerbsfähige Budgets. Planung, technische Reviews und Projektbegleitung werden bei Novalis koordiniert.",
+    "partner_copy": "Wir arbeiten mit unabhängigen Spezialisten und Partnern auf der ganzen Welt, darunter JetThings und JetNext. So verbinden wir passende Expertise mit wettbewerbsfähigen Budgets. Novalis übernimmt Planung, technische Prüfung und Umsetzung.",
     "os_payment_tab": "Rechnungen",
     "os_payment_title": "Ihre Fälligkeiten, klar im Blick.",
     "os_payment_intro": "Ein Beispiel für Abrechnung in drei Etappen gemäß Angebot. Jede Rechnung hat eine eigene Fälligkeit und einen Zahlungsstatus.",
@@ -2399,7 +2399,7 @@
     "os_banner_title": "Ein vereinbartes Budget. Sichtbare Etappen.",
     "os_banner_copy": "Umfang, Freigaben und Fälligkeiten bleiben während der Zusammenarbeit verständlich.",
     "os_banner_cta": "Beispielrechnungen ansehen",
-    "os_custom_cta": "Ihr Novalis OS gemeinsam entwickeln",
+    "os_custom_cta": "Ihr eigenes OS entwickeln",
     "os_modules": [
       [
         "Kunden & Aufträge",
