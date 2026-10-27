@@ -41,3 +41,20 @@ body{line-height:1.65}h1,h2,h3,h4{font-weight:650;letter-spacing:-.045em}h1 em,h
 @media(max-width:560px){.workflow-canvas{display:flex;flex-direction:column}.flow-source{order:0}.flow-run{order:1;margin-top:14px}.flow-steps{order:2}.flow-ready,.flow-result{order:3}.flow-status{order:4}.flow-hero .flow-ready{display:none}.flow-hero .engineering-hero-copy>.eyebrow{margin-bottom:14px}}
 
 @media(min-width:801px){.flow-hero .engineering-hero-copy{align-self:start;padding-top:30px}}
+
+
+/* Private-link-only, prospect-facing conversation; no internal notes are rendered here. */
+.tracking-conversation{margin-top:28px;padding-top:25px;border-top:1px solid #dce2e9}
+.tracking-conversation>h3{font-size:21px;letter-spacing:-.035em;margin-bottom:16px}
+.tracking-conversation-list{list-style:none;display:grid;gap:12px;padding:0;margin:0 0 24px}
+.tracking-conversation-list li{border:1px solid #e1e6ed;border-radius:10px;background:#f5f7fa;padding:16px 18px;overflow-wrap:anywhere}
+.tracking-conversation-list li.from-prospect{background:#eaf1f5;border-color:#d2dfe9}
+.tracking-conversation-list strong{display:inline-block;font-size:13px;letter-spacing:0}
+.tracking-conversation-list time{display:inline-block;color:#647181;font-size:11px;margin-left:12px}
+.tracking-conversation-list p{font-size:14px;line-height:1.75;margin:8px 0 0;white-space:pre-wrap}
+.tracking-message-form{display:grid;gap:12px;margin-top:22px}
+.tracking-message-form label{display:grid;gap:10px;font-weight:650;font-size:13px}
+.tracking-message-form textarea{min-height:112px;width:100%;resize:vertical;padding:14px}
+.tracking-message-form button{justify-self:start}
+.tracking-message-form [role=status]{margin:0}
+@media(max-width:560px){.tracking-conversation-list li{padding:13px}.tracking-conversation-list time{display:block;margin:5px 0 0}.tracking-message-form button{width:100%;justify-self:stretch}}
