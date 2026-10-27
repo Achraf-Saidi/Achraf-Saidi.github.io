@@ -1,7 +1,7 @@
 """One-time rollout wrapper, with prospective client identity checked privately."""
 import hashlib,json,os,sqlite3,subprocess,tempfile,urllib.request
 from pathlib import Path
-SOURCE='681f48dd8f144e91df2f193c74ea95a29920b964'
+SOURCE='abd0227fb972688a3e372f07d0220a59db7b88a5'
 TARGET='77a510f5beb0ead786afd9a3bf2cd6aeb95c79cec18273c1e2034428318beafc'
 ENV=Path('/etc/novalis-os/production.env')
 settings={}
