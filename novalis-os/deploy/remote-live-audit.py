@@ -32,7 +32,7 @@ def main():
              l.description,l.scoping_note,l.version FROM lead_intake i JOIN leads l ON l.id=i.lead_id
              WHERE l.org_id='novalis' ORDER BY i.created_at""")]
         demos={}
-        for name in ['users','leads','clients','projects','invoices']:
+        for name in ['users','leads','clients','projects']:
             demos[name]=db.execute('SELECT COUNT(*) FROM '+name+" WHERE org_id='novalis-demo'").fetchone()[0]
         protected=[x for x in leads if x['reference']=='NV-26-46DAC03F']
         if len(protected)!=1 or protected[0]['email'].lower()!='anne.vanoost@formestructure.be':
