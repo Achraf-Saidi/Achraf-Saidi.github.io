@@ -21,3 +21,17 @@ CREATE TABLE IF NOT EXISTS document_versions (
  number INTEGER NOT NULL CHECK(number>0),
  UNIQUE(root_id,number)
 );
+
+-- Additive, immutable conversation attached to an existing lead.
+-- Never backfill or overwrite the initial request, proposal or public status history.
+CREATE TABLE IF NOT EXISTS lead_public_messages (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ lead_id TEXT NOT NULL REFERENCES lead_intake(lead_id),
+ author_type TEXT NOT NULL CHECK(author_type IN ('staff','prospect')),
+ author_id TEXT REFERENCES users(id),
+ body TEXT NOT NULL CHECK(length(body) BETWEEN 1 AND 4000),
+ created_at TEXT NOT NULL,
+ CHECK((author_type='staff' AND author_id IS NOT NULL) OR
+       (author_type='prospect' AND author_id IS NULL))
+);
+CREATE INDEX IF NOT EXISTS lead_public_messages_lead ON lead_public_messages(lead_id,id);
