@@ -18,7 +18,7 @@ class Intake(unittest.TestCase):
   r=self.public('contact',self.body(),201);self.assertRegex(r['reference'],r'^NV-\d{2}-[A-F0-9]{8}$');self.assertEqual(len(r['tracking_token']),43)
   with self.app.app_context():
    item=row('SELECT * FROM lead_intake WHERE lead_id=?',(r['id'],));self.assertEqual(item['access_hash'],digest(r['tracking_token']));self.assertNotIn(r['tracking_token'],str(item));self.assertTrue(rows("SELECT * FROM notifications WHERE user_id='manager'"));self.assertEqual(len(rows('SELECT id FROM outbox')),1)
-  status=self.public('request-status',{'token':r['tracking_token']});self.assertEqual(status['status'],'received');self.assertEqual(set(status),{'reference','status','events','expires_at','portal_url'});self.assertNotIn('prospect@example',str(status));self.assertNotIn('Relier les stocks',str(status));self.assertIsNone(status['portal_url'])
+  status=self.public('request-status',{'token':r['tracking_token']});self.assertEqual(status['status'],'received');self.assertEqual(set(status),{'reference','status','events','messages','expires_at','portal_url'});self.assertNotIn('prospect@example',str(status));self.assertNotIn('Relier les stocks',str(status));self.assertIsNone(status['portal_url'])
  def test_duplicate_and_concurrent_request_are_one_lead(self):
   b=self.body()
   def send(_):return self.app.test_client().post('/api/public/contact',json=b,headers={'Origin':'https://public.novalis.test'})
@@ -57,6 +57,44 @@ class Intake(unittest.TestCase):
  def test_conversion_continues_tracking_without_granting_access(self):
   r=self.public('contact',self.body(),201);self.call('manager','PATCH','/api/leads/'+r['id'],dict(status='proposal',version=1,owner_id='account'));self.call('manager','POST','/api/leads/'+r['id']+'/convert',dict(version=2,accepted=True,name='Projet de recette',scope='Gestion de stock',budget_cents=10000,due_date=date.today().isoformat(),account_id='account'),201);status=self.public('request-status',{'token':r['tracking_token']});self.assertEqual(status['status'],'project');self.assertEqual(status['portal_url'],workflows.ORIGIN+'/os/');self.assertNotIn('project_id',str(status))
   with self.app.app_context():self.assertIsNone(row("SELECT id FROM users WHERE email='prospect@example.test'"))
+
+ def test_shared_prospect_thread_preserves_original_offer_and_private_notes(self):
+  r=self.public('contact',self.body(),201)
+  with self.app.app_context():before=row('SELECT * FROM leads WHERE id=?',(r['id'],))
+  self.call('developer','POST','/api/leads/'+r['id']+'/tracking/messages',{'body':'Do not send'},403)
+  self.call('account','POST','/api/leads/'+r['id']+'/tracking/messages',{'body':'Not my lead'},404)
+  self.call('manager','PATCH','/api/leads/'+r['id'],dict(status='proposal',version=1,scoping_note='PRIVATE: margin and proposal content'))
+  shared=self.call('manager','POST','/api/leads/'+r['id']+'/tracking/messages',{'body':'Bonjour, nous vous proposons un rendez-vous.'},201)
+  self.assertEqual(shared['notification_status'],'queued')
+  self.public('request-message',{'token':'x'*43,'body':'Inaccessible'},404)
+  reply=self.public('request-message',{'token':r['tracking_token'],'body':'Merci ! À quel moment ?'},201)
+  self.assertTrue(reply['received'])
+  status=self.public('request-status',{'token':r['tracking_token']})
+  self.assertEqual([m['author_type'] for m in status['messages']],['staff','prospect'])
+  self.assertEqual([m['body'] for m in status['messages']],['Bonjour, nous vous proposons un rendez-vous.','Merci ! À quel moment ?'])
+  self.assertNotIn('PRIVATE',str(status))
+  self.assertNotIn('margin',str(status))
+  detail=self.call('manager','GET','/api/leads/'+r['id']+'/tracking')
+  self.assertEqual(len(detail['messages']),2)
+  lookup=self.public('request-lookup',{'reference':r['reference'],'email':'prospect@example.test'})
+  self.assertEqual(set(lookup),{'reference','status'})
+  with self.app.app_context():
+   after=row('SELECT * FROM leads WHERE id=?',(r['id'],))
+   self.assertEqual({k:before[k] for k in ('id','email','company','description','created_at')},{k:after[k] for k in ('id','email','company','description','created_at')})
+   self.assertTrue(row("SELECT id FROM notifications WHERE kind='lead_message' AND user_id='manager'"))
+   self.assertEqual(row('SELECT COUNT(*) AS n FROM lead_public_messages')['n'],2)
+
+ def test_thread_token_expiry_tenant_isolation_and_validation(self):
+  r=self.public('contact',self.body(),201)
+  self.public('request-message',{'token':r['tracking_token'],'body':' '},400)
+  self.public('request-message',{'token':r['tracking_token'],'body':'A'*4001},400)
+  self.public('request-message',{'token':r['tracking_token'],'body':'Wrong origin'},403,origin='https://attacker.test')
+  self.app.config['ORG_ID']='other-organization'
+  self.public('request-message',{'token':r['tracking_token'],'body':'Foreign tenant'},404)
+  self.app.config['ORG_ID']='novalis'
+  with self.app.app_context():get_db().execute("UPDATE lead_intake SET expires_at='2001-01-01T00:00:00+00:00' WHERE lead_id=?",(r['id'],))
+  self.public('request-message',{'token':r['tracking_token'],'body':'Expired'},404)
+  with self.app.app_context():self.assertEqual(row('SELECT COUNT(*) AS n FROM lead_public_messages')['n'],0)
  def test_booking_with_receipt_is_atomic_and_retriable(self):
   slot=self.call('manager','POST','/api/calendar/slots',dict(starts_at=(datetime.now(timezone.utc)+timedelta(days=4)).isoformat(),owner_id='account'),201)['id'];b=self.body(slot_id=slot);r=self.public('contact',b,201);self.assertEqual(r['booking']['status'],'reserved');self.assertEqual(self.public('contact',b)['booking']['id'],r['booking']['id']);self.public('contact',self.body(slot_id=slot),409)
   with self.app.app_context():self.assertEqual(len(rows('SELECT id FROM leads')),1);self.assertEqual(len(rows('SELECT id FROM meetings')),1)
