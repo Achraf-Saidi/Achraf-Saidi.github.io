@@ -66,6 +66,7 @@
   $('role-label').textContent=roleNames[state.user.role];$('user-name').textContent=state.user.name;$('user-email').textContent=state.user.email;
   $('main-nav').replaceChildren();
   navigation[state.user.role].forEach(([name,label,symbol])=>{const b=document.createElement('button');b.type='button';b.dataset.view=name;b.innerHTML=`<span aria-hidden="true">${symbol}</span><span>${escape(label)}</span>`;b.addEventListener('click',()=>view(name));$('main-nav').append(b);});
+  window.NovalisPremium?.initNova(planningContext());
   await view(navigation[state.user.role][0][0]);
   const invoiceID=new URLSearchParams(location.hash.slice(1)).get('invoice');if(invoiceID&&/^[a-f0-9]{32}$/.test(invoiceID))await window.NovalisBilling.open(invoiceID,billingContext());
   const paymentID=new URLSearchParams(location.hash.slice(1)).get('payment');if(paymentID&&/^[a-f0-9]{32}$/.test(paymentID))await openPaymentAttempt(paymentID,true);
@@ -111,7 +112,7 @@
    await handlers[name](epoch);
   }catch(e){if(epoch===state.epoch)showError(e);}
  }
- function planningContext(){return {api,state,title,button,toast,modal,openDialog,openProject,openInvoice:id=>window.NovalisBilling.open(id,billingContext())};}
+ function planningContext(){return {api,state,title,button,toast,modal,openDialog,openProject,newTask,openInvoice:id=>window.NovalisBilling.open(id,billingContext())};}
  function billingContext(){return {api,state,title,button,toast,modal,openDialog,paymentOptions};}
  function current(epoch){return epoch===state.epoch;}
  function projectRows(items){return items.length?'<div class="rows">'+items.map(p=>`<article class="row"><div class="row-content"><button class="link" data-open-project="${p.id}">${escape(p.name)}</button><p>${escape(p.account_name)} · ${date(p.due_date)}</p></div>${badge(p.status)}<progress class="progress" max="100" value="${p.progress}" aria-label="Avancement validé : ${p.progress} %"></progress><span class="mini">${p.progress} %</span></article>`).join('')+'</div>':empty('Aucun projet n’est encore associé à votre espace.');}
@@ -184,7 +185,7 @@
   if(state.user.role==='client')tabs=tabs.filter(t=>t[0]!=='tasks');
   if(['manager','account','client'].includes(state.user.role))tabs.push(['proposals','Propositions']);
   if(['manager','client'].includes(state.user.role))tabs.push(['invoices','Règlements']);
-  tabs.unshift(['plan','Phases & budget'],['graph','Organisation']);
+  tabs.unshift(['insights','Pilotage'],['plan','Phases & budget'],['graph','Organisation']);
   if(['manager','account','client'].includes(state.user.role))tabs.splice(2,0,['specification','Cahier des charges']);
   if(!tabs.some(t=>t[0]===state.tab))state.tab=tabs[0][0];
   tabs.forEach(([key,label])=>{const b=button(label,()=>projectTab(key),$('project-tabs'),true);b.dataset.tab=key;});
@@ -195,6 +196,7 @@
   if(tab!==state.tab&&!leavePlanning())return;
   state.tab=tab;document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tab===tab)));
   const host=$('project-body'),d=state.bundle,p=d.project,coord=['manager','account'].includes(state.user.role);
+  if(tab==='insights'){await window.NovalisPremium.insights(planningContext());return;}
   if(['plan','graph','specification'].includes(tab)){await window.NovalisPlanning.project(planningContext(),tab);return;}
   if(tab==='roadmap'){
    host.innerHTML=panel('Les étapes partagées',d.milestones.length?'<div class="client-timeline">'+d.milestones.map((m,i)=>`<article class="row" data-status="${m.status}"><span aria-hidden="true">${m.status==='approved'?'✓':i+1}</span><div class="row-content"><strong>${escape(m.name)}</strong><p>${escape(m.description)}</p><p>${date(m.due_date)}</p></div>${badge(m.status)}<div class="row-actions">${coord&&['planned','rejected'].includes(m.status)?`<button class="secondary" data-submit-milestone="${m.id}">Présenter au client</button>`:''}${state.user.role==='client'&&m.status==='awaiting_client'?`<button class="button" data-approve-milestone="${m.id}">Valider</button><button class="secondary" data-reject-milestone="${m.id}">À reprendre</button>`:''}</div></article>`).join('')+'</div>':empty('Les jalons partagés apparaîtront ici.'))+'<div class="toolbar" id="roadmap-actions"></div>';
@@ -225,7 +227,7 @@
   $('dialog-content').querySelectorAll('[data-remove-member]').forEach(b=>b.addEventListener('click',()=>modal('Retirer cet accès',[{name:'confirm',label:'La personne ne pourra plus consulter ce projet',type:'checkbox'}],async()=>{await api('/api/projects/'+state.project+'/members/'+b.dataset.removeMember,'DELETE',{});await refreshProject();})));
  }
  function taskFields(){const team=state.bundle.team;return [{name:'name',label:'Tâche'},{name:'description',label:'Spécifications et critères de revue',type:'textarea'},{name:'assignee_id',label:'Collaborateur affecté',type:'select',options:team.map(u=>[u.id,u.name])},{name:'milestone_id',label:'Jalon',type:'select',required:false,options:[['','Sans jalon'],...state.bundle.milestones.filter(m=>['planned','rejected'].includes(m.status)).map(m=>[m.id,m.name])]},{name:'estimate_minutes',label:'Effort estimé en minutes',type:'number',min:1},{name:'due_date',label:'Date attendue',type:'date'},{name:'priority',label:'Priorité',type:'select',options:[['normal','Normale'],['high','Haute'],['low','Basse']]},{name:'client_visible',label:'Partager le titre et le statut avec le client',type:'checkbox',required:false}];}
- function newTask(){if(!state.bundle.team.length){toast('Affectez un collaborateur au projet avant de créer une tâche.');return;}modal('Créer une tâche',taskFields(),async d=>{if(!d.milestone_id)delete d.milestone_id;await api(`/api/projects/${state.project}/tasks`,'POST',d);state.tab='tasks';await refreshProject();});}
+ function newTask(phase){if(!state.bundle.team.length){toast('Affectez un collaborateur au projet avant de créer une tâche.');return;}const fields=taskFields();if(phase){fields.find(f=>f.name==='milestone_id').value=phase.milestone_id;fields.find(f=>f.name==='due_date').value=phase.due_date;}modal(phase?'Créer une tâche · '+phase.name:'Créer une tâche',fields,async d=>{if(!d.milestone_id)delete d.milestone_id;await api(`/api/projects/${state.project}/tasks`,'POST',d);state.tab='tasks';await refreshProject();});}
  function board(items){
   const groups=[['todo','À faire'],['in_progress','En cours'],['review','En revue'],['approved','Validées']];
   if(!items.length)return empty('Aucune tâche dans cette vue. Les tâches soumises en revue attendent une validation du responsable.');
@@ -277,12 +279,7 @@
   if(coord)fields.push({name:'supersedes',label:'Versionner un document existant · facultatif',type:'select',required:false,options:[['','Nouveau document'],...d.documents.filter(doc=>doc.latest!==0).map(doc=>[doc.id,doc.filename+' · v'+(Number(doc.version)||1)])]});
   button('Ajouter un document',()=>{modal('Partager un document',fields,async value=>{if(value.file.size>6*1024*1024)throw new Error('Le fichier dépasse 6 Mo.');const form=new FormData();form.append('file',value.file);form.append('channel',value.channel);if(value.supersedes)form.append('supersedes',value.supersedes);await api(`/api/projects/${state.project}/documents`,'POST',form);await refreshProject();});if(coord){const form=$('dialog-content').querySelector('form');form?.elements.supersedes?.addEventListener('change',()=>{const doc=d.documents.find(doc=>doc.id===form.elements.supersedes.value);if(doc)form.elements.channel.value=doc.channel;});}},$('document-actions'));
  }
- async function timeList(epoch){
-  const d=await api('/api/time');if(!current(epoch))return;
-  title('Temps','Le travail enregistré.','Les saisies soumises restent distinctes du temps validé.');
-  $('view-content').innerHTML=panel('Feuilles de temps',d.items.length?d.items.map(e=>`<article class="row"><div class="row-content"><strong>${escape(e.task_name)} · ${e.minutes} min</strong><p>${escape(e.user_name)} · ${date(e.work_date)} · ${e.billable?'Facturable':'Non facturable'}</p><p>${escape(e.note)}</p></div>${badge(e.status)}<div class="row-actions">${state.user.role!=='developer'&&e.status==='submitted'?`<button class="button" data-time="${e.id}" data-status="approved">Valider</button><button class="secondary" data-time="${e.id}" data-status="rejected">Refuser</button>`:''}</div></article>`).join(''):empty('Enregistrez le temps depuis une tâche qui vous est affectée.'));
-  document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>modal('Examiner une saisie',[{name:'confirm',label:'Confirmer cette décision',type:'checkbox'}],async()=>{await api(`/api/time/${b.dataset.time}/review`,'POST',{status:b.dataset.status});await view('time');})));
- }
+ async function timeList(epoch){return window.NovalisPremium.timesheet(planningContext());}
  async function calendar(epoch){return window.NovalisPlanning.calendar(planningContext());}
  async function legacyCalendar(epoch){
   const d=await api('/api/calendar');if(!current(epoch))return;

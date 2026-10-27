@@ -42,3 +42,12 @@ CREATE TABLE IF NOT EXISTS calendar_attendees (
 CREATE INDEX IF NOT EXISTS calendar_range ON calendar_events(org_id,starts_at,ends_at);
 CREATE INDEX IF NOT EXISTS phase_project ON project_phases(project_id,position);
 CREATE INDEX IF NOT EXISTS specs_project ON project_specs(project_id,number);
+
+-- A retried phase-invoice request returns the same draft, never a second deposit.
+CREATE TABLE IF NOT EXISTS phase_invoice_requests (
+ org_id TEXT NOT NULL REFERENCES organisations(id),
+ request_id TEXT NOT NULL,
+ invoice_id TEXT NOT NULL REFERENCES invoices(id),
+ fingerprint TEXT NOT NULL,
+ PRIMARY KEY(org_id,request_id)
+);

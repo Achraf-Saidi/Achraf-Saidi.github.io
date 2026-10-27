@@ -9,12 +9,28 @@ from .validation import data,text,integer,choice,day
 from .finance import invoice_access,present_invoice
 
 billing=Blueprint('billing',__name__)
-DEFAULTS={'legal_name':'','trade_name':'Novalis AI','address':'','postal_code':'','city':'','country':'BE','company_number':'','vat_number':'','email':'contact@novalisai.com','iban':'','bic':'','bank_name':'','terms':'Paiement à l’échéance indiquée.','default_due_days':15}
+DEFAULTS={'legal_name':'','trade_name':'Novalis AI','address':'','postal_code':'','city':'','country':'BE','company_number':'','vat_number':'','email':'contact@novalisai.com','iban':'','bic':'','bank_name':'','terms':'Paiement à l’échéance indiquée.','default_due_days':15,'logo_data_url':''}
 FIELDS={'legal_name':150,'trade_name':100,'address':300,'postal_code':20,'city':100,'country':2,'company_number':50,'vat_number':50,'email':254,'iban':40,'bic':11,'bank_name':100,'terms':2000}
 
 def settings():
     found=row('SELECT payload FROM billing_settings WHERE org_id=?',(g.user['org_id'],))
     return {**DEFAULTS,**(json.loads(found['payload']) if found else {})}
+
+def clean_logo(value):
+    if not value:return ''
+    import base64
+    from PIL import Image, UnidentifiedImageError
+    if not isinstance(value,str) or len(value)>120000 or not value.startswith(('data:image/png;base64,','data:image/jpeg;base64,','data:image/webp;base64,')):
+        abort(400,'Logo invalide : choisissez une petite image PNG, JPEG ou WebP.')
+    try:
+        raw=base64.b64decode(value.split(',',1)[1],validate=True)
+        with Image.open(io.BytesIO(raw)) as im:
+            if im.width*im.height>4000000:abort(400,'Logo trop grand.')
+            im.load();im.thumbnail((600,240));buf=io.BytesIO();im.convert('RGBA').save(buf,format='PNG',optimize=True)
+            if len(buf.getvalue())>90000:abort(400,'Le logo compressé dépasse 90 Ko. Simplifiez son image.')
+            return 'data:image/png;base64,'+base64.b64encode(buf.getvalue()).decode()
+    except (ValueError,OSError,UnidentifiedImageError):abort(400,'Le fichier ne contient pas une image valide.')
+
 
 def valid_iban(value):
     value=re.sub(r'\s','',value).upper()
@@ -103,6 +119,7 @@ def save_settings():
     values['country']=(values['country'] or 'BE').upper();values['iban']=re.sub(r'\s','',values['iban']).upper();values['bic']=values['bic'].upper()
     if values['iban'] and not valid_iban(values['iban']):abort(400,'IBAN invalide : vérifiez les chiffres et le pays.')
     if values['bic'] and not re.fullmatch('[A-Z0-9]{8}([A-Z0-9]{3})?',values['bic']):abort(400,'BIC invalide.')
+    values['logo_data_url']=clean_logo(d.get('logo_data_url',settings().get('logo_data_url','')))
     values['default_due_days']=integer(d,'default_due_days',0,180,15)
     with transaction() as db:
         db.execute('INSERT INTO billing_settings VALUES(?,?,?) ON CONFLICT(org_id) DO UPDATE SET payload=excluded.payload,updated_at=excluded.updated_at',(g.user['org_id'],json.dumps(values),now()));audit('billing.settings_updated',g.user['org_id'])

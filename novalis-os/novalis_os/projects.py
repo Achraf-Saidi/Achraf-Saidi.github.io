@@ -54,6 +54,12 @@ def task_access(task_id, edit=False):
     return task, project
 
 
+def sync_phase_task(task_id, milestone_id):
+    phase=row('SELECT id FROM project_phases WHERE milestone_id=?',(milestone_id,))
+    get_db().execute('DELETE FROM phase_tasks WHERE task_id=?',(task_id,))
+    if phase:get_db().execute('INSERT INTO phase_tasks(task_id,phase_id) VALUES(?,?)',(task_id,phase['id']))
+
+
 def create_task(d, project):
     assignee = text(d, 'assignee_id', 40)
     if not row("SELECT id FROM users WHERE id=? AND org_id=? AND status='active' AND role IN ('developer','account','manager')", (assignee, project['org_id'])):
@@ -61,7 +67,7 @@ def create_task(d, project):
     if not row('SELECT 1 FROM project_members WHERE project_id=? AND user_id=?', (project['id'], assignee)) and assignee != project['account_id']:
         abort(400, 'Affectez d’abord ce collaborateur au projet.')
     milestone = d.get('milestone_id')
-    if milestone and not row('SELECT id FROM milestones WHERE id=? AND project_id=?', (milestone, project['id'])):
+    if milestone and not row("SELECT id FROM milestones WHERE id=? AND project_id=? AND status IN ('planned','rejected')", (milestone, project['id'])):
         abort(400, 'Jalon invalide.')
     task_id = uid()
     estimate = integer(d, 'estimate_minutes', 1, 100000)
@@ -70,6 +76,7 @@ def create_task(d, project):
         (task_id, project['id'], milestone, assignee, text(d, 'name'), text(d, 'description', 10000),
          estimate, estimate, day(d, 'due_date'), choice(d, 'priority', ['low','normal','high'], 'normal'),
          int(d.get('client_visible') is True), now()))
+    sync_phase_task(task_id, milestone)
     notify(assignee, 'task', task_id, 'Une nouvelle tâche vous est affectée.')
     audit('task.created', task_id)
     return task_id
@@ -261,7 +268,8 @@ def time_list():
 def time_create(task_id):
     d = data()
     with transaction() as db:
-        task,_ = task_access(task_id,edit=True)
+        task,p = task_access(task_id,edit=True)
+        if p['status'] not in {'active','maintenance'}:abort(409,'Ce projet est fermé à la saisie des temps.')
         if task['assignee_id']!=g.user['id']:
             abort(403,'Enregistrez uniquement votre propre temps.')
         date_value = day(d,'work_date')
@@ -457,9 +465,12 @@ def task_edit(task_id):
         assignee=text(d,'assignee_id',40)
         if not row("SELECT id FROM users WHERE id=? AND org_id=? AND status='active' AND role IN ('manager','account','developer')",(assignee,p['org_id'])) or (assignee!=p['account_id'] and not row('SELECT 1 FROM project_members WHERE project_id=? AND user_id=?',(p['id'],assignee))):abort(400,'Collaborateur non affecté au projet.')
         milestone=d.get('milestone_id') or None
+        previous=row('SELECT status FROM milestones WHERE id=?',(task['milestone_id'],))
+        if previous and previous['status'] in {'awaiting_client','approved'}:abort(409,'Réouvrez le jalon avant de modifier ses tâches.')
         if milestone and not row("SELECT id FROM milestones WHERE id=? AND project_id=? AND status IN ('planned','rejected')",(milestone,p['id'])):abort(400,'Choisissez un jalon ouvert appartenant au projet.')
         estimate=integer(d,'estimate_minutes',1,100000)
         if not db.execute('UPDATE tasks SET name=?,description=?,assignee_id=?,milestone_id=?,due_date=?,estimate_minutes=?,remaining_minutes=?,priority=?,client_visible=?,version=version+1 WHERE id=? AND version=?',(text(d,'name'),text(d,'description',10000),assignee,milestone,day(d,'due_date'),estimate,integer(d,'remaining_minutes',0,100000,task['remaining_minutes']),choice(d,'priority',['low','normal','high'],'normal'),int(d.get('client_visible') is True),task_id,integer(d,'version',1))).rowcount:abort(409,'Tâche modifiée : rechargez les données.')
+        sync_phase_task(task_id,milestone)
         audit('task.edited',task_id);notify(assignee,'task_updated',task_id,'Une tâche a été mise à jour.')
     return jsonify(ok=True)
 
