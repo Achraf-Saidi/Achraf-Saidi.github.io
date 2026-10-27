@@ -83,7 +83,7 @@ def main():
     exceptions.add(KEEP[0])
     newlines=[x for x in original.decode().splitlines() if not x.startswith('NOVALIS_MFA_EXEMPT_EMAILS=')]
     newlines.append('NOVALIS_MFA_EXEMPT_EMAILS='+','.join(sorted(exceptions)))
-    desired=('\\n'.join(newlines)+'\\n').encode()
+    desired=(chr(10).join(newlines)+chr(10)).encode()
     if desired!=original:
         replace_config(desired)
         try:
