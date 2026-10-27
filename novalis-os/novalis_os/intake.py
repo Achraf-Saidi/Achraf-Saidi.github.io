@@ -6,8 +6,8 @@ import json
 import re
 import secrets
 from datetime import datetime,timedelta,timezone
-from flask import Blueprint,current_app,jsonify,abort
-from .db import row,rows,now,transaction,uid,notify
+from flask import Blueprint,current_app,jsonify,abort,g
+from .db import row,rows,now,transaction,uid,notify,audit
 from .security import digest,rate_limit
 from .security import required
 from .validation import data,text,email
@@ -23,7 +23,11 @@ def internal_tracking(lead_id):
     from .crm import lead_access
     lead_access(lead_id)
     item=row('SELECT reference,expires_at FROM lead_intake WHERE lead_id=?',(lead_id,))
-    return jsonify(tracking=item,events=rows('SELECT status,created_at FROM lead_public_events WHERE lead_id=? ORDER BY id',(lead_id,)) if item else [])
+    return jsonify(
+        tracking=item,
+        events=rows('SELECT status,created_at FROM lead_public_events WHERE lead_id=? ORDER BY id',(lead_id,)) if item else [],
+        messages=rows('SELECT id,author_type,body,created_at FROM lead_public_messages WHERE lead_id=? ORDER BY id',(lead_id,)) if item else [],
+    )
 
 def track_transition(lead_id,stage):
     if not row('SELECT lead_id FROM lead_intake WHERE lead_id=?',(lead_id,)):return
@@ -94,7 +98,8 @@ def request_status():
              (digest(token),now(),current_app.config['ORG_ID']))
     if not item:abort(404,'Lien de suivi introuvable ou expiré.')
     events=rows('SELECT status,created_at FROM lead_public_events WHERE lead_id=? ORDER BY id',(item['lead_id'],))
-    result=jsonify(reference=item['reference'],status=events[-1]['status'],events=events,expires_at=item['expires_at'],
+    messages=rows('SELECT id,author_type,body,created_at FROM lead_public_messages WHERE lead_id=? ORDER BY id',(item['lead_id'],))
+    result=jsonify(reference=item['reference'],status=events[-1]['status'],events=events,messages=messages,expires_at=item['expires_at'],
                    portal_url=current_app.config['APP_ORIGIN']+'/os/' if events[-1]['status']=='project' else None)
     result.headers['Cache-Control']='no-store, private'
     return result
@@ -122,3 +127,57 @@ def request_lookup():
     result=jsonify(reference=item['reference'],status=item['status'])
     result.headers['Cache-Control']='no-store, private'
     return result
+
+
+@intake.post('/api/leads/<lead_id>/tracking/messages')
+@required('manager','account')
+def publish_message(lead_id):
+    """Deliberately public message; scoping notes, estimates and offers stay private."""
+    from .crm import lead_access
+    lead=lead_access(lead_id)
+    if not row('SELECT lead_id FROM lead_intake WHERE lead_id=?',(lead_id,)):
+        abort(404,'Cette demande ne possède pas de suivi public.')
+    body=text(data(),'body',4000,1)
+    rate_limit('tracking-staff-message',40,3600,identity=lead_id)
+    with transaction() as db:
+        item=db.execute(
+            "INSERT INTO lead_public_messages(lead_id,author_type,author_id,body,created_at) VALUES(?,'staff',?,?,?)",
+            (lead_id,g.user['id'],body,now()))
+        audit('lead.public_message_sent',lead_id,{'message_id':item.lastrowid})
+        # Never email the bearer token or confidential text.
+        queue_email(lead['email'],'Novalis AI — nouveau message pour votre demande',
+                    'Bonjour,\n\nNotre équipe a publié un message sur le suivi de votre demande. '
+                    'Consultez le lien privé reçu lors de votre prise de contact.\n\nNovalis AI',
+                    org_id=lead['org_id'])
+    return jsonify(id=item.lastrowid,notification_status='queued'),201
+
+
+@intake.post('/api/public/request-message')
+def public_message():
+    """The secret link grants reply access; reference + email alone never does."""
+    d=data()
+    token=text(d,'token',100,1)
+    if not re.fullmatch(r'[A-Za-z0-9_-]{43}',token):
+        abort(404,'Lien de suivi introuvable ou expiré.')
+    item=row('''SELECT i.lead_id,l.org_id,l.owner_id
+        FROM lead_intake i JOIN leads l ON l.id=i.lead_id
+        WHERE i.access_hash=? AND i.expires_at>? AND l.org_id=?''',
+        (digest(token),now(),current_app.config['ORG_ID']))
+    if not item:
+        abort(404,'Lien de suivi introuvable ou expiré.')
+    body=text(d,'body',4000,1)
+    rate_limit('tracking-prospect-message',8,3600,identity=item['lead_id'])
+    with transaction() as db:
+        message=db.execute(
+            "INSERT INTO lead_public_messages(lead_id,author_type,author_id,body,created_at) VALUES(?,'prospect',NULL,?,?)",
+            (item['lead_id'],body,now()))
+        recipients=rows("SELECT id FROM users WHERE org_id=? AND role='manager' AND status='active'",(item['org_id'],))
+        if item['owner_id'] and item['owner_id'] not in {u['id'] for u in recipients}:
+            assigned=row("SELECT id FROM users WHERE id=? AND org_id=? AND status='active'",(item['owner_id'],item['org_id']))
+            if assigned:recipients.append(assigned)
+        for person in recipients:
+            notify(person['id'],'lead_message',item['lead_id'],'Nouveau message dans le suivi d’une demande.')
+        audit('lead.public_message_received',item['lead_id'],{'message_id':message.lastrowid},org_id=item['org_id'])
+    result=jsonify(id=message.lastrowid,received=True)
+    result.headers['Cache-Control']='no-store, private'
+    return result,201
