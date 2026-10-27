@@ -5,5 +5,5 @@
   "task": "read-only-production-preservation-preflight",
   "script": "novalis-os/deploy/remote-final-readonly.py",
   "timeout": 240,
-  "response_public_key": "pMZM+3EFtBal6PtWx5d5xhULf5hJJLA0Fcb3t8XarmI="
+  "response_public_key": "5hCP4nGVszWk0SYQDB+rVYYNzvVtTHRxDo3M/4DiFXw="
 }
