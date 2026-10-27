@@ -26,6 +26,7 @@ def load_operator():
 class CleanupInvariant(unittest.TestCase):
     setUp=workflows.Workflows.setUp
     tearDown=workflows.Workflows.tearDown
+    create_user=workflows.Workflows.create_user
     def test_suspends_only_live_extras_and_preserves_demo_and_prospect(self):
         api=self.app.test_client()
         req=api.post('/api/public/contact',headers={'Origin':'https://public.novalis.test'},
