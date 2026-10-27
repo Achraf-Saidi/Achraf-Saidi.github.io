@@ -1,7 +1,7 @@
 """One-time rollout wrapper, with prospective client identity checked privately."""
 import hashlib,json,os,sqlite3,subprocess,tempfile,urllib.request
 from pathlib import Path
-SOURCE='428eecbd95b3d495b24ce0faf15fce822e614eb8'
+SOURCE='681f48dd8f144e91df2f193c74ea95a29920b964'
 TARGET='77a510f5beb0ead786afd9a3bf2cd6aeb95c79cec18273c1e2034428318beafc'
 ENV=Path('/etc/novalis-os/production.env')
 settings={}
@@ -14,7 +14,7 @@ if settings.get('NOVALIS_ORG_ID','novalis')!='novalis' or settings.get('NOVALIS_
 db=sqlite3.connect('file:'+str((Path(settings.get('NOVALIS_DATA_DIR','/var/lib/novalis-os'))/'novalis.sqlite3').resolve())+'?mode=ro',uri=True)
 matching=[(ref,email) for ref,email in db.execute("""SELECT i.reference,l.email
   FROM lead_intake i JOIN leads l ON l.id=i.lead_id WHERE l.org_id='novalis'""")
-  if hashlib.sha256((ref+'\\n'+email.lower()).encode()).hexdigest()==TARGET]
+  if hashlib.sha256((ref+chr(10)+email.lower()).encode()).hexdigest()==TARGET]
 db.close()
 if len(matching)!=1:raise RuntimeError('First real client cannot be uniquely identified')
 env=dict(os.environ)
