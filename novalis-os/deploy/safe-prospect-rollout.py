@@ -13,7 +13,7 @@ CHANGES=['novalis-os/novalis_os/intake.py','novalis-os/novalis_os/intake-schema.
 TABLES=['leads','lead_intake','lead_public_events','projects','proposals','documents',
         'billing_documents','clients']
 def compare():
-    p=Path('/var/lib/novalis-os/novalis.sqlite3')
+    p=Path(os.environ.get('NOVALIS_DATA_DIR','/var/lib/novalis-os'))/'novalis.sqlite3'
     db=sqlite3.connect('file:'+str(p.resolve())+'?mode=ro',uri=True)
     try:
         signature=hashlib.sha256()
