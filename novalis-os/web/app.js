@@ -156,12 +156,31 @@
    const filtered=d.items.filter(l=>(l.name+' '+l.company+' '+l.email+' '+(l.public_reference||'')).toLowerCase().includes(query)&&(!$('lead-stage').value||l.status===$('lead-stage').value));
    $('lead-rows').innerHTML=filtered.length?filtered.map(l=>`<article class="row"><div class="row-content"><strong>${escape(l.company||l.name)}</strong>${l.public_reference?`<span class="intake-reference">${escape(l.public_reference)}</span>`:''}<p>${escape(l.name)} · ${escape(l.email)}</p><p>${escape(l.description)}</p></div>${badge(l.status)}<div class="row-actions"><button class="secondary" data-lead="${l.id}">Qualifier</button>${l.public_reference?`<button class="secondary" data-tracking="${l.id}">Suivi du prospect</button>`:''}${l.scoping_note?`<button class="secondary" data-note="${l.id}">Envoyer la note</button>`:''}${state.user.role==='manager'&&['proposal','negotiation'].includes(l.status)?`<button class="button" data-convert="${l.id}">Créer le projet</button>`:''}</div></article>`).join(''):empty('Aucune opportunité dans cette sélection.');
    document.querySelectorAll('[data-lead]').forEach(b=>b.addEventListener('click',()=>editLead(d.items.find(l=>l.id===b.dataset.lead),d.stages)));
-   document.querySelectorAll('[data-tracking]').forEach(b=>b.addEventListener('click',async()=>{try{const result=await api('/api/leads/'+b.dataset.tracking+'/tracking'),names={received:'Reçue',reviewing:'En cours d’étude',contact:'Prise de contact',proposal:'Proposition',project:'Projet ouvert',closed:'Clôturée'};openDialog('Le suivi visible par le prospect',`<p class="dialog-copy">${escape(result.tracking?.reference||'')} · Ces étapes sont mises à jour par le pipeline commercial. Vos notes de cadrage et messages internes restent privés.</p><ol class="public-intake-events">${result.events.map(event=>`<li><strong>${escape(names[event.status]||event.status)}</strong><span>${instant(event.created_at)}</span></li>`).join('')}</ol>`);}catch(e){toast(e.message);}}));
+   document.querySelectorAll('[data-tracking]').forEach(b=>b.addEventListener('click',()=>trackingDialog(b.dataset.tracking).catch(e=>toast(e.message))));
    document.querySelectorAll('[data-note]').forEach(b=>b.addEventListener('click',()=>modal('Partager la note de cadrage',[{name:'confirm',label:'Préparer l’e-mail pour ce prospect',type:'checkbox'}],async()=>{await api(`/api/leads/${b.dataset.note}/send-note`,'POST',{});toast('Note de cadrage placée en attente d’envoi.');})));
    document.querySelectorAll('[data-convert]').forEach(b=>b.addEventListener('click',()=>convertLead(d.items.find(l=>l.id===b.dataset.convert))));
   };
   $('view-content').innerHTML='<div class="commercial-filters"><label class="filter">Rechercher<input id="lead-search" type="search" placeholder="Entreprise, contact ou référence"></label><label class="filter">Étape<select id="lead-stage"><option value="">Toutes les étapes</option>'+d.stages.map(stage=>`<option value="${escape(stage)}">${escape(labels[stage])}</option>`).join('')+'</select></label></div>'+panel('Pipeline','<div id="lead-rows" class="rows"></div>');draw('');$('lead-search').addEventListener('input',e=>draw(e.target.value.toLowerCase()));$('lead-stage').addEventListener('change',()=>draw($('lead-search').value.toLowerCase()));
   if(state.user.role==='manager')button('Ajouter une opportunité',()=>modal('Ajouter une opportunité',[{name:'name',label:'Contact'},{name:'email',label:'Adresse e-mail',type:'email'},{name:'company',label:'Entreprise',required:false},{name:'category',label:'Type de projet'},{name:'description',label:'Besoin exprimé',type:'textarea'}],async value=>{await api('/api/leads','POST',value);await view('leads');}));
+ }
+
+ async function trackingDialog(leadId){
+  const result=await api('/api/leads/'+leadId+'/tracking');
+  const names={received:'Reçue',reviewing:'En cours d’étude',contact:'Prise de contact',proposal:'Proposition',project:'Projet ouvert',closed:'Clôturée'};
+  const history=result.events.map(event=>`<li><strong>${escape(names[event.status]||event.status)}</strong><span>${instant(event.created_at)}</span></li>`).join('');
+  const messages=(result.messages||[]).map(m=>`<article class="message"><strong>${m.author_type==='prospect'?'Prospect':'Équipe Novalis'}</strong> <small>${instant(m.created_at)}</small><p>${escape(m.body)}</p></article>`).join('')||'<p class="dialog-copy">Aucun message partagé pour le moment.</p>';
+  openDialog('Le suivi visible par le prospect',`<p class="dialog-copy"><strong>${escape(result.tracking?.reference||'')}</strong> · Les notes de cadrage, devis et messages internes restent privés.</p><ol class="public-intake-events">${history}</ol><section class="lead-shared-thread"><h3>Messages partagés avec le prospect</h3><div class="messages">${messages}</div><form id="lead-public-message-form"><label>Message visible par le prospect<textarea name="body" required maxlength="4000" rows="4" placeholder="Écrivez uniquement les informations que vous souhaitez partager."></textarea></label><button class="button" type="submit">Publier et notifier le prospect</button></form></section>`);
+  $('lead-public-message-form').addEventListener('submit',async event=>{
+    event.preventDefault();
+    const form=event.currentTarget;
+    if(!form.reportValidity())return;
+    const submit=form.querySelector('[type=submit]');submit.disabled=true;
+    try{
+      const response=await api('/api/leads/'+leadId+'/tracking/messages','POST',{body:form.elements.body.value.trim()});
+      await trackingDialog(leadId);
+      toast(response.notification_status==='queued'?'Message publié. Notification préparée pour l’envoi.':'Message publié.');
+    }catch(error){$('dialog-error').textContent=error.message;submit.disabled=false;}
+  });
  }
  async function editLead(lead,stages){
   let people={items:[]};if(state.user.role==='manager')people=await api('/api/collaborators');
