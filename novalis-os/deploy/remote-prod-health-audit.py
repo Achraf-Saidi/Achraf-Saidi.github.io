@@ -1,29 +1,35 @@
-"""Read-only Novalis health and rollback diagnosis after guarded deployment attempt."""
+"""Compact, read-only rollback and service diagnostics. No customer data emitted."""
 import json,os,sqlite3,subprocess
 from pathlib import Path
-def cmd(values,timeout=20):
-    q=subprocess.run(values,text=True,capture_output=True,timeout=timeout)
-    return {'code':q.returncode,'stdout':q.stdout[-9000:],'stderr':q.stderr[-1000:]}
-envfile=Path('/etc/novalis-os/production.env')
+def run(args,timeout=12):
+    p=subprocess.run(args,text=True,capture_output=True,timeout=timeout)
+    return p.returncode,p.stdout.strip(),p.stderr.strip()
 env={}
-for line in envfile.read_text().splitlines():
+for line in Path('/etc/novalis-os/production.env').read_text().splitlines():
     if '=' in line and not line.startswith('#'):
         k,v=line.split('=',1)
         if k.startswith('NOVALIS_'):env[k]=v.strip().strip('"').strip("'")
-database=Path(env.get('NOVALIS_DATA_DIR','/var/lib/novalis-os'))/'novalis.sqlite3'
-db=sqlite3.connect('file:'+str(database.resolve())+'?mode=ro',uri=True)
-report={'stage':'read_only_post_rollback','production_core':str(Path('/opt/novalis-os/current').resolve()),
-  'public_release':str(Path('/var/www/novalis-ai/current').resolve()),
-  'services':{name:cmd(['systemctl','is-active',name]) for name in ['novalis-os','novalis-worker','nginx','pm2-root','postgresql@17-main']},
-  'health':cmd(['curl','--max-time','12','-sS','-o','/dev/null','-w','%{http_code}','https://app.novalisai.com/healthz']),
-  'logs':cmd(['journalctl','-u','novalis-os.service','-n','55','--no-pager','--output=cat']),
-  'message_table_exists':bool(db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='lead_public_messages'").fetchone()),
-  'db_integrity':db.execute('PRAGMA quick_check').fetchone()[0],
-  'foreign_keys':len(db.execute('PRAGMA foreign_key_check').fetchall()),
-  'protected_lead_count':db.execute("""SELECT COUNT(*) FROM lead_intake i JOIN leads l ON l.id=i.lead_id
-     WHERE i.reference=? AND lower(l.email)=? AND l.org_id='novalis'""",('NV-26-46DAC03F','anne.vanoost@formestructure.be')).fetchone()[0],
-  'production_user_statuses':list(db.execute("SELECT role,status,COUNT(*) FROM users WHERE org_id='novalis' GROUP BY role,status")),
-  'demo_users':db.execute("SELECT COUNT(*) FROM users WHERE org_id='novalis-demo'").fetchone()[0]}
+p=Path(env.get('NOVALIS_DATA_DIR','/var/lib/novalis-os'))/'novalis.sqlite3'
+db=sqlite3.connect('file:'+str(p.resolve())+'?mode=ro',uri=True)
+health=run(['curl','-sS','--max-time','10','-o','/dev/null','-w','%{http_code}','https://app.novalisai.com/healthz'])
+logs=run(['journalctl','-u','novalis-os.service','--since','2026-10-27 17:07:00','-n','160','--no-pager','--output=cat'])
+interesting=[line.strip() for line in logs[1].splitlines() if
+    any(term in line for term in ('Traceback','Error','ERROR','failed','Failed','ImportError',
+        'ModuleNotFoundError','SyntaxError','OperationalError','Exception','Gunicorn'))]
+report={'stage':'compact-readonly-diagnosis','health_http_status':health[1],
+ 'http_curl_ok':health[0]==0,'services':{name:run(['systemctl','is-active',name])[1]
+     for name in ('novalis-os','novalis-worker','nginx')},
+ 'active_core_looks_like_new_release':'tracking-' in str(Path('/opt/novalis-os/current').resolve()),
+ 'active_public_looks_like_new_release':'tracking-' in str(Path('/var/www/novalis-ai/current').resolve()),
+ 'new_message_schema_exists':bool(db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='lead_public_messages'").fetchone()),
+ 'db_ok':db.execute('PRAGMA quick_check').fetchone()[0]=='ok',
+ 'foreign_keys_ok':not db.execute('PRAGMA foreign_key_check').fetchone(),
+ 'original_real_lead_count':db.execute("""SELECT COUNT(*) FROM lead_intake i JOIN leads l ON l.id=i.lead_id
+     WHERE i.reference=? AND lower(l.email)=? AND l.org_id='novalis'""",
+     ('NV-26-46DAC03F','anne.vanoost@formestructure.be')).fetchone()[0],
+ 'demo_users':db.execute("SELECT COUNT(*) FROM users WHERE org_id='novalis-demo'").fetchone()[0],
+ 'production_user_statuses':[[r[0],r[1],r[2]] for r in db.execute(
+     "SELECT role,status,COUNT(*) FROM users WHERE org_id='novalis' GROUP BY role,status")],
+ 'notable_journal':interesting[-13:]}
 db.close()
-report['production_user_statuses']=[list(v) for v in report['production_user_statuses']]
 print(json.dumps(report))
