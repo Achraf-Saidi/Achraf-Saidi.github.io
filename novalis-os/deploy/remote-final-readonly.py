@@ -2,7 +2,15 @@
 import sqlite3,json,os,hashlib
 from pathlib import Path
 from datetime import datetime,timezone
-database=Path('/var/lib/novalis-os/novalis.sqlite3')
+environment={}
+for line in Path('/etc/novalis-os/production.env').read_text().splitlines():
+    if '=' in line and not line.lstrip().startswith('#'):
+        key,value=line.split('=',1)
+        if key.startswith('NOVALIS_'):
+            environment[key]=value.strip().strip('"').strip("'")
+if environment.get('NOVALIS_ORG_ID','novalis')!='novalis' or environment.get('NOVALIS_MODE','production')!='production':
+    raise RuntimeError('Unexpected organisation or environment')
+database=Path(environment.get('NOVALIS_DATA_DIR','/var/lib/novalis-os'))/'novalis.sqlite3'
 if not database.exists():raise RuntimeError("Expected production database missing")
 db=sqlite3.connect("file:"+str(database.resolve())+"?mode=ro",uri=True)
 db.row_factory=sqlite3.Row
