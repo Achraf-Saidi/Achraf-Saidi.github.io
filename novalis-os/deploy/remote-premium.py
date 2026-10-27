@@ -58,7 +58,7 @@ with a.app_context():
         api=a.test_client();api.set_cookie(a.config['COOKIE_NAME'],token,domain=host)
         def get(path,expected=200):
             r=api.get(path,base_url=origin);assert r.status_code==expected,(u['role'],path,r.status_code);return r
-        get('/api/session')
+        csrf=get('/api/session').json['csrf']
         result[u['role']]={'session':True}
         allowed=u['role'] in {'manager','account','developer'}
         for path in ['/api/operations/time','/api/operations/time.csv','/api/operations/time/pdf']:get(path,200 if allowed else 403)
@@ -96,7 +96,7 @@ def main():
     public=Path('/var/www/novalis-ai/current').resolve();public_hash=sha(public/'index.html')
     pointage=sha('/etc/nginx/sites-enabled/pointagevdc')
     untouched={s:run(['systemctl','show',s,'--property=MainPID','--value']) for s in ['nginx.service','pm2-root.service','postgresql@17-main.service']}
-    destination=ROOT/'releases'/('premium-nova-'+REV[:12])
+    destination=ROOT/'releases'/('premium-nova-'+REV[:12]+'-v2')
     if destination.exists(): raise RuntimeError('Release already exists')
     shutil.copytree(previous,destination,symlinks=True,ignore=shutil.ignore_patterns('__pycache__','.git'))
     def download(item):
