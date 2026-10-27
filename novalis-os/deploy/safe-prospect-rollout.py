@@ -106,7 +106,7 @@ def main():
             '--api-origin','https://app.novalisai.com','--portal-url','https://app.novalisai.com/os/'],
             cwd=new_core/'novalis-os',env=env,capture_output=True,text=True,timeout=120)
         if built.returncode:raise RuntimeError('Public site preparation failed: '+built.stderr[-2000:])
-        if len(list(new_public.rglob('*.html')))!=57:raise RuntimeError('Public page count changed')
+        if {str(p.relative_to(new_public)) for p in new_public.rglob('*.html')} != {str(p.relative_to(old_public)) for p in old_public.rglob('*.html')}:raise RuntimeError('Public page inventory changed')
         for p in [new_public,*new_public.rglob('*')]:
             p.chmod(0o755 if p.is_dir() else 0o644)
         pointer(PUBLIC,new_public);swapped_public=True
