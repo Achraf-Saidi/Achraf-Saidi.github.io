@@ -51,7 +51,6 @@ class CleanupInvariant(unittest.TestCase):
                  'NOVALIS_PROTECTED_EMAIL':'testcontact@example.test',
                  'NOVALIS_ORG_ID':'novalis','NOVALIS_MODE':'production'}
             def fake_backup(_,__,destination):
-                destination.mkdir(parents=True,exist_ok=False)
                 return destination
             with patch.dict(os.environ,env),patch.object(sys,'argv',['operator','--apply']),\
                  patch.object(operator,'create_app',return_value=self.app),\
