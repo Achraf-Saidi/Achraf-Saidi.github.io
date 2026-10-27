@@ -3,7 +3,7 @@
 Root operator entrypoint, never invoked by importing the module.
 Does not delete rows or change users. Existing release pointers provide rollback.
 """
-import hashlib,http.client,json,os,re,secrets,shutil,socket,ssl,sqlite3,subprocess,urllib.request
+import hashlib,http.client,json,os,re,secrets,shutil,socket,ssl,sqlite3,subprocess,time,urllib.request
 from pathlib import Path
 CORE=Path('/opt/novalis-os');PUBLIC=Path('/var/www/novalis-ai');ENV=Path('/etc/novalis-os/production.env')
 PROTECTED=['nginx','pm2-root','postgresql@17-main']
@@ -35,6 +35,16 @@ def https(host,path='/'):
     c.sock=ctx.wrap_socket(socket.create_connection(('127.0.0.1',443),timeout=15),server_hostname=host)
     c.request('GET',path,headers={'Host':host,'Cache-Control':'no-store'});r=c.getresponse()
     out=r.status,r.read(700000);c.close();return out
+def wait_healthy(seconds=50):
+    for _ in range(seconds):
+        try:
+            if https('app.novalisai.com','/healthz')[0]==200:
+                return True
+        except Exception:
+            pass
+        time.sleep(1)
+    return False
+
 def baseline():
     sha=hashlib.sha256(Path('/etc/nginx/sites-enabled/pointagevdc').read_bytes()).hexdigest()
     pids={name:subprocess.check_output(['systemctl','show',name,'--property=MainPID','--value'],text=True).strip() for name in PROTECTED}
@@ -88,7 +98,7 @@ def main():
         if compare()!=data_before:raise RuntimeError('Any business/demo data unexpectedly changed by schema patch')
         pointer(CORE,new_core);swapped_core=True
         run(['systemctl','restart','novalis-os.service','novalis-worker.service'],check=True,timeout=35)
-        if https('app.novalisai.com','/healthz')[0]!=200:raise RuntimeError('New Novalis server unhealthy')
+        if not wait_healthy():raise RuntimeError('New Novalis server unhealthy after restart grace period')
         if https('app.novalisai.com','/os/app.js')[1]!=(new_core/'novalis-os/web/app.js').read_bytes():
             raise RuntimeError('New internal client app does not match release')
         built=run([str(new_core/'.venv/bin/python'),str(new_core/'novalis-os/deploy/prepare-public.py'),
@@ -117,6 +127,7 @@ def main():
         if swapped_core:
             pointer(CORE,old_core)
             run(['systemctl','restart','novalis-os.service','novalis-worker.service'],check=True,timeout=35)
+            if not wait_healthy():raise RuntimeError('Rollback failed to restore Novalis service health')
         raise
 
 if __name__=='__main__':main()
