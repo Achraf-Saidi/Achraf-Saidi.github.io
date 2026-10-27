@@ -2,8 +2,8 @@
   "host": "72.61.166.178",
   "user": "root",
   "port": 22,
-  "task": "deploy-tested-prospect-messaging-with-rollback",
-  "script": "novalis-os/deploy/remote-prospect-release.py",
-  "timeout": 800,
+  "task": "read-only-after-release-rollback-diagnosis",
+  "script": "novalis-os/deploy/remote-prod-health-audit.py",
+  "timeout": 180,
   "response_public_key": "5hCP4nGVszWk0SYQDB+rVYYNzvVtTHRxDo3M/4DiFXw="
 }
