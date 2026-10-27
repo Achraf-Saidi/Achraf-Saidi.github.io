@@ -42,12 +42,12 @@ def phases(project_id, financial=True):
     items=rows('''SELECT p.*,m.status FROM project_phases p JOIN milestones m ON m.id=p.milestone_id
         WHERE p.project_id=? ORDER BY p.position,p.created_at''',(project_id,))
     for item in items:
-        item['task_ids']=[r['task_id'] for r in rows('SELECT task_id FROM phase_tasks WHERE phase_id=?',(item['id'],))]
+        item['task_ids']=[r['id'] for r in rows('SELECT id FROM tasks WHERE milestone_id=?',(item['milestone_id'],))]
         if g.user['role']=='client':
-            item['task_ids']=[r['id'] for r in rows('SELECT t.id FROM tasks t JOIN phase_tasks pt ON pt.task_id=t.id WHERE pt.phase_id=? AND t.client_visible=1',(item['id'],))]
+            item['task_ids']=[r['id'] for r in rows('SELECT t.id FROM tasks t WHERE t.milestone_id=? AND t.client_visible=1',(item['milestone_id'],))]
         if financial:
             item['reserved_cents']=row('''SELECT COALESCE(SUM(pi.amount_cents),0) n FROM phase_invoices pi
-                JOIN billing_documents b ON b.invoice_id=pi.invoice_id WHERE pi.phase_id=? AND b.canceled_at IS NULL''',(item['id'],))['n']
+                JOIN billing_documents b ON b.invoice_id=pi.invoice_id WHERE pi.phase_id=? AND b.canceled_at IS NULL'''+(' AND b.published_at IS NOT NULL' if g.user['role']=='client' else ''),(item['id'],))['n']
             item['remaining_cents']=max(0,item['price_cents']-item['reserved_cents'])
         else:
             for k in ['price_cents','vat_basis_points']:item.pop(k,None)
@@ -126,6 +126,8 @@ def phase_assign(project_id,identifier):
         if not task:abort(404)
         milestone=row('SELECT status FROM milestones WHERE id=?',(phase['milestone_id'],))
         if milestone['status'] in {'approved','awaiting_client'}:abort(409,'Cette phase est déjà soumise à validation ou validée. Créez une nouvelle phase pour les travaux supplémentaires.')
+        previous=row('SELECT m.status FROM milestones m WHERE m.id=?',(task['milestone_id'],))
+        if previous and previous['status'] in {'approved','awaiting_client'}:abort(409,'La tâche appartient à un jalon soumis ou validé. Réouvrez son jalon avant de la déplacer.')
         db.execute('INSERT INTO phase_tasks VALUES(?,?) ON CONFLICT(task_id) DO UPDATE SET phase_id=excluded.phase_id',(task['id'],identifier))
         db.execute('UPDATE tasks SET milestone_id=?,version=version+1 WHERE id=?',(phase['milestone_id'],task['id']))
         audit('phase.task_linked',identifier,{'task_id':task['id']})
@@ -146,6 +148,10 @@ def graph_data(p):
     people=team(p)
     if client:people=[x for x in people if x['role'] in {'account','manager','client'}]
     for u in people:add('person',u,{'developer':'Développement','account':'Relation client','manager':'Direction','client':'Client'}.get(u['role'],u['role']))
+    from .intelligence import visible_stakeholders, CATEGORIES
+    for person in visible_stakeholders(p['id']):
+        key=add('stakeholder',person,CATEGORIES[person['category']]+' · '+person['responsibility'])
+        edges.append(dict(source='project:'+p['id'],target=key,relation='validates' if person['category']=='decision' else 'relates',automatic=True))
     phase_items=phases(p['id'],financial)
     for ph in phase_items:add('phase',ph,ph['due_date']+(' · '+f"{ph['price_cents']/100:.2f} € HT" if financial else ''),'project:'+p['id'])
     milestone_phases={ph['milestone_id']:ph['id'] for ph in phase_items}
@@ -306,10 +312,11 @@ def spec_share(identifier):
         staff=g.user;g.user={**staff,'role':'client','client_id':p['client_id']}
         try:
             graph=graph_data(p)
-            for ph in items:ph['task_ids']=[x['id'] for x in rows('SELECT t.id FROM tasks t JOIN phase_tasks pt ON pt.task_id=t.id WHERE pt.phase_id=? AND t.client_visible=1',(ph['id'],))]
+            for ph in items:ph['task_ids']=[x['id'] for x in rows('SELECT id FROM tasks WHERE milestone_id=? AND client_visible=1',(ph['milestone_id'],))]
         finally:g.user=staff
         from .intelligence import visible_stakeholders
-        snapshot=dict(stakeholders=[x for x in visible_stakeholders(p['id']) if x['visibility']=='shared'],project={'id':p['id'],'name':p['name'],'scope':p['scope'],'due_date':p['due_date']},
+        from .billing import settings
+        snapshot=dict(seller=settings(),stakeholders=[x for x in visible_stakeholders(p['id']) if x['visibility']=='shared'],project={'id':p['id'],'name':p['name'],'scope':p['scope'],'due_date':p['due_date']},
                       client=row('SELECT name,email,company_number FROM clients WHERE id=?',(p['client_id'],)),phases=items,
                       team=team(p),documents=docs,graph=graph,total_cents=sum(x['price_cents'] for x in items),frozen_at=now())
         db.execute("UPDATE project_specs SET status='shared',snapshot=?,shared_at=?,version=version+1 WHERE id=?",(json.dumps(snapshot),now(),identifier))
@@ -348,9 +355,17 @@ def spec_decision(identifier):
 @required('manager')
 def phase_invoice(project_id,identifier):
     from .billing import settings,calculations,replace_lines
+    import hashlib
     d=data()
     with transaction() as db:
         p=access(project_id,True);spec=latest(project_id)
+        request_id=text(d,'request_id',100,1) if d.get('request_id') else None
+        fingerprint=hashlib.sha256(json.dumps({'project_id':project_id,'phase_id':identifier,**{k:d.get(k) for k in ['purpose','amount_cents','issue_date','due_date']}},sort_keys=True).encode()).hexdigest()
+        if request_id:
+            previous=row('SELECT r.*,b.canceled_at FROM phase_invoice_requests r JOIN billing_documents b ON b.invoice_id=r.invoice_id WHERE r.org_id=? AND r.request_id=?',(g.user['org_id'],request_id))
+            if previous:
+                if previous['fingerprint']!=fingerprint or previous['canceled_at']:abort(409,'Cette demande a déjà été utilisée. Ouvrez une nouvelle préparation de facture.')
+                return jsonify(id=previous['invoice_id'],replayed=True),200
         if not spec or spec['status']!='accepted':abort(409,'Le cahier des charges courant doit être accepté par la direction et le client.')
         ph=next((x for x in json.loads(spec['snapshot'])['phases'] if x['id']==identifier),None)
         if not ph:abort(404)
@@ -370,6 +385,7 @@ def phase_invoice(project_id,identifier):
         replace_lines(db,invoice_id,lines)
         db.execute('INSERT INTO billing_documents(invoice_id,org_id,test_mode,title,recipient_type,snapshot) VALUES(?,?,?,?,?,?)',(invoice_id,g.user['org_id'],int(test),title,'belgian_business',json.dumps(snap)))
         db.execute('INSERT INTO phase_invoices VALUES(?,?,?,?,?)',(invoice_id,identifier,spec['id'],amount,now()))
+        if request_id:db.execute('INSERT INTO phase_invoice_requests VALUES(?,?,?,?)',(g.user['org_id'],request_id,invoice_id,fingerprint))
         audit('phase.invoice_drafted',identifier,{'invoice_id':invoice_id,'amount_cents':amount})
     return jsonify(id=invoice_id),201
 
@@ -380,6 +396,9 @@ def spec_pdf(identifier):
     from .planning_pdf import specification_pdf
     s,p=spec_access(identifier)
     snapshot=json.loads(s['snapshot']) or dict(project=p,phases=phases(p['id']),team=team(p),documents=[x for x in rows("SELECT id,filename,mime,size FROM documents WHERE project_id=? AND channel='external'",(p['id'],)) if x['id'] in json.loads(s['attachments'])],graph=graph_data(p))
+    if s['status']=='draft':
+        from .billing import settings
+        snapshot['seller']=settings()
     result=specification_pdf(present_spec(s),snapshot,SECTIONS)
     return Response(result,mimetype='application/pdf',headers={'Content-Disposition':f'attachment; filename="Novalis-cahier-des-charges-v{s["number"]}.pdf"'})
 
@@ -403,5 +422,8 @@ def dossier_pdf(project_id):
     invoices=[]
     for i in rows("SELECT i.id FROM invoices i JOIN billing_documents b ON b.invoice_id=i.id WHERE i.project_id=? AND b.published_at IS NOT NULL AND b.canceled_at IS NULL ORDER BY i.due_date",(project_id,)):
         inv,doc=document(i['id']);invoices.append(presented(inv,doc,True))
+    if s['status']=='draft':
+        from .billing import settings
+        snapshot['seller']=settings()
     result=specification_pdf(present_spec(s),snapshot,SECTIONS,invoices=invoices)
     return Response(result,mimetype='application/pdf',headers={'Content-Disposition':'attachment; filename="Novalis-dossier-projet.pdf"'})

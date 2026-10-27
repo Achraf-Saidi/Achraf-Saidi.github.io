@@ -73,7 +73,7 @@ def workflow(project_id):
     p=access(project_id)
     role=g.user['role']
     phases=rows('''SELECT ph.id,ph.name,ph.price_cents,m.status,
-          (SELECT COUNT(*) FROM phase_tasks pt WHERE pt.phase_id=ph.id) task_count
+          (SELECT COUNT(*) FROM tasks t WHERE t.milestone_id=ph.milestone_id) task_count
           FROM project_phases ph JOIN milestones m ON m.id=ph.milestone_id
           WHERE ph.project_id=? ORDER BY ph.position''',(project_id,))
     spec=row('SELECT id,status,number,sections FROM project_specs WHERE project_id=? ORDER BY number DESC LIMIT 1',(project_id,))
@@ -103,7 +103,7 @@ def workflow(project_id):
                   WHERE pi.phase_id=? AND b.canceled_at IS NULL''',(ph['id'],))['n']
                 if ph['price_cents']>reserved:
                     suggest('bill_phase','Préparer la facturation de '+ph['name'],
-                      'La phase dispose encore de '+str(round((ph['price_cents']-reserved)/100,2))+' € HT à facturer.',
+                      'La phase dispose encore de '+f"{(ph['price_cents']-reserved)/100:,.2f}".replace(',',' ').replace('.',',')+' € HT à facturer.',
                       'phase-invoice:'+ph['id'],2)
                     break
         if not row('SELECT 1 FROM project_stakeholders WHERE project_id=?',(project_id,)):

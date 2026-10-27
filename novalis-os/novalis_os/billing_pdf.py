@@ -1,6 +1,8 @@
 """Branded, paginated documents generated solely from server-validated snapshots."""
 import io
+import base64
 from pathlib import Path
+from reportlab.pdfgen import canvas as canvas_module
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from datetime import datetime
@@ -36,17 +38,46 @@ def epc_payload(v):
     value='\n'.join(['BCD','002','1','SCT',s.get('bic',''),name,iban,f"EUR{v['balance_cents']/100:.2f}",'','',ref,''])
     return value if len(value.encode('utf-8'))<=331 else None
 
+class NumberedCanvas(canvas_module.Canvas):
+    """Page totals without a second data fetch or mutable document content."""
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs);self._pages=[]
+    def showPage(self):
+        self._pages.append(dict(self.__dict__));self._startPage()
+    def save(self):
+        count=len(self._pages)
+        for state in self._pages:
+            self.__dict__.update(state)
+            self.saveState();self.setFillColor(MUTED);self.setFont('NovalisSans',8)
+            self.drawRightString(self._pagesize[0]-20*mm,13*mm,f'Page {self._pageNumber} / {count}')
+            self.restoreState();super().showPage()
+        super().save()
+
+def brand_name(seller):return seller.get('trade_name') or seller.get('legal_name') or 'Novalis AI'
+
+def logo(seller):
+    value=seller.get('logo_data_url','')
+    if not value:return []
+    try:
+        from PIL import Image as PILImage
+        buf=io.BytesIO(base64.b64decode(value.split(',',1)[1],validate=True))
+        with PILImage.open(buf) as im:w,h=im.size
+        buf.seek(0);scale=min(48*mm/w,18*mm/h)
+        return [Image(buf,width=w*scale,height=h*scale,hAlign='LEFT'),Spacer(1,4*mm)]
+    except (OSError,ValueError,IndexError):return []
+
+
 def footer(canvas,doc):
     canvas.saveState();w,h=doc.pagesize
     canvas.setStrokeColor(colors.HexColor('#deded8'));canvas.line(20*mm,19*mm,w-20*mm,19*mm)
-    canvas.setFont('NovalisSans',8);canvas.setFillColor(MUTED);canvas.drawString(20*mm,13*mm,'NOVALIS AI  /  Documents de facturation')
-    canvas.drawRightString(w-20*mm,13*mm,f'Page {doc.page}');canvas.restoreState()
-def build(story,title):
-    b=io.BytesIO();doc=SimpleDocTemplate(b,pagesize=(210*mm,297*mm),rightMargin=20*mm,leftMargin=20*mm,topMargin=20*mm,bottomMargin=26*mm,title=title,author='Novalis AI')
-    doc.build(story,onFirstPage=footer,onLaterPages=footer);return b.getvalue()
+    canvas.setFont('NovalisSans',8);canvas.setFillColor(MUTED);canvas.drawString(20*mm,13*mm,doc.author[:70]+' / Documents de facturation')
+    canvas.restoreState()
+def build(story,title,seller=None):
+    b=io.BytesIO();doc=SimpleDocTemplate(b,pagesize=(210*mm,297*mm),rightMargin=20*mm,leftMargin=20*mm,topMargin=20*mm,bottomMargin=26*mm,title=title,author=brand_name(seller or {}))
+    doc.build(story,onFirstPage=footer,onLaterPages=footer,canvasmaker=NumberedCanvas);return b.getvalue()
 def header(v,title):
     s=v['snapshot'];seller=s['seller'];test=v['test_mode'];draft=not v['issued_at']
-    story=[p('N O V A L I S   /   F I N A N C E','LabelNovalis'),Spacer(1,6*mm),p(title,'TitleNovalis')]
+    story=logo(seller)+[p(brand_name(seller).upper()+' / FINANCE','LabelNovalis'),Spacer(1,6*mm),p(title,'TitleNovalis')]
     if test:story+=[p('TEST - DEMONSTRATION - AUCUN DOCUMENT COMPTABLE REEL','LabelNovalis')]
     elif draft:story+=[p('BROUILLON / PRO FORMA - NON EMIS - NE PAS REGLER','LabelNovalis')]
     story+=[p(v['number'] or 'Brouillon '+v['id'][:8]),Spacer(1,7*mm)]
@@ -63,7 +94,7 @@ def invoice_pdf(v):
     for l in s['lines']:
         desc=l['description']+'\n'+l['unit']+(f" - remise {l['discount_basis_points']/100:g} %" if l['discount_basis_points'] else '')
         body.append([p(desc),p(l['quantity']),p(money(l['unit_cents']),'RightNovalis'),p(f"{l['vat_basis_points']/100:g} %"),p(money(l['net_cents']),'RightNovalis')])
-    t=Table(body,colWidths=[78*mm,15*mm,29*mm,17*mm,31*mm],repeatRows=1,hAlign='LEFT');t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),PALE),('LINEBELOW',(0,0),(-1,0),.5,COPPER),('LINEBELOW',(0,1),(-1,-1),.35,colors.HexColor('#e7e5df')),('TOPPADDING',(0,0),(-1,-1),9),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story+=[t,Spacer(1,7*mm)]
+    t=Table(body,colWidths=[78*mm,15*mm,29*mm,17*mm,31*mm],repeatRows=1,hAlign='LEFT',splitInRow=1);t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),PALE),('LINEBELOW',(0,0),(-1,0),.5,COPPER),('LINEBELOW',(0,1),(-1,-1),.35,colors.HexColor('#e7e5df')),('TOPPADDING',(0,0),(-1,-1),9),('BOTTOMPADDING',(0,0),(-1,-1),9)]));story+=[t,Spacer(1,7*mm)]
     tax=[['Total HT',money(v['totals']['net_cents'])]]
     tax += [(f'TVA {int(rate)/100:g} %',money(g['tax_cents'])) for rate,g in sorted(v['totals']['vat_groups'].items())]
     tax += [['TOTAL TTC',money(v['total_cents'])]]
@@ -75,11 +106,11 @@ def invoice_pdf(v):
         seller=s['seller'];tail += [p('REGLEMENT','LabelNovalis'),p('IBAN : '+(seller.get('iban') or 'A communiquer par Novalis')),p('Communication : '+v['number'])]
     if v['test_mode']:tail += [p('Ce document sert exclusivement à tester Novalis OS. Aucun paiement réel ne doit être effectué.','LabelNovalis')]
     elif v['recipient_type']=='belgian_business':tail += [p('Préparation B2B : transmission Peppol non effectuée.','LabelNovalis')]
-    story+=tail;return build(story,'Novalis - '+(v['number'] or 'Brouillon'))
+    story+=tail;return build(story,brand_name(s['seller'])+' - '+(v['number'] or 'Brouillon'),s['seller'])
 
 def receipt_pdf(v,r):
     story=header(v,'Reçu de paiement');story += [p(r['number']),Spacer(1,8*mm)]
     details=[('FACTURE CONCERNEE',v['number']),('MONTANT CONFIRME',money(r['amount_cents'])),('DATE DU REGLEMENT',day(r['paid_at'])),('MOYEN DE PAIEMENT',r['method']),('REFERENCE',r['reference'])]
     t=Table([[p(k,'LabelNovalis'),p(value)] for k,value in details],colWidths=[60*mm,110*mm]);t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,-1),PALE),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),12),('BOTTOMPADDING',(0,0),(-1,-1),12)]));story += [t,Spacer(1,10*mm),p('Ce reçu atteste le règlement indiqué ci-dessus. Il ne remplace pas la facture originale et ne constitue pas un avoir.')]
     if v['test_mode']:story += [p('SIMULATION : aucun encaissement ni mouvement bancaire réel.','LabelNovalis')]
-    return build(story,'Novalis - '+r['number'])
+    return build(story,brand_name(v['snapshot']['seller'])+' - '+r['number'],v['snapshot']['seller'])

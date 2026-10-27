@@ -42,6 +42,7 @@ jobs:
           node novalis-os/tests/ui.cjs
           node novalis-os/tests/payments-ui.cjs
           node novalis-os/tests/documents-ui.cjs
+          node novalis-os/tests/premium-ui.cjs
           PYTHONPATH=novalis-os:novalis-os/tests python novalis-os/tests/billing-fixture.py /tmp/novalis-billing-fixture.json
           node novalis-os/tests/billing-ui.cjs /tmp/novalis-billing-fixture.json
           node novalis-os/tests/finance-ui.cjs /tmp/novalis-billing-fixture.json

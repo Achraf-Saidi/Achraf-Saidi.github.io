@@ -56,7 +56,7 @@ def create_app(overrides=None):
         else:
             load_session()
         check_request()
-        json_limit=262144 if request.path.startswith('/api/planning/') else 131072 if request.endpoint in {'finance.invoice_draft','billing.create','billing.edit'} else 32768
+        json_limit=262144 if request.path.startswith('/api/planning/') or request.endpoint=='billing.save_settings' else 131072 if request.endpoint in {'finance.invoice_draft','billing.create','billing.edit'} else 32768
         if request.path.startswith('/api/') and request.is_json and request.content_length and request.content_length>json_limit:
             abort(413,'La demande dépasse la taille autorisée.')
 
@@ -111,7 +111,7 @@ def create_app(overrides=None):
 
     @app.get('/os/<path:filename>')
     def web_asset(filename):
-        if filename not in {'app.js','app.css','billing.js','billing.css','finance.js','finance.css','auth.css','planning.js','planning.css'}:
+        if filename not in {'app.js','app.css','billing.js','billing.css','finance.js','finance.css','auth.css','planning.js','planning.css','premium.js','premium.css'}:
             abort(404)
         return send_from_directory(Path(__file__).parent.parent/'web',filename)
 
@@ -151,6 +151,8 @@ def create_app(overrides=None):
     app.register_blueprint(calendar)
     from .intelligence import intelligence
     app.register_blueprint(intelligence)
+    from .operations import operations
+    app.register_blueprint(operations)
     from .workspace import workspace
     from .intake import intake
     for blueprint in [auth,crm,projects,finance,documents,payments,workspace,intake]:

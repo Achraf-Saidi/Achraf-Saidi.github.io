@@ -59,6 +59,7 @@ def migrate(path):
         db.execute('INSERT OR IGNORE INTO migrations VALUES(5,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(6,?)', (now(),))
         db.execute('INSERT OR IGNORE INTO migrations VALUES(7,?)', (now(),))
+        db.execute('INSERT OR IGNORE INTO migrations VALUES(8,?)', (now(),))
     finally:
         db.close()
 

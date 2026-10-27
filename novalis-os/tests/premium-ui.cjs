@@ -1,0 +1,16 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const {JSDOM}=require(process.env.NOVALIS_JSDOM_MODULE||'jsdom');
+const root=path.resolve(__dirname,'..'),tick=()=>new Promise(r=>setTimeout(r,0));
+(async()=>{
+const dom=new JSDOM(fs.readFileSync(path.join(root,'web/index.html'),'utf8'),{runScripts:'outside-only',url:'https://novalis.test/os/'}),w=dom.window,d=w.document;
+w.eval(fs.readFileSync(path.join(root,'web/premium.js'),'utf8'));
+for(const [v,n] of [['1:30',90],['1,5h',90],['90',90],['0:05',5]])assert.equal(w.NovalisPremium.parseDuration(v),n);
+assert(Number.isNaN(w.NovalisPremium.parseDuration('1:99')));
+let calls=[],modalSubmit;const entry={id:'e1',task_name:'Étude <img>',project_name:'Horizon',project_id:'p1',user_name:'Noah',user_id:'developer',minutes:90,billable:1,work_date:'2026-10-26',status:'submitted',note:'<script>alert(1)</script>',revision:'r1'};
+const context={state:{user:{id:'manager',role:'manager'},epoch:1,view:'time',tab:'plan',project:'p1',bundle:{project:{name:'Horizon'}}},title:()=>{},button:()=>{},toast:()=>{},modal:(_,__,fn)=>modalSubmit=fn,openProject:async()=>{},api:async(url,method,body)=>{calls.push({url,method,body});if(url==='/api/projects')return {items:[{id:'p1',name:'Horizon'}]};if(url.startsWith('/api/operations/time?'))return {start:'2026-10-26',end:'2026-11-01',items:[entry],people:[{id:'developer',name:'Noah'}],totals:{minutes:90,approved_minutes:0,submitted_minutes:90,approved_billable_minutes:0},daily:[{day:'2026-10-26',minutes:90}]};if(url==='/api/nova/chat')return {answer:'Synthèse <img src=x>',sources:[{label:'Horizon',tab:'plan'}]};return {ok:true};}};
+await w.NovalisPremium.timesheet(context);assert.equal(d.querySelectorAll('.time-table tbody tr').length,1);assert.equal(d.querySelectorAll('.time-table script,.time-table img').length,0);assert(d.getElementById('time-approve').disabled);
+d.querySelector('[data-time-select]').checked=true;d.querySelector('[data-time-select]').dispatchEvent(new w.Event('change'));assert(!d.getElementById('time-approve').disabled);d.getElementById('time-approve').click();await modalSubmit({confirm:true});assert.equal(calls.find(x=>x.url==='/api/operations/time/review').body.entries[0].revision,'r1');
+d.getElementById('time-person').value='developer';d.getElementById('time-person').dispatchEvent(new w.Event('change'));await tick();assert(calls.some(x=>x.url.includes('user_id=developer')));
+context.state.view='project';w.NovalisPremium.initNova(context);d.getElementById('nova-launcher').click();assert(!d.getElementById('nova-panel').hidden);d.querySelector('[data-nova-prompt]').click();await tick();await tick();assert(d.getElementById('nova-messages').textContent.includes('Synthèse <img src=x>'));assert.equal(d.querySelectorAll('#nova-messages img').length,0);d.getElementById('nova-panel').dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));assert(d.getElementById('nova-panel').hidden);assert.equal(d.getElementById('nova-launcher').getAttribute('aria-expanded'),'false');
+console.log('Premium UI: durations, escaped content, batch selection, collaborator filters, grounded Nova and keyboard close verified');dom.window.close();
+})().catch(e=>{console.error(e);process.exit(1);});
