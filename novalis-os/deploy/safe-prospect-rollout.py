@@ -19,10 +19,10 @@ def compare():
         signature=hashlib.sha256()
         for table in TABLES:
             for r in db.execute('SELECT * FROM '+table+' ORDER BY 1'):
-                signature.update(repr((table,r)).encode())
+                signature.update(repr((table,tuple(r))).encode())
         for table in ['users','leads','projects','clients']:
             for r in db.execute("SELECT * FROM "+table+" WHERE org_id='novalis-demo' ORDER BY 1"):
-                signature.update(repr(('demo',table,r)).encode())
+                signature.update(repr(('demo',table,tuple(r))).encode())
         protected=db.execute("""SELECT COUNT(*) FROM lead_intake i JOIN leads l ON l.id=i.lead_id
              WHERE i.reference=? AND lower(l.email)=? AND l.org_id='novalis'""",
              (os.environ['NOVALIS_PROTECTED_REFERENCE'],os.environ['NOVALIS_PROTECTED_EMAIL'])).fetchone()[0]
