@@ -30,6 +30,14 @@ def read_private_environment():
             os.environ.setdefault(key, value.strip().strip('"').strip("'"))
     if os.environ.get("NOVALIS_MODE") != "production" or os.environ.get("NOVALIS_ORG_ID") != "novalis":
         raise RuntimeError("This tool is strictly for the live Novalis production organisation")
+    # Root is necessary only to read the private service environment. Drop its
+    # privileges before opening SQLite, creating backups or modifying sessions.
+    if os.geteuid() == 0:
+        import pwd
+        identity = pwd.getpwnam("novalis-os")
+        os.setgroups([])
+        os.setgid(identity.pw_gid)
+        os.setuid(identity.pw_uid)
 
 
 def fingerprint(db, sql, args=()):
