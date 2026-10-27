@@ -44,10 +44,15 @@ def business_snapshot(db):
     # Both tenants are in one SQLite file. Hash ALL important business rows, not
     # just the first lead, so a credential change cannot silently alter history.
     digest = hashlib.sha256()
-    for table in ("leads", "lead_intake", "lead_public_events", "clients",
-                  "projects", "proposals", "invoices", "billing_documents"):
+    # Protect every non-auth table, including all lead correspondence, document
+    # metadata, billing and the separate demonstration tenant.
+    excluded = {"users", "sessions", "tokens", "audit"}
+    tables = [r[0] for r in db.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")
+        if r[0] not in excluded]
+    for table in tables:
         digest.update(table.encode())
-        digest.update(fingerprint(db, "SELECT * FROM " + table + " ORDER BY 1").encode())
+        digest.update(fingerprint(db, 'SELECT * FROM "' + table + '" ORDER BY 1').encode())
     return digest.hexdigest()
 
 
@@ -101,6 +106,8 @@ def reset_achraf(app):
         encoded_password = hash_password(new_password)
         del new_password, repeat
         before = business_snapshot(db)
+        demo_users_before = fingerprint(db,
+            "SELECT * FROM users WHERE org_id='novalis-demo' ORDER BY id")
         destination = Path("/srv/novalis-os/backups")/("before-achraf-password-reset-"+uid())
         backup(app.config["DATABASE"], app.config["FILES_DIR"], destination)
         with transaction() as conn:
@@ -115,8 +122,9 @@ def reset_achraf(app):
                 (__import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(timespec='seconds'), user["id"]))
             audit("operator.owner_password_reset", user["id"], {"reset_via":"private_vps_terminal",
                   "password_or_recovery_codes_not_logged":True}, org_id="novalis")
-            if business_snapshot(conn) != before:
-                raise RuntimeError("Unrelated business data changed; rolling back")
+            if business_snapshot(conn) != before or fingerprint(conn,
+                    "SELECT * FROM users WHERE org_id='novalis-demo' ORDER BY id") != demo_users_before:
+                raise RuntimeError("Unrelated business or demonstration data changed; rolling back")
         print("Account password reset. All other users and commercial records unchanged.")
         print("MFA unchanged. If an authenticator is still configured it must be supplied at login.")
         print("New backup validated: "+str(destination))
