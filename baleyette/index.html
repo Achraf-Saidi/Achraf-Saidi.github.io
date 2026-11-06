@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0e10">
+  <meta name="description" content="Baleyette — la communauté pour trouver des partenaires d'entraînement, rejoindre des clubs et organiser du sparring encadré.">
+  <meta property="og:title" content="Baleyette — Trouve ton prochain round">
+  <meta property="og:description" content="Entraîne-toi ensemble. Boxe, MMA, JJB, kickboxing et plus.">
+  <title>Baleyette — Trouve ton prochain round</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer crossorigin=""></script>
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navigation principale">
+      <a href="./" class="brand" aria-label="Baleyette, accueil">
+        <span class="brand-mark"><span class="brand-mark-letter">B</span><span class="brand-mark-cut"></span></span>
+        <span class="brand-word">BALE<span>YETTE</span><small>FIGHT TOGETHER.</small></span>
+      </a>
+      <div class="sidebar-section">LE TERRAIN</div>
+      <nav class="side-nav">
+        <button class="side-link active" data-action="nav" data-view="discover"><span class="nav-symbol">⌁</span><span>Explorer</span><span class="nav-dot"></span></button>
+        <button class="side-link" data-action="nav" data-view="map"><span class="nav-symbol">◎</span><span>La carte</span></button>
+        <button class="side-link" data-action="nav" data-view="mine"><span class="nav-symbol">▦</span><span>Mes sessions</span></button>
+        <button class="side-link" data-action="nav" data-view="groups"><span class="nav-symbol">◈</span><span>Communautés</span></button>
+        <button class="side-link" data-action="nav" data-view="messages"><span class="nav-symbol">◌</span><span>Messages</span></button>
+      </nav>
+      <div class="sidebar-section second-label">MON ESPACE</div>
+      <nav class="side-nav">
+        <button class="side-link" data-action="nav" data-view="profile"><span class="nav-symbol">◉</span><span>Mon profil</span></button>
+        <button class="side-link" data-action="modal" data-modal="safety"><span class="nav-symbol">✳</span><span>Charte & sécurité</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-promo"><div class="promo-eyebrow">MAKE EVERY ROUND COUNT</div><div class="promo-title">Plus forts.<br>Ensemble<span>.</span></div><button class="promo-btn" data-action="modal" data-modal="create">+ Organiser un entraînement</button><div class="promo-shape"></div></div>
+        <div class="side-foot">BALEYETTE / 2026 <span>V1.0</span></div>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="mini-mark">B</span><b>BALEYETTE</b></div>
+        <button class="location-pill" data-action="locate" title="Me localiser uniquement sur demande"><span class="loc-target">◎</span><span id="location-label">Louvain-la-Neuve · position par défaut</span><span class="loc-chevron">⌄</span></button>
+        <div class="top-actions">
+          <span id="mode-chip" class="mode-chip">MODE DÉMO</span>
+          <button id="account-trigger" class="account-trigger" data-action="account"><span class="avatar-circle" id="header-avatar">B</span><span id="header-user">Mon espace</span><span class="chevron">⌄</span></button>
+          <button class="top-create" data-action="modal" data-modal="create"><span>＋</span> Créer une session</button>
+        </div>
+      </header>
+      <main class="main-content" id="content" tabindex="-1" aria-live="polite"></main>
+      <footer class="global-foot"><span>© 2026 BALEYETTE. FIGHT TOGETHER.</span><span>Sparring encadré uniquement · Respect · Consentement · Sécurité</span></footer>
+    </div>
+  </div>
+  <nav class="mobile-tabs" aria-label="Navigation mobile">
+    <button data-action="nav" data-view="discover" class="active"><span>⌁</span>Explorer</button>
+    <button data-action="nav" data-view="map"><span>◎</span>Carte</button>
+    <button data-action="nav" data-view="groups"><span>◈</span>Groupes</button>
+    <button data-action="nav" data-view="mine"><span>▦</span>Sessions</button>
+    <button data-action="nav" data-view="profile"><span>◉</span>Profil</button>
+  </nav>
+  <div id="modal-root" aria-live="polite"></div>
+  <div id="toast-root" role="status" aria-live="polite"></div>
+  <noscript>Baleyette nécessite JavaScript pour afficher les sessions et gérer les inscriptions.</noscript>
+</body>
+</html>
