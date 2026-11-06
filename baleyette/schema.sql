@@ -229,7 +229,7 @@ grant insert,delete on public.groups to authenticated;
 grant insert,delete,select on public.group_members to authenticated;
 grant select,insert on public.messages to authenticated;
 grant insert on public.reports to authenticated;
-grant usage,select on all sequences in schema public to authenticated;
+grant usage,select on sequence public.events_id_seq, public.groups_id_seq, public.messages_id_seq, public.reports_id_seq to authenticated;
 
 -- No client SELECT grant for reports: moderation uses Supabase server-side admin.
 -- Production: configure abuse prevention, account confirmation, rate limits,
