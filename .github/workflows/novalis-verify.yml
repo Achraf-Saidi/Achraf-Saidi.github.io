@@ -31,7 +31,7 @@ jobs:
           python novalisai/build.py
           git diff --exit-code -- novalisai/index.html novalisai/fr novalisai/en novalisai/nl novalisai/de novalisai/sitemap.xml
       - name: Compile non-destructive production operator scripts
-        run: python -m py_compile novalis-os/deploy/safe-production-cleanup.py novalis-os/deploy/safe-prospect-rollout.py
+        run: python -m py_compile novalis-os/deploy/safe-production-cleanup.py novalis-os/deploy/safe-prospect-rollout.py novalis-os/deploy/operator-recovery.py
       - name: Verify API business workflows
         working-directory: novalis-os
         run: python -m unittest discover -s tests -v
