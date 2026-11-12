@@ -1,0 +1,32 @@
+name: Achraf Notebooks UI browser smoke
+on:
+  pull_request:
+    paths:
+      - 'achraf-notebooks/platform/public/**'
+      - 'achraf-notebooks/platform/src/learning/**'
+      - 'achraf-notebooks/platform/scripts/ui-smoke.mjs'
+      - '.github/workflows/notebooks-ui-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: achraf-notebooks/platform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npm install --no-save --no-package-lock playwright@1.65.0
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/ui-smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: notebooks-ui-screenshots
+          path: achraf-notebooks/platform/ui-artifacts/
+          retention-days: 7
