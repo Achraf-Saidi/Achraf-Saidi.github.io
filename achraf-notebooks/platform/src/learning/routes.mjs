@@ -1,3 +1,4 @@
+import {publicCapstones} from "./capstones.mjs";
 import {randomUUID} from "node:crypto";
 import {SPECIALIZATIONS,PILOT_SEQUENCE,PILOT_TRACK,examSpec,serializeCatalog} from "./catalog.mjs";
 import {MODULE_INDEX} from "./module-index.mjs";
@@ -12,18 +13,20 @@ const sanitizeName=name=>typeof name==="string"&&
 
 export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
  app.get("/api/learning/catalog",(_req,res)=>res.json(serializeCatalog(langOf(_req))));
+ app.get("/api/learning/capstones",(req,res)=>res.json({capstones:publicCapstones(langOf(req))}));
 
  app.get("/api/me/learning",session,async(req,res)=>{
   try{
-   const [events,passes,attempts,certificates,reviews]=await Promise.all([
+   const [events,passes,attempts,certificates,reviews,submissions]=await Promise.all([
     db.query("SELECT module_id,self_reported_completed,updated_at FROM learning_events WHERE user_id=$1",[req.currentUser.id]),
     db.query("SELECT exam_id,best_score,passed_at FROM assessment_passes WHERE user_id=$1",[req.currentUser.id]),
     db.query("SELECT id,exam_id,state,score,started_at,expires_at FROM assessment_attempts WHERE user_id=$1 ORDER BY started_at DESC LIMIT 30",[req.currentUser.id]),
-    db.query("SELECT public_id,track_id,recipient_display_name,assessment_score,issued_at,revoked_at FROM academy_certificates WHERE user_id=$1",[req.currentUser.id]),
-    db.query("SELECT track_id,status,evidence_verified,updated_at FROM capstone_reviews WHERE user_id=$1",[req.currentUser.id])
+    db.query("SELECT public_id,track_id,recipient_display_name,assessment_score,capstone_score,issued_at,revoked_at FROM academy_certificates WHERE user_id=$1",[req.currentUser.id]),
+    db.query("SELECT track_id,status,evidence_verified,score,reviewer_feedback,updated_at FROM capstone_reviews WHERE user_id=$1",[req.currentUser.id]),
+    db.query("SELECT track_id,version,project_url,report_summary,submitted_at FROM capstone_submissions WHERE user_id=$1",[req.currentUser.id])
    ]);
    res.json({selfReported:events.rows,passed:passes.rows,attempts:attempts.rows,
-    certificates:certificates.rows,reviews:reviews.rows});
+    certificates:certificates.rows,reviews:reviews.rows,submissions:submissions.rows});
   }catch{failure(res,"learning_unavailable",503);}
  });
 
@@ -117,6 +120,41 @@ export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
   }finally{conn.release();}
  });
 
+ app.post("/api/capstones/:trackId/submit",assertSameOrigin,session,async(req,res)=>{
+  const id=req.params.trackId,summary=req.body?.summary,rawUrl=req.body?.projectUrl;
+  if(id!==PILOT_TRACK)return failure(res,"capstone_not_available",404);
+  if(typeof summary!=="string"||summary.trim().length<200||summary.trim().length>7000||
+   typeof rawUrl!=="string"||rawUrl.length>500)return failure(res,"invalid_project");
+  let url;
+  try{
+   url=new URL(rawUrl);
+   if(url.protocol!=="https:"||url.hostname!=="github.com"||url.username||url.password||
+    url.port||url.search||url.hash||!/^\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/.test(url.pathname))throw Error();
+  }catch{return failure(res,"invalid_repository_url");}
+  const conn=await db.connect().catch(()=>null);
+  if(!conn)return failure(res,"capstone_unavailable",503);
+  try{
+   await conn.query("BEGIN");
+   await conn.query('SELECT id FROM "user" WHERE id=$1 FOR UPDATE',[req.currentUser.id]);
+   const pass=await conn.query("SELECT exam_id FROM assessment_passes WHERE user_id=$1",[req.currentUser.id]);
+   if(![...PILOT_SEQUENCE,PILOT_TRACK+"-final"].every(x=>pass.rows.some(p=>p.exam_id===x))){
+    await conn.query("ROLLBACK");return failure(res,"exams_not_complete",409);
+   }
+   const issued=await conn.query("SELECT 1 FROM academy_certificates WHERE user_id=$1 AND track_id=$2 AND revoked_at IS NULL",
+    [req.currentUser.id,id]);
+   if(issued.rowCount){await conn.query("ROLLBACK");return failure(res,"certificate_already_issued",409);}
+   const submission=await conn.query("INSERT INTO capstone_submissions(user_id,track_id,project_url,report_summary) VALUES($1,$2,$3,$4) ON CONFLICT(user_id,track_id) DO UPDATE SET version=capstone_submissions.version+1,project_url=EXCLUDED.project_url,report_summary=EXCLUDED.report_summary,submitted_at=now() RETURNING version,submitted_at",
+    [req.currentUser.id,id,url.href,summary.trim()]);
+   await conn.query("INSERT INTO capstone_reviews(user_id,track_id,status,evidence_verified,submission_version,score,reviewed_by,reviewed_at,reviewer_feedback) VALUES($1,$2,'pending',FALSE,$3,NULL,NULL,NULL,NULL) ON CONFLICT(user_id,track_id) DO UPDATE SET status='pending',evidence_verified=FALSE,submission_version=EXCLUDED.submission_version,score=NULL,reviewed_by=NULL,reviewed_at=NULL,reviewer_feedback=NULL,updated_at=now()",
+    [req.currentUser.id,id,submission.rows[0].version]);
+   await conn.query("COMMIT");
+   res.status(201).json({status:"pending_review",trackId:id,submissionVersion:submission.rows[0].version,
+    message:"Project submitted for manual rubric grading. Submission does not imply academic approval."});
+  }catch{
+   await conn.query("ROLLBACK").catch(()=>{});failure(res,"capstone_unavailable",503);
+  }finally{conn.release();}
+ });
+
  app.post("/api/certificates/claim",assertSameOrigin,session,async(req,res)=>{
   const trackId=req.body?.trackId,publicConsent=req.body?.publicConsent;
   const displayName=sanitizeName(req.body?.displayName);
@@ -127,19 +165,20 @@ export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
   try{
    await conn.query("BEGIN");
    await conn.query('SELECT id FROM "user" WHERE id=$1 FOR UPDATE',[req.currentUser.id]);
-   const [passed,capstone]=await Promise.all([
+   const [passed,capstone,submission]=await Promise.all([
     conn.query("SELECT exam_id,best_score FROM assessment_passes WHERE user_id=$1",[req.currentUser.id]),
-    conn.query("SELECT status,evidence_verified,reviewed_by FROM capstone_reviews WHERE user_id=$1 AND track_id=$2",[req.currentUser.id,trackId])
+    conn.query("SELECT status,evidence_verified,reviewed_by,score,submission_version FROM capstone_reviews WHERE user_id=$1 AND track_id=$2",[req.currentUser.id,trackId]),
+    conn.query("SELECT version FROM capstone_submissions WHERE user_id=$1 AND track_id=$2",[req.currentUser.id,trackId])
    ]);
-   if(!issueCandidate(passed.rows.map(x=>x.exam_id),capstone.rows[0])){
+   if(!issueCandidate(passed.rows.map(x=>x.exam_id),capstone.rows[0],submission.rows[0])){
     await conn.query("ROLLBACK");
     return failure(res,"certificate_requirements_incomplete",409,{
-     requirements:["4 passing module exams","passing final exam","independently reviewed capstone project"]});
+     requirements:["4 passing module exams","passing final exam","version-matched reviewed capstone project scoring at least 85/100"]});
    }
    const finalScore=passed.rows.find(x=>x.exam_id===PILOT_TRACK+"-final").best_score;
    const certificateId=randomUUID();
-   await conn.query("INSERT INTO academy_certificates(public_id,user_id,track_id,recipient_display_name,assessment_score,publicly_verifiable) VALUES($1,$2,$3,$4,$5,TRUE) ON CONFLICT(user_id,track_id) DO NOTHING",
-    [certificateId,req.currentUser.id,trackId,displayName,finalScore]);
+   await conn.query("INSERT INTO academy_certificates(public_id,user_id,track_id,recipient_display_name,assessment_score,capstone_score,publicly_verifiable) VALUES($1,$2,$3,$4,$5,$6,TRUE) ON CONFLICT(user_id,track_id) DO NOTHING",
+    [certificateId,req.currentUser.id,trackId,displayName,finalScore,capstone.rows[0].score]);
    const result=await conn.query("SELECT public_id,track_id,recipient_display_name,assessment_score,issued_at,revoked_at FROM academy_certificates WHERE user_id=$1 AND track_id=$2",
     [req.currentUser.id,trackId]);
    await conn.query("COMMIT");
@@ -157,7 +196,7 @@ export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
    if(r.rowCount!==1)return failure(res,"not_found",404);
    const c=r.rows[0];
    return res.json({credentialId:c.public_id,trackId:c.track_id,recipient:c.recipient_display_name,
-    finalExamScore:c.assessment_score,issuedAt:c.issued_at,status:c.revoked_at?"revoked":"valid",
+    finalExamScore:c.assessment_score,capstoneScore:c.capstone_score,issuedAt:c.issued_at,status:c.revoked_at?"revoked":"valid",
     type:"Independent unaccredited achievement certificate; unproctored exam plus reviewed capstone"});
   }catch{failure(res,"verification_unavailable",503);}
  });

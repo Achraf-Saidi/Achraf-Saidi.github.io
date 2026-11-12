@@ -115,10 +115,13 @@ export function examAccess(id,passedIds){
  const missing=examPrerequisites(id).filter(p=>!passed.has(p));
  return missing.length?{status:409,error:"prerequisites_missing",missing}:{status:200,spec};
 }
-export function issueCandidate(passedIds,review){
+export function issueCandidate(passedIds,review,submission){
  const set=new Set(passedIds);
  return PILOT_SEQUENCE.every(x=>set.has(x))&&set.has(PILOT_TRACK+"-final")&&
+  !!submission&&Number.isInteger(submission.version)&&submission.version>=1&&
   !!review&&review.status==="approved"&&review.evidence_verified===true&&
+  review.submission_version===submission.version&&
+  Number.isInteger(review.score)&&review.score>=85&&
   typeof review.reviewed_by==="string"&&review.reviewed_by.length>0;
 }
 export function isUuid(s){

@@ -91,10 +91,13 @@ test("responses are bounded and prerequisites gate exam access",()=>{
 });
 test("certificates require all examinations and a named, evidence-backed capstone review",()=>{
  const passed=[...PILOT_SEQUENCE,"statistical-inference-final"];
- assert.equal(issueCandidate(passed,null),false);
- assert.equal(issueCandidate(passed,{status:"approved",evidence_verified:false,reviewed_by:"faculty"}),false);
- assert.equal(issueCandidate(passed.slice(1),{status:"approved",evidence_verified:true,reviewed_by:"faculty"}),false);
- assert.equal(issueCandidate(passed,{status:"approved",evidence_verified:true,reviewed_by:"faculty"}),true);
+ const review={status:"approved",evidence_verified:true,reviewed_by:"faculty",score:90,submission_version:2};
+ assert.equal(issueCandidate(passed,null,{version:2}),false);
+ assert.equal(issueCandidate(passed,{...review,evidence_verified:false},{version:2}),false);
+ assert.equal(issueCandidate(passed.slice(1),review,{version:2}),false);
+ assert.equal(issueCandidate(passed,{...review,score:70},{version:2}),false);
+ assert.equal(issueCandidate(passed,review,{version:1}),false);
+ assert.equal(issueCandidate(passed,review,{version:2}),true);
  assert.equal(isUuid("00000000-0000-4000-8000-000000000000"),true);
  assert.equal(isUuid("some malicious data"),false);
 });
