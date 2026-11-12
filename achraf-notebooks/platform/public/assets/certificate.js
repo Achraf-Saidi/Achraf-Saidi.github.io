@@ -13,6 +13,7 @@ verify().then(c=>{
  el("recipient").textContent=c.recipient;
  el("track-name").textContent=c.trackId==="statistical-inference"?"Inférence statistique et Bayes":c.trackId;
  el("score").textContent=c.finalExamScore+" %";
+ el("capstone-score").textContent=c.capstoneScore+" / 100";
  el("issued").textContent=new Date(c.issuedAt).toLocaleDateString("fr-BE",{day:"numeric",month:"long",year:"numeric"});
  el("credential-id").textContent=c.credentialId;
  el("verify-status").textContent="✓ Certificat public valide, vérifié auprès de l'Académie.";

@@ -22,7 +22,7 @@ export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
     db.query("SELECT exam_id,best_score,passed_at FROM assessment_passes WHERE user_id=$1",[req.currentUser.id]),
     db.query("SELECT id,exam_id,state,score,started_at,expires_at FROM assessment_attempts WHERE user_id=$1 ORDER BY started_at DESC LIMIT 30",[req.currentUser.id]),
     db.query("SELECT public_id,track_id,recipient_display_name,assessment_score,capstone_score,issued_at,revoked_at FROM academy_certificates WHERE user_id=$1",[req.currentUser.id]),
-    db.query("SELECT track_id,status,evidence_verified,score,reviewer_feedback,updated_at FROM capstone_reviews WHERE user_id=$1",[req.currentUser.id]),
+    db.query("SELECT track_id,status,evidence_verified,score,submission_version,reviewer_feedback,updated_at FROM capstone_reviews WHERE user_id=$1",[req.currentUser.id]),
     db.query("SELECT track_id,version,project_url,report_summary,submitted_at FROM capstone_submissions WHERE user_id=$1",[req.currentUser.id])
    ]);
    res.json({selfReported:events.rows,passed:passes.rows,attempts:attempts.rows,
@@ -179,7 +179,7 @@ export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
    const certificateId=randomUUID();
    await conn.query("INSERT INTO academy_certificates(public_id,user_id,track_id,recipient_display_name,assessment_score,capstone_score,publicly_verifiable) VALUES($1,$2,$3,$4,$5,$6,TRUE) ON CONFLICT(user_id,track_id) DO NOTHING",
     [certificateId,req.currentUser.id,trackId,displayName,finalScore,capstone.rows[0].score]);
-   const result=await conn.query("SELECT public_id,track_id,recipient_display_name,assessment_score,issued_at,revoked_at FROM academy_certificates WHERE user_id=$1 AND track_id=$2",
+   const result=await conn.query("SELECT public_id,track_id,recipient_display_name,assessment_score,capstone_score,issued_at,revoked_at FROM academy_certificates WHERE user_id=$1 AND track_id=$2",
     [req.currentUser.id,trackId]);
    await conn.query("COMMIT");
    res.json({certificate:result.rows[0],verificationUrl:"/certificates/"+result.rows[0].public_id});
@@ -192,7 +192,7 @@ export function mountLearningRoutes(app,{db,session,assertSameOrigin}){
  app.get("/api/certificates/verify/:id",async(req,res)=>{
   if(!isUuid(req.params.id))return failure(res,"not_found",404);
   try{
-   const r=await db.query("SELECT public_id,track_id,recipient_display_name,assessment_score,issued_at,revoked_at FROM academy_certificates WHERE public_id=$1 AND publicly_verifiable=TRUE",[req.params.id]);
+   const r=await db.query("SELECT public_id,track_id,recipient_display_name,assessment_score,capstone_score,issued_at,revoked_at FROM academy_certificates WHERE public_id=$1 AND publicly_verifiable=TRUE",[req.params.id]);
    if(r.rowCount!==1)return failure(res,"not_found",404);
    const c=r.rows[0];
    return res.json({credentialId:c.public_id,trackId:c.track_id,recipient:c.recipient_display_name,
