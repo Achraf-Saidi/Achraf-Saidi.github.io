@@ -1,3 +1,4 @@
+import {MODULE_INDEX,SCHOOL_INDEX} from "./module-index.mjs";
 // Editorial truth: only the Statistical Inference pilot has authored, server-graded exams.
 // Other specializations are visible roadmaps, NOT certificate-eligible yet.
 export const SPECIALIZATIONS=[
@@ -9,12 +10,6 @@ export const SPECIALIZATIONS=[
 {id:"biomedical-research-ai",name:{fr:"IA biomédicale et recherche",en:"Biomedical AI and research"},description:{fr:"Survie, haute dimension, graphes et protocoles scientifiques.",en:"Survival, high dimensionality, graph learning and research methods."},modules:["D3","D6","D13","D16","J1","J3","K4","L7","L9"],level:"advanced",hours:142,assessment:"in-development",certificateEligible:false},
 {id:"robotics-embodied",name:{fr:"Robotique et IA incarnée",en:"Robotics and embodied AI"},description:{fr:"Cinématique, commande, capteurs, SLAM, ROS 2 et robots autonomes.",en:"Kinematics, control, sensing, SLAM, ROS 2 and autonomous robots."},modules:["M1","M2","M3","M4","M5","M6","M7","M8","M9","M10","M11","M12","M13","M14","M15"],level:"advanced",hours:190,assessment:"in-development",certificateEligible:false}
 ];
-export const MODULE_NAMES={
-"D3":{fr:"Lois jointes et conditionnelles",en:"Joint and conditional distributions"},
-"D6":{fr:"Inférence statistique",en:"Statistical inference"},
-"D9":{fr:"Modèles linéaires généralisés",en:"Generalized linear models"},
-"D13":{fr:"Calcul bayésien et MCMC",en:"Computational Bayesian inference"}
-};
 export const PILOT_SEQUENCE=["D3","D6","D9","D13"];
 export const PILOT_TRACK="statistical-inference";
 export function examSpec(id){
@@ -29,9 +24,9 @@ export function examPrerequisites(id){
 }
 export function serializeCatalog(lang="fr"){
  const l=lang==="en"?"en":"fr";
- return {asOf:"2026-11-12",notice:l==="fr"?
+ return {asOf:"2026-11-12",moduleCount:Object.keys(MODULE_INDEX).length,schools:SCHOOL_INDEX.map(s=>({id:s.id,title:s.title[l],moduleCount:s.moduleCount})),modules:Object.values(MODULE_INDEX).map(m=>({...m,title:m.title[l],titleBilingual:undefined})),notice:l==="fr"?
   "Les 92 chapitres académiques sont des brouillons originaux. Seule l'inférence statistique dispose actuellement d'examens pilotes, sans surveillance d'identité.":
   "The 92 authored chapters are original drafts. Only statistical inference currently has pilot exams, without proctored identity verification.",
   specializations:SPECIALIZATIONS.map(s=>({...s,title:s.name[l],summary:s.description[l],name:undefined,description:undefined,
-   moduleTitles:s.modules.map(id=>MODULE_NAMES[id]?.[l]||id)}))};
+   moduleTitles:s.modules.map(id=>MODULE_INDEX[id]?.title[l]||id)}))};
 }
