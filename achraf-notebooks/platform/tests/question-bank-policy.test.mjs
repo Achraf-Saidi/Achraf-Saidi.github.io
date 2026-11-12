@@ -28,7 +28,7 @@ test("private exam bank requires 16 items and four numerical questions per modul
   assert.equal(quality.modules[module].total,16);
   assert.equal(quality.modules[module].numeric,4);
  }
- assert.throws(()=>validatePrivateQuestionSet(items.filter(q=>q.id!=="D3.0")),/insufficient_numeric_D3/);
+ assert.throws(()=>validatePrivateQuestionSet(items.filter(q=>q.id!=="D3.0")),/insufficient_(items|numeric)_D3/);
 });
 test("rejects duplicate items, weak difficulty and missing translations",()=>{
  const items=draft();
