@@ -8,16 +8,22 @@ import {serializeCatalog} from "../src/learning/catalog.mjs";
 import {publicCapstones} from "../src/learning/capstones.mjs";
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../public");
+const academyRoot=path.resolve(root,"../../source/public");
 const reportDir=path.resolve("ui-artifacts");
 await fs.mkdir(reportDir,{recursive:true});
 const contentType={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".svg":"image/svg+xml"};
 const server=http.createServer(async(req,res)=>{
  try{
   const pathname=new URL(req.url,"http://localhost").pathname;
-  const mapped=pathname==="/"?"/index.html":
-    pathname==="/dashboard"?"/learning.html":pathname;
-  const name=path.resolve(root,"."+mapped);
-  if(!name.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
+  let activeRoot=root;
+  let mapped=pathname==="/"?"/index.html":pathname==="/dashboard"?"/learning.html":pathname;
+  if(pathname.startsWith("/achraf-notebooks/academy/")){
+    activeRoot=academyRoot;
+    mapped=pathname.slice("/achraf-notebooks".length);
+    if(mapped.endsWith("/"))mapped+="index.html";
+  }
+  const name=path.resolve(activeRoot,"."+mapped);
+  if(!name.startsWith(activeRoot+path.sep)){res.writeHead(403);res.end();return;}
   const body=await fs.readFile(name);
   res.writeHead(200,{"Content-Type":contentType[path.extname(name)]||"application/octet-stream",
    "Cache-Control":"no-store","X-Content-Type-Options":"nosniff"});
@@ -95,8 +101,27 @@ try{
  await hasNoHorizontalOverflow(dashboardMobile,"dashboard mobile");
  await dashboardMobile.close();
 
+ const lesson=await browser.newPage({viewport:{width:1200,height:900},deviceScaleFactor:1});
+ lesson.on("pageerror",err=>errors.push("Academy: "+err.message));
+ await lesson.goto(url+"/achraf-notebooks/academy/fr/?id=G4",{waitUntil:"networkidle"});
+ await lesson.locator("#deep .worked-problem").first().waitFor();
+ assert.equal(await lesson.locator("#deep .worked-problem").count(),4);
+ assert.ok(await lesson.locator("#deep .curriculum-lesson").count()>=11);
+ assert.match(await lesson.locator("#title").textContent(),/Rétropropagation/);
+ await lesson.locator("#modnav [data-id='D3']").click();
+ await lesson.locator("#deep .worked-problem").first().waitFor();
+ assert.equal(await lesson.locator("#deep .worked-problem").count(),4);
+ await lesson.screenshot({path:path.join(reportDir,"academy-math-fr.png"),fullPage:true});
+ await hasNoHorizontalOverflow(lesson,"Academy FR");
+ await lesson.goto(url+"/achraf-notebooks/academy/en/?id=H2",{waitUntil:"networkidle"});
+ await lesson.locator("#deep .worked-problem").first().waitFor();
+ assert.equal(await lesson.locator("#deep .worked-problem").count(),4);
+ assert.ok(await lesson.locator("#deep pre code").count()>=1);
+ await hasNoHorizontalOverflow(lesson,"Academy EN");
+ await lesson.close();
+
  assert.deepEqual(errors,[],"browser runtime exceptions: "+errors.join(", "));
- console.log("Browser smoke passed: desktop/mobile home & dashboard; pricing, orientation, modules and focus.");
+ console.log("Browser smoke passed: desktop/mobile home and dashboard plus bilingual 11-section masterclass pages.");
 }finally{
  await browser.close();
  await new Promise(resolve=>server.close(resolve));
