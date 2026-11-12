@@ -74,7 +74,7 @@ test('Bilingual knowledge checkpoints are well formed and cannot certify users',
 test('Catalogued academy expansions exactly match original deep-content scripts',()=>{
  const list=JSON.parse(fs.readFileSync('curriculum/academy-expansions.json','utf8'));
  assert.ok(list.moduleIds.length>=70);
- assert.equal(new Set(list.moduleIds).size,70);
+ assert.equal(new Set(list.moduleIds).size,list.moduleIds.length);
  const catalogue=fs.readFileSync('src/components/Catalogue.astro','utf8');
  assert.match(catalogue,/academy-expansions.json/);
  assert.match(catalogue,/data-status=\{expandedDraftIds.has/);

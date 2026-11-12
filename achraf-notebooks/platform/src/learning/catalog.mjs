@@ -30,8 +30,8 @@ export function examPrerequisites(id){
 export function serializeCatalog(lang="fr"){
  const l=lang==="en"?"en":"fr";
  return {asOf:"2026-11-12",notice:l==="fr"?
-  "Les 70 chapitres académiques sont des brouillons originaux. Seule l'inférence statistique dispose actuellement d'examens pilotes, sans surveillance d'identité.":
-  "The 70 authored chapters are original drafts. Only statistical inference currently has pilot exams, without proctored identity verification.",
+  "Les 92 chapitres académiques sont des brouillons originaux. Seule l'inférence statistique dispose actuellement d'examens pilotes, sans surveillance d'identité.":
+  "The 92 authored chapters are original drafts. Only statistical inference currently has pilot exams, without proctored identity verification.",
   specializations:SPECIALIZATIONS.map(s=>({...s,title:s.name[l],summary:s.description[l],name:undefined,description:undefined,
    moduleTitles:s.modules.map(id=>MODULE_NAMES[id]?.[l]||id)}))};
 }

@@ -83,6 +83,10 @@ The Academy contains 151 mapped modules across 13 schools. **50 modules** now of
 
 ## Academic lesson expansion — 12 November 2026 (review branch)
 
-The Academy contains 151 syllabus modules, of which 70 now have original bilingual exposition, concrete mathematical arguments, Python experiments and solved exercises. The new draft pack covers numerical integration, sampling inference, MCMC, clustering, PCA, masked attention, decoding, LoRA, MDPs and value iteration. **The other 81 modules remain guided syllabi**; these additions have not been externally peer reviewed. The future private commerce platform is intentionally isolated in `achraf-notebooks/platform/` and must pass security and legal acceptance before deployment. No payment service is currently live.
+The Academy contains 151 syllabus modules, of which 92 now have original bilingual exposition, concrete mathematical arguments, Python experiments and solved exercises. The new draft pack covers numerical integration, sampling inference, MCMC, clustering, PCA, masked attention, decoding, LoRA, MDPs and value iteration. **The other 59 modules remain guided syllabi**; these additions have not been externally peer reviewed. The future private commerce platform is intentionally isolated in `achraf-notebooks/platform/` and must pass security and legal acceptance before deployment. No payment service is currently live.
 
 Further draft course pack: five chapters on linear programming, relational SQL, joint probability, logistic GLMs and right-censored survival analysis; five chapters on neuron gradients, optimization, GCNs, FDR and reproducible benchmarking. All include bilingual original explanations, a runnable Python exercise and an answer key. New interactive checkpoints are self-assessments, not accredited exams.
+
+## Consolidated academy coverage (branch audit, 12 Nov 2026)
+
+The current bilingual Academy has **92 expanded original module drafts** and **59 guided study plans** across 151 mapped modules. Counting is sourced from `curriculum/academy-expansions.json`; independent scientific review has not been performed. Do not claim equivalence with an accredited program or describe these drafts as fully verified university courses.
