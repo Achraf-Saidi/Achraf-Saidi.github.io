@@ -66,3 +66,17 @@ test('Bilingual knowledge checkpoints are well formed and cannot certify users',
   }
  }
 });
+
+test('Catalogued academy expansions exactly match original deep-content scripts',()=>{
+ const list=JSON.parse(fs.readFileSync('curriculum/academy-expansions.json','utf8'));
+ assert.equal(list.moduleIds.length,70);
+ assert.equal(new Set(list.moduleIds).size,70);
+ const catalogue=fs.readFileSync('src/components/Catalogue.astro','utf8');
+ assert.match(catalogue,/academy-expansions.json/);
+ assert.match(catalogue,/data-status=\{expandedDraftIds.has/);
+ for(const lang of ['fr','en']){
+  const env={};env.window=env;vm.createContext(env);
+  for(let part=1;part<=12;part++)vm.runInContext(fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8'),env,{timeout:1000});
+  assert.deepEqual(Object.keys(env.ACHRAF_DEEP[lang]).sort(),[...list.moduleIds].sort());
+ }
+});
