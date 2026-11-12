@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const state={catalog:null,progress:null,track:null,activeExam:null,timer:null,logged:false};
+const state={catalog:null,progress:null,track:null,capstones:[],activeExam:null,timer:null,logged:false};
 const pilot=["D3","D6","D9","D13"];
 function make(tag,cls,text){
  const node=document.createElement(tag);
@@ -99,11 +99,36 @@ function renderExamStepper(){
  btn.dataset.exam=next||"";
  btn.textContent=next?"Commencer : "+examName(next):"Tous les examens réussis";
 }
+function renderCapstones(){
+ const root=$("capstone-cards");root.replaceChildren();
+ for(const c of state.capstones){
+  const card=make("article","capstone-card");
+  card.append(make("p","overline",c.status==="pilot"?"PROJET PILOTE · ÉVALUATION OUVERTE":"PROJET PRÉVU · ÉVALUATION NON OUVERTE"));
+  card.append(make("h3","",c.title));
+  card.append(make("p","",c.objective));
+  card.append(make("small","",c.expectedHours+" heures indicatives · travail individuel original"));
+  const items=make("ul");for(const requirement of c.requirements.slice(0,4))items.append(make("li","",requirement));
+  card.append(items);
+  const rubric=make("div","rubric");rubric.append(make("strong","", "Barème de référence / 100"));
+  const list=make("ul");for(const criterion of c.rubric)list.append(make("li","",criterion.label+" — "+criterion.weight+" pts"));
+  rubric.append(list);card.append(rubric);root.append(card);
+ }
+ const passed=listPasses(),complete=[...pilot,"statistical-inference-final"].every(id=>passed.has(id));
+ const submitted=(state.progress?.submissions||[]).find(s=>s.track_id==="statistical-inference");
+ const review=(state.progress?.reviews||[]).find(r=>r.track_id==="statistical-inference");
+ $("submit-capstone").disabled=!state.logged||!complete;
+ $("capstone-status").textContent=!state.logged?"Connexion nécessaire pour soumettre un projet.":
+  submitted?"Version "+submitted.version+" soumise · statut : "+(review?.status||"en attente")+
+   (review?.score!=null?" · Note : "+review.score+"/100":""):
+  complete?"Prérequis remplis. Le projet peut être soumis à évaluation.":
+  "Termine d'abord les quatre examens et le final. Le dépôt peut être préparé avant l'ouverture de la soumission.";
+}
 function renderCredentials(){
  const certificates=state.progress?.certificates||[];
  const reviews=state.progress?.reviews||[];
  const passed=listPasses();
- const reviewed=reviews.some(r=>r.track_id==="statistical-inference"&&r.status==="approved"&&r.evidence_verified===true);
+ const submission=(state.progress?.submissions||[]).find(s=>s.track_id==="statistical-inference");
+ const reviewed=reviews.some(r=>r.track_id==="statistical-inference"&&r.status==="approved"&&r.evidence_verified===true&&r.score>=85&&r.submission_version===submission?.version);
  const requirements=[...pilot,"statistical-inference-final"].every(id=>passed.has(id));
  const allowed=state.logged&&requirements&&reviewed;
  $("claim-button").disabled=!allowed;
@@ -143,7 +168,7 @@ function renderLibrary(){
   row.append(info);root.append(row);
  }
 }
-function renderAll(){updateSummary();if(state.catalog){renderTracks();renderModules();renderExamStepper();renderCredentials();renderLibrary();}}
+function renderAll(){updateSummary();if(state.catalog){renderTracks();renderModules();renderExamStepper();renderCredentials();renderCapstones();renderLibrary();}}
 async function fetchProgress(){
  if(!state.logged){state.progress={selfReported:[],passed:[],certificates:[],reviews:[]};return;}
  state.progress=await request("/api/me/learning");
@@ -240,8 +265,25 @@ $("claim-form").addEventListener("submit",async e=>{
  }catch{displayNotice("Certificat non délivré. Vérifier les examens, le projet et le consentement public.");}
  finally{renderCredentials();}
 });
+$("capstone-form").addEventListener("submit",async e=>{
+ e.preventDefault();
+ const button=$("submit-capstone");if(button.disabled)return;
+ button.disabled=true;
+ try{
+  const result=await request("/api/capstones/statistical-inference/submit",{
+   projectUrl:$("project-url").value.trim(),summary:$("project-summary").value.trim()
+  });
+  displayNotice("Projet soumis · version "+result.submissionVersion+
+   ". Seul l'avis d'un évaluateur indépendant pourra valider le certificat.");
+  await fetchProgress();renderAll();
+ }catch(err){
+  displayNotice(err.message==="exams_not_complete"?"Examens préalables non validés.":
+   err.message==="invalid_repository_url"?"Le lien doit désigner un dépôt github.com valide.":"Soumission impossible : "+err.message);
+ }finally{renderCapstones();}
+});
 async function start(){
  state.catalog=await request("/api/learning/catalog?lang=fr");
+ const projects=await request("/api/learning/capstones?lang=fr");state.capstones=projects.capstones||[];
  for(const s of state.catalog.schools){
   const option=make("option","",s.id+" · "+s.title+" ("+s.moduleCount+")");
   option.value=s.id;$("module-school").append(option);
