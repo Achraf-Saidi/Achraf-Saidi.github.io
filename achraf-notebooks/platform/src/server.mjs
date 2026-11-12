@@ -13,6 +13,10 @@ const required=["DATABASE_URL","BETTER_AUTH_SECRET","RESEND_API_KEY","RESEND_FRO
  ...(billingEnabled?["STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","STRIPE_PRICE_FOUNDATIONS","STRIPE_PRICE_PRO_MONTHLY"]:[])];
 for(const name of required)if(!process.env[name]||(process.env[name].includes("REPLACE_ME")))throw Error("Missing configuration: "+name);
 if(process.env.NODE_ENV==="production"&&(!ORIGIN.startsWith("https://")||process.env.BETTER_AUTH_SECRET.length<32))throw Error("Production requires HTTPS and a long auth secret");
+// This public development branch must not charge a real card while the new
+// student/academy products, legal terms and content review are unfinished.
+if(billingEnabled&&(!process.env.STRIPE_SECRET_KEY?.startsWith("sk_test_")))
+ throw Error("Live Stripe billing is intentionally blocked pending product and legal launch approval.");
 const stripe=billingEnabled?new Stripe(process.env.STRIPE_SECRET_KEY):null;
 const prices={foundations:process.env.STRIPE_PRICE_FOUNDATIONS,pro_monthly:process.env.STRIPE_PRICE_PRO_MONTHLY};
 const app=express();
