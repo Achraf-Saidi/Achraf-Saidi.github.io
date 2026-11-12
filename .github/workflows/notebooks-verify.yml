@@ -33,3 +33,4 @@ jobs:
       - run: python projects/wine.py
       - run: python projects/gradient.py
       - run: python projects/backprop.py
+      - run: node scripts/verify-new-labs.mjs
