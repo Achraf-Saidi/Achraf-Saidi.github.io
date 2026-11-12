@@ -22,9 +22,11 @@ export function examPrerequisites(id){
  const i=PILOT_SEQUENCE.indexOf(id);
  return i>0?[PILOT_SEQUENCE[i-1]]:[];
 }
+// Content depth is not scientific approval; all remain independently unreviewed drafts.
+const EXTENDED_DRAFT_IDS=new Set(["B1","B7","D3","D6","D9","D13","F2","G3","G4","H2","H4","I2"]);
 export function serializeCatalog(lang="fr"){
  const l=lang==="en"?"en":"fr";
- return {asOf:"2026-11-12",moduleCount:Object.keys(MODULE_INDEX).length,schools:SCHOOL_INDEX.map(s=>({id:s.id,title:s.title[l],moduleCount:s.moduleCount})),modules:Object.values(MODULE_INDEX).map(m=>({...m,title:m.title[l],titleBilingual:undefined})),notice:l==="fr"?
+ return {asOf:"2026-11-12",moduleCount:Object.keys(MODULE_INDEX).length,schools:SCHOOL_INDEX.map(s=>({id:s.id,title:s.title[l],moduleCount:s.moduleCount})),modules:Object.values(MODULE_INDEX).map(m=>({...m,title:m.title[l],depthStatus:EXTENDED_DRAFT_IDS.has(m.id)?"extended-draft":m.expandedDraft?"expanded-draft":"outline"})),notice:l==="fr"?
   "Les 92 chapitres académiques sont des brouillons originaux. Seule l'inférence statistique dispose actuellement d'examens pilotes, sans surveillance d'identité.":
   "The 92 authored chapters are original drafts. Only statistical inference currently has pilot exams, without proctored identity verification.",
   specializations:SPECIALIZATIONS.map(s=>({...s,title:s.name[l],summary:s.description[l],name:undefined,description:undefined,

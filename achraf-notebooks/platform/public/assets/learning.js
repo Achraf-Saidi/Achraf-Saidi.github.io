@@ -158,7 +158,7 @@ function renderLibrary(){
  const school=$("module-school").value,status=$("module-status").value;
  const filtered=modules.filter(m=>{
   if(school!=="all"&&m.school!==school)return false;
-  if(status==="draft"&&!m.expandedDraft||status==="outline"&&m.expandedDraft)return false;
+  if((status==="draft"&&!m.expandedDraft)||(status==="outline"&&m.expandedDraft)||(status==="extended"&&m.depthStatus!=="extended-draft"))return false;
   const text=[m.id,m.title,...m.topics].join(" ").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
   return !search||text.includes(search);
  });
@@ -167,7 +167,7 @@ function renderLibrary(){
   const row=make("div","course-mini");row.append(make("span","code",m.id));
   const info=make("div");
   info.append(make("strong","",m.title));
-  info.append(make("small","",m.expandedDraft?"Chapitre enrichi · relecture à poursuivre":"Parcours guidé · cours détaillé à rédiger"));
+  info.append(make("small","",m.depthStatus==="extended-draft"?"Cours long · démonstrations, code et corrections · relecture à poursuivre":m.expandedDraft?"Chapitre enrichi · relecture à poursuivre":"Parcours guidé · cours détaillé à rédiger"));
   const link=make("a","","Consulter le programme ↗");
   link.href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/?id="+encodeURIComponent(m.id);
   link.rel="noopener";link.target="_blank";

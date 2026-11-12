@@ -101,3 +101,13 @@ test("certificates require all examinations and a named, evidence-backed capston
  assert.equal(isUuid("00000000-0000-4000-8000-000000000000"),true);
  assert.equal(isUuid("some malicious data"),false);
 });
+
+test("long-form chapter status is an editorial draft, not a certification",()=>{
+ const c=serializeCatalog("fr");
+ const extended=c.modules.filter(m=>m.depthStatus==="extended-draft");
+ assert.equal(extended.length,12);
+ assert.ok(extended.every(m=>m.expandedDraft));
+ assert.equal(c.modules.length,151);
+ assert.equal(c.modules.filter(m=>m.depthStatus==="outline").length,59);
+ assert.equal(c.modules.filter(m=>m.expandedDraft).length,92);
+});
