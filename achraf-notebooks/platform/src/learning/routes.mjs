@@ -1,8 +1,9 @@
 import {randomUUID} from "node:crypto";
 import {SPECIALIZATIONS,PILOT_SEQUENCE,PILOT_TRACK,examSpec,serializeCatalog} from "./catalog.mjs";
+import {MODULE_INDEX} from "./module-index.mjs";
 import {prepareExam,scoreExam,examAccess,issueCandidate,validLanguage,isUuid} from "./assessment.mjs";
 
-const modules=new Set(SPECIALIZATIONS.flatMap(s=>s.modules));
+const modules=new Set(Object.keys(MODULE_INDEX));
 const langOf=req=>validLanguage(req.query?.lang||req.body?.lang);
 function failure(res,error,status=400,extra={}){return res.status(status).json({error,...extra});}
 const sanitizeName=name=>typeof name==="string"&&

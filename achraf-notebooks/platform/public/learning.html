@@ -34,7 +34,17 @@
 <p class="minor">Environnement d'examen non surveillé : respecte les règles d'intégrité et réponds individuellement. Un projet final doit être examiné séparément.</p>
 <form id="exam-form"><div id="questions"></div><button type="submit" class="btn primary">Soumettre et corriger</button></form>
 <div id="exam-result" role="status"></div></div></section>
-<section class="learn-section" id="labs"><div class="section-title"><div><p class="overline">04 / SCIENTIFIC LABS</p><h2>Comprendre avec des graphiques.</h2></div><p>Des représentations originales et manipulables : les courbes sont recalculées à partir des équations, pas de captures statiques.</p></div>
+<section class="learn-section" id="full-catalogue">
+<div class="section-title"><div><p class="overline">04 / THE COMPLETE UNIVERSITY ROADMAP</p><h2>L'atlas des 151 modules.</h2></div><p>Treize écoles réunies au même endroit, avec prérequis, thèmes et statut réel de rédaction. Un module guidé n'est pas présenté comme un manuel terminé.</p></div>
+<div class="catalogue-controls">
+<label>Rechercher une notion<input type="search" id="module-search" placeholder="Ex. MCMC, réseau de neurones, probabilités…"></label>
+<label>École<select id="module-school"><option value="all">Toutes les écoles</option></select></label>
+<label>Contenu<select id="module-status"><option value="all">Tous les modules</option><option value="draft">Chapitre enrichi</option><option value="outline">Parcours guidé</option></select></label>
+</div>
+<p class="minor" id="module-count">Chargement du catalogue…</p>
+<div class="full-catalogue" id="all-modules"></div>
+</section>
+<section class="learn-section" id="labs"><div class="section-title"><div><p class="overline">05 / SCIENTIFIC LABS</p><h2>Comprendre avec des graphiques.</h2></div><p>Des représentations originales et manipulables : les courbes sont recalculées à partir des équations, pas de captures statiques.</p></div>
 <div class="labs-grid"><div class="lab"><h3>Logistic regression</h3><p>Fais varier le coefficient et observe comment il modifie la probabilité prédite.</p><label>Pente β = <output id="slope-val">1.0</output><input id="slope" type="range" min="-4" max="4" step="0.1" value="1"></label><div id="plot-logistic" class="chart-host"></div></div>
 <div class="lab"><h3>Gradient descent</h3><p>Explore l'impact du learning rate sur la convergence et les oscillations.</p><label>Learning rate η = <output id="eta-val">0.25</output><input id="eta" type="range" min="0.05" max="1.95" step="0.05" value="0.25"></label><div id="plot-gradient" class="chart-host"></div></div>
 <div class="lab"><h3>Bayesian updating</h3><p>Observe comment les observations de Bernoulli transforment une loi Beta a priori.</p><label>Succès observés = <output id="success-val">5</output><input id="successes" type="range" min="0" max="20" step="1" value="5"></label><div id="plot-beta" class="chart-host"></div></div>

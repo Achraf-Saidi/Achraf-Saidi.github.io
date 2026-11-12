@@ -119,7 +119,31 @@ function renderCredentials(){
   root.append(link);
  }
 }
-function renderAll(){updateSummary();if(state.catalog){renderTracks();renderModules();renderExamStepper();renderCredentials();}}
+function renderLibrary(){
+ const modules=state.catalog?.modules||[];
+ const root=$("all-modules");root.replaceChildren();
+ const search=$("module-search").value.trim().normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+ const school=$("module-school").value,status=$("module-status").value;
+ const filtered=modules.filter(m=>{
+  if(school!=="all"&&m.school!==school)return false;
+  if(status==="draft"&&!m.expandedDraft||status==="outline"&&m.expandedDraft)return false;
+  const text=[m.id,m.title,...m.topics].join(" ").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+  return !search||text.includes(search);
+ });
+ $("module-count").textContent=filtered.length+" modules correspondent aux filtres · "+Math.min(48,filtered.length)+" affichés. Affine la recherche pour retrouver un module précis.";
+ for(const m of filtered.slice(0,48)){
+  const row=make("div","course-mini");row.append(make("span","code",m.id));
+  const info=make("div");
+  info.append(make("strong","",m.title));
+  info.append(make("small","",m.expandedDraft?"Chapitre enrichi · relecture à poursuivre":"Parcours guidé · cours détaillé à rédiger"));
+  const link=make("a","","Consulter le programme ↗");
+  link.href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/?id="+encodeURIComponent(m.id);
+  link.rel="noopener";link.target="_blank";
+  info.append(link);
+  row.append(info);root.append(row);
+ }
+}
+function renderAll(){updateSummary();if(state.catalog){renderTracks();renderModules();renderExamStepper();renderCredentials();renderLibrary();}}
 async function fetchProgress(){
  if(!state.logged){state.progress={selfReported:[],passed:[],certificates:[],reviews:[]};return;}
  state.progress=await request("/api/me/learning");
@@ -218,6 +242,13 @@ $("claim-form").addEventListener("submit",async e=>{
 });
 async function start(){
  state.catalog=await request("/api/learning/catalog?lang=fr");
+ for(const s of state.catalog.schools){
+  const option=make("option","",s.id+" · "+s.title+" ("+s.moduleCount+")");
+  option.value=s.id;$("module-school").append(option);
+ }
+ for(const id of ["module-search","module-school","module-status"])
+  $(id).addEventListener(id==="module-search"?"input":"change",renderLibrary);
+
  state.track=state.catalog.specializations[0].id;
  try{const s=await request("/api/auth/get-session");state.logged=Boolean(s?.user?.id&&s.user.emailVerified);}
  catch{state.logged=false;}
