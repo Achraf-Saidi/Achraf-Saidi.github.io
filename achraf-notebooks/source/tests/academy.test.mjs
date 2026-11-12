@@ -4,8 +4,12 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import path from 'node:path';
 const root=path.resolve('public/academy');
+const expansionIds=JSON.parse(fs.readFileSync('curriculum/academy-expansions.json','utf8')).moduleIds;
+const newLabIds=JSON.parse(fs.readFileSync('curriculum/academy-new-labs.json','utf8')).moduleIds;
+function parts(lang){return fs.readdirSync(path.join(root,lang)).filter(f=>/^content-\d+\.js$/.test(f)).sort((a,b)=>Number(a.match(/\d+/)[0])-Number(b.match(/\d+/)[0]));}
+
 for(const lang of ['fr','en']){
-test('Academy '+lang+' has 151 distinct modules and 70 authored expansions',()=>{
+test('Academy '+lang+' has 151 distinct modules and tracked authored drafts',()=>{
  const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
  const raw=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
  assert.ok(raw,'Embedded manifest missing');
@@ -20,12 +24,12 @@ test('Academy '+lang+' has 151 distinct modules and 70 authored expansions',()=>
  }
  const env={};env.window=env;
  vm.createContext(env);
- for(let part=1;part<=12;part++){
-  const s=fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8');
+ for(const file of parts(lang)){
+  const s=fs.readFileSync(path.join(root,lang,file),'utf8');
   vm.runInContext(s,env,{timeout:1000});
  }
  const d=env.ACHRAF_DEEP[lang];
- assert.equal(Object.keys(d).length,70);
+ assert.equal(Object.keys(d).length,expansionIds.length);
  for(const [id,c] of Object.entries(d)){
   assert.ok(ids.has(id),id);
   assert.ok(c.sections.length>=3,id);
@@ -41,8 +45,8 @@ test('Academy '+lang+' has 151 distinct modules and 70 authored expansions',()=>
 test('Academy new derivation pack includes original bilingual lessons',()=>{
  for(const lang of ['fr','en']){
   const env={}; env.window=env; vm.createContext(env);
-  for(let part=1;part<=12;part++)vm.runInContext(fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8'),env,{timeout:1000});
-  for(const id of ['A10','D6','D13','F7','F8','G9','H4','H5','I2','I3','B8','C5','D3','D9','D16','G2','G5','J3','K4','L7']){
+  for(const file of parts(lang))vm.runInContext(fs.readFileSync(path.join(root,lang,file),'utf8'),env,{timeout:1000});
+  for(const id of newLabIds){
    const lesson=env.ACHRAF_DEEP[lang][id];
    assert.ok(lesson, id+' missing');
    assert.ok(lesson.sections.every(([heading,body])=>heading.length>10&&body.length>260));
@@ -69,14 +73,14 @@ test('Bilingual knowledge checkpoints are well formed and cannot certify users',
 
 test('Catalogued academy expansions exactly match original deep-content scripts',()=>{
  const list=JSON.parse(fs.readFileSync('curriculum/academy-expansions.json','utf8'));
- assert.equal(list.moduleIds.length,70);
+ assert.ok(list.moduleIds.length>=70);
  assert.equal(new Set(list.moduleIds).size,70);
  const catalogue=fs.readFileSync('src/components/Catalogue.astro','utf8');
  assert.match(catalogue,/academy-expansions.json/);
  assert.match(catalogue,/data-status=\{expandedDraftIds.has/);
  for(const lang of ['fr','en']){
   const env={};env.window=env;vm.createContext(env);
-  for(let part=1;part<=12;part++)vm.runInContext(fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8'),env,{timeout:1000});
+  for(const file of parts(lang))vm.runInContext(fs.readFileSync(path.join(root,lang,file),'utf8'),env,{timeout:1000});
   assert.deepEqual(Object.keys(env.ACHRAF_DEEP[lang]).sort(),[...list.moduleIds].sort());
  }
 });

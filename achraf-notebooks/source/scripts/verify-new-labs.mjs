@@ -6,12 +6,11 @@ import {spawnSync} from 'node:child_process';
 
 const root = path.resolve('public/academy/fr');
 const env = {};env.window=env;vm.createContext(env);
-for(let n=1;n<=12;n++){
-  const file=fs.readFileSync(path.join(root,'content-'+n+'.js'),'utf8');
-  vm.runInContext(file,env,{timeout:3000,filename:'content-'+n+'.js'});
+for(const fileName of fs.readdirSync(root).filter(f=>/^content-\d+\.js$/.test(f)).sort((a,b)=>Number(a.match(/\d+/)[0])-Number(b.match(/\d+/)[0]))){
+  const file=fs.readFileSync(path.join(root,fileName),'utf8');
+  vm.runInContext(file,env,{timeout:3000,filename:fileName});
 }
-const ids=['A10','D6','D13','F7','F8','G9','H4','H5','I2','I3',
-           'B8','C5','D3','D9','D16','G2','G5','J3','K4','L7'];
+const ids=JSON.parse(fs.readFileSync('curriculum/academy-new-labs.json','utf8')).moduleIds;
 let failed=0;
 for(const id of ids){
   const lesson=env.ACHRAF_DEEP.fr[id];
