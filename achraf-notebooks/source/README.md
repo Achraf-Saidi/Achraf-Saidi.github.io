@@ -80,3 +80,7 @@ Pedagogy is independently written, with links to publicly accessible university 
 ## AI Academy update — 27 October 2026
 
 The Academy contains 151 mapped modules across 13 schools. **50 modules** now offer original bilingual explanations, mathematical derivations, runnable Python code, worked exercises and references, while **101 modules** remain planned outlines (not completed textbook chapters). `content-9.js` adds scientific NumPy, CNNs, tiny-GPT training, offline RL and imitation, computer vision, and experimental reproducibility. `visuals-3.js` adds interactive visualizations of matrix conditioning, cross-correlations, causal attention masks, IoU, and sequential imitation bias. Licensed or publicly accessible university teaching resources are linked, not copied. These educational simulations are not validated for actual clinical or robot deployment.
+
+## Academic lesson expansion — 12 November 2026 (review branch)
+
+The Academy contains 151 syllabus modules, of which 60 now have original bilingual exposition, concrete mathematical arguments, Python experiments and solved exercises. The new draft pack covers numerical integration, sampling inference, MCMC, clustering, PCA, masked attention, decoding, LoRA, MDPs and value iteration. **The other 91 modules remain guided syllabi**; these additions have not been externally peer reviewed. The future private commerce platform is intentionally isolated in `achraf-notebooks/platform/` and must pass security and legal acceptance before deployment. No payment service is currently live.

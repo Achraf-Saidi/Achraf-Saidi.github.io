@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import path from 'node:path';
 const root=path.resolve('public/academy');
 for(const lang of ['fr','en']){
-test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>{
+test('Academy '+lang+' has 151 distinct modules and 60 authored expansions',()=>{
  const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
  const raw=html.match(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/);
  assert.ok(raw,'Embedded manifest missing');
@@ -20,12 +20,12 @@ test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>
  }
  const env={};env.window=env;
  vm.createContext(env);
- for(let part=1;part<=9;part++){
+ for(let part=1;part<=10;part++){
   const s=fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8');
   vm.runInContext(s,env,{timeout:1000});
  }
  const d=env.ACHRAF_DEEP[lang];
- assert.equal(Object.keys(d).length,50);
+ assert.equal(Object.keys(d).length,60);
  for(const [id,c] of Object.entries(d)){
   assert.ok(ids.has(id),id);
   assert.ok(c.sections.length>=3,id);
@@ -37,3 +37,17 @@ test('Academy '+lang+' has 151 distinct modules and 38 authored expansions',()=>
  assert.match(html,/id="notes"/);assert.match(html,/id="visual"/);assert.match(html,/visuals.js/);const visual=fs.readFileSync(path.join(root,lang,'visuals.js'),'utf8');new vm.Script(visual);for(const name of ['visuals-2.js','visuals-3.js']){const code=fs.readFileSync(path.join(root,lang,name),'utf8');new vm.Script(code)}
 });
 }
+
+test('Academy new derivation pack includes original bilingual lessons',()=>{
+ for(const lang of ['fr','en']){
+  const env={}; env.window=env; vm.createContext(env);
+  for(let part=1;part<=10;part++)vm.runInContext(fs.readFileSync(path.join(root,lang,'content-'+part+'.js'),'utf8'),env,{timeout:1000});
+  for(const id of ['A10','D6','D13','F7','F8','G9','H4','H5','I2','I3']){
+   const lesson=env.ACHRAF_DEEP[lang][id];
+   assert.ok(lesson, id+' missing');
+   assert.ok(lesson.sections.every(([heading,body])=>heading.length>10&&body.length>260));
+   assert.ok(lesson.code.length>120);
+   assert.ok(lesson.exercise.length>40);
+  }
+ }
+});
