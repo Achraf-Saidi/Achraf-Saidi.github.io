@@ -82,3 +82,18 @@ window.renderAcademyVisual=(id,node,lang)=>{
  control.addEventListener("input",redraw);redraw();
 };
 })();
+
+/* Lazy-load advanced authored lessons without changing the embedded 151-module manifest. */
+if(typeof document!=="undefined"){
+ const scripts=["content-17.js","content-18.js"];
+ const currentBase=new URL(".",document.currentScript?.src||location.href);
+ Promise.all(scripts.map(name=>new Promise((resolve,reject)=>{
+  const script=document.createElement("script");script.src=new URL(name,currentBase).href;
+  script.addEventListener("load",resolve,{once:true});script.addEventListener("error",reject,{once:true});
+  document.head.appendChild(script);
+ }))).then(()=>{
+  const id=new URL(location.href).searchParams.get("id")||"A1";
+  const selected=Array.from(document.querySelectorAll("#modnav [data-id]")).find(node=>node.dataset.id===id);
+  if(selected)selected.click();
+ }).catch(error=>{console.warn("Optional masterclass content unavailable",error);});
+}
