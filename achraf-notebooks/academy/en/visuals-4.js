@@ -87,6 +87,7 @@ window.renderAcademyVisual=(id,node,lang)=>{
 if(typeof document!=="undefined"){
  const scripts=["content-17.js","content-18.js","content-19.js","content-20.js","content-21.js","content-22.js","content-23.js","content-24.js","content-25.js","content-26.js"];
  const currentBase=new URL(".",document.currentScript?.src||location.href);
+ const stylesheet=document.createElement("link");stylesheet.rel="stylesheet";stylesheet.href=new URL("masterclass.css",currentBase).href;document.head.appendChild(stylesheet);
  Promise.all(scripts.map(name=>new Promise((resolve,reject)=>{
   const script=document.createElement("script");script.src=new URL(name,currentBase).href;
   script.addEventListener("load",resolve,{once:true});script.addEventListener("error",reject,{once:true});
