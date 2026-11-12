@@ -20,12 +20,14 @@ function studiedIds(){return new Set((state.progress?.selfReported||[]).filter(x
 function displayNotice(s){$("access-notice").textContent=s;}
 function updateSummary(){
  const passed=listPasses(),studied=studiedIds();
- const validated=pilot.filter(id=>passed.has(id)).length;
+ const eligible=state.track==="statistical-inference";
+ const validated=[...pilot,"statistical-inference-final"].filter(id=>passed.has(id)).length;
+ const pct=Math.round(100*validated/5);
  $("stat-studied").textContent=studied.size;
  $("stat-mastery").textContent=passed.size;
- $("mastery-percent").textContent=Math.round(100*validated/pilot.length)+"%";
- $("mastery-ring").style.setProperty("--ring-progress",100*validated/pilot.length+"%");
- $("mastery-ring").setAttribute("aria-label","Progression évaluée du parcours pilote : "+Math.round(100*validated/pilot.length)+" %");
+ $("mastery-percent").textContent=eligible?pct+"%":"—";
+ $("mastery-ring").style.setProperty("--ring-progress",eligible?pct+"%":"0%");
+ $("mastery-ring").setAttribute("aria-label",eligible?"Étapes évaluées du parcours pilote : "+pct+" %":"Aucun examen validé disponible dans ce parcours");
  $("account-label").textContent=state.logged?"Suivi synchronisé dans ton compte":"Identifie-toi pour sauvegarder la progression et passer des examens.";
 }
 function renderTracks(){
@@ -46,7 +48,7 @@ function renderTracks(){
   progress.append(fill);
   const status=make("span","status",completed+"/"+s.modules.length+" étudiés · "+(s.assessment==="pilot"?"Examens pilotes disponibles":"Évaluations en préparation"));
   btn.append(tag,title,description,progress,status);
-  btn.onclick=()=>{state.track=s.id;renderTracks();renderModules();};
+  btn.onclick=()=>selectTrack(s.id);
   root.append(btn);
  }
 }
@@ -75,7 +77,12 @@ function renderModules(){
     await fetchProgress();renderAll();
    }catch{displayNotice("Impossible de sauvegarder la progression.");}
   };
-  row.append(idNode,info,button);root.append(row);
+  const meta=state.catalog.modules?.find(m=>m.id===id);
+  if(meta?.prerequisites?.length)info.append(make("span","prerequisites","Prérequis : "+meta.prerequisites.join(", ")));
+  const link=make("a","study-link","Ouvrir ↗");
+  link.href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/?id="+encodeURIComponent(id);
+  link.target="_blank";link.rel="noopener";link.setAttribute("aria-label","Ouvrir le contenu public "+id);
+  row.append(idNode,info,link,button);root.append(row);
  }
 }
 function examName(id){
@@ -168,7 +175,38 @@ function renderLibrary(){
   row.append(info);root.append(row);
  }
 }
-function renderAll(){updateSummary();if(state.catalog){renderTracks();renderModules();renderExamStepper();renderCredentials();renderCapstones();renderLibrary();}}
+function renderNextStep(){
+ const spec=state.catalog?.specializations.find(x=>x.id===state.track);
+ if(!spec)return;
+ const studied=studiedIds();
+ const lookup=new Map((state.catalog.modules||[]).map(m=>[m.id,m]));
+ const next=spec.modules.find(id=>!studied.has(id)&&(lookup.get(id)?.prerequisites||[]).every(pre=>studied.has(pre)))||
+  spec.modules.find(id=>!studied.has(id));
+ if(!next){
+  $("today-title").textContent="Tous les modules ont été étudiés.";
+  $("next-action-text").textContent=spec.assessment==="pilot"?
+   "La lecture déclarée ne vaut pas examen réussi. Continue vers l'évaluation disponible après revue de la banque.":
+   "L'évaluation complète de cette spécialisation reste à développer.";
+  $("continue-link").href="#exams";$("continue-link").textContent="Voir les évaluations ↗";
+  return;
+ }
+ const module=lookup.get(next);
+ const missing=(module?.prerequisites||[]).filter(pre=>!studied.has(pre));
+ $("today-title").textContent=next+" · "+(module?.title||"Module");
+ $("next-action-text").textContent=missing.length?
+  "Prérequis à vérifier avant cette leçon : "+missing.join(", ")+".":"Prochaine leçon non encore déclarée étudiée. Commence par le contenu et vérifie les hypothèses.";
+ $("continue-link").href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/?id="+encodeURIComponent(next);
+ $("continue-link").target="_blank";$("continue-link").rel="noopener";
+ $("continue-link").textContent="Ouvrir la leçon "+next+" ↗";
+}
+function selectTrack(id){
+ if(!state.catalog?.specializations.some(s=>s.id===id))return;
+ state.track=id;
+ $("track-quick-select").value=id;
+ try{localStorage.setItem("achraf-dashboard-track",id);}catch{}
+ renderAll();
+}
+function renderAll(){updateSummary();if(state.catalog){renderTracks();renderModules();renderExamStepper();renderCredentials();renderCapstones();renderLibrary();renderNextStep();}}
 async function fetchProgress(){
  if(!state.logged){state.progress={selfReported:[],passed:[],certificates:[],reviews:[]};return;}
  state.progress=await request("/api/me/learning");
@@ -281,6 +319,30 @@ $("capstone-form").addEventListener("submit",async e=>{
    err.message==="invalid_repository_url"?"Le lien doit désigner un dépôt github.com valide.":"Soumission impossible : "+err.message);
  }finally{renderCapstones();}
 });
+const persistedTheme=(()=>{try{return localStorage.getItem("achraf-preferred-theme");}catch{return null;}})();
+if(persistedTheme==="light"||persistedTheme==="dark")document.documentElement.dataset.theme=persistedTheme;
+$("dashboard-theme").addEventListener("click",()=>{
+ const theme=document.documentElement.dataset.theme==="light"?"dark":"light";
+ document.documentElement.dataset.theme=theme;
+ try{localStorage.setItem("achraf-preferred-theme",theme);}catch{}
+});
+$("dashboard-menu").addEventListener("click",()=>{
+ const open=$("dashboard-menu").getAttribute("aria-expanded")!=="true";
+ $("dashboard-menu").setAttribute("aria-expanded",String(open));
+ $("dashboard-nav").classList.toggle("open",open);
+});
+$("dashboard-nav").addEventListener("click",event=>{
+ if(event.target.closest("a")){$("dashboard-nav").classList.remove("open");$("dashboard-menu").setAttribute("aria-expanded","false");}
+});
+document.addEventListener("keydown",event=>{
+ if(event.key==="Escape"){$("dashboard-nav").classList.remove("open");$("dashboard-menu").setAttribute("aria-expanded","false");}
+});
+$("focus-button").addEventListener("click",()=>{
+ const focused=document.body.classList.toggle("focus-active");
+ $("focus-button").setAttribute("aria-pressed",String(focused));
+ $("focus-button").textContent=focused?"Afficher tous les espaces":"Mode concentration";
+ if(focused)$("modules").scrollIntoView({behavior:"smooth",block:"start"});
+});
 async function start(){
  state.catalog=await request("/api/learning/catalog?lang=fr");
  const projects=await request("/api/learning/capstones?lang=fr");state.capstones=projects.capstones||[];
@@ -291,7 +353,16 @@ async function start(){
  for(const id of ["module-search","module-school","module-status"])
   $(id).addEventListener(id==="module-search"?"input":"change",renderLibrary);
 
- state.track=state.catalog.specializations[0].id;
+  const queryTrack=new URLSearchParams(location.search).get("track");
+ let lastTrack=null;
+ try{lastTrack=localStorage.getItem("achraf-dashboard-track");}catch{}
+ const valid=id=>state.catalog.specializations.some(s=>s.id===id);
+ state.track=valid(queryTrack)?queryTrack:valid(lastTrack)?lastTrack:state.catalog.specializations[0].id;
+ for(const s of state.catalog.specializations){
+  const option=make("option","",s.title);option.value=s.id;$("track-quick-select").append(option);
+ }
+ $("track-quick-select").value=state.track;
+ $("track-quick-select").addEventListener("change",event=>selectTrack(event.target.value));
  try{const s=await request("/api/auth/get-session");state.logged=Boolean(s?.user?.id&&s.user.emailVerified);}
  catch{state.logged=false;}
  try{await fetchProgress();displayNotice(state.logged?"Bienvenue dans ton tableau de bord scientifique.":"Catalogue visible en mode invité. Connecte-toi pour sauvegarder tes résultats.");}

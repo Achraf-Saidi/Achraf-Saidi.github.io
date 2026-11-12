@@ -5,16 +5,24 @@
 <link rel="stylesheet" href="/assets/app.css"><link rel="stylesheet" href="/assets/learning.css">
 <script src="/assets/labs.js" defer></script><script src="/assets/learning.js" defer></script></head>
 <body class="learning-shell">
-<header class="top wrap">
-<a class="logo" href="/"><span class="seal">✳</span> ACHRAF <span>NOTEBOOKS</span></a>
-<nav aria-label="Navigation principale"><a href="/">Accueil</a><a href="#specializations">Spécialisations</a><a href="#exams">Examens</a><a href="#labs">Laboratoires</a></nav>
-<a class="public-link" href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/" rel="noopener">Cours publics ↗</a>
-</header>
-<main class="wrap">
+<a class="skip" href="#dashboard-main">Passer au tableau de bord</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="logo" href="/"><span class="seal" aria-hidden="true">✳</span><span>ACHRAF <b>NOTEBOOKS</b></span></a>
+<nav class="main-nav" id="dashboard-nav" aria-label="Navigation du dashboard">
+<a href="/">Accueil</a><a href="#specializations">Spécialisations</a><a href="#modules">Modules</a><a href="#exams">Examens</a><a href="#labs">Laboratoires</a>
+</nav>
+<div class="header-actions"><a class="header-dashboard" href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/" rel="noopener">Bibliothèque gratuite ↗</a><button id="dashboard-theme" class="theme-button" type="button" aria-label="Changer le thème">◐</button><button id="dashboard-menu" class="menu-toggle" type="button" aria-controls="dashboard-nav" aria-expanded="false" aria-label="Ouvrir la navigation"><span></span><span></span><span></span></button></div>
+</div></header>
+<main class="wrap" id="dashboard-main">
 <section class="learn-hero"><div><p class="overline">THE LEARNING OS / PERSONAL WORKSPACE</p><h1>Construis ta <em>maîtrise.</em></h1><p class="lead">Sept domaines, un parcours progressif. La lecture est un premier pas ; une compétence n'est reconnue qu'après évaluation.</p></div>
 <div class="overview"><div class="ring" id="mastery-ring" role="img" aria-label="Progression évaluée : 0 %"><div><strong id="mastery-percent">0%</strong><span>Maîtrise validée</span></div></div><p id="account-label">Connexion nécessaire pour synchroniser la progression.</p><a href="/#compte" class="btn secondary">Gérer mon compte</a></div></section>
 <div class="learn-stats" aria-label="Statistiques de progression"><div><span>Modules du programme</span><strong>151</strong></div><div><span>Chapitres rédigés</span><strong>70</strong></div><div><span>Leçons étudiées (déclarées)</span><strong id="stat-studied">0</strong></div><div><span>Examens réussis (vérifiés)</span><strong id="stat-mastery">0</strong></div></div>
 <div class="notice" id="access-notice" role="status">Récupération des parcours et de la progression…</div>
+<section class="workspace-toolbar" aria-labelledby="today-title">
+<div class="workspace-primary"><p class="overline">TON PROCHAIN PAS</p><h2 id="today-title">Un chapitre à la fois.</h2><p id="next-action-text">Choisis une spécialisation pour obtenir une suggestion de lecture fondée sur les prérequis.</p>
+<div class="workspace-actions"><a class="btn primary" id="continue-link" href="#modules">Voir le plan d'étude ↗</a><button class="btn secondary" id="focus-button" type="button" aria-pressed="false">Mode concentration</button></div></div>
+<div class="workspace-selector"><label for="track-quick-select">Ma spécialisation actuelle</label><select id="track-quick-select" aria-label="Changer de spécialisation"></select><p class="workspace-hint">Le choix du parcours est enregistré sur cet appareil. Les résultats d'examen restent côté serveur.</p></div></section>
 <section class="learn-section" id="specializations"><div class="section-title"><div><p class="overline">01 / PATHWAYS</p><h2>Les spécialisations.</h2></div><p>Choisis un domaine, explore ses cours et suis tes progrès. Les examens sont ouverts progressivement au fur et à mesure de leur validation scientifique.</p></div>
 <div id="track-cards" class="tracks-list" aria-live="polite"></div>
 </section>

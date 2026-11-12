@@ -2,3 +2,35 @@
 .catalogue-controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:15px 0}.catalogue-controls label{font-size:12px;color:var(--muted)}.catalogue-controls input,.catalogue-controls select{display:block;margin-top:8px;background:#142327;color:var(--text);min-height:46px;width:100%;padding:9px 12px;border:1px solid #577267;border-radius:6px;font:inherit}.full-catalogue{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.course-mini{display:flex;gap:13px;padding:17px 14px;background:var(--panel);border:1px solid var(--line);border-radius:7px;align-items:flex-start}.course-mini .code{color:var(--mint);font-weight:700;width:35px;flex:none;font-size:12px}.course-mini strong{font-size:13px;line-height:1.4;display:block}.course-mini small{display:block;color:var(--muted);font-size:11px;margin:6px 0}.course-mini a{font-size:11px;color:var(--mint)}@media(max-width:1000px){.full-catalogue{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.full-catalogue,.catalogue-controls{grid-template-columns:1fr}}
 
 .capstone-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.capstone-card{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:23px}.capstone-card h3{font-size:19px;line-height:1.3;letter-spacing:-.025em}.capstone-card p,.capstone-card li{font-size:12px;color:var(--muted);line-height:1.7}.capstone-card ul{padding-left:18px}.capstone-card .rubric{border-top:1px solid var(--line);margin-top:17px;padding-top:13px}.capstone-submit{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:25px}.capstone-submit label{font-size:12px;color:var(--muted);display:grid;gap:7px;margin:14px 0}.capstone-submit input,.capstone-submit textarea{width:100%;border:1px solid #648173;border-radius:6px;background:#101e20;color:var(--text);padding:11px;font:inherit;font-size:14px}.capstone-submit textarea{resize:vertical}.capstone-submit .notice{margin:0;font-size:12px}@media(max-width:1050px){.capstone-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.capstone-grid,.capstone-submit{grid-template-columns:1fr}}
+
+/* UX refinement: consistent shared shell, course-first action, focus mode */
+.learning-shell .overline{font-size:11px;font-weight:730;letter-spacing:.15em;color:var(--mint);text-transform:uppercase}
+.learning-shell .lead{color:var(--muted);font-size:18px;line-height:1.8}
+.learning-shell .learn-hero h1{margin:14px 0;line-height:1.08;letter-spacing:-.065em;font-weight:590}
+.learning-shell .notice{background:var(--surface-2);color:var(--text)}
+.learning-shell .track{color:var(--text)}
+.learning-shell .track:hover{border-color:var(--mint);transform:translateY(-2px)}
+.workspace-toolbar{margin-top:22px;background:var(--surface-2);border:1px solid var(--line);border-radius:16px;padding:28px 31px;display:grid;grid-template-columns:1.35fr .65fr;gap:35px;align-items:center}
+.workspace-toolbar h2{font-size:30px;letter-spacing:-.05em;margin:8px 0}
+.workspace-toolbar p{max-width:570px;color:var(--muted);font-size:13px;line-height:1.7}
+.workspace-toolbar .overline{color:var(--mint)}
+.workspace-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+.workspace-actions .btn{margin:0}
+.workspace-selector label{font-size:12px;font-weight:700;color:var(--text)}
+.workspace-selector select{display:block;width:100%;border:1px solid #6b827c;border-radius:8px;background:var(--bg);color:var(--text);padding:11px 13px;margin-top:8px;font-size:14px}
+.workspace-selector .workspace-hint{font-size:11px;max-width:350px}
+.module-line{min-width:0}.module-info{min-width:0}
+.module-line .study-link{font-size:11px;white-space:nowrap;color:var(--mint);padding:7px 9px;border:1px solid var(--line);border-radius:6px}
+.module-line .study-link:hover{border-color:var(--mint)}
+.module-info .prerequisites{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:3px}
+.learning-shell.focus-active .learn-hero,.learning-shell.focus-active .learn-stats,.learning-shell.focus-active #specializations,.learning-shell.focus-active #exams,.learning-shell.focus-active #exam-workspace,.learning-shell.focus-active #capstones,.learning-shell.focus-active #full-catalogue,.learning-shell.focus-active #labs,.learning-shell.focus-active footer{display:none}
+.learning-shell.focus-active .workspace-toolbar{margin-top:40px}
+.learning-shell.focus-active #modules{padding-top:40px}
+.learning-shell .question label:has(input:checked){color:var(--mint)}
+.learning-shell .course-mini:hover{border-color:var(--mint)}
+.learning-shell :target{scroll-margin-top:110px}
+.learning-shell .overview .ring{background:conic-gradient(var(--mint) var(--ring-progress,0%),var(--line) 0%)}
+:root[data-theme=light] .chart-host{background:#e8f2ec}
+:root[data-theme=light] .chart-host svg text{fill:#28483b}
+@media(max-width:850px){.workspace-toolbar{grid-template-columns:1fr}.learning-shell .header-dashboard{display:none}}
+@media(max-width:600px){.workspace-toolbar{padding:22px}.workspace-toolbar h2{font-size:25px}.learning-shell .lead{font-size:15px}.workspace-actions{flex-direction:column}.workspace-actions .btn{width:100%}.module-line{flex-wrap:wrap}.module-info{flex-basis:calc(100% - 65px)}}
