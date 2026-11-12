@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Achraf Notebooks · Académie IA</title>
+<meta name="description" content="Apprendre l'IA de zéro à la recherche, avec mathématiques, Python, laboratoire et évaluation.">
+<link rel="stylesheet" href="/assets/app.css"><script src="/assets/app.js" defer></script>
+</head><body>
+<header class="top wrap">
+<a class="logo" href="/"><span class="seal">✳</span> ACHRAF <span>NOTEBOOKS</span></a>
+<nav aria-label="Navigation principale"><a href="#parcours">Parcours</a><a href="#offres">Offres</a><a href="#compte">Mon espace</a></nav>
+<a class="public-link" href="https://achraf-saidi.github.io/achraf-notebooks/fr/">Bibliothèque gratuite ↗</a>
+</header>
+<main>
+<section class="hero wrap">
+ <p class="overline">THE AI ACADEMY / SCIENTIFIC LEARNING / FR · EN</p>
+ <div class="hero-grid"><div><h1>Comprendre l'IA.<br><em>Jusqu'aux équations.</em></h1>
+ <p class="lead">De la première dérivée aux Transformers. Des démonstrations mathématiques, des expériences Python et des évaluations qui permettent de comprendre plutôt que de mémoriser.</p>
+ <a class="btn primary" href="#parcours">Explorer les parcours ↗</a><a class="btn secondary" href="#compte">Mon espace</a>
+ <p class="disclaimer">Académie indépendante. Aucun diplôme universitaire accrédité.</p></div>
+ <aside class="code-card"><div class="file">gradient_descent.py <span>PYTHON</span></div>
+ <div class="equation">θ<sub>t+1</sub> = θ<sub>t</sub> − η∇L(θ<sub>t</sub>)</div>
+ <pre><span class="comment"># Une équation à la fois.</span>
+gradient = X.T @ (X @ w - y) / n
+w = w - learning_rate * gradient
+
+<span class="comment"># Une vérification à la fois.</span>
+assert np.all(np.isfinite(w))</pre>
+ <div class="code-foot">INTUITION <b>·</b> MATHÉMATIQUES <b>·</b> CODE <b>·</b> TESTS</div></aside></div>
+ <div class="figures"><div><strong>151</strong><span>Modules au programme</span></div><div><strong>70</strong><span>Cours enrichis en brouillon</span></div><div><strong>81</strong><span>Parcours à approfondir</span></div><div><strong>02</strong><span>Langues</span></div></div>
+</section>
+<section id="parcours" class="wrap section">
+ <p class="overline">01 / MÉTHODE</p><h2>De zéro. <em>Jusqu'à la recherche.</em></h2>
+ <div class="cards">
+  <article><small>FOUNDATIONS</small><h3>Mathématiques</h3><p>Analyse, algèbre, probabilités, optimisation et statistiques.</p><span>Intuition → démonstration</span></article>
+  <article><small>CORE AI</small><h3>Machine learning</h3><p>Régression, classification, validation, Bayes, MCMC et PCA.</p><span>Modèles → expérience</span></article>
+  <article><small>DEEP & GENERATIVE</small><h3>Deep learning et LLM</h3><p>Rétropropagation, attention, Transformers, LoRA et inférence.</p><span>Architecture → code</span></article>
+  <article><small>RESEARCH</small><h3>IA scientifique</h3><p>RL, graphes, survie, incertitude, omique et méthodologie.</p><span>Hypothèses → validation</span></article>
+ </div><p class="minor">Le programme contient 70 modules enrichis non relus indépendamment, et 81 plans de travail. <a href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/">Accéder à l'académie publique ↗</a></p>
+</section>
+<section id="offres" class="wrap section">
+ <p class="overline">02 / FORMATIONS</p><h2>Commencer librement. <em>Approfondir ensuite.</em></h2>
+ <p class="minor">Tarifs envisagés, non validés. Les paiements restent désactivés tant que l'application, la facturation et les contenus privés ne sont pas audités.</p>
+ <div class="prices">
+  <article><small>OUVERT</small><h3>Free</h3><div class="amount">0 €</div><p>Programme public, cours ouverts et laboratoires existants.</p><a class="btn secondary" href="https://achraf-saidi.github.io/achraf-notebooks/fr/">Étudier gratuitement</a></article>
+  <article class="spotlight"><small>INTENSIF</small><h3>Fondations de l'IA</h3><div class="amount">79 € <span>/ achat unique*</span></div><p>Futur parcours avancé avec exercices et examens validés.</p><button class="btn primary buy" data-product="foundations" type="button">Bientôt disponible</button></article>
+  <article><small>ABONNEMENT</small><h3>Academy Pro</h3><div class="amount">19 € <span>/ mois*</span></div><p>Futurs parcours complets et progression multi-appareils.</p><button class="btn secondary buy" data-product="pro_monthly" type="button">Bientôt disponible</button></article>
+ </div><p class="minor">*Propositions tarifaires seulement. Les conditions, la TVA et le droit de rétractation devront être validés avant toute vente.</p>
+</section>
+<section id="compte" class="wrap section">
+ <p class="overline">03 / ESPACE PERSONNEL</p><h2>Un compte. <em>Une progression.</em></h2>
+ <div class="account-layout">
+  <article class="panel">
+   <div class="switch"><button type="button" id="choose-login" aria-pressed="true">Connexion</button><button type="button" id="choose-register" aria-pressed="false">Inscription</button></div>
+   <form id="identity-form">
+    <label id="name-wrap" hidden>Nom affiché<input id="display-name" type="text" autocomplete="name" maxlength="100"></label>
+    <label>Adresse e-mail<input id="email" type="email" autocomplete="email" required></label>
+    <label>Mot de passe<input id="password" type="password" autocomplete="current-password" minlength="12" required></label>
+    <button type="submit" id="identity-submit" class="btn primary">Me connecter</button>
+   </form>
+   <button class="text-button" type="button" id="password-reset">Recevoir un lien de réinitialisation</button>
+   <div id="feedback" role="status" aria-live="polite"></div>
+   <div id="profile" hidden><strong id="account-email"></strong><p id="access">Aucun accès premium actif.</p><div class="controls"><button type="button" id="billing-portal" class="btn secondary">Gérer l'abonnement</button><button type="button" id="logout" class="btn secondary">Déconnexion</button></div></div>
+  </article>
+  <article class="panel explain"><p class="overline">WHY IT MATTERS</p><h3>Apprendre sérieusement, c'est aussi protéger votre espace.</h3><p>Authentification, vérification d'e-mail et droits d'accès enregistrés côté serveur. Les futurs paiements seront gérés par Stripe Checkout et confirmés par des événements vérifiés, jamais par un simple retour navigateur.</p><p class="minor">Prototype technique, sans cours premium publié ni paiement actif.</p></article>
+ </div>
+</section>
+</main>
+<footer class="wrap"><span>✳ ACHRAF NOTEBOOKS</span><span>Independent scientific education.</span><a href="https://github.com/Achraf-Saidi/Achraf-Saidi.github.io">GitHub ↗</a></footer>
+</body></html>

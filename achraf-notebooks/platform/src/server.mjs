@@ -1,4 +1,6 @@
 import express from "express";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
 import Stripe from "stripe";
 import {toNodeHandler,fromNodeHeaders} from "better-auth/node";
 import {auth,db} from "./auth.mjs";
@@ -12,9 +14,10 @@ if(process.env.NODE_ENV==="production"&&(!ORIGIN.startsWith("https://")||process
 const stripe=new Stripe(process.env.STRIPE_SECRET_KEY);
 const prices={foundations:process.env.STRIPE_PRICE_FOUNDATIONS,pro_monthly:process.env.STRIPE_PRICE_PRO_MONTHLY};
 const app=express();
+const publicRoot=path.join(path.dirname(fileURLToPath(import.meta.url)),"..","public");
 app.disable("x-powered-by");
 app.set("trust proxy","loopback");
-app.use((_req,res,next)=>{res.set("Cache-Control","no-store");res.set("X-Content-Type-Options","nosniff");res.set("Referrer-Policy","strict-origin-when-cross-origin");next();});
+app.use((_req,res,next)=>{res.set("Cache-Control","no-store");res.set("X-Content-Type-Options","nosniff");res.set("Referrer-Policy","strict-origin-when-cross-origin");res.set("Content-Security-Policy","default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'");next();});
 app.get("/healthz",(_req,res)=>res.json({ok:true}));
 function assertSameOrigin(req,res,next){
  const origin=req.get("origin");
@@ -88,8 +91,11 @@ app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512k
 });
 app.all("/api/auth/{*any}",toNodeHandler(auth));
 app.use(express.json({limit:"16kb"}));
+app.use("/assets",express.static(path.join(publicRoot,"assets"),{index:false,dotfiles:"deny",maxAge:"1h"}));
+app.get(["/","/pricing","/account","/billing/success"],(_req,res)=>res.sendFile(path.join(publicRoot,"index.html")));
 
 app.post("/api/billing/checkout",assertSameOrigin,session,async(req,res)=>{
+ if(process.env.BILLING_ENABLED!=="true")return res.status(503).json({error:"billing_not_enabled"});
  const product=checkoutProduct(req.body?.productKey,prices);
  if(!product)return res.status(400).json({error:"unknown_product"});
  const user=req.currentUser;

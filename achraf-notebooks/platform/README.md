@@ -61,3 +61,9 @@ legally reviewed before being applied to customers.
 
 Better Auth now configures reset-password emails and server-side rate-limit storage.
 Test these flows with a live transactional email sandbox before rollout.
+
+## Same-origin UI prototype
+
+The new responsive front end is served from `public/` at `/`, `/pricing`, `/account` and `/billing/success`. It supports registration, login, password-reset requests, session inspection, billing entitlement display, sign out and Stripe-hosted billing portal handoff. Text from server responses uses `textContent` rather than raw HTML. The UI purchase buttons intentionally do not initiate payment. Server checkout is **default disabled** unless `BILLING_ENABLED=true` is explicitly configured. A strict self-only Content Security Policy is applied to responses.
+
+This is still an unaudited prototype: no paid lessons are seeded, and no production Stripe transactions should be accepted. Validate TLS, legal compliance, authentication behaviour and accessibility before enabling.
