@@ -1,0 +1,113 @@
+import express from "express";
+import Stripe from "stripe";
+import {toNodeHandler,fromNodeHeaders} from "better-auth/node";
+import {auth,db} from "./auth.mjs";
+import {checkoutProduct,entitledForSubscription,eligibleForCoursePayment} from "./billing.mjs";
+
+const ORIGIN=process.env.APP_ORIGIN;
+const required=["DATABASE_URL","BETTER_AUTH_SECRET","RESEND_API_KEY","RESEND_FROM_EMAIL",
+ "STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","STRIPE_PRICE_FOUNDATIONS","STRIPE_PRICE_PRO_MONTHLY","APP_ORIGIN"];
+for(const name of required)if(!process.env[name]||(process.env[name].includes("REPLACE_ME")))throw Error("Missing configuration: "+name);
+if(process.env.NODE_ENV==="production"&&(!ORIGIN.startsWith("https://")||process.env.BETTER_AUTH_SECRET.length<32))throw Error("Production requires HTTPS and a long auth secret");
+const stripe=new Stripe(process.env.STRIPE_SECRET_KEY);
+const prices={foundations:process.env.STRIPE_PRICE_FOUNDATIONS,pro_monthly:process.env.STRIPE_PRICE_PRO_MONTHLY};
+const app=express();
+app.disable("x-powered-by");
+app.set("trust proxy","loopback");
+app.use((_req,res,next)=>{res.set("Cache-Control","no-store");res.set("X-Content-Type-Options","nosniff");res.set("Referrer-Policy","strict-origin-when-cross-origin");next();});
+app.get("/healthz",(_req,res)=>res.json({ok:true}));
+function assertSameOrigin(req,res,next){
+ const origin=req.get("origin");
+ if(origin!==ORIGIN)return res.status(403).json({error:"invalid_origin"});
+ next();
+}
+const session=async(req,res,next)=>{
+ try{
+  const s=await auth.api.getSession({headers:fromNodeHeaders(req.headers),query:{disableCookieCache:true}});
+  if(!s?.user?.id||!s.user.emailVerified)return res.status(401).json({error:"authentication_required"});
+  req.currentUser=s.user;next();
+ }catch{res.status(401).json({error:"authentication_required"});}
+};
+// Webhook MUST receive the original bytes: mounted before JSON parser.
+app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512kb"}),async(req,res)=>{
+ let event;
+ try{event=stripe.webhooks.constructEvent(req.body,req.get("stripe-signature"),process.env.STRIPE_WEBHOOK_SECRET);}
+ catch{return res.status(400).json({error:"invalid_signature"});}
+ const client=await db.connect();
+ try{
+  await client.query("BEGIN");
+  const claim=await client.query("INSERT INTO billing_events (id,type) VALUES($1,$2) ON CONFLICT DO NOTHING RETURNING id",[event.id,event.type]);
+  if(claim.rowCount===0){await client.query("COMMIT");return res.json({received:true,duplicate:true});}
+  if(event.type==="checkout.session.completed"||event.type==="checkout.session.async_payment_succeeded"){
+   const s=event.data.object;
+   if(eligibleForCoursePayment(s)){
+    // We only trust the user id if the session is one we created and stored.
+    const row=await client.query("SELECT user_id FROM checkout_sessions WHERE session_id=$1 AND user_id=$2 AND product_key='foundations'",[s.id,s.client_reference_id]);
+    if(row.rowCount===1)await client.query(`INSERT INTO entitlements(user_id,product_key,source_id,is_active)
+      VALUES($1,'foundations',$2,TRUE) ON CONFLICT(user_id,product_key,source_id)
+      DO UPDATE SET is_active=TRUE,updated_at=NOW()`,[row.rows[0].user_id,s.id]);
+   }
+  }
+  if(event.type.startsWith("customer.subscription.")){
+   const s=event.data.object;
+   const customer=typeof s.customer==="string"?s.customer:s.customer?.id;
+   const row=await client.query("SELECT user_id FROM billing_customers WHERE stripe_customer_id=$1",[customer]);
+   if(row.rowCount===1){
+    const priceId=s.items?.data?.[0]?.price?.id;
+    const isPro=priceId===prices.pro_monthly;
+    // Deleted or inactive subscriptions revoke their *own* entitlement;
+    // unrelated purchases and subscriptions remain untouched.
+    await client.query(`INSERT INTO entitlements(user_id,product_key,source_id,is_active)
+     VALUES($1,'pro_monthly',$2,$3) ON CONFLICT(user_id,product_key,source_id)
+     DO UPDATE SET is_active=EXCLUDED.is_active,updated_at=NOW()`,
+     [row.rows[0].user_id,s.id,isPro&&entitledForSubscription(s.status)]);
+   }
+  }
+  await client.query("COMMIT");res.json({received:true});
+ }catch(err){await client.query("ROLLBACK");console.error("Billing event failed",event.id,event.type);res.status(500).json({error:"retry_event"});}
+ finally{client.release();}
+});
+app.all("/api/auth/{*any}",toNodeHandler(auth));
+app.use(express.json({limit:"16kb"}));
+
+app.post("/api/billing/checkout",assertSameOrigin,session,async(req,res)=>{
+ const product=checkoutProduct(req.body?.productKey,prices);
+ if(!product)return res.status(400).json({error:"unknown_product"});
+ const user=req.currentUser;
+ try{
+  let row=await db.query("SELECT stripe_customer_id FROM billing_customers WHERE user_id=$1",[user.id]);
+  let customerId=row.rows[0]?.stripe_customer_id;
+  if(!customerId){
+   const customer=await stripe.customers.create({email:user.email,metadata:{userId:user.id}},{idempotencyKey:"notebooks-customer-"+user.id});
+   await db.query("INSERT INTO billing_customers(user_id,stripe_customer_id) VALUES($1,$2) ON CONFLICT(user_id) DO NOTHING",[user.id,customer.id]);
+   row=await db.query("SELECT stripe_customer_id FROM billing_customers WHERE user_id=$1",[user.id]);
+   customerId=row.rows[0].stripe_customer_id;
+  }
+  const s=await stripe.checkout.sessions.create({
+   mode:product.mode,customer:customerId,client_reference_id:user.id,
+   line_items:[{price:product.price,quantity:1}],
+   billing_address_collection:"required",tax_id_collection:{enabled:true},
+   automatic_tax:{enabled:true},
+   success_url:ORIGIN+"/billing/success?session_id={CHECKOUT_SESSION_ID}",
+   cancel_url:ORIGIN+"/pricing",
+   metadata:{productKey:product.key},
+   ...(product.mode==="subscription"?{subscription_data:{metadata:{productKey:product.key,userId:user.id}}}:{})
+  },{idempotencyKey:"notebooks-checkout-"+user.id+"-"+product.key+"-"+crypto.randomUUID()});
+  await db.query("INSERT INTO checkout_sessions(session_id,user_id,product_key) VALUES($1,$2,$3)",[s.id,user.id,product.key]);
+  res.json({url:s.url});
+ }catch(err){console.error("Checkout failed");res.status(503).json({error:"checkout_unavailable"});}
+});
+app.post("/api/billing/portal",assertSameOrigin,session,async(req,res)=>{
+ try{
+  const row=await db.query("SELECT stripe_customer_id FROM billing_customers WHERE user_id=$1",[req.currentUser.id]);
+  if(!row.rowCount)return res.status(404).json({error:"no_billing_account"});
+  const portal=await stripe.billingPortal.sessions.create({customer:row.rows[0].stripe_customer_id,return_url:ORIGIN+"/account"});
+  res.json({url:portal.url});
+ }catch{res.status(503).json({error:"portal_unavailable"});}
+});
+app.get("/api/me/entitlements",session,async(req,res)=>{
+ const row=await db.query("SELECT DISTINCT product_key FROM entitlements WHERE user_id=$1 AND is_active=TRUE",[req.currentUser.id]);
+ res.json({products:row.rows.map(r=>r.product_key)});
+});
+app.use((_req,res)=>res.status(404).json({error:"not_found"}));
+app.listen(Number(process.env.PORT||3400),"127.0.0.1",()=>console.log("Notebooks platform listening on loopback"));
