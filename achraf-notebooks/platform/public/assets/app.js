@@ -42,6 +42,31 @@ function updateBilling(yearly){
 }
 $("billing-monthly").addEventListener("click",()=>updateBilling(false));
 $("billing-yearly").addEventListener("click",()=>updateBilling(true));
+const orientationTracks={
+ ml:{id:"machine-learning",title:"Machine learning de A à Z"},
+ llm:{id:"deep-learning-llm",title:"Deep learning, Transformers et LLM"},
+ stats:{id:"statistical-inference",title:"Inférence statistique et Bayes"},
+ research:{id:"biomedical-research-ai",title:"IA biomédicale et recherche"},
+ robotics:{id:"robotics-embodied",title:"Robotique et IA incarnée"},
+ math:{id:"mathematical-foundations",title:"Mathématiques pour l'IA"}
+};
+$("orientation-form").addEventListener("submit",event=>{
+ event.preventDefault();
+ const form=new FormData(event.currentTarget);
+ const goal=String(form.get("goal")||"ml");
+ const level=String(form.get("level")||"beginner");
+ const target=orientationTracks[goal]||orientationTracks.ml;
+ // Guidance is an editorial starting point, not a skill diagnosis.
+ const starting=(level==="beginner"&&goal!=="math")?
+  orientationTracks.math:target;
+ $("suggested-track").textContent=starting.title;
+ $("suggestion-why").textContent=starting===target?
+  "Ce parcours correspond à ton objectif. Vérifie les prérequis de chaque module avant de commencer.":
+  "Puisque tu démarres de zéro, commence par les mathématiques pour poser les bases avant de poursuivre vers "+target.title+".";
+ $("suggestion-link").href="/dashboard?track="+encodeURIComponent(starting.id)+"#modules";
+ $("orientation-result").hidden=false;
+ $("orientation-result").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
 function setMode(next){
  mode=next;
  $("choose-login").setAttribute("aria-pressed",String(mode==="login"));

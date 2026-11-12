@@ -65,6 +65,28 @@
 </div>
 </section>
 
+<section class="section wrap" id="orientation">
+<div class="orientation-layout"><div class="orientation-copy"><span class="section-number">01B / TON POINT DE DÉPART</span><h2>Un parcours adapté <em>à ton objectif.</em></h2><p>Tu n'as pas besoin de savoir par où commencer. Réponds à deux questions et reçois une suggestion de parcours. Aucune donnée personnelle n'est demandée ni envoyée au serveur.</p>
+<div class="orientation-proof"><span>01 · Choisir un objectif</span><span>02 · Identifier les prérequis</span><span>03 · Ouvrir son plan d'étude</span></div></div>
+<form id="orientation-form" class="orientation-card">
+<fieldset><legend>Quel domaine veux-tu maîtriser ?</legend>
+<div class="goal-options">
+<label><input type="radio" name="goal" value="ml" checked><span>Machine learning</span></label>
+<label><input type="radio" name="goal" value="llm"><span>LLM & deep learning</span></label>
+<label><input type="radio" name="goal" value="stats"><span>Statistique & Bayes</span></label>
+<label><input type="radio" name="goal" value="research"><span>IA scientifique</span></label>
+<label><input type="radio" name="goal" value="robotics"><span>Robotique</span></label>
+<label><input type="radio" name="goal" value="math"><span>Mathématiques</span></label>
+</div></fieldset>
+<label class="level-label" for="starting-level">Ton point de départ</label>
+<select id="starting-level" name="level"><option value="beginner">Je commence de zéro</option><option value="intermediate">J'ai déjà des bases Python / maths</option><option value="advanced">Je développe déjà des modèles</option></select>
+<button type="submit" class="btn primary full">Trouver mon itinéraire ↗</button>
+<div id="orientation-result" class="orientation-result" role="status" aria-live="polite" hidden>
+<p class="eyebrow">TA SUGGESTION</p>
+<h3 id="suggested-track"></h3><p id="suggestion-why"></p>
+<a id="suggestion-link" class="btn secondary full" href="/dashboard">Ouvrir cet itinéraire ↗</a>
+</div></form></div>
+</section>
 <section class="section wrap" id="parcours">
 <div class="section-head"><div><span class="section-number">02 / PARCOURS</span><h2>Choisis ta <em>spécialisation.</em></h2></div><p>Sept itinéraires reliés à un atlas de 151 modules. Les spécialisations sont des feuilles de route : leur évaluation officielle interne est encore en développement, sauf un pilote statistique.</p></div>
 <div class="track-gallery">
