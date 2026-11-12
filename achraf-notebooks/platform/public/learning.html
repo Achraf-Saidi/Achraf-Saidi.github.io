@@ -1,0 +1,71 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tableau de bord personnel d'Achraf Notebooks : spécialisations, progression, examens et certificats.">
+<title>Mon Académie · Achraf Notebooks</title>
+<link rel="stylesheet" href="/assets/app.css"><link rel="stylesheet" href="/assets/learning.css">
+<script src="/assets/labs.js" defer></script><script src="/assets/learning.js" defer></script></head>
+<body class="learning-shell">
+<a class="skip" href="#dashboard-main">Passer au tableau de bord</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="logo" href="/"><span class="seal" aria-hidden="true">✳</span><span>ACHRAF <b>NOTEBOOKS</b></span></a>
+<nav class="main-nav" id="dashboard-nav" aria-label="Navigation du dashboard">
+<a href="/">Accueil</a><a href="#specializations">Spécialisations</a><a href="#modules">Modules</a><a href="#exams">Examens</a><a href="#labs">Laboratoires</a>
+</nav>
+<div class="header-actions"><a class="header-dashboard" href="https://achraf-saidi.github.io/achraf-notebooks/academy/fr/" rel="noopener">Bibliothèque gratuite ↗</a><button id="dashboard-theme" class="theme-button" type="button" aria-label="Changer le thème">◐</button><button id="dashboard-menu" class="menu-toggle" type="button" aria-controls="dashboard-nav" aria-expanded="false" aria-label="Ouvrir la navigation"><span></span><span></span><span></span></button></div>
+</div></header>
+<main class="wrap" id="dashboard-main">
+<section class="learn-hero"><div><p class="overline">THE LEARNING OS / PERSONAL WORKSPACE</p><h1>Construis ta <em>maîtrise.</em></h1><p class="lead">Sept domaines, un parcours progressif. La lecture est un premier pas ; une compétence n'est reconnue qu'après évaluation.</p></div>
+<div class="overview"><div class="ring" id="mastery-ring" role="img" aria-label="Progression évaluée : 0 %"><div><strong id="mastery-percent">0%</strong><span>Maîtrise validée</span></div></div><p id="account-label">Connexion nécessaire pour synchroniser la progression.</p><a href="/#compte" class="btn secondary">Gérer mon compte</a></div></section>
+<div class="learn-stats" aria-label="Statistiques de progression"><div><span>Modules du programme</span><strong>151</strong></div><div><span>Chapitres rédigés</span><strong>92</strong></div><div><span>Leçons étudiées (déclarées)</span><strong id="stat-studied">0</strong></div><div><span>Examens réussis (vérifiés)</span><strong id="stat-mastery">0</strong></div></div>
+<div class="notice" id="access-notice" role="status">Récupération des parcours et de la progression…</div>
+<section class="workspace-toolbar" aria-labelledby="today-title">
+<div class="workspace-primary"><p class="overline">TON PROCHAIN PAS</p><h2 id="today-title">Un chapitre à la fois.</h2><p id="next-action-text">Choisis une spécialisation pour obtenir une suggestion de lecture fondée sur les prérequis.</p>
+<div class="workspace-actions"><a class="btn primary" id="continue-link" href="#modules">Voir le plan d'étude ↗</a><button class="btn secondary" id="focus-button" type="button" aria-pressed="false">Mode concentration</button></div></div>
+<div class="workspace-selector"><label for="track-quick-select">Ma spécialisation actuelle</label><select id="track-quick-select" aria-label="Changer de spécialisation"></select><p class="workspace-hint">Le choix du parcours est enregistré sur cet appareil. Les résultats d'examen restent côté serveur.</p></div></section>
+<section class="learn-section" id="specializations"><div class="section-title"><div><p class="overline">01 / PATHWAYS</p><h2>Les spécialisations.</h2></div><p>Choisis un domaine, explore ses cours et suis tes progrès. Les examens sont ouverts progressivement au fur et à mesure de leur validation scientifique.</p></div>
+<div id="track-cards" class="tracks-list" aria-live="polite"></div>
+</section>
+<section class="learn-section" id="modules"><div class="section-title"><div><p class="overline">02 / COURSE MAP</p><h2 id="current-track-title">Mon parcours.</h2></div><p id="current-track-desc">Sélectionne une spécialisation ci-dessus.</p></div><div id="module-list" class="module-list"></div></section>
+<section class="learn-section" id="exams"><div class="section-title"><div><p class="overline">03 / CHECKPOINTS</p><h2>Examens et progression.</h2></div><p>Quiz publics = entraînement. Examens validés = tentative chronométrée, correction côté serveur et seuil de réussite explicite.</p></div>
+<div class="assessment-grid"><div class="assessment-panel"><div class="exam-header"><div class="overline">STATISTICAL INFERENCE / PILOT</div><span class="pill neutral">Pilote non surveillé</span></div>
+<h3>Inférence statistique & Bayes</h3><p>Quatre examens de module de 35 minutes, 10 questions, réussite à 80 %. Examen final de 70 minutes, 24 questions, seuil à 85 % et seuil minimal par domaine.</p>
+<div id="exam-progress" class="stepper"></div><button id="next-exam" type="button" class="btn primary" disabled>Commencer l'examen suivant</button>
+<p class="minor">Trois tentatives maximum par examen et par période de 24 h. L'examen est disponible uniquement lorsqu'une banque privée de questions relue est prête.</p></div>
+<div class="assessment-panel credential"><div class="overline">CREDENTIAL / INDEPENDENT ACADEMY</div><h3>Certificat vérifiable</h3><p>Pour obtenir un certificat d'accomplissement non accrédité : réussir tous les examens, terminer le projet final et recevoir une évaluation documentée par un relecteur.</p>
+<div id="credential-status" role="status">Aucune certification validée.</div>
+<form id="claim-form"><label>Nom à afficher publiquement sur le certificat<input id="claim-name" minlength="2" maxlength="90" required placeholder="Nom de l'apprenant" autocomplete="name"></label>
+<label class="consent"><input id="claim-consent" type="checkbox" required> J'accepte que mon nom, le titre du parcours et la date de réussite soient consultables par toute personne connaissant l'identifiant du certificat.</label>
+<button type="submit" class="btn secondary" id="claim-button" disabled>Demander mon certificat</button></form>
+<div id="certificates-list"></div></div></div></section>
+<section id="exam-workspace" class="learn-section" hidden aria-live="polite"><div class="exam-shell"><div class="exam-head"><div><p class="overline">SECURED ASSESSMENT</p><h2 id="exam-title">Examen</h2></div><div class="clock" id="exam-clock" role="timer">--:--</div></div>
+<p class="minor">Environnement d'examen non surveillé : respecte les règles d'intégrité et réponds individuellement. Un projet final doit être examiné séparément.</p>
+<form id="exam-form"><div id="questions"></div><button type="submit" class="btn primary">Soumettre et corriger</button></form>
+<div id="exam-result" role="status"></div></div></section>
+<section class="learn-section" id="capstones">
+<div class="section-title"><div><p class="overline">04 / FINAL SCIENTIFIC WORK</p><h2>Un projet. Une preuve.</h2></div><p>Un examen mesure une partie de la compréhension. Le projet final demande un travail original, du code reproductible et une évaluation argumentée.</p></div>
+<div class="capstone-grid" id="capstone-cards"></div>
+<div class="assessment-panel capstone-submit"><div><p class="overline">INFÉRENCE STATISTIQUE · CAPSTONE PILOTE</p><h3>Soumettre un projet reproductible</h3><p>Après les quatre examens et le final, propose un dépôt GitHub et un résumé scientifique de 200 caractères minimum. Le projet reste en attente tant qu'un évaluateur n'a pas vérifié sa méthodologie, son code et son rapport.</p></div>
+<div id="capstone-status" class="notice" role="status">Aucun projet soumis.</div>
+<form id="capstone-form"><label>URL du dépôt GitHub du projet<input id="project-url" type="url" required maxlength="500" placeholder="https://github.com/votre-compte/votre-projet"></label>
+<label>Résumé scientifique (question, données, méthode, validation et limites)<textarea id="project-summary" rows="7" required minlength="200" maxlength="7000" placeholder="Décris les hypothèses, le protocole, la reproductibilité, les contrôles et les limites…"></textarea></label>
+<button id="submit-capstone" type="submit" class="btn primary" disabled>Soumettre à évaluation</button></form></div>
+</section>
+<section class="learn-section" id="full-catalogue">
+<div class="section-title"><div><p class="overline">05 / THE COMPLETE UNIVERSITY ROADMAP</p><h2>L'atlas des 151 modules.</h2></div><p>Treize écoles réunies au même endroit, avec prérequis, thèmes et statut réel de rédaction. Un module guidé n'est pas présenté comme un manuel terminé.</p></div>
+<div class="catalogue-controls">
+<label>Rechercher une notion<input type="search" id="module-search" placeholder="Ex. MCMC, réseau de neurones, probabilités…"></label>
+<label>École<select id="module-school"><option value="all">Toutes les écoles</option></select></label>
+<label>Contenu<select id="module-status"><option value="all">Tous les modules</option><option value="extended">Cours longs approfondis</option><option value="draft">Tout chapitre rédigé</option><option value="outline">Parcours guidé</option></select></label>
+</div>
+<p class="minor" id="module-count">Chargement du catalogue…</p>
+<div class="full-catalogue" id="all-modules"></div>
+</section>
+<section class="learn-section" id="labs"><div class="section-title"><div><p class="overline">06 / SCIENTIFIC LABS</p><h2>Comprendre avec des graphiques.</h2></div><p>Des représentations originales et manipulables : les courbes sont recalculées à partir des équations, pas de captures statiques.</p></div>
+<div class="labs-grid"><div class="lab"><h3>Logistic regression</h3><p>Fais varier le coefficient et observe comment il modifie la probabilité prédite.</p><label>Pente β = <output id="slope-val">1.0</output><input id="slope" type="range" min="-4" max="4" step="0.1" value="1"></label><div id="plot-logistic" class="chart-host"></div></div>
+<div class="lab"><h3>Gradient descent</h3><p>Explore l'impact du learning rate sur la convergence et les oscillations.</p><label>Learning rate η = <output id="eta-val">0.25</output><input id="eta" type="range" min="0.05" max="1.95" step="0.05" value="0.25"></label><div id="plot-gradient" class="chart-host"></div></div>
+<div class="lab"><h3>Bayesian updating</h3><p>Observe comment les observations de Bernoulli transforment une loi Beta a priori.</p><label>Succès observés = <output id="success-val">5</output><input id="successes" type="range" min="0" max="20" step="1" value="5"></label><div id="plot-beta" class="chart-host"></div></div>
+<div class="lab"><h3>Causal attention</h3><p>Les tokens ne peuvent pas consulter les positions futures. Explore le masque triangulaire et la softmax.</p><label>Température = <output id="temperature-val">1.0</output><input id="temperature" type="range" min="0.3" max="2" step="0.1" value="1"></label><div id="plot-attention" class="chart-host"></div></div></div></section>
+</main>
+<footer class="wrap"><span>ACHRAF NOTEBOOKS · LEARNING OS</span><a href="/">Accueil</a><span>Independent education · Not an accredited university diploma.</span></footer>
+</body></html>

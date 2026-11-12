@@ -1,0 +1,19 @@
+{
+  "name": "achraf-notebooks-platform",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check src/server.mjs && node --check src/auth.mjs && node --check src/billing.mjs && node --check src/email.mjs && node --check public/assets/app.js && node --check src/learning/catalog.mjs && node --check src/learning/assessment.mjs && node --check src/learning/routes.mjs && node --check public/assets/learning.js && node --check public/assets/labs.js && node --check public/assets/certificate.js && node --check scripts/import-private-bank.mjs && node --check src/learning/import-policy.mjs"
+  },
+  "dependencies": {
+    "better-auth": "^1.4.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.0",
+    "stripe": "^20.0.0"
+  }
+}
