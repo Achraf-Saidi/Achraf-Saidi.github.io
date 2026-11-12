@@ -19,7 +19,7 @@ export const PILOT_SEQUENCE=["D3","D6","D9","D13"];
 export const PILOT_TRACK="statistical-inference";
 export function examSpec(id){
  if(PILOT_SEQUENCE.includes(id))return {id,kind:"module",modules:[id],questionCount:10,durationMinutes:35,minScore:80,perModuleMin:0};
- if(id==="statistical-inference-final")return {id,kind:"final",modules:[...PILOT_SEQUENCE],questionCount:20,durationMinutes:70,minScore:85,perModuleMin:60};
+ if(id==="statistical-inference-final")return {id,kind:"final",modules:[...PILOT_SEQUENCE],questionCount:24,durationMinutes:70,minScore:85,perModuleMin:50};
  return null;
 }
 export function examPrerequisites(id){
