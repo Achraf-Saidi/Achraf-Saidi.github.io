@@ -4,14 +4,16 @@ import {fileURLToPath} from "node:url";
 import Stripe from "stripe";
 import {toNodeHandler,fromNodeHeaders} from "better-auth/node";
 import {auth,db} from "./auth.mjs";
+import {mountLearningRoutes} from "./learning/routes.mjs";
 import {checkoutProduct,entitledForSubscription,eligibleForCoursePayment,canAccessProduct} from "./billing.mjs";
 
 const ORIGIN=process.env.APP_ORIGIN;
-const required=["DATABASE_URL","BETTER_AUTH_SECRET","RESEND_API_KEY","RESEND_FROM_EMAIL",
- "STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","STRIPE_PRICE_FOUNDATIONS","STRIPE_PRICE_PRO_MONTHLY","APP_ORIGIN"];
+const billingEnabled=process.env.BILLING_ENABLED==="true";
+const required=["DATABASE_URL","BETTER_AUTH_SECRET","RESEND_API_KEY","RESEND_FROM_EMAIL","APP_ORIGIN",
+ ...(billingEnabled?["STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","STRIPE_PRICE_FOUNDATIONS","STRIPE_PRICE_PRO_MONTHLY"]:[])];
 for(const name of required)if(!process.env[name]||(process.env[name].includes("REPLACE_ME")))throw Error("Missing configuration: "+name);
 if(process.env.NODE_ENV==="production"&&(!ORIGIN.startsWith("https://")||process.env.BETTER_AUTH_SECRET.length<32))throw Error("Production requires HTTPS and a long auth secret");
-const stripe=new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe=billingEnabled?new Stripe(process.env.STRIPE_SECRET_KEY):null;
 const prices={foundations:process.env.STRIPE_PRICE_FOUNDATIONS,pro_monthly:process.env.STRIPE_PRICE_PRO_MONTHLY};
 const app=express();
 const publicRoot=path.join(path.dirname(fileURLToPath(import.meta.url)),"..","public");
@@ -33,6 +35,7 @@ const session=async(req,res,next)=>{
 };
 // Webhook MUST receive the original bytes: mounted before JSON parser.
 app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512kb"}),async(req,res)=>{
+ if(!billingEnabled)return res.status(503).json({error:"billing_not_enabled"});
  let event;
  try{event=stripe.webhooks.constructEvent(req.body,req.get("stripe-signature"),process.env.STRIPE_WEBHOOK_SECRET);}
  catch{return res.status(400).json({error:"invalid_signature"});}
@@ -92,6 +95,8 @@ app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512k
 app.all("/api/auth/{*any}",toNodeHandler(auth));
 app.use(express.json({limit:"16kb"}));
 app.use("/assets",express.static(path.join(publicRoot,"assets"),{index:false,dotfiles:"deny",maxAge:"1h"}));
+app.get(["/dashboard","/learning","/exam"],(_req,res)=>res.sendFile(path.join(publicRoot,"learning.html")));
+app.get("/certificates/:id",(_req,res)=>res.sendFile(path.join(publicRoot,"certificate.html")));
 app.get(["/","/pricing","/account","/billing/success"],(_req,res)=>res.sendFile(path.join(publicRoot,"index.html")));
 
 app.post("/api/billing/checkout",assertSameOrigin,session,async(req,res)=>{
@@ -123,6 +128,7 @@ app.post("/api/billing/checkout",assertSameOrigin,session,async(req,res)=>{
  }catch(err){console.error("Checkout failed");res.status(503).json({error:"checkout_unavailable"});}
 });
 app.post("/api/billing/portal",assertSameOrigin,session,async(req,res)=>{
+ if(!billingEnabled)return res.status(503).json({error:"billing_not_enabled"});
  try{
   const row=await db.query("SELECT stripe_customer_id FROM billing_customers WHERE user_id=$1",[req.currentUser.id]);
   if(!row.rowCount)return res.status(404).json({error:"no_billing_account"});
@@ -151,5 +157,6 @@ app.get("/api/premium/lessons/:slug",session,async(req,res)=>{
  }catch{res.status(503).json({error:"content_unavailable"});}
 });
 
+mountLearningRoutes(app,{db,session,assertSameOrigin});
 app.use((_req,res)=>res.status(404).json({error:"not_found"}));
 app.listen(Number(process.env.PORT||3400),"127.0.0.1",()=>console.log("Notebooks platform listening on loopback"));
