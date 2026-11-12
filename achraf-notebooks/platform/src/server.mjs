@@ -2,7 +2,7 @@ import express from "express";
 import Stripe from "stripe";
 import {toNodeHandler,fromNodeHeaders} from "better-auth/node";
 import {auth,db} from "./auth.mjs";
-import {checkoutProduct,entitledForSubscription,eligibleForCoursePayment} from "./billing.mjs";
+import {checkoutProduct,entitledForSubscription,eligibleForCoursePayment,canAccessProduct} from "./billing.mjs";
 
 const ORIGIN=process.env.APP_ORIGIN;
 const required=["DATABASE_URL","BETTER_AUTH_SECRET","RESEND_API_KEY","RESEND_FROM_EMAIL",
@@ -43,9 +43,14 @@ app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512k
    if(eligibleForCoursePayment(s)){
     // We only trust the user id if the session is one we created and stored.
     const row=await client.query("SELECT user_id FROM checkout_sessions WHERE session_id=$1 AND user_id=$2 AND product_key='foundations'",[s.id,s.client_reference_id]);
-    if(row.rowCount===1)await client.query(`INSERT INTO entitlements(user_id,product_key,source_id,is_active)
-      VALUES($1,'foundations',$2,TRUE) ON CONFLICT(user_id,product_key,source_id)
-      DO UPDATE SET is_active=TRUE,updated_at=NOW()`,[row.rows[0].user_id,s.id]);
+    if(row.rowCount===1){
+     const intent=typeof s.payment_intent==="string"?s.payment_intent:s.payment_intent?.id;
+     if(intent)await client.query("UPDATE checkout_sessions SET payment_intent_id=$1 WHERE session_id=$2",[intent,s.id]);
+     await client.query(`INSERT INTO entitlements(user_id,product_key,source_id,is_active,last_event_created)
+      VALUES($1,'foundations',$2,TRUE,$3) ON CONFLICT(user_id,product_key,source_id)
+      DO UPDATE SET is_active=TRUE,last_event_created=EXCLUDED.last_event_created,updated_at=NOW()
+      WHERE entitlements.last_event_created<=EXCLUDED.last_event_created`,[row.rows[0].user_id,s.id,event.created]);
+    }
    }
   }
   if(event.type.startsWith("customer.subscription.")){
@@ -57,10 +62,24 @@ app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512k
     const isPro=priceId===prices.pro_monthly;
     // Deleted or inactive subscriptions revoke their *own* entitlement;
     // unrelated purchases and subscriptions remain untouched.
-    await client.query(`INSERT INTO entitlements(user_id,product_key,source_id,is_active)
-     VALUES($1,'pro_monthly',$2,$3) ON CONFLICT(user_id,product_key,source_id)
-     DO UPDATE SET is_active=EXCLUDED.is_active,updated_at=NOW()`,
-     [row.rows[0].user_id,s.id,isPro&&entitledForSubscription(s.status)]);
+    await client.query(`INSERT INTO entitlements(user_id,product_key,source_id,is_active,last_event_created)
+     VALUES($1,'pro_monthly',$2,$3,$4) ON CONFLICT(user_id,product_key,source_id)
+     DO UPDATE SET is_active=EXCLUDED.is_active,last_event_created=EXCLUDED.last_event_created,updated_at=NOW()
+     WHERE entitlements.last_event_created<=EXCLUDED.last_event_created`,
+     [row.rows[0].user_id,s.id,isPro&&entitledForSubscription(s.status),event.created]);
+   }
+  }
+  if(event.type==="charge.refunded"||event.type==="charge.dispute.created"){
+   const charge=event.data.object;
+   const intent=typeof charge.payment_intent==="string"?charge.payment_intent:charge.payment_intent?.id;
+   const revoke=event.type==="charge.dispute.created"||
+     (charge.refunded===true&&typeof charge.amount==="number"&&charge.amount_refunded>=charge.amount);
+   if(intent&&revoke){
+    // A dispute or full refund revokes the matching one-time course grant only.
+    await client.query(`UPDATE entitlements e SET is_active=FALSE,last_event_created=$2,updated_at=NOW()
+      FROM checkout_sessions cs WHERE cs.session_id=e.source_id
+      AND cs.payment_intent_id=$1 AND e.product_key='foundations'
+      AND e.last_event_created<=$2`,[intent,event.created]);
    }
   }
   await client.query("COMMIT");res.json({received:true});
@@ -109,5 +128,22 @@ app.get("/api/me/entitlements",session,async(req,res)=>{
  const row=await db.query("SELECT DISTINCT product_key FROM entitlements WHERE user_id=$1 AND is_active=TRUE",[req.currentUser.id]);
  res.json({products:row.rows.map(r=>r.product_key)});
 });
+app.get("/api/premium/lessons/:slug",session,async(req,res)=>{
+ const slug=req.params.slug;
+ if(typeof slug!=="string"||!/^[a-z0-9-]{3,80}$/.test(slug))return res.status(400).json({error:"invalid_lesson"});
+ try{
+  const lesson=await db.query(`SELECT slug,title,body_markdown,required_product_key
+     FROM private_lessons WHERE slug=$1 AND published=TRUE`,[slug]);
+  if(lesson.rowCount!==1)return res.status(404).json({error:"lesson_not_found"});
+  const required=lesson.rows[0].required_product_key;
+  const ent=await db.query("SELECT DISTINCT product_key FROM entitlements WHERE user_id=$1 AND is_active=TRUE",[req.currentUser.id]);
+  if(!canAccessProduct(required,ent.rows.map(row=>row.product_key)))return res.status(403).json({error:"premium_access_required"});
+  // This content is stored exclusively in the private DB. It must never be
+  // included in GitHub Pages, cache/CDN public objects, or static assets.
+  // The future frontend must escape or sanitize Markdown before rendering.
+  res.json({slug:lesson.rows[0].slug,title:lesson.rows[0].title,markdown:lesson.rows[0].body_markdown});
+ }catch{res.status(503).json({error:"content_unavailable"});}
+});
+
 app.use((_req,res)=>res.status(404).json({error:"not_found"}));
 app.listen(Number(process.env.PORT||3400),"127.0.0.1",()=>console.log("Notebooks platform listening on loopback"));

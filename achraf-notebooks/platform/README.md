@@ -40,3 +40,24 @@ Pricing (79 EUR one-time and 19 EUR/mo) is a launch hypothesis. Create the actua
 Stripe: https://docs.stripe.com/webhooks/signature
 Better Auth: https://better-auth.com/docs/installation
 OWASP: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
+
+## Private lessons and revenue reversal rules (development)
+
+The `private_lessons` PostgreSQL table contains **only new material stored privately**
+(not open-licensed public GitHub Pages text). Only the server returns its Markdown,
+through `GET /api/premium/lessons/:slug`, after authenticated session and DB-based
+entitlement checks. `pro_monthly` unlocks both course levels; `foundations` never
+unlocks Pro. The endpoint responds with `Cache-Control: no-store`; the future client
+must sanitize Markdown and must never bundle premium chapters into public assets.
+
+Run `migrations/002_private_content_and_refunds.sql` after migration 001.
+Signed `charge.refunded` (full refund) and `charge.dispute.created` events revoke
+matching one-time product rights when the Checkout payment-intent mapping is present.
+Signed subscription events are timestamp-guarded against older updates. **This is
+not sufficient for launch:** events may arrive out of order or before mapping, and
+Stripe refunds/chargebacks may require manual review and scheduled reconciliation,
+plus robust audit trail and recovery tests. A refund/dispute policy must be
+legally reviewed before being applied to customers.
+
+Better Auth now configures reset-password emails and server-side rate-limit storage.
+Test these flows with a live transactional email sandbox before rollout.

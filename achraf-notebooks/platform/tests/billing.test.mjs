@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {checkoutProduct,entitledForSubscription,eligibleForCoursePayment} from "../src/billing.mjs";
+import {checkoutProduct,entitledForSubscription,eligibleForCoursePayment,canAccessProduct} from "../src/billing.mjs";
 const prices={foundations:"price_123",pro_monthly:"price_456"};
 test("only server allowlisted product keys are accepted",()=>{
  assert.equal(checkoutProduct("evil",prices),null);
@@ -18,4 +18,14 @@ test("entitlement requires payment confirmed by provider",()=>{
 test("inactive subscriptions must not unlock pro",()=>{
  for(const status of ["past_due","unpaid","canceled","incomplete","incomplete_expired","paused"])assert.equal(entitledForSubscription(status),false);
  for(const status of ["active","trialing"])assert.equal(entitledForSubscription(status),true);
+});
+
+test("premium content enforces server entitlements",()=>{
+ assert.equal(canAccessProduct("foundations",[]),false);
+ assert.equal(canAccessProduct("foundations",["foundations"]),true);
+ assert.equal(canAccessProduct("foundations",["pro_monthly"]),true);
+ assert.equal(canAccessProduct("pro_monthly",["foundations"]),false);
+ assert.equal(canAccessProduct("pro_monthly",["pro_monthly"]),true);
+ assert.equal(canAccessProduct("__proto__",["pro_monthly"]),false);
+ assert.equal(canAccessProduct("foundations",null),false);
 });

@@ -14,3 +14,10 @@ export function eligibleForCoursePayment(session){
  typeof session.client_reference_id==="string"&&session.client_reference_id.length>0;
 }
 export function isSafeProductKey(s){return typeof s==="string"&&PRODUCT_KEYS.includes(s);}
+
+export function canAccessProduct(requiredProduct,activeProducts){
+ if(!Array.isArray(activeProducts)||!PRODUCT_KEYS.includes(requiredProduct))return false;
+ // Pro includes Foundations; a one-time Foundations purchase never grants Pro.
+ return activeProducts.includes("pro_monthly")||
+   (requiredProduct==="foundations"&&activeProducts.includes("foundations"));
+}
