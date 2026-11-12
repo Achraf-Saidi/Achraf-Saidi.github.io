@@ -85,7 +85,7 @@ window.renderAcademyVisual=(id,node,lang)=>{
 
 /* Lazy-load advanced authored lessons without changing the embedded 151-module manifest. */
 if(typeof document!=="undefined"){
- const scripts=["content-17.js","content-18.js","content-19.js","content-20.js","content-21.js","content-22.js","content-23.js"];
+ const scripts=["content-17.js","content-18.js","content-19.js","content-20.js","content-21.js","content-22.js","content-23.js","content-24.js","content-25.js","content-26.js"];
  const currentBase=new URL(".",document.currentScript?.src||location.href);
  Promise.all(scripts.map(name=>new Promise((resolve,reject)=>{
   const script=document.createElement("script");script.src=new URL(name,currentBase).href;
