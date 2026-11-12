@@ -38,7 +38,7 @@ test('Academy '+lang+' has 151 distinct modules and tracked authored drafts',()=
  }
  for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(script[1]);
  assert.match(html,/achraf-academy-completed-v1/);
- assert.match(html,/id="notes"/);assert.match(html,/id="visual"/);assert.match(html,/visuals.js/);const visual=fs.readFileSync(path.join(root,lang,'visuals.js'),'utf8');new vm.Script(visual);for(const name of ['visuals-2.js','visuals-3.js']){const code=fs.readFileSync(path.join(root,lang,name),'utf8');new vm.Script(code)}
+ assert.match(html,/id="notes"/);assert.match(html,/id="visual"/);assert.match(html,/visuals.js/);const visual=fs.readFileSync(path.join(root,lang,'visuals.js'),'utf8');new vm.Script(visual);for(const name of ['visuals-2.js','visuals-3.js','visuals-4.js']){const code=fs.readFileSync(path.join(root,lang,name),'utf8');new vm.Script(code)}
 });
 }
 
