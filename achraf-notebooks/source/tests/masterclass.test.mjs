@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
 import path from "node:path";
-const ids=["G4","I2","D3","D9","B1","F2","H2"];
-const scripts=[17,18,19,20,21,22,23];
+const ids=["G4","I2","D3","D9","B1","F2","H2","G3","B7","H4"];
+const scripts=[17,18,19,20,21,22,23,24,25,26];
 function load(lang){
  const env={};env.window=env;vm.createContext(env);
  const dir=path.join("public","academy",lang);
@@ -16,7 +16,7 @@ function load(lang){
  return env.ACHRAF_DEEP[lang];
 }
 for(const lang of ["fr","en"]){
- test(lang+": seven advanced masterclasses contain ten mathematical sections, runnable Python and four worked problems",()=>{
+ test(lang+": ten advanced masterclasses contain ten mathematical sections, runnable Python and four worked problems",()=>{
   const curriculum=load(lang);
   assert.deepEqual(Object.keys(curriculum).sort(),ids.slice().sort());
   for(const id of ids){

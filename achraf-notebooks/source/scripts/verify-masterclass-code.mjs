@@ -4,14 +4,14 @@ import fs from "node:fs";
 import vm from "node:vm";
 import path from "node:path";
 import {execFileSync} from "node:child_process";
-const scripts=[17,18,19,20,21,22,23];
+const scripts=[17,18,19,20,21,22,23,24,25,26];
 const env={};env.window=env;vm.createContext(env);
 for(const n of scripts){
  const file=path.resolve("public/academy/fr/content-"+n+".js");
  vm.runInContext(fs.readFileSync(file,"utf8"),env,{timeout:2000,filename:file});
 }
 const lessons=env.ACHRAF_DEEP.fr;
-for(const id of ["G4","I2","D3","D9","B1","F2","H2"]){
+for(const id of ["G4","I2","D3","D9","B1","F2","H2","G3","B7","H4"]){
  const code=lessons[id]?.code;
  if(typeof code!=="string"||code.length<700)throw Error("Missing code "+id);
  try{
