@@ -51,3 +51,18 @@ test('Academy new derivation pack includes original bilingual lessons',()=>{
   }
  }
 });
+
+test('Bilingual knowledge checkpoints are well formed and cannot certify users',()=>{
+ for(const lang of ['fr','en']){
+  const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
+  assert.match(html,/id="checkpoint"/);
+  const js=fs.readFileSync(path.join(root,lang,'checkpoints.js'),'utf8');
+  const env={};env.window=env;vm.createContext(env);vm.runInContext(js,env,{timeout:1000});
+  assert.equal(Object.keys(env.ACHRAF_EXAMS).length,10);
+  for(const [id,entry] of Object.entries(env.ACHRAF_EXAMS)){
+   const q=entry[lang];assert.ok(q.q.length>15,id);
+   assert.equal(q.o.length,3,id);assert.ok(q.a>=0&&q.a<3,id);
+   assert.ok(q.e.length>30,id);
+  }
+ }
+});
