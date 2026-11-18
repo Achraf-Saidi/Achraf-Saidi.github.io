@@ -1,4 +1,5 @@
 import express from "express";
+import {mountWorkspaceRoutes} from "./workspace/routes.mjs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import Stripe from "stripe";
@@ -97,11 +98,12 @@ app.post("/api/billing/webhook",express.raw({type:"application/json",limit:"512k
  finally{client.release();}
 });
 app.all("/api/auth/{*any}",toNodeHandler(auth));
-app.use(express.json({limit:"16kb"}));
+app.use(express.json({limit:"1mb"}));
 app.use("/assets",express.static(path.join(publicRoot,"assets"),{index:false,dotfiles:"deny",maxAge:"1h"}));
-app.get(["/dashboard","/learning","/exam"],(_req,res)=>res.sendFile(path.join(publicRoot,"learning.html")));
+app.get(["/learning","/exam"],(_req,res)=>res.sendFile(path.join(publicRoot,"learning.html")));
+app.get(["/dashboard","/admin","/account","/join","/onboarding","/study","/roadmap","/notes","/progress","/review","/settings","/plans"],(_req,res)=>res.sendFile(path.join(publicRoot,"workspace.html")));
 app.get("/certificates/:id",(_req,res)=>res.sendFile(path.join(publicRoot,"certificate.html")));
-app.get(["/","/pricing","/account","/billing/success"],(_req,res)=>res.sendFile(path.join(publicRoot,"index.html")));
+app.get(["/","/pricing","/billing/success"],(_req,res)=>res.sendFile(path.join(publicRoot,"index.html")));
 
 app.post("/api/billing/checkout",assertSameOrigin,session,async(req,res)=>{
  if(process.env.BILLING_ENABLED!=="true")return res.status(503).json({error:"billing_not_enabled"});
@@ -162,5 +164,7 @@ app.get("/api/premium/lessons/:slug",session,async(req,res)=>{
 });
 
 mountLearningRoutes(app,{db,session,assertSameOrigin});
+mountWorkspaceRoutes(app,{db,session,assertSameOrigin});
+app.use((err,_req,res,_next)=>res.status(err.status===413?413:500).json({error:err.status===413?"file_too_large":"request_failed"}));
 app.use((_req,res)=>res.status(404).json({error:"not_found"}));
 app.listen(Number(process.env.PORT||3400),"127.0.0.1",()=>console.log("Notebooks platform listening on loopback"));
