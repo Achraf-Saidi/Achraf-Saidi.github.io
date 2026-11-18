@@ -39,12 +39,17 @@ function secureShuffle(items){
  return r;
 }
 function drawModule(rows,count){
- const number=secureShuffle(rows.filter(q=>q.kind==="number"));
- const choice=secureShuffle(rows.filter(q=>q.kind==="choice"));
- // One third of questions must require a computed numerical answer.
- const numericTarget=Math.ceil(count/3);
- if(number.length<numericTarget||choice.length<count-numericTarget)throw new Error("bank_insufficient");
- return secureShuffle([...number.slice(0,numericTarget),...choice.slice(0,count-numericTarget)]);
+ const numericTarget=Math.ceil(count/3),choiceTarget=count-numericTarget;
+ const pools={na:rows.filter(q=>q.kind==="number"&&q.difficulty>=3),nb:rows.filter(q=>q.kind==="number"&&q.difficulty<3),ca:rows.filter(q=>q.kind==="choice"&&q.difficulty>=3),cb:rows.filter(q=>q.kind==="choice"&&q.difficulty<3)};
+ if(pools.na.length+pools.nb.length<numericTarget||pools.ca.length+pools.cb.length<choiceTarget)throw Error("bank_insufficient");
+ // Satisfy difficulty in the actual draw, not just in the available pool.
+ const feasible=[];
+ for(let na=0;na<=numericTarget;na++)for(let ca=0;ca<=choiceTarget;ca++){
+  if(na+ca>=Math.ceil(count/2)&&na<=pools.na.length&&numericTarget-na<=pools.nb.length&&ca<=pools.ca.length&&choiceTarget-ca<=pools.cb.length)feasible.push({na,ca});
+ }
+ if(!feasible.length)throw Error("bank_too_easy");
+ const pick=feasible[randomInt(feasible.length)];
+ return secureShuffle([...secureShuffle(pools.na).slice(0,pick.na),...secureShuffle(pools.nb).slice(0,numericTarget-pick.na),...secureShuffle(pools.ca).slice(0,pick.ca),...secureShuffle(pools.cb).slice(0,choiceTarget-pick.ca)]);
 }
 export function prepareExam(spec,rows,locale=DEFAULT_LOCALE){
  if(!spec||!Array.isArray(rows))throw Error("bad_exam");

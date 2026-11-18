@@ -111,3 +111,17 @@ test("long-form chapter status is an editorial draft, not a certification",()=>{
  assert.equal(c.modules.filter(m=>m.depthStatus==="outline").length,59);
  assert.equal(c.modules.filter(m=>m.expandedDraft).length,92);
 });
+
+test("every drawn paper satisfies advanced-item and numerical quotas together",()=>{
+ for(const id of ["D3","statistical-inference-final"]){
+  const spec=examSpec(id);
+  for(let i=0;i<30;i++){
+   const paper=prepareExam(spec,bank,"fr");
+   for(const module of spec.modules){
+    const rows=paper.publicQuestions.filter(q=>q.moduleId===module);
+    assert.ok(rows.filter(q=>q.difficulty>=3).length>=Math.ceil(rows.length/2));
+    assert.equal(rows.filter(q=>q.kind==="number").length,Math.ceil(rows.length/3));
+   }
+  }
+ }
+});

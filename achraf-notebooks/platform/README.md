@@ -81,3 +81,17 @@ Apply `migrations/003_learning.sql` then `004_private_question_bank.sql`. The ne
 ## Pricing research and updated UX (12 November 2026)
 
 See `docs/PRICING_AND_GROWTH_2026-11.md` for verified competitor prices, a VAT/Stripe margin sensitivity model, student segmentation, ethical acquisition and staged launch criteria. The refreshed homepage displays **proposed and disabled** Campus €4.90/month (€49/year) and Academy €9.90/month (€89/year), next to permanently free open lessons. **Legacy Stripe product identifiers do not correspond to these proposed offers** and must not be enabled or repurposed without new entitlements, migrations and a legal review. The new responsive design adds theme controls, mobile navigation, transparent annual-billing preview and a learning dashboard next-step/focus mode.
+
+## Learner workspace and editorial studio — 18 November 2026
+
+The new `/dashboard`, `/join`, `/onboarding` and `/admin` use `workspace.html` and the workspace routes. The previous exam/lab interface remains available at `/exam` and `/learning`. The public 151-module source catalog is retained.
+
+Apply `migrations/006_workspace.sql` **after** 001–005 and the Better Auth schema. Set `NOTEBOOK_ADMIN_IDS` to a comma-separated list of verified account IDs in the server environment; empty means nobody is an administrator. Admin IDs are never inferred from a browser field. This version adds authenticated learner preferences, notes with revision conflicts, declared study sessions, review scheduling, published block lessons, authorized PDF/image files, training groupings, private exam-bank editing and provisional offer management.
+
+The existing database-role guidance in migration 004 needs an explicit deployment choice: the editorial server role requires INSERT/UPDATE on `assessment_questions`. In a split production deployment, keep the exam-delivery role read-only and run these admin routes through a separate privileged editorial service. Do not silently broaden a production DB role.
+
+`npm ci && npm run check && npm test` validates syntax and runs both domain tests and HTTP integration tests against an embedded PostgreSQL (PGlite) with all six migrations. Real provider-auth, mail delivery, PostgreSQL concurrency and VPS rollout remain separate checks. No real payments or generative AI are activated.
+
+`npm run dev` runs a **local-only demo** using a mock identity and in-memory database; it must never be deployed as the production server. It accepts `--host` and `--port` for managed previews. `npm start` continues to require real configured identity and database services.
+
+See [WORKSPACE_PRODUCT_PLAN.md](docs/WORKSPACE_PRODUCT_PLAN.md) for UX decisions, the current feature inventory, limits, pricing research, unit economics, evaluation rules and the next integration steps.
